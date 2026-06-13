@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, Table, Tag, Input, Button, Space } from "antd";
+import { Card, Table, Tag, Input, Button, Space, message } from "antd";
 import { ImportOutlined, ReloadOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/client";
@@ -17,7 +17,7 @@ export default function SiteList() {
   const [loading, setLoading] = useState(true);
   const [q, setQ] = useState("");
 
-  const load = () => { setLoading(true); api.sites({ q, size: 100 }).then(setData).finally(() => setLoading(false)); };
+  const load = () => { setLoading(true); api.sites({ q, size: 100 }).then(setData).catch((err) => { message.error(err?.response?.data?.detail || "加载失败"); setData({ items: [], total: 0 }); }).finally(() => setLoading(false)); };
   useEffect(() => { load(); }, []);
 
   return (

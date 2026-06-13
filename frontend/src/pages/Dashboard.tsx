@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, Col, Row, Statistic, Spin, Button, List, Tag, Space } from "antd";
+import { Card, Col, Row, Statistic, Spin, Button, List, Tag, Space, message } from "antd";
 import { PlusOutlined, ImportOutlined, FileTextOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import ReactECharts from "echarts-for-react";
@@ -12,7 +12,7 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api.sites({ size: 200 }).then((d) => setSites(d.items)).finally(() => setLoading(false));
+    api.sites({ size: 200 }).then((d) => setSites(d.items)).catch((err) => { message.error(err?.response?.data?.detail || "加载失败"); setSites([]); }).finally(() => setLoading(false));
   }, []);
 
   if (loading) return <Spin style={{ marginTop: 80 }} />;

@@ -1,0 +1,1544 @@
+================================================================================
+  污染场地土壤生态-生产功能重构监管系统
+  软件著作权申请源代码文档
+  后30页（前端界面代码 + 机器学习算法代码）
+================================================================================
+
+  页数: 30 页 (每页 50 行)
+  编码: UTF-8
+  生成时间: 2026-06-13
+  编程语言: Python 3.10+ / TypeScript (React)
+
+================================================================================
+
+===== Page 1 =====
+# ────────────────────────────────────────────────────────────────────────────
+# 文件: App.tsx — 前端应用布局，导航菜单与路由
+# ────────────────────────────────────────────────────────────────────────────
+import { Layout, Menu, Dropdown, Avatar, Space } from "antd";
+import {
+  DashboardOutlined, DatabaseOutlined, SearchOutlined, ExperimentOutlined,
+  LineChartOutlined, NodeIndexOutlined, SettingOutlined, UserOutlined, LogoutOutlined,
+  BulbOutlined,
+} from "@ant-design/icons";
+import { Outlet, useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "./auth";
+import AiAssistant from "./components/AiAssistant";
+
+const { Header, Sider, Content } = Layout;
+
+const NAV = [
+  { key: "/", icon: <DashboardOutlined />, label: "数据概览" },
+  { key: "/sites", icon: <DatabaseOutlined />, label: "场地管理" },
+  { key: "/obstacle", icon: <SearchOutlined />, label: "障碍因子分析" },
+  { key: "/reconstruction", icon: <ExperimentOutlined />, label: "功能重构分析" },
+  { key: "/ssui", icon: <LineChartOutlined />, label: "SSUI评价" },
+  { key: "/recommend", icon: <BulbOutlined />, label: "方案推荐" },
+  { key: "/trace", icon: <NodeIndexOutlined />, label: "全流程追溯" },
+  { key: "/system", icon: <SettingOutlined />, label: "系统管理" },
+];
+
+export default function AppLayout() {
+  const nav = useNavigate();
+  const loc = useLocation();
+  const { user, logout } = useAuth();
+  const top = "/" + (loc.pathname.split("/")[1] || "");
+  const selected = top === "/" ? "/" : NAV.find((n) => n.key === top)?.key || "/";
+
+  return (
+    <Layout style={{ minHeight: "100vh" }}>
+      <Sider theme="dark" width={220} breakpoint="lg" collapsedWidth="0">
+        <div style={{ color: "#fff", padding: "18px 16px", fontSize: 15, fontWeight: 700, lineHeight: 1.4, borderBottom: "1px solid rgba(255,255,255,.1)" }}>
+          🌱 污染场地土壤生态-<br />生产功能重构监管系统
+        </div>
+        <Menu theme="dark" mode="inline" selectedKeys={[selected]}
+          onClick={(e) => nav(e.key)} items={NAV} style={{ marginTop: 8 }} />
+      </Sider>
+      <Layout>
+        <Header style={{ background: "#fff", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 24px", boxShadow: "0 1px 4px rgba(0,0,0,.06)" }}>
+          <div style={{ fontWeight: 600, color: "#0f3d6e" }}>污染场地监管平台</div>
+          <Dropdown menu={{ items: [{ key: "logout", icon: <LogoutOutlined />, label: "退出登录", onClick: () => { logout(); nav("/login"); } }] }}>
+            <Space style={{ cursor: "pointer" }}>
+              <Avatar icon={<UserOutlined />} style={{ background: "#0f3d6e" }} />
+              <span>{user?.display_name}（{user?.roles?.join(",")}）</span>
+            </Space>
+===== Page 2 =====
+          </Dropdown>
+        </Header>
+        <Content style={{ margin: 16 }}>
+          <Outlet />
+        </Content>
+      </Layout>
+      <AiAssistant />
+    </Layout>
+  );
+}
+
+# ────────────────────────────────────────────────────────────────────────────
+# 文件: Dashboard.tsx — 数据概览仪表盘，统计卡片+地图+图表
+# ────────────────────────────────────────────────────────────────────────────
+import { useEffect, useState } from "react";
+import { Card, Col, Row, Statistic, Spin, Button, List, Tag, Space, message } from "antd";
+import { PlusOutlined, ImportOutlined, FileTextOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
+import ReactECharts from "echarts-for-react";
+import { api } from "../api/client";
+import SiteMap from "../components/SiteMap";
+
+export default function Dashboard() {
+  const nav = useNavigate();
+  const [sites, setSites] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    api.sites({ size: 200 }).then((d) => setSites(d.items)).catch((err) => { message.error(err?.response?.data?.detail || "加载失败"); setSites([]); }).finally(() => setLoading(false));
+  }, []);
+
+  if (loading) return <Spin style={{ marginTop: 80 }} />;
+
+  const points = sites.reduce((a, s) => a + (s.n_points || 0), 0);
+  const heavy = sites.filter((s) => s.pollution_type === "heavy_metal").length;
+  const provinces = new Set(sites.map((s) => s.province).filter(Boolean)).size;
+
+  const byType = ["heavy_metal", "organic", "composite"].map((t) => ({
+    name: { heavy_metal: "重金属", organic: "有机", composite: "复合" }[t],
+    value: sites.filter((s) => s.pollution_type === t).length,
+  })).filter((x) => x.value > 0);
+
+  const pieOption = {
+    tooltip: { trigger: "item" },
+    legend: { bottom: 0 },
+    series: [{ type: "pie", radius: ["45%", "70%"], data: byType,
+      label: { formatter: "{b}: {c}" },
+      color: ["#dc2626", "#f59e0b", "#7c3aed"] }],
+  };
+
+===== Page 3 =====
+  const mapSites = sites.map((s) => ({
+    id: s.id, name: s.name, longitude: s.longitude, latitude: s.latitude,
+    pollution_type: s.pollution_type,
+    status: s.pollution_type === "heavy_metal" ? "danger" : s.pollution_type === "organic" ? "warning" : "info",
+  }));
+
+  return (
+    <Space direction="vertical" style={{ width: "100%" }} size={16}>
+      <Row gutter={16}>
+        <Col span={6}><Card><Statistic title="场地总数" value={sites.length} valueStyle={{ color: "#0f3d6e" }} /></Card></Col>
+        <Col span={6}><Card><Statistic title="重金属污染场地" value={heavy} valueStyle={{ color: "#dc2626" }} /></Card></Col>
+        <Col span={6}><Card><Statistic title="采样点总数" value={points} valueStyle={{ color: "#0f766e" }} /></Card></Col>
+        <Col span={6}><Card><Statistic title="覆盖省份" value={provinces} valueStyle={{ color: "#b45309" }} /></Card></Col>
+      </Row>
+
+      <Row gutter={16}>
+        <Col span={16}>
+          <Card title="污染类型分布">
+            {byType.length ? <ReactECharts option={pieOption} style={{ height: 300 }} /> : <span>暂无数据</span>}
+          </Card>
+        </Col>
+        <Col span={8}>
+          <Card title="快捷操作" style={{ marginBottom: 16 }}>
+            <Space direction="vertical" style={{ width: "100%" }}>
+              <Button block icon={<ImportOutlined />} type="primary" onClick={() => nav("/sites/import")}>批量导入数据</Button>
+              <Button block icon={<PlusOutlined />} onClick={() => nav("/sites")}>场地管理</Button>
+              <Button block icon={<FileTextOutlined />} onClick={() => nav("/trace")}>全流程追溯与报告</Button>
+            </Space>
+          </Card>
+          <Card title="场地清单（最近）">
+            <List size="small" dataSource={sites.slice(0, 5)}
+              renderItem={(s) => (
+                <List.Item actions={[<a onClick={() => nav(`/sites/${s.id}`)}>详情</a>]}>
+                  <Space><Tag color={s.pollution_type === "heavy_metal" ? "red" : "orange"}>{s.pollution_type || "—"}</Tag>{s.name}</Space>
+                </List.Item>
+              )} />
+          </Card>
+        </Col>
+      </Row>
+
+      <Card title="场地分布地图（天地图）">
+        <SiteMap sites={mapSites} height={460} onMarkerClick={(s) => s.id && nav(`/sites/${s.id}`)} />
+      </Card>
+    </Space>
+  );
+}
+
+# ────────────────────────────────────────────────────────────────────────────
+# 文件: ObstacleAnalysis.tsx — 障碍因子分析页面，RF+SHAP诊断交互
+# ────────────────────────────────────────────────────────────────────────────
+import { useEffect, useState } from "react";
+===== Page 4 =====
+import { Card, Button, Empty, message, Descriptions, Table, Tag, Space, Timeline, Divider } from "antd";
+import ReactECharts from "echarts-for-react";
+import { api } from "../api/client";
+import SitePicker from "../components/SitePicker";
+import { seqCol, numCol, textCol } from "../utils/table";
+
+export default function ObstacleAnalysis() {
+  const [sid, setSid] = useState<number>();
+  const [diag, setDiag] = useState<any>(null);
+  const [busy, setBusy] = useState(false);
+
+  const load = (id?: number) => {
+    const s = id ?? sid; if (!s) return;
+    api.diagnosis(s).then(setDiag).catch(() => setDiag(null));
+  };
+  useEffect(() => { if (sid) load(sid); }, [sid]);
+
+  const run = async () => {
+    if (!sid) return;
+    setBusy(true);
+    try { await api.runDiagnosis(sid); message.success("诊断完成"); load(sid); }
+    catch (e: any) { message.error(e?.response?.data?.detail || "诊断失败"); }
+    finally { setBusy(false); }
+  };
+
+  const opt = diag?.top_factors?.length ? {
+    tooltip: { trigger: "axis" }, grid: { left: 100, right: 30, top: 10, bottom: 30 },
+    xAxis: { type: "value", name: "|SHAP|" },
+    yAxis: { type: "category", inverse: true, data: diag.top_factors.map((t: any) => t.factor) },
+    series: [{ type: "bar", data: diag.top_factors.map((t: any) => t.importance),
+      itemStyle: { color: "#0f3d6e" }, label: { show: true, position: "right" } }],
+  } : null;
+
+  return (
+    <Space direction="vertical" style={{ width: "100%" }} size={16}>
+      <Card>
+        <Space style={{ width: "100%", justifyContent: "space-between" }}>
+          <SitePicker value={sid} onChange={setSid} />
+          <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行 RF+SHAP 障碍因子识别</Button>
+        </Space>
+      </Card>
+      {diag ? (
+        <>
+          <Card title="模型与结论">
+            <Descriptions size="small" column={2}>
+              <Descriptions.Item label="模型">{diag.model?.name} {diag.model?.version}</Descriptions.Item>
+              <Descriptions.Item label="模型指标">AUC={diag.model?.metrics?.auc}，F1={diag.model?.metrics?.f1}</Descriptions.Item>
+              <Descriptions.Item label="数据版本">{diag.data_version}</Descriptions.Item>
+              <Descriptions.Item label="训练数据">{diag.model?.training_data_version}</Descriptions.Item>
+              <Descriptions.Item label="结论摘要" span={2}>{diag.summary}</Descriptions.Item>
+===== Page 5 =====
+            </Descriptions>
+          </Card>
+          <Card title="Top-N 关键障碍因子（全局 SHAP 重要性）">
+            {opt && <ReactECharts option={opt} style={{ height: 340 }} />}
+            <Table rowKey="rank" size="small" pagination={false} dataSource={diag.top_factors}
+              columns={[
+                seqCol(64),
+                textCol("障碍因子", "factor"),
+                textCol("类别", "category"),
+                numCol("|SHAP|", "importance"),
+                { title: "影响方向", dataIndex: "direction", align: "center",
+                  render: (v: string) => <Tag color={v === "positive" ? "red" : "green"}>{v === "positive" ? "正向(加重)" : "负向(缓解)"}</Tag> },
+              ]} />
+          </Card>
+          {diag.shap_global?.calculation_trace?.length > 0 && (
+            <Card title="计算过程追溯">
+              <Timeline items={diag.shap_global.calculation_trace.map((s: string) => ({ children: s }))} />
+            </Card>
+          )}
+          {diag.local_explanation?.length > 0 && (
+            <Card title="局部解释（最高风险采样点）">
+              <Table rowKey={(r: any) => r.factor + r.point_code} size="small" pagination={false}
+                dataSource={diag.local_explanation}
+                columns={[seqCol(64), textCol("采样点", "point_code"), textCol("因子", "factor"),
+                  numCol("SHAP值", "shap_value"),
+                  { title: "方向", dataIndex: "direction", align: "center" }]} />
+            </Card>
+          )}
+        </>
+      ) : <Empty description="请选择场地并运行障碍因子识别" />}
+    </Space>
+  );
+}
+
+# ────────────────────────────────────────────────────────────────────────────
+# 文件: TraceDetail.tsx — 全流程追溯详情页，五阶段状态管理
+# ────────────────────────────────────────────────────────────────────────────
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import {
+  Card, Steps, Tag, Button, Space, Upload, Select, Modal, Input, message, Table, Descriptions, Spin,
+} from "antd";
+import { UploadOutlined, FileAddOutlined } from "@ant-design/icons";
+import { api } from "../api/client";
+import { seqCol, textCol } from "../utils/table";
+
+const STATUS: Record<string, { c: string; t: string; step: any }> = {
+  completed: { c: "green", t: "已完成", step: "finish" },
+  in_progress: { c: "blue", t: "进行中", step: "process" },
+  returned: { c: "red", t: "已退回", step: "error" },
+===== Page 6 =====
+  not_started: { c: "default", t: "未开始", step: "wait" },
+};
+
+// 各阶段可上传的文件类型
+const FILE_ROLES: Record<string, string[]> = {
+  survey: ["场地调查报告", "检测数据", "障碍因子识别结果", "可行性分析结论"],
+  approval: ["重构方案", "审批意见", "修改记录", "最终通过版本"],
+  construction: ["施工方案", "监理方案", "施工进度记录", "材料使用台账"],
+  effect: ["效果检测数据", "效果评估报告", "达标结论"],
+  maintenance: ["管护方案", "定期监测数据", "功能维护记录"],
+};
+
+export default function TraceDetail() {
+  const { id } = useParams();
+  const sid = Number(id);
+  const nav = useNavigate();
+  const [site, setSite] = useState<any>(null);
+  const [stages, setStages] = useState<any[]>([]);
+  const [reports, setReports] = useState<any[]>([]);
+  const [busy, setBusy] = useState(false);
+  const [modal, setModal] = useState<{ stage: string; role: string } | null>(null);
+  const [comment, setComment] = useState("");
+
+  const load = async () => {
+    setSite(await api.site(sid));
+    const wf = await api.workflow(sid);
+    setStages(wf.stages || []);
+    setReports(await api.reports(sid).then((d) => d.items).catch(() => []));
+  };
+  useEffect(() => { load(); }, [sid]);
+
+  const init = async () => { setBusy(true); try { await api.initWorkflow(sid); message.success("已初始化五阶段"); await load(); } finally { setBusy(false); } };
+
+  const setStatus = async (stage: string, status: string) => {
+    setBusy(true);
+    try { await api.updateStage(sid, stage, { status, review_comment: comment || undefined, is_completed: status === "completed" }); message.success("已更新"); setComment(""); await load(); }
+    catch (e: any) { message.error(e?.response?.data?.detail || "更新失败"); }
+    finally { setBusy(false); }
+  };
+
+  const doUpload = async (file: File) => {
+    if (!modal) return false;
+    setBusy(true);
+    try { await api.uploadAttachment(sid, modal.stage, file, modal.role); message.success("上传成功"); setModal(null); await load(); }
+    catch (e: any) { message.error(e?.response?.data?.detail || "上传失败"); }
+    finally { setBusy(false); }
+    return false;
+  };
+
+  const genReport = async (format: "pdf" | "docx" = "pdf") => {
+===== Page 7 =====
+    setBusy(true);
+    try { const r = await api.generateReport(sid, format); message.success(`${format.toUpperCase()} 报告 ${r.version} 已生成`); await load(); }
+    catch (e: any) { message.error(e?.response?.data?.detail || "生成失败(需 report:generate 权限)"); }
+    finally { setBusy(false); }
+  };
+
+  if (!site) return <Spin style={{ marginTop: 80 }} />;
+
+  return (
+    <Space direction="vertical" style={{ width: "100%" }} size={16}>
+      <Card title={`全流程追溯 — ${site.name}（${site.site_code}）`}
+        extra={<Space>
+          <Button onClick={() => nav("/trace")}>返回列表</Button>
+          {stages.length === 0 && <Button type="primary" loading={busy} onClick={init}>初始化五阶段</Button>}
+          <Button type="primary" loading={busy} onClick={() => genReport("pdf")}>生成 PDF 报告</Button>
+          <Button loading={busy} onClick={() => genReport("docx")}>生成 DOCX 报告</Button>
+        </Space>}>
+        {stages.length === 0 ? <span>尚未初始化五阶段，请点击右上角“初始化五阶段”。</span> : (
+          <Steps direction="vertical" current={-1}
+            items={stages.map((s) => ({
+              status: STATUS[s.status]?.step,
+              title: <Space>{s.stage_name}<Tag color={STATUS[s.status]?.c}>{STATUS[s.status]?.t}</Tag>
+                <span style={{ fontSize: 12, color: "#999" }}>版本{s.version}｜附件{s.n_attachments}</span></Space>,
+              description: (
+                <div style={{ marginTop: 6 }}>
+                  {s.review_comment && <div style={{ color: "#666", fontSize: 13 }}>意见：{s.review_comment}</div>}
+                  <Space wrap style={{ marginTop: 6 }}>
+                    <Button size="small" icon={<FileAddOutlined />} onClick={() => setModal({ stage: s.stage, role: FILE_ROLES[s.stage][0] })}>上传材料</Button>
+                    <Button size="small" onClick={() => setStatus(s.stage, "in_progress")}>标记进行中</Button>
+                    <Button size="small" type="primary" onClick={() => setStatus(s.stage, "completed")}>标记完成</Button>
+                    <Button size="small" danger onClick={() => setStatus(s.stage, "returned")}>退回</Button>
+                  </Space>
+                  {s.attachments?.length > 0 && (
+                    <div style={{ marginTop: 6 }}>{s.attachments.map((a: any) => <Tag key={a.id} color="blue">{a.file_role || "材料"}</Tag>)}</div>
+                  )}
+                </div>
+              ),
+            }))} />
+        )}
+      </Card>
+
+      {reports.length > 0 && (
+        <Card title="已生成报告">
+          <Table rowKey="report_id" size="small" pagination={false} dataSource={reports}
+            columns={[seqCol(64), textCol("版本", "version"), textCol("生成时间", "generated_at"),
+              { title: "格式", align: "center", render: (_: any, r: any) => (r.data_snapshot?.format || "pdf").toUpperCase() },
+              { title: "下载", align: "center", render: (_: any, r: any) => {
+                  const fmt = r.data_snapshot?.format || "pdf";
+                  return <a onClick={() => api.downloadReport(r.report_id, `追溯报告_${site.site_code}_${r.version}.${fmt}`)}>下载</a>;
+                } }]} />
+===== Page 8 =====
+        </Card>
+      )}
+
+      <Modal open={!!modal} title={`上传材料 — ${modal ? stages.find(s => s.stage === modal.stage)?.stage_name : ""}`}
+        onCancel={() => setModal(null)} footer={null}>
+        {modal && (
+          <Space direction="vertical" style={{ width: "100%" }}>
+            <div>材料类型：<Select style={{ width: 240 }} value={modal.role}
+              onChange={(v) => setModal({ ...modal, role: v })}
+              options={FILE_ROLES[modal.stage].map((r) => ({ value: r, label: r }))} /></div>
+            <Upload beforeUpload={doUpload} maxCount={1} showUploadList={false}>
+              <Button icon={<UploadOutlined />} loading={busy}>选择文件上传（任意类型）</Button>
+            </Upload>
+          </Space>
+        )}
+      </Modal>
+    </Space>
+  );
+}
+
+# ────────────────────────────────────────────────────────────────────────────
+# 文件: Login.tsx — 用户登录页面
+# ────────────────────────────────────────────────────────────────────────────
+import { useState } from "react";
+import { Form, Input, Button, Card, message, Typography } from "antd";
+import { useNavigate } from "react-router-dom";
+import { api } from "../api/client";
+import { useAuth } from "../auth";
+
+export default function Login() {
+  const nav = useNavigate();
+  const { setSession } = useAuth();
+
+  const [submitting, setSubmitting] = useState(false);
+
+  const onFinish = async (v: { username: string; password: string }) => {
+    setSubmitting(true);
+    try {
+      const r = await api.login(v.username, v.password);
+      setSession(r.access_token, r.user);
+      message.success(`欢迎，${r.user.display_name}`);
+      nav("/");
+    } catch {
+      message.error("用户名或密码错误");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+===== Page 9 =====
+    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center",
+      background: "linear-gradient(135deg,#0f3d6e,#1a5a9e)" }}>
+      <Card style={{ width: 380 }}>
+        <Typography.Title level={4} style={{ textAlign: "center", color: "#0f3d6e" }}>
+          污染场地土壤生态-生产<br />功能重构监管系统
+        </Typography.Title>
+        <Form layout="vertical" onFinish={onFinish} initialValues={{ username: "admin", password: "Demo@2026" }}>
+          <Form.Item name="username" label="用户名" rules={[{ required: true }]}>
+            <Input size="large" placeholder="admin / enterprise / agency / regulator" />
+          </Form.Item>
+          <Form.Item name="password" label="密码" rules={[{ required: true }]}>
+            <Input.Password size="large" />
+          </Form.Item>
+          <Button type="primary" htmlType="submit" size="large" block loading={submitting}>登录</Button>
+        </Form>
+        <Typography.Paragraph type="secondary" style={{ marginTop: 12, fontSize: 12 }}>
+          演示账号密码均为 Demo@2026；不同角色可见数据与权限不同。
+        </Typography.Paragraph>
+      </Card>
+    </div>
+  );
+}
+
+# ────────────────────────────────────────────────────────────────────────────
+# 文件: SiteList.tsx — 场地列表管理页面
+# ────────────────────────────────────────────────────────────────────────────
+import { useEffect, useState } from "react";
+import { Card, Table, Tag, Input, Button, Space, message } from "antd";
+import { ImportOutlined, ReloadOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
+import { api } from "../api/client";
+import { seqCol, numCol, textCol } from "../utils/table";
+
+const POLLUTION: Record<string, { c: string; t: string }> = {
+  heavy_metal: { c: "red", t: "重金属" },
+  organic: { c: "orange", t: "有机" },
+  composite: { c: "purple", t: "复合" },
+};
+
+export default function SiteList() {
+  const nav = useNavigate();
+  const [data, setData] = useState<any>({ items: [], total: 0 });
+  const [loading, setLoading] = useState(true);
+  const [q, setQ] = useState("");
+
+  const load = () => { setLoading(true); api.sites({ q, size: 100 }).then(setData).catch((err) => { message.error(err?.response?.data?.detail || "加载失败"); setData({ items: [], total: 0 }); }).finally(() => setLoading(false)); };
+  useEffect(() => { load(); }, []);
+
+  return (
+    <Card title="场地数据管理"
+===== Page 10 =====
+      extra={<Space>
+        <Input.Search placeholder="按名称/编号搜索" allowClear onChange={(e) => setQ(e.target.value)} onSearch={load} style={{ width: 240 }} />
+        <Button icon={<ReloadOutlined />} onClick={load}>刷新</Button>
+        <Button type="primary" icon={<ImportOutlined />} onClick={() => nav("/sites/import")}>批量导入</Button>
+      </Space>}>
+      <Table rowKey="id" loading={loading} dataSource={data.items} pagination={{ pageSize: 10 }}
+        columns={[
+          seqCol(64),
+          textCol("场地编号", "site_code"),
+          textCol("名称", "name"),
+          { title: "污染类型", dataIndex: "pollution_type", align: "center",
+            render: (v) => v ? <Tag color={POLLUTION[v]?.c}>{POLLUTION[v]?.t || v}</Tag> : "—" },
+          textCol("用地类型", "land_use_type"),
+          textCol("区域", "city", { render: (_: any, r: any) => `${r.province || ""}${r.city || ""}` || "—" }),
+          numCol("采样点", "n_points"),
+          { title: "操作", align: "center", render: (_, r) => <a onClick={() => nav(`/sites/${r.id}`)}>查看详情</a> },
+        ]} />
+    </Card>
+  );
+}
+
+# ────────────────────────────────────────────────────────────────────────────
+# 文件: SiteDetail.tsx — 场地详情展示页面
+# ────────────────────────────────────────────────────────────────────────────
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { Card, Descriptions, Tabs, Table, Button, Spin, Space, message } from "antd";
+import { api } from "../api/client";
+import SiteMap from "../components/SiteMap";
+import EdaPanel from "../components/EdaPanel";
+import { seqCol, numCol, textCol } from "../utils/table";
+
+export default function SiteDetail() {
+  const { id } = useParams();
+  const sid = Number(id);
+  const nav = useNavigate();
+  const [site, setSite] = useState<any>(null);
+  const [points, setPoints] = useState<any[]>([]);
+  const [wide, setWide] = useState<any>({ factors: [], items: [] });
+  const [reports, setReports] = useState<any[]>([]);
+
+  const load = async () => {
+    setSite(await api.site(sid));
+    setPoints(await api.points(sid));
+    setWide(await api.pointsWide(sid).catch(() => ({ factors: [], items: [] })));
+    setReports(await api.reports(sid).then((d) => d.items).catch(() => []));
+  };
+  useEffect(() => { load(); }, [sid]);
+
+  if (!site) return <Spin style={{ marginTop: 80 }} />;
+===== Page 11 =====
+
+  // 采样点宽表: 元数据列 + 动态因子列, 横向滚动
+  const wideColumns: any[] = [
+    { title: "序号", dataIndex: "seq", align: "center", width: 64, fixed: "left" },
+    { title: "采样点编号", dataIndex: "point_code", align: "left", width: 130, fixed: "left" },
+    { title: "区域", dataIndex: "region", align: "left", width: 90 },
+    { title: "经度", dataIndex: "longitude", align: "center", width: 110 },
+    { title: "纬度", dataIndex: "latitude", align: "center", width: 110 },
+    { title: "深度cm", dataIndex: "depth", align: "center", width: 90 },
+    { title: "土壤类型", dataIndex: "soil_type", align: "left", width: 130 },
+    ...wide.factors.map((f: string) => ({
+      title: f, dataIndex: f, align: "center", width: 110,
+      render: (v: any) => (v === null || v === undefined ? "—" : v),
+    })),
+  ];
+
+  return (
+    <Space direction="vertical" style={{ width: "100%" }} size={16}>
+      <Card>
+        <Descriptions title={`${site.name}（${site.site_code}）`} column={3} size="small">
+          <Descriptions.Item label="污染类型">{site.pollution_type || "—"}</Descriptions.Item>
+          <Descriptions.Item label="用地类型">{site.land_use_type || "—"}</Descriptions.Item>
+          <Descriptions.Item label="区域">{(site.province || "") + (site.city || "") || "—"}</Descriptions.Item>
+          <Descriptions.Item label="采样点">{site.n_points}</Descriptions.Item>
+          <Descriptions.Item label="检测记录">{site.n_measurements}</Descriptions.Item>
+          <Descriptions.Item label="坐标">{site.longitude}, {site.latitude}</Descriptions.Item>
+        </Descriptions>
+        <Space style={{ marginTop: 12 }} wrap>
+          <Button onClick={() => nav("/obstacle")}>障碍因子分析</Button>
+          <Button onClick={() => nav("/reconstruction")}>功能重构分析</Button>
+          <Button onClick={() => nav("/ssui")}>SSUI 评价</Button>
+          <Button onClick={() => nav(`/trace/${sid}`)}>全流程追溯</Button>
+          <Button type="primary" onClick={() => nav("/sites/import")}>导入数据</Button>
+        </Space>
+      </Card>
+
+      <Tabs items={[
+        {
+          key: "map", label: "点位地图",
+          children: <Card><SiteMap height={440} zoom={15}
+            sites={points.map((p) => ({ point_code: p.point_code, longitude: p.longitude, latitude: p.latitude, pollution_type: site.pollution_type }))} /></Card>,
+        },
+        {
+          key: "wide", label: `采样点检测数据（${wide.items.length}）`,
+          children: <Card bodyStyle={{ padding: 12 }}>
+            <Table rowKey="seq" size="small" dataSource={wide.items} columns={wideColumns}
+              scroll={{ x: "max-content", y: 480 }} pagination={{ pageSize: 20 }} bordered />
+          </Card>,
+        },
+        {
+===== Page 12 =====
+          key: "eda", label: "数据分析(EDA)",
+          children: <EdaPanel siteId={sid} />,
+        },
+        {
+          key: "report", label: `追溯报告（${reports.length}）`,
+          children: reports.length ? <Table rowKey="report_id" size="small" pagination={false} dataSource={reports}
+            columns={[
+              seqCol(64), textCol("版本", "version"), textCol("生成时间", "generated_at"),
+              { title: "下载", align: "center", render: (_: any, r: any) => <a onClick={() => api.downloadReport(r.report_id, `追溯报告_${site.site_code}_${r.version}.pdf`)}>下载</a> },
+            ]} /> : <Space direction="vertical"><span>暂无报告</span><Button onClick={() => nav(`/trace/${sid}`)}>前往追溯页生成报告</Button></Space>,
+        },
+      ]} />
+    </Space>
+  );
+}
+
+# ────────────────────────────────────────────────────────────────────────────
+# 文件: DataUpload.tsx — 批量数据导入页面
+# ────────────────────────────────────────────────────────────────────────────
+import { useState } from "react";
+import { Card, Upload, Button, Select, message, Descriptions, Tag, Space, Alert, Result } from "antd";
+import { InboxOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
+import { api } from "../api/client";
+
+const MAPPINGS = [
+  { value: "yunnan_gejiu", label: "云南个旧重金属污染场地（标准模板）" },
+];
+
+export default function DataUpload() {
+  const nav = useNavigate();
+  const [mapping, setMapping] = useState("yunnan_gejiu");
+  const [file, setFile] = useState<File | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState<any>(null);
+
+  const submit = async () => {
+    if (!file) { message.warning("请先选择 Excel/CSV 文件"); return; }
+    setLoading(true);
+    try {
+      const r = await api.importData(mapping, file);
+      setResult(r);
+      message.success("导入完成");
+    } catch (e: any) {
+      message.error(e?.response?.data?.detail || "导入失败");
+    } finally { setLoading(false); }
+  };
+
+  return (
+    <Card title="数据导入">
+===== Page 13 =====
+      <Alert type="info" style={{ marginBottom: 16 }}
+        message="支持 .xlsx / .csv。选择对应字段映射模板后上传，系统会自动解析→字段映射→校验→写入长表。" />
+      <Space direction="vertical" style={{ width: "100%" }} size={16}>
+        <Space>
+          <span>字段映射模板：</span>
+          <Select style={{ width: 360 }} value={mapping} onChange={setMapping} options={MAPPINGS} />
+        </Space>
+        <Upload.Dragger maxCount={1} beforeUpload={(f) => { setFile(f); return false; }}
+          onRemove={() => setFile(null)}
+          accept=".xlsx,.xls,.csv">
+          <p className="ant-upload-drag-icon"><InboxOutlined /></p>
+          <p>点击或拖拽文件到此处上传</p>
+          <p style={{ color: "#999" }}>单个文件，支持 Excel / CSV</p>
+        </Upload.Dragger>
+        <Button type="primary" loading={loading} onClick={submit} disabled={!file}>开始导入并校验</Button>
+      </Space>
+
+      {result && (
+        <Result style={{ marginTop: 16 }}
+          status={result.validation?.passed ? "success" : "warning"}
+          title={`导入完成：场地 #${result.site_id}`}
+          subTitle={
+            <Descriptions column={2} size="small" style={{ textAlign: "left", maxWidth: 600, margin: "0 auto" }}>
+              <Descriptions.Item label="采样点">{result.n_points}</Descriptions.Item>
+              <Descriptions.Item label="检测记录">{result.n_measurements}</Descriptions.Item>
+              <Descriptions.Item label="校验错误">{result.validation?.n_errors}</Descriptions.Item>
+              <Descriptions.Item label="超标提示">{result.validation?.n_exceed}</Descriptions.Item>
+              <Descriptions.Item label="超标因子" span={2}>
+                {(result.validation?.exceed_factors || []).map((f: string) => <Tag color="red" key={f}>{f}</Tag>)}
+              </Descriptions.Item>
+            </Descriptions>
+          }
+          extra={[
+            <Button type="primary" key="d" onClick={() => nav(`/sites/${result.site_id}`)}>查看场地详情</Button>,
+            <Button key="l" onClick={() => nav("/sites")}>返回场地列表</Button>,
+          ]} />
+      )}
+    </Card>
+  );
+}
+
+# ────────────────────────────────────────────────────────────────────────────
+# 文件: client.ts — API 客户端封装层
+# ────────────────────────────────────────────────────────────────────────────
+import axios from "axios";
+
+const client = axios.create({ baseURL: "/api/v1" });
+
+client.interceptors.request.use((config) => {
+  const token = localStorage.getItem("srs_token");
+===== Page 14 =====
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
+
+client.interceptors.response.use(
+  (r) => r,
+  (err) => {
+    if (err.response?.status === 401 && location.pathname !== "/login") {
+      localStorage.removeItem("srs_token");
+      location.href = "/login";
+    }
+    return Promise.reject(err);
+  }
+);
+
+export interface LoginResp {
+  access_token: string;
+  user: { username: string; display_name: string; roles: string[]; organization_id: number | null };
+}
+
+export const api = {
+  login: (username: string, password: string) =>
+    client.post<LoginResp>("/auth/login", { username, password }).then((r) => r.data),
+  me: () => client.get("/auth/me").then((r) => r.data),
+
+  // 数据
+  sites: (params?: any) => client.get("/sites", { params }).then((r) => r.data),
+  site: (id: number) => client.get(`/sites/${id}`).then((r) => r.data),
+  points: (id: number) => client.get(`/sites/${id}/points`).then((r) => r.data),
+  pointsWide: (id: number) => client.get(`/sites/${id}/points-wide`).then((r) => r.data),
+  eda: (id: number) => client.get(`/sites/${id}/eda`).then((r) => r.data),
+  measurements: (id: number, params?: any) =>
+    client.get(`/sites/${id}/measurements`, { params }).then((r) => r.data),
+  importData: (mappingId: string, file: File) => {
+    const fd = new FormData();
+    fd.append("mapping_id", mappingId);
+    fd.append("file", file);
+    return client.post("/import", fd, { headers: { "Content-Type": "multipart/form-data" } }).then((r) => r.data);
+  },
+
+  // 诊断 / 评价 / 推荐
+  diagnosis: (id: number) => client.get(`/sites/${id}/diagnosis`).then((r) => r.data),
+  runDiagnosis: (id: number) => client.post(`/sites/${id}/diagnosis`).then((r) => r.data),
+  evaluation: (id: number) => client.get(`/sites/${id}/evaluation`).then((r) => r.data),
+  runEvaluation: (id: number) => client.post(`/sites/${id}/evaluation`).then((r) => r.data),
+  recommendation: (id: number) => client.get(`/sites/${id}/recommendation`).then((r) => r.data),
+  runRecommendation: (id: number) => client.post(`/sites/${id}/recommendation`).then((r) => r.data),
+
+  // 追溯 / 报告
+  workflow: (id: number) => client.get(`/sites/${id}/workflow`).then((r) => r.data),
+===== Page 15 =====
+  initWorkflow: (id: number) => client.post(`/sites/${id}/workflow/init`).then((r) => r.data),
+  updateStage: (id: number, stage: string, body: any) =>
+    client.post(`/sites/${id}/workflow/${stage}`, body).then((r) => r.data),
+  uploadAttachment: (id: number, stage: string, file: File, fileRole: string) => {
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("file_role", fileRole);
+    return client.post(`/sites/${id}/workflow/${stage}/attachment`, fd,
+      { headers: { "Content-Type": "multipart/form-data" } }).then((r) => r.data);
+  },
+  reports: (id: number) => client.get(`/sites/${id}/reports`).then((r) => r.data),
+  generateReport: (id: number, format: "pdf" | "docx" | "html" = "pdf") =>
+    client.post(`/sites/${id}/report`, null, { params: { format } }).then((r) => r.data),
+  downloadReport: async (reportId: number, filename: string) => {
+    const r = await client.get(`/reports/${reportId}/download`, { responseType: "blob" });
+    const url = URL.createObjectURL(r.data as Blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = filename; a.click();
+    URL.revokeObjectURL(url);
+  },
+
+  // 系统
+  changePassword: (old_password: string, new_password: string) =>
+    client.post("/system/change-password", { old_password, new_password }).then((r) => r.data),
+  auditLogs: (params?: any) => client.get("/system/audit-logs", { params }).then((r) => r.data),
+  systemConfig: () => client.get("/system/config").then((r) => r.data),
+  users: () => client.get("/system/users").then((r) => r.data),
+
+  // AI
+  aiStatus: () => client.get("/ai/status").then((r) => r.data),
+  aiChat: (message: string, site_id?: number, history?: any[]) =>
+    client.post("/ai/chat", { message, site_id, history }).then((r) => r.data),
+};
+
+export default client;
+
+# ────────────────────────────────────────────────────────────────────────────
+# 文件: auth.tsx — 认证上下文与Hook
+# ────────────────────────────────────────────────────────────────────────────
+import { createContext, useContext, useState, ReactNode } from "react";
+
+interface User {
+  username: string;
+  display_name: string;
+  roles: string[];
+  organization_id: number | null;
+}
+
+interface AuthCtx {
+  user: User | null;
+===== Page 16 =====
+  setSession: (token: string, user: User) => void;
+  logout: () => void;
+}
+
+const Ctx = createContext<AuthCtx>(null as any);
+
+export function AuthProvider({ children }: { children: ReactNode }) {
+  const [user, setUser] = useState<User | null>(() => {
+    const raw = localStorage.getItem("srs_user");
+    return raw ? JSON.parse(raw) : null;
+  });
+
+  const setSession = (token: string, u: User) => {
+    localStorage.setItem("srs_token", token);
+    localStorage.setItem("srs_user", JSON.stringify(u));
+    setUser(u);
+  };
+  const logout = () => {
+    localStorage.removeItem("srs_token");
+    localStorage.removeItem("srs_user");
+    setUser(null);
+  };
+  return <Ctx.Provider value={{ user, setSession, logout }}>{children}</Ctx.Provider>;
+}
+
+export const useAuth = () => useContext(Ctx);
+
+# ────────────────────────────────────────────────────────────────────────────
+# 文件: SiteMap.tsx — 天地图地图组件
+# ────────────────────────────────────────────────────────────────────────────
+import { useEffect, useRef, useState } from "react";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+
+interface SitePoint {
+  id?: number;
+  name?: string;
+  point_code?: string;
+  longitude: number | null;
+  latitude: number | null;
+  pollution_type?: string;
+  status?: string;
+  value?: number | null;
+  onClick?: () => void;
+}
+
+const TK = import.meta.env.VITE_TIANDITU_KEY || "";
+const STATUS_COLOR: Record<string, string> = {
+  danger: "#dc2626", warning: "#f59e0b", success: "#16a34a", info: "#3b82f6",
+};
+===== Page 17 =====
+
+export default function SiteMap({
+  sites, height = 400, zoom = 5, onMarkerClick,
+}: {
+  sites: SitePoint[]; height?: number; zoom?: number;
+  onMarkerClick?: (s: SitePoint) => void;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<L.Map | null>(null);
+  const [tileError, setTileError] = useState(false);
+  const hasCoords = sites.some((s) => s.longitude != null && s.latitude != null);
+
+  useEffect(() => {
+    if (!ref.current || mapRef.current) return;
+    const map = L.map(ref.current, { center: [34, 104], zoom });
+    mapRef.current = map;
+
+    let base: L.TileLayer;
+    if (TK) {
+      base = L.tileLayer(
+        `https://t{s}.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&tk=${TK}`,
+        { subdomains: ["0", "1", "2", "3", "4", "5", "6", "7"], maxZoom: 18, attribution: "天地图" }
+      ).addTo(map);
+      L.tileLayer(
+        `https://t{s}.tianditu.gov.cn/cia_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=cia&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&tk=${TK}`,
+        { subdomains: ["0", "1", "2", "3", "4", "5", "6", "7"], maxZoom: 18 }
+      ).addTo(map);
+    } else {
+      base = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 18, attribution: "© OpenStreetMap（未配置天地图 key）",
+      }).addTo(map);
+    }
+    // 瓦片加载失败 -> 显示错误态(天地图 key 域名白名单/网络问题)
+    base.on("tileerror", () => setTileError(true));
+    base.on("tileload", () => setTileError(false));
+    // 容器尺寸在布局完成后才确定, 延迟刷新避免灰屏
+    setTimeout(() => map.invalidateSize(), 200);
+    return () => { map.remove(); mapRef.current = null; };
+  }, []);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+    const layer = L.layerGroup().addTo(map);
+    const pts: L.LatLng[] = [];
+    sites.forEach((s) => {
+      if (s.longitude == null || s.latitude == null) return;
+      const ll = L.latLng(s.latitude, s.longitude);
+      pts.push(ll);
+      const color = STATUS_COLOR[s.status || "danger"] || "#dc2626";
+===== Page 18 =====
+      const mk = L.circleMarker(ll, { radius: 8, color: "#fff", weight: 2, fillColor: color, fillOpacity: 0.9 })
+        .bindPopup(`<b>${s.name || s.point_code || "点位"}</b><br/>${s.pollution_type || ""}<br/>${s.latitude}, ${s.longitude}`)
+        .addTo(layer);
+      if (onMarkerClick) mk.on("click", () => onMarkerClick(s));
+    });
+    if (pts.length) {
+      map.fitBounds(L.latLngBounds(pts).pad(0.3), { maxZoom: 13 });
+      setTimeout(() => map.invalidateSize(), 100);
+    }
+    return () => { layer.remove(); };
+  }, [sites]);
+
+  const overlay = (text: string) => (
+    <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center",
+      justifyContent: "center", background: "rgba(232,238,243,0.85)", borderRadius: 8,
+      color: "#64748b", fontSize: 13, textAlign: "center", padding: 16, zIndex: 500 }}>
+      {text}
+    </div>
+  );
+  return (
+    <div style={{ position: "relative", height, width: "100%" }}>
+      <div ref={ref} style={{ height, width: "100%", borderRadius: 8, background: "#e8eef3" }} />
+      {!hasCoords && overlay("当前无可用坐标点位：该场地采样点缺少经纬度，无法在地图上展示。")}
+      {hasCoords && tileError && overlay("底图瓦片加载失败：请检查网络，或在天地图控制台为当前域名/127.0.0.1 配置 key 白名单。点位坐标已就绪。")}
+    </div>
+  );
+}
+
+# ────────────────────────────────────────────────────────────────────────────
+# 文件: SitePicker.tsx — 场地选择器组件
+# ────────────────────────────────────────────────────────────────────────────
+import { useEffect, useState } from "react";
+import { Select, Space, message } from "antd";
+import { api } from "../api/client";
+
+export default function SitePicker({ value, onChange }: { value?: number; onChange: (id: number) => void }) {
+  const [sites, setSites] = useState<any[]>([]);
+  useEffect(() => {
+    api.sites({ size: 200 }).then((d) => {
+      setSites(d.items);
+      if (!value && d.items.length) {
+        sessionStorage.setItem("srs_current_site_id", String(d.items[0].id));
+        onChange(d.items[0].id);
+      }
+    }).catch((err) => { message.error(err?.response?.data?.detail || "加载失败"); setSites([]); });
+  }, []);
+  const setSite = (id: number) => {
+    sessionStorage.setItem("srs_current_site_id", String(id));
+    onChange(id);
+  };
+===== Page 19 =====
+  return (
+    <Space>
+      <span>选择场地：</span>
+      <Select style={{ width: 320 }} value={value} onChange={setSite}
+        options={sites.map((s) => ({ value: s.id, label: `${s.name}（${s.site_code}）` }))}
+        placeholder="请选择场地" />
+    </Space>
+  );
+}
+
+# ────────────────────────────────────────────────────────────────────────────
+# 文件: EdaPanel.tsx — 数据探索分析面板
+# ────────────────────────────────────────────────────────────────────────────
+import { useEffect, useState } from "react";
+import { Card, Table, Select, Spin, Empty, Row, Col, Tag, Space } from "antd";
+import ReactECharts from "echarts-for-react";
+import { api } from "../api/client";
+import { seqCol, numCol, textCol } from "../utils/table";
+
+/** 进入模型前的 EDA 数据体检: 概览指标表 + 选定因子直方图(真实数据)。 */
+export default function EdaPanel({ siteId }: { siteId: number }) {
+  const [data, setData] = useState<any>(null);
+  const [sel, setSel] = useState<string>();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    api.eda(siteId).then((d) => {
+      setData(d);
+      if (d.factors?.length) setSel(d.factors[0].factor);
+    }).catch(() => setData(null)).finally(() => setLoading(false));
+  }, [siteId]);
+
+  if (loading) return <Spin style={{ marginTop: 40 }} />;
+  if (!data?.factors?.length) return <Empty description="暂无可分析数据" />;
+
+  const cur = data.factors.find((f: any) => f.factor === sel);
+  const hist = cur?.histogram;
+  const histOption = hist?.counts?.length ? {
+    tooltip: { trigger: "axis" },
+    grid: { left: 50, right: 20, top: 20, bottom: 40 },
+    xAxis: { type: "category", data: hist.edges.slice(0, -1).map((e: number, i: number) => `${e}~${hist.edges[i + 1]}`),
+      axisLabel: { rotate: 45, fontSize: 9 }, name: cur.factor },
+    yAxis: { type: "value", name: "频数" },
+    series: [{ type: "bar", data: hist.counts, itemStyle: { color: "#0f3d6e" } }],
+  } : null;
+
+  const rows = data.factors.map((f: any) => ({ factor: f.factor, ...f.stats }));
+
+  return (
+===== Page 20 =====
+    <Space direction="vertical" style={{ width: "100%" }} size={16}>
+      <Card title="各因子统计体检（真实数据，未插补）" size="small">
+        <Table rowKey="factor" size="small" dataSource={rows} pagination={{ pageSize: 8 }}
+          scroll={{ x: "max-content" }}
+          columns={[
+            seqCol(56),
+            textCol("因子", "factor"),
+            numCol("有效数", "count"),
+            numCol("缺失%", "missing_pct"),
+            numCol("均值", "mean"),
+            numCol("中位数", "median"),
+            numCol("标准差", "std"),
+            numCol("CV", "cv"),
+            numCol("偏度", "skew"),
+            { title: "形态", dataIndex: "skew_flag", align: "center",
+              render: (v: string) => <Tag color={v === "近似对称" ? "green" : "orange"}>{v || "—"}</Tag> },
+            numCol("异常点", "outliers"),
+            numCol("最小", "min"), numCol("最大", "max"),
+          ]} />
+      </Card>
+      <Card title="分布直方图" size="small"
+        extra={<Select style={{ width: 200 }} value={sel} onChange={setSel}
+          options={data.factors.map((f: any) => ({ value: f.factor, label: f.factor }))} />}>
+        <Row gutter={16}>
+          <Col span={16}>{histOption ? <ReactECharts option={histOption} style={{ height: 320 }} /> : <Empty />}</Col>
+          <Col span={8}>
+            {cur && (
+              <Table size="small" pagination={false} showHeader={false}
+                rowKey="k" dataSource={[
+                  { k: "均值/中位数", v: `${cur.stats.mean} / ${cur.stats.median}` },
+                  { k: "标准差 / CV", v: `${cur.stats.std} / ${cur.stats.cv ?? "—"}` },
+                  { k: "偏度 / 形态", v: `${cur.stats.skew ?? "—"} ${cur.stats.skew_flag ?? ""}` },
+                  { k: "异常点(IQR)", v: `${cur.stats.outliers}（${cur.stats.outlier_pct}%）` },
+                  { k: "P5 / P95", v: `${cur.stats.p05} / ${cur.stats.p95}` },
+                  { k: "缺失率", v: `${cur.stats.missing_pct}%` },
+                ]}
+                columns={[textCol("指标", "k"), { title: "值", dataIndex: "v", align: "right" }]} />
+            )}
+          </Col>
+        </Row>
+      </Card>
+    </Space>
+  );
+}
+
+# ────────────────────────────────────────────────────────────────────────────
+# 文件: table.tsx — 表格工具函数
+# ────────────────────────────────────────────────────────────────────────────
+import type { ColumnType } from "antd/es/table";
+
+===== Page 21 =====
+/** 序号列: 居中, 自动行号 */
+export function seqCol<T = any>(width = 64): ColumnType<T> {
+  return {
+    title: "序号", key: "__seq", width, align: "center",
+    render: (_: any, __: T, i: number) => i + 1,
+  };
+}
+
+/** 数字列: 居中显示 */
+export function numCol<T = any>(title: string, dataIndex: string, opts: Partial<ColumnType<T>> = {}): ColumnType<T> {
+  return {
+    title, dataIndex, align: "center",
+    render: (v: any) => (v === null || v === undefined || v === "" ? "—" : v),
+    ...opts,
+  };
+}
+
+/** 文字列: 左对齐两端展示 */
+export function textCol<T = any>(title: string, dataIndex: string, opts: Partial<ColumnType<T>> = {}): ColumnType<T> {
+  return {
+    title, dataIndex, align: "left",
+    onCell: () => ({ style: { textAlign: "justify" as const } }),
+    render: (v: any) => (v === null || v === undefined || v === "" ? "—" : v),
+    ...opts,
+  };
+}
+
+# ────────────────────────────────────────────────────────────────────────────
+# 文件: dataset_splits.py — Model-Ready数据集切分登记，零泄漏验证
+# ────────────────────────────────────────────────────────────────────────────
+"""生成 model_ready 数据集切分登记。
+
+切分原则:
+- 先切真实数据, 后续插补/扩增只能在 train 内 fit/生成;
+- real valid/test 必须对 DOI 与 Source **同时**零跨集泄漏, 禁止行级随机作为主验证;
+- synthetic 只登记为增强/压力/演示, 不进入任何 real split。
+
+零泄漏切分实现(修复 DOI 与 Source 交叉泄漏):
+  把 (DOI, Source) 视为二部图, 同一 DOI 或同一 Source 相连的行属于同一连通分量;
+  以**连通分量**为最小不可分单位整体分配到 train/valid/test/external,
+  从而保证任意两个 real split 在 DOI 与 Source 两个键上都零重叠。
+"""
+from __future__ import annotations
+
+import json
+import os
+from datetime import datetime, timezone
+
+import pandas as pd
+
+===== Page 22 =====
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+DEFAULT_REAL = os.path.join(ROOT, "data", "model_ready", "model_ready_hm_op.csv")
+DEFAULT_SYN_SAMPLES = os.path.join(ROOT, "data", "synthetic", "synthetic_samples_50sites.csv")
+DEFAULT_SYN_SITES = os.path.join(ROOT, "data", "synthetic", "synthetic_scenario_benchmark_50sites.csv")
+OUTDIR = os.path.join(ROOT, "data", "splits")
+
+REAL_SPLITS = ["train_real", "valid_real_group_split",
+               "test_real_group_split", "external_literature_holdout"]
+KEYS = ["id_DOI", "id_Source"]
+
+
+def _norm(v) -> str | None:
+    if v is None:
+        return None
+    s = str(v).strip()
+    if not s or s.lower() in ("nan", "none", "<na>"):
+        return None
+    return s
+
+
+class _UnionFind:
+    def __init__(self, n: int):
+        self.p = list(range(n))
+
+    def find(self, x: int) -> int:
+        while self.p[x] != x:
+            self.p[x] = self.p[self.p[x]]
+            x = self.p[x]
+        return x
+
+    def union(self, a: int, b: int) -> None:
+        ra, rb = self.find(a), self.find(b)
+        if ra != rb:
+            self.p[ra] = rb
+
+
+def _connected_components(df: pd.DataFrame) -> list[list[int]]:
+    """按 DOI/Source 共现把行聚成连通分量, 返回每个分量的行索引列表。"""
+    n = len(df)
+    uf = _UnionFind(n)
+    doi_first: dict[str, int] = {}
+    src_first: dict[str, int] = {}
+    doi_vals = df["id_DOI"].tolist() if "id_DOI" in df.columns else [None] * n
+    src_vals = df["id_Source"].tolist() if "id_Source" in df.columns else [None] * n
+    for i in range(n):
+        d = _norm(doi_vals[i])
+        s = _norm(src_vals[i])
+        if d is not None:
+            if d in doi_first:
+                uf.union(i, doi_first[d])
+===== Page 23 =====
+            else:
+                doi_first[d] = i
+        if s is not None:
+            if s in src_first:
+                uf.union(i, src_first[s])
+            else:
+                src_first[s] = i
+    comps: dict[int, list[int]] = {}
+    for i in range(n):
+        comps.setdefault(uf.find(i), []).append(i)
+    return list(comps.values())
+
+
+def _assign_components(comps: list[list[int]], n: int, seed: int) -> dict[str, set[int]]:
+    """以连通分量为单位, 按目标比例贪心分配到 valid/test/external/train。"""
+    import numpy as np
+
+    rng = np.random.default_rng(seed)
+    order = list(range(len(comps)))
+    rng.shuffle(order)
+    targets = {"valid_real_group_split": 0.15, "test_real_group_split": 0.15,
+               "external_literature_holdout": 0.05}
+    quota = {k: max(1, int(n * f)) for k, f in targets.items()}
+    assigned = {"valid_real_group_split": set(), "test_real_group_split": set(),
+                "external_literature_holdout": set(), "train_real": set()}
+    fill_seq = ["valid_real_group_split", "test_real_group_split", "external_literature_holdout"]
+    for ci in order:
+        rows = comps[ci]
+        placed = False
+        for split in fill_seq:
+            if len(assigned[split]) < quota[split]:
+                assigned[split].update(rows)
+                placed = True
+                break
+        if not placed:
+            assigned["train_real"].update(rows)
+    return assigned
+
+
+def _leakage(left: pd.DataFrame, right: pd.DataFrame, key: str) -> dict:
+    a = {_norm(v) for v in left[key]} - {None} if key in left.columns else set()
+    b = {_norm(v) for v in right[key]} - {None} if key in right.columns else set()
+    overlap = sorted(a & b)
+    return {"passed": len(overlap) == 0, "overlap_count": len(overlap), "examples": overlap[:5]}
+
+
+def build_real_splits(real_df: pd.DataFrame, seed: int = 42) -> tuple[dict[str, pd.DataFrame], dict]:
+    df = real_df.copy().reset_index(drop=True)
+    df["split_source"] = "real_model_ready"
+    df["is_synthetic"] = False
+===== Page 24 =====
+    comps = _connected_components(df)
+    assigned = _assign_components(comps, len(df), seed)
+    splits = {name: df.loc[sorted(idx)].copy() for name, idx in assigned.items()}
+
+    # 全配对 × 双键 泄漏检查
+    checks: dict = {}
+    names = REAL_SPLITS
+    for i in range(len(names)):
+        for j in range(i + 1, len(names)):
+            for key in KEYS:
+                checks[f"{names[i]}__vs__{names[j]}__{key}"] = _leakage(
+                    splits[names[i]], splits[names[j]], key)
+    checks["synthetic_not_in_real"] = {
+        "passed": all(not bool(splits[n]["is_synthetic"].any()) for n in splits),
+        "overlap_count": 0, "examples": [],
+    }
+    checks["all_passed"] = all(c["passed"] for c in checks.values() if isinstance(c, dict) and "passed" in c)
+    return splits, checks
+
+
+def _write_csv(df: pd.DataFrame, filename: str) -> str:
+    os.makedirs(OUTDIR, exist_ok=True)
+    path = os.path.join(OUTDIR, filename)
+    df.to_csv(path, index=False, encoding="utf-8-sig")
+    return path
+
+
+def build_split_registry(real_csv: str = DEFAULT_REAL, syn_samples_csv: str = DEFAULT_SYN_SAMPLES,
+                         syn_sites_csv: str = DEFAULT_SYN_SITES, seed: int = 42) -> dict:
+    real = pd.read_csv(real_csv, low_memory=False)
+    splits, checks = build_real_splits(real, seed=seed)
+    registry = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "source_real_csv": os.path.relpath(real_csv, ROOT),
+        "seed": seed,
+        "splits": {},
+        "leakage_checks": checks,
+        "grouping_strategy": "connected_components(DOI,Source) — 双键同时零跨集",
+        "rules": [
+            "real splits are generated before imputation/augmentation",
+            "synthetic datasets are excluded from valid_real/test_real/external_holdout",
+            "row-level random split is not a main validation split",
+            "DOI and Source both have zero cross-real-split overlap",
+        ],
+    }
+    for name, df in splits.items():
+        path = _write_csv(df, f"{name}.csv")
+        registry["splits"][name] = {"path": os.path.relpath(path, ROOT), "rows": int(len(df)),
+                                    "is_synthetic": False}
+
+===== Page 25 =====
+    if os.path.exists(syn_samples_csv):
+        syn = pd.read_csv(syn_samples_csv, low_memory=False)
+        syn["recommended_validation_use"] = syn.get(
+            "recommended_validation_use", "synthetic_train_augmented_or_stress_only")
+        syn["is_synthetic"] = True
+        path = _write_csv(syn, "synthetic_train_augmented.csv")
+        registry["splits"]["synthetic_train_augmented"] = {
+            "path": os.path.relpath(path, ROOT), "rows": int(len(syn)), "is_synthetic": True,
+            "allowed_use": "training_augmentation_only"}
+        sort_cols = [c for c in ["threshold_exceedance", "SBFI_risk"] if c in syn.columns]
+        stress = syn.sort_values(sort_cols, ascending=False).head(min(500, len(syn))) if sort_cols else syn.head(min(500, len(syn)))
+        path = _write_csv(stress, "synthetic_stress_extreme.csv")
+        registry["splits"]["synthetic_stress_extreme"] = {
+            "path": os.path.relpath(path, ROOT), "rows": int(len(stress)), "is_synthetic": True,
+            "allowed_use": "stress_test_only"}
+    if os.path.exists(syn_sites_csv):
+        sites = pd.read_csv(syn_sites_csv, low_memory=False)
+        sites["is_synthetic"] = True
+        path = _write_csv(sites, "synthetic_scenario_benchmark_50sites.csv")
+        registry["splits"]["synthetic_scenario_benchmark_50sites"] = {
+            "path": os.path.relpath(path, ROOT), "rows": int(len(sites)), "is_synthetic": True,
+            "allowed_use": "benchmark_demo_only"}
+        if "pollution_type" in sites.columns:
+            demo = sites.groupby("pollution_type", group_keys=False).head(2)
+            path = _write_csv(demo, "report_demo_sites.csv")
+            registry["splits"]["report_demo_sites"] = {
+                "path": os.path.relpath(path, ROOT), "rows": int(len(demo)), "is_synthetic": True,
+                "allowed_use": "report_demo_only"}
+
+    registry_path = os.path.join(OUTDIR, "dataset_split_registry.json")
+    with open(registry_path, "w", encoding="utf-8") as f:
+        json.dump(registry, f, ensure_ascii=False, indent=2)
+    summary_rows = [{"split": name, **meta} for name, meta in registry["splits"].items()]
+    pd.DataFrame(summary_rows).to_csv(os.path.join(OUTDIR, "dataset_split_summary.csv"),
+                                      index=False, encoding="utf-8-sig")
+    return registry
+
+
+if __name__ == "__main__":
+    reg = build_split_registry()
+    print(json.dumps({"all_passed": reg["leakage_checks"]["all_passed"],
+                      "splits": {k: v["rows"] for k, v in reg["splits"].items()}},
+                     ensure_ascii=False, indent=2))
+
+# ────────────────────────────────────────────────────────────────────────────
+# 文件: rf_barrier.py — RF障碍因子识别模型训练与持久化
+# ────────────────────────────────────────────────────────────────────────────
+"""RF 障碍因子识别模型: 训练 / 评估 / 持久化 / 加载。
+
+需 scikit-learn + joblib (本机 venv 运行):
+===== Page 26 =====
+    cd backend && source .venv/bin/activate
+    python ../ml/models/rf_barrier.py        # 训练并保存
+产物: ml/artifacts/rf_barrier_<version>.joblib (含 model + meta)
+"""
+from __future__ import annotations
+
+import json
+import os
+from datetime import datetime, timezone
+
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+ARTIFACTS = os.path.join(ROOT, "ml", "artifacts")
+
+MODEL_NAME = "rf_barrier_factor"
+
+
+def train(csv_path: str | None = None, random_state: int = 42) -> dict:
+    import joblib
+    from sklearn.ensemble import RandomForestClassifier
+    from sklearn.metrics import accuracy_score, f1_score, roc_auc_score
+    from sklearn.model_selection import train_test_split
+
+    from data_prep import DEFAULT_CSV, prepare  # 同目录导入
+
+    X, y, meta = prepare(csv_path or DEFAULT_CSV)
+    X_tr, X_te, y_tr, y_te = train_test_split(
+        X, y, test_size=0.2, stratify=y, random_state=random_state)
+
+    model = RandomForestClassifier(
+        n_estimators=300, class_weight="balanced",
+        random_state=random_state, n_jobs=-1)
+    model.fit(X_tr, y_tr)
+
+    proba = model.predict_proba(X_te)[:, 1]
+    pred = model.predict(X_te)
+    metrics = {
+        "accuracy": round(float(accuracy_score(y_te, pred)), 4),
+        "f1": round(float(f1_score(y_te, pred)), 4),
+        "auc": round(float(roc_auc_score(y_te, proba)), 4),
+        "test_size": int(len(y_te)),
+    }
+    version = "v0.1_" + datetime.now(timezone.utc).strftime("%Y%m%d")
+
+    os.makedirs(ARTIFACTS, exist_ok=True)
+    path = os.path.join(ARTIFACTS, f"{MODEL_NAME}_{version}.joblib")
+    bundle = {
+        "model": model,
+        "model_name": MODEL_NAME,
+        "version": version,
+        "algorithm": "RandomForestClassifier",
+===== Page 27 =====
+        "params": {"n_estimators": 300, "class_weight": "balanced",
+                   "random_state": random_state},
+        "feature_list": meta["feature_list"],
+        "medians": meta["medians"],
+        "data_version": meta["data_version"],
+        "metrics": metrics,
+        "trained_at": datetime.now(timezone.utc).isoformat(),
+    }
+    joblib.dump(bundle, path)
+    with open(os.path.join(ARTIFACTS, f"{MODEL_NAME}_{version}.meta.json"),
+              "w", encoding="utf-8") as f:
+        json.dump({k: v for k, v in bundle.items() if k != "model"},
+                  f, ensure_ascii=False, indent=2)
+    print(f"训练完成: {path}")
+    print("指标:", metrics)
+    return {"artifact_path": path, **{k: v for k, v in bundle.items() if k != "model"}}
+
+
+def load_latest():
+    """加载最新模型 bundle; 无产物时返回 None。"""
+    import joblib
+    if not os.path.isdir(ARTIFACTS):
+        return None
+    cands = sorted(f for f in os.listdir(ARTIFACTS)
+                   if f.startswith(MODEL_NAME) and f.endswith(".joblib"))
+    if not cands:
+        return None
+    return joblib.load(os.path.join(ARTIFACTS, cands[-1]))
+
+
+if __name__ == "__main__":
+    import sys
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    train(sys.argv[1] if len(sys.argv) > 1 else None)
+
+# ────────────────────────────────────────────────────────────────────────────
+# 文件: build_model_ready.py — 从merged_std33数据湖派生model_ready子表
+# ────────────────────────────────────────────────────────────────────────────
+"""从 merged_std33 数据湖派生 model_ready 子表。
+
+红线:
+- 只读原始数据, 不覆盖/改写 raw;
+- 未测污染物保留 NaN, 不补 0, 不补满 719 列;
+- 所有实测值为 measured_*, 缺失事实为 missing_*;
+- 派生表显式带 is_synthetic=false、evidence_level=MEASURED、source_file_sha256。
+"""
+from __future__ import annotations
+
+import hashlib
+import json
+===== Page 28 =====
+import os
+import sys
+from datetime import datetime, timezone
+
+import pandas as pd
+
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.insert(0, os.path.join(ROOT, "ml", "cleaning"))
+from standardize import (  # noqa: E402
+    normalize_landuse,
+    normalize_pollution_type,
+    normalize_province,
+    province_to_region,
+)
+
+MERGED = os.path.join(ROOT, "data", "raw", "merged_std33,zh .xlsx")
+OUTDIR = os.path.join(ROOT, "data", "model_ready")
+
+HM_COLS = ["Cd_mgkg", "Pb_mgkg", "As_mgkg", "Cu_mgkg", "Zn_mgkg", "Ni_mgkg", "Cr_mgkg", "Hg_mgkg"]
+OP_PATTERNS = [
+    "Nap", "Phe", "Ant", "Pyr", "BaP", "BaA", "Chr", "Flu", "BghiP", "IcdP",
+    "HCH", "DDT", "DDE", "DDD", "PCB", "HCB", "TPH", "PFOS", "PFOA", "PAH",
+    "OCP", "PBDE", "BTEX", "Benz",
+]
+ID_COLS = ["DOI", "Source", "SampleID", "StudyID", "ExperimentID"]
+BASE_COVARIATES = [
+    "Province", "City", "Region", "Latitude", "Longitude", "LandUse", "Pollution_Type",
+    "SamplingYear", "Year", "Country",
+]
+SOIL_COVARIATES = [
+    "pH_merged", "SoilpH", "pH", "OC_pct", "SOC", "BackgroundSOC", "SoilBD_gcm3",
+    "BD", "CEC_cmolkg", "CEC", "Sand_pct", "Silt_pct", "Clay_pct", "SandPerc",
+    "SiltPerc", "ClayPerc", "SoilTexture", "SoilType",
+]
+VIEW_ORDER = ["shared", "hm", "op", "hm_op", "risk", "production", "ecology"]
+
+
+def _sha(path: str) -> str:
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def _stable_uid(view: str, row: pd.Series) -> str:
+    parts = [
+        str(row.get("DOI", "")),
+        str(row.get("Source", "")),
+        str(row.get("SampleID", "")),
+===== Page 29 =====
+        str(row.get("_source_row_index", "")),
+    ]
+    digest = hashlib.sha1("|".join(parts).encode("utf-8")).hexdigest()[:16]
+    return f"{view}_{digest}"
+
+
+def pick_op_cols(cols: list[str], op_limit: int | None = None) -> list[str]:
+    out = []
+    for c in cols:
+        cs = str(c)
+        low = cs.lower()
+        if cs in HM_COLS:
+            continue
+        if not cs.endswith(("_ngg", "_mgkg", "_ugkg")):
+            continue
+        if any(p.lower() in low for p in OP_PATTERNS):
+            out.append(cs)
+    out = sorted(dict.fromkeys(out))
+    return out[:op_limit] if op_limit else out
+
+
+def _existing(df: pd.DataFrame, cols: list[str]) -> list[str]:
+    return [c for c in cols if c in df.columns]
+
+
+def _pollutants_for_view(view: str, df: pd.DataFrame, op_cols: list[str]) -> list[str]:
+    hm = _existing(df, HM_COLS)
+    if view == "shared":
+        return []
+    if view == "hm":
+        return hm
+    if view == "op":
+        return op_cols
+    return hm + op_cols
+
+
+def _filter_for_view(df: pd.DataFrame, view: str, pollutants: list[str]) -> pd.DataFrame:
+    if view == "shared":
+        return df.copy()
+    if not pollutants:
+        return df.iloc[0:0].copy()
+    return df.loc[df[pollutants].notna().any(axis=1)].copy()
+
+
+def _identity_and_covariate_data(sub: pd.DataFrame, view: str, source_sha256: str) -> dict:
+    data = {
+        "row_uid": [_stable_uid(view, row) for _, row in sub.iterrows()],
+        "dataset_view": view,
+        "source_dataset": "merged_std33",
+        "source_file_sha256": source_sha256,
+===== Page 30 =====
+        "is_synthetic": False,
+        "evidence_level": "MEASURED",
+        "simulation_batch_id": pd.NA,
+        "generation_rule_version": pd.NA,
+    }
+
+    for c in _existing(sub, ID_COLS):
+        data[f"id_{c}"] = sub[c].values
+    for c in _existing(sub, BASE_COVARIATES + SOIL_COVARIATES):
+        data[f"covariate_{c}"] = sub[c].values
+
+    province_source = sub["Province"] if "Province" in sub.columns else pd.Series([None] * len(sub), index=sub.index)
+    landuse_source = sub["LandUse"] if "LandUse" in sub.columns else pd.Series([None] * len(sub), index=sub.index)
+    pollution_source = sub["Pollution_Type"] if "Pollution_Type" in sub.columns else pd.Series([None] * len(sub), index=sub.index)
+    data["covariate_Province_std"] = [normalize_province(v) for v in province_source]
+    data["covariate_Region"] = [province_to_region(p) for p in data["covariate_Province_std"]]
+    data["covariate_LandUse_std"] = [normalize_landuse(v) for v in landuse_source]
+    data["covariate_Pollution_Type_std"] = [normalize_pollution_type(v) for v in pollution_source]
+    return data
+
+
+def build_view(df: pd.DataFrame, view: str, source_sha256: str,
+               op_cols: list[str] | None = None) -> pd.DataFrame:
+    """构建单个 model_ready 视图。"""
+    work = df.copy()
+    if "_source_row_index" not in work.columns:
+        work["_source_row_index"] = range(len(work))
+    op_cols = op_cols if op_cols is not None else pick_op_cols(work.columns.tolist())
+    pollutants = _pollutants_for_view(view, work, op_cols)
+    sub = _filter_for_view(work, view, pollutants)
+
+    data = _identity_and_covariate_data(sub, view, source_sha256)
+    for c in pollutants:
+        data[f"measured_{c}"] = sub[c].values
+        data[f"missing_{c}"] = sub[c].isna().astype(int).values
+
+    if view in ("risk", "production", "ecology"):
+        data[f"label_{view}_source"] = "DERIVED_PENDING_STANDARD_THRESHOLD_SERVICE"
+    return pd.DataFrame(data).reset_index(drop=True)
+
+
+def build_schema(views: dict[str, pd.DataFrame]) -> pd.DataFrame:
+    rows = []
+    for view, df in views.items():
+        for c in df.columns:
+            if c.startswith("id_") or c == "row_uid":
+                role = "id"
+            elif c.startswith("measured_"):
+                role = "measured"
+            elif c.startswith("missing_"):
