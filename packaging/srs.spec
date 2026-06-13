@@ -14,7 +14,7 @@ import os
 import sys
 from pathlib import Path
 
-PROJECT_ROOT = Path(os.path.dirname(os.path.abspath(__file__))).parent
+PROJECT_ROOT = Path('/Users/lensis/Claude/Projects/SRS')
 
 # ── 数据文件 ────────────────────────────────────────────────────
 added_files = []
