@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, Table, Tag, Input, Space, Button } from "antd";
+import { Card, Table, Tag, Input, Space, Button, message } from "antd";
 import { ReloadOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/client";
@@ -10,7 +10,7 @@ export default function TraceList() {
   const [data, setData] = useState<any>({ items: [] });
   const [loading, setLoading] = useState(true);
   const [q, setQ] = useState("");
-  const load = () => { setLoading(true); api.sites({ q, size: 100 }).then(setData).finally(() => setLoading(false)); };
+  const load = () => { setLoading(true); api.sites({ q, size: 100 }).then(setData).catch((err) => { message.error(err?.response?.data?.detail || "加载失败"); setData({ items: [] }); }).finally(() => setLoading(false)); };
   useEffect(() => { load(); }, []);
 
   return (

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Form, Input, Button, Card, message, Typography } from "antd";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/client";
@@ -7,7 +8,10 @@ export default function Login() {
   const nav = useNavigate();
   const { setSession } = useAuth();
 
+  const [submitting, setSubmitting] = useState(false);
+
   const onFinish = async (v: { username: string; password: string }) => {
+    setSubmitting(true);
     try {
       const r = await api.login(v.username, v.password);
       setSession(r.access_token, r.user);
@@ -15,6 +19,8 @@ export default function Login() {
       nav("/");
     } catch {
       message.error("用户名或密码错误");
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -32,7 +38,7 @@ export default function Login() {
           <Form.Item name="password" label="密码" rules={[{ required: true }]}>
             <Input.Password size="large" />
           </Form.Item>
-          <Button type="primary" htmlType="submit" size="large" block>登录</Button>
+          <Button type="primary" htmlType="submit" size="large" block loading={submitting}>登录</Button>
         </Form>
         <Typography.Paragraph type="secondary" style={{ marginTop: 12, fontSize: 12 }}>
           演示账号密码均为 Demo@2026；不同角色可见数据与权限不同。

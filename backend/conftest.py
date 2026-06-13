@@ -11,6 +11,10 @@ for p in (BACKEND,
           os.path.join(ROOT, "ml", "recommend")):
     if p not in sys.path:
         sys.path.insert(0, p)
+# packaging 加在末尾, 避免其 __init__.py 遮蔽 pip packaging 库 (shap 依赖)
+_pkg = os.path.join(ROOT, "packaging")
+if _pkg not in sys.path:
+    sys.path.append(_pkg)
 
 os.environ.setdefault("DATABASE_URL", "sqlite:///./srs_test.db")
 os.environ.setdefault("SECRET_KEY", "test_secret")
