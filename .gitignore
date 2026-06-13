@@ -50,6 +50,12 @@ data/model_ready/model_ready_ecology.csv
 # 验证临时产物
 **/*_scratch*
 .eval_tmp/
+backend/storage_extreme/
+backend/storage_extreme_after_fertility/
+backend/storage_extreme_after_fertility2/
+backend/storage_extreme_after_fertility3/
+validation_outputs/
+logs/
 
 # 系统
 .DS_Store
