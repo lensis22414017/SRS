@@ -51,6 +51,9 @@ class Settings(BaseSettings):
     ai_model: str = "Qwen/Qwen2.5-7B-Instruct"
     ai_timeout: int = 60
 
+    # 地图服务: 天地图 key 仅后端持有, 前端通过本地瓦片代理访问
+    tianditu_key: str = ""
+
     # 桌面模式: 检测到打包环境时自动启用
     is_packaged: bool = getattr(_sys, "frozen", False)
 

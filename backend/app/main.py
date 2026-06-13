@@ -16,6 +16,7 @@ from app.api.auth import router as auth_router
 from app.api.data import router as data_router
 from app.api.diagnosis import router as diagnosis_router
 from app.api.evaluation import router as evaluation_router
+from app.api.map import router as map_router
 from app.api.system import router as system_router
 from app.api.workflow import router as workflow_router
 from app.core.config import get_settings
@@ -50,6 +51,7 @@ app.include_router(auth_router)
 app.include_router(data_router)
 app.include_router(diagnosis_router)
 app.include_router(evaluation_router)
+app.include_router(map_router)
 app.include_router(workflow_router)
 app.include_router(system_router)
 app.include_router(ai_router)
@@ -74,8 +76,9 @@ def info():
 FRONTEND_DIST = os.path.abspath(os.path.join(os.path.dirname(__file__),
                                              "..", "..", "frontend", "dist"))
 if os.path.isdir(FRONTEND_DIST):
-    app.mount("/assets", StaticFiles(directory=os.path.join(FRONTEND_DIST, "assets")),
-              name="assets")
+    ASSETS_DIR = os.path.join(FRONTEND_DIST, "assets")
+    if os.path.isdir(ASSETS_DIR):
+        app.mount("/assets", StaticFiles(directory=ASSETS_DIR), name="assets")
 
     @app.get("/{full_path:path}")
     async def spa_fallback(full_path: str):

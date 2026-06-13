@@ -8,18 +8,27 @@ from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
 
 from app.core.config import get_settings
-from app.core.deps import get_current_user, require_permission
+from app.core.deps import assert_site_access, get_current_user, require_permission
 from app.db.session import get_db
-from app.models import FileObject, ReportRecord, User
+from app.models import FileObject, ReportRecord, Site, User
 from app.services import report_service, workflow_service
 from app.services.file_service import abs_path, save_upload
 
 router = APIRouter(prefix=get_settings().api_v1_prefix, tags=["workflow"])
 
 
+def _require_site(db: Session, user: User, site_id: int) -> Site:
+    site = db.get(Site, site_id)
+    if not site:
+        raise HTTPException(404, "场地不存在")
+    assert_site_access(db, user, site)
+    return site
+
+
 @router.post("/sites/{site_id}/workflow/init")
 def init_workflow(site_id: int, user: User = Depends(get_current_user),
                   db: Session = Depends(get_db)):
+    _require_site(db, user, site_id)
     try:
         workflow_service.init_stages(db, site_id)
     except ValueError as e:
@@ -30,12 +39,14 @@ def init_workflow(site_id: int, user: User = Depends(get_current_user),
 @router.get("/sites/{site_id}/workflow")
 def get_workflow(site_id: int, user: User = Depends(get_current_user),
                  db: Session = Depends(get_db)):
+    _require_site(db, user, site_id)
     return {"site_id": site_id, "stages": workflow_service.get_stages(db, site_id)}
 
 
 @router.post("/sites/{site_id}/workflow/{stage}")
 def update_workflow(site_id: int, stage: str, body: dict = Body(default={}),
                     user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    _require_site(db, user, site_id)
     try:
         stages = workflow_service.update_stage(db, site_id, stage, **body)
     except (ValueError, TypeError) as e:
@@ -48,6 +59,7 @@ async def upload_attachment(site_id: int, stage: str, file: UploadFile = File(..
                            file_role: str = Form(None),
                            user: User = Depends(get_current_user),
                            db: Session = Depends(get_db)):
+    _require_site(db, user, site_id)
     fo = save_upload(db, file.file, file.filename, file.content_type)
     db.commit()
     try:
@@ -63,6 +75,7 @@ def generate_report(site_id: int,
                     format: str = Query("pdf", pattern="^(pdf|docx|html)$"),
                     user: User = Depends(require_permission("report:generate")),
                     db: Session = Depends(get_db)):
+    _require_site(db, user, site_id)
     try:
         return report_service.generate(db, site_id, generated_by=user.id,
                                        report_format=format)
@@ -73,6 +86,7 @@ def generate_report(site_id: int,
 @router.get("/sites/{site_id}/reports")
 def list_reports(site_id: int, user: User = Depends(get_current_user),
                  db: Session = Depends(get_db)):
+    _require_site(db, user, site_id)
     rows = (db.query(ReportRecord).filter_by(site_id=site_id)
             .order_by(ReportRecord.id.desc()).all())
     return {"site_id": site_id, "items": [{
@@ -87,6 +101,7 @@ def download_report(report_id: int, user: User = Depends(require_permission("fil
     rec = db.get(ReportRecord, report_id)
     if not rec or not rec.file_object_id:
         raise HTTPException(404, "报告不存在")
+    _require_site(db, user, rec.site_id)
     fo = db.get(FileObject, rec.file_object_id)
     path = abs_path(fo.storage_key)
     if not os.path.exists(path):
