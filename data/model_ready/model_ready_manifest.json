@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-06-13T04:13:30.019663+00:00",
+  "source_file": "data/raw/merged_std33,zh .xlsx",
+  "source_file_sha256": "ce56e410d88248416074f7796ec61dfd7cf5563eace32f53049bdf0af1686357",
+  "views": {
+    "shared": {
+      "rows": 41504,
+      "columns": 35,
+      "measured_columns": 0,
+      "preserves_missing": true,
+      "path": "data/model_ready/model_ready_shared.csv"
+    },
+    "hm": {
+      "rows": 29993,
+      "columns": 51,
+      "measured_columns": 8,
+      "preserves_missing": true,
+      "path": "data/model_ready/model_ready_hm.csv"
+    },
+    "op": {
+      "rows": 10436,
+      "columns": 349,
+      "measured_columns": 157,
+      "preserves_missing": true,
+      "path": "data/model_ready/model_ready_op.csv"
+    },
+    "hm_op": {
+      "rows": 39062,
+      "columns": 365,
+      "measured_columns": 165,
+      "preserves_missing": true,
+      "path": "data/model_ready/model_ready_hm_op.csv"
+    },
+    "risk": {
+      "rows": 39062,
+      "columns": 366,
+      "measured_columns": 165,
+      "preserves_missing": true,
+      "path": "data/model_ready/model_ready_risk.csv"
+    },
+    "production": {
+      "rows": 39062,
+      "columns": 366,
+      "measured_columns": 165,
+      "preserves_missing": true,
+      "path": "data/model_ready/model_ready_production.csv"
+    },
+    "ecology": {
+      "rows": 39062,
+      "columns": 366,
+      "measured_columns": 165,
+      "preserves_missing": true,
+      "path": "data/model_ready/model_ready_ecology.csv"
+    }
+  },
+  "rules": [
+    "raw immutable",
+    "measured values keep NaN",
+    "missing indicators explicit",
+    "synthetic rows excluded from model_ready real views"
+  ]
+}

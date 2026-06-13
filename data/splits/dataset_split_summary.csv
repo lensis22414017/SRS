@@ -1,0 +1,9 @@
+﻿split,path,rows,is_synthetic,allowed_use
+valid_real_group_split,data/splits/valid_real_group_split.csv,5957,False,
+test_real_group_split,data/splits/test_real_group_split.csv,8855,False,
+external_literature_holdout,data/splits/external_literature_holdout.csv,5509,False,
+train_real,data/splits/train_real.csv,18741,False,
+synthetic_train_augmented,data/splits/synthetic_train_augmented.csv,2588,True,training_augmentation_only
+synthetic_stress_extreme,data/splits/synthetic_stress_extreme.csv,500,True,stress_test_only
+synthetic_scenario_benchmark_50sites,data/splits/synthetic_scenario_benchmark_50sites.csv,50,True,benchmark_demo_only
+report_demo_sites,data/splits/report_demo_sites.csv,6,True,report_demo_only

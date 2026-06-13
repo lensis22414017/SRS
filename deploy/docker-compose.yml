@@ -1,0 +1,43 @@
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-srs}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?must set in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-srs}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-srs}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  backend:
+    build:
+      context: ..
+      dockerfile: backend/Dockerfile
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-srs}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-srs}
+      REDIS_URL: redis://redis:6379/0
+      SECRET_KEY: ${SECRET_KEY:?must set in .env}
+      FILE_STORAGE_DIR: /app/storage
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    volumes:
+      - storage:/app/storage
+
+volumes:
+  pgdata:
+  storage:
+# 注: MVP 阶段未启用 PostGIS/MinIO (按裴总确认)。W2 如启用地图, 改用 postgis/postgis 镜像并加 GEOMETRY 列迁移。

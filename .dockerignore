@@ -1,0 +1,15 @@
+backend/.venv/
+backend/.pytest_cache/
+backend/__pycache__/
+backend/storage/
+backend/storage_extreme/
+backend/storage_extreme_rerun/
+frontend/node_modules/
+frontend/dist/
+validation_outputs/
+logs/
+**/__pycache__/
+**/.DS_Store
+*.db
+*.sqlite
+*.sqlite3

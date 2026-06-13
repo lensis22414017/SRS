@@ -1,0 +1,36 @@
+{
+  "_source": "(2025年)评价方法+年度报告.docx 表2.22 指标分等赋值表",
+  "_note": "结构化转录, 仅含 MVP 可计算指标。耕作类型默认旱地(dryland), 个旧为生产用地。数值禁止手改。",
+  "land_subtype_default": "dryland",
+  "production": {
+    "pH": {"type": "segments_value", "segments": [
+      {"cond": "<=5.0 或 >=9.0", "min": null, "max": 5.0, "or_min": 9.0, "or_max": null, "score": 20},
+      {"range": [5.0, 5.5], "alt_range": [8.5, 9.0], "score": 40},
+      {"range": [5.5, 6.0], "alt_range": [8.0, 8.5], "score": 60},
+      {"range": [6.0, 6.5], "alt_range": [7.5, 8.0], "score": 80},
+      {"range": [6.5, 7.5], "score": 100}
+    ]},
+    "全氮": {"type": "thresholds_asc", "unit": "g/kg",
+      "dryland": [[0.5, 10], [1.0, 50], [null, 100]]},
+    "有效磷": {"type": "thresholds_asc", "unit": "mg/kg",
+      "dryland": [[3.75, 10], [7.5, 50], [null, 100]]},
+    "速效钾": {"type": "thresholds_asc", "unit": "mg/kg",
+      "dryland": [[40, 10], [80, 50], [null, 100]]},
+    "土壤有机碳含量": {"type": "thresholds_asc", "unit": "g/kg",
+      "from_factor": "有机质", "soc_multiply": 0.58,
+      "dryland": [[3.5, 20], [5.8, 40], [11.6, 60], [17.4, 80], [23.2, 90], [null, 100]]},
+    "污染物": {"type": "pollutant_screen", "rule": "超管制值=10; 超筛选未超管制=50; 未超筛选=100; 无管制值时仅按50/100",
+      "applies_to": ["砷", "铅", "铜", "锌", "镉", "铬", "汞", "镍"]}
+  },
+  "ecology": {
+    "pH": {"type": "segments_value", "segments": [
+      {"cond": "<5.0 或 >8.5", "min": null, "max": 5.0, "or_min": 8.5, "or_max": null, "score": 50},
+      {"range": [5.0, 8.5], "score": 100}
+    ]},
+    "水解性氮": {"type": "band", "unit": "mg/kg", "ok_range": [40, 200], "in_score": 100, "out_score": 50},
+    "有效磷": {"type": "band", "unit": "mg/kg", "ok_range": [5, 60], "in_score": 100, "out_score": 50},
+    "速效钾": {"type": "band", "unit": "mg/kg", "ok_range": [60, 300], "in_score": 100, "out_score": 50},
+    "污染物": {"type": "pollutant_screen", "rule": "超第一类用地管制值=10; 超筛选未超管制=50; 未超筛选=100",
+      "applies_to": ["砷", "铅", "铜", "锌", "镉", "铬", "汞", "镍"]}
+  }
+}
