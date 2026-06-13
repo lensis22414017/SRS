@@ -66,3 +66,4 @@ logs/
 # 注: data/raw 原始数据本地留档, 是否纳入版本控制由裴总决定
 data/raw/真实数据集.csv
 data/raw/merged_std33,zh .xlsx
+dist/
