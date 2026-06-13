@@ -1,0 +1,62 @@
+# 环境与密钥
+.env
+*.env
+!deploy/.env.example
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.mypy_cache/
+.pytest_cache/
+
+# 数据库与存储
+*.db
+*.sqlite3
+backend/storage/
+storage/
+
+# 模型产物
+ml/artifacts/
+*.joblib
+
+# 前端
+node_modules/
+frontend/dist/
+*.local
+
+# 前端本地环境
+frontend/.env.local
+
+# 生成态大数据文件(可由脚本重建; 体积大不入库)
+# 保留小体积可复核产物: registry.json / summary.csv / *_schema.csv / docs
+data/splits/train_real.csv
+data/splits/valid_real_group_split.csv
+data/splits/test_real_group_split.csv
+data/splits/external_literature_holdout.csv
+data/splits/synthetic_*.csv
+data/splits/report_demo_sites.csv
+data/synthetic/*.csv
+data/model_ready/model_ready_hm.csv
+data/model_ready/model_ready_op.csv
+data/model_ready/model_ready_hm_op.csv
+data/model_ready/model_ready_shared.csv
+data/model_ready/model_ready_risk.csv
+data/model_ready/model_ready_production.csv
+data/model_ready/model_ready_ecology.csv
+
+# 验证临时产物
+**/*_scratch*
+.eval_tmp/
+
+# 系统
+.DS_Store
+
+# 参考文件 (甲方需求/预算文档, 不入代码仓库)
+参考文件*/
+
+# 注: data/raw 原始数据本地留档, 是否纳入版本控制由裴总决定
+data/raw/真实数据集.csv
+data/raw/merged_std33,zh .xlsx

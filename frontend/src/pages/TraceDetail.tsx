@@ -1,0 +1,132 @@
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import {
+  Card, Steps, Tag, Button, Space, Upload, Select, Modal, Input, message, Table, Descriptions, Spin,
+} from "antd";
+import { UploadOutlined, FileAddOutlined } from "@ant-design/icons";
+import { api } from "../api/client";
+import { seqCol, textCol } from "../utils/table";
+
+const STATUS: Record<string, { c: string; t: string; step: any }> = {
+  completed: { c: "green", t: "已完成", step: "finish" },
+  in_progress: { c: "blue", t: "进行中", step: "process" },
+  returned: { c: "red", t: "已退回", step: "error" },
+  not_started: { c: "default", t: "未开始", step: "wait" },
+};
+
+// 各阶段可上传的文件类型
+const FILE_ROLES: Record<string, string[]> = {
+  survey: ["场地调查报告", "检测数据", "障碍因子识别结果", "可行性分析结论"],
+  approval: ["重构方案", "审批意见", "修改记录", "最终通过版本"],
+  construction: ["施工方案", "监理方案", "施工进度记录", "材料使用台账"],
+  effect: ["效果检测数据", "效果评估报告", "达标结论"],
+  maintenance: ["管护方案", "定期监测数据", "功能维护记录"],
+};
+
+export default function TraceDetail() {
+  const { id } = useParams();
+  const sid = Number(id);
+  const nav = useNavigate();
+  const [site, setSite] = useState<any>(null);
+  const [stages, setStages] = useState<any[]>([]);
+  const [reports, setReports] = useState<any[]>([]);
+  const [busy, setBusy] = useState(false);
+  const [modal, setModal] = useState<{ stage: string; role: string } | null>(null);
+  const [comment, setComment] = useState("");
+
+  const load = async () => {
+    setSite(await api.site(sid));
+    const wf = await api.workflow(sid);
+    setStages(wf.stages || []);
+    setReports(await api.reports(sid).then((d) => d.items).catch(() => []));
+  };
+  useEffect(() => { load(); }, [sid]);
+
+  const init = async () => { setBusy(true); try { await api.initWorkflow(sid); message.success("已初始化五阶段"); await load(); } finally { setBusy(false); } };
+
+  const setStatus = async (stage: string, status: string) => {
+    setBusy(true);
+    try { await api.updateStage(sid, stage, { status, review_comment: comment || undefined, is_completed: status === "completed" }); message.success("已更新"); setComment(""); await load(); }
+    catch (e: any) { message.error(e?.response?.data?.detail || "更新失败"); }
+    finally { setBusy(false); }
+  };
+
+  const doUpload = async (file: File) => {
+    if (!modal) return false;
+    setBusy(true);
+    try { await api.uploadAttachment(sid, modal.stage, file, modal.role); message.success("上传成功"); setModal(null); await load(); }
+    catch (e: any) { message.error(e?.response?.data?.detail || "上传失败"); }
+    finally { setBusy(false); }
+    return false;
+  };
+
+  const genReport = async (format: "pdf" | "docx" = "pdf") => {
+    setBusy(true);
+    try { const r = await api.generateReport(sid, format); message.success(`${format.toUpperCase()} 报告 ${r.version} 已生成`); await load(); }
+    catch (e: any) { message.error(e?.response?.data?.detail || "生成失败(需 report:generate 权限)"); }
+    finally { setBusy(false); }
+  };
+
+  if (!site) return <Spin style={{ marginTop: 80 }} />;
+
+  return (
+    <Space direction="vertical" style={{ width: "100%" }} size={16}>
+      <Card title={`全流程追溯 — ${site.name}（${site.site_code}）`}
+        extra={<Space>
+          <Button onClick={() => nav("/trace")}>返回列表</Button>
+          {stages.length === 0 && <Button type="primary" loading={busy} onClick={init}>初始化五阶段</Button>}
+          <Button type="primary" loading={busy} onClick={() => genReport("pdf")}>生成 PDF 报告</Button>
+          <Button loading={busy} onClick={() => genReport("docx")}>生成 DOCX 报告</Button>
+        </Space>}>
+        {stages.length === 0 ? <span>尚未初始化五阶段，请点击右上角“初始化五阶段”。</span> : (
+          <Steps direction="vertical" current={-1}
+            items={stages.map((s) => ({
+              status: STATUS[s.status]?.step,
+              title: <Space>{s.stage_name}<Tag color={STATUS[s.status]?.c}>{STATUS[s.status]?.t}</Tag>
+                <span style={{ fontSize: 12, color: "#999" }}>版本{s.version}｜附件{s.n_attachments}</span></Space>,
+              description: (
+                <div style={{ marginTop: 6 }}>
+                  {s.review_comment && <div style={{ color: "#666", fontSize: 13 }}>意见：{s.review_comment}</div>}
+                  <Space wrap style={{ marginTop: 6 }}>
+                    <Button size="small" icon={<FileAddOutlined />} onClick={() => setModal({ stage: s.stage, role: FILE_ROLES[s.stage][0] })}>上传材料</Button>
+                    <Button size="small" onClick={() => setStatus(s.stage, "in_progress")}>标记进行中</Button>
+                    <Button size="small" type="primary" onClick={() => setStatus(s.stage, "completed")}>标记完成</Button>
+                    <Button size="small" danger onClick={() => setStatus(s.stage, "returned")}>退回</Button>
+                  </Space>
+                  {s.attachments?.length > 0 && (
+                    <div style={{ marginTop: 6 }}>{s.attachments.map((a: any) => <Tag key={a.id} color="blue">{a.file_role || "材料"}</Tag>)}</div>
+                  )}
+                </div>
+              ),
+            }))} />
+        )}
+      </Card>
+
+      {reports.length > 0 && (
+        <Card title="已生成报告">
+          <Table rowKey="report_id" size="small" pagination={false} dataSource={reports}
+            columns={[seqCol(64), textCol("版本", "version"), textCol("生成时间", "generated_at"),
+              { title: "格式", align: "center", render: (_: any, r: any) => (r.data_snapshot?.format || "pdf").toUpperCase() },
+              { title: "下载", align: "center", render: (_: any, r: any) => {
+                  const fmt = r.data_snapshot?.format || "pdf";
+                  return <a onClick={() => api.downloadReport(r.report_id, `追溯报告_${site.site_code}_${r.version}.${fmt}`)}>下载</a>;
+                } }]} />
+        </Card>
+      )}
+
+      <Modal open={!!modal} title={`上传材料 — ${modal ? stages.find(s => s.stage === modal.stage)?.stage_name : ""}`}
+        onCancel={() => setModal(null)} footer={null}>
+        {modal && (
+          <Space direction="vertical" style={{ width: "100%" }}>
+            <div>材料类型：<Select style={{ width: 240 }} value={modal.role}
+              onChange={(v) => setModal({ ...modal, role: v })}
+              options={FILE_ROLES[modal.stage].map((r) => ({ value: r, label: r }))} /></div>
+            <Upload beforeUpload={doUpload} maxCount={1} showUploadList={false}>
+              <Button icon={<UploadOutlined />} loading={busy}>选择文件上传（任意类型）</Button>
+            </Upload>
+          </Space>
+        )}
+      </Modal>
+    </Space>
+  );
+}

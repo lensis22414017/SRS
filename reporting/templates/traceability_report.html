@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<style>
+  @page { size: A4; margin: 1.8cm 1.5cm; }
+  body { font-family: STSong-Light, SimSun, serif; font-size: 10.5pt; color: #1f2937; line-height: 1.6; }
+  h1 { font-size: 18pt; color: #0f3d6e; text-align: center; margin-bottom: 2pt; }
+  .subtitle { text-align: center; color: #555; font-size: 10pt; margin-bottom: 14pt; }
+  h2 { font-size: 12.5pt; color: #0f3d6e; border-left: 4px solid #0f3d6e; padding-left: 6pt; margin-top: 16pt; }
+  table { width: 100%; border-collapse: collapse; margin-top: 6pt; }
+  th, td { border: 0.5pt solid #b8c4d0; padding: 4pt 6pt; font-size: 9.5pt; text-align: left; vertical-align: top; }
+  th { background: #eaf1f8; color: #0f3d6e; }
+  .kv td:first-child { background: #f5f8fb; width: 28%; color: #374151; }
+  .muted { color: #6b7280; font-size: 9pt; }
+  .badge { font-weight: bold; }
+  .ok { color: #15803d; } .bad { color: #b91c1c; } .warn { color: #b45309; }
+  .footer { margin-top: 18pt; border-top: 0.5pt solid #b8c4d0; padding-top: 6pt; color: #6b7280; font-size: 8.5pt; }
+  .cards td { border: none; padding: 3pt; }
+  .card { border: 0.5pt solid #c7d2e0; border-radius: 4pt; padding: 7pt; }
+  .card .label { font-size: 8.5pt; color: #64748b; }
+  .card .value { font-size: 13pt; font-weight: bold; margin-top: 2pt; }
+  .card-blue { background: #eef4fb; } .card-red { background: #fdecec; }
+  .card-green { background: #e9f7ee; } .card-amber { background: #fef3e2; }
+  .bar-wrap { background: #eef1f5; border-radius: 2pt; }
+  .bar { background: #0f3d6e; height: 9pt; border-radius: 2pt; }
+  .bar-red { background: #b91c1c; }
+</style>
+</head>
+<body>
+  <h1>污染场地全流程监管追溯报告</h1>
+  <div class="subtitle">{{ site.name }}（{{ site.site_code }}）｜报告版本 {{ report.version }}｜生成时间 {{ report.generated_at }}</div>
+
+  <table class="cards">
+    <tr>
+      <td style="width:25%"><div class="card card-blue">
+        <div class="label">采样点 / 检测记录</div>
+        <div class="value">{{ data_source.n_points }} / {{ data_source.n_measurements }}</div></div></td>
+      <td style="width:25%"><div class="card card-red">
+        <div class="label">超标提示项</div>
+        <div class="value">{{ validation.n_exceed }}</div>
+        <div class="label">{{ validation.exceed_factors|join('、') or '无' }}</div></div></td>
+      <td style="width:25%"><div class="card {{ 'card-red' if reconstruction and reconstruction[0].grade=='不可行' else 'card-green' }}">
+        <div class="label">生产 / 生态重构</div>
+        <div class="value">{% if reconstruction %}{{ reconstruction[0].grade }} / {{ reconstruction[1].grade if reconstruction|length>1 else '—' }}{% else %}—{% endif %}</div></div></td>
+      <td style="width:25%"><div class="card card-amber">
+        <div class="label">SSUI 可持续性</div>
+        <div class="value">{% if ssui %}{{ ssui.score }}{% else %}—{% endif %}</div>
+        <div class="label">{% if ssui %}{{ ssui.grade }}{% endif %}</div></div></td>
+    </tr>
+  </table>
+
+  <h2>一、场地基本信息</h2>
+  <table class="kv">
+    <tr><td>场地编号</td><td>{{ site.site_code }}</td></tr>
+    <tr><td>场地名称</td><td>{{ site.name }}</td></tr>
+    <tr><td>污染类型</td><td>{{ site.pollution_type or '—' }}</td></tr>
+    <tr><td>用地类型</td><td>{{ site.land_use_type or '—' }}</td></tr>
+    <tr><td>行政区划</td><td>{{ site.province or '' }} {{ site.city or '' }}</td></tr>
+    <tr><td>中心坐标</td><td>{{ site.longitude or '—' }}, {{ site.latitude or '—' }}</td></tr>
+  </table>
+
+  <h2>二、数据来源说明</h2>
+  <table class="kv">
+    <tr><td>来源文件</td><td>{{ data_source.source_file or '—' }}</td></tr>
+    <tr><td>导入批次</td><td>#{{ data_source.batch_id or '—' }}（{{ data_source.status or '—' }}）</td></tr>
+    <tr><td>采样点数</td><td>{{ data_source.n_points }}</td></tr>
+    <tr><td>检测记录数</td><td>{{ data_source.n_measurements }}</td></tr>
+    <tr><td>导入脚本版本</td><td>{{ data_source.script_version or '—' }}</td></tr>
+  </table>
+
+  <h2>三、数据覆盖率与缺失率摘要</h2>
+  <table class="kv">
+    <tr><td>实测因子数</td><td>{{ coverage.factor_count }}</td></tr>
+    <tr><td>实测单元格 / 理论单元格</td><td>{{ coverage.observed_cells }} / {{ coverage.expected_cells }}</td></tr>
+    <tr><td>数据覆盖率</td><td>{{ coverage.coverage_pct }}%</td></tr>
+    <tr><td>缺失率摘要</td><td>{{ coverage.missing_pct }}%（{{ coverage.note }}）</td></tr>
+  </table>
+
+  <h2>三、采样点信息（前 10 条）</h2>
+  <table>
+    <tr><th>采样点</th><th>区域</th><th>经度</th><th>纬度</th><th>深度(cm)</th><th>土壤类型</th></tr>
+    {% for p in sampling_points[:10] %}
+    <tr><td>{{ p.point_code }}</td><td>{{ p.region or '—' }}</td><td>{{ p.longitude or '—' }}</td>
+        <td>{{ p.latitude or '—' }}</td><td>{{ p.depth_top_cm or 0 }}-{{ p.depth_bottom_cm or 0 }}</td>
+        <td>{{ p.soil_type or '—' }}</td></tr>
+    {% endfor %}
+  </table>
+  <div class="muted">共 {{ sampling_points|length }} 个采样点，此处显示前 10 条。</div>
+
+  <h2>四、检测数据摘要（按因子）</h2>
+  <table>
+    <tr><th>因子</th><th>类别</th><th>样本数</th><th>最小值</th><th>均值</th><th>最大值</th><th>单位</th></tr>
+    {% for f in factor_summary %}
+    <tr><td>{{ f.factor }}</td><td>{{ f.category or '—' }}</td><td>{{ f.count }}</td>
+        <td>{{ f.min }}</td><td>{{ f.mean }}</td><td>{{ f.max }}</td><td>{{ f.unit or '—' }}</td></tr>
+    {% endfor %}
+  </table>
+
+  <h2>五、数据质量校验结果</h2>
+  <table class="kv">
+    <tr><td>校验结论</td><td><span class="badge {{ 'ok' if validation.passed else 'bad' }}">{{ '通过' if validation.passed else '存在阻断性错误' }}</span></td></tr>
+    <tr><td>错误 / 警告</td><td>{{ validation.n_errors }} / {{ validation.n_warnings }}</td></tr>
+    <tr><td>超标提示</td><td>{{ validation.n_exceed }} 项，涉及因子：{{ validation.exceed_factors|join('、') or '无' }}</td></tr>
+  </table>
+
+  <h2>六、关键障碍因子识别（RF + SHAP）</h2>
+  {% if diagnosis %}
+  <table class="kv">
+    <tr><td>模型</td><td>{{ diagnosis.model_name }} {{ diagnosis.model_version }}（AUC={{ diagnosis.metrics.auc }}, F1={{ diagnosis.metrics.f1 }}）</td></tr>
+    <tr><td>数据版本</td><td>{{ diagnosis.data_version }}</td></tr>
+  </table>
+  {% set maximp = diagnosis.top_factors|map(attribute='importance')|max %}
+  <table>
+    <tr><th>排名</th><th>障碍因子</th><th>类别</th><th>|SHAP| 相对重要性</th><th>方向</th></tr>
+    {% for t in diagnosis.top_factors %}
+    <tr><td>{{ t.rank }}</td><td>{{ t.factor }}</td><td>{{ t.category or '—' }}</td>
+        <td>
+          <table style="width:100%"><tr>
+            <td style="width:62%;border:none;padding:0">
+              <div class="bar-wrap"><div class="bar" style="width:{{ ((t.importance/maximp*100) if maximp else 0)|round|int }}%">&nbsp;</div></div>
+            </td>
+            <td style="width:38%;border:none;padding:0 0 0 4pt">{{ t.importance }}</td>
+          </tr></table>
+        </td>
+        <td>{{ t.direction }}</td></tr>
+    {% endfor %}
+  </table>
+  <div class="muted">{{ diagnosis.summary }}</div>
+  {% else %}<div class="muted">暂无诊断结果。</div>{% endif %}
+
+  <h2>七、功能重构可行性评价</h2>
+  {% for ev in reconstruction %}
+  <table class="kv">
+    <tr><td>{{ ev.title }}</td><td>综合得分 <span class="badge {{ 'ok' if ev.grade=='可行' else 'bad' }}">{{ ev.score }}（{{ ev.grade }}）</span></td></tr>
+    <tr><td>关键限制因子</td><td>{{ ev.limiting_factors|join('、') or '无' }}</td></tr>
+    <tr><td>说明</td><td class="muted">{{ ev.explanation }}</td></tr>
+  </table>
+  {% endfor %}
+
+  <h2>八、可持续利用评价（SSUI）</h2>
+  {% if ssui %}
+  <table class="kv">
+    <tr><td>SSUI 指数</td><td><span class="badge">{{ ssui.score }}</span>（{{ ssui.grade }}）</td></tr>
+    <tr><td>说明</td><td class="muted">{{ ssui.explanation }}</td></tr>
+  </table>
+  {% else %}<div class="muted">暂无 SSUI 结果。</div>{% endif %}
+
+  <h2>九、推荐重构方案与推荐修复方案矩阵</h2>
+  {% if recommendations %}
+  <table>
+    <tr><th>排序</th><th>技术</th><th>匹配度</th><th>成本/周期</th><th>禁用条件</th><th>推荐理由（摘要）</th></tr>
+    {% for r in recommendations %}
+    <tr><td>{{ r.rank }}</td><td>{{ r.technology }}</td><td>{{ r.match_score }}</td>
+        <td>{{ r.cost_level or '—' }} / {{ r.duration_level or '—' }}</td>
+        <td class="muted">{{ r.forbidden_conditions or '—' }}</td>
+        <td class="muted">{{ r.reason[:120] }}…</td></tr>
+    {% endfor %}
+  </table>
+  {% else %}<div class="muted">暂无推荐方案。</div>{% endif %}
+
+  <h2>十、修复案例证据库</h2>
+  {% if remediation_cases %}
+  <table>
+    <tr><th>案例</th><th>区域/用地</th><th>污染物</th><th>技术</th><th>效果</th><th>限制</th><th>证据来源</th></tr>
+    {% for c in remediation_cases %}
+    <tr><td>{{ c.case_id }}</td><td>{{ c.region or '—' }} / {{ c.land_use or '—' }}</td>
+        <td>{{ c.pollutants or '—' }}</td><td>{{ c.remediation_technology }}</td>
+        <td class="muted">{{ c.effectiveness or '—' }}</td>
+        <td class="muted">{{ c.limitation or '—' }}</td>
+        <td>{{ c.evidence_source or c.doi or '—' }}</td></tr>
+    {% endfor %}
+  </table>
+  {% else %}<div class="muted">暂无修复案例。</div>{% endif %}
+
+  <h2>十、五阶段全流程追溯记录</h2>
+  <table>
+    <tr><th>阶段</th><th>状态</th><th>版本</th><th>操作时间</th><th>审批意见</th><th>附件</th></tr>
+    {% for w in workflow %}
+    <tr><td>{{ w.stage_name }}</td><td>{{ w.status }}</td><td>{{ w.version or '—' }}</td>
+        <td>{{ w.operated_at or '—' }}</td><td>{{ w.review_comment or '—' }}</td><td>{{ w.n_attachments }}</td></tr>
+    {% endfor %}
+  </table>
+
+  <h2>十一、附件清单</h2>
+  {% if attachments %}
+  <table>
+    <tr><th>阶段</th><th>材料类型</th><th>文件名</th></tr>
+    {% for a in attachments %}
+    <tr><td>{{ a.stage_name }}</td><td>{{ a.file_role or '—' }}</td><td>{{ a.original_name }}</td></tr>
+    {% endfor %}
+  </table>
+  {% else %}<div class="muted">暂无附件。</div>{% endif %}
+
+  <h2>十二、操作日志摘要（最近 10 条）</h2>
+  <table>
+    <tr><th>时间</th><th>操作</th><th>对象</th><th>结果</th></tr>
+    {% for a in audit_logs %}
+    <tr><td>{{ a.created_at }}</td><td>{{ a.action }}</td><td>{{ a.resource_type or '—' }}#{{ a.resource_id or '' }}</td><td>{{ a.result }}</td></tr>
+    {% endfor %}
+  </table>
+
+  <h2>十三、模型版本、数据版本、标准版本、报告版本</h2>
+  <table class="kv">
+    <tr><td>模型版本</td><td>{% if diagnosis %}{{ diagnosis.model_name }} {{ diagnosis.model_version }}{% else %}—{% endif %}</td></tr>
+    <tr><td>数据版本</td><td>{{ report.data_version }}</td></tr>
+    <tr><td>标准版本</td><td>{{ report.standard_version }}</td></tr>
+    <tr><td>模板/报告版本</td><td>{{ report.template_version }} / {{ report.version }}</td></tr>
+  </table>
+  {% if standard_versions %}
+  <table>
+    <tr><th>标准号</th><th>标准名称</th><th>版本</th><th>来源</th></tr>
+    {% for s in standard_versions %}
+    <tr><td>{{ s.standard_code }}</td><td>{{ s.standard_name }}</td><td>{{ s.version }}</td><td>{{ s.source_reference }}</td></tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+
+  <div class="footer">
+    报告版本 {{ report.version }}｜模板 {{ report.template_version }}｜数据版本快照 {{ report.data_version }}｜
+    生成时间 {{ report.generated_at }}｜本报告由"污染场地土壤生态-生产功能重构监管系统"自动生成，结论基于上述实测数据与标注参数，可追溯、可重复生成。
+  </div>
+</body>
+</html>

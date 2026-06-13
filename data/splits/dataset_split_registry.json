@@ -1,0 +1,126 @@
+{
+  "generated_at": "2026-06-13T04:12:53.467674+00:00",
+  "source_real_csv": "data/model_ready/model_ready_hm_op.csv",
+  "seed": 42,
+  "splits": {
+    "valid_real_group_split": {
+      "path": "data/splits/valid_real_group_split.csv",
+      "rows": 5957,
+      "is_synthetic": false
+    },
+    "test_real_group_split": {
+      "path": "data/splits/test_real_group_split.csv",
+      "rows": 8855,
+      "is_synthetic": false
+    },
+    "external_literature_holdout": {
+      "path": "data/splits/external_literature_holdout.csv",
+      "rows": 5509,
+      "is_synthetic": false
+    },
+    "train_real": {
+      "path": "data/splits/train_real.csv",
+      "rows": 18741,
+      "is_synthetic": false
+    },
+    "synthetic_train_augmented": {
+      "path": "data/splits/synthetic_train_augmented.csv",
+      "rows": 2588,
+      "is_synthetic": true,
+      "allowed_use": "training_augmentation_only"
+    },
+    "synthetic_stress_extreme": {
+      "path": "data/splits/synthetic_stress_extreme.csv",
+      "rows": 500,
+      "is_synthetic": true,
+      "allowed_use": "stress_test_only"
+    },
+    "synthetic_scenario_benchmark_50sites": {
+      "path": "data/splits/synthetic_scenario_benchmark_50sites.csv",
+      "rows": 50,
+      "is_synthetic": true,
+      "allowed_use": "benchmark_demo_only"
+    },
+    "report_demo_sites": {
+      "path": "data/splits/report_demo_sites.csv",
+      "rows": 6,
+      "is_synthetic": true,
+      "allowed_use": "report_demo_only"
+    }
+  },
+  "leakage_checks": {
+    "train_real__vs__valid_real_group_split__id_DOI": {
+      "passed": true,
+      "overlap_count": 0,
+      "examples": []
+    },
+    "train_real__vs__valid_real_group_split__id_Source": {
+      "passed": true,
+      "overlap_count": 0,
+      "examples": []
+    },
+    "train_real__vs__test_real_group_split__id_DOI": {
+      "passed": true,
+      "overlap_count": 0,
+      "examples": []
+    },
+    "train_real__vs__test_real_group_split__id_Source": {
+      "passed": true,
+      "overlap_count": 0,
+      "examples": []
+    },
+    "train_real__vs__external_literature_holdout__id_DOI": {
+      "passed": true,
+      "overlap_count": 0,
+      "examples": []
+    },
+    "train_real__vs__external_literature_holdout__id_Source": {
+      "passed": true,
+      "overlap_count": 0,
+      "examples": []
+    },
+    "valid_real_group_split__vs__test_real_group_split__id_DOI": {
+      "passed": true,
+      "overlap_count": 0,
+      "examples": []
+    },
+    "valid_real_group_split__vs__test_real_group_split__id_Source": {
+      "passed": true,
+      "overlap_count": 0,
+      "examples": []
+    },
+    "valid_real_group_split__vs__external_literature_holdout__id_DOI": {
+      "passed": true,
+      "overlap_count": 0,
+      "examples": []
+    },
+    "valid_real_group_split__vs__external_literature_holdout__id_Source": {
+      "passed": true,
+      "overlap_count": 0,
+      "examples": []
+    },
+    "test_real_group_split__vs__external_literature_holdout__id_DOI": {
+      "passed": true,
+      "overlap_count": 0,
+      "examples": []
+    },
+    "test_real_group_split__vs__external_literature_holdout__id_Source": {
+      "passed": true,
+      "overlap_count": 0,
+      "examples": []
+    },
+    "synthetic_not_in_real": {
+      "passed": true,
+      "overlap_count": 0,
+      "examples": []
+    },
+    "all_passed": true
+  },
+  "grouping_strategy": "connected_components(DOI,Source) — 双键同时零跨集",
+  "rules": [
+    "real splits are generated before imputation/augmentation",
+    "synthetic datasets are excluded from valid_real/test_real/external_holdout",
+    "row-level random split is not a main validation split",
+    "DOI and Source both have zero cross-real-split overlap"
+  ]
+}

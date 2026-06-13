@@ -1,0 +1,26 @@
+{
+  "_note": "场地因子(factor_code, 中文) -> 训练特征列(真实数据集.csv)。缺失训练特征用训练集中位数填充并在结果中诚实标注 imputed_features。",
+  "factor_to_feature": {
+    "砷": "As(mg/kg)",
+    "铅": "Pb(mg/kg)",
+    "铜": "Cu(mg/kg)",
+    "锌": "Zn(mg/kg)",
+    "镉": "Cd(mg/kg)",
+    "铬": "Cr(mg/kg)",
+    "汞": "Hg(mg/kg)",
+    "镍": "Ni(mg/kg)",
+    "pH": "SoilpH",
+    "有机质": "BackgroundSOC",
+    "OCPs": "OCPs(mg/kg)",
+    "PAHs": "PAHs(mg/kg)",
+    "PCBs": "PCBs(mg/kg)",
+    "PAEs": "PAEs(mg/kg)"
+  },
+  "notes": {
+    "有机质": "BackgroundSOC 为有机碳, 有机质≈SOC×1.724, 转换在对齐时执行",
+    "铁(全量)/锰(全量)/全氮/全磷/全钾/水解性氮/有效磷/速效钾": "训练集中无对应特征, 不参与模型, 但保留在数据管理与评价模块"
+  },
+  "conversions": {
+    "有机质": {"to_feature_multiply": 0.58, "note": "有机质(g/kg) -> 有机碳: ×0.58 (Van Bemmelen 系数 1/1.724)"}
+  }
+}

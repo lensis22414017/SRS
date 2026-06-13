@@ -1,0 +1,1899 @@
+﻿view,column,role,evidence_level,include,missing_strategy,note
+shared,row_uid,id,MEASURED,Y,keep,
+shared,dataset_view,metadata,DERIVED,Y,keep,
+shared,source_dataset,metadata,DERIVED,Y,keep,
+shared,source_file_sha256,metadata,DERIVED,Y,keep,
+shared,is_synthetic,metadata,DERIVED,Y,keep,
+shared,evidence_level,metadata,DERIVED,Y,keep,
+shared,simulation_batch_id,metadata,DERIVED,Y,keep,
+shared,generation_rule_version,metadata,DERIVED,Y,keep,
+shared,id_DOI,id,MEASURED,Y,keep,
+shared,id_Source,id,MEASURED,Y,keep,
+shared,id_SampleID,id,MEASURED,Y,keep,
+shared,covariate_Province,covariate,MEASURED,Y,keep,
+shared,covariate_City,covariate,MEASURED,Y,keep,
+shared,covariate_Region,covariate,MEASURED,Y,keep,
+shared,covariate_Latitude,covariate,MEASURED,Y,keep,
+shared,covariate_Longitude,covariate,MEASURED,Y,keep,
+shared,covariate_LandUse,covariate,MEASURED,Y,keep,
+shared,covariate_Pollution_Type,covariate,MEASURED,Y,keep,
+shared,covariate_SamplingYear,covariate,MEASURED,Y,keep,
+shared,covariate_Year,covariate,MEASURED,Y,keep,
+shared,covariate_Country,covariate,MEASURED,Y,keep,
+shared,covariate_pH_merged,covariate,MEASURED,Y,keep,
+shared,covariate_SoilpH,covariate,MEASURED,Y,keep,
+shared,covariate_pH,covariate,MEASURED,Y,keep,
+shared,covariate_OC_pct,covariate,MEASURED,Y,keep,
+shared,covariate_SoilBD_gcm3,covariate,MEASURED,Y,keep,
+shared,covariate_CEC_cmolkg,covariate,MEASURED,Y,keep,
+shared,covariate_Sand_pct,covariate,MEASURED,Y,keep,
+shared,covariate_Silt_pct,covariate,MEASURED,Y,keep,
+shared,covariate_Clay_pct,covariate,MEASURED,Y,keep,
+shared,covariate_SoilTexture,covariate,MEASURED,Y,keep,
+shared,covariate_SoilType,covariate,MEASURED,Y,keep,
+shared,covariate_Province_std,covariate,MEASURED,Y,keep,
+shared,covariate_LandUse_std,covariate,MEASURED,Y,keep,
+shared,covariate_Pollution_Type_std,covariate,MEASURED,Y,keep,
+hm,row_uid,id,MEASURED,Y,keep,
+hm,dataset_view,metadata,DERIVED,Y,keep,
+hm,source_dataset,metadata,DERIVED,Y,keep,
+hm,source_file_sha256,metadata,DERIVED,Y,keep,
+hm,is_synthetic,metadata,DERIVED,Y,keep,
+hm,evidence_level,metadata,DERIVED,Y,keep,
+hm,simulation_batch_id,metadata,DERIVED,Y,keep,
+hm,generation_rule_version,metadata,DERIVED,Y,keep,
+hm,id_DOI,id,MEASURED,Y,keep,
+hm,id_Source,id,MEASURED,Y,keep,
+hm,id_SampleID,id,MEASURED,Y,keep,
+hm,covariate_Province,covariate,MEASURED,Y,keep,
+hm,covariate_City,covariate,MEASURED,Y,keep,
+hm,covariate_Region,covariate,MEASURED,Y,keep,
+hm,covariate_Latitude,covariate,MEASURED,Y,keep,
+hm,covariate_Longitude,covariate,MEASURED,Y,keep,
+hm,covariate_LandUse,covariate,MEASURED,Y,keep,
+hm,covariate_Pollution_Type,covariate,MEASURED,Y,keep,
+hm,covariate_SamplingYear,covariate,MEASURED,Y,keep,
+hm,covariate_Year,covariate,MEASURED,Y,keep,
+hm,covariate_Country,covariate,MEASURED,Y,keep,
+hm,covariate_pH_merged,covariate,MEASURED,Y,keep,
+hm,covariate_SoilpH,covariate,MEASURED,Y,keep,
+hm,covariate_pH,covariate,MEASURED,Y,keep,
+hm,covariate_OC_pct,covariate,MEASURED,Y,keep,
+hm,covariate_SoilBD_gcm3,covariate,MEASURED,Y,keep,
+hm,covariate_CEC_cmolkg,covariate,MEASURED,Y,keep,
+hm,covariate_Sand_pct,covariate,MEASURED,Y,keep,
+hm,covariate_Silt_pct,covariate,MEASURED,Y,keep,
+hm,covariate_Clay_pct,covariate,MEASURED,Y,keep,
+hm,covariate_SoilTexture,covariate,MEASURED,Y,keep,
+hm,covariate_SoilType,covariate,MEASURED,Y,keep,
+hm,covariate_Province_std,covariate,MEASURED,Y,keep,
+hm,covariate_LandUse_std,covariate,MEASURED,Y,keep,
+hm,covariate_Pollution_Type_std,covariate,MEASURED,Y,keep,
+hm,measured_Cd_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm,missing_Cd_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm,measured_Pb_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm,missing_Pb_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm,measured_As_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm,missing_As_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm,measured_Cu_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm,missing_Cu_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm,measured_Zn_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm,missing_Zn_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm,measured_Ni_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm,missing_Ni_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm,measured_Cr_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm,missing_Cr_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm,measured_Hg_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm,missing_Hg_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,row_uid,id,MEASURED,Y,keep,
+op,dataset_view,metadata,DERIVED,Y,keep,
+op,source_dataset,metadata,DERIVED,Y,keep,
+op,source_file_sha256,metadata,DERIVED,Y,keep,
+op,is_synthetic,metadata,DERIVED,Y,keep,
+op,evidence_level,metadata,DERIVED,Y,keep,
+op,simulation_batch_id,metadata,DERIVED,Y,keep,
+op,generation_rule_version,metadata,DERIVED,Y,keep,
+op,id_DOI,id,MEASURED,Y,keep,
+op,id_Source,id,MEASURED,Y,keep,
+op,id_SampleID,id,MEASURED,Y,keep,
+op,covariate_Province,covariate,MEASURED,Y,keep,
+op,covariate_City,covariate,MEASURED,Y,keep,
+op,covariate_Region,covariate,MEASURED,Y,keep,
+op,covariate_Latitude,covariate,MEASURED,Y,keep,
+op,covariate_Longitude,covariate,MEASURED,Y,keep,
+op,covariate_LandUse,covariate,MEASURED,Y,keep,
+op,covariate_Pollution_Type,covariate,MEASURED,Y,keep,
+op,covariate_SamplingYear,covariate,MEASURED,Y,keep,
+op,covariate_Year,covariate,MEASURED,Y,keep,
+op,covariate_Country,covariate,MEASURED,Y,keep,
+op,covariate_pH_merged,covariate,MEASURED,Y,keep,
+op,covariate_SoilpH,covariate,MEASURED,Y,keep,
+op,covariate_pH,covariate,MEASURED,Y,keep,
+op,covariate_OC_pct,covariate,MEASURED,Y,keep,
+op,covariate_SoilBD_gcm3,covariate,MEASURED,Y,keep,
+op,covariate_CEC_cmolkg,covariate,MEASURED,Y,keep,
+op,covariate_Sand_pct,covariate,MEASURED,Y,keep,
+op,covariate_Silt_pct,covariate,MEASURED,Y,keep,
+op,covariate_Clay_pct,covariate,MEASURED,Y,keep,
+op,covariate_SoilTexture,covariate,MEASURED,Y,keep,
+op,covariate_SoilType,covariate,MEASURED,Y,keep,
+op,covariate_Province_std,covariate,MEASURED,Y,keep,
+op,covariate_LandUse_std,covariate,MEASURED,Y,keep,
+op,covariate_Pollution_Type_std,covariate,MEASURED,Y,keep,
+op,measured_1-ClPyr_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_1-ClPyr_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_2MANT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_2MANT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,"measured_3,9-Cl2Phe_ngg",measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,"missing_3,9-Cl2Phe_ngg",missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_3-ClFlu_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_3-ClFlu_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_6-ClBaP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_6-ClBaP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_7-ClBaA_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_7-ClBaA_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_7MBaP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_7MBaP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_8-ClFlu_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_8-ClFlu_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,"measured_9,10-Cl2Ant_1,9-Cl2Phe_ngg",measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,"missing_9,10-Cl2Ant_1,9-Cl2Phe_ngg",missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,"measured_9,10-Cl2Phe_ngg",measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,"missing_9,10-Cl2Phe_ngg",missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_9-ClAnt_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_9-ClAnt_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_9-ClPhe_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_9-ClPhe_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_ANAPs_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_ANAPs_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_APHEs_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_APHEs_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_A_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_A_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Ant_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Ant_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Ant_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Ant_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_AntiDP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_AntiDP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_B_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_B_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_BaA_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_BaA_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_BaA_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_BaA_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_BaP_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_BaP_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_BaP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_BaP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_BaPeq_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_BaPeq_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Benz_a_anthracene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Benz_a_anthracene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Benz_a_pyrene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Benz_a_pyrene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Benz_b_fluoranthene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Benz_b_fluoranthene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Benz_e_pyrene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Benz_e_pyrene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Benz_ghi_perylene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Benz_ghi_perylene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Benz_k_fluoranthene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Benz_k_fluoranthene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Benzene_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Benzene_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_BghiP_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_BghiP_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_BghiP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_BghiP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_C10C40_TPH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_C10C40_TPH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_C1FLU_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_C1FLU_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_C1PYR_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_C1PYR_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_C5C10_TPH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_C5C10_TPH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Chlorpyrifos_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Chlorpyrifos_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Chr_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Chr_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Chr_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Chr_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_DDT_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_DDT_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_D_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_D_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_DichloroBiphenyl_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_DichloroBiphenyl_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Flu_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Flu_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Flu_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Flu_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_G_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_G_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_HCBD_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_HCBD_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_HCB_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_HCB_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_HCB_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_HCB_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_HMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_HMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_IcdP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_IcdP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_LMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_LMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_MMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_MMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Nap_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Nap_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Nap_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Nap_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_OCP_SumDDT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_OCP_SumDDT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_OCP_SumHCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_OCP_SumHCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PAH4_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PAH4_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PAHs_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PAHs_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PBDE209_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PBDE209_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB101_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB101_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB101_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB101_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB105_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB105_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB114_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB114_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB118_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB118_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB118_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB118_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB123_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB123_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB126_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB126_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB138_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB138_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB138_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB138_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB141_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB141_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB149_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB149_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB153_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB153_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB153_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB153_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB156_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB156_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB157_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB157_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB167_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB167_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB169_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB169_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB170_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB170_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB180_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB180_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB180_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB180_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB185_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB185_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB189_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB189_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB18_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB18_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB194_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB194_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB20_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB20_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB28_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB28_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB28_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB28_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB31_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB31_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB44_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB44_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB52_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB52_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB52_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB52_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB66_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB66_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB70_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB70_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB74_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB74_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB77_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB77_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB81_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB81_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB87_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB87_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB99_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB99_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PCB_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PCB_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PFOA_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PFOA_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_PFOS_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_PFOS_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Phe_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Phe_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Phe_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Phe_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Pyr_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Pyr_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Pyr_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Pyr_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_R_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_R_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Spiked_Phe_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Spiked_Phe_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Sum15PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Sum15PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Sum16PAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Sum16PAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Sum16PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Sum16PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Sum26alkylPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Sum26alkylPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Sum47PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Sum47PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Sum7PAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Sum7PAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Sum7PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Sum7PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumAPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumAPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumAntibiotics_QU_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumAntibiotics_QU_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumAntibiotics_SA_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumAntibiotics_SA_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumAntibiotics_TC_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumAntibiotics_TC_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumAntibiotics_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumAntibiotics_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumBPAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumBPAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumDDT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumDDT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumDDTs_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumDDTs_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumDDTs_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumDDTs_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumHCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumHCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumHCHs_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumHCHs_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumHCHs_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumHCHs_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumHMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumHMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumLMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumLMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumMMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumMMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumOCP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumOCP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumOPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumOPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumPBDE_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumPBDE_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumPBDE_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumPBDE_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumPCB_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumPCB_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumPCB_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumPCB_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Sum_PAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Sum_PAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Sum_PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Sum_PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Sum_PAH_range_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Sum_PAH_range_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Sum_PAH_range_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Sum_PAH_range_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Sum_PCB_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Sum_PCB_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_SumcPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_SumcPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_TPH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_TPH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_TPH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_TPH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_TPHs_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_TPHs_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_TotalOCP_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_TotalOCP_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_TotalPCB_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_TotalPCB_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_Tph_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_Tph_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_c_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_c_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_o_p_DDD_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_o_p_DDD_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_o_p_DDE_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_o_p_DDE_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_o_p_DDT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_o_p_DDT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_p_p_DDD_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_p_p_DDD_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_p_p_DDE_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_p_p_DDE_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,measured_p_p_DDT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+op,missing_p_p_DDT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,row_uid,id,MEASURED,Y,keep,
+hm_op,dataset_view,metadata,DERIVED,Y,keep,
+hm_op,source_dataset,metadata,DERIVED,Y,keep,
+hm_op,source_file_sha256,metadata,DERIVED,Y,keep,
+hm_op,is_synthetic,metadata,DERIVED,Y,keep,
+hm_op,evidence_level,metadata,DERIVED,Y,keep,
+hm_op,simulation_batch_id,metadata,DERIVED,Y,keep,
+hm_op,generation_rule_version,metadata,DERIVED,Y,keep,
+hm_op,id_DOI,id,MEASURED,Y,keep,
+hm_op,id_Source,id,MEASURED,Y,keep,
+hm_op,id_SampleID,id,MEASURED,Y,keep,
+hm_op,covariate_Province,covariate,MEASURED,Y,keep,
+hm_op,covariate_City,covariate,MEASURED,Y,keep,
+hm_op,covariate_Region,covariate,MEASURED,Y,keep,
+hm_op,covariate_Latitude,covariate,MEASURED,Y,keep,
+hm_op,covariate_Longitude,covariate,MEASURED,Y,keep,
+hm_op,covariate_LandUse,covariate,MEASURED,Y,keep,
+hm_op,covariate_Pollution_Type,covariate,MEASURED,Y,keep,
+hm_op,covariate_SamplingYear,covariate,MEASURED,Y,keep,
+hm_op,covariate_Year,covariate,MEASURED,Y,keep,
+hm_op,covariate_Country,covariate,MEASURED,Y,keep,
+hm_op,covariate_pH_merged,covariate,MEASURED,Y,keep,
+hm_op,covariate_SoilpH,covariate,MEASURED,Y,keep,
+hm_op,covariate_pH,covariate,MEASURED,Y,keep,
+hm_op,covariate_OC_pct,covariate,MEASURED,Y,keep,
+hm_op,covariate_SoilBD_gcm3,covariate,MEASURED,Y,keep,
+hm_op,covariate_CEC_cmolkg,covariate,MEASURED,Y,keep,
+hm_op,covariate_Sand_pct,covariate,MEASURED,Y,keep,
+hm_op,covariate_Silt_pct,covariate,MEASURED,Y,keep,
+hm_op,covariate_Clay_pct,covariate,MEASURED,Y,keep,
+hm_op,covariate_SoilTexture,covariate,MEASURED,Y,keep,
+hm_op,covariate_SoilType,covariate,MEASURED,Y,keep,
+hm_op,covariate_Province_std,covariate,MEASURED,Y,keep,
+hm_op,covariate_LandUse_std,covariate,MEASURED,Y,keep,
+hm_op,covariate_Pollution_Type_std,covariate,MEASURED,Y,keep,
+hm_op,measured_Cd_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Cd_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Pb_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Pb_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_As_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_As_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Cu_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Cu_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Zn_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Zn_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Ni_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Ni_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Cr_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Cr_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Hg_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Hg_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_1-ClPyr_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_1-ClPyr_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_2MANT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_2MANT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,"measured_3,9-Cl2Phe_ngg",measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,"missing_3,9-Cl2Phe_ngg",missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_3-ClFlu_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_3-ClFlu_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_6-ClBaP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_6-ClBaP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_7-ClBaA_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_7-ClBaA_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_7MBaP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_7MBaP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_8-ClFlu_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_8-ClFlu_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,"measured_9,10-Cl2Ant_1,9-Cl2Phe_ngg",measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,"missing_9,10-Cl2Ant_1,9-Cl2Phe_ngg",missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,"measured_9,10-Cl2Phe_ngg",measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,"missing_9,10-Cl2Phe_ngg",missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_9-ClAnt_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_9-ClAnt_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_9-ClPhe_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_9-ClPhe_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_ANAPs_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_ANAPs_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_APHEs_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_APHEs_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_A_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_A_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Ant_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Ant_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Ant_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Ant_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_AntiDP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_AntiDP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_B_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_B_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_BaA_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_BaA_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_BaA_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_BaA_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_BaP_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_BaP_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_BaP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_BaP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_BaPeq_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_BaPeq_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Benz_a_anthracene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Benz_a_anthracene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Benz_a_pyrene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Benz_a_pyrene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Benz_b_fluoranthene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Benz_b_fluoranthene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Benz_e_pyrene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Benz_e_pyrene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Benz_ghi_perylene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Benz_ghi_perylene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Benz_k_fluoranthene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Benz_k_fluoranthene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Benzene_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Benzene_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_BghiP_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_BghiP_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_BghiP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_BghiP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_C10C40_TPH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_C10C40_TPH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_C1FLU_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_C1FLU_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_C1PYR_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_C1PYR_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_C5C10_TPH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_C5C10_TPH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Chlorpyrifos_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Chlorpyrifos_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Chr_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Chr_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Chr_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Chr_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_DDT_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_DDT_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_D_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_D_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_DichloroBiphenyl_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_DichloroBiphenyl_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Flu_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Flu_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Flu_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Flu_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_G_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_G_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_HCBD_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_HCBD_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_HCB_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_HCB_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_HCB_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_HCB_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_HMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_HMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_IcdP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_IcdP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_LMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_LMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_MMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_MMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Nap_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Nap_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Nap_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Nap_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_OCP_SumDDT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_OCP_SumDDT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_OCP_SumHCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_OCP_SumHCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PAH4_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PAH4_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PAHs_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PAHs_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PBDE209_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PBDE209_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB101_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB101_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB101_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB101_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB105_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB105_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB114_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB114_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB118_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB118_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB118_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB118_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB123_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB123_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB126_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB126_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB138_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB138_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB138_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB138_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB141_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB141_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB149_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB149_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB153_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB153_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB153_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB153_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB156_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB156_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB157_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB157_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB167_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB167_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB169_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB169_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB170_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB170_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB180_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB180_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB180_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB180_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB185_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB185_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB189_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB189_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB18_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB18_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB194_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB194_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB20_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB20_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB28_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB28_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB28_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB28_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB31_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB31_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB44_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB44_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB52_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB52_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB52_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB52_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB66_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB66_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB70_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB70_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB74_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB74_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB77_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB77_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB81_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB81_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB87_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB87_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB99_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB99_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PCB_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PCB_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PFOA_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PFOA_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_PFOS_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_PFOS_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Phe_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Phe_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Phe_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Phe_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Pyr_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Pyr_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Pyr_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Pyr_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_R_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_R_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Spiked_Phe_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Spiked_Phe_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Sum15PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Sum15PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Sum16PAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Sum16PAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Sum16PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Sum16PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Sum26alkylPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Sum26alkylPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Sum47PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Sum47PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Sum7PAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Sum7PAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Sum7PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Sum7PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumAPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumAPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumAntibiotics_QU_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumAntibiotics_QU_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumAntibiotics_SA_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumAntibiotics_SA_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumAntibiotics_TC_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumAntibiotics_TC_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumAntibiotics_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumAntibiotics_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumBPAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumBPAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumDDT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumDDT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumDDTs_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumDDTs_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumDDTs_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumDDTs_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumHCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumHCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumHCHs_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumHCHs_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumHCHs_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumHCHs_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumHMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumHMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumLMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumLMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumMMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumMMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumOCP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumOCP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumOPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumOPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumPBDE_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumPBDE_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumPBDE_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumPBDE_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumPCB_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumPCB_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumPCB_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumPCB_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Sum_PAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Sum_PAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Sum_PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Sum_PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Sum_PAH_range_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Sum_PAH_range_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Sum_PAH_range_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Sum_PAH_range_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Sum_PCB_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Sum_PCB_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_SumcPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_SumcPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_TPH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_TPH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_TPH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_TPH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_TPHs_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_TPHs_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_TotalOCP_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_TotalOCP_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_TotalPCB_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_TotalPCB_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_Tph_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_Tph_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_c_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_c_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_o_p_DDD_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_o_p_DDD_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_o_p_DDE_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_o_p_DDE_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_o_p_DDT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_o_p_DDT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_p_p_DDD_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_p_p_DDD_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_p_p_DDE_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_p_p_DDE_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,measured_p_p_DDT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+hm_op,missing_p_p_DDT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,row_uid,id,MEASURED,Y,keep,
+risk,dataset_view,metadata,DERIVED,Y,keep,
+risk,source_dataset,metadata,DERIVED,Y,keep,
+risk,source_file_sha256,metadata,DERIVED,Y,keep,
+risk,is_synthetic,metadata,DERIVED,Y,keep,
+risk,evidence_level,metadata,DERIVED,Y,keep,
+risk,simulation_batch_id,metadata,DERIVED,Y,keep,
+risk,generation_rule_version,metadata,DERIVED,Y,keep,
+risk,id_DOI,id,MEASURED,Y,keep,
+risk,id_Source,id,MEASURED,Y,keep,
+risk,id_SampleID,id,MEASURED,Y,keep,
+risk,covariate_Province,covariate,MEASURED,Y,keep,
+risk,covariate_City,covariate,MEASURED,Y,keep,
+risk,covariate_Region,covariate,MEASURED,Y,keep,
+risk,covariate_Latitude,covariate,MEASURED,Y,keep,
+risk,covariate_Longitude,covariate,MEASURED,Y,keep,
+risk,covariate_LandUse,covariate,MEASURED,Y,keep,
+risk,covariate_Pollution_Type,covariate,MEASURED,Y,keep,
+risk,covariate_SamplingYear,covariate,MEASURED,Y,keep,
+risk,covariate_Year,covariate,MEASURED,Y,keep,
+risk,covariate_Country,covariate,MEASURED,Y,keep,
+risk,covariate_pH_merged,covariate,MEASURED,Y,keep,
+risk,covariate_SoilpH,covariate,MEASURED,Y,keep,
+risk,covariate_pH,covariate,MEASURED,Y,keep,
+risk,covariate_OC_pct,covariate,MEASURED,Y,keep,
+risk,covariate_SoilBD_gcm3,covariate,MEASURED,Y,keep,
+risk,covariate_CEC_cmolkg,covariate,MEASURED,Y,keep,
+risk,covariate_Sand_pct,covariate,MEASURED,Y,keep,
+risk,covariate_Silt_pct,covariate,MEASURED,Y,keep,
+risk,covariate_Clay_pct,covariate,MEASURED,Y,keep,
+risk,covariate_SoilTexture,covariate,MEASURED,Y,keep,
+risk,covariate_SoilType,covariate,MEASURED,Y,keep,
+risk,covariate_Province_std,covariate,MEASURED,Y,keep,
+risk,covariate_LandUse_std,covariate,MEASURED,Y,keep,
+risk,covariate_Pollution_Type_std,covariate,MEASURED,Y,keep,
+risk,measured_Cd_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Cd_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Pb_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Pb_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_As_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_As_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Cu_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Cu_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Zn_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Zn_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Ni_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Ni_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Cr_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Cr_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Hg_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Hg_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_1-ClPyr_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_1-ClPyr_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_2MANT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_2MANT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,"measured_3,9-Cl2Phe_ngg",measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,"missing_3,9-Cl2Phe_ngg",missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_3-ClFlu_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_3-ClFlu_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_6-ClBaP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_6-ClBaP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_7-ClBaA_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_7-ClBaA_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_7MBaP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_7MBaP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_8-ClFlu_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_8-ClFlu_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,"measured_9,10-Cl2Ant_1,9-Cl2Phe_ngg",measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,"missing_9,10-Cl2Ant_1,9-Cl2Phe_ngg",missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,"measured_9,10-Cl2Phe_ngg",measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,"missing_9,10-Cl2Phe_ngg",missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_9-ClAnt_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_9-ClAnt_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_9-ClPhe_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_9-ClPhe_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_ANAPs_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_ANAPs_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_APHEs_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_APHEs_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_A_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_A_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Ant_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Ant_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Ant_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Ant_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_AntiDP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_AntiDP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_B_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_B_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_BaA_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_BaA_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_BaA_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_BaA_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_BaP_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_BaP_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_BaP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_BaP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_BaPeq_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_BaPeq_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Benz_a_anthracene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Benz_a_anthracene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Benz_a_pyrene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Benz_a_pyrene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Benz_b_fluoranthene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Benz_b_fluoranthene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Benz_e_pyrene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Benz_e_pyrene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Benz_ghi_perylene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Benz_ghi_perylene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Benz_k_fluoranthene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Benz_k_fluoranthene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Benzene_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Benzene_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_BghiP_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_BghiP_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_BghiP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_BghiP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_C10C40_TPH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_C10C40_TPH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_C1FLU_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_C1FLU_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_C1PYR_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_C1PYR_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_C5C10_TPH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_C5C10_TPH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Chlorpyrifos_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Chlorpyrifos_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Chr_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Chr_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Chr_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Chr_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_DDT_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_DDT_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_D_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_D_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_DichloroBiphenyl_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_DichloroBiphenyl_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Flu_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Flu_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Flu_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Flu_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_G_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_G_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_HCBD_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_HCBD_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_HCB_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_HCB_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_HCB_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_HCB_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_HMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_HMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_IcdP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_IcdP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_LMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_LMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_MMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_MMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Nap_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Nap_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Nap_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Nap_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_OCP_SumDDT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_OCP_SumDDT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_OCP_SumHCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_OCP_SumHCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PAH4_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PAH4_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PAHs_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PAHs_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PBDE209_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PBDE209_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB101_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB101_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB101_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB101_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB105_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB105_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB114_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB114_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB118_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB118_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB118_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB118_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB123_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB123_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB126_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB126_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB138_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB138_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB138_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB138_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB141_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB141_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB149_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB149_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB153_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB153_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB153_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB153_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB156_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB156_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB157_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB157_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB167_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB167_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB169_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB169_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB170_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB170_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB180_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB180_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB180_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB180_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB185_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB185_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB189_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB189_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB18_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB18_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB194_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB194_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB20_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB20_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB28_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB28_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB28_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB28_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB31_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB31_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB44_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB44_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB52_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB52_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB52_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB52_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB66_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB66_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB70_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB70_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB74_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB74_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB77_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB77_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB81_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB81_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB87_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB87_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB99_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB99_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PCB_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PCB_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PFOA_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PFOA_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_PFOS_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_PFOS_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Phe_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Phe_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Phe_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Phe_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Pyr_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Pyr_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Pyr_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Pyr_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_R_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_R_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Spiked_Phe_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Spiked_Phe_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Sum15PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Sum15PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Sum16PAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Sum16PAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Sum16PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Sum16PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Sum26alkylPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Sum26alkylPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Sum47PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Sum47PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Sum7PAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Sum7PAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Sum7PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Sum7PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumAPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumAPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumAntibiotics_QU_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumAntibiotics_QU_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumAntibiotics_SA_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumAntibiotics_SA_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumAntibiotics_TC_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumAntibiotics_TC_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumAntibiotics_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumAntibiotics_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumBPAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumBPAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumDDT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumDDT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumDDTs_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumDDTs_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumDDTs_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumDDTs_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumHCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumHCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumHCHs_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumHCHs_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumHCHs_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumHCHs_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumHMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumHMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumLMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumLMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumMMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumMMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumOCP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumOCP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumOPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumOPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumPBDE_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumPBDE_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumPBDE_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumPBDE_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumPCB_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumPCB_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumPCB_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumPCB_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Sum_PAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Sum_PAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Sum_PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Sum_PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Sum_PAH_range_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Sum_PAH_range_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Sum_PAH_range_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Sum_PAH_range_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Sum_PCB_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Sum_PCB_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_SumcPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_SumcPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_TPH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_TPH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_TPH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_TPH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_TPHs_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_TPHs_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_TotalOCP_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_TotalOCP_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_TotalPCB_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_TotalPCB_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_Tph_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_Tph_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_c_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_c_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_o_p_DDD_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_o_p_DDD_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_o_p_DDE_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_o_p_DDE_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_o_p_DDT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_o_p_DDT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_p_p_DDD_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_p_p_DDD_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_p_p_DDE_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_p_p_DDE_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,measured_p_p_DDT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,missing_p_p_DDT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+risk,label_risk_source,label,DERIVED,Y,compute_later,
+production,row_uid,id,MEASURED,Y,keep,
+production,dataset_view,metadata,DERIVED,Y,keep,
+production,source_dataset,metadata,DERIVED,Y,keep,
+production,source_file_sha256,metadata,DERIVED,Y,keep,
+production,is_synthetic,metadata,DERIVED,Y,keep,
+production,evidence_level,metadata,DERIVED,Y,keep,
+production,simulation_batch_id,metadata,DERIVED,Y,keep,
+production,generation_rule_version,metadata,DERIVED,Y,keep,
+production,id_DOI,id,MEASURED,Y,keep,
+production,id_Source,id,MEASURED,Y,keep,
+production,id_SampleID,id,MEASURED,Y,keep,
+production,covariate_Province,covariate,MEASURED,Y,keep,
+production,covariate_City,covariate,MEASURED,Y,keep,
+production,covariate_Region,covariate,MEASURED,Y,keep,
+production,covariate_Latitude,covariate,MEASURED,Y,keep,
+production,covariate_Longitude,covariate,MEASURED,Y,keep,
+production,covariate_LandUse,covariate,MEASURED,Y,keep,
+production,covariate_Pollution_Type,covariate,MEASURED,Y,keep,
+production,covariate_SamplingYear,covariate,MEASURED,Y,keep,
+production,covariate_Year,covariate,MEASURED,Y,keep,
+production,covariate_Country,covariate,MEASURED,Y,keep,
+production,covariate_pH_merged,covariate,MEASURED,Y,keep,
+production,covariate_SoilpH,covariate,MEASURED,Y,keep,
+production,covariate_pH,covariate,MEASURED,Y,keep,
+production,covariate_OC_pct,covariate,MEASURED,Y,keep,
+production,covariate_SoilBD_gcm3,covariate,MEASURED,Y,keep,
+production,covariate_CEC_cmolkg,covariate,MEASURED,Y,keep,
+production,covariate_Sand_pct,covariate,MEASURED,Y,keep,
+production,covariate_Silt_pct,covariate,MEASURED,Y,keep,
+production,covariate_Clay_pct,covariate,MEASURED,Y,keep,
+production,covariate_SoilTexture,covariate,MEASURED,Y,keep,
+production,covariate_SoilType,covariate,MEASURED,Y,keep,
+production,covariate_Province_std,covariate,MEASURED,Y,keep,
+production,covariate_LandUse_std,covariate,MEASURED,Y,keep,
+production,covariate_Pollution_Type_std,covariate,MEASURED,Y,keep,
+production,measured_Cd_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Cd_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Pb_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Pb_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_As_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_As_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Cu_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Cu_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Zn_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Zn_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Ni_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Ni_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Cr_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Cr_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Hg_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Hg_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_1-ClPyr_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_1-ClPyr_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_2MANT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_2MANT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,"measured_3,9-Cl2Phe_ngg",measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,"missing_3,9-Cl2Phe_ngg",missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_3-ClFlu_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_3-ClFlu_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_6-ClBaP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_6-ClBaP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_7-ClBaA_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_7-ClBaA_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_7MBaP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_7MBaP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_8-ClFlu_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_8-ClFlu_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,"measured_9,10-Cl2Ant_1,9-Cl2Phe_ngg",measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,"missing_9,10-Cl2Ant_1,9-Cl2Phe_ngg",missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,"measured_9,10-Cl2Phe_ngg",measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,"missing_9,10-Cl2Phe_ngg",missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_9-ClAnt_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_9-ClAnt_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_9-ClPhe_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_9-ClPhe_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_ANAPs_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_ANAPs_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_APHEs_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_APHEs_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_A_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_A_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Ant_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Ant_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Ant_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Ant_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_AntiDP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_AntiDP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_B_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_B_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_BaA_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_BaA_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_BaA_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_BaA_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_BaP_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_BaP_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_BaP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_BaP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_BaPeq_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_BaPeq_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Benz_a_anthracene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Benz_a_anthracene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Benz_a_pyrene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Benz_a_pyrene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Benz_b_fluoranthene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Benz_b_fluoranthene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Benz_e_pyrene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Benz_e_pyrene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Benz_ghi_perylene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Benz_ghi_perylene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Benz_k_fluoranthene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Benz_k_fluoranthene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Benzene_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Benzene_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_BghiP_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_BghiP_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_BghiP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_BghiP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_C10C40_TPH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_C10C40_TPH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_C1FLU_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_C1FLU_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_C1PYR_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_C1PYR_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_C5C10_TPH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_C5C10_TPH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Chlorpyrifos_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Chlorpyrifos_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Chr_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Chr_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Chr_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Chr_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_DDT_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_DDT_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_D_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_D_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_DichloroBiphenyl_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_DichloroBiphenyl_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Flu_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Flu_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Flu_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Flu_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_G_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_G_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_HCBD_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_HCBD_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_HCB_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_HCB_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_HCB_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_HCB_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_HMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_HMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_IcdP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_IcdP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_LMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_LMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_MMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_MMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Nap_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Nap_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Nap_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Nap_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_OCP_SumDDT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_OCP_SumDDT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_OCP_SumHCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_OCP_SumHCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PAH4_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PAH4_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PAHs_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PAHs_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PBDE209_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PBDE209_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB101_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB101_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB101_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB101_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB105_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB105_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB114_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB114_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB118_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB118_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB118_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB118_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB123_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB123_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB126_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB126_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB138_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB138_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB138_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB138_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB141_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB141_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB149_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB149_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB153_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB153_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB153_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB153_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB156_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB156_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB157_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB157_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB167_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB167_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB169_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB169_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB170_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB170_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB180_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB180_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB180_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB180_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB185_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB185_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB189_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB189_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB18_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB18_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB194_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB194_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB20_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB20_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB28_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB28_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB28_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB28_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB31_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB31_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB44_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB44_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB52_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB52_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB52_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB52_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB66_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB66_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB70_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB70_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB74_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB74_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB77_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB77_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB81_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB81_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB87_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB87_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB99_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB99_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PCB_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PCB_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PFOA_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PFOA_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_PFOS_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_PFOS_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Phe_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Phe_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Phe_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Phe_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Pyr_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Pyr_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Pyr_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Pyr_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_R_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_R_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Spiked_Phe_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Spiked_Phe_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Sum15PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Sum15PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Sum16PAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Sum16PAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Sum16PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Sum16PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Sum26alkylPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Sum26alkylPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Sum47PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Sum47PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Sum7PAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Sum7PAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Sum7PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Sum7PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumAPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumAPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumAntibiotics_QU_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumAntibiotics_QU_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumAntibiotics_SA_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumAntibiotics_SA_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumAntibiotics_TC_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumAntibiotics_TC_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumAntibiotics_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumAntibiotics_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumBPAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumBPAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumDDT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumDDT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumDDTs_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumDDTs_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumDDTs_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumDDTs_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumHCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumHCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumHCHs_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumHCHs_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumHCHs_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumHCHs_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumHMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumHMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumLMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumLMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumMMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumMMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumOCP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumOCP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumOPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumOPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumPBDE_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumPBDE_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumPBDE_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumPBDE_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumPCB_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumPCB_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumPCB_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumPCB_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Sum_PAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Sum_PAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Sum_PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Sum_PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Sum_PAH_range_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Sum_PAH_range_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Sum_PAH_range_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Sum_PAH_range_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Sum_PCB_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Sum_PCB_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_SumcPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_SumcPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_TPH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_TPH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_TPH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_TPH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_TPHs_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_TPHs_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_TotalOCP_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_TotalOCP_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_TotalPCB_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_TotalPCB_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_Tph_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_Tph_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_c_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_c_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_o_p_DDD_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_o_p_DDD_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_o_p_DDE_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_o_p_DDE_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_o_p_DDT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_o_p_DDT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_p_p_DDD_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_p_p_DDD_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_p_p_DDE_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_p_p_DDE_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,measured_p_p_DDT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,missing_p_p_DDT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+production,label_production_source,label,DERIVED,Y,compute_later,
+ecology,row_uid,id,MEASURED,Y,keep,
+ecology,dataset_view,metadata,DERIVED,Y,keep,
+ecology,source_dataset,metadata,DERIVED,Y,keep,
+ecology,source_file_sha256,metadata,DERIVED,Y,keep,
+ecology,is_synthetic,metadata,DERIVED,Y,keep,
+ecology,evidence_level,metadata,DERIVED,Y,keep,
+ecology,simulation_batch_id,metadata,DERIVED,Y,keep,
+ecology,generation_rule_version,metadata,DERIVED,Y,keep,
+ecology,id_DOI,id,MEASURED,Y,keep,
+ecology,id_Source,id,MEASURED,Y,keep,
+ecology,id_SampleID,id,MEASURED,Y,keep,
+ecology,covariate_Province,covariate,MEASURED,Y,keep,
+ecology,covariate_City,covariate,MEASURED,Y,keep,
+ecology,covariate_Region,covariate,MEASURED,Y,keep,
+ecology,covariate_Latitude,covariate,MEASURED,Y,keep,
+ecology,covariate_Longitude,covariate,MEASURED,Y,keep,
+ecology,covariate_LandUse,covariate,MEASURED,Y,keep,
+ecology,covariate_Pollution_Type,covariate,MEASURED,Y,keep,
+ecology,covariate_SamplingYear,covariate,MEASURED,Y,keep,
+ecology,covariate_Year,covariate,MEASURED,Y,keep,
+ecology,covariate_Country,covariate,MEASURED,Y,keep,
+ecology,covariate_pH_merged,covariate,MEASURED,Y,keep,
+ecology,covariate_SoilpH,covariate,MEASURED,Y,keep,
+ecology,covariate_pH,covariate,MEASURED,Y,keep,
+ecology,covariate_OC_pct,covariate,MEASURED,Y,keep,
+ecology,covariate_SoilBD_gcm3,covariate,MEASURED,Y,keep,
+ecology,covariate_CEC_cmolkg,covariate,MEASURED,Y,keep,
+ecology,covariate_Sand_pct,covariate,MEASURED,Y,keep,
+ecology,covariate_Silt_pct,covariate,MEASURED,Y,keep,
+ecology,covariate_Clay_pct,covariate,MEASURED,Y,keep,
+ecology,covariate_SoilTexture,covariate,MEASURED,Y,keep,
+ecology,covariate_SoilType,covariate,MEASURED,Y,keep,
+ecology,covariate_Province_std,covariate,MEASURED,Y,keep,
+ecology,covariate_LandUse_std,covariate,MEASURED,Y,keep,
+ecology,covariate_Pollution_Type_std,covariate,MEASURED,Y,keep,
+ecology,measured_Cd_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Cd_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Pb_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Pb_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_As_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_As_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Cu_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Cu_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Zn_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Zn_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Ni_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Ni_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Cr_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Cr_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Hg_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Hg_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_1-ClPyr_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_1-ClPyr_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_2MANT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_2MANT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,"measured_3,9-Cl2Phe_ngg",measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,"missing_3,9-Cl2Phe_ngg",missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_3-ClFlu_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_3-ClFlu_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_6-ClBaP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_6-ClBaP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_7-ClBaA_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_7-ClBaA_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_7MBaP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_7MBaP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_8-ClFlu_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_8-ClFlu_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,"measured_9,10-Cl2Ant_1,9-Cl2Phe_ngg",measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,"missing_9,10-Cl2Ant_1,9-Cl2Phe_ngg",missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,"measured_9,10-Cl2Phe_ngg",measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,"missing_9,10-Cl2Phe_ngg",missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_9-ClAnt_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_9-ClAnt_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_9-ClPhe_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_9-ClPhe_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_ANAPs_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_ANAPs_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_APHEs_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_APHEs_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_A_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_A_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Ant_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Ant_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Ant_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Ant_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_AntiDP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_AntiDP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_B_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_B_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_BaA_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_BaA_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_BaA_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_BaA_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_BaP_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_BaP_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_BaP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_BaP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_BaPeq_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_BaPeq_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Benz_a_anthracene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Benz_a_anthracene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Benz_a_pyrene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Benz_a_pyrene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Benz_b_fluoranthene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Benz_b_fluoranthene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Benz_e_pyrene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Benz_e_pyrene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Benz_ghi_perylene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Benz_ghi_perylene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Benz_k_fluoranthene_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Benz_k_fluoranthene_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Benzene_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Benzene_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_BghiP_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_BghiP_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_BghiP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_BghiP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_C10C40_TPH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_C10C40_TPH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_C1FLU_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_C1FLU_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_C1PYR_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_C1PYR_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_C5C10_TPH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_C5C10_TPH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Chlorpyrifos_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Chlorpyrifos_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Chr_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Chr_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Chr_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Chr_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_DDT_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_DDT_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_D_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_D_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_DichloroBiphenyl_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_DichloroBiphenyl_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Flu_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Flu_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Flu_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Flu_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_G_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_G_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_HCBD_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_HCBD_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_HCB_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_HCB_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_HCB_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_HCB_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_HMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_HMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_IcdP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_IcdP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_LMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_LMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_MMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_MMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Nap_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Nap_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Nap_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Nap_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_OCP_SumDDT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_OCP_SumDDT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_OCP_SumHCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_OCP_SumHCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PAH4_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PAH4_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PAHs_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PAHs_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PBDE209_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PBDE209_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB101_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB101_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB101_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB101_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB105_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB105_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB114_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB114_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB118_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB118_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB118_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB118_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB123_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB123_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB126_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB126_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB138_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB138_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB138_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB138_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB141_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB141_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB149_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB149_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB153_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB153_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB153_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB153_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB156_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB156_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB157_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB157_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB167_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB167_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB169_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB169_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB170_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB170_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB180_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB180_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB180_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB180_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB185_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB185_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB189_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB189_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB18_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB18_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB194_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB194_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB20_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB20_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB28_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB28_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB28_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB28_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB31_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB31_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB44_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB44_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB52_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB52_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB52_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB52_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB66_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB66_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB70_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB70_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB74_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB74_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB77_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB77_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB81_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB81_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB87_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB87_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB99_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB99_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PCB_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PCB_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PFOA_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PFOA_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_PFOS_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_PFOS_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Phe_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Phe_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Phe_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Phe_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Pyr_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Pyr_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Pyr_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Pyr_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_R_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_R_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Spiked_Phe_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Spiked_Phe_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Sum15PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Sum15PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Sum16PAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Sum16PAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Sum16PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Sum16PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Sum26alkylPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Sum26alkylPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Sum47PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Sum47PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Sum7PAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Sum7PAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Sum7PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Sum7PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumAPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumAPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumAntibiotics_QU_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumAntibiotics_QU_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumAntibiotics_SA_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumAntibiotics_SA_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumAntibiotics_TC_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumAntibiotics_TC_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumAntibiotics_ugkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumAntibiotics_ugkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumBPAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumBPAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumDDT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumDDT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumDDTs_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumDDTs_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumDDTs_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumDDTs_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumHCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumHCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumHCHs_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumHCHs_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumHCHs_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumHCHs_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumHMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumHMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumLMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumLMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumMMWPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumMMWPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumOCP_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumOCP_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumOPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumOPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumPBDE_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumPBDE_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumPBDE_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumPBDE_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumPCB_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumPCB_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumPCB_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumPCB_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Sum_PAH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Sum_PAH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Sum_PAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Sum_PAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Sum_PAH_range_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Sum_PAH_range_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Sum_PAH_range_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Sum_PAH_range_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Sum_PCB_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Sum_PCB_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_SumcPAH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_SumcPAH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_TPH_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_TPH_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_TPH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_TPH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_TPHs_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_TPHs_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_TotalOCP_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_TotalOCP_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_TotalPCB_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_TotalPCB_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_Tph_mgkg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_Tph_mgkg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_c_HCH_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_c_HCH_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_o_p_DDD_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_o_p_DDD_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_o_p_DDE_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_o_p_DDE_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_o_p_DDT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_o_p_DDT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_p_p_DDD_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_p_p_DDD_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_p_p_DDE_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_p_p_DDE_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,measured_p_p_DDT_ngg,measured,MEASURED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,missing_p_p_DDT_ngg,missing_indicator,DERIVED,Y,keep,未观测值保留为空; 下游训练只允许 train 内插补
+ecology,label_ecology_source,label,DERIVED,Y,compute_later,
