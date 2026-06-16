@@ -17,7 +17,7 @@ import TraceList from "./pages/TraceList";
 import TraceDetail from "./pages/TraceDetail";
 import SystemManagement from "./pages/SystemManagement";
 import RecommendationPage from "./pages/RecommendationPage";
-import { Result } from "antd";
+import ErrorPage from "./pages/ErrorPage";
 
 function Protected({ children }: { children: JSX.Element }) {
   const { user } = useAuth();
@@ -27,8 +27,7 @@ function Protected({ children }: { children: JSX.Element }) {
 function AdminOnly({ children }: { children: JSX.Element }) {
   const { user } = useAuth();
   if (!user) return <Navigate to="/login" replace />;
-  if (!user.roles?.includes("admin"))
-    return <Result status="403" title="403" subTitle="仅系统管理员可访问该页面。" />;
+  if (!user.roles?.includes("admin")) return <ErrorPage status={403} />;
   return children;
 }
 
@@ -51,7 +50,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
               <Route path="trace" element={<TraceList />} />
               <Route path="trace/:id" element={<TraceDetail />} />
               <Route path="system" element={<AdminOnly><SystemManagement /></AdminOnly>} />
+              <Route path="*" element={<ErrorPage />} />
             </Route>
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>

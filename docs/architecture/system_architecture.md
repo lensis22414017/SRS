@@ -40,5 +40,35 @@ ML(ml/)          eda / cleaning / models(RF+dataset_splits) / explain(SHAP) /
 - 容器: docker-compose(postgres + redis + backend); 初始化 bootstrap/alembic + loaders。
 - 桌面打包/天地图白名单: 见 `docs/deployment_desktop.md`。
 
-## 6. 待补
-- 接口时序图、ER 图导出、瓦片代理、报告静态图表、前端拆包。
+## 6. 地图服务层（2026-06-13 新增）
+
+### 6.1 三层架构
+
+| 层级 | 内容 | 离线能力 | 依赖 |
+|---|---|---|---|
+| **L1 矢量底图（默认）** | 全国省/地市/县行政区边界 GeoJSON | ✅ 完全离线 | `data/geo/*.geojson`（阿里 DataV 开放数据） |
+| **L2 MBTiles 离线影像（可选）** | 指定区域卫星影像，按需导入 | ✅ 离线 | `data/geo/tiles/*.mbtiles` |
+| **L3 天地图在线影像（可选）** | 实时卫星/矢量影像 | ❌ 需外网+白名单 | 天地图 key（`TIANDITU_KEY` 环境变量） |
+
+### 6.2 后端瓦片代理（`backend/app/api/map.py`）
+
+- 路由：`GET /api/v1/map/tile/{layer}/{z}/{x}/{y}`
+- 优先级：本地 MBTiles → 天地图在线 → 503
+- **后端持有天地图 key**，前端通过本代理访问，key 不暴露到浏览器
+- 支持图层：`img`（影像）、`cia`（影像注记）、`vec`（矢量）、`cva`（矢量注记）
+- 场地点位 GeoJSON：`GET /api/v1/map/sites/geo`，`GET /api/v1/map/sites/{site_id}/points/geo`
+
+### 6.3 前端地图组件（`frontend/src/components/SiteMap.tsx`）
+
+- 渲染库：Leaflet（`react-leaflet` 封装）
+- 行政区三级懒加载：缩放 1–5 显示省界，6–8 显示地市，9+ 显示县
+- 污染状态色：`danger=#dc2626 / warning=#f59e0b / success=#16a34a / info=#3b82f6`
+- 地图默认使用 L1 矢量底图（无 key、无外网即可运行）
+- 天地图 key 通过 `VITE_TIANDITU_KEY` 环境变量注入；未配置时自动降级至矢量底图
+
+### 6.4 报告中的地图图件
+
+- 报告 PDF 中的地图使用 `matplotlib` 离线渲染（`ml/artifacts/`），不依赖天地图，内网环境可生成含图报告
+
+## 7. 待补
+- 接口时序图、ER 图导出、报告静态图表、前端拆包。
