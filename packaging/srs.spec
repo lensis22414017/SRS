@@ -124,13 +124,12 @@ a.binaries = [
 # ── PYZ ─────────────────────────────────────────────────────────
 pyz = PYZ(a.pure, a.zipped_data)
 
-# ── EXE ─────────────────────────────────────────────────────────
+# ── EXE (onedir: EXE 只含入口脚本, 依赖由 COLLECT 收集) ─────────
 exe = EXE(
     pyz,
     a.scripts,
-    a.binaries,
-    a.datas,
     [],
+    exclude_binaries=True,  # onedir: 二进制/数据由 COLLECT 收集, .app 更稳定
     name="SRS",
     debug=False,
     bootloader_ignore_signals=False,
@@ -142,12 +141,28 @@ exe = EXE(
     target_arch=None,
 )
 
-# ── macOS .app Bundle ───────────────────────────────────────────
+# ── macOS .app Bundle (onedir: COLLECT 收集全部依赖, BUNDLE 包装成 .app) ─
 if sys.platform == "darwin":
     app = BUNDLE(
-        exe,
+        COLLECT(
+            exe,
+            a.binaries,
+            a.datas,
+            strip=False,
+            upx=True,
+            upx_exclude=[],
+            name="SRS",
+        ),
         name="SRS.app",
-        icon=str(PROJECT_ROOT / "packaging" / "icon.icns") if (PROJECT_ROOT / "packaging" / "icon.icns").exists() else None,
-        bundle_identifier=app_info["CFBundleIdentifier"],
-        info_plist=app_info,
+        icon=str(PROJECT_ROOT / "packaging" / "srs.icns") if (PROJECT_ROOT / "packaging" / "srs.icns").exists() else None,
+        bundle_identifier="com.srs.soil-remediation",
+        info_plist={
+            "CFBundleName": "SRS",
+            "CFBundleDisplayName": "污染场地监管系统",
+            "CFBundleIdentifier": "com.srs.soil-remediation",
+            "CFBundleVersion": "0.1.0",
+            "CFBundleShortVersionString": "0.1.0",
+            "NSHumanReadableCopyright": "© 2026 SRS Project",
+            "LSMinimumSystemVersion": "11.0",
+        },
     )
