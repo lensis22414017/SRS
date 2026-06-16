@@ -25,7 +25,13 @@ def test_prepare_dataset():
     # 数据集版本和特征列表因输入数据而异, 只验证基本完整性
     assert len(meta["feature_list"]) >= 10
     assert not X.isna().any().any()       # 填充后无缺失
-    assert meta["data_version"].startswith("真实数据集")
+    # 数据真实性如实标注 (P0 修正): 必须带 is_real_data 标记 + data_version 非空
+    assert "is_real_data" in meta, "meta 必须含 is_real_data 标记"
+    assert meta["data_version"], "data_version 不能为空"
+    # ID 唯一标识列不应进特征 (防泄漏)
+    assert "ID" not in meta["feature_list"], "ID 唯一标识不应进特征(防泄漏)"
+    # 剔除的泄漏列应被记录 (可追溯)
+    assert "dropped_leakage_cols" in meta
 
 
 def test_align_features_logic():
@@ -45,6 +51,39 @@ def test_align_features_logic():
     assert imputed == ["Cd(mg/kg)"]                         # 诚实标注
     assert float(X.loc["P1", "BackgroundSOC"]) == pytest.approx(20.0 * 0.58)  # 有机质→SOC换算
     assert int(X.loc["P1", "SoilpH__missing"]) == 0         # pH有实测
+
+
+def test_align_features_supports_fxx_chinese_model_features():
+    """最新 std33 模型的 Fxx_中文特征必须能接上中文检测因子。"""
+    import pandas as pd
+    from app.services.diagnosis_service import align_features, load_feature_mapping
+    mapping = load_feature_mapping()
+    pivot = pd.DataFrame({"砷": [180.0], "铅": [650.0], "铜": [900.0],
+                          "pH": [6.8], "有机质": [20.0]}, index=["P1"])
+    feature_list = ["F24_砷", "F23_铅", "F26_铜", "F12_pH", "F120_有机质", "F22_镉"]
+    medians = {"F24_砷": 30.0, "F23_铅": 90.0, "F26_铜": 80.0,
+               "F12_pH": 6.5, "F120_有机质": 12.0, "F22_镉": 0.2}
+    X, imputed = align_features(pivot, feature_list, medians, mapping)
+    assert float(X.loc["P1", "F24_砷"]) == 180.0
+    assert float(X.loc["P1", "F23_铅"]) == 650.0
+    assert float(X.loc["P1", "F26_铜"]) == 900.0
+    assert float(X.loc["P1", "F12_pH"]) == 6.8
+    assert float(X.loc["P1", "F120_有机质"]) == 20.0
+    assert imputed == ["F22_镉"]
+
+
+def test_pollutant_exceedance_factors_keep_regulatory_short_board():
+    """实测污染物超标应作为规则障碍因子进入诊断候选。"""
+    import pandas as pd
+    from app.services.diagnosis_service import pollutant_exceedance_factors
+    pivot = pd.DataFrame({"砷": [180.0, 160.0, 25.0], "pH": [7.0, 7.2, 7.0]},
+                         index=["P1", "P2", "P3"])
+    factors = pollutant_exceedance_factors(pivot)
+    assert factors
+    assert factors[0]["factor_code"] == "砷"
+    assert factors[0]["source"] == "threshold_exceedance_rule"
+    assert factors[0]["diagnostic_value"] > 1
+    assert "超标" in factors[0]["note"]
 
 
 # ---------- 需 sklearn/shap ----------

@@ -1,4 +1,4 @@
-"""对训练真实数据集做 EDA 体检, 输出报告与缺失率剖面(真实数据, 不插补)。
+"""对训练特征表做 EDA 体检, 输出报告与缺失率剖面(如实标注: 当前为模拟特征表)。
 用法: python scripts/run_eda.py
 产物: docs/data/training_eda_report.md, data/processed/training_eda_profile.csv
 """
@@ -11,7 +11,8 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, os.path.join(ROOT, "ml", "eda"))
 from profile import column_stats, table_overview  # noqa: E402
 
-CSV = os.path.join(ROOT, "data", "raw", "真实数据集.csv")
+# ⚠️ 当前为模拟特征表 (非真实); 真实数据为 merged_std33,zh .xlsx (P0 正名后)
+CSV = os.path.join(ROOT, "data", "raw", "模拟特征表_F127_n11690.csv")
 OUT_REPORT = os.path.join(ROOT, "docs", "data", "training_eda_report.md")
 OUT_PROFILE = os.path.join(ROOT, "data", "processed", "training_eda_profile.csv")
 
@@ -35,9 +36,9 @@ def main():
     skewed = prof[prof["skew_flag"].isin(["右偏", "左偏"])]
     os.makedirs(os.path.dirname(OUT_REPORT), exist_ok=True)
     with open(OUT_REPORT, "w", encoding="utf-8") as f:
-        f.write(f"""# 数据清洗与 EDA 体检报告（训练真实数据集）
+        f.write(f"""# 数据清洗与 EDA 体检报告（训练特征表 · 模拟数据）
 
-> 数据源: `data/raw/真实数据集.csv` ｜ 自动生成: `scripts/run_eda.py` ｜ 真实数据, 未插补
+> 数据源: `data/raw/模拟特征表_F127_n11690.csv` (⚠️ 模拟特征表, 非真实; is_real_data=False) ｜ 自动生成: `scripts/run_eda.py` ｜ 未插补
 
 ## 一、数据概览
 - 行数 × 列数: **{ov['rows']} × {ov['cols']}**（数值列 {ov['numeric_cols']}）

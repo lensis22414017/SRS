@@ -56,6 +56,9 @@ def train(csv_path: str | None = None, random_state: int = 42) -> dict:
         "feature_list": meta["feature_list"],
         "medians": meta["medians"],
         "data_version": meta["data_version"],
+        "is_real_data": meta.get("is_real_data", False),  # ⚠️ 模拟数据则 False
+        "data_source": meta.get("data_source", ""),
+        "dropped_leakage_cols": meta.get("dropped_leakage_cols", []),
         "metrics": metrics,
         "trained_at": datetime.now(timezone.utc).isoformat(),
     }

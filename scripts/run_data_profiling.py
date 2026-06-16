@@ -15,7 +15,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, os.path.join(ROOT, "ml", "eda"))
 from profile import column_stats, table_overview  # noqa: E402
 
-REAL = os.path.join(ROOT, "data", "raw", "真实数据集.csv")
+REAL = os.path.join(ROOT, "data", "raw", "模拟特征表_F127_n11690.csv")  # ⚠️ 模拟特征表(P0 正名)
 MERGED = os.path.join(ROOT, "data", "raw", "merged_std33,zh .xlsx")
 OUT_CSV = os.path.join(ROOT, "data", "processed", "missingness_profile.csv")
 OUT_MD = os.path.join(ROOT, "docs", "data", "data_cleaning_report.md")
@@ -61,7 +61,7 @@ def main():
     ov_real = table_overview(real)
     ov_merged = table_overview(merged)
 
-    all_rows = (field_rows(real, "真实数据集") + group_rows(real, "真实数据集")
+    all_rows = (field_rows(real, "模拟特征表") + group_rows(real, "模拟特征表")
                 + field_rows(merged, "merged_std33") + group_rows(merged, "merged_std33"))
     prof = pd.DataFrame(all_rows)
     os.makedirs(os.path.dirname(OUT_CSV), exist_ok=True)
@@ -86,8 +86,8 @@ def main():
 ## 一、数据资产概览
 | 数据集 | 行 | 列 | 数值列 | 整体缺失率 |
 |---|---|---|---|---|
-| 真实数据集.csv（训练主表） | {ov_real['rows']} | {ov_real['cols']} | {ov_real['numeric_cols']} | {ov_real['overall_missing_pct']}% |
-| merged_std33（数据湖） | {ov_merged['rows']} | {ov_merged['cols']} | {ov_merged['numeric_cols']} | {ov_merged['overall_missing_pct']}% |
+| 模拟特征表_F127（训练样机·模拟） | {ov_real['rows']} | {ov_real['cols']} | {ov_real['numeric_cols']} | {ov_real['overall_missing_pct']}% |
+| merged_std33（真实数据湖） | {ov_merged['rows']} | {ov_merged['cols']} | {ov_merged['numeric_cols']} | {ov_merged['overall_missing_pct']}% |
 
 merged_std33 为**宽稀疏数据湖**（719 列、缺失 {ov_merged['overall_missing_pct']}%），**禁止整表统一插补/训练**，
 必须先派生 model_ready 子表（见 `data/model_ready/model_ready_schema.csv`），再做 DOI/Source/Region 分组切分。
@@ -104,7 +104,7 @@ DOI 99.2%、Source 100%、Province 63.4%、经纬度 ~57.5%、LandUse 52.6%、So
 **LandUse/Province 取值脏**（中英混杂、392 个 Province 取值），需 `unit_conversion_rules`/标准化映射后才能分组建模。
 
 ## 四、高缺失列（> 80%）
-- 真实数据集: 共 {len(hm_real)} 列，如 {', '.join(f'{c}({p}%)' for c, p in hm_real[:8])}
+- 模拟特征表: 共 {len(hm_real)} 列，如 {', '.join(f'{c}({p}%)' for c, p in hm_real[:8])}
 - merged_std33: 共 {len(hm_merged)} 列（719 列里绝大多数有机物单指标列高度稀疏，属正常——单篇文献只测部分污染物）
 
 ## 五、使用红线（强制）
@@ -118,7 +118,7 @@ DOI 99.2%、Source 100%、Province 63.4%、经纬度 ~57.5%、LandUse 52.6%、So
     print("已生成:", OUT_CSV, "(", len(prof), "行)")
     print("已生成:", OUT_MD)
     print("原始文件 SHA256 校验: 未变 ✅")
-    print(f"真实数据集 {ov_real['rows']}×{ov_real['cols']} 缺失{ov_real['overall_missing_pct']}% | "
+    print(f"模拟特征表 {ov_real['rows']}×{ov_real['cols']} 缺失{ov_real['overall_missing_pct']}% | "
           f"merged {ov_merged['rows']}×{ov_merged['cols']} 缺失{ov_merged['overall_missing_pct']}%")
 
 

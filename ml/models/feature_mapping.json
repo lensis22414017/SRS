@@ -1,5 +1,5 @@
 {
-  "_note": "场地因子(factor_code, 中文) -> 训练特征列(真实数据集.csv)。缺失训练特征用训练集中位数填充并在结果中诚实标注 imputed_features。",
+  "_note": "场地因子(factor_code, 中文) -> 训练特征列映射。当前训练数据为模拟特征表(F1-F127, 非真实); 真实重金属列(As/Pb/Cu...)的映射关系保留, 待切换真实数据(merged_std33)后即生效。缺失训练特征用训练集中位数填充并在结果中诚实标注 imputed_features。",
   "factor_to_feature": {
     "砷": "As(mg/kg)",
     "铅": "Pb(mg/kg)",

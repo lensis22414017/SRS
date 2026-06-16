@@ -39,6 +39,7 @@ data/splits/external_literature_holdout.csv
 data/splits/synthetic_*.csv
 data/splits/report_demo_sites.csv
 data/synthetic/*.csv
+data/synthetic/*.json
 data/model_ready/model_ready_hm.csv
 data/model_ready/model_ready_op.csv
 data/model_ready/model_ready_hm_op.csv
@@ -46,6 +47,13 @@ data/model_ready/model_ready_shared.csv
 data/model_ready/model_ready_risk.csv
 data/model_ready/model_ready_production.csv
 data/model_ready/model_ready_ecology.csv
+
+# raw 大数据文件(体积大, 本地保留供训练/打包; 可由脚本重新理解)
+# 模拟特征表(25MB) 与 merged_std33(5MB 真实数据湖) 不入库, 本地保留
+data/raw/模拟特征表_F127_n11690.csv
+data/raw/merged_std33*.xlsx
+# data/geo 离线行政区底图(27MB) 入库 —— 桌面打包/离线地图必需
+# data/raw/README.md 血缘说明 入库
 
 # 验证临时产物
 **/*_scratch*
@@ -59,9 +67,11 @@ logs/
 
 # 系统
 .DS_Store
+.playwright-mcp/
 
 # 参考文件 (甲方需求/预算文档, 不入代码仓库)
 参考文件*/
+000/
 
 # 注: data/raw 原始数据本地留档, 是否纳入版本控制由裴总决定
 data/raw/真实数据集.csv
