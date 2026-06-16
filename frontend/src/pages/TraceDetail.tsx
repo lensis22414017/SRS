@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import {
   Card, Steps, Tag, Button, Space, Upload, Select, Modal, Input, message, Table, Descriptions, Spin,
 } from "antd";
-import { UploadOutlined, FileAddOutlined } from "@ant-design/icons";
+import { UploadOutlined, FileAddOutlined, DownloadOutlined, EyeOutlined } from "@ant-design/icons";
 import { api } from "../api/client";
 import { seqCol, textCol } from "../utils/table";
 
@@ -33,6 +33,8 @@ export default function TraceDetail() {
   const [busy, setBusy] = useState(false);
   const [modal, setModal] = useState<{ stage: string; role: string } | null>(null);
   const [comment, setComment] = useState("");
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [previewTitle, setPreviewTitle] = useState("");
 
   const load = async () => {
     setSite(await api.site(sid));
@@ -58,6 +60,25 @@ export default function TraceDetail() {
     catch (e: any) { message.error(e?.response?.data?.detail || "上传失败"); }
     finally { setBusy(false); }
     return false;
+  };
+
+  const openPreview = async (reportId: number, siteCode: string, version: string) => {
+    try {
+      setBusy(true);
+      const blob = await api.reportBlob(reportId);
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+      const url = URL.createObjectURL(blob);
+      setPreviewUrl(url);
+      setPreviewTitle(`追溯报告预览 — ${siteCode} ${version}`);
+    } catch (e: any) {
+      message.error(e?.response?.data?.detail || "预览加载失败");
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const closePreview = () => {
+    if (previewUrl) { URL.revokeObjectURL(previewUrl); setPreviewUrl(null); }
   };
 
   const genReport = async (format: "pdf" | "docx" = "pdf") => {
@@ -94,7 +115,17 @@ export default function TraceDetail() {
                     <Button size="small" danger onClick={() => setStatus(s.stage, "returned")}>退回</Button>
                   </Space>
                   {s.attachments?.length > 0 && (
-                    <div style={{ marginTop: 6 }}>{s.attachments.map((a: any) => <Tag key={a.id} color="blue">{a.file_role || "材料"}</Tag>)}</div>
+                    <div style={{ marginTop: 6 }}>
+                      {s.attachments.map((a: any) => (
+                        <Tag key={a.id} color="blue" style={{ padding: "2px 6px" }}>
+                          {a.file_role || "材料"}
+                          <a style={{ marginLeft: 6, fontSize: 12 }}
+                             onClick={() => api.downloadAttachment(sid, s.stage, a.id, a.file_role || "附件")}>
+                            <DownloadOutlined /> 下载
+                          </a>
+                        </Tag>
+                      ))}
+                    </div>
                   )}
                 </div>
               ),
@@ -107,12 +138,44 @@ export default function TraceDetail() {
           <Table rowKey="report_id" size="small" pagination={false} dataSource={reports}
             columns={[seqCol(64), textCol("版本", "version"), textCol("生成时间", "generated_at"),
               { title: "格式", align: "center", render: (_: any, r: any) => (r.data_snapshot?.format || "pdf").toUpperCase() },
-              { title: "下载", align: "center", render: (_: any, r: any) => {
+              { title: "操作", align: "center", render: (_: any, r: any) => {
                   const fmt = r.data_snapshot?.format || "pdf";
-                  return <a onClick={() => api.downloadReport(r.report_id, `追溯报告_${site.site_code}_${r.version}.${fmt}`)}>下载</a>;
+                  return (
+                    <Space>
+                      {fmt === "pdf" && (
+                        <Button size="small" icon={<EyeOutlined />}
+                          onClick={() => openPreview(r.report_id, site.site_code, r.version)}>
+                          预览
+                        </Button>
+                      )}
+                      <Button size="small" icon={<DownloadOutlined />}
+                        onClick={() => api.downloadReport(r.report_id, `追溯报告_${site.site_code}_${r.version}.${fmt}`)}>
+                        下载
+                      </Button>
+                    </Space>
+                  );
                 } }]} />
         </Card>
       )}
+
+      {/* PDF 内嵌预览 Modal */}
+      <Modal
+        open={!!previewUrl}
+        title={previewTitle}
+        onCancel={closePreview}
+        footer={null}
+        width="80vw"
+        style={{ top: 20 }}
+        styles={{ body: { padding: 0, height: "80vh" } }}
+      >
+        {previewUrl && (
+          <iframe
+            src={previewUrl}
+            title={previewTitle}
+            style={{ width: "100%", height: "100%", border: "none" }}
+          />
+        )}
+      </Modal>
 
       <Modal open={!!modal} title={`上传材料 — ${modal ? stages.find(s => s.stage === modal.stage)?.stage_name : ""}`}
         onCancel={() => setModal(null)} footer={null}>

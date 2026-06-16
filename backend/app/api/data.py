@@ -14,10 +14,11 @@ from app.core.deps import (
 )
 from app.db.session import get_db
 from app.models import (
-    FactorDictionary, ImportBatch, Measurement, SamplingPoint, Site, User,
+    FactorDictionary, ImportBatch, Measurement, SamplingPoint, Site, ThresholdRule, User,
 )
 from app.services.audit_service import log
-from app.services.pipeline import run_import
+from app.services.import_service import parse, read_table
+from app.services.pipeline import run_import, run_import_with_mapping
 
 router = APIRouter(prefix=get_settings().api_v1_prefix, tags=["data"])
 
@@ -60,6 +61,107 @@ async def import_data(mapping_id: str = Form(...), file: UploadFile = File(...),
     return result
 
 
+@router.post("/import/columns")
+async def get_file_columns(file: UploadFile = File(...),
+                           _user: User = Depends(require_permission("data:input"))):
+    """读取上传文件的列名，供字段映射 wizard 使用。不写库。"""
+    import tempfile as _tmp
+    suffix = os.path.splitext(file.filename or "data.xlsx")[1] or ".xlsx"
+    with _tmp.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
+        shutil.copyfileobj(file.file, tmp)
+        tmp_path = tmp.name
+    try:
+        df = read_table(tmp_path, {"sheet": None})
+        columns = [str(c).strip() for c in df.columns.tolist()]
+        preview = df.head(3).fillna("").astype(str).to_dict(orient="records")
+    except Exception as e:  # noqa: BLE001
+        raise HTTPException(400, f"文件解析失败: {e}")
+    finally:
+        try:
+            os.unlink(tmp_path)
+        except OSError:
+            pass
+    return {"columns": columns, "preview": preview, "n_rows": len(df)}
+
+
+@router.post("/import/wizard")
+async def import_wizard(mapping: str = Form(...), file: UploadFile = File(...),
+                        user: User = Depends(require_permission("data:input")),
+                        db: Session = Depends(get_db)):
+    """字段映射 wizard 导入: 前端传入内联 mapping JSON + 文件, 不依赖预定义 mapping_id。"""
+    import datetime as _dt
+    import json as _json
+
+    try:
+        mapping_dict = _json.loads(mapping)
+    except Exception:
+        raise HTTPException(400, "mapping 不是合法 JSON")
+
+    settings = get_settings()
+    os.makedirs(settings.file_storage_dir, exist_ok=True)
+    ext = os.path.splitext(file.filename or "data.xlsx")[1] or ".xlsx"
+    ts = _dt.datetime.now().strftime("%Y%m%d-%H%M%S")
+    canonical = f"{ts}_wizard{ext}"
+    dest = os.path.join(settings.file_storage_dir, canonical)
+    with open(dest, "wb") as f:
+        shutil.copyfileobj(file.file, f)
+    try:
+        result = run_import_with_mapping(db, dest, mapping_dict, imported_by=user.id)
+        result["stored_filename"] = canonical
+        result["original_filename"] = file.filename
+    except Exception as e:  # noqa: BLE001
+        raise HTTPException(400, f"导入失败: {e}")
+    log(db, action="import", user_id=user.id, resource_type="sites",
+        resource_id=result.get("site_id"), detail={"mapping_id": "wizard"})
+    return result
+
+
+@router.post("/import/batch")
+async def import_batch(mapping_id: str = Form(...),
+                      files: list[UploadFile] = File(...),
+                      user: User = Depends(require_permission("data:input")),
+                      db: Session = Depends(get_db)):
+    """批量导入: 多文件共用同一 mapping_id, 串行跑 pipeline 避免写库竞态。
+
+    每个文件独立校验并返回结果; 单文件失败不阻断其余文件。
+    返回 { total, succeeded, failed, results: [{filename, ok, ...}] }。
+    """
+    import datetime as _dt
+
+    settings = get_settings()
+    os.makedirs(settings.file_storage_dir, exist_ok=True)
+    results: list[dict] = []
+    succeeded = failed = 0
+    for idx, file in enumerate(files, 1):
+        original_name = os.path.basename(file.filename or "data.xlsx")
+        stem, ext = os.path.splitext(original_name)
+        ext = ext or ".xlsx"
+        ts = _dt.datetime.now().strftime("%Y%m%d-%H%M%S-%f")
+        canonical = f"{ts}_{idx:02d}_{stem or 'batch'}{ext}"
+        dest = os.path.join(settings.file_storage_dir, canonical)
+        try:
+            with open(dest, "wb") as f:
+                shutil.copyfileobj(file.file, f)
+            res = run_import(db, dest, mapping_id, imported_by=user.id)
+            res["stored_filename"] = canonical
+            res["original_filename"] = original_name
+            res["ok"] = True
+            succeeded += 1
+            log(db, action="import", user_id=user.id, resource_type="sites",
+                resource_id=res.get("site_id"), detail={"mapping_id": mapping_id, "batch": True})
+        except FileNotFoundError:
+            failed += 1
+            results.append({"original_filename": original_name, "ok": False,
+                            "error": f"映射配置不存在: {mapping_id}"})
+            continue
+        except Exception as e:  # noqa: BLE001
+            failed += 1
+            results.append({"original_filename": original_name, "ok": False, "error": f"导入失败: {e}"})
+            continue
+        results.append(res)
+    return {"total": len(files), "succeeded": succeeded, "failed": failed, "results": results}
+
+
 @router.get("/sites")
 def list_sites(q: str | None = None, pollution_type: str | None = None,
                page: int = Query(1, ge=1), size: int = Query(20, ge=1, le=200),
@@ -71,6 +173,24 @@ def list_sites(q: str | None = None, pollution_type: str | None = None,
         query = query.filter(Site.pollution_type == pollution_type)
     total = query.count()
     rows = query.order_by(Site.id).offset((page - 1) * size).limit(size).all()
+    # 批量统计: 该页每个场地的样点数/因子数/超标记录数(避免 N+1 查询)
+    site_ids = [s.id for s in rows]
+    factor_cnt: dict[int, int] = {}
+    exceed_cnt: dict[int, int] = {}
+    if site_ids:
+        fc_rows = (db.query(Measurement.site_id, func.count(func.distinct(Measurement.factor_id)))
+                   .filter(Measurement.site_id.in_(site_ids))
+                   .group_by(Measurement.site_id).all())
+        factor_cnt = {sid: int(c) for sid, c in fc_rows}
+        # 超标记录: value > 该因子的正阈值上限(join ThresholdRule)
+        ec_rows = (db.query(Measurement.site_id, func.count())
+                   .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id)
+                   .join(ThresholdRule, ThresholdRule.factor_id == FactorDictionary.id)
+                   .filter(Measurement.site_id.in_(site_ids),
+                           ThresholdRule.threshold_max != None,
+                           Measurement.value > ThresholdRule.threshold_max)
+                   .group_by(Measurement.site_id).all())
+        exceed_cnt = {sid: int(c) for sid, c in ec_rows}
     items = [{
         "id": s.id, "site_code": s.site_code, "name": s.name,
         "pollution_type": s.pollution_type, "land_use_type": s.land_use_type,
@@ -78,6 +198,10 @@ def list_sites(q: str | None = None, pollution_type: str | None = None,
         "longitude": float(s.longitude) if s.longitude is not None else None,
         "latitude": float(s.latitude) if s.latitude is not None else None,
         "n_points": db.query(func.count(SamplingPoint.id)).filter_by(site_id=s.id).scalar(),
+        "n_factors": factor_cnt.get(s.id, 0),
+        "n_exceed": exceed_cnt.get(s.id, 0),
+        "data_quality": ("良好" if exceed_cnt.get(s.id, 0) == 0 else
+                         "部分超标" if exceed_cnt.get(s.id, 0) < 10 else "大量超标"),
     } for s in rows]
     return {"total": total, "page": page, "size": size, "items": items}
 
@@ -173,9 +297,23 @@ def site_measurements(site_id: int, factor: str | None = None,
 
 
 @router.get("/sites/{site_id}/eda")
-def site_eda(site_id: int, user: User = Depends(get_current_user),
+def site_eda(site_id: int,
+             include: str | None = Query(None,
+                 description="逗号分隔: distribution,correlation,qq,boxplot,grouped。默认全返回"),
+             group_by: str | None = Query(None,
+                 description="分组维度: region/depth/factor。需 grouped 才生效"),
+             factor: str | None = Query(None,
+                 description="仅分析指定因子 code(单因子深挖)"),
+             max_points: int = Query(2000, ge=100, le=10000,
+                 description="distribution 采样上限, 防响应爆炸"),
+             user: User = Depends(get_current_user),
              db: Session = Depends(get_db)):
-    """场地进入模型前的 EDA 数据分析: 各因子统计体检 + 直方图(真实数据)。"""
+    """场地进入模型前的 EDA 数据分析: 各因子统计体检 + 直方图 + 科研级图件数据。
+
+    按需返回: boxplot(箱线五数) / distribution(原始分布采样) / qq(正态Q-Q) /
+    correlation(跨因子相关矩阵) / grouped(按 region/depth/factor 分层)。
+    全部基于真实数据, 不插补。
+    """
     import os
     import sys
     import pandas as pd
@@ -186,20 +324,69 @@ def site_eda(site_id: int, user: User = Depends(get_current_user),
     ml_eda = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "ml", "eda"))
     if ml_eda not in sys.path:
         sys.path.insert(0, ml_eda)
-    from profile import column_stats, histogram  # type: ignore
+    from profile import (  # type: ignore
+        boxplot_summary, column_stats, correlation_matrix, distribution_sample,
+        grouped_stats, histogram, qq_points,
+    )
 
-    rows = (db.query(FactorDictionary.factor_code, Measurement.value)
+    # 长表查询: factor_code + value + 真实采样点 id/区域/深度(用于 grouped/correlation pivot)
+    rows = (db.query(FactorDictionary.factor_code, FactorDictionary.level1_category,
+                     Measurement.sampling_point_id,
+                     Measurement.value, SamplingPoint.region,
+                     SamplingPoint.depth_top_cm, SamplingPoint.depth_bottom_cm)
             .join(Measurement, Measurement.factor_id == FactorDictionary.id)
+            .join(SamplingPoint, Measurement.sampling_point_id == SamplingPoint.id)
             .filter(Measurement.site_id == site_id).all())
     if not rows:
         raise HTTPException(404, "该场地无检测数据")
-    df = pd.DataFrame(rows, columns=["factor", "value"])
+    df = pd.DataFrame(rows, columns=["factor", "category", "point_id", "value", "region",
+                                     "depth_top", "depth_bottom"])
+
+    # 解析 include 参数(默认全返回, 兼容前端旧调用)
+    inc = {x.strip() for x in include.split(",") if x.strip()} if include else {
+        "distribution", "correlation", "qq", "boxplot", "grouped"}
+
     factors = []
     for fc, sub in df.groupby("factor"):
+        if factor and fc != factor:
+            continue
         st = column_stats(sub["value"])
-        factors.append({"factor": fc, "stats": st, "histogram": histogram(sub["value"], bins=15)})
+        item = {"factor": fc, "category": sub["category"].iloc[0] if len(sub) else None,
+                "stats": st, "histogram": histogram(sub["value"], bins=15)}
+        if "boxplot" in inc:
+            item["boxplot"] = boxplot_summary(sub["value"])
+        if "distribution" in inc:
+            item["distribution"] = distribution_sample(sub["value"], max_points=max_points)
+        if "qq" in inc:
+            item["qq"] = qq_points(sub["value"])
+        factors.append(item)
     factors.sort(key=lambda x: x["factor"])
-    return {"site_id": site_id, "n_factors": len(factors), "factors": factors}
+
+    resp: dict = {"site_id": site_id, "n_factors": len(factors), "factors": factors}
+
+    if "correlation" in inc and len(factors) >= 2:
+        # pivot 成宽表: 行=真实采样点 id, 列=因子。不能用 region/depth 这种弱键, 否则同区同层样点会被合并。
+        pivot = df.pivot_table(index="point_id", columns="factor", values="value", aggfunc="mean")
+        resp["correlation"] = correlation_matrix(pivot)
+
+    if "grouped" in inc and group_by in ("region", "depth", "factor"):
+        if group_by == "depth":
+            df["depth_band"] = df.apply(
+                lambda r: f"{int(r['depth_top'] or 0)}-{int(r['depth_bottom'] or 0)}cm", axis=1)
+            gcol = "depth_band"
+        elif group_by == "factor":
+            gcol = "factor"
+        else:
+            gcol = "region"
+        # 全因子整体分组 + 每个因子单独分组(便于按因子看分层差异)
+        per_factor = {}
+        for fc, sub in df.groupby("factor"):
+            per_factor[fc] = grouped_stats(sub, "value", gcol)
+        resp["grouped"] = {"group_by": group_by,
+                           "overall": grouped_stats(df, "value", gcol),
+                           "per_factor": per_factor}
+
+    return resp
 
 
 @router.get("/import-batches/{batch_id}/validation-report")

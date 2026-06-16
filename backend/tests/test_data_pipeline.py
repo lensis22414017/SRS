@@ -60,6 +60,8 @@ def _has_backend_deps():
 
 needs_db = pytest.mark.skipif(not _has_backend_deps(),
                               reason="需 sqlalchemy/fastapi (venv/docker 环境)")
+needs_data = pytest.mark.skipif(not os.path.exists(GEJIU),
+                                reason="缺少个旧原始数据 data/raw/3.20250731_...(云南个旧)")
 
 
 @needs_db
@@ -113,3 +115,37 @@ def test_api_sites_and_measurements():
     assert mr.json()["total"] == 134
     # 未带令牌应被拒
     assert c.get("/api/v1/sites").status_code == 401
+
+
+@needs_db
+@needs_data
+def test_api_batch_import_and_overview_badges():
+    """批量导入 + 场地概览徽章(n_factors/n_exceed/data_quality)。"""
+    from fastapi.testclient import TestClient
+    from app.db.bootstrap import main as bootstrap
+    from app.db.load_kb import main as load_kb
+    from app.main import app
+    bootstrap()
+    load_kb()
+    c = TestClient(app)
+    tok = c.post("/api/v1/auth/login",
+                 json={"username": "admin", "password": "Demo@2026"}).json()["access_token"]
+    h = {"Authorization": f"Bearer {tok}"}
+    # 批量导入: 同一个文件传两次(两次导入会建两个场地实例, 验证多文件串行不竞态)
+    with open(GEJIU, "rb") as f1, open(GEJIU, "rb") as f2:
+        r = c.post("/api/v1/import/batch", headers=h,
+                   data={"mapping_id": "yunnan_gejiu"},
+                   files=[("files", ("a.xlsx", f1, "application/vnd.ms-excel")),
+                          ("files", ("b.xlsx", f2, "application/vnd.ms-excel"))])
+    assert r.status_code == 200
+    body = r.json()
+    assert body["total"] == 2 and body["succeeded"] == 2 and body["failed"] == 0
+    assert len(body["results"]) == 2
+    # 场地列表概览徽章: n_factors/n_exceed/data_quality 字段存在且合理
+    sites = c.get("/api/v1/sites", params={"size": 5}, headers=h).json()
+    item = sites["items"][0]
+    assert "n_factors" in item and item["n_factors"] > 0
+    assert "n_exceed" in item and item["n_exceed"] >= 0
+    assert "data_quality" in item
+    # 个旧重金属场地应有超标记录
+    assert any(it["n_exceed"] > 0 for it in sites["items"])

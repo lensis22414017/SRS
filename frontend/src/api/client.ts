@@ -34,7 +34,12 @@ export const api = {
   site: (id: number) => client.get(`/sites/${id}`).then((r) => r.data),
   points: (id: number) => client.get(`/sites/${id}/points`).then((r) => r.data),
   pointsWide: (id: number) => client.get(`/sites/${id}/points-wide`).then((r) => r.data),
-  eda: (id: number) => client.get(`/sites/${id}/eda`).then((r) => r.data),
+  siteMapLayers: (id: number, params?: any) =>
+    client.get(`/sites/${id}/map/layers`, { params }).then((r) => r.data),
+  geoIndex: () => client.get("/map/geo/index").then((r) => r.data),
+  geoBoundaries: (level: string, adcode?: number) =>
+    client.get("/map/geo/boundaries", { params: { level, adcode } }).then((r) => r.data),
+  eda: (id: number, params?: any) => client.get(`/sites/${id}/eda`, { params }).then((r) => r.data),
   measurements: (id: number, params?: any) =>
     client.get(`/sites/${id}/measurements`, { params }).then((r) => r.data),
   importData: (mappingId: string, file: File) => {
@@ -43,6 +48,30 @@ export const api = {
     fd.append("file", file);
     return client.post("/import", fd, { headers: { "Content-Type": "multipart/form-data" } }).then((r) => r.data);
   },
+  importBatch: (mappingId: string, files: File[]) => {
+    const fd = new FormData();
+    fd.append("mapping_id", mappingId);
+    files.forEach((f) => fd.append("files", f));
+    return client.post("/import/batch", fd, { headers: { "Content-Type": "multipart/form-data" } }).then((r) => r.data);
+  },
+  /** 字段映射 wizard — 第一步：读取文件列名和前3行预览 */
+  importColumns: (file: File) => {
+    const fd = new FormData();
+    fd.append("file", file);
+    return client.post<{ columns: string[]; preview: Record<string, string>[]; n_rows: number }>(
+      "/import/columns", fd, { headers: { "Content-Type": "multipart/form-data" } }
+    ).then((r) => r.data);
+  },
+  /** 字段映射 wizard — 最终导入：传入内联 mapping JSON + 文件 */
+  importWizard: (mapping: object, file: File) => {
+    const fd = new FormData();
+    fd.append("mapping", JSON.stringify(mapping));
+    fd.append("file", file);
+    return client.post("/import/wizard", fd, { headers: { "Content-Type": "multipart/form-data" } }).then((r) => r.data);
+  },
+  /** 报告 Blob（用于浏览器内预览） */
+  reportBlob: (reportId: number) =>
+    client.get(`/reports/${reportId}/download`, { responseType: "blob" }).then((r) => r.data as Blob),
 
   // 诊断 / 评价 / 推荐
   diagnosis: (id: number) => client.get(`/sites/${id}/diagnosis`).then((r) => r.data),
@@ -69,6 +98,14 @@ export const api = {
     client.post(`/sites/${id}/report`, null, { params: { format } }).then((r) => r.data),
   downloadReport: async (reportId: number, filename: string) => {
     const r = await client.get(`/reports/${reportId}/download`, { responseType: "blob" });
+    const url = URL.createObjectURL(r.data as Blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = filename; a.click();
+    URL.revokeObjectURL(url);
+  },
+  downloadAttachment: async (siteId: number, stage: string, attachmentId: number, filename: string) => {
+    const r = await client.get(
+      `/sites/${siteId}/workflow/${stage}/attachments/${attachmentId}/download`, { responseType: "blob" });
     const url = URL.createObjectURL(r.data as Blob);
     const a = document.createElement("a");
     a.href = url; a.download = filename; a.click();

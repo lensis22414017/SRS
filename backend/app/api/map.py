@@ -1,6 +1,13 @@
-"""地图图层与天地图瓦片代理 API。"""
+"""地图图层瓦片代理 API。
+
+瓦片优先级:
+  1. 本地 MBTiles (离线, 桌面打包版首选)
+  2. 高德地图 hybrid (在线, 无 IP 白名单, 中文标注, 推荐默认)
+  3. 天地图 (在线, 需固定 IP 白名单, 可选增强)
+"""
 from __future__ import annotations
 
+import os
 import urllib.error
 import urllib.request
 
@@ -20,6 +27,20 @@ TILE_LAYERS = {
     "vec": {"layer": "vec", "media_type": "image/png", "label": "天地图矢量"},
     "cva": {"layer": "cva", "media_type": "image/png", "label": "天地图矢量注记"},
 }
+
+# 高德地图瓦片服务器列表 (CDN 负载均衡, 同一 x+y 固定路由以利用 CDN 缓存)
+_GAODE_SERVERS = ["webst01", "webst02", "webst03", "webst04"]
+
+
+def _gaode_tile_url(z: int, x: int, y: int, key: str) -> str:
+    """构造高德混合图层(卫星+中文注记) URL。
+    style=8: 卫星影像 + 中文地名/道路/村镇注记 (hybrid)
+    style=6: 纯卫星影像 (无注记)
+    有 key 时走官方配额通道; 无 key 时走公共通道(同样可用, 无 IP 限制)。
+    """
+    server = _GAODE_SERVERS[(x + y) % 4]
+    base = f"https://{server}.is.autonavi.com/appmaptile?style=8&x={x}&y={y}&z={z}"
+    return f"{base}&key={key}" if key else base
 
 
 def _require_site(db: Session, user: User, site_id: int) -> Site:
@@ -42,12 +63,27 @@ def _tile_url(layer: str, z: int, x: int, y: int, key: str) -> str:
 
 @router.get("/map/tile/{layer}/{z}/{x}/{y}")
 def tianditu_tile(layer: str, z: int, x: int, y: int):
-    """后端代理天地图瓦片, 避免前端暴露 key 并规避桌面打包 referer 问题。"""
+    """后端瓦片代理: 优先读本地 MBTiles(离线), 无则走天地图在线(需 key)。
+
+    优先级: 本地 MBTiles > 天地图在线 > 503。
+    MBTiles 查找路径: {项目根}/data/geo/tiles/*.mbtiles (所有文件均尝试)。
+    """
     if layer not in TILE_LAYERS:
         raise HTTPException(404, "地图图层不存在")
     settings = get_settings()
+
+    # 1) 优先本地 MBTiles(离线影像/矢量, 桌面打包版核心路径)
+    tile_data = _read_mbtiles(layer, z, x, y)
+    if tile_data is not None:
+        return Response(content=tile_data, media_type=TILE_LAYERS[layer]["media_type"])
+
+    # 2) 无本地瓦片 → 走天地图在线(需固定 IP 白名单; 可选增强)
     if not settings.tianditu_key:
-        raise HTTPException(503, "未配置天地图 TIANDITU_KEY")
+        raise HTTPException(
+            503,
+            "未配置天地图 TIANDITU_KEY, 且无本地离线瓦片。"
+            "影像底图请改用 /map/tile/gaode/{z}/{x}/{y} (无需 key, 无 IP 限制)。",
+        )
     try:
         req = urllib.request.Request(
             _tile_url(layer, z, x, y, settings.tianditu_key),
@@ -60,6 +96,61 @@ def tianditu_tile(layer: str, z: int, x: int, y: int):
         raise HTTPException(e.code, "天地图瓦片服务返回错误")
     except Exception as e:  # noqa: BLE001
         raise HTTPException(502, f"天地图瓦片加载失败: {e}")
+
+
+@router.get("/map/tile/gaode/{z}/{x}/{y}")
+def gaode_tile(z: int, x: int, y: int):
+    """高德卫星+中文注记混合瓦片代理。
+
+    优先级: 本地 MBTiles > 高德在线(无 IP 白名单)。
+    无需配置 GAODE_KEY 即可使用; 配置后走官方配额(30万次/天免费)。
+    换电脑/换网络不受影响, 适合桌面演示和移动演示场景。
+    """
+    settings = get_settings()
+
+    # 1) 优先本地 MBTiles(离线演示)
+    tile_data = _read_mbtiles("img", z, x, y)
+    if tile_data is not None:
+        return Response(content=tile_data, media_type="image/jpeg")
+
+    # 2) 高德在线 (有无 key 均可, 无 IP 白名单)
+    url = _gaode_tile_url(z, x, y, settings.gaode_key)
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "SRS/0.1", "Referer": "https://lbs.amap.com/"})
+        with urllib.request.urlopen(req, timeout=8) as resp:
+            return Response(content=resp.read(), media_type="image/jpeg")
+    except urllib.error.HTTPError as e:
+        raise HTTPException(e.code, f"高德瓦片服务返回错误 (HTTP {e.code})")
+    except Exception as e:  # noqa: BLE001
+        raise HTTPException(502, f"高德瓦片加载失败: {e}")
+
+
+def _read_mbtiles(layer: str, z: int, x: int, y: int) -> bytes | None:
+    """从本地 MBTiles 读取瓦片(支持 img 影像/vec 矢量)。无文件或无命中返回 None。
+
+    MBTiles 用 TMS 行号(与 XYZ 的 y 反转), 下载脚本已存反转后的 my。
+    """
+    import glob as _glob
+    import sqlite3 as _sqlite3
+    tiles_dir = os.path.join(_geo_root(), "tiles")
+    if not os.path.isdir(tiles_dir):
+        return None
+    # 影像层读 *_img.mbtiles, 矢量层读 *_vec.mbtiles
+    pattern = os.path.join(tiles_dir, f"*_{layer}.mbtiles")
+    # TMS y 反转
+    my = (2 ** z - 1) - y
+    for mbt in _glob.glob(pattern):
+        try:
+            conn = _sqlite3.connect(f"file:{mbt}?mode=ro", uri=True)
+            row = conn.execute(
+                "SELECT tile_data FROM tiles WHERE zoom_level=? AND tile_column=? AND tile_row=?",
+                (z, x, my)).fetchone()
+            conn.close()
+            if row and row[0]:
+                return bytes(row[0])
+        except Exception:  # noqa: BLE001
+            continue
+    return None
 
 
 def _threshold_limits(db: Session, site_id: int) -> dict[str, float]:
@@ -188,3 +279,61 @@ def site_map_layers(site_id: int,
         ],
         "geojson": {"type": "FeatureCollection", "features": features},
     }
+
+
+# ============ 离线行政区边界(三级金字塔) ============
+# 数据源: data/geo/ (阿里 DataV.GeoAtlas 开放数据), 离线读取, 无 key/无外网。
+# 层级: province(全国省) / prefecture(省内地市) / county(地市内县)。
+
+import json as _json  # noqa: E402
+
+
+def _geo_root() -> str:
+    """data/geo 目录绝对路径(兼容打包后 sys.frozen 与开发模式)。"""
+    here = os.path.dirname(os.path.abspath(__file__))
+    # backend/app/api/map.py -> 上溯四级到项目根
+    root = os.path.abspath(os.path.join(here, "..", "..", ".."))
+    return os.path.join(root, "data", "geo")
+
+
+@router.get("/map/geo/index")
+def geo_index():
+    """返回行政区索引(轻量, 仅 adcode/name/bbox, 不含几何)。前端用于按缩放/范围查找要加载的层级。"""
+    idx_path = os.path.join(_geo_root(), "geo_index.json")
+    if not os.path.exists(idx_path):
+        raise HTTPException(503, "离线行政区索引未安装, 请先运行 scripts/download_admin_boundaries.py")
+    with open(idx_path, encoding="utf-8") as f:
+        return _json.load(f)
+
+
+@router.get("/map/geo/boundaries")
+def geo_boundaries(level: str = Query("province", pattern="^(province|prefecture|county)$"),
+                   adcode: int | None = Query(None, description="上级 adcode; province 级忽略")):
+    """按层级返回行政区边界 GeoJSON(含几何)。
+
+    - level=province: 全国省界(无需 adcode)
+    - level=prefecture&adcode=530000: 云南省下辖地市
+    - level=county&adcode=532500: 红河州下辖县
+    全部离线读取, 无 key/无外网依赖。
+    """
+    geo = _geo_root()
+    if level == "province":
+        path = os.path.join(geo, "china_provinces.json")
+    else:
+        if not adcode:
+            raise HTTPException(400, f"{level} 级需提供 adcode 参数")
+        # 在 prefectures/ 或 counties/ 目录按 adcode_* 匹配
+        subdir = "prefectures" if level == "prefecture" else "counties"
+        d = os.path.join(geo, subdir)
+        match = None
+        if os.path.isdir(d):
+            for fn in os.listdir(d):
+                if fn.startswith(f"{adcode}_") and fn.endswith(".json"):
+                    match = os.path.join(d, fn); break
+        if not match:
+            raise HTTPException(404, f"未找到 adcode={adcode} 的 {level} 级离线数据")
+        path = match
+    if not os.path.exists(path):
+        raise HTTPException(503, "离线行政区数据未安装, 请先运行 scripts/download_admin_boundaries.py")
+    with open(path, encoding="utf-8") as f:
+        return _json.load(f)

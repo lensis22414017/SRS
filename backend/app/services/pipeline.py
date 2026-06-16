@@ -23,10 +23,11 @@ def get_pollutant_limits() -> dict:
     return _LIMITS_CACHE
 
 
-def run_import(db: Session, file_path: str, mapping_id: str,
-               imported_by: int | None = None,
-               scope: str = "production", land_subtype: str = "其他用地") -> dict:
-    mapping = load_mapping(mapping_id)
+def run_import_with_mapping(db: Session, file_path: str, mapping: dict,
+                             imported_by: int | None = None,
+                             scope: str = "production",
+                             land_subtype: str = "其他用地") -> dict:
+    """直接接受 mapping 字典（无需磁盘 JSON 文件）。供 wizard 接口和 run_import 共用。"""
     parsed = parse(file_path, mapping)
     report = validate(parsed, mapping, pollutant_limits=get_pollutant_limits(),
                       scope=scope, land_subtype=land_subtype)
@@ -38,3 +39,12 @@ def run_import(db: Session, file_path: str, mapping_id: str,
         "exceed_factors": report["summary"]["exceed_factors"],
     }
     return result
+
+
+def run_import(db: Session, file_path: str, mapping_id: str,
+               imported_by: int | None = None,
+               scope: str = "production", land_subtype: str = "其他用地") -> dict:
+    mapping = load_mapping(mapping_id)
+    return run_import_with_mapping(db, file_path, mapping,
+                                   imported_by=imported_by,
+                                   scope=scope, land_subtype=land_subtype)

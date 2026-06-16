@@ -34,6 +34,16 @@ kb_dir = PROJECT_ROOT / "data" / "knowledge_base"
 if kb_dir.is_dir():
     added_files.append((str(kb_dir), "data/knowledge_base"))
 
+# 离线地图行政区数据 (三级金字塔: 省/地市/县 GeoJSON + 索引, ~27MB, 随 exe 分发)
+geo_dir = PROJECT_ROOT / "data" / "geo"
+if geo_dir.is_dir():
+    added_files.append((str(geo_dir), "data/geo"))
+
+# 离线地图影像 MBTiles (可选, 由 download_tianditu_mbtiles.py 生成; 存在则打包)
+tiles_dir = PROJECT_ROOT / "data" / "geo" / "tiles"
+if tiles_dir.is_dir() and any(tiles_dir.glob("*.mbtiles")):
+    added_files.append((str(tiles_dir), "data/geo/tiles"))
+
 # ML 模型工件 (如果存在)
 ml_artifacts = PROJECT_ROOT / "ml" / "artifacts"
 if ml_artifacts.is_dir() and any(ml_artifacts.iterdir()):
@@ -61,6 +71,8 @@ hidden_imports = [
     "jinja2", "xhtml2pdf", "reportlab",
     "reportlab.pdfbase", "reportlab.pdfbase.cidfonts",
     "weasyprint", "docx",
+    # 报告内采样点静态图件(离线渲染, 不依赖天地图)
+    "matplotlib", "matplotlib.pyplot", "matplotlib.backends.backend_agg",
     # 数据处理
     "pandas", "numpy", "openpyxl",
     # 认证
@@ -74,7 +86,7 @@ excluded_imports = [
     "pytest", "_pytest", "pluggy",
     "pip", "setuptools", "wheel",
     "tkinter", "_tkinter",
-    "matplotlib", "PIL",  # 未使用
+    "PIL",  # 未使用
 ]
 
 # ── macOS .app 信息 ─────────────────────────────────────────────

@@ -29,6 +29,11 @@ services:
       REDIS_URL: redis://redis:6379/0
       SECRET_KEY: ${SECRET_KEY:?must set in .env}
       FILE_STORAGE_DIR: /app/storage
+      AI_BASE_URL: ${AI_BASE_URL:-}
+      AI_API_KEY: ${AI_API_KEY:-}
+      AI_MODEL: ${AI_MODEL:-GLM-4.7-Flash}
+      AI_TIMEOUT: ${AI_TIMEOUT:-60}
+      TIANDITU_KEY: ${TIANDITU_KEY:-}
     depends_on:
       db:
         condition: service_healthy

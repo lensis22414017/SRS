@@ -16,6 +16,8 @@ scikit-learn>=1.5.2
 shap>=0.47
 joblib>=1.4
 jinja2>=3.1
+# --- 报告内采样点静态图件(matplotlib 离线渲染, 不依赖天地图 key) ---
+matplotlib>=3.8
 xhtml2pdf>=0.2.16
 reportlab>=4.2
 svglib==1.5.1

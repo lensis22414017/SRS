@@ -37,6 +37,11 @@ export default function SiteList() {
           textCol("用地类型", "land_use_type"),
           textCol("区域", "city", { render: (_: any, r: any) => `${r.province || ""}${r.city || ""}` || "—" }),
           numCol("采样点", "n_points"),
+          numCol("因子数", "n_factors"),
+          { title: "超标", dataIndex: "n_exceed", align: "center", width: 80,
+            render: (v: number) => v ? <Tag color="red">{v}</Tag> : <Tag color="green">无</Tag> },
+          { title: "数据质量", dataIndex: "data_quality", align: "center", width: 100,
+            render: (v: string) => <Tag color={v === "良好" ? "green" : v === "部分超标" ? "orange" : "red"}>{v || "—"}</Tag> },
           { title: "操作", align: "center", render: (_, r) => <a onClick={() => nav(`/sites/${r.id}`)}>查看详情</a> },
         ]} />
     </Card>
