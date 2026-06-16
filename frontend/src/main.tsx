@@ -17,6 +17,7 @@ import TraceList from "./pages/TraceList";
 import TraceDetail from "./pages/TraceDetail";
 import SystemManagement from "./pages/SystemManagement";
 import RecommendationPage from "./pages/RecommendationPage";
+import FieldMappingPage from "./pages/FieldMappingPage";
 import ErrorPage from "./pages/ErrorPage";
 
 function Protected({ children }: { children: JSX.Element }) {
@@ -42,6 +43,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
               <Route index element={<Dashboard />} />
               <Route path="sites" element={<SiteList />} />
               <Route path="sites/import" element={<DataUpload />} />
+              <Route path="sites/import/wizard" element={<FieldMappingPage />} />
               <Route path="sites/:id" element={<SiteDetail />} />
               <Route path="obstacle" element={<ObstacleAnalysis />} />
               <Route path="reconstruction" element={<ReconstructionAnalysis />} />

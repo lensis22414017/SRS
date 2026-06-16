@@ -63,8 +63,12 @@ ML(ml/)          eda / cleaning / models(RF+dataset_splits) / explain(SHAP) /
 - 渲染库：Leaflet（`react-leaflet` 封装）
 - 行政区三级懒加载：缩放 1–5 显示省界，6–8 显示地市，9+ 显示县
 - 污染状态色：`danger=#dc2626 / warning=#f59e0b / success=#16a34a / info=#3b82f6`
-- 地图默认使用 L1 矢量底图（无 key、无外网即可运行）
-- 天地图 key 通过 `VITE_TIANDITU_KEY` 环境变量注入；未配置时自动降级至矢量底图
+- **默认：L1 矢量底图**（无 key、无外网即可运行）
+- **矢量/影像切换器**：右上角浮动按钮（蓝色高亮激活态），点击"🛰 影像"按需加载高德 hybrid 卫星瓦片，点击"🗺 矢量"回退
+- 高德瓦片通过后端代理加载（`/api/v1/map/tile/gaode/{z}/{x}/{y}`），**无 IP 白名单，换电脑/换网络均可用**
+- 卫星模式下行政区边界自动切换为白色轮廓（不遮挡影像）；矢量模式恢复深蓝色填充
+- 瓦片加载失败时前端显示告警遮罩，矢量底图始终可用（graceful degradation）
+- **前端不持有任何地图 Key**（已于 2026-06-16 移除 `VITE_TIANDITU_KEY`），Key 统一由后端 `.env` 管理
 
 ### 6.4 报告中的地图图件
 

@@ -1,7 +1,7 @@
-"""企业数据隔离回归测试: diagnosis/evaluation/recommendation 接口必须做 assert_site_access。
+"""企业数据隔离回归测试: 所有 site_id 接口必须做 assert_site_access。
 
-修复前: 这些接口缺 assert_site_access, 企业用户可访问他企业场地(数据串台)。
-本测试确保企业用户对非本企业场地的诊断/评价/推荐读接口返回 403。
+修复前: 部分接口缺 assert_site_access, 企业用户可访问他企业场地(数据串台)。
+本测试确保企业用户对非本企业场地的分析、地图、追溯、报告和 AI 上下文返回 403。
 需完整 venv(fastapi/sqlalchemy); 无则 skip。
 """
 import os
@@ -49,13 +49,20 @@ def test_enterprise_cannot_access_other_org_analysis():
     tok = c.post("/api/v1/auth/login",
                  json={"username": "enterprise", "password": "Demo@2026"}).json()["access_token"]
     h = {"Authorization": f"Bearer {tok}"}
-    # 三个分析接口的读端点都应 403(企业用户无权访问他企业场地)
+    # 分析、地图、追溯、报告读端点都应 403(企业用户无权访问他企业场地)
     for path in (f"/api/v1/sites/{site_id}/diagnosis",
                  f"/api/v1/sites/{site_id}/evaluation",
-                 f"/api/v1/sites/{site_id}/recommendation"):
+                 f"/api/v1/sites/{site_id}/recommendation",
+                 f"/api/v1/sites/{site_id}/workflow",
+                 f"/api/v1/sites/{site_id}/reports",
+                 f"/api/v1/sites/{site_id}/map/layers"):
         assert c.get(path, headers=h).status_code == 403, f"{path} 未做企业隔离"
     # 触发端点(POST)同样应 403
     assert c.post(f"/api/v1/sites/{site_id}/diagnosis", headers=h).status_code == 403
+    assert c.post(f"/api/v1/sites/{site_id}/workflow/init", headers=h).status_code == 403
+    assert c.post(f"/api/v1/sites/{site_id}/report", headers=h).status_code == 403
+    assert c.post("/api/v1/ai/chat", headers=h,
+                  json={"message": "总结当前场地", "site_id": site_id}).status_code == 403
 
 
 @needs_db

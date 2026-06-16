@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Card, Descriptions, Tabs, Table, Button, Spin, Space, message } from "antd";
+import { Card, Descriptions, Tabs, Table, Button, Spin, Space, message, Select } from "antd";
 import { api } from "../api/client";
 import SiteMap from "../components/SiteMap";
 import EdaPanel from "../components/EdaPanel";
@@ -14,14 +14,23 @@ export default function SiteDetail() {
   const [points, setPoints] = useState<any[]>([]);
   const [wide, setWide] = useState<any>({ factors: [], items: [] });
   const [reports, setReports] = useState<any[]>([]);
+  const [mapLayer, setMapLayer] = useState<any>(null);
+  const [mapFactor, setMapFactor] = useState<string | undefined>();
 
   const load = async () => {
     setSite(await api.site(sid));
     setPoints(await api.points(sid));
     setWide(await api.pointsWide(sid).catch(() => ({ factors: [], items: [] })));
     setReports(await api.reports(sid).then((d) => d.items).catch(() => []));
+    setMapLayer(await api.siteMapLayers(sid, mapFactor ? { factor: mapFactor } : undefined).catch(() => null));
   };
   useEffect(() => { load(); }, [sid]);
+  useEffect(() => {
+    if (!site) return;
+    api.siteMapLayers(sid, mapFactor ? { factor: mapFactor } : undefined)
+      .then(setMapLayer)
+      .catch(() => setMapLayer(null));
+  }, [mapFactor]);
 
   if (!site) return <Spin style={{ marginTop: 80 }} />;
 
@@ -63,8 +72,16 @@ export default function SiteDetail() {
       <Tabs items={[
         {
           key: "map", label: "点位地图",
-          children: <Card><SiteMap height={440} zoom={15}
-            sites={points.map((p) => ({ point_code: p.point_code, longitude: p.longitude, latitude: p.latitude, pollution_type: site.pollution_type }))} /></Card>,
+          children: <Card title="采样点空间分布与超标分级" extra={
+            <Select allowClear placeholder="按污染物筛选" style={{ width: 220 }}
+              value={mapFactor} onChange={setMapFactor}
+              options={(mapLayer?.pollutants || []).map((p: any) => ({
+                value: p.factor_code, label: `${p.factor_name || p.factor_code}${p.unit ? ` (${p.unit})` : ""}`,
+              }))} />
+          }>
+            <SiteMap height={440} zoom={15} layerData={mapLayer}
+              sites={points.map((p) => ({ point_code: p.point_code, longitude: p.longitude, latitude: p.latitude, pollution_type: site.pollution_type }))} />
+          </Card>,
         },
         {
           key: "wide", label: `采样点检测数据（${wide.items.length}）`,

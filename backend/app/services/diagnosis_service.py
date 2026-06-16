@@ -54,6 +54,28 @@ def load_feature_mapping() -> dict:
         return json.load(f)
 
 
+def resolve_model_feature(factor: str, preferred_feature: str,
+                          feature_list: list[str]) -> str | None:
+    """兼容旧英文特征名与新 Fxx_中文特征名。"""
+    if preferred_feature in feature_list:
+        return preferred_feature
+    suffix = f"_{factor}"
+    for feature in feature_list:
+        if feature == factor or feature.endswith(suffix):
+            return feature
+    return None
+
+
+def feature_to_factor_mapping(mapping: dict, feature_list: list[str]) -> dict[str, str]:
+    """训练特征 -> 场地因子中文名, 与 resolve_model_feature 保持一致。"""
+    out = {}
+    for factor, preferred_feature in mapping["factor_to_feature"].items():
+        resolved = resolve_model_feature(factor, preferred_feature, feature_list)
+        if resolved:
+            out[resolved] = factor
+    return out
+
+
 def pivot_site_measurements(db: Session, site_id: int) -> pd.DataFrame:
     """长表 -> 行=采样点(point_code), 列=factor_code。"""
     rows = (db.query(SamplingPoint.point_code, FactorDictionary.factor_code,
@@ -75,11 +97,12 @@ def align_features(pivot: pd.DataFrame, feature_list: list[str],
     conv = mapping.get("conversions", {})
     X = pd.DataFrame(index=pivot.index)
     measured: set[str] = set()
-    for factor, feature in f2f.items():
+    for factor, preferred_feature in f2f.items():
+        feature = resolve_model_feature(factor, preferred_feature, feature_list)
         if factor in pivot.columns and feature in feature_list:
             vals = pivot[factor]
             c = conv.get(factor)
-            if c and c.get("to_feature_multiply"):
+            if c and c.get("to_feature_multiply") and feature == preferred_feature:
                 vals = vals * c["to_feature_multiply"]
             X[feature] = vals
             measured.add(feature)
@@ -156,6 +179,67 @@ def production_limiting_factors(pivot: pd.DataFrame) -> list[dict]:
     return sorted(factors, key=lambda x: x["mean_abs_shap"], reverse=True)
 
 
+def pollutant_exceedance_factors(pivot: pd.DataFrame,
+                                 scope: str = "production",
+                                 land_subtype: str = "其他用地") -> list[dict]:
+    """基于标准阈值识别污染物超标障碍因子。
+
+    这是规则筛查, 不冒充 SHAP; 用于确保实测超标污染物不会被纯模型解释漏掉。
+    """
+    from app.services.pipeline import get_pollutant_limits
+    from app.services.threshold_resolver import resolve_limit
+
+    limits = get_pollutant_limits()
+    ph_series = (pd.to_numeric(pivot["pH"], errors="coerce")
+                 if "pH" in pivot.columns else None)
+    factors: list[dict] = []
+    for factor in limits:
+        if factor not in pivot.columns:
+            continue
+        vals = pd.to_numeric(pivot[factor], errors="coerce").dropna()
+        if vals.empty:
+            continue
+        exceed_ratios = []
+        threshold_notes = []
+        for idx, value in vals.items():
+            ph = None
+            if ph_series is not None and idx in ph_series.index and pd.notna(ph_series.loc[idx]):
+                ph = float(ph_series.loc[idx])
+            rule = resolve_limit(limits, factor, ph, scope=scope,
+                                 land_subtype=land_subtype)
+            if not rule:
+                continue
+            limit = rule.get("limit_max") or rule.get("limit")
+            if not limit or limit <= 0:
+                continue
+            ratio = float(value) / float(limit)
+            if ratio > 1:
+                exceed_ratios.append(ratio)
+                threshold_notes.append(rule.get("raw") or f"≤{limit}mg/kg")
+        if not exceed_ratios:
+            continue
+        affected_fraction = len(exceed_ratios) / len(vals)
+        max_exceedance = max(exceed_ratios)
+        mean_exceedance = sum(exceed_ratios) / len(exceed_ratios)
+        severity = (max_exceedance - 1.0) * 0.8 + affected_fraction * 0.2
+        factors.append({
+            "feature": factor,
+            "factor_code": factor,
+            "mean_abs_shap": round(max(severity, 0.001), 6),
+            "direction": "positive",
+            "source": "threshold_exceedance_rule",
+            "category": "环境指标",
+            "mean_value": round(float(vals.mean()), 4),
+            "diagnostic_value": round(max_exceedance, 4),
+            "affected_fraction": round(affected_fraction, 4),
+            "threshold": threshold_notes[0] if threshold_notes else None,
+            "note": (f"实测浓度超过标准阈值: 最大超标 {max_exceedance:.2f} 倍, "
+                     f"超标点位占比 {affected_fraction:.1%}, "
+                     f"超标点平均倍数 {mean_exceedance:.2f}。"),
+        })
+    return sorted(factors, key=lambda x: x["mean_abs_shap"], reverse=True)
+
+
 def ensure_model_record(db: Session, bundle: dict) -> MLModel:
     m = (db.query(MLModel)
          .filter_by(model_name=bundle["model_name"], version=bundle["version"]).first())
@@ -193,7 +277,7 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
     shap_out = explain(model, X)
 
     # 反向映射: 训练特征 -> 因子中文名
-    feat2factor = {v: k for k, v in mapping["factor_to_feature"].items()}
+    feat2factor = feature_to_factor_mapping(mapping, bundle["feature_list"])
     fd_by_code = {f.factor_code: f for f in db.query(FactorDictionary).all()}
     sp_by_code = {p.point_code: p for p in
                   db.query(SamplingPoint).filter_by(site_id=site_id).all()}
@@ -204,8 +288,9 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
     shap_ranked = [dict(g, factor_code=feat2factor.get(g["feature"]),
                         source="rf_shap")
                    for g in shap_out["global"] if g["feature"] in measured_feats]
+    exceedance_ranked = pollutant_exceedance_factors(pivot)
     rule_ranked = production_limiting_factors(pivot)
-    ranked_all = sorted(shap_ranked + rule_ranked,
+    ranked_all = sorted(shap_ranked + exceedance_ranked + rule_ranked,
                         key=lambda x: x["mean_abs_shap"], reverse=True)
     ranked = []
     seen_factors: set[str] = set()

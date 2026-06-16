@@ -20,8 +20,8 @@ npm run dev                  # http://localhost:5173
 
 ## 地图(天地图)
 
-去 https://console.tianditu.gov.cn/api/key 免费申请开发者 key,填入 `.env.local` 的 `VITE_TIANDITU_KEY`。
-未配置时自动回退 OpenStreetMap 底图(仍可演示点位)。
+推荐在后端 `.env` 配置 `TIANDITU_KEY`,由 `/api/v1/map/tile/...` 本地代理转发瓦片,key 不进前端包。
+开发演示也兼容 `.env.local` 的 `VITE_TIANDITU_KEY`;两者都未配置时地图保留点位空态并提示配置问题。
 天地图用 CGCS2000 坐标,与场地 WGS84 经纬度小范围一致,无需转换。
 
 ## 页面

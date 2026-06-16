@@ -4,6 +4,7 @@
 数据库: 首次启动自动建表 + 种子数据 (幂等, 不覆盖已有数据)。
 """
 import os
+import sys
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -26,6 +27,13 @@ settings = get_settings()
 # ── 启动事件: 自动建表 + 种子数据 (幂等) ──────────────────────────
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    import warnings
+    if settings.secret_key == "CHANGE_ME_IN_ENV":
+        warnings.warn(
+            "[SRS] secret_key 使用默认值 'CHANGE_ME_IN_ENV'！"
+            "请在 .env 中设置强随机密钥，否则 JWT 安全性为零。",
+            stacklevel=2,
+        )
     from app.db.init_db import create_all
     from app.db.seed_db import seed_if_empty
     create_all()
@@ -73,8 +81,23 @@ def info():
 
 # ── 前端静态文件 + SPA 回退 (桌面打包模式) ─────────────────────────
 # ⚠️ 必须在所有 API 路由之后注册, 否则 catch-all 会拦截 /health 等
-FRONTEND_DIST = os.path.abspath(os.path.join(os.path.dirname(__file__),
-                                             "..", "..", "frontend", "dist"))
+def _frontend_dist_dir() -> str:
+    candidates = []
+    if getattr(sys, "frozen", False):
+        candidates.append(os.path.join(getattr(sys, "_MEIPASS", os.getcwd()),
+                                       "frontend", "dist"))
+    candidates.extend([
+        os.path.abspath(os.path.join(os.path.dirname(__file__),
+                                     "..", "..", "frontend", "dist")),
+        os.path.abspath(os.path.join(os.getcwd(), "frontend", "dist")),
+    ])
+    for path in candidates:
+        if os.path.isdir(path):
+            return path
+    return candidates[0]
+
+
+FRONTEND_DIST = _frontend_dist_dir()
 if os.path.isdir(FRONTEND_DIST):
     ASSETS_DIR = os.path.join(FRONTEND_DIST, "assets")
     if os.path.isdir(ASSETS_DIR):

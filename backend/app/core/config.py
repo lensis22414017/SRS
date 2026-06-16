@@ -48,11 +48,15 @@ class Settings(BaseSettings):
     # AI 网关 (OpenAI 兼容; 留空则前端 AI 助手降级为"未配置"提示)
     ai_base_url: str = ""
     ai_api_key: str = ""
-    ai_model: str = "Qwen/Qwen2.5-7B-Instruct"
+    ai_model: str = "GLM-4.7-Flash"
     ai_timeout: int = 60
 
-    # 地图服务: 天地图 key 仅后端持有, 前端通过本地瓦片代理访问
-    tianditu_key: str = ""
+    # 地图服务 — 天地图 (需固定 IP 白名单, 仅服务器部署时配置)
+    tianditu_key: str = _os.environ.get("TIANDITU_KEY") or _os.environ.get("VITE_TIANDITU_KEY", "")
+
+    # 地图服务 — 高德 (无 IP 白名单, 换电脑/换网络均可用; 推荐默认在线影像源)
+    # 不配置时走无 key 通道(同样可用); 配置后享有官方配额(30万次/天免费)
+    gaode_key: str = _os.environ.get("GAODE_KEY", "")
 
     # 桌面模式: 检测到打包环境时自动启用
     is_packaged: bool = getattr(_sys, "frozen", False)

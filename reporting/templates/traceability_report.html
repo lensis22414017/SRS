@@ -25,6 +25,7 @@
   .bar-wrap { background: #eef1f5; border-radius: 2pt; }
   .bar { background: #0f3d6e; height: 9pt; border-radius: 2pt; }
   .bar-red { background: #b91c1c; }
+  .map-panel { border: 0.5pt solid #b8c4d0; background: #f8fbfd; padding: 8pt; margin-top: 6pt; }
 </style>
 </head>
 <body>
@@ -77,7 +78,7 @@
     <tr><td>缺失率摘要</td><td>{{ coverage.missing_pct }}%（{{ coverage.note }}）</td></tr>
   </table>
 
-  <h2>三、采样点信息（前 10 条）</h2>
+  <h2>四、采样点信息（前 10 条）</h2>
   <table>
     <tr><th>采样点</th><th>区域</th><th>经度</th><th>纬度</th><th>深度(cm)</th><th>土壤类型</th></tr>
     {% for p in sampling_points[:10] %}
@@ -88,7 +89,28 @@
   </table>
   <div class="muted">共 {{ sampling_points|length }} 个采样点，此处显示前 10 条。</div>
 
-  <h2>四、检测数据摘要（按因子）</h2>
+  <h2>五、地图图件与采样点空间分布</h2>
+  <div class="map-panel">
+    <div><b>地图图层:</b> 天地图底图 + 采样点 GeoJSON + 污染物筛选 + 超标倍数风险分级。</div>
+    <div><b>坐标覆盖:</b> {{ map_summary.n_coord_points }} / {{ map_summary.n_points }} 个采样点有经纬度, 覆盖率 {{ map_summary.coverage_pct }}%。</div>
+    {% if map_summary.map_image %}
+    <div style="text-align:center; margin-top:8pt;">
+      <img src="{{ map_summary.map_image }}" alt="采样点空间分布图"
+           style="max-width:100%; border:0.5pt solid #b8c4d0; border-radius:4pt;" />
+    </div>
+    {% elif map_summary.bounds %}
+    <div class="muted">静态图件渲染不可用(matplotlib 缺失), 以下为空间范围文字说明。</div>
+    {% endif %}
+    {% if map_summary.bounds %}
+    <div><b>空间范围:</b> 经度 {{ map_summary.bounds.min_lon }} 至 {{ map_summary.bounds.max_lon }},
+      纬度 {{ map_summary.bounds.min_lat }} 至 {{ map_summary.bounds.max_lat }}。</div>
+    {% else %}
+    <div class="muted">当前场地缺少可用采样点坐标, 报告保留地图章节但不生成空间范围。</div>
+    {% endif %}
+    <div class="muted">{{ map_summary.note }}</div>
+  </div>
+
+  <h2>六、检测数据摘要（按因子）</h2>
   <table>
     <tr><th>因子</th><th>类别</th><th>样本数</th><th>最小值</th><th>均值</th><th>最大值</th><th>单位</th></tr>
     {% for f in factor_summary %}
@@ -97,14 +119,14 @@
     {% endfor %}
   </table>
 
-  <h2>五、数据质量校验结果</h2>
+  <h2>七、数据质量校验结果</h2>
   <table class="kv">
     <tr><td>校验结论</td><td><span class="badge {{ 'ok' if validation.passed else 'bad' }}">{{ '通过' if validation.passed else '存在阻断性错误' }}</span></td></tr>
     <tr><td>错误 / 警告</td><td>{{ validation.n_errors }} / {{ validation.n_warnings }}</td></tr>
     <tr><td>超标提示</td><td>{{ validation.n_exceed }} 项，涉及因子：{{ validation.exceed_factors|join('、') or '无' }}</td></tr>
   </table>
 
-  <h2>六、关键障碍因子识别（RF + SHAP）</h2>
+  <h2>八、关键障碍因子识别（RF + SHAP）</h2>
   {% if diagnosis %}
   <table class="kv">
     <tr><td>模型</td><td>{{ diagnosis.model_name }} {{ diagnosis.model_version }}（AUC={{ diagnosis.metrics.auc }}, F1={{ diagnosis.metrics.f1 }}）</td></tr>
@@ -129,7 +151,7 @@
   <div class="muted">{{ diagnosis.summary }}</div>
   {% else %}<div class="muted">暂无诊断结果。</div>{% endif %}
 
-  <h2>七、功能重构可行性评价</h2>
+  <h2>九、功能重构可行性评价</h2>
   {% for ev in reconstruction %}
   <table class="kv">
     <tr><td>{{ ev.title }}</td><td>综合得分 <span class="badge {{ 'ok' if ev.grade=='可行' else 'bad' }}">{{ ev.score }}（{{ ev.grade }}）</span></td></tr>
@@ -138,7 +160,7 @@
   </table>
   {% endfor %}
 
-  <h2>八、可持续利用评价（SSUI）</h2>
+  <h2>十、可持续利用评价（SSUI）</h2>
   {% if ssui %}
   <table class="kv">
     <tr><td>SSUI 指数</td><td><span class="badge">{{ ssui.score }}</span>（{{ ssui.grade }}）</td></tr>
@@ -146,7 +168,7 @@
   </table>
   {% else %}<div class="muted">暂无 SSUI 结果。</div>{% endif %}
 
-  <h2>九、推荐重构方案与推荐修复方案矩阵</h2>
+  <h2>十一、推荐重构方案与推荐修复方案矩阵</h2>
   {% if recommendations %}
   <table>
     <tr><th>排序</th><th>技术</th><th>匹配度</th><th>成本/周期</th><th>禁用条件</th><th>推荐理由（摘要）</th></tr>
@@ -159,7 +181,7 @@
   </table>
   {% else %}<div class="muted">暂无推荐方案。</div>{% endif %}
 
-  <h2>十、修复案例证据库</h2>
+  <h2>十二、修复案例证据库</h2>
   {% if remediation_cases %}
   <table>
     <tr><th>案例</th><th>区域/用地</th><th>污染物</th><th>技术</th><th>效果</th><th>限制</th><th>证据来源</th></tr>
@@ -173,7 +195,7 @@
   </table>
   {% else %}<div class="muted">暂无修复案例。</div>{% endif %}
 
-  <h2>十、五阶段全流程追溯记录</h2>
+  <h2>十三、五阶段全流程追溯记录</h2>
   <table>
     <tr><th>阶段</th><th>状态</th><th>版本</th><th>操作时间</th><th>审批意见</th><th>附件</th></tr>
     {% for w in workflow %}
@@ -182,7 +204,7 @@
     {% endfor %}
   </table>
 
-  <h2>十一、附件清单</h2>
+  <h2>十四、附件清单</h2>
   {% if attachments %}
   <table>
     <tr><th>阶段</th><th>材料类型</th><th>文件名</th></tr>
@@ -192,7 +214,7 @@
   </table>
   {% else %}<div class="muted">暂无附件。</div>{% endif %}
 
-  <h2>十二、操作日志摘要（最近 10 条）</h2>
+  <h2>十五、操作日志摘要（最近 10 条）</h2>
   <table>
     <tr><th>时间</th><th>操作</th><th>对象</th><th>结果</th></tr>
     {% for a in audit_logs %}
@@ -200,7 +222,7 @@
     {% endfor %}
   </table>
 
-  <h2>十三、模型版本、数据版本、标准版本、报告版本</h2>
+  <h2>十六、模型版本、数据版本、标准版本、报告版本</h2>
   <table class="kv">
     <tr><td>模型版本</td><td>{% if diagnosis %}{{ diagnosis.model_name }} {{ diagnosis.model_version }}{% else %}—{% endif %}</td></tr>
     <tr><td>数据版本</td><td>{{ report.data_version }}</td></tr>
@@ -215,6 +237,13 @@
     {% endfor %}
   </table>
   {% endif %}
+
+  <h2>十七、人工复核意见区</h2>
+  <table class="kv">
+    <tr><td>复核结论</td><td>□ 采纳系统结论　□ 部分采纳　□ 驳回并要求补充数据</td></tr>
+    <tr><td>复核意见</td><td style="height:48pt">&nbsp;</td></tr>
+    <tr><td>复核人 / 复核时间</td><td>&nbsp;</td></tr>
+  </table>
 
   <div class="footer">
     报告版本 {{ report.version }}｜模板 {{ report.template_version }}｜数据版本快照 {{ report.data_version }}｜
