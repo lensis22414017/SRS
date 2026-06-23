@@ -19,7 +19,6 @@ _ML_EDA = os.path.join(ROOT, "ml", "eda")
 if _ML_EDA not in sys.path:
     sys.path.insert(0, _ML_EDA)
 
-os.environ.setdefault("DATABASE_URL", "sqlite:///./test_eda.db")
 
 
 # ---------- profile.py 纯算法 ----------

@@ -1,7 +1,6 @@
 """修复案例库与 DOCX 报告测试。"""
 import os
 
-os.environ.setdefault("DATABASE_URL", "sqlite:///./test_remediation_report.db")
 
 
 def test_remediation_case_loader_and_docx_report():

@@ -16,7 +16,6 @@ GEJIU = os.path.join(ROOT, "data", "raw",
                      "3.20250731_重金属污染场地数据表(云南个旧)_最终版.xlsx")
 KB = os.path.join(ROOT, "data", "knowledge_base", "统一障碍因子知识库_V1.0.csv")
 
-os.environ.setdefault("DATABASE_URL", "sqlite:///./test_eval.db")
 
 
 def _gejiu_stats():

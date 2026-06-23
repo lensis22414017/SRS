@@ -1,7 +1,6 @@
 """标准阈值库入库测试。"""
 import os
 
-os.environ.setdefault("DATABASE_URL", "sqlite:///./test_standard_thresholds.db")
 
 
 def test_standard_thresholds_table_and_loader():

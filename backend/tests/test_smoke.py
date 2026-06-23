@@ -4,7 +4,6 @@
 """
 import os
 
-os.environ.setdefault("DATABASE_URL", "sqlite:///./test_smoke.db")
 
 
 def test_models_create_all():

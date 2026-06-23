@@ -9,7 +9,6 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 GEJIU = os.path.join(ROOT, "data", "raw",
                      "3.20250731_重金属污染场地数据表(云南个旧)_最终版.xlsx")
 
-os.environ.setdefault("DATABASE_URL", "sqlite:///./test_ai_rag.db")
 
 
 def _has(*mods):

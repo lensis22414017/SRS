@@ -4,7 +4,6 @@ from types import SimpleNamespace
 
 import pytest
 
-os.environ.setdefault("DATABASE_URL", "sqlite:///./test_data_import_batch.db")
 
 
 def _has_backend_deps():
@@ -41,7 +40,7 @@ def test_import_batch_uses_unique_clean_filenames(tmp_path, monkeypatch):
 
     monkeypatch.setattr(data_api, "get_settings",
                         lambda: SimpleNamespace(file_storage_dir=str(tmp_path)))
-    monkeypatch.setattr(data_api, "run_import", fake_run_import)
+    monkeypatch.setattr(data_api, "run_import_with_mapping", fake_run_import)
 
     c = TestClient(app)
     token = c.post("/api/v1/auth/login",
@@ -52,7 +51,7 @@ def test_import_batch_uses_unique_clean_filenames(tmp_path, monkeypatch):
         ("files", ("same.xlsx", b"two", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")),
     ]
 
-    r = c.post("/api/v1/import/batch", data={"mapping_id": "demo_mapping"},
+    r = c.post("/api/v1/import/batch", data={"mapping_id": "yunnan_gejiu"},
                files=files, headers=headers)
 
     assert r.status_code == 200

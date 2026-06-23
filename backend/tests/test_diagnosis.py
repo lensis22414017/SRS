@@ -13,7 +13,6 @@ sys.path.insert(0, os.path.join(ROOT, "ml", "models"))
 GEJIU = os.path.join(ROOT, "data", "raw",
                      "3.20250731_重金属污染场地数据表(云南个旧)_最终版.xlsx")
 
-os.environ.setdefault("DATABASE_URL", "sqlite:///./test_diag.db")
 
 
 # ---------- 纯 pandas ----------
