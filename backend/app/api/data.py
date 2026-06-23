@@ -50,6 +50,7 @@ async def import_data(mapping_id: str = Form(...), file: UploadFile = File(...),
         shutil.copyfileobj(file.file, f)
     # ── 解析映射: auto=按文件 sheet/列签名自动识别; 否则按 mapping_id 加载 ──
     used_id, mapping, det_report = _resolve_mapping(mapping_id, dest)
+    _apply_auto_site_code(mapping, mapping_id, file.filename)
     try:
         result = run_import_with_mapping(db, dest, mapping, imported_by=user.id)
         result["stored_filename"] = canonical
@@ -81,6 +82,22 @@ def _resolve_mapping(mapping_id: str, dest: str) -> tuple[str, dict, dict]:
             f"识别到: 点位列={report.get('point_code_column')}; "
             f"问题: {'; '.join(warnings)}。")
     return used_id, mapping, report
+
+
+def _apply_auto_site_code(mapping: dict, mapping_id: str, original_filename: str | None) -> None:
+    """auto+smart 识别时用原文件名重设 site_code(避免 canonical 时间戳冲突 + 可读)。
+
+    smart_detect 默认 site_code='AUTO-'+canonical stem(含时间戳), 同分钟多文件会冲突到
+    同一 site_code → 多场地被合并; 改用上传的原文件名 stem, 保证多场地唯一且可读。
+    """
+    if mapping_id not in ("auto", "", "detect", None):
+        return
+    if not (mapping or {}).get("_smart_generated"):
+        return
+    stem = os.path.splitext(original_filename or "AUTO场地")[0]
+    safe = "".join(c for c in stem if c.isalnum() or c in ("-_",))[:40] or "AUTO场地"
+    mapping.setdefault("site", {})["site_code"] = f"AUTO-{safe}"
+    mapping["site"]["name"] = stem
 
 
 @router.post("/import/columns")
@@ -182,6 +199,7 @@ async def import_batch(mapping_id: str = Form(...),
             else:
                 used_id, file_mapping = mapping_id, mapping
                 det_report = {"used_id": mapping_id, "confidence": 1.0, "source": "preset"}
+            _apply_auto_site_code(file_mapping, mapping_id, original_name)
             res = run_import_with_mapping(db, dest, file_mapping, imported_by=user.id)
             res["stored_filename"] = canonical
             res["original_filename"] = original_name

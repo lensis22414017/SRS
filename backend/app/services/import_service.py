@@ -315,7 +315,8 @@ def smart_detect_and_map(path: str) -> tuple[str, dict, list[dict]]:
         "sheet": sheet_name,
         "header_row": 1,
         "site": {
-            "site_code": "AUTO-" + _os.path.basename(path)[:12],
+            # site_code 用完整 stem(原 [:12] 截断 + canonical 含时间戳 → 同分钟冲突到同场地)
+            "site_code": "AUTO-" + site_name,
             "name": site_name,
             "pollution_type": pollution_type,
             "province": None, "city": None,
