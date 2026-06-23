@@ -4,7 +4,7 @@ from __future__ import annotations
 import os
 import shutil
 
-from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, UploadFile
+from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Response, UploadFile
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
@@ -334,6 +334,61 @@ def site_measurements(site_id: int, factor: str | None = None,
         "value": m.value, "unit": m.unit,
     } for m, fd, sp in rows]
     return {"total": total, "page": page, "size": size, "items": items}
+
+
+@router.get("/sites/{site_id}/measurements/export")
+def export_site_measurements(site_id: int,
+                format: str = Query("csv", pattern="^(csv|xlsx)$"),
+                user: User = Depends(require_permission("data:export")),
+                db: Session = Depends(get_db)):
+    """导出场地检测长表(brief 4.3)。16 字段对齐甲方验收, 中文不乱码, 写 audit log。"""
+    import csv as _csv
+    import io
+    s = db.get(Site, site_id)
+    if not s:
+        raise HTTPException(404, "场地不存在")
+    assert_site_access(db, user, s)
+    rows = (db.query(Measurement, FactorDictionary, SamplingPoint)
+            .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id)
+            .join(SamplingPoint, Measurement.sampling_point_id == SamplingPoint.id)
+            .filter(Measurement.site_id == site_id)
+            .order_by(SamplingPoint.id, Measurement.id).all())
+    if not rows:
+        raise HTTPException(404, "该场地无检测数据, 无法导出")
+    fields = ["site_code", "site_name", "point_code", "longitude", "latitude", "region",
+              "depth_top_cm", "depth_bottom_cm", "factor_code", "factor_name", "category",
+              "value", "unit", "source_file", "import_batch_id", "detected_at"]
+    data = [[s.site_code, s.name, sp.point_code,
+             float(sp.longitude) if sp.longitude is not None else None,
+             float(sp.latitude) if sp.latitude is not None else None,
+             sp.region, sp.depth_top_cm, sp.depth_bottom_cm,
+             fd.factor_code, fd.factor_name, fd.level1_category,
+             m.value, m.unit, m.source_file, m.import_batch_id,
+             str(m.detected_at) if m.detected_at else None]
+            for m, fd, sp in rows]
+    # brief 4.3 / AC-16: 每次导出写 audit log
+    log(db, action="export_measurements", user_id=user.id, resource_type="sites",
+        resource_id=site_id, detail={"format": format, "n_rows": len(data)})
+    if format == "csv":
+        buf = io.StringIO()
+        buf.write("﻿")  # utf-8-sig BOM, Excel 打开中文不乱码
+        w = _csv.writer(buf)
+        w.writerow(fields)
+        w.writerows(data)
+        return Response(content=buf.getvalue().encode("utf-8-sig"),
+                        media_type="text/csv; charset=utf-8",
+                        headers={"Content-Disposition":
+                                 f'attachment; filename="measurements_site{site_id}.csv"'})
+    # xlsx
+    import pandas as _pd
+    df = _pd.DataFrame(data, columns=fields)
+    buf2 = io.BytesIO()
+    with _pd.ExcelWriter(buf2, engine="openpyxl") as xw:
+        df.to_excel(xw, index=False, sheet_name="measurements")
+    return Response(content=buf2.getvalue(),
+                    media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    headers={"Content-Disposition":
+                             f'attachment; filename="measurements_site{site_id}.xlsx"'})
 
 
 @router.get("/sites/{site_id}/eda")

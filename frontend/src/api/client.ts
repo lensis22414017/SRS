@@ -42,6 +42,15 @@ export const api = {
   eda: (id: number, params?: any) => client.get(`/sites/${id}/eda`, { params }).then((r) => r.data),
   measurements: (id: number, params?: any) =>
     client.get(`/sites/${id}/measurements`, { params }).then((r) => r.data),
+  /** 导出场地检测长表(brief 4.3): csv/xlsx, blob 触发浏览器下载 */
+  exportMeasurements: async (id: number, format: "csv" | "xlsx" = "csv") => {
+    const r = await client.get(`/sites/${id}/measurements/export`,
+      { params: { format }, responseType: "blob" });
+    const url = URL.createObjectURL(r.data as Blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = `measurements_site${id}.${format}`; a.click();
+    URL.revokeObjectURL(url);
+  },
   importData: (mappingId: string, file: File) => {
     const fd = new FormData();
     fd.append("mapping_id", mappingId);

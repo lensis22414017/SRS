@@ -66,6 +66,8 @@ export default function SiteDetail() {
           <Button onClick={() => nav("/ssui")}>SSUI 评价</Button>
           <Button onClick={() => nav(`/trace/${sid}`)}>全流程追溯</Button>
           <Button type="primary" onClick={() => nav("/sites/import")}>导入数据</Button>
+          <Button onClick={async () => { try { await api.exportMeasurements(sid, "csv"); message.success("已导出检测数据 CSV"); } catch (e: any) { message.error(e?.response?.data?.detail || "导出失败（需 data:export 权限）"); } }}>导出检测数据 CSV</Button>
+          <Button onClick={async () => { try { await api.exportMeasurements(sid, "xlsx"); message.success("已导出检测数据 XLSX"); } catch (e: any) { message.error(e?.response?.data?.detail || "导出失败（需 data:export 权限）"); } }}>导出 XLSX</Button>
         </Space>
       </Card>
 
