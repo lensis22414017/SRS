@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FloatButton, Drawer, Input, Button, List, Tag, Spin, Typography, Space } from "antd";
 import { RobotOutlined, SendOutlined } from "@ant-design/icons";
 import { useLocation } from "react-router-dom";
@@ -10,10 +10,14 @@ export default function AiAssistant({ siteId }: { siteId?: number }) {
   const location = useLocation();
   const [open, setOpen] = useState(false);
   const [msgs, setMsgs] = useState<Msg[]>([
-    { role: "assistant", content: "您好，我是污染场地监管智能助手。可问我障碍因子、阈值标准、修复技术或本场地的诊断/评价结论。回答均基于知识库与场地真实数据。" },
+    { role: "assistant", content: "您好，我是污染场地监管智能助手。可问我障碍因子、阈值标准、修复技术或本场地的诊断/评价结论。回答均基于知识库与场地真实数据，不编造标准与文献。" },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [aiStat, setAiStat] = useState<any>(null);     // /ai/status 模型配置(brief 4.7)
+  const [lastMeta, setLastMeta] = useState<any>(null); // 最近 chat 的知识库命中
+
+  useEffect(() => { api.aiStatus().then(setAiStat).catch(() => {}); }, []);
 
   const resolveSiteId = () => {
     if (siteId) return siteId;
@@ -26,15 +30,31 @@ export default function AiAssistant({ siteId }: { siteId?: number }) {
   const send = async () => {
     const q = input.trim();
     if (!q || loading) return;
+    const hist = msgs.slice(-6);  // 历史(不含当前消息, brief 4.7 防前端重复发)
     const next = [...msgs, { role: "user" as const, content: q }];
     setMsgs(next); setInput(""); setLoading(true);
     try {
-      const r = await api.aiChat(q, resolveSiteId(), next.slice(-6));
+      const r = await api.aiChat(q, resolveSiteId(), hist);
+      setLastMeta({
+        configured: r.configured, degraded: r.degraded, error: r.error,
+        nFactor: r.context?.factors?.length ?? 0,
+        nThr: r.context?.thresholds?.length ?? 0,
+        nTech: r.context?.technologies?.length ?? 0,
+      });
       setMsgs([...next, { role: "assistant", content: r.reply }]);
-    } catch {
-      setMsgs([...next, { role: "assistant", content: "AI 服务暂不可用，请稍后再试或联系管理员配置模型。" }]);
+    } catch (e: any) {
+      // brief 4.7: 显后端 detail 而非笼统"AI 服务暂不可用"
+      const detail = e?.response?.data?.detail || e?.response?.data?.reply
+        || `AI 调用失败(${e?.message || "未知原因"})`;
+      setMsgs([...next, { role: "assistant", content: `⚠ ${detail}` }]);
     } finally { setLoading(false); }
   };
+
+  const sid = resolveSiteId();
+  const modelLabel = aiStat?.configured
+    ? `模型: ${aiStat.model}`
+    : aiStat?.degraded_hint ? "模型未配置(走 RAG 降级)" : "模型状态加载中…";
+  const modelColor = aiStat?.configured ? "green" : "orange";
 
   return (
     <>
@@ -43,9 +63,15 @@ export default function AiAssistant({ siteId }: { siteId?: number }) {
       <Drawer title={<Space><RobotOutlined /> AI 智能助手（知识库 RAG）</Space>}
         open={open} onClose={() => setOpen(false)} width={420}>
         <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
-          <Tag color={resolveSiteId() ? "blue" : "default"} style={{ alignSelf: "flex-start", marginBottom: 8 }}>
-            {resolveSiteId() ? `当前场地上下文：#${resolveSiteId()}` : "当前未绑定具体场地"}
-          </Tag>
+          {/* brief 4.7: 顶部状态栏 — 模型状态/场地上下文/知识库命中数 */}
+          <Space wrap size={6} style={{ marginBottom: 8 }}>
+            <Tag color={modelColor}>{modelLabel}</Tag>
+            <Tag color={sid ? "blue" : "default"}>{sid ? `场地上下文: #${sid}` : "未绑定场地"}</Tag>
+            {lastMeta && (
+              <Tag color="purple">知识库命中: {lastMeta.nFactor}因子 / {lastMeta.nThr}阈值 / {lastMeta.nTech}技术</Tag>
+            )}
+            {lastMeta?.degraded && <Tag color="gold">本次 RAG 降级</Tag>}
+          </Space>
           <List style={{ flex: 1, overflowY: "auto" }} dataSource={msgs}
             renderItem={(m) => (
               <List.Item style={{ border: "none", padding: "6px 0" }}>

@@ -23,9 +23,12 @@ class ChatBody(BaseModel):
 
 @router.get("/status")
 def ai_status(user: User = Depends(get_current_user)):
-    s = get_settings()
-    return {"configured": bool(s.ai_base_url and s.ai_api_key),
-            "model": s.ai_model if s.ai_base_url else None}
+    from app.core.ai_config import effective_ai
+    cfg = effective_ai()
+    return {"configured": cfg["configured"],
+            "model": cfg["model"] if cfg["configured"] else None,
+            "source": cfg["source"],
+            "degraded_hint": not cfg["configured"]}  # brief 4.7: 未配置→将走 RAG 降级, 前端提示
 
 
 @router.post("/chat")

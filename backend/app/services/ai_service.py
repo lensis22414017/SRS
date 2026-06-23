@@ -215,14 +215,17 @@ def _rag_fallback_reply(ctx: dict, reason: str) -> str:
 
 def chat(db: Session, message: str, site_id: int | None = None,
          history: list[dict] | None = None) -> dict:
-    s = get_settings()
+    from app.core.ai_config import effective_ai
+    cfg = effective_ai()
+    base_url, api_key, model = cfg["base_url"], cfg["api_key"], cfg["model"]
+    timeout = get_settings().ai_timeout
     ctx = retrieve(db, message, site_id=site_id)
     ctx_text = build_context_text(ctx)
 
-    if not s.ai_base_url or not s.ai_api_key:
+    if not base_url or not api_key:
         return {
-            "reply": ("⚠️ 尚未配置 AI 模型。请在后端 .env 设置 AI_BASE_URL / AI_API_KEY / AI_MODEL"
-                      "(推荐: 智谱 GLM OpenAI 兼容接口 https://open.bigmodel.cn/api/paas/v4, 或本机 Ollama)。\n\n"
+            "reply": ("⚠️ 尚未配置 AI 模型。请在『系统管理 → AI 模型配置』选择服务商并填写 API Key"
+                      "(默认推荐: 智谱 GLM 官方免费模型)。\n\n"
                       "以下是知识库检索到的相关资料(已可直接参考):\n" + ctx_text),
             "context": ctx, "model": None, "configured": False,
         }
@@ -232,34 +235,37 @@ def chat(db: Session, message: str, site_id: int | None = None,
     for h in (history or [])[-6:]:
         if h.get("role") in ("user", "assistant"):
             messages.append({"role": h["role"], "content": h.get("content", "")})
-    messages.append({"role": "user", "content": message})
+    # brief 4.7: 防御前端把当前 user 消息也放进 history → 末条重复时不再 append
+    if not (messages and messages[-1].get("role") == "user"
+            and messages[-1].get("content") == message):
+        messages.append({"role": "user", "content": message})
 
-    payload = json.dumps({"model": s.ai_model, "messages": messages,
+    payload = json.dumps({"model": model, "messages": messages,
                           "temperature": 0.3}).encode("utf-8")
     req = urllib.request.Request(
-        s.ai_base_url.rstrip("/") + "/chat/completions", data=payload,
+        base_url.rstrip("/") + "/chat/completions", data=payload,
         headers={"Content-Type": "application/json",
-                 "Authorization": f"Bearer {s.ai_api_key}"})
+                 "Authorization": f"Bearer {api_key}"})
     try:
-        with urllib.request.urlopen(req, timeout=s.ai_timeout) as resp:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
             data = json.loads(resp.read().decode("utf-8"))
         reply = data["choices"][0]["message"]["content"]
         if _quality_issue(reply):
             return {"reply": _rag_fallback_reply(ctx, "AI 模型返回内容存在乱码或质量异常, 已自动降级"),
-                    "context": ctx, "model": s.ai_model, "configured": True,
+                    "context": ctx, "model": model, "configured": True,
                     "degraded": True}
-        return {"reply": reply, "context": ctx, "model": s.ai_model, "configured": True}
+        return {"reply": reply, "context": ctx, "model": model, "configured": True}
     except urllib.error.HTTPError as e:
         if e.code == 429:
             return {
                 "reply": ("AI 模型当前额度或频率受限(HTTP 429: Too Many Requests)。"
                           "以下为知识库检索结果供参考:\n\n" + ctx_text),
-                "context": ctx, "model": s.ai_model, "configured": True,
+                "context": ctx, "model": model, "configured": True,
                 "error": str(e), "error_status": 429,
             }
         return {"reply": f"AI 调用失败(HTTP {e.code}: {e.reason})。以下为知识库检索结果供参考:\n\n{ctx_text}",
-                "context": ctx, "model": s.ai_model, "configured": True,
+                "context": ctx, "model": model, "configured": True,
                 "error": str(e), "error_status": e.code}
     except (urllib.error.URLError, KeyError, TimeoutError) as e:
         return {"reply": f"AI 调用失败({e})。以下为知识库检索结果供参考:\n\n{ctx_text}",
-                "context": ctx, "model": s.ai_model, "configured": True, "error": str(e)}
+                "context": ctx, "model": model, "configured": True, "error": str(e)}
