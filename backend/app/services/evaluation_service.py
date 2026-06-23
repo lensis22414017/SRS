@@ -58,9 +58,29 @@ def run_evaluation(db: Session, site_id: int, t: float = 2.0,
     ph = means.get("pH")
     data_version = current_site_data_version(db, site_id)
 
-    # 幂等: 清除本场地旧评价结果, 仅保留本次最新三类
-    db.query(EvaluationResult).filter_by(site_id=site_id).delete()
-    db.flush()
+    # brief 4.5 / D1: 追加式保留历史(旧实现 delete 全部旧评价 → 无历史)。
+    # 若三类 latest 的 data_version 都等于当前版本 → 数据未变(幂等), 直接返回不重算,
+    # 避免冗余累积; 数据变化时新增, 旧结果因 data_version 不同自动被 GET 判为 stale。
+    existing_latest: dict[str, EvaluationResult] = {}
+    for r in (db.query(EvaluationResult).filter_by(site_id=site_id)
+              .order_by(EvaluationResult.id.desc()).all()):
+        existing_latest.setdefault(r.eval_type, r)
+    if all(et in existing_latest and existing_latest[et].data_version == data_version
+           for et in ("reconstruction_prod", "reconstruction_eco", "ssui")):
+        return {
+            "site_id": site_id, "data_version": data_version,
+            "param_version": PARAM_VERSION, "reused": True,
+            "reconstruction_prod": {"score": existing_latest["reconstruction_prod"].score,
+                                    "grade": existing_latest["reconstruction_prod"].grade},
+            "reconstruction_eco": {"score": existing_latest["reconstruction_eco"].score,
+                                   "grade": existing_latest["reconstruction_eco"].grade},
+            "ssui": {"ssui": existing_latest["ssui"].score,
+                     "grade": existing_latest["ssui"].grade},
+            "details": {et: {"score": existing_latest[et].score,
+                             "grade": existing_latest[et].grade,
+                             "data_version": existing_latest[et].data_version}
+                        for et in existing_latest},
+        }
 
     results = {}
     for scope in ("production", "ecology"):

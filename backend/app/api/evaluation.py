@@ -37,22 +37,26 @@ def trigger_evaluation(site_id: int, t: float = Query(2.0), intensity: str = "me
 def get_evaluation(site_id: int, user: User = Depends(get_current_user),
                    db: Session = Depends(get_db)):
     _require_site(db, user, site_id)
+    from app.services.versioning import current_site_data_version
+    current_dv = current_site_data_version(db, site_id)
     rows = (db.query(EvaluationResult).filter_by(site_id=site_id)
             .order_by(EvaluationResult.id.desc()).all())
     if not rows:
-        raise HTTPException(404, "暂无评价结果")
+        # brief 4.5: 无历史也返回当前数据版本, 供前端历史区提示"暂无历史, 请运行"
+        return {"site_id": site_id, "current_data_version": current_dv, "results": {}}
     latest = {}
     for r in rows:
         if r.eval_type in latest:
             continue
         latest[r.eval_type] = {
             "score": r.score, "grade": r.grade, "data_version": r.data_version,
+            "is_stale": r.data_version != current_dv,  # brief 4.5: 数据变更后旧评价 stale
             "param_version": r.param_version, "dimensions": r.dimensions,
             "weights": r.weights, "limiting_factors": r.limiting_factors,
             "risk_factors": r.risk_factors, "explanation": r.explanation,
             "created_at": str(r.created_at),
         }
-    return {"site_id": site_id, "results": latest}
+    return {"site_id": site_id, "current_data_version": current_dv, "results": latest}
 
 
 @router.post("/sites/{site_id}/recommendation")
