@@ -365,7 +365,7 @@ def site_eda(site_id: int,
     ml_eda = os.path.join(resource_root(), "ml", "eda")
     if ml_eda not in sys.path:
         sys.path.insert(0, ml_eda)
-    from profile import (  # type: ignore
+    from eda_profile import (  # type: ignore
         boxplot_summary, column_stats, correlation_matrix, distribution_sample,
         grouped_stats, histogram, qq_points,
     )

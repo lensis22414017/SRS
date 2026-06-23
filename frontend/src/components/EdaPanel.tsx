@@ -30,21 +30,22 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
     }).catch(() => setData(null)).finally(() => setLoading(false));
   }, [siteId, groupBy]);
 
-  if (loading) return <Spin style={{ marginTop: 40 }} />;
-  if (!data?.factors?.length) return <Empty description="暂无可分析数据" />;
-
-  const factors = data.factors as any[];
+  // 所有 hooks 必须在任何 conditional return 之前(React hooks 规则, brief 4.4)
+  // 用可选链兜底 data 为 null(loading/empty 态), build* 函数对 null 入参返回 null。
+  const factors = (data?.factors || []) as any[];
   const cur = factors.find((f) => f.factor === sel) || factors[0];
   const factorOptions = factors.map((f) => ({ value: f.factor, label: `${f.factor}${f.category ? `(${f.category})` : ""}` }));
   const rows = factors.map((f) => ({ factor: f.factor, ...f.stats }));
-
   const histOption = useMemo(() => buildHistogram(cur), [cur]);
   const boxOption = useMemo(() => buildBoxViolin(factors), [factors]);
   const scatterOption = useMemo(() => buildScatter(factors, scatterX, scatterY), [factors, scatterX, scatterY]);
-  const heatOption = useMemo(() => buildHeatmap(data.correlation), [data]);
+  const heatOption = useMemo(() => buildHeatmap(data?.correlation), [data]);
   const qqOption = useMemo(() => buildQQ(cur), [cur]);
   const compareOption = useMemo(() => buildCompare(factors), [factors]);
-  const groupedOption = useMemo(() => buildGrouped(data.grouped, sel), [data, sel]);
+  const groupedOption = useMemo(() => buildGrouped(data?.grouped, sel), [data, sel]);
+
+  if (loading) return <Spin style={{ marginTop: 40 }} />;
+  if (!data?.factors?.length) return <Empty description="暂无可分析数据" />;
 
   return (
     <Space direction="vertical" style={{ width: "100%" }} size={16}>

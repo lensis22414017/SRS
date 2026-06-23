@@ -23,7 +23,7 @@ if _ML_EDA not in sys.path:
 
 # ---------- profile.py 纯算法 ----------
 def test_boxplot_five_numbers_monotonic():
-    from profile import boxplot_summary
+    from eda_profile import boxplot_summary
     rng = np.random.default_rng(42)
     s = pd.Series(rng.normal(50, 10, 500).tolist() + [500, -300])  # 含离群点
     b = boxplot_summary(s)
@@ -36,13 +36,13 @@ def test_boxplot_five_numbers_monotonic():
 
 
 def test_boxplot_insufficient_samples():
-    from profile import boxplot_summary
+    from eda_profile import boxplot_summary
     b = boxplot_summary(pd.Series([1.0, 2.0]))
     assert b["lower"] is None and b["outliers"] == []
 
 
 def test_distribution_sample_cap():
-    from profile import distribution_sample
+    from eda_profile import distribution_sample
     rng = np.random.default_rng(1)
     s = pd.Series(rng.uniform(0, 100, 50000).tolist())
     d = distribution_sample(s, max_points=2000)
@@ -52,14 +52,14 @@ def test_distribution_sample_cap():
 
 
 def test_distribution_small_returns_all():
-    from profile import distribution_sample
+    from eda_profile import distribution_sample
     s = pd.Series([3.0, 1.0, 2.0])
     d = distribution_sample(s, max_points=2000)
     assert d["values"] == [1.0, 2.0, 3.0] and d["n_total"] == 3
 
 
 def test_correlation_symmetric_and_diagonal():
-    from profile import correlation_matrix
+    from eda_profile import correlation_matrix
     rng = np.random.default_rng(7)
     n = 100
     df = pd.DataFrame({"a": rng.normal(0, 1, n),
@@ -81,7 +81,7 @@ def test_correlation_symmetric_and_diagonal():
 
 
 def test_correlation_drops_constant_columns():
-    from profile import correlation_matrix
+    from eda_profile import correlation_matrix
     df = pd.DataFrame({"const": [5.0] * 100, "vary": list(range(100)),
                        "vary2": [x * 0.5 for x in range(100)]})
     corr = correlation_matrix(df)
@@ -91,7 +91,7 @@ def test_correlation_drops_constant_columns():
 
 
 def test_grouped_stats_sorted_by_mean():
-    from profile import grouped_stats
+    from eda_profile import grouped_stats
     df = pd.DataFrame({"g": ["A"] * 10 + ["B"] * 10,
                        "v": [1.0] * 10 + [10.0] * 10})
     g = grouped_stats(df, "v", "g")
