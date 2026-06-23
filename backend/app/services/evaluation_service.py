@@ -106,6 +106,14 @@ def run_evaluation(db: Session, site_id: int, t: float = 2.0,
           explanation=s.get("explanation"))
     results["ssui"] = s
 
+    # brief 4.5/M4: 追加式但限累积——每 eval_type 保留最近 10 个, 防止反复评价膨胀
+    for et in ("reconstruction_prod", "reconstruction_eco", "ssui"):
+        stale_rows = (db.query(EvaluationResult)
+                      .filter_by(site_id=site_id, eval_type=et)
+                      .order_by(EvaluationResult.id.desc()).offset(10).all())
+        for row in stale_rows:
+            db.delete(row)
+
     db.commit()
     return {
         "site_id": site_id, "data_version": data_version,

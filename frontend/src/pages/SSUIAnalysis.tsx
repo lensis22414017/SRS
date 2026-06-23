@@ -26,6 +26,7 @@ export default function SSUIAnalysis() {
     setBusy(true);
     try {
       await api.runEvaluation(sid);
+      setData(null);     // 清旧, 避免 load 完成前 race 显旧(M5)
       setHasRun(true);   // 标记本次运行完成, 显示结果区(避免历史伪装成本次)
       load(sid);         // 刷新最新结果(run 后已入库, is_stale=false)
       message.success("SSUI 评价完成");

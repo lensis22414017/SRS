@@ -67,7 +67,7 @@ export default function ReconstructionAnalysis() {
   const run = async () => {
     if (!sid) return;
     setBusy(true);
-    try { await api.runEvaluation(sid); setHasRun(true); message.success("评价完成"); load(sid); }
+    try { await api.runEvaluation(sid); setData(null); setHasRun(true); message.success("评价完成"); load(sid); }
     catch (e: any) { message.error(e?.response?.data?.detail || "评价失败"); }
     finally { setBusy(false); }
   };
