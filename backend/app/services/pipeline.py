@@ -14,6 +14,7 @@ from app.core.config import resource_root
 
 ROOT = resource_root()
 KB_CSV = os.path.join(ROOT, "data", "knowledge_base", "统一障碍因子知识库_V1.0.csv")
+ORG_SUPP_CSV = os.path.join(ROOT, "data", "knowledge_base", "有机物阈值补充_GB36600.csv")
 
 _LIMITS_CACHE: dict | None = None
 
@@ -21,7 +22,12 @@ _LIMITS_CACHE: dict | None = None
 def get_pollutant_limits() -> dict:
     global _LIMITS_CACHE
     if _LIMITS_CACHE is None:
-        _LIMITS_CACHE = build_pollutant_limits(KB_CSV)
+        limits = build_pollutant_limits(KB_CSV)
+        # 合并有机物阈值补充(GB36600 PAH/OCP/苯并芘, brief: 三类场地全覆盖, OP 系统支持)
+        if os.path.exists(ORG_SUPP_CSV):
+            for fac, scopes in build_pollutant_limits(ORG_SUPP_CSV).items():
+                limits.setdefault(fac, {}).update(scopes)
+        _LIMITS_CACHE = limits
     return _LIMITS_CACHE
 
 

@@ -18,7 +18,7 @@ from __future__ import annotations
 import csv
 import re
 
-_LIMIT_RE = re.compile(r"≤\s*([\d.]+)\s*mg/kg")
+_LIMIT_RE = re.compile(r"≤\s*([\d.]+)\s*(?:mg/kg|ng/g|ng/kg|μg/kg|ug/kg)")
 _RANGE_RE = re.compile(r"([\d.]+)\s*[-~]\s*([\d.]+)\s*mg/kg")
 _PH_LE = re.compile(r"pH\s*≤\s*([\d.]+)")
 _PH_GT = re.compile(r"pH\s*>\s*([\d.]+)")

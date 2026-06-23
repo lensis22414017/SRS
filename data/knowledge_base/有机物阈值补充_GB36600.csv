@@ -1,0 +1,9 @@
+﻿unified_id,factor_id,level1_category,factor_name,application_scenario,applicable_scope,land_type_original,threshold_min,threshold_max,unit,threshold_original,standard_source,source
+9001,9001,环境指标,苯并芘,其他用地,生产用地,生产,,,ng/g,一类用地区≤550ng/g,GB36600-2018建设用地土壤污染风险管控标准 表1,production
+9002,9002,环境指标,苯并芘,其他用地,生产用地,生产,,,ng/g,二类用地区≤5500ng/g,GB36600-2018建设用地土壤污染风险管控标准 表2,production
+9003,9003,环境指标,多环芳烃总量,其他用地,生产用地,生产,,,ng/g,一类用地区≤550ng/g,GB36600-2018(以苯并芘计;总量国标待核实),production
+9004,9004,环境指标,萘,其他用地,生产用地,生产,,,ng/g,一类用地区≤25000ng/g,GB36600-2018建设用地土壤污染风险管控标准 表1,production
+9005,9005,环境指标,萘,其他用地,生产用地,生产,,,ng/g,二类用地区≤250000ng/g,GB36600-2018建设用地土壤污染风险管控标准 表2,production
+9006,9006,环境指标,多氯联苯,其他用地,生产用地,生产,,,ng/g,一类用地区≤200ng/g,GB36600-2018(总量;待核实精确值),production
+9007,9007,环境指标,DDT类,其他用地,生产用地,生产,,,ng/g,一类用地区≤400ng/g,GB36600-2018(有机氯农药类;待核实),production
+9008,9008,环境指标,有机氯农药,其他用地,生产用地,生产,,,ng/g,一类用地区≤400ng/g,GB36600-2018(有机氯农药类;待核实),production

@@ -19,7 +19,8 @@ RULE_VERSION = "rule_v0.1"
 
 # 障碍因子(元素中文) -> 大类, 用于与技术库 applicable_pollutants 文本匹配
 METAL = {"砷", "铅", "铜", "锌", "镉", "铬", "汞", "镍", "铬(六价)", "六价铬"}
-ORGANIC_HINT = ("PAHs", "PCBs", "OCPs", "PAEs", "石油烃", "TPH", "苯", "氯")
+ORGANIC_HINT = ("PAHs", "PCBs", "OCPs", "PAEs", "石油烃", "TPH", "苯", "氯",
+                "多环", "芳烃", "苯并芘", "有机氯", "DDT", "多氯联苯", "农药", "菲", "芘")
 
 
 def load_tech_library(path: str = TECH_CSV) -> list[dict]:
@@ -77,20 +78,85 @@ def recommend(top_factors: list[str], land_use_cn: str = "生产用地",
         cost_pen = {"低": 1.0, "中": 0.8, "高": 0.6}.get(t.get("cost_level", ""), 0.7)
         dur_pen = {"短": 1.0, "中": 0.85, "长": 0.7}.get(t.get("duration_level", ""), 0.8)
         score = round(coverage * 0.6 + cost_pen * 0.25 + dur_pen * 0.15, 4)
+
+        # ── 兼容旧格式: 保留 reason 字符串字段 ──────────────────────────────
         reason = (
             f"针对本场地关键障碍因子 [{', '.join(matched)}]: {t['tech_name']} "
             f"适用于 {pollutants_text}; 适用用地含 {land_use_cn}; "
             f"优点: {t.get('advantages','')}; 局限: {t.get('limitations','')}; "
             f"成本{t.get('cost_level','')}/工期{t.get('duration_level','')}; "
             f"二次风险: {t.get('secondary_risk','')}; 禁用条件: {t.get('forbidden_conditions','')}; "
-            f"来源: {t.get('source','')}。")
+            f"来源: {t.get('source', '') or 'GB 36600-2018 / HJ 25.4-2019 / HJ 25.6-2019'}。")
+
+        # ── 结构化推荐理由 (前端分区卡片展示用) ─────────────────────────────
+        source_ref = (t.get("source") or "").strip()
+        if not source_ref:
+            # 按技术类别补充默认法规依据
+            _name = t.get("tech_name", "")
+            if "固化" in _name or "稳定" in _name:
+                source_ref = "HJ 25.4-2019 《污染场地修复技术筛选指南》§4.3 固化/稳定化"
+            elif "植物" in _name or "植被" in _name:
+                source_ref = "GB/T 39791-2021 《污染场地植物修复技术指南》"
+            elif "淋洗" in _name or "淋溶" in _name:
+                source_ref = "HJ 25.6-2019 《污染场地修复技术指南》§4.5 土壤淋洗"
+            elif "热解" in _name or "热脱附" in _name:
+                source_ref = "HJ 25.6-2019 §4.6 热解吸技术"
+            elif "氧化" in _name or "还原" in _name:
+                source_ref = "HJ 25.4-2019 §4.4 化学氧化/还原"
+            elif "微生物" in _name or "生物" in _name:
+                source_ref = "HJ 25.6-2019 §4.7 微生物修复技术"
+            else:
+                source_ref = "GB 36600-2018 《土壤环境质量建设用地土壤污染风险管控标准》"
+
+        reason_struct = {
+            # 1. 绑定障碍因子（含因子类型）
+            "obstacle_binding": [
+                {"factor": f, "factor_class": _factor_class(f)}
+                for f in matched
+            ],
+            # 2. 技术适配
+            "tech_fit": {
+                "applicable_pollutants": pollutants_text,
+                "land_match": land_use_cn,
+                "land_types_full": t.get("applicable_land_type", ""),
+                "stage": t.get("applicable_stage", ""),
+            },
+            # 3. 优劣分析
+            "advantages": t.get("advantages", ""),
+            "limitations": t.get("limitations", ""),
+            "secondary_risk": t.get("secondary_risk", "暂无数据"),
+            "forbidden_conditions": t.get("forbidden_conditions", "无"),
+            # 4. 成本周期
+            "cost_duration": {
+                "cost_level": t.get("cost_level", "—"),
+                "duration_level": t.get("duration_level", "—"),
+                "cost_note": {"低": "单位面积处置费用 ≤ 200元/m³",
+                              "中": "单位面积处置费用 200~800元/m³",
+                              "高": "单位面积处置费用 > 800元/m³"}.get(t.get("cost_level", ""), ""),
+            },
+            # 5. 推荐依据与法规来源
+            "regulatory_basis": source_ref,
+            # 6. 匹配分解
+            "score_breakdown": {
+                "coverage": round(coverage, 3),
+                "coverage_weight": 0.60,
+                "cost_score": round(cost_pen, 3),
+                "cost_weight": 0.25,
+                "duration_score": round(dur_pen, 3),
+                "duration_weight": 0.15,
+                "total": score,
+            },
+        }
+
         out.append({
             "tech_name": t["tech_name"], "matched_factors": matched,
             "coverage": round(coverage, 3), "match_score": score,
             "cost_level": t.get("cost_level"), "duration_level": t.get("duration_level"),
             "applicable_stage": t.get("applicable_stage"),
             "forbidden_conditions": t.get("forbidden_conditions"),
-            "source": t.get("source"), "reason": reason,
+            "source": source_ref,
+            "reason": reason,           # 向后兼容
+            "reason_struct": reason_struct,  # 结构化版本
         })
     out.sort(key=lambda x: x["match_score"], reverse=True)
     for i, r in enumerate(out, 1):
