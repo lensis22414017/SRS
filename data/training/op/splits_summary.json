@@ -1,0 +1,15 @@
+{
+  "sizes": {
+    "valid": 1402,
+    "test": 1133,
+    "external": 433,
+    "train": 4574
+  },
+  "leakage_all_passed": true,
+  "label_dist": {
+    "valid_real_group_split": 121,
+    "test_real_group_split": 174,
+    "external_literature_holdout": 108,
+    "train_real": 899
+  }
+}
