@@ -50,7 +50,7 @@
 2. **生产级存储** (PostGIS/MinIO): 当前 sqlite + 本地文件(MVP), 生产部署需切。
 3. **地下水趋势分析** (ESdat 强): 时序浓度趋势 + Mann-Kendall → 新模块。
 4. **实时监测/IoT** (Esri 强): 传感器接入 + 实时仪表盘 → WebSocket/时序库。
-5. **GB36600 OCR 精确阈值** (本次 GLM 视觉失败): 用更可靠 OCR(MarkItDown/专业表格OCR)或人工核对。
+5. **GB36600 OCR 精确阈值** ✅ 已解决(2026-06-23): 四路交叉验证(GLM/Qwen3.5/4.5v/裴总核对)证明全部 LLM 对扫描表幻觉, 最终用裴总亲口核对权威值锚定 `data/standards/GB36600_有机阈值_权威.csv`(factor 精确匹配 ORG_COLS_MAP), 详见 `docs/audit/GB36600_OCR_交叉验证报告_20260623.md`。
 
 ### P2(生态, 长期)
 6. **移动端/现场采集** (EQuIS): PWA/小程序。

@@ -16,7 +16,7 @@ from dataset_splits import build_real_splits  # noqa: E402
 
 MERGED = os.path.join(ROOT, "data", "raw", "merged_std33,zh .xlsx")
 HM_CSV = os.path.join(ROOT, "data", "raw", "真实训练集_GB15618.csv")
-GB36600_CSV = os.path.join(ROOT, "data", "standards", "GB36600_有机阈值_ocr.csv")
+GB36600_CSV = os.path.join(ROOT, "data", "standards", "GB36600_有机阈值_权威.csv")
 GB36600_FALLBACK = os.path.join(ROOT, "data", "knowledge_base", "有机物阈值补充_GB36600.csv")
 OUT_BASE = os.path.join(ROOT, "data", "training")
 

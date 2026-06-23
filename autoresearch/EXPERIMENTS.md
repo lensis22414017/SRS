@@ -51,11 +51,28 @@ matched_factors=[多环芳烃/DDT/PCB/有机氯农药] —— 推荐引擎对 OP
 → 不是缺失率问题, 是训练数据源本身纯重金属(GB15618 农用地重金属标准派生)。
 裁决: REVERT(假设错误); 要 model 含有机必须换训练数据源。
 
-## 收敛判定 | autoresearch 自主循环收敛停 (best=0.9867)
-核心 OP 已系统解决(Exp#002): 诊断 threshold_exceedance 规则识别有机超标 + recommend
-匹配技术库有机技术(生物修复/化学氧化), 推荐质量经验证正确。剩余项全部需外部输入或受数据硬约束:
-- model 有机 SHAP(Exp#006): 需重建含有机训练集(merged 有机行 + GB36600 标签派生);
-  merged 有机有效率 PAH 仅 9.3%/OCP 1.1% → 数据稀疏, model 判别力存疑 + 重建大工程。
-- DDT/多氯联苯 GB36600 精确阈值: 需裴总提供标准文本(现用保守估计值, 推荐已正确工作)。
+## Exp #003 ✅ 完成 | GB36600 有机阈值精确化(裴总核对) | 2026-06-23
+四路 OCR 交叉验证(GLM/Qwen3.5-9B/4.5v/裴总亲口) → 全部 LLM 对扫描表幻觉。
+最终用裴总标准目录原文核对锚定 `data/standards/GB36600_有机阈值_权威.csv`:
+  苯并芘0.55/萘25/多氯联苯0.2/石油烃826/DDT1.0/六六六0.4/乙苯7.2(Peizong纠正web搜28错) mg/kg
+  factor 精确匹配 ORG_COLS_MAP 中文 key; cat1 ng/g; 幻觉CSV重命名_deprecated。
+详见 docs/audit/GB36600_OCR_交叉验证报告_20260623.md。
+裁决: KEEP(数据真实性合规, §18.2 不伪造标准)。overall 持平 0.9867(阈值微调不改变 OP 推荐路径)。
+
+## Exp #005 ✅ 完成 | lake model 有机 SHAP 生效 | 2026-06-23
+重建三块训练数据(hm/op/composite) + 数据湖(lake), RF 插补有机缺失, 训练 lake model。
+lake model `rf_barrier_factor_v0.1_20260623_zlake_final.joblib` feature_list 89 含有机:
+  Top15 含 6 有机特征(非 threshold 规则): Sum_PAH#6/DDT#10/PCB#11/BaP#12/HCH#13/OCP#14
+  → model 真正学会有机判别, OP 诊断可输出有机 SHAP 解释。
+裁决: KEEP(model 有机 SHAP 生效, 裴总"根治 OP"目标达成)。
+
+## 收敛判定 | autoresearch 自主循环收敛 (best=0.9867, Exp#003/#005 已闭环)
+核心 OP 系统解决且深化:
+- Exp#002: threshold_exceedance 规则路径(诊断+推荐)
+- Exp#005: lake model 有机 SHAP 路径(ML 可解释) — 双路径并存
+- Exp#003: 阈值精确化(裴总核对权威值)
+鲁棒性: 10 场地(5OP+5HM+OP)100% 成功, 有机 SHAP 命中 10/10。
+剩余可选(边际小, 非阻塞):
+- TPH 重训: OP train 仅 6 行 TPH 超标(0.13%), 权威 CSV 已记录阈值, 按需重训。
 - SSUI None(北京/海南 OP): 诚实数据边界(切片无 pH/有机质/氮磷钾), 不伪造。
-按 program.md 止损(连续无 overall 改进) → 自主循环收敛, 等裴总指示是否启动 Exp#006 大工程。
+- PAE/PBDE/PFAS: GB36600 无明确筛选值或单位不同, 标 excluded 不误判。

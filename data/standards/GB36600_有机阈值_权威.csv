@@ -1,0 +1,17 @@
+factor,factor_en,cat1,cat2,cat1_mgkg,cat2_mgkg,unit,threshold_original,standard_source,source,confidence
+多环芳烃总量,Sum_PAH,550,5500,0.55,5.5,ng/g,一类≤0.55mg/kg(以BaP计),GB36600-2018,裴总核对原文,high
+苯并芘,BaP,550,5500,0.55,5.5,ng/g,一类≤0.55mg/kg,GB36600-2018表1,裴总核对原文,high
+DDT类,SumDDT,1000,4000,1.0,4.0,ng/g,一类≤1.0mg/kg,GB36600-2018表1,裴总核对原文,high
+多氯联苯,SumPCB,200,2000,0.2,2.0,ng/g,一类≤0.2mg/kg,GB36600-2018表1,裴总核对原文,high
+六六六总量,SumHCH,400,2000,0.4,2.0,ng/g,一类≤0.4mg/kg,GB36600-2018表1,裴总核对原文,high
+有机氯农药,SumOCP,1000,4000,1.0,4.0,ng/g,一类≤1.0mg/kg,GB36600-2018,裴总核对原文,high
+石油烃,TPH,826000,4500000,826,4500,ng/g,一类≤826mg/kg,GB36600-2018附录B,裴总核对原文,high
+乙苯,Ethylbenzene,7200,28000,7.2,28,ng/g,一类≤7.2mg/kg,GB36600-2018表1,裴总亲口纠正(web搜28错),high
+苯,Benzene,1000,4000,1.0,4.0,ng/g,一类≤1.0mg/kg,GB36600-2018表1,裴总核对原文,high
+甲苯,Toluene,1200000,1500000,1200,1500,ng/g,一类≤1200mg/kg,GB36600-2018表1,裴总核对原文,high
+萘,Naphthalene,25000,250000,25,250,ng/g,一类≤25mg/kg,GB36600-2018表1,裴总核对原文,high
+高分子量PAH,HMWPAH,,,,ng/g,子类无独立国标筛选值,GB36600-2018,na,excluded
+低分子量PAH,LMWPAH,,,,ng/g,子类无独立国标筛选值,GB36600-2018,na,excluded
+邻苯二甲酸酯,SumPAE,,,,ng/g,单位ug/kg不同且GB36600无明确筛选值,待核,na,excluded
+多溴二苯醚,SumPBDE,,,,ng/g,GB36600附录待核,待核,na,excluded
+全氟化合物,SumPFAS,,,,ng/g,GB36600无(PFAS用新标HJ),待核,na,excluded
