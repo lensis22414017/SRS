@@ -11,7 +11,7 @@ import os
 import urllib.error
 import urllib.request
 
-from fastapi import APIRouter, Depends, HTTPException, Query, Response
+from fastapi import APIRouter, Depends, HTTPException, Path, Query, Response
 from sqlalchemy.orm import Session
 
 from app.core.config import get_settings
@@ -63,6 +63,9 @@ def _tile_url(layer: str, z: int, x: int, y: int, key: str) -> str:
 
 @router.get("/map/tile/{layer}/{z}/{x}/{y}")
 def tianditu_tile(layer: str, z: int, x: int, y: int):
+    # 路由顺序:{layer}先于/gaode/声明, 故 /map/tile/gaode/* 会命中此路由; gaode 转发给高德端点
+    if layer == "gaode":
+        return gaode_tile(z, x, y)
     """后端瓦片代理: 优先读本地 MBTiles(离线), 无则走天地图在线(需 key)。
 
     优先级: 本地 MBTiles > 天地图在线 > 503。
@@ -153,34 +156,103 @@ def _read_mbtiles(layer: str, z: int, x: int, y: int) -> bytes | None:
     return None
 
 
-def _threshold_limits(db: Session, site_id: int) -> dict[str, float]:
-    """取每个因子的最严格正阈值, 用于地图超标倍数分级。"""
+# ============ GB15618 阈值按 pH 档选择 ============
+# GB15618-2018 农用地筛选值: 每个重金属按土壤 pH 分 4 档。
+# 旧实现取 min(4档)=最严苛档, 重度污染场地所有点被判 high, 无颜色层次。
+# 新实现: 按采样点实测 pH 选对应档阈值(无 pH 时回退最严苛档)。
+
+# pH → 档索引: 0:pH<=5.5  1:5.5<pH<=6.5  2:6.5<pH<=7.5  3:pH>7.5
+def _band_index(ph: float | None) -> int | None:
+    if ph is None:
+        return None
+    if ph <= 5.5:
+        return 0
+    if ph <= 6.5:
+        return 1
+    if ph <= 7.5:
+        return 2
+    return 3
+
+
+def _parse_band(land_type: str | None) -> int | None:
+    """从 ThresholdRule.land_type 解析 GB15618 pH 档索引。"""
+    if not land_type:
+        return None
+    s = land_type.replace("≤", "<=")
+    if "pH<=5.5" in s:
+        return 0
+    if "5.5<pH<=6.5" in s:
+        return 1
+    if "6.5<pH<=7.5" in s:
+        return 2
+    if "pH>7.5" in s:
+        return 3
+    return None
+
+
+def _threshold_table(db: Session, site_id: int) -> dict:
+    """返回 {factor_code: {"name":..., "bands": [v0,v1,v2,v3], "generic": [...]}}。
+
+    仅取该场地用到的因子, 不 join measurement(避免 4档×measurement 笛卡尔积)。
+    pH 档规则进 bands; 非 pH 档规则(land_type 为用地类型/None)进 generic 池,
+    由 _select_threshold 在 pH 档缺失时兜底取 min(最严苛), 避免阈值表整体落空。
+    """
+    factor_ids = {r[0] for r in db.query(Measurement.factor_id)
+                  .filter(Measurement.site_id == site_id).distinct().all()}
+    if not factor_ids:
+        return {}
     rows = (db.query(FactorDictionary.factor_code, FactorDictionary.factor_name,
-                     ThresholdRule.threshold_max, ThresholdRule.threshold_min)
+                     ThresholdRule.threshold_max, ThresholdRule.land_type)
             .join(ThresholdRule, ThresholdRule.factor_id == FactorDictionary.id)
-            .join(Measurement, Measurement.factor_id == FactorDictionary.id)
-            .filter(Measurement.site_id == site_id)
-            .all())
-    limits: dict[str, float] = {}
-    for code, name, tmax, tmin in rows:
-        vals = [float(v) for v in (tmax, tmin) if v is not None and float(v) > 0]
-        if not vals:
+            .filter(FactorDictionary.id.in_(factor_ids)).all())
+    table: dict = {}
+    for code, name, tmax, land in rows:
+        if tmax is None or float(tmax) <= 0:
             continue
-        val = min(vals)
-        for key in (code, name):
-            if key and (key not in limits or val < limits[key]):
-                limits[key] = val
-    return limits
+        bidx = _parse_band(land)
+        entry = table.setdefault(code, {"name": name, "bands": [None, None, None, None],
+                                        "generic": []})
+        if bidx is not None:
+            entry["bands"][bidx] = float(tmax)
+        else:
+            # land_type 非 pH 档文本(用地类型/None): 视为不分 pH 的通用阈值, 进 generic 池。
+            entry["generic"].append(float(tmax))
+    return table
+
+
+def _select_threshold(bands: list, bidx: int | None, generic: list | None = None) -> float | None:
+    """按 pH 档选阈值; 无 pH 或该档缺失时回退最严苛档(min(bands+generic))。"""
+    if bidx is not None and bands[bidx] is not None:
+        return bands[bidx]
+    avail = [b for b in bands if b is not None]
+    if generic:
+        avail += generic
+    return min(avail) if avail else None
 
 
 def _risk(exceedance: float | None) -> str:
+    """超标倍数 → 8 级风险枚举。
+
+    与 legend(:337-346) 和前端 SiteMap.excColor(SiteMap.tsx:34-43) 三者口径一致:
+      none<1 / low 1-3 / med1 3-10 / med2 10-30 / high 30-80 /
+      severe 80-200 / extreme>=200 / unknown(无阈值/无数据)
+    旧实现仅 high/medium/low 三档, 重度场地全部 high 无层次; 统一为 8 级连续分桶。
+    """
     if exceedance is None:
         return "unknown"
-    if exceedance >= 5:
+    if exceedance >= 200:
+        return "extreme"
+    if exceedance >= 80:
+        return "severe"
+    if exceedance >= 30:
         return "high"
+    if exceedance >= 10:
+        return "med2"
+    if exceedance >= 3:
+        return "med1"
     if exceedance >= 1:
-        return "medium"
-    return "low"
+        return "low"
+    return "none"
 
 
 @router.get("/sites/{site_id}/map/layers")
@@ -196,10 +268,11 @@ def site_map_layers(site_id: int,
             .join(SamplingPoint, Measurement.sampling_point_id == SamplingPoint.id)
             .filter(Measurement.site_id == site_id)
             .all())
-    limits = _threshold_limits(db, site_id)
+    ttable = _threshold_table(db, site_id)
     pollutants = []
     pollutant_seen = set()
-    by_point: dict[int, list[dict]] = {}
+    ph_by_point: dict = {}
+    meas_by_point: dict = {}
     for m, fd, sp in rows:
         if fd.factor_code not in pollutant_seen:
             pollutants.append({
@@ -209,31 +282,44 @@ def site_map_layers(site_id: int,
                 "category": fd.level1_category,
             })
             pollutant_seen.add(fd.factor_code)
+        if fd.factor_code == "pH":
+            try:
+                ph_by_point[sp.id] = float(m.value) if m.value is not None else None
+            except (TypeError, ValueError):
+                ph_by_point[sp.id] = None
+            continue
         if factor and factor not in (fd.factor_code, fd.factor_name):
             continue
-        limit = limits.get(fd.factor_code) or limits.get(fd.factor_name)
-        exceedance = None
-        if limit and m.value is not None:
-            exceedance = float(m.value) / limit
-        by_point.setdefault(sp.id, []).append({
-            "factor_code": fd.factor_code,
-            "factor_name": fd.factor_name,
-            "value": m.value,
-            "unit": m.unit or fd.default_unit,
-            "threshold": limit,
-            "exceedance": exceedance,
-            "risk_level": _risk(exceedance),
-        })
+        meas_by_point.setdefault(sp.id, []).append((m, fd))
 
     features = []
     for p in points:
-        measurements = by_point.get(p.id, [])
-        if measurements:
-            selected = max(measurements, key=lambda x: x["exceedance"] if x["exceedance"] is not None else -1)
-            risk_level = selected["risk_level"]
-        else:
-            selected = None
-            risk_level = "unknown"
+        ph = ph_by_point.get(p.id)
+        bidx = _band_index(ph)
+        pairs = meas_by_point.get(p.id, [])
+        selected = None
+        measurements_payload = []
+        for m, fd in pairs:
+            tt = ttable.get(fd.factor_code)
+            limit = _select_threshold(tt["bands"], bidx, tt.get("generic")) if tt else None
+            try:
+                exc = float(m.value) / limit if (limit and m.value is not None) else None
+            except (TypeError, ValueError):
+                exc = None
+            entry = {
+                "factor_code": fd.factor_code,
+                "factor_name": fd.factor_name,
+                "value": m.value,
+                "unit": m.unit or fd.default_unit,
+                "threshold": limit,
+                "exceedance": exc,
+                "risk_level": _risk(exc),
+            }
+            if len(measurements_payload) < 20:
+                measurements_payload.append(entry)
+            if exc is not None and (selected is None or exc > selected["exceedance"]):
+                selected = dict(entry)
+        risk_level = selected["risk_level"] if selected else "unknown"
         features.append({
             "type": "Feature",
             "geometry": {
@@ -252,7 +338,8 @@ def site_map_layers(site_id: int,
                 "depth_bottom_cm": p.depth_bottom_cm,
                 "risk_level": risk_level,
                 "selected": selected,
-                "measurements": measurements[:20],
+                "ph": ph,
+                "measurements": measurements_payload,
             },
         })
 
@@ -272,10 +359,14 @@ def site_map_layers(site_id: int,
         "pollutants": pollutants,
         "selected_factor": factor,
         "legend": [
-            {"risk_level": "high", "label": "高风险(超标≥5倍)", "color": "#dc2626"},
-            {"risk_level": "medium", "label": "超标(1-5倍)", "color": "#f59e0b"},
-            {"risk_level": "low", "label": "未超标", "color": "#16a34a"},
-            {"risk_level": "unknown", "label": "无阈值或无数据", "color": "#64748b"},
+            {"risk_level": "none", "label": "未超标(<1倍)", "color": "#16a34a"},
+            {"risk_level": "low", "label": "轻度(1-3倍)", "color": "#facc15"},
+            {"risk_level": "med1", "label": "中度(3-10倍)", "color": "#f59e0b"},
+            {"risk_level": "med2", "label": "偏重(10-30倍)", "color": "#ea580c"},
+            {"risk_level": "high", "label": "重度(30-80倍)", "color": "#dc2626"},
+            {"risk_level": "severe", "label": "极重(80-200倍)", "color": "#9f1239"},
+            {"risk_level": "extreme", "label": "超极重(>200倍)", "color": "#6b0f1a"},
+            {"risk_level": "unknown", "label": "无阈值/无数据", "color": "#64748b"},
         ],
         "geojson": {"type": "FeatureCollection", "features": features},
     }
@@ -289,11 +380,13 @@ import json as _json  # noqa: E402
 
 
 def _geo_root() -> str:
-    """data/geo 目录绝对路径(兼容打包后 sys.frozen 与开发模式)。"""
-    here = os.path.dirname(os.path.abspath(__file__))
-    # backend/app/api/map.py -> 上溯四级到项目根
-    root = os.path.abspath(os.path.join(here, "..", "..", ".."))
-    return os.path.join(root, "data", "geo")
+    """data/geo 目录绝对路径(兼容打包后 .app 与开发模式)。
+
+    打包后资源落在 Contents/Resources, 旧的 dirname/../../.. 会错到 Contents,
+    统一改用 resource_root() 解析(见 app.core.config)。
+    """
+    from app.core.config import resource_root
+    return os.path.join(resource_root(), "data", "geo")
 
 
 @router.get("/map/geo/index")

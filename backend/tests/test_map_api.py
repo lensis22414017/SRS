@@ -47,7 +47,10 @@ def test_site_map_layers_geojson_and_exceedance():
     assert data["geojson"]["type"] == "FeatureCollection"
     assert len(data["geojson"]["features"]) == 134
     assert len(data["pollutants"]) >= 10
-    assert {x["risk_level"] for x in data["legend"]} == {"high", "medium", "low", "unknown"}
+    # 风险分级统一为 8 级(brief 4.8): none/low/med1/med2/high/severe/extreme/unknown
+    # 与后端 _risk()、前端 SiteMap.excColor 三者一致。
+    assert {x["risk_level"] for x in data["legend"]} == {
+        "none", "low", "med1", "med2", "high", "severe", "extreme", "unknown"}
     features = [f for f in data["geojson"]["features"]
                 if f["geometry"]["coordinates"][0] is not None]
     assert features
