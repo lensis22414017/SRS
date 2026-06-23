@@ -43,6 +43,7 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
   const qqOption = useMemo(() => buildQQ(cur), [cur]);
   const compareOption = useMemo(() => buildCompare(factors), [factors]);
   const groupedOption = useMemo(() => buildGrouped(data?.grouped, sel), [data, sel]);
+  const pieOption = useMemo(() => buildPie(factors), [factors]);
 
   if (loading) return <Spin style={{ marginTop: 40 }} />;
   if (!data?.factors?.length) return <Empty description="暂无可分析数据" />;
@@ -156,6 +157,15 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
               </Space>}>
               <Text type="secondary">选定因子按区域/深度/因子维度的均值（深蓝）与中位数（绿）对比。用于识别污染的空间分异（不同区域/深度层的浓度差异），辅助定位重点修复区段。</Text>
               <div style={{ marginTop: 8 }}>{groupedOption ? <ReactECharts option={groupedOption} style={{ height: 420 }} /> : <Empty />}</div>
+            </Card>
+          ),
+        },
+        {
+          key: "pie", label: "类别分布",
+          children: (
+            <Card title="因子类别分布（环形图）" size="small">
+              <Text type="secondary">各因子类别（环境指标/化学性质/肥力指标等）数量占比环形图，快速识别场地主导污染物类型。</Text>
+              <div style={{ marginTop: 8 }}>{pieOption ? <ReactECharts option={pieOption} style={{ height: 380 }} /> : <Empty />}</div>
             </Card>
           ),
         },
@@ -350,6 +360,25 @@ function buildGrouped(grouped: any, factor?: string) {
       { name: "均值", type: "bar", data: groups.map((g: any) => g.mean), itemStyle: { color: "#0f3d6e" } },
       { name: "中位数", type: "bar", data: groups.map((g: any) => g.median), itemStyle: { color: "#10b981" } },
     ],
+  };
+}
+
+/** 因子类别分布环形图(pie/doughnut)。裴总要求: 柱状/环形/小提琴/热图齐全。 */
+function buildPie(factors: any[]) {
+  const cnt: Record<string, number> = {};
+  factors.forEach((f) => { const c = f.category || "未分类"; cnt[c] = (cnt[c] || 0) + 1; });
+  const data = Object.entries(cnt).map(([name, value]) => ({ name, value }));
+  if (!data.length) return null;
+  const PALETTE_PIE = ["#0f3d6e", "#1d6fb8", "#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6", "#ec4899"];
+  return {
+    tooltip: { trigger: "item", formatter: "{b}: {c} ({d}%)" },
+    legend: { bottom: 0, type: "scroll", textStyle: { fontSize: 11 } },
+    color: PALETTE_PIE,
+    series: [{ type: "pie", radius: ["38%", "68%"], center: ["50%", "45%"],
+      avoidLabelOverlap: true,
+      itemStyle: { borderRadius: 6, borderColor: "#fff", borderWidth: 2 },
+      label: { show: true, formatter: "{b}\n{d}%", fontSize: 11 },
+      data }],
   };
 }
 
