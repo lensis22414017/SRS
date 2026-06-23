@@ -68,6 +68,26 @@ def upsert_site(db: Session, site_meta: dict) -> Site:
     return site
 
 
+def _slim_mapping_snapshot(mapping: dict | None) -> dict | None:
+    """精简 mapping 用于持久化(brief 4.2, 避免宽表 JSON 过大超 sqlite binding)。
+
+    只保留 site/point_columns/sheet + factor_columns 的 column/factor_code 摘要(限前 200)。
+    完整 mapping 可由 mapping_hash + 源文件重建。
+    """
+    if not mapping:
+        return None
+    return {
+        "mapping_id": mapping.get("mapping_id"),
+        "sheet": mapping.get("sheet"),
+        "site": mapping.get("site"),
+        "point_columns": mapping.get("point_columns"),
+        "factor_columns": [
+            {"column": fc.get("column"), "factor_code": fc.get("factor_code")}
+            for fc in (mapping.get("factor_columns") or [])[:200]
+        ],
+    }
+
+
 def ingest(db: Session, parsed: ParsedSite, mapping: dict | None = None,
            validation_report: dict | None = None, imported_by: int | None = None,
            source_path: str | None = None) -> dict:
@@ -97,7 +117,9 @@ def ingest(db: Session, parsed: ParsedSite, mapping: dict | None = None,
         source_file=parsed.source_file,
         source_sha256=source_sha,
         mapping_hash=map_hash,
-        mapping_snapshot=mapping,
+        # brief 4.2: 保存实际 mapping 关键部分(site/point_columns/factor_columns 摘要),
+        # 限制 factor_columns 数量避免宽表(如719列) JSON 超 sqlite binding 上限。
+        mapping_snapshot=_slim_mapping_snapshot(mapping),
         row_count=parsed.n_points,
         valid_count=(parsed.n_points if (validation_report or {}).get("passed", True) else
                      parsed.n_points - (validation_report or {}).get("n_errors", 0)),

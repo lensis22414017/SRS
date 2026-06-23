@@ -91,7 +91,11 @@ def validate(parsed: ParsedSite, mapping: dict,
         "n_warnings": len(warnings),
         "n_exceed": len(exceed),
         "passed": len(errors) == 0,
-        "issues": issues,
+        "n_issues_total": len(issues),  # 全量计数(可追溯)
+        # 仅存前 200 条样本, 避免大数据(如全国合并集 873万measurements) issues JSON 爆炸;
+        # 完整统计在 summary.by_type(全量计数) + exceed_factors(去重因子集合)。
+        "issues": issues[:200],
+        "issues_truncated": len(issues) > 200,
         "summary": {
             "by_type": _count_by(issues, "type"),
             "exceed_factors": sorted({i["factor"] for i in exceed if i.get("factor")}),
