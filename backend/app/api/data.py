@@ -17,8 +17,8 @@ from app.models import (
     FactorDictionary, ImportBatch, Measurement, SamplingPoint, Site, ThresholdRule, User,
 )
 from app.services.audit_service import log
-from app.services.import_service import parse, read_table
-from app.services.pipeline import run_import, run_import_with_mapping
+from app.services.import_service import load_mapping, read_table, resolve_mapping_for_file
+from app.services.pipeline import run_import_with_mapping
 
 router = APIRouter(prefix=get_settings().api_v1_prefix, tags=["data"])
 
@@ -48,17 +48,39 @@ async def import_data(mapping_id: str = Form(...), file: UploadFile = File(...),
     dest = os.path.join(settings.file_storage_dir, canonical)
     with open(dest, "wb") as f:
         shutil.copyfileobj(file.file, f)
+    # ── 解析映射: auto=按文件 sheet/列签名自动识别; 否则按 mapping_id 加载 ──
+    used_id, mapping, det_report = _resolve_mapping(mapping_id, dest)
     try:
-        result = run_import(db, dest, mapping_id, imported_by=user.id)
+        result = run_import_with_mapping(db, dest, mapping, imported_by=user.id)
         result["stored_filename"] = canonical
         result["original_filename"] = file.filename
-    except FileNotFoundError:
-        raise HTTPException(404, f"映射配置不存在: {mapping_id}")
+        result["mapping_id"] = used_id
+        result["mapping_label"] = (mapping.get("site") or {}).get("name")
+        result["detection_report"] = det_report
     except Exception as e:  # noqa: BLE001
-        raise HTTPException(400, f"导入失败: {e}")
+        raise HTTPException(400, f"导入失败 [{type(e).__name__}]: {e}")
     log(db, action="import", user_id=user.id, resource_type="sites",
-        resource_id=result.get("site_id"), detail={"mapping_id": mapping_id})
+        resource_id=result.get("site_id"), detail={"mapping_id": used_id, "requested": mapping_id})
     return result
+
+
+def _resolve_mapping(mapping_id: str, dest: str) -> tuple[str, dict, dict]:
+    """auto/空 → 统一自动识别(预设→smart); 否则按 mapping_id 加载。
+
+    单文件/批量共用 resolve_mapping_for_file(brief 4.1), 保证同文件两路径同决策。
+    低置信/缺必需字段 → 转为 review_required(400), 引导 Wizard, 不硬导入正式链路。
+    返回 (used_id, mapping, detection_report)。
+    """
+    used_id, mapping, report = resolve_mapping_for_file(mapping_id, dest)
+    if report.get("confidence", 1.0) < 0.5:
+        warnings = report.get("warnings") or ["未识别到关键列"]
+        raise HTTPException(
+            400,
+            "字段映射置信度不足，已转为待复核(review_required)。请使用『自定义字段映射 Wizard』手动映射后导入。"
+            f" used_id={used_id}; confidence={report.get('confidence')}; "
+            f"识别到: 点位列={report.get('point_code_column')}; "
+            f"问题: {'; '.join(warnings)}。")
+    return used_id, mapping, report
 
 
 @router.post("/import/columns")
@@ -128,6 +150,14 @@ async def import_batch(mapping_id: str = Form(...),
     """
     import datetime as _dt
 
+    is_auto = mapping_id in ("auto", "", "detect", None)
+    # 非 auto: 先校验映射文件(一次, 对所有文件共用); auto: 每个文件单独识别
+    if not is_auto:
+        try:
+            mapping = load_mapping(mapping_id)
+        except FileNotFoundError:
+            raise HTTPException(404, f"映射配置不存在: {mapping_id}")
+
     settings = get_settings()
     os.makedirs(settings.file_storage_dir, exist_ok=True)
     results: list[dict] = []
@@ -142,21 +172,30 @@ async def import_batch(mapping_id: str = Form(...),
         try:
             with open(dest, "wb") as f:
                 shutil.copyfileobj(file.file, f)
-            res = run_import(db, dest, mapping_id, imported_by=user.id)
+            if is_auto:
+                used_id, file_mapping, det_report = resolve_mapping_for_file(mapping_id, dest)
+                # 低置信: 计 review_required, 该文件 failed, 不阻断批量其余文件(brief 4.1)
+                if det_report.get("confidence", 1.0) < 0.5:
+                    raise HTTPException(
+                        400, "映射置信度不足(review_required): "
+                        + "; ".join(det_report.get("warnings") or []))
+            else:
+                used_id, file_mapping = mapping_id, mapping
+                det_report = {"used_id": mapping_id, "confidence": 1.0, "source": "preset"}
+            res = run_import_with_mapping(db, dest, file_mapping, imported_by=user.id)
             res["stored_filename"] = canonical
             res["original_filename"] = original_name
+            res["mapping_id"] = used_id
+            res["mapping_label"] = (file_mapping.get("site") or {}).get("name")
+            res["detection_report"] = det_report
             res["ok"] = True
             succeeded += 1
             log(db, action="import", user_id=user.id, resource_type="sites",
-                resource_id=res.get("site_id"), detail={"mapping_id": mapping_id, "batch": True})
-        except FileNotFoundError:
-            failed += 1
-            results.append({"original_filename": original_name, "ok": False,
-                            "error": f"映射配置不存在: {mapping_id}"})
-            continue
+                resource_id=res.get("site_id"), detail={"mapping_id": used_id, "batch": True})
         except Exception as e:  # noqa: BLE001
             failed += 1
-            results.append({"original_filename": original_name, "ok": False, "error": f"导入失败: {e}"})
+            results.append({"original_filename": original_name, "ok": False,
+                            "error": f"导入失败 [{type(e).__name__}]: {e}"})
             continue
         results.append(res)
     return {"total": len(files), "succeeded": succeeded, "failed": failed, "results": results}
@@ -183,7 +222,8 @@ def list_sites(q: str | None = None, pollution_type: str | None = None,
                    .group_by(Measurement.site_id).all())
         factor_cnt = {sid: int(c) for sid, c in fc_rows}
         # 超标记录: value > 该因子的正阈值上限(join ThresholdRule)
-        ec_rows = (db.query(Measurement.site_id, func.count())
+        # 超标按测量指标计: 每条 measurement 只要超过任意对应阈值档算1次(distinct去重, 避免pH档笛卡尔膨胀)
+        ec_rows = (db.query(Measurement.site_id, func.count(func.distinct(Measurement.id)))
                    .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id)
                    .join(ThresholdRule, ThresholdRule.factor_id == FactorDictionary.id)
                    .filter(Measurement.site_id.in_(site_ids),
@@ -321,7 +361,8 @@ def site_eda(site_id: int,
     if not s:
         raise HTTPException(404, "场地不存在")
     assert_site_access(db, user, s)
-    ml_eda = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "ml", "eda"))
+    from app.core.config import resource_root
+    ml_eda = os.path.join(resource_root(), "ml", "eda")
     if ml_eda not in sys.path:
         sys.path.insert(0, ml_eda)
     from profile import (  # type: ignore

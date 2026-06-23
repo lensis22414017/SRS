@@ -13,19 +13,325 @@ from typing import Any
 
 import pandas as pd
 
-MAPPINGS_DIR = os.path.join(os.path.dirname(__file__), "mappings")
+MAPPINGS_DIR = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "mappings"))
 
 
 def load_mapping(mapping_id: str) -> dict:
-    """按 mapping_id 或文件名加载映射配置。"""
+    """按 mapping_id 或文件名加载映射配置。
+
+    优先级:
+    1. mapping_id 本身是绝对路径且存在 → 直接加载
+    2. MAPPINGS_DIR/<mapping_id>.json → 标准映射目录
+    抛出 FileNotFoundError 时包含绝对路径, 便于诊断。
+    """
+    # 如果本身是绝对或相对路径且存在
     path = mapping_id
-    if not os.path.exists(path):
-        path = os.path.join(MAPPINGS_DIR, mapping_id)
-        if not path.endswith(".json"):
-            path += ".json"
-    with open(path, encoding="utf-8") as f:
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    # 标准映射目录
+    candidate = os.path.join(MAPPINGS_DIR, mapping_id)
+    if not candidate.endswith(".json"):
+        candidate += ".json"
+    if not os.path.exists(candidate):
+        raise FileNotFoundError(
+            f"映射配置文件不存在: {candidate}\n"
+            f"（已检查目录: {MAPPINGS_DIR}，mapping_id={mapping_id}）"
+        )
+    with open(candidate, encoding="utf-8") as f:
         return json.load(f)
 
+
+def list_mappings() -> list[tuple[str, dict]]:
+    """枚举 MAPPINGS_DIR 下全部预设模板 [(mapping_id, mapping_dict)]。"""
+    out: list[tuple[str, dict]] = []
+    if not os.path.isdir(MAPPINGS_DIR):
+        return out
+    for fn in sorted(os.listdir(MAPPINGS_DIR)):
+        if fn.endswith(".json"):
+            try:
+                with open(os.path.join(MAPPINGS_DIR, fn), encoding="utf-8") as f:
+                    out.append((fn[:-5], json.load(f)))
+            except Exception:  # noqa: BLE001
+                continue
+    return out
+
+
+def _file_sheet_columns(path: str) -> dict[str, list[str]]:
+    """返回 {sheet名: [列名]}; CSV 返回 {'__csv__': [...]}。仅读表头, 不读数据。"""
+    if path.lower().endswith(".csv"):
+        df = pd.read_csv(path, nrows=0)
+        return {"__csv__": [str(c).strip() for c in df.columns]}
+    xl = pd.ExcelFile(path)
+    out: dict[str, list[str]] = {}
+    for s in xl.sheet_names:
+        try:
+            out[s] = [str(c).strip() for c in xl.parse(s, nrows=0).columns]
+        except Exception:  # noqa: BLE001
+            out[s] = []
+    return out
+
+
+def _score_mapping(mapping: dict, sheet_cols: dict[str, list[str]]) -> tuple[int, int]:
+    """在文件最匹配的 sheet 上计分: (命中因子列数, 是否命中point_code 0/1)。"""
+    factor_cols = [fc["column"] for fc in mapping.get("factor_columns", [])]
+    pc = (mapping.get("point_columns") or {}).get("point_code")
+    sheet = mapping.get("sheet")
+    if sheet and sheet in sheet_cols:
+        col_sets = [sheet_cols[sheet]]
+    elif "__csv__" in sheet_cols:
+        col_sets = [sheet_cols["__csv__"]]
+    else:
+        col_sets = list(sheet_cols.values())  # sheet 未指定: 取所有 sheet 最佳
+    best = (0, 0)
+    for cols in col_sets:
+        cset = set(cols)
+        fmatch = sum(1 for c in factor_cols if c in cset)
+        pcmatch = 1 if pc and pc in cset else 0
+        best = max(best, (fmatch, pcmatch))
+    return best
+
+
+def _matches_heavy_metal_token(col_lower: str) -> bool:
+    """重金属因子列识别: token 边界匹配, 排除含 as/cd/pb 字母片段的普通词(brief 4.1)。
+
+    允许命中: 英文元素符号 as/pb/cd/hg/cr/cu/zn/ni(前后非小写字母边界) +
+              中文单字 砷铅镉汞铬铜锌镍
+    不得命中: baseline(含as)/case(含as)/sample/class/ascend/discord 等普通词。
+    旧实现用 `kw in col` substring, 'as' 会命中 baseline/case → 误判, 已废弃。
+    """
+    import re
+    if re.search(r"(?<![a-z])(as|pb|cd|hg|cr|cu|zn|ni)(?![a-z])", col_lower):
+        return True
+    return any(ch in col_lower for ch in "砷铅镉汞铬铜锌镍")
+
+
+def resolve_mapping_for_file(mapping_id: str, dest: str) -> tuple[str, dict, dict]:
+    """统一映射解析: 单文件 /import 与批量 /import/batch 共用(brief 4.1)。
+
+    auto 顺序:
+      1) detect_mapping 高置信命中预设(含 heavy_metal 防误判) → 用预设;
+      2) smart_detect_and_map 启发式识别任意结构 → smart_auto;
+      3) 低置信/缺必需字段 → mapping 仍返回, 但 detection_report.confidence<0.5 +
+         warnings 非空, 上层据此转 review_required 引导 Wizard。
+    返回 (used_id, mapping, detection_report)。detection_report 含:
+      used_id / confidence / source / detected_sheet / point_code_column /
+      longitude_column / latitude_column / factor_columns / warnings / template_scores。
+    """
+    is_auto = mapping_id in ("auto", "", "detect", None)
+    if not is_auto:
+        mapping = load_mapping(mapping_id)
+        return mapping_id, mapping, {
+            "used_id": mapping_id, "confidence": 1.0, "source": "preset",
+            "detected_sheet": mapping.get("sheet"),
+            "warnings": [], "template_scores": [],
+        }
+    # auto: 先预设模板
+    used_id, mapping, detail = detect_mapping(dest)
+    if mapping is not None:
+        return used_id, mapping, {
+            "used_id": used_id, "confidence": 0.9, "source": "preset_match",
+            "detected_sheet": mapping.get("sheet"),
+            "point_code_column": (mapping.get("point_columns") or {}).get("point_code"),
+            "factor_columns": [fc.get("column") for fc in mapping.get("factor_columns", [])],
+            "warnings": [], "template_scores": detail,
+        }
+    # 预设未命中 → smart 通用识别
+    used_id, mapping, _smart_detail = smart_detect_and_map(dest)
+    pc = (mapping.get("point_columns") or {}).get("point_code")
+    n_factors = len([fc for fc in mapping.get("factor_columns", []) if fc.get("factor_code")])
+    warnings: list[str] = []
+    confidence = 0.6
+    if not pc:
+        warnings.append("未识别到采样点编号列")
+        confidence = 0.2
+    if n_factors < 2:
+        warnings.append(f"数值因子列过少({n_factors}), 不足以支撑分析")
+        confidence = min(confidence, 0.3)
+    report = {
+        "used_id": used_id, "confidence": confidence, "source": "smart_auto",
+        "detected_sheet": mapping.get("sheet"),
+        "point_code_column": pc,
+        "longitude_column": (mapping.get("point_columns") or {}).get("longitude"),
+        "latitude_column": (mapping.get("point_columns") or {}).get("latitude"),
+        "factor_columns": [fc.get("column") for fc in mapping.get("factor_columns", [])],
+        "warnings": warnings, "template_scores": detail,
+    }
+    return used_id, mapping, report
+
+
+def detect_mapping(path: str) -> tuple[str | None, dict | None, list[dict]]:
+    """按文件 sheet 名与列签名自动匹配最合适的预设模板。
+
+    返回 (mapping_id, mapping_dict, 评分明细)。
+    判定可靠: 命中 point_code 且匹配因子列 >= 4。否则返回 (None, None, 明细),
+    由上层提示改用『自定义字段映射 Wizard』。指定 sheet 不存在的模板直接判 0,
+    从根本上避免"南京文件被套用重金属模板"这类错配。
+    """
+    sheet_cols = _file_sheet_columns(path)
+    detail: list[dict] = []
+    best_id = best_mp = None
+    best_key = (0, 0)  # (point_code命中, 因子匹配数)
+    for mid, mp in list_mappings():
+        if (mp.get("sheet") and mp["sheet"] not in sheet_cols
+                and "__csv__" not in sheet_cols):
+            detail.append({"mapping": mid, "factor_match": 0,
+                           "point_code": False, "note": "目标sheet不存在"})
+            continue
+        fmatch, pcmatch = _score_mapping(mp, sheet_cols)
+        detail.append({"mapping": mid, "factor_match": fmatch, "point_code": bool(pcmatch)})
+        key = (pcmatch, fmatch)
+        if key > best_key:
+            best_key, best_id, best_mp = key, mid, mp
+    if best_key[0] >= 1 and best_key[1] >= 4:
+        # 防误判: heavy_metal 模板(yunnan_gejiu sheet=None+通用土壤因子)易成万能匹配器,
+        # 任何"采样点编号+常规土壤因子(pH/有机质/氮磷钾)"数据都会被判 heavy_metal。
+        # 校验: 命中 heavy_metal 模板时,文件必须真含重金属特征列,否则降级未识别→引导Wizard。
+        if best_mp.get("site", {}).get("pollution_type") == "heavy_metal":
+            _all_cols = {c.lower() for cols in sheet_cols.values() for c in cols}
+            _has_hm = any(_matches_heavy_metal_token(col) for col in _all_cols)
+            if not _has_hm:
+                detail.append({"mapping": best_id, "factor_match": best_key[1],
+                               "point_code": True,
+                               "note": "仅命中通用土壤因子、无重金属特征列,降级未识别(防误判heavy_metal)"})
+                return None, None, detail
+        return best_id, best_mp, detail
+    return None, None, detail
+
+
+
+def smart_detect_and_map(path: str) -> tuple[str, dict, list[dict]]:
+    """通用导入: 不依赖预设模板, 读取任意结构的污染场地数据文件,
+    启发式识别字段(point_code/经纬度/数值因子/场地元信息)并构造标准 mapping。
+
+    识别规则(覆盖中英文列名):
+    - point_code: 列名含 编号|点号|点位|采样点|code|sample|点
+    - longitude: 含 经度|经|lon|lng|东经
+    - latitude:  含 纬度|纬|lat|北纬
+    - 因子列: 数值型列(排除 point_code/坐标/时间/纯文本)
+    - pollution_type: 因子列含重金属特征(Cd/Pb/As/Cr/Hg/Cu/Zn/Ni/镉铅砷铬汞铜锌镍)→heavy_metal;
+                      含有机特征(PAH/OCP/石油/多环/农药/苯)→organic; 否则 composite
+    返回 (mapping_id, mapping_dict, 字段识别明细)。始终返回有效 mapping(不报错), 由上层入库。
+    """
+    import re as _re
+    import pandas as _pd
+
+    detail: list[dict] = []
+    # 读取: xlsx 取数值列最多的 sheet; csv 直接读
+    sheet_name = None
+    if str(path).lower().endswith((".xlsx", ".xls")):
+        try:
+            xls = _pd.ExcelFile(path)
+            best_sheet, best_n = None, -1
+            for sh in xls.sheet_names:
+                try:
+                    df = _pd.read_excel(path, sheet_name=sh, nrows=5)
+                    n = df.select_dtypes(include="number").shape[1]
+                    if n > best_n:
+                        best_sheet, best_n = sh, n
+                except Exception:
+                    continue
+            sheet_name = best_sheet
+            df = _pd.read_excel(path, sheet_name=sheet_name) if sheet_name else _pd.DataFrame()
+        except Exception as e:
+            df = _pd.DataFrame(); detail.append({"note": f"xlsx读取失败:{e}"})
+    else:
+        try:
+            df = _pd.read_csv(path)
+        except Exception as e:
+            df = _pd.DataFrame(); detail.append({"note": f"csv读取失败:{e}"})
+
+    cols = [str(c) for c in df.columns]
+    colset = {c.lower(): c for c in cols}
+
+    def _find(patterns):
+        for cl, c in colset.items():
+            if any(p in cl for p in patterns):
+                return c
+        return None
+
+    point_code = _find(["编号", "点号", "点位", "采样点", "code", "sample", "点号", "样点"])
+    # 退化: 第一列若为字符串且唯一值多, 当作 point_code
+    if point_code is None and cols:
+        first = cols[0]
+        try:
+            if df[first].dtype == object and df[first].nunique() > len(df) * 0.5:
+                point_code = first
+        except Exception:
+            pass
+    longitude = _find(["经度", "经", "lon", "lng", "东经"])
+    latitude = _find(["纬度", "纬", "lat", "北纬"])
+
+    # 重金属识别改用 _matches_heavy_metal_token(token 边界匹配), 旧 _HM substring 已废弃(brief 4.1)
+    _ORG = ("pah", "ocp", "石油", "多环", "农药", "苯", "菲", "芘", "pcb", "pbde")
+
+    factor_columns = []
+    numeric_cols = df.select_dtypes(include="number").columns.tolist()
+    # 若数值列不足, 尝试把所有非元信息列转数值
+    candidate_cols = numeric_cols or [c for c in cols if c not in (point_code, longitude, latitude)]
+    for c in candidate_cols:
+        cl = str(c).lower()
+        if c in (longitude, latitude):
+            continue
+        raw = str(c)
+        # 提取单位 (xxx)
+        m = _re.search(r"[（(]([^)）]*)[)）]", raw)
+        unit = m.group(1) if m else None
+        name = _re.sub(r"[（(][^)）]*[)）]", "", raw).strip()
+        # 去除常见计量前缀符号
+        name = name.split("_")[-1] if "_" in name else name
+        is_hm = _matches_heavy_metal_token(cl)
+        is_org = any(k in cl for k in _ORG)
+        if is_hm:
+            cat, ftype, ptype_contrib = "环境指标", "pollutant", "hm"
+        elif is_org:
+            cat, ftype, ptype_contrib = "环境指标", "pollutant", "org"
+        elif "ph" == cl.replace("值", ""):
+            cat, ftype, ptype_contrib = "化学性质", "chemical", ""
+        elif any(k in cl for k in ("有机质", "有机碳", "碳", "氮", "磷", "钾")):
+            cat, ftype, ptype_contrib = "肥力指标", "fertility", ""
+        else:
+            cat, ftype, ptype_contrib = "其他指标", "other", ""
+        factor_columns.append({
+            "column": raw, "factor_code": name, "factor_name": name,
+            "level1_category": cat, "factor_type": ftype, "unit": unit, "in_kb": False,
+        })
+        detail.append({"factor": raw, "category": cat, "type": ftype})
+
+    has_hm = any(d["type"] == "pollutant" and d.get("category") == "环境指标" for d in detail) and              any(_matches_heavy_metal_token(str(fc["column"]).lower()) for fc in factor_columns)
+    has_org = any(any(k in str(fc["column"]).lower() for k in _ORG) for fc in factor_columns)
+    if has_hm:
+        pollution_type = "heavy_metal"
+    elif has_org:
+        pollution_type = "organic"
+    else:
+        pollution_type = "composite"
+
+    import os as _os
+    site_name = _os.path.splitext(_os.path.basename(path))[0]
+    mapping = {
+        "mapping_id": "smart_auto",
+        "description": f"通用智能识别(自动生成): {site_name}",
+        "sheet": sheet_name,
+        "header_row": 1,
+        "site": {
+            "site_code": "AUTO-" + _os.path.basename(path)[:12],
+            "name": site_name,
+            "pollution_type": pollution_type,
+            "province": None, "city": None,
+            "land_use_type": None, "sampled_at": None,
+        },
+        "point_columns": {
+            "point_code": point_code, "longitude": longitude, "latitude": latitude,
+            "region": None, "depth_top_cm": None, "depth_bottom_cm": None,
+            "soil_type": None, "remark": None,
+        },
+        "factor_columns": factor_columns,
+        "required_point_fields": [point_code] if point_code else [],
+        "required_factors": [fc["factor_code"] for fc in factor_columns[:5]],
+        "_smart_generated": True,
+    }
+    return "smart_auto", mapping, detail
 
 @dataclass
 class ParsedMeasurement:
