@@ -11,7 +11,10 @@ from sqlalchemy.orm import Session
 from app.models import EvaluationResult, FactorDictionary, Measurement, SamplingPoint, Site
 from app.services.threshold_resolver import build_pollutant_limits, resolve_limit
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+from app.core.config import resource_root
+from app.services.versioning import current_site_data_version
+
+ROOT = resource_root()
 for p in (os.path.join(ROOT, "ml", "evaluation"),):
     if p not in sys.path:
         sys.path.insert(0, p)
@@ -53,7 +56,7 @@ def run_evaluation(db: Session, site_id: int, t: float = 2.0,
     if not means:
         raise ValueError("该场地无检测数据")
     ph = means.get("pH")
-    data_version = f"site{site_id}_n{len(next(iter(series.values()), []))}"
+    data_version = current_site_data_version(db, site_id)
 
     # 幂等: 清除本场地旧评价结果, 仅保留本次最新三类
     db.query(EvaluationResult).filter_by(site_id=site_id).delete()

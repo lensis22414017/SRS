@@ -13,6 +13,9 @@ from app.models import (
     FactorDictionary, ImportBatch, Measurement, SamplingPoint, Site,
 )
 from app.services.import_service import ParsedSite
+from app.services.versioning import (
+    batch_data_version, compute_mapping_hash, compute_source_sha256,
+)
 
 SCRIPT_VERSION = "ingest_v0.1"
 
@@ -65,15 +68,36 @@ def upsert_site(db: Session, site_meta: dict) -> Site:
     return site
 
 
-def ingest(db: Session, parsed: ParsedSite, validation_report: dict | None = None,
-           imported_by: int | None = None) -> dict:
+def ingest(db: Session, parsed: ParsedSite, mapping: dict | None = None,
+           validation_report: dict | None = None, imported_by: int | None = None,
+           source_path: str | None = None) -> dict:
     site = upsert_site(db, parsed.site)
     sampled_at = _parse_date(parsed.site.get("sampled_at"))
+
+    # 内容指纹(brief 4.2): 取代含时间戳的 source_file 作为幂等键, 避免重复导入翻倍
+    source_sha = compute_source_sha256(source_path) if source_path else None
+    map_hash = compute_mapping_hash(mapping) if mapping else None
+
+    # 幂等判重: 同 site + 同 source_sha256 + 同 mapping_hash → 不重复写 measurements
+    if source_sha and map_hash:
+        existing = (db.query(ImportBatch)
+                    .filter_by(site_id=site.id, source_sha256=source_sha,
+                               mapping_hash=map_hash)
+                    .order_by(ImportBatch.id.desc()).first())
+        if existing:
+            n_meas = db.query(Measurement).filter_by(site_id=site.id).count()
+            return {"site_id": site.id, "batch_id": existing.id,
+                    "n_points": existing.row_count, "n_measurements": n_meas,
+                    "reimported": True, "dedup_batch_id": existing.id,
+                    "source_sha256": source_sha,
+                    "data_version": existing.data_version}
 
     batch = ImportBatch(
         site_id=site.id,
         source_file=parsed.source_file,
-        mapping_snapshot=None,
+        source_sha256=source_sha,
+        mapping_hash=map_hash,
+        mapping_snapshot=mapping,
         row_count=parsed.n_points,
         valid_count=(parsed.n_points if (validation_report or {}).get("passed", True) else
                      parsed.n_points - (validation_report or {}).get("n_errors", 0)),
@@ -86,7 +110,7 @@ def ingest(db: Session, parsed: ParsedSite, validation_report: dict | None = Non
     db.add(batch)
     db.flush()
 
-    # 幂等: 同场地同源文件的旧测量值先清除, 避免重复导入翻倍
+    # 幂等清理: 删除同场地同源文件的旧测量值(同文件旧批次/旧格式重导残留), 避免翻倍
     db.query(Measurement).filter_by(site_id=site.id,
                                     source_file=parsed.source_file).delete()
     db.flush()
@@ -125,6 +149,10 @@ def ingest(db: Session, parsed: ParsedSite, validation_report: dict | None = Non
                 detected_at=sampled_at,
             ))
             n_meas += 1
+    # 本批次数据版本(基于内容指纹, 替换旧 site{id}_n{count} 假指纹)
+    batch.data_version = batch_data_version(source_sha, n_meas, site.id)
     db.commit()
     return {"site_id": site.id, "batch_id": batch.id,
-            "n_points": n_points, "n_measurements": n_meas}
+            "n_points": n_points, "n_measurements": n_meas,
+            "reimported": False, "source_sha256": source_sha,
+            "data_version": batch.data_version}

@@ -10,7 +10,9 @@ from app.services.ingest_service import ingest
 from app.services.threshold_resolver import build_pollutant_limits
 from app.services.validation_service import validate
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+from app.core.config import resource_root
+
+ROOT = resource_root()
 KB_CSV = os.path.join(ROOT, "data", "knowledge_base", "统一障碍因子知识库_V1.0.csv")
 
 _LIMITS_CACHE: dict | None = None
@@ -31,7 +33,10 @@ def run_import_with_mapping(db: Session, file_path: str, mapping: dict,
     parsed = parse(file_path, mapping)
     report = validate(parsed, mapping, pollutant_limits=get_pollutant_limits(),
                       scope=scope, land_subtype=land_subtype)
-    result = ingest(db, parsed, validation_report=report, imported_by=imported_by)
+    # 透传 mapping + source_path: 入库时保存 mapping_snapshot、计算 source_sha256/
+    # mapping_hash 做幂等判重, 写入 data_version(brief 4.2)
+    result = ingest(db, parsed, mapping=mapping, validation_report=report,
+                    imported_by=imported_by, source_path=file_path)
     result["validation"] = {
         "n_points": report["n_points"], "n_measurements": report["n_measurements"],
         "n_errors": report["n_errors"], "n_warnings": report["n_warnings"],

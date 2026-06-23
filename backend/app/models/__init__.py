@@ -171,7 +171,10 @@ class ImportBatch(Base, TimestampMixin):
     id: Mapped[int] = mapped_column(primary_key=True)
     site_id: Mapped[int | None] = mapped_column(ForeignKey("sites.id"), nullable=True, index=True)
     source_file: Mapped[str] = mapped_column(String(300))
+    source_sha256: Mapped[str | None] = mapped_column(String(64), nullable=True, index=True)  # brief 4.2 内容指纹, 幂等判重键
+    mapping_hash: Mapped[str | None] = mapped_column(String(64), nullable=True)  # brief 4.2 映射指纹
     mapping_snapshot: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    data_version: Mapped[str | None] = mapped_column(String(80), nullable=True)  # brief 4.2 本批次数据版本
     row_count: Mapped[int] = mapped_column(Integer, default=0)
     valid_count: Mapped[int] = mapped_column(Integer, default=0)
     invalid_count: Mapped[int] = mapped_column(Integer, default=0)
@@ -302,6 +305,9 @@ class Recommendation(Base, TimestampMixin):
     rule_version: Mapped[str | None] = mapped_column(String(30), nullable=True)
     match_score: Mapped[float | None] = mapped_column(Float, nullable=True)
     reason: Mapped[str | None] = mapped_column(Text, nullable=True)
+    reason_struct: Mapped[dict | None] = mapped_column(JSON, nullable=True)  # brief 4.6 结构化推荐理由
+    matched_factors: Mapped[dict | None] = mapped_column(JSON, nullable=True)  # brief 4.6 命中障碍因子
+    source: Mapped[str | None] = mapped_column(String(300), nullable=True)  # brief 4.6 法规/技术库来源
     rank: Mapped[int | None] = mapped_column(Integer, nullable=True)
 
 

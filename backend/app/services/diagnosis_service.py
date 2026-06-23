@@ -19,7 +19,10 @@ from app.models import (
     Measurement, SamplingPoint, Site,
 )
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+from app.core.config import resource_root
+from app.services.versioning import current_site_data_version
+
+ROOT = resource_root()
 ML_DIR = os.path.join(ROOT, "ml")
 for p in (os.path.join(ML_DIR, "models"), os.path.join(ML_DIR, "explain")):
     if p not in sys.path:
@@ -329,7 +332,7 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
     ]
     diag = DiagnosisResult(
         site_id=site_id, model_id=model_rec.id,
-        data_version=f"site{site_id}_n{len(X)}",
+        data_version=current_site_data_version(db, site_id),
         top_n=top_n, summary=summary,
         shap_global={"global": shap_out["global"],
                      "imputed_features": imputed,
