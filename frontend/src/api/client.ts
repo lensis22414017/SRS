@@ -119,6 +119,18 @@ export const api = {
   systemConfig: () => client.get("/system/config").then((r) => r.data),
   users: () => client.get("/system/users").then((r) => r.data),
 
+  // 技术库管理(brief 4.6)
+  technologies: (params?: any) => client.get("/system/technologies", { params }).then((r) => r.data),
+  createTechnology: (body: any) => client.post("/system/technologies", body).then((r) => r.data),
+  updateTechnology: (id: number, body: any) => client.put(`/system/technologies/${id}`, body).then((r) => r.data),
+  deleteTechnology: (id: number) => client.delete(`/system/technologies/${id}`).then((r) => r.data),
+
+  // AI 模型配置
+  aiConfigGet: () => client.get("/system/ai-config").then((r) => r.data),
+  aiConfigPut: (body: { base_url: string; model: string; provider?: string; api_key?: string }) =>
+    client.put("/system/ai-config", body).then((r) => r.data),
+  aiConfigTest: () => client.post("/system/ai-config/test").then((r) => r.data),
+
   // AI
   aiStatus: () => client.get("/ai/status").then((r) => r.data),
   aiChat: (message: string, site_id?: number, history?: any[]) =>

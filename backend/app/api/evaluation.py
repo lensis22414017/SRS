@@ -78,8 +78,16 @@ def get_recommendation(site_id: int, user: User = Depends(get_current_user),
     if not rows:
         raise HTTPException(404, "暂无推荐方案")
     tech = {t.id: t for t in db.query(TechnologyLibrary).all()}
+    # brief 4.6: 透传 reason_struct/matched_factors/source/cost/duration,
+    # 前端 RecommendationPage 已消费 reason_struct, 旧 GET 只返回 reason → 卡片字段空
     return {"site_id": site_id, "items": [{
-        "rank": r.rank, "technology": tech[r.technology_id].tech_name if r.technology_id in tech else None,
+        "rank": r.rank,
+        "technology": tech[r.technology_id].tech_name if r.technology_id in tech else None,
         "match_score": r.match_score, "rule_version": r.rule_version,
         "reason": r.reason,
+        "reason_struct": r.reason_struct,
+        "matched_factors": r.matched_factors,
+        "source": r.source,
+        "cost_level": tech[r.technology_id].cost_level if r.technology_id in tech else None,
+        "duration_level": tech[r.technology_id].duration_level if r.technology_id in tech else None,
     } for r in rows]}
