@@ -3,11 +3,18 @@ import { Card, Button, Empty, message, Row, Col, Statistic, Tag, Space, Table, D
 import { api } from "../api/client";
 import SitePicker from "../components/SitePicker";
 import FormulaBlock from "../components/FormulaBlock";
+import OrganicDegradedCard from "../components/OrganicDegradedCard";
 import { seqCol, numCol, textCol } from "../utils/table";
 
 /** 功能重构分析 = 方法文件第2章 污染土壤生产-生态功能重构可行性评价(生产功能 + 生态功能) */
-function EvalBlock({ title, e }: { title: string; e: any }) {
+function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRisk?: any }) {
   if (!e) return <Empty description={`暂无${title}结果`} />;
+  // 裴总 P0-3: 有机场地降级 — 不显示 null 分, 改有机风险诊断卡片
+  if (e.grade === "不适用(有机)") {
+    return <OrganicDegradedCard organicRisk={organicRisk || e.dimensions?.organic_risk}
+      limitingFactors={e.limiting_factors} explanation={e.explanation}
+      title={`${title} — 不适用(有机污染场地)`} />;
+  }
   const dims = (e.dimensions?.dimensions || []) as any[];
   const trace = (e.dimensions?.calculation_trace || []) as string[];
   return (
@@ -118,8 +125,8 @@ export default function ReconstructionAnalysis() {
       {hasRun && (prod || eco) ? (
         <Card title="功能重构可行性评价"
           extra={<span style={{ fontSize: 12, color: "#888" }}>本次运行 ｜ 数据版本 {prod?.data_version ?? eco?.data_version} ｜ {prod?.created_at ?? eco?.created_at}</span>}>
-          <EvalBlock title="生产功能重构可行性" e={prod} />
-          <EvalBlock title="生态功能重构可行性" e={eco} />
+          <EvalBlock title="生产功能重构可行性" e={prod} organicRisk={data?.results?.organic_risk?.dimensions} />
+          <EvalBlock title="生态功能重构可行性" e={eco} organicRisk={data?.results?.organic_risk?.dimensions} />
         </Card>
       ) : <Empty description="请选择场地并点击「运行」生成功能重构评价" />}
     </Space>

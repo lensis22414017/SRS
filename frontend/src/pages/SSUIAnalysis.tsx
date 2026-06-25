@@ -4,6 +4,7 @@ import ReactECharts from "echarts-for-react";
 import { api } from "../api/client";
 import SitePicker from "../components/SitePicker";
 import FormulaBlock from "../components/FormulaBlock";
+import OrganicDegradedCard from "../components/OrganicDegradedCard";
 import { seqCol, numCol, textCol } from "../utils/table";
 
 const { Text } = Typography;
@@ -90,11 +91,19 @@ export default function SSUIAnalysis() {
             message={`历史 SSUI ｜ 生成时间 ${histS.created_at}｜结果数据版本 ${histS.data_version}｜当前数据版本 ${curDv ?? "—"}`}
             description={histS.is_stale
               ? "⚠ 场地数据已变更，该历史结果已过期(stale)，建议重新运行。"
-              : `历史得分 ${histS.score}（${histS.grade}）。点击上方按钮可重新生成本次结果。`}
+              : histS.grade === "不适用(有机)"
+                ? "该场地为有机污染，SSUI 不适用。点击上方按钮查看有机污染风险诊断降级说明。"
+                : `历史得分 ${histS.score}（${histS.grade}）。点击上方按钮可重新生成本次结果。`}
           />
         </Card>
       )}
-      {showResult ? (
+      {showResult && s?.grade === "不适用(有机)" ? (
+        <OrganicDegradedCard
+          organicRisk={data?.results?.organic_risk?.dimensions || s?.dimensions?.organic_risk}
+          limitingFactors={s?.limiting_factors}
+          explanation={s?.explanation}
+          title="SSUI 可持续利用评价 — 不适用(有机污染场地)" />
+      ) : showResult ? (
         <Card title="土壤持续利用度（SSUI）评价"
           extra={<Text type="secondary" style={{ fontSize: 12 }}>本次运行 ｜ 数据版本 {s?.data_version} ｜ 参数版本 {s?.param_version} ｜ {s?.created_at}</Text>}>
           <Alert type="warning" style={{ marginBottom: 16 }}

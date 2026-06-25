@@ -86,7 +86,7 @@ export default function SiteDetail() {
                 value: p.factor_code, label: `${p.factor_name || p.factor_code}${p.unit ? ` (${p.unit})` : ""}`,
               }))} />
           }>
-            <SiteMap height={440} zoom={15} layerData={mapLayer}
+            <SiteMap height={440} zoom={15} layerData={mapLayer} scope="site"
               sites={points.map((p) => ({ point_code: p.point_code, longitude: p.longitude, latitude: p.latitude, pollution_type: site.pollution_type }))} />
           </Card>,
         },

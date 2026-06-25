@@ -14,13 +14,15 @@ const STATUS: Record<string, { c: string; t: string; step: any }> = {
   not_started: { c: "default", t: "未开始", step: "wait" },
 };
 
-// 各阶段可上传的文件类型
+// 裴总 P1-5d: 通用文件角色(原始报告/审批意见/盖章版报告/补充材料) + 各阶段专属角色
+// 支持监理上传→甲方审批→盖章版上传 的角色流转
+const COMMON_FILE_ROLES = ["原始报告", "审批意见", "盖章版报告", "补充材料"];
 const FILE_ROLES: Record<string, string[]> = {
-  survey: ["场地调查报告", "检测数据", "障碍因子识别结果", "可行性分析结论"],
-  approval: ["重构方案", "审批意见", "修改记录", "最终通过版本"],
-  construction: ["施工方案", "监理方案", "施工进度记录", "材料使用台账"],
-  effect: ["效果检测数据", "效果评估报告", "达标结论"],
-  maintenance: ["管护方案", "定期监测数据", "功能维护记录"],
+  survey: [...COMMON_FILE_ROLES, "场地调查报告", "检测数据", "障碍因子识别结果", "可行性分析结论"],
+  approval: [...COMMON_FILE_ROLES, "重构方案", "修改记录", "最终通过版本"],
+  construction: [...COMMON_FILE_ROLES, "施工方案", "监理方案", "施工进度记录", "材料使用台账"],
+  effect: [...COMMON_FILE_ROLES, "效果检测数据", "效果评估报告", "达标结论"],
+  maintenance: [...COMMON_FILE_ROLES, "管护方案", "定期监测数据", "功能维护记录"],
 };
 
 export default function TraceDetail() {

@@ -200,6 +200,7 @@ function RecommendCard({ r }: { r: any }) {
 export default function RecommendationPage() {
   const [sid, setSid] = useState<number>();
   const [items, setItems] = useState<any[]>([]);
+  const [emptyReason, setEmptyReason] = useState<string | undefined>();
   const [loading, setLoading] = useState(false);
   const [busy, setBusy] = useState(false);
   const [loaded, setLoaded] = useState(false);
@@ -209,8 +210,8 @@ export default function RecommendationPage() {
     if (!s) return;
     setLoading(true);
     api.recommendation(s)
-      .then((d) => setItems(d.items || []))
-      .catch(() => setItems([]))
+      .then((d) => { setItems(d.items || []); setEmptyReason(d.empty_reason); })
+      .catch(() => { setItems([]); setEmptyReason(undefined); })
       .finally(() => { setLoading(false); setLoaded(true); });
   };
   useEffect(() => { if (sid) load(sid); }, [sid]);
@@ -220,7 +221,10 @@ export default function RecommendationPage() {
     setBusy(true);
     try {
       const r = await api.runRecommendation(sid);
-      message.success(`已生成 ${r.recommendations?.length ?? 0} 条推荐方案`);
+      const n = r.recommendations?.length ?? 0;
+      message.success(r.organic_fallback
+        ? `已生成 ${n} 条 OP 技术候选(基于有机因子, 未跑 SHAP 诊断)`
+        : `已生成 ${n} 条推荐方案`);
       load(sid);
     } catch (e: any) {
       const code = e?.response?.status;
@@ -259,9 +263,10 @@ export default function RecommendationPage() {
       ) : (
         <Empty
           description={
-            loaded
-              ? "暂无推荐方案：请先完成障碍因子诊断后运行推荐"
-              : "请选择场地并点击「运行方案推荐」"
+            emptyReason
+              || (loaded
+                ? "暂无推荐方案：请先完成障碍因子诊断后运行推荐"
+                : "请选择场地并点击「运行方案推荐」")
           }
         />
       )}

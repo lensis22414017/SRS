@@ -88,29 +88,51 @@ def _slim_mapping_snapshot(mapping: dict | None) -> dict | None:
     }
 
 
+def _purge_site_data(db: Session, site_id: int) -> None:
+    """删除场地全部检测数据(measurements/sampling_points/import_batches), 保留 site 行供 overwrite 复用。"""
+    db.query(Measurement).filter_by(site_id=site_id).delete()
+    db.query(SamplingPoint).filter_by(site_id=site_id).delete()
+    db.query(ImportBatch).filter_by(site_id=site_id).delete()
+    db.flush()
+
+
 def ingest(db: Session, parsed: ParsedSite, mapping: dict | None = None,
            validation_report: dict | None = None, imported_by: int | None = None,
-           source_path: str | None = None) -> dict:
-    site = upsert_site(db, parsed.site)
-    sampled_at = _parse_date(parsed.site.get("sampled_at"))
+           source_path: str | None = None,
+           on_conflict: str = "skip") -> dict:
+    """入库 ParsedSite。
 
-    # 内容指纹(brief 4.2): 取代含时间戳的 source_file 作为幂等键, 避免重复导入翻倍
+    裴总 P1-3: 全局内容指纹(source_sha256 + mapping_hash)判重 — 在 upsert_site 之前拦截,
+    同一份数据即使 site_code 不同也不重复造场地。on_conflict:
+      skip(默认)→ 返回原场地, 不重写; overwrite → 清旧数据重导; new_version → 建新 site_code。
+    """
     source_sha = compute_source_sha256(source_path) if source_path else None
     map_hash = compute_mapping_hash(mapping) if mapping else None
 
-    # 幂等判重: 同 site + 同 source_sha256 + 同 mapping_hash → 不重复写 measurements
+    # 全局判重(不限 site_id): 同 sha256 + mapping_hash = 同一份数据
+    existing_batch = None
     if source_sha and map_hash:
-        existing = (db.query(ImportBatch)
-                    .filter_by(site_id=site.id, source_sha256=source_sha,
-                               mapping_hash=map_hash)
-                    .order_by(ImportBatch.id.desc()).first())
-        if existing:
-            n_meas = db.query(Measurement).filter_by(site_id=site.id).count()
-            return {"site_id": site.id, "batch_id": existing.id,
-                    "n_points": existing.row_count, "n_measurements": n_meas,
-                    "reimported": True, "dedup_batch_id": existing.id,
-                    "source_sha256": source_sha,
-                    "data_version": existing.data_version}
+        existing_batch = (db.query(ImportBatch)
+                          .filter_by(source_sha256=source_sha, mapping_hash=map_hash)
+                          .order_by(ImportBatch.id.desc()).first())
+
+    if existing_batch:
+        existing_site = db.get(Site, existing_batch.site_id)
+        if on_conflict == "skip":
+            n_meas = db.query(Measurement).filter_by(site_id=existing_site.id).count()
+            return {"site_id": existing_site.id, "batch_id": existing_batch.id,
+                    "n_points": existing_batch.row_count, "n_measurements": n_meas,
+                    "reimported": True, "skipped": True, "action": "skipped",
+                    "dedup_batch_id": existing_batch.id,
+                    "source_sha256": source_sha, "data_version": existing_batch.data_version}
+        if on_conflict == "overwrite" and existing_site:
+            _purge_site_data(db, existing_site.id)  # 清旧, upsert_site 按 site_code 复用
+        elif on_conflict == "new_version" and existing_site:
+            base = parsed.site.get("site_code") or existing_site.site_code
+            parsed.site["site_code"] = f"{base}_v{existing_batch.id + 1}"
+
+    site = upsert_site(db, parsed.site)
+    sampled_at = _parse_date(parsed.site.get("sampled_at"))
 
     batch = ImportBatch(
         site_id=site.id,
@@ -174,7 +196,10 @@ def ingest(db: Session, parsed: ParsedSite, mapping: dict | None = None,
     # 本批次数据版本(基于内容指纹, 替换旧 site{id}_n{count} 假指纹)
     batch.data_version = batch_data_version(source_sha, n_meas, site.id)
     db.commit()
+    action = ("new_version" if (on_conflict == "new_version" and existing_batch)
+              else "overwritten" if (on_conflict == "overwrite" and existing_batch)
+              else "created")
     return {"site_id": site.id, "batch_id": batch.id,
             "n_points": n_points, "n_measurements": n_meas,
-            "reimported": False, "source_sha256": source_sha,
-            "data_version": batch.data_version}
+            "reimported": False, "action": action,
+            "source_sha256": source_sha, "data_version": batch.data_version}

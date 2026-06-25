@@ -29,7 +29,7 @@ def test_import_batch_uses_unique_clean_filenames(tmp_path, monkeypatch):
     bootstrap()
     seen_paths: list[str] = []
 
-    def fake_run_import(db, path, mapping_id, imported_by=None):
+    def fake_run_import(db, path, mapping_id, imported_by=None, **kwargs):
         seen_paths.append(path)
         return {
             "site_id": len(seen_paths),

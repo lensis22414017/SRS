@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card, Upload, Button, Select, message, Tag, Space, Alert, Table, Typography } from "antd";
+import { Card, Upload, Button, Select, message, Tag, Space, Alert, Table, Typography, Radio } from "antd";
 import { InboxOutlined, ControlOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/client";
@@ -17,6 +17,7 @@ export default function DataUpload() {
   const nav = useNavigate();
   const [mapping, setMapping] = useState("auto");
   const [files, setFiles] = useState<File[]>([]);
+  const [conflict, setConflict] = useState("skip");  // 裴总 P1-3: 重复导入策略
   const [loading, setLoading] = useState(false);
   const [batchResult, setBatchResult] = useState<any>(null);
 
@@ -26,10 +27,10 @@ export default function DataUpload() {
     try {
       let r: any;
       if (files.length > 1) {
-        r = await api.importBatch(mapping, files);
+        r = await api.importBatch(mapping, files, conflict);
       } else {
         // 单文件走单文件接口(避免重复导入), 包装成与 batch 同构的结果
-        const one = await api.importData(mapping, files[0]);
+        const one = await api.importData(mapping, files[0], conflict);
         r = { total: 1, succeeded: 1, failed: 0,
           results: [{ ...one, ok: true, original_filename: files[0].name }] };
       }
@@ -55,6 +56,7 @@ export default function DataUpload() {
     n_exceed: r.validation?.n_exceed,
     exceed_factors: r.validation?.exceed_factors || [],
     error: r.error,
+    action: r.action,
   }));
 
   // 成功导入的场地(取第一个成功的用于"查看详情")
@@ -73,6 +75,14 @@ export default function DataUpload() {
         <Space>
           <span>字段映射模板：</span>
           <Select style={{ width: 360 }} value={mapping} onChange={setMapping} options={MAPPINGS} />
+        </Space>
+        <Space>
+          <span>重复导入策略：</span>
+          <Radio.Group value={conflict} onChange={(e) => setConflict(e.target.value)}>
+            <Radio value="skip">跳过(默认, 不重复)</Radio>
+            <Radio value="overwrite">覆盖</Radio>
+            <Radio value="new_version">作为新版本</Radio>
+          </Radio.Group>
         </Space>
         <Upload.Dragger multiple
           beforeUpload={(f) => { setFiles((prev) => [...prev, f]); return false; }}
@@ -100,6 +110,15 @@ export default function DataUpload() {
               { title: "文件", dataIndex: "filename", ellipsis: true },
               { title: "状态", dataIndex: "ok", align: "center", width: 80,
                 render: (ok: boolean) => ok ? <Tag color="green">成功</Tag> : <Tag color="red">失败</Tag> },
+              { title: "操作", dataIndex: "action", align: "center", width: 80,
+                render: (a: string) => {
+                  const m: Record<string, [string, string]> = {
+                    created: ["green", "新增"], skipped: ["default", "跳过"],
+                    overwritten: ["blue", "覆盖"], new_version: ["purple", "新版本"],
+                  };
+                  const [c, t] = m[a] || ["default", a || "—"];
+                  return <Tag color={c}>{t}</Tag>;
+                } },
               { title: "识别模板", dataIndex: "mapping_label", ellipsis: true,
                 render: (v: string) => v ? <Tag color="blue">{v}</Tag> : <Text type="secondary">—</Text> },
               { title: "场地", dataIndex: "site_id", width: 70,

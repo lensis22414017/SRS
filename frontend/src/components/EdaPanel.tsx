@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Card, Table, Select, Spin, Empty, Row, Col, Tag, Space, Tabs, Typography } from "antd";
+import { Card, Table, Select, Spin, Empty, Row, Col, Tag, Space, Tabs, Typography, Alert } from "antd";
 import ReactECharts from "echarts-for-react";
 import { api } from "../api/client";
 import { seqCol, numCol, textCol } from "../utils/table";
@@ -157,6 +157,11 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
                 {groupBy !== "factor" && <Select style={{ width: 170 }} value={sel} onChange={setSel} options={factorOptions} />}
               </Space>}>
               <Text type="secondary">选定因子按区域/深度/因子维度的均值（深蓝）与中位数（绿）对比。用于识别污染的空间分异（不同区域/深度层的浓度差异），辅助定位重点修复区段。</Text>
+              {data?.grouped?.degraded_reason && (
+                <Alert type="info" showIcon style={{ marginTop: 8 }}
+                  message={`已自动降级：${data.grouped.degraded_reason}`}
+                  description={`当前实际按「${groupByLabel(data.grouped.group_by)}」分组展示`} />
+              )}
               <div style={{ marginTop: 8 }}>{groupedOption ? <ReactECharts option={groupedOption} style={{ height: 420 }} /> : <Empty />}</div>
             </Card>
           ),

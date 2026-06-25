@@ -52,3 +52,14 @@ export const GAUGE_STOPS: [number, string][] = [
   [0.8, INFO],     // 60~80 中高
   [1, SUCCESS],    // >80 高/可行
 ];
+
+// ── 污染类型语义色(裴总 P1-5a: 全系统统一, 重金属红/有机紫/复合橙) ──
+// 首页饼图/地图点位、场地详情 Tag、场地列表标签全部引用本常量, 避免首页一套色、详情页另一套色。
+export const POLLUTION_TYPE: Record<string, string> = {
+  heavy_metal: "#dc2626",  // 红
+  organic: "#7c3aed",      // 紫
+  composite: "#ea580c",    // 橙
+};
+export const POLLUTION_LABEL: Record<string, string> = {
+  heavy_metal: "重金属", organic: "有机", composite: "复合污染",
+};

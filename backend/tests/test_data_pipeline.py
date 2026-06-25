@@ -148,3 +148,31 @@ def test_api_batch_import_and_overview_badges():
     assert "data_quality" in item
     # 个旧重金属场地应有超标记录
     assert any(it["n_exceed"] > 0 for it in sites["items"])
+
+
+@needs_db
+@needs_data
+def test_import_skip_duplicate_and_new_version():
+    """裴总 P1-3: 同文件二次导入默认 skip(不造新场地); new_version 建新 site_code。"""
+    from app.db.bootstrap import main as bootstrap
+    from app.db.session import SessionLocal
+    from app.models import Site
+    from app.services.pipeline import run_import
+    bootstrap()
+    db = SessionLocal()
+    try:
+        r1 = run_import(db, GEJIU, "yunnan_gejiu")
+        assert r1.get("action", "created") == "created"
+        n1 = db.query(Site).count()
+        # 二次默认 skip → 不增场地, 复用同 site_id
+        r2 = run_import(db, GEJIU, "yunnan_gejiu", on_conflict="skip")
+        assert r2["action"] == "skipped", f"应 skip, 实际 {r2.get('action')}"
+        assert r2["site_id"] == r1["site_id"]
+        assert db.query(Site).count() == n1, "skip 不应新增场地"
+        # new_version → 建新场地
+        r3 = run_import(db, GEJIU, "yunnan_gejiu", on_conflict="new_version")
+        assert r3["action"] == "new_version"
+        assert r3["site_id"] != r1["site_id"]
+        assert db.query(Site).count() == n1 + 1, "new_version 应新增 1 个场地"
+    finally:
+        db.close()

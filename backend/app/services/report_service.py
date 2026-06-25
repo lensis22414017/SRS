@@ -116,6 +116,21 @@ def docx_emu_width(doc) -> int:
         return 5500000
 
 
+def _embed_docx_image(doc, data_url: str | None, caption: str) -> None:
+    """把 base64 PNG 嵌入 DOCX; data_url 为空/损坏时静默跳过(裴总 P1-1 DOCX 同步 PDF 图件)。"""
+    if not data_url or not data_url.startswith("data:image/png;base64,"):
+        return
+    import base64 as _b64
+    from io import BytesIO as _BIO
+    try:
+        img_bytes = _b64.b64decode(data_url.split(",", 1)[1])
+        doc.add_picture(_BIO(img_bytes), width=docx_emu_width(doc))
+        p = doc.add_paragraph(caption)
+        p.italic = True
+    except Exception:  # noqa: BLE001
+        doc.add_paragraph(f"[{caption} 渲染失败]")
+
+
 def _render_points_map_png(coord_points: list, exceed_by_point: dict[int, float]) -> str | None:
     """用 matplotlib 画采样点静态散点图(按超标倍数着色), 返回 base64 PNG。
 
@@ -226,6 +241,48 @@ def _render_shap_figure_png(top_factors: list, site_name: str) -> str | None:
     fig.savefig(buf, format="png", bbox_inches="tight", facecolor="white")
     plt.close(fig)
     return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode("ascii")
+
+
+def _render_eda_figure_png(factor_summary: list) -> str | None:
+    """各因子浓度均值与最大值对比柱状图(matplotlib), 嵌 DOCX 检测数据摘要章节。"""
+    if not factor_summary:
+        return None
+    try:
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+    except ImportError:
+        return None
+    from matplotlib import font_manager as _fm
+    _cn_fonts = ["PingFang SC", "Heiti SC", "STHeiti", "Arial Unicode MS",
+                 "Noto Sans CJK SC", "WenQuanYi Zen Hei", "SimHei", "Microsoft YaHei"]
+    _avail = {_f.name for _f in _fm.fontManager.ttflist}
+    _has_cn = any(_f in _avail for _f in _cn_fonts)
+    if _has_cn:
+        plt.rcParams["font.sans-serif"] = _cn_fonts
+        plt.rcParams["axes.unicode_minus"] = False
+    facts = factor_summary[:12]
+    names = [f["factor"] for f in facts]
+    means = [float(f.get("mean") or 0) for f in facts]
+    maxs = [float(f.get("max") or 0) for f in facts]
+    x = list(range(len(names)))
+    w = 0.38
+    fig, ax = plt.subplots(figsize=(7, 3.4), dpi=120)
+    ax.bar([i - w / 2 for i in x], means, w, label="均值", color="#3680ae")
+    ax.bar([i + w / 2 for i in x], maxs, w, label="最大值", color="#e98184")
+    ax.set_xticks(x)
+    ax.set_xticklabels(names, rotation=40, ha="right", fontsize=8)
+    ax.set_ylabel("浓度", fontsize=9)
+    ax.set_title("各因子浓度均值与最大值对比(EDA)", fontsize=10, color="#222")
+    ax.legend(fontsize=8)
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    fig.tight_layout()
+    import io as _io, base64 as _b64
+    buf = _io.BytesIO()
+    fig.savefig(buf, format="png", bbox_inches="tight", facecolor="white")
+    plt.close(fig)
+    return "data:image/png;base64," + _b64.b64encode(buf.getvalue()).decode("ascii")
 
 
 def collect(db: Session, site_id: int, version: str) -> dict:
@@ -482,6 +539,10 @@ def render_docx(context: dict) -> bytes:
     else:
         doc.add_paragraph("暂无检测数据摘要。")
 
+    # 裴总 P1-1: DOCX 同步嵌入 EDA 分析图(均值 vs 最大值, 与 PDF 章节口径一致)
+    _embed_docx_image(doc, _render_eda_figure_png(context.get("factor_summary") or []),
+                      "(各因子浓度均值与最大值对比 EDA 图件)")
+
     add_kv("数据质量校验结果", [
         ("校验结论", "通过" if context["validation"]["passed"] else "存在阻断性错误"),
         ("错误 / 警告", f"{context['validation']['n_errors']} / "
@@ -505,6 +566,10 @@ def render_docx(context: dict) -> bytes:
             cells[4].text = str(t["direction"] or "")
     else:
         doc.add_paragraph("暂无诊断结果。")
+
+    # 裴总 P1-1: DOCX 同步嵌入 SHAP 障碍因子排名图(与 PDF 口径一致)
+    _embed_docx_image(doc, context["map_summary"].get("shap_image"),
+                      "(关键障碍因子 SHAP 排名图件)")
 
     doc.add_heading("功能重构可行性评价", level=1)
     if context.get("reconstruction"):

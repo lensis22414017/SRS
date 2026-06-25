@@ -116,11 +116,16 @@ def test_report_generation_full_chain():
         assert fo and zipfile.is_zipfile(abs_path(fo.storage_key))
         with zipfile.ZipFile(abs_path(fo.storage_key)) as z:
             xml = z.read("word/document.xml").decode("utf-8", errors="ignore")
+            media_files = [n for n in z.namelist() if n.startswith("word/media/")]
         text = re.sub("<[^>]+>", " ", xml)
+        # 裴总 P1-1: DOCX 同步 PDF 图件 — 至少 map + SHAP + EDA 三张
+        assert len(media_files) >= 3, (
+            f"DOCX 媒体图件应 ≥3 (map+shap+eda), 实际 {len(media_files)}: {media_files}")
         for section in ["地图图件", "检测数据摘要", "数据质量校验",
                         "功能重构可行性", "SSUI", "推荐修复方案矩阵",
                         "五阶段全流程追溯", "附件清单", "人工复核意见区"]:
             assert section in text, f"DOCX 报告缺章节: {section}"
+        assert "操作日志摘要" not in text, "DOCX 不应含操作日志摘要(裴总第一节)"
     finally:
         db.close()
 
@@ -148,6 +153,8 @@ def test_report_html_renders():
             assert section in html, f"报告缺章节: {section}"
         assert "三、采样点信息" not in html
         assert "十、五阶段全流程追溯记录" not in html
+        # 裴总第一节: 报告不含"操作日志摘要"(甲方明确可不提系统操作摘要)
+        assert "操作日志摘要" not in html
     finally:
         db.close()
 

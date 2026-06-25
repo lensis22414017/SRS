@@ -12,17 +12,15 @@ import { useNavigate } from "react-router-dom";
 import ReactECharts from "echarts-for-react";
 import { api } from "../api/client";
 import SiteMap from "../components/SiteMap";
-import { CATEGORICAL } from "../theme/palette";  // 全局配色(裴总精品案例莫兰迪对齐, 问题4/10政府化)
+import { CATEGORICAL, POLLUTION_TYPE, POLLUTION_LABEL } from "../theme/palette";  // 全局配色(裴总精品案例莫兰迪对齐, 问题4/10政府化)
 
 const { Text } = Typography;
 
-/** 污染类型 → 标签颜色 */
+/** 污染类型 → AntD Tag 颜色名(语义同 POLLUTION_TYPE) */
 const TYPE_COLOR: Record<string, string> = {
   heavy_metal: "red", organic: "purple", composite: "orange",
 };
-const TYPE_LABEL: Record<string, string> = {
-  heavy_metal: "重金属", organic: "有机", composite: "复合",
-};
+const TYPE_LABEL = POLLUTION_LABEL;
 
 export default function Dashboard() {
   const nav = useNavigate();
@@ -54,6 +52,7 @@ export default function Dashboard() {
   const highRiskSites = sites.filter((s) => (s.n_exceed || 0) >= 10);
 
   const byType = ["heavy_metal", "organic", "composite"].map((t) => ({
+    key: t,
     name: TYPE_LABEL[t],
     value: sites.filter((s) => s.pollution_type === t).length,
   })).filter((x) => x.value > 0);
@@ -64,33 +63,52 @@ export default function Dashboard() {
     series: [{
       type: "pie", radius: ["45%", "70%"], data: byType,
       label: { formatter: "{b}: {c}" },
-      color: CATEGORICAL,  // 红/紫/橙(高饱和AI味) → 裴总莫兰迪灰蓝紫(问题4/10政府化)
+      // 裴总 P1-5a: 污染类型语义色(红/紫/橙), 与场地详情 Tag/地图点位同源
+      color: byType.map((d) => POLLUTION_TYPE[d.key]),
       emphasis: { itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: "rgba(0,0,0,0.3)" } },
     }],
   };
 
+  // 裴总 P1-5b: 超标排行改横向条形图 + 短标签(省份+场地, 同省多场地加序号), 不截断
+  const topExceed = [...sites].filter((s) => (s.n_exceed || 0) > 0)
+    .sort((a, b) => (b.n_exceed || 0) - (a.n_exceed || 0)).slice(0, 8);
+  const _provCount: Record<string, number> = {};
+  const shortName = (s: any) => {
+    let prov = s.province || "";
+    if (!prov) {
+      const m = (s.name || "").match(/site_([^_]+?)_/);
+      prov = m ? m[1] : (s.name || "场地").slice(0, 4);
+    }
+    _provCount[prov] = (_provCount[prov] || 0) + 1;
+    return _provCount[prov] > 1 ? `${prov}${_provCount[prov]}` : `${prov}场地`;
+  };
   const riskBarOption = {
-    tooltip: { trigger: "axis" },
-    grid: { left: 12, right: 12, top: 16, bottom: 24, containLabel: true },
-    xAxis: { type: "category", data: sites.slice(0, 8).map((s) => s.name?.slice(0, 6) || "—"), axisLabel: { fontSize: 10 } },
-    yAxis: { type: "value", name: "超标记录数" },
+    tooltip: { trigger: "axis", formatter: (p: any) => {
+      const s = topExceed[p[0].dataIndex];
+      return `<b>${s?.name || ""}</b><br/>场地 #${s?.id} · ${TYPE_LABEL[s?.pollution_type] || "—"}<br/>超标记录: ${p[0].data} 条`;
+    } },
+    grid: { left: 12, right: 40, top: 16, bottom: 24, containLabel: true },
+    xAxis: { type: "value", name: "超标记录数", nameLocation: "middle", nameGap: 24 },
+    yAxis: { type: "category", data: topExceed.map(shortName),
+      axisLabel: { fontSize: 11, color: "#374151" } },
     series: [{
       type: "bar",
-      data: sites.slice(0, 8).map((s) => s.n_exceed || 0),
+      data: topExceed.map((s) => s.n_exceed || 0),
       itemStyle: {
         color: (p: any) => {
           const v = p.data;
           return v >= 10 ? "#dc2626" : v >= 5 ? "#f59e0b" : "#3b82f6";
         },
+        borderRadius: [0, 3, 3, 0],
       },
+      label: { show: true, position: "right", fontSize: 10, color: "#374151" },
     }],
   };
 
   const mapSites = sites.map((s) => ({
     id: s.id, name: s.name, longitude: s.longitude, latitude: s.latitude,
     pollution_type: s.pollution_type,
-    status: s.pollution_type === "heavy_metal" ? "danger"
-      : s.pollution_type === "organic" ? "warning" : "info",
+    color: POLLUTION_TYPE[s.pollution_type] || "#dc2626",  // 裴总 P1-5a: 地图点位用语义色
   }));
 
   return (

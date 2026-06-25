@@ -11,6 +11,7 @@ interface SitePoint {
   latitude: number | null;
   pollution_type?: string;
   status?: string;
+  color?: string;   // 裴总 P1-5a: 直接指定颜色(优先于 status), 与污染类型语义色一致
   value?: number | null;
   onClick?: () => void;
 }
@@ -86,10 +87,11 @@ function zoomToLevel(z: number): "province" | "prefecture" | "county" {
 }
 
 export default function SiteMap({
-  sites, layerData, height = 400, zoom = 5, onMarkerClick,
+  sites, layerData, height = 400, zoom = 5, onMarkerClick, scope = "overview",
 }: {
   sites: SitePoint[]; layerData?: MapLayerData; height?: number; zoom?: number;
   onMarkerClick?: (s: SitePoint) => void;
+  scope?: "overview" | "site";  // 裴总 P1-5b: overview=首页全国地图; site=场地详情(不加载全国省界)
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const mapRef = useRef<L.Map | null>(null);
@@ -148,11 +150,19 @@ export default function SiteMap({
   // ── 地图初始化 ─────────────────────────────────────────────────
   useEffect(() => {
     if (!ref.current || mapRef.current) return;
-    const map = L.map(ref.current, { center: [34, 104], zoom, minZoom: 3, maxZoom: 18 });
+    // 裴总 P1-5b: site=场地详情聚焦到该场地, 不加载全国省界(避免"全国数据"视觉混淆);
+    // overview=首页全国地图才加载全国省界
+    const firstPt = sites.find((s) => s.longitude != null && s.latitude != null);
+    const initCenter: [number, number] = scope === "site" && firstPt
+      ? [firstPt.latitude as number, firstPt.longitude as number]
+      : [34, 104];
+    const map = L.map(ref.current, { center: initCenter, zoom, minZoom: 3, maxZoom: 18 });
     mapRef.current = map;
 
-    // 默认矢量底图: 全国省界, 完全离线, 无需任何 key
-    loadBoundaries("province");
+    if (scope !== "site") {
+      // 默认矢量底图: 全国省界, 完全离线, 无需任何 key
+      loadBoundaries("province");
+    }
 
     // 缩放/平移 → 行政区三级懒加载
     const onZoomMove = () => {
@@ -254,7 +264,7 @@ export default function SiteMap({
         const ll = L.latLng(s.latitude, s.longitude);
         pts.push(ll);
         lngLats.push([s.longitude!, s.latitude!]);
-        const color = STATUS_COLOR[s.status || "danger"] || "#dc2626";
+        const color = s.color || STATUS_COLOR[s.status || "danger"] || "#dc2626";
         const mk = L.circleMarker(ll, { radius: 8, color: "#fff", weight: 2, fillColor: color, fillOpacity: 0.9 })
           .bindPopup(`<b>${esc(s.name || s.point_code || "点位")}</b><br/>${esc(s.pollution_type || "")}<br/>${s.latitude}, ${s.longitude}`)
           .addTo(layer);

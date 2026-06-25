@@ -51,15 +51,17 @@ export const api = {
     a.href = url; a.download = `measurements_site${id}.${format}`; a.click();
     URL.revokeObjectURL(url);
   },
-  importData: (mappingId: string, file: File) => {
+  importData: (mappingId: string, file: File, onConflict: string = "skip") => {
     const fd = new FormData();
     fd.append("mapping_id", mappingId);
     fd.append("file", file);
+    fd.append("on_conflict", onConflict);
     return client.post("/import", fd, { headers: { "Content-Type": "multipart/form-data" } }).then((r) => r.data);
   },
-  importBatch: (mappingId: string, files: File[]) => {
+  importBatch: (mappingId: string, files: File[], onConflict: string = "skip") => {
     const fd = new FormData();
     fd.append("mapping_id", mappingId);
+    fd.append("on_conflict", onConflict);
     files.forEach((f) => fd.append("files", f));
     return client.post("/import/batch", fd, { headers: { "Content-Type": "multipart/form-data" } }).then((r) => r.data);
   },

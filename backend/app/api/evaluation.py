@@ -76,7 +76,13 @@ def get_recommendation(site_id: int, user: User = Depends(get_current_user),
     rows = (db.query(Recommendation).filter_by(site_id=site_id)
             .order_by(Recommendation.rank).all())
     if not rows:
-        raise HTTPException(404, "暂无推荐方案")
+        # 裴总 P0-3: 无推荐不返回 404(OP 场地前端会触发 organic_fallback 生成候选);
+        # 给 200 + 空列表 + 引导, 避免前端报错或裸 404
+        site = db.get(Site, site_id)
+        hint = ("该场地为有机污染且尚未生成推荐; 点击「生成推荐」将基于有机因子匹配 OP 修复候选"
+                if site and site.pollution_type == "organic"
+                else "暂无推荐方案, 请先运行障碍因子诊断后生成推荐")
+        return {"site_id": site_id, "items": [], "empty_reason": hint}
     tech = {t.id: t for t in db.query(TechnologyLibrary).all()}
     # brief 4.6: 透传 reason_struct/matched_factors/source/cost/duration,
     # 前端 RecommendationPage 已消费 reason_struct, 旧 GET 只返回 reason → 卡片字段空

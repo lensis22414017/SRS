@@ -25,6 +25,7 @@ router = APIRouter(prefix=get_settings().api_v1_prefix, tags=["data"])
 
 @router.post("/import")
 async def import_data(mapping_id: str = Form(...), file: UploadFile = File(...),
+                      on_conflict: str = Form("skip"),
                       user: User = Depends(require_permission("data:input")),
                       db: Session = Depends(get_db)):
     import datetime as _dt
@@ -52,7 +53,8 @@ async def import_data(mapping_id: str = Form(...), file: UploadFile = File(...),
     used_id, mapping, det_report = _resolve_mapping(mapping_id, dest)
     _apply_auto_site_code(mapping, mapping_id, file.filename)
     try:
-        result = run_import_with_mapping(db, dest, mapping, imported_by=user.id)
+        result = run_import_with_mapping(db, dest, mapping, imported_by=user.id,
+                                         on_conflict=on_conflict)
         result["stored_filename"] = canonical
         result["original_filename"] = file.filename
         result["mapping_id"] = used_id
@@ -158,6 +160,7 @@ async def import_wizard(mapping: str = Form(...), file: UploadFile = File(...),
 @router.post("/import/batch")
 async def import_batch(mapping_id: str = Form(...),
                       files: list[UploadFile] = File(...),
+                      on_conflict: str = Form("skip"),
                       user: User = Depends(require_permission("data:input")),
                       db: Session = Depends(get_db)):
     """批量导入: 多文件共用同一 mapping_id, 串行跑 pipeline 避免写库竞态。
@@ -200,7 +203,8 @@ async def import_batch(mapping_id: str = Form(...),
                 used_id, file_mapping = mapping_id, mapping
                 det_report = {"used_id": mapping_id, "confidence": 1.0, "source": "preset"}
             _apply_auto_site_code(file_mapping, mapping_id, original_name)
-            res = run_import_with_mapping(db, dest, file_mapping, imported_by=user.id)
+            res = run_import_with_mapping(db, dest, file_mapping, imported_by=user.id,
+                                          on_conflict=on_conflict)
             res["stored_filename"] = canonical
             res["original_filename"] = original_name
             res["mapping_id"] = used_id
@@ -492,20 +496,34 @@ def site_eda(site_id: int,
         pivot = df.pivot_table(index="point_id", columns="factor", values="value", aggfunc="mean")
         resp["correlation"] = correlation_matrix(pivot)
 
-    if "grouped" in inc and group_by in ("region", "depth", "factor"):
-        if group_by == "depth":
-            df["depth_band"] = df.apply(
-                lambda r: f"{int(r['depth_top'] or 0)}-{int(r['depth_bottom'] or 0)}cm", axis=1)
-            gcol = "depth_band"
-        elif group_by == "factor":
-            gcol = "factor"
-        else:
-            gcol = "region"
+    if "grouped" in inc:
+        # 裴总 P1-2: 所选分组维度值不足 → 自动降级 region → depth → factor, 不返回空图
+        requested_gb = group_by if group_by in ("region", "depth", "factor") else "region"
+        effective_gb = requested_gb
+        degraded_reason = None
+        df["_depth_band"] = df.apply(
+            lambda r: f"{int(r['depth_top'] or 0)}-{int(r['depth_bottom'] or 0)}cm", axis=1)
+
+        def _nunique(col: str) -> int:
+            s = df[col].dropna().astype(str)
+            return s[s.str.strip() != ""].nunique()
+
+        if effective_gb == "region" and _nunique("region") < 2:
+            effective_gb = "depth"
+            degraded_reason = "场地无区域(region)信息或仅单一区域, 已自动切换为按深度分组"
+        if effective_gb == "depth" and _nunique("_depth_band") < 2:
+            effective_gb = "factor"
+            degraded_reason = (degraded_reason + "; 深度维度亦不足, 已切换为按因子分组"
+                               if degraded_reason
+                               else "区域与深度维度均不足, 已切换为按因子分组")
+        gcol = {"region": "region", "depth": "_depth_band", "factor": "factor"}[effective_gb]
         # 全因子整体分组 + 每个因子单独分组(便于按因子看分层差异)
         per_factor = {}
         for fc, sub in df.groupby("factor"):
             per_factor[fc] = grouped_stats(sub, "value", gcol)
-        resp["grouped"] = {"group_by": group_by,
+        resp["grouped"] = {"group_by": effective_gb,
+                           "requested_group_by": requested_gb,
+                           "degraded_reason": degraded_reason,
                            "overall": grouped_stats(df, "value", gcol),
                            "per_factor": per_factor}
 
