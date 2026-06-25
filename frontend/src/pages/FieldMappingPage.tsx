@@ -299,9 +299,13 @@ export default function FieldMappingPage() {
             <Form.Item name="pollution_type" label="污染类型" rules={[{ required: true }]}>
               <Select style={{ width: 140 }} options={POLLUTION_TYPES} />
             </Form.Item>
-            <Form.Item name="land_use_type" label="用地类型">
-              <Select style={{ width: 120 }}
-                options={LAND_USE_TYPES.map((v) => ({ value: v, label: v }))} />
+            <Form.Item name="land_use_type" label="修复后用途"
+              tooltip="决定诊断路由: 生产轨(GB15618农用地+GB36600一类,严,人体健康) / 生态轨(CJ/T340绿化+GB36600二类,宽,植被修复)">
+              <Select style={{ width: 200 }} placeholder="选择修复后用途"
+                options={[
+                  { value: "生产", label: "生产(农用地/一类·严)" },
+                  { value: "生态", label: "生态(绿化/二类·宽)" },
+                ]} />
             </Form.Item>
             <Form.Item name="province" label="省份">
               <Input style={{ width: 100 }} placeholder="如 云南省" />

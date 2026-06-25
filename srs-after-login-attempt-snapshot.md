@@ -1,0 +1,19 @@
+- generic [ref=e5] [box=524,293,378,430]:
+  - heading "污染场地土壤生态-生产 功能重构监管系统" [level=4] [ref=e6] [box=548,343,330,56]:
+    - text: 污染场地土壤生态-生产
+    - text: 功能重构监管系统
+  - generic [ref=e7] [box=548,409,330,228]:
+    - generic [ref=e9] [box=548,409,330,70]:
+      - generic "用户名" [ref=e11] [box=548,409,67,22]: "* 用户名"
+      - textbox "* 用户名" [ref=e15] [box=548,439,330,40]:
+        - /placeholder: admin / enterprise / agency / regulator
+        - text: admin
+    - generic [ref=e17] [box=548,503,330,70]:
+      - generic "密码" [ref=e19] [box=548,503,53,22]: "* 密码"
+      - generic [ref=e23] [box=548,533,330,40]:
+        - textbox "* 密码" [ref=e24] [box=560,541,286,24]: Demo@2026
+        - img "eye-invisible" [ref=e26] [cursor=pointer] [box=850,545,16,16]:
+          - img [ref=e27] [box=850,545,16,16]
+    - button "登 录" [ref=e30] [cursor=pointer] [box=548,597,330,40]:
+      - generic [ref=e31] [box=694,606,37,22]: 登 录
+  - generic [ref=e32] [box=548,649,330,38]: 演示账号密码均为 Demo@2026；不同角色可见数据与权限不同。

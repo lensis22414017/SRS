@@ -1,0 +1,96 @@
+{
+  "n_pairs": 8,
+  "avg_delta_auc": 0.3053,
+  "leak_threshold": 0.15,
+  "verdict": "⚠️ 标签泄漏实证: full组AUC显著高于barrier组(平均Δ=0.3053>0.15), 证明污染物浓度特征致标签泄漏(Hu2026铁证复现)。full组AUC虚高不可作独立泛化证据; barrier组AUC低反映理化协变量覆盖率不足(当前仅SoilpH/OC_pct), 需外部协变量增强(ECA/ITM/GSM/TLDA/PFE)。",
+  "pairs": [
+    {
+      "block": "composite",
+      "track": "eco",
+      "full_auc": 0.9935,
+      "barrier_auc": 0.5198,
+      "delta_auc": 0.4737,
+      "full_n_features": 42,
+      "barrier_n_features": 2,
+      "full_warning": "含污染物浓度特征;标签由浓度派生→标签泄漏;AUC虚高(≈1.0)不可作独立泛化证据(Hu2026铁证,plan§18.4)",
+      "barrier_warning": "X_barrier纯协变量(排除污染物浓度);AUC偏低反映理化协变量覆盖率不足(当前仅SoilpH/OC_pct),需外部协变量增强(ECA/ITM/GSM/TLDA/PFE)提升泛化力"
+    },
+    {
+      "block": "composite",
+      "track": "prod",
+      "full_auc": 0.9979,
+      "barrier_auc": 0.541,
+      "delta_auc": 0.4569,
+      "full_n_features": 42,
+      "barrier_n_features": 2,
+      "full_warning": "含污染物浓度特征;标签由浓度派生→标签泄漏;AUC虚高(≈1.0)不可作独立泛化证据(Hu2026铁证,plan§18.4)",
+      "barrier_warning": "X_barrier纯协变量(排除污染物浓度);AUC偏低反映理化协变量覆盖率不足(当前仅SoilpH/OC_pct),需外部协变量增强(ECA/ITM/GSM/TLDA/PFE)提升泛化力"
+    },
+    {
+      "block": "hm",
+      "track": "eco",
+      "full_auc": 0.9998,
+      "barrier_auc": null,
+      "delta_auc": null,
+      "full_n_features": 16,
+      "barrier_n_features": 0,
+      "full_warning": "含污染物浓度特征;标签由浓度派生→标签泄漏;AUC虚高(≈1.0)不可作独立泛化证据(Hu2026铁证,plan§18.4)",
+      "barrier_warning": "X_barrier模式该块无理化协变量(仅污染物浓度)→0特征不可训,数据局限实证"
+    },
+    {
+      "block": "hm",
+      "track": "prod",
+      "full_auc": 1.0,
+      "barrier_auc": null,
+      "delta_auc": null,
+      "full_n_features": 16,
+      "barrier_n_features": 0,
+      "full_warning": "含污染物浓度特征;标签由浓度派生→标签泄漏;AUC虚高(≈1.0)不可作独立泛化证据(Hu2026铁证,plan§18.4)",
+      "barrier_warning": "X_barrier模式该块无理化协变量(仅污染物浓度)→0特征不可训,数据局限实证"
+    },
+    {
+      "block": "lake",
+      "track": "eco",
+      "full_auc": 0.9952,
+      "barrier_auc": 0.582,
+      "delta_auc": 0.4132,
+      "full_n_features": 59,
+      "barrier_n_features": 3,
+      "full_warning": "含污染物浓度特征;标签由浓度派生→标签泄漏;AUC虚高(≈1.0)不可作独立泛化证据(Hu2026铁证,plan§18.4)",
+      "barrier_warning": "X_barrier纯协变量(排除污染物浓度);AUC偏低反映理化协变量覆盖率不足(当前仅SoilpH/OC_pct),需外部协变量增强(ECA/ITM/GSM/TLDA/PFE)提升泛化力"
+    },
+    {
+      "block": "lake",
+      "track": "prod",
+      "full_auc": 0.9988,
+      "barrier_auc": 0.5944,
+      "delta_auc": 0.4044,
+      "full_n_features": 59,
+      "barrier_n_features": 3,
+      "full_warning": "含污染物浓度特征;标签由浓度派生→标签泄漏;AUC虚高(≈1.0)不可作独立泛化证据(Hu2026铁证,plan§18.4)",
+      "barrier_warning": "X_barrier纯协变量(排除污染物浓度);AUC偏低反映理化协变量覆盖率不足(当前仅SoilpH/OC_pct),需外部协变量增强(ECA/ITM/GSM/TLDA/PFE)提升泛化力"
+    },
+    {
+      "block": "op",
+      "track": "eco",
+      "full_auc": 0.9999,
+      "barrier_auc": 0.9582,
+      "delta_auc": 0.0417,
+      "full_n_features": 28,
+      "barrier_n_features": 4,
+      "full_warning": "含污染物浓度特征;标签由浓度派生→标签泄漏;AUC虚高(≈1.0)不可作独立泛化证据(Hu2026铁证,plan§18.4)",
+      "barrier_warning": "X_barrier纯协变量(排除污染物浓度);AUC偏低反映理化协变量覆盖率不足(当前仅SoilpH/OC_pct),需外部协变量增强(ECA/ITM/GSM/TLDA/PFE)提升泛化力"
+    },
+    {
+      "block": "op",
+      "track": "prod",
+      "full_auc": 0.9999,
+      "barrier_auc": 0.9582,
+      "delta_auc": 0.0417,
+      "full_n_features": 28,
+      "barrier_n_features": 4,
+      "full_warning": "含污染物浓度特征;标签由浓度派生→标签泄漏;AUC虚高(≈1.0)不可作独立泛化证据(Hu2026铁证,plan§18.4)",
+      "barrier_warning": "X_barrier纯协变量(排除污染物浓度);AUC偏低反映理化协变量覆盖率不足(当前仅SoilpH/OC_pct),需外部协变量增强(ECA/ITM/GSM/TLDA/PFE)提升泛化力"
+    }
+  ]
+}

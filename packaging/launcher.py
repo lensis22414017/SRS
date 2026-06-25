@@ -53,6 +53,35 @@ def _check_port_in_use(port: int, host: str = "127.0.0.1") -> bool:
             return True
 
 
+def _check_srs_already_running(port: int, host: str = "127.0.0.1") -> bool:
+    """检测占用端口的是否是 SRS 自身(通过探测 GET /health 响应)。
+
+    返回 True  → SRS 已在运行, 可以直接复用
+    返回 False → 被其他程序占用, 真正冲突
+    """
+    import urllib.request
+    # SRS 暴露的健康检查端点: GET /health → {"status":"ok","app":"...","version":"..."}
+    try:
+        req = urllib.request.Request(
+            f"http://{host}:{port}/health",
+            headers={"Accept": "application/json"},
+        )
+        with urllib.request.urlopen(req, timeout=2.0) as resp:
+            data = resp.read().decode("utf-8", errors="ignore")
+            # 只要 /health 能通且包含 "status" 字段，即认定为 SRS 自身
+            return '"status"' in data
+    except Exception:  # noqa: BLE001
+        # /health 不通: 再试根路径 (SRS 前端 SPA 返回 200)
+        try:
+            with urllib.request.urlopen(
+                f"http://{host}:{port}/", timeout=1.5
+            ) as resp:
+                return resp.status == 200
+        except Exception:  # noqa: BLE001
+            # 端口占用但完全无法 HTTP 连接 → 判定为其他程序
+            return False
+
+
 def run_preflight(port: int, host: str = "127.0.0.1") -> list[dict]:
     """首启环境自检: 端口/DB/Redis/AI key/天地图 key。
 
@@ -63,13 +92,37 @@ def run_preflight(port: int, host: str = "127.0.0.1") -> list[dict]:
     s = get_settings()
     results: list[dict] = []
 
-    # 1. 端口占用
+    # 1. 端口占用检测
+    #    分三种情况:
+    #    a) 空闲               → ok
+    #    b) 被 SRS 自身占用    → warn (直接复用已有服务, 无需重启)
+    #    c) 被其他程序占用      → fail (真正冲突, 需手动处理)
     if _check_port_in_use(port, host):
-        results.append({"name": "端口检测", "level": "fail",
-                        "message": f"端口 {port} 已被占用。请关闭占用程序, 或用 --port 指定其他端口。"})
+        if _check_srs_already_running(port, host):
+            results.append({
+                "name": "端口检测", "level": "warn",
+                "message": (
+                    f"端口 {port} 已有 SRS 服务在运行。"
+                    "本次启动将直接连接已有服务（无需重新启动后端）。"
+                    "如需完全重启，请先在任务管理器/活动监视器中关闭 SRS 进程。"
+                ),
+                "srs_already_running": True,   # 供 main() 判断是否跳过 server 启动
+            })
+        else:
+            results.append({
+                "name": "端口检测", "level": "fail",
+                "message": (
+                    f"端口 {port} 已被其他程序占用（非 SRS）。"
+                    "请关闭占用程序，或用 --port 参数指定其他端口（如 --port 8001）。"
+                ),
+                "srs_already_running": False,
+            })
     else:
-        results.append({"name": "端口检测", "level": "ok",
-                        "message": f"端口 {port} 空闲可用。"})
+        results.append({
+            "name": "端口检测", "level": "ok",
+            "message": f"端口 {port} 空闲可用。",
+            "srs_already_running": False,
+        })
 
     # 2. 数据库目录可写(SQLite 场景)
     db_url = s.database_url
@@ -110,13 +163,16 @@ def run_preflight(port: int, host: str = "127.0.0.1") -> list[dict]:
         results.append({"name": "AI 大模型", "level": "warn",
                         "message": "未配置 AI_API_KEY。AI 问答将降级为纯知识库检索答案。若需 AI 生成请在 .env 配置。"})
 
-    # 5. 天地图 key(配置态)
-    if s.tianditu_key:
+    # 5. 高德地图 key(推荐在线影像, 无 IP 白名单限制)
+    gaode_key = getattr(s, "gaode_key", None) or os.environ.get("GAODE_KEY", "")
+    if gaode_key:
+        masked = gaode_key[:4] + "***" + gaode_key[-4:] if len(gaode_key) > 8 else "***"
         results.append({"name": "地图底图", "level": "ok",
-                        "message": "已配置 TIANDITU_KEY, 地图底图可加载(需在天地图控制台配置出口 IP 白名单)。"})
+                        "message": f"已配置 GAODE_KEY({masked})。高德影像底图可用，无 IP 白名单限制。"})
     else:
         results.append({"name": "地图底图", "level": "warn",
-                        "message": "未配置 TIANDITU_KEY。地图底图不可用, 采样点坐标仍可显示但无影像底图。报告内的静态图件不受影响。"})
+                        "message": "未配置 GAODE_KEY。影像底图不可用，矢量行政区底图仍正常显示。"
+                                   "如需影像底图，请在高德开放平台申请 Web 服务 key 并写入 .env: GAODE_KEY=your_key"})
 
     return results
 
@@ -142,8 +198,15 @@ def start_server(host: str, port: int):
     """在守护线程中启动 uvicorn。"""
     import uvicorn
     from app.main import app
-    # 确保工作目录正确 (PyInstaller 打包后 __file__ 指向临时目录)
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    # 打包后 __file__ 在临时目录, 需切回项目根(backend 的父目录)以使相对路径正常。
+    # 开发模式: __file__ = packaging/launcher.py → 父级的父级 = 项目根
+    # 打包模式: sys._MEIPASS 为解包根, backend/ 已在其中
+    if getattr(sys, "frozen", False):
+        # PyInstaller: 解包目录即为工作目录基准
+        project_root = sys._MEIPASS  # type: ignore[attr-defined]
+    else:
+        project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    os.chdir(project_root)
     uvicorn.run(
         app,
         host=host,
@@ -153,10 +216,49 @@ def start_server(host: str, port: int):
     )
 
 
-def open_browser(url: str, delay: float = 1.5):
-    """延迟打开浏览器, 等待服务器就绪。"""
+def _has_pywebview() -> bool:
+    """检测 pywebview 是否可用(不触发实际导入副作用)。"""
+    try:
+        import importlib.util
+        return importlib.util.find_spec("webview") is not None
+    except Exception:  # noqa: BLE001
+        return False
+
+
+def open_browser_fallback(url: str, delay: float = 1.5):
+    """降级路径: 延迟打开系统浏览器(无 pywebview 时使用)。"""
     time.sleep(delay)
     webbrowser.open(url)
+
+
+def run_webview_main_thread(url: str, delay: float = 1.5):
+    """在【主线程】启动 pywebview 原生窗口。
+
+    ⚠️  macOS(Cocoa) / Windows(Edge/WebView2) 要求 GUI 事件循环在主线程运行。
+    本函数必须从 main() 直接调用, 不得在子线程中调用。
+
+    功能:
+    - 等待后端就绪后显示原生窗口(无地址栏, 纯 App 体验)
+    - 窗口关闭时发送 SIGINT 终止整个进程(等同 Ctrl+C)
+    """
+    import webview  # type: ignore[import]
+    time.sleep(delay)
+    win = webview.create_window(
+        title="污染场地监管系统",
+        url=url,
+        width=1440,
+        height=900,
+        min_size=(1200, 700),
+        background_color="#0f3d6e",
+    )
+
+    def on_closed():
+        """窗口关闭 → 通知主进程退出。"""
+        print("\n🛑 SRS 窗口已关闭, 正在停止服务器...")
+        os.kill(os.getpid(), signal.SIGINT)
+
+    win.events.closed += on_closed
+    webview.start(debug=False)  # 阻塞直到所有窗口关闭
 
 
 def create_tray_app(host: str, port: int, server_thread: threading.Thread,
@@ -179,13 +281,40 @@ def create_tray_app(host: str, port: int, server_thread: threading.Thread,
                 quit_button=None,  # 自定义退出
             )
 
+        # ── 主入口 ──────────────────────────────────────────────
         @rumps.clicked("打开 SRS 系统")
         def open_app(self, _):
-            webbrowser.open(app_url)
+            threading.Thread(target=open_browser_fallback, args=(app_url, 0), daemon=True).start()
 
+        # ── 深链接快捷入口 ───────────────────────────────────────
+        @rumps.clicked("→ 场地列表")
+        def open_sites(self, _):
+            threading.Thread(target=open_browser_fallback,
+                             args=(f"{app_url}/sites", 0), daemon=True).start()
+
+        @rumps.clicked("→ 导入数据")
+        def open_import(self, _):
+            threading.Thread(target=open_browser_fallback,
+                             args=(f"{app_url}/sites/import", 0), daemon=True).start()
+
+        @rumps.clicked("→ 障碍因子分析")
+        def open_obstacle(self, _):
+            threading.Thread(target=open_browser_fallback,
+                             args=(f"{app_url}/obstacle", 0), daemon=True).start()
+
+        @rumps.clicked("→ 全流程追溯")
+        def open_trace(self, _):
+            threading.Thread(target=open_browser_fallback,
+                             args=(f"{app_url}/trace", 0), daemon=True).start()
+
+        @rumps.clicked("→ 生成报告")
+        def open_report(self, _):
+            threading.Thread(target=open_browser_fallback,
+                             args=(f"{app_url}/report", 0), daemon=True).start()
+
+        # ── 系统管理 ─────────────────────────────────────────────
         @rumps.clicked("环境自检")
         def show_preflight(self, _):
-            # 重新跑一次自检(端口此时已被自身占用, 状态会变化)
             fresh = run_preflight(port, host)
             rumps.alert(title="SRS 环境自检", message=_preflight_summary(fresh))
 
@@ -206,7 +335,6 @@ def create_tray_app(host: str, port: int, server_thread: threading.Thread,
         def quit_app(self, _):
             print("\n🛑 正在关闭 SRS 服务器...")
             os.kill(os.getpid(), signal.SIGINT)
-            # rumps 的 quit_button 会处理退出
 
     return SRSApp()
 
@@ -263,37 +391,70 @@ def main():
             # 无 GUI(纯终端/无 tkinter): 仅终端打印, 不阻断
             pass
 
-    # 启动服务器线程
-    server_thread = threading.Thread(
-        target=start_server,
-        args=(args.host, args.port),
-        daemon=True,
-    )
-    server_thread.start()
+    url = f"http://{args.host}:{args.port}"
 
-    # 打开浏览器
-    if not args.no_browser:
-        url = f"http://{args.host}:{args.port}"
-        browser_thread = threading.Thread(
-            target=open_browser,
-            args=(url,),
+    # 判断是否需要启动服务器(SRS 已运行则复用)
+    port_result = next((r for r in preflight_results if r["name"] == "端口检测"), {})
+    srs_already_running = port_result.get("srs_already_running", False)
+    port_conflict = port_result.get("level") == "fail"
+
+    if port_conflict:
+        print("❌ 端口被其他程序占用, 无法启动。请关闭占用程序后重试。")
+        return  # 真正冲突: 直接退出, 不尝试启动
+
+    # 启动服务器线程(SRS 已运行则跳过)
+    if srs_already_running:
+        print(f"ℹ️  检测到 SRS 服务已在 {url} 运行, 跳过后端启动, 直接打开窗口...")
+        server_thread = None
+    else:
+        server_thread = threading.Thread(
+            target=start_server,
+            args=(args.host, args.port),
             daemon=True,
         )
+        server_thread.start()
+
+    # ── 主线程事件循环决策 ────────────────────────────────────────────────
+    # macOS / Windows GUI 框架要求事件循环在主线程运行。
+    # pywebview 和 rumps 均独占主线程, 两者互斥, 按优先级选择:
+    #   优先级1: pywebview (原生无地址栏窗口, 最佳体验)
+    #   优先级2: rumps 托盘 + 系统浏览器 (macOS fallback)
+    #   优先级3: 仅等待 Ctrl+C (Linux / --no-tray)
+    # ─────────────────────────────────────────────────────────────────────
+    if not args.no_browser and _has_pywebview():
+        # ── pywebview 路径 (主线程) ──────────────────────────────────────
+        print(f"🖥️  使用 pywebview 原生窗口 (无浏览器标题栏)...")
+        try:
+            run_webview_main_thread(url, delay=1.5)
+            return  # webview.start() 退出 = 窗口关闭, 进程即将收到 SIGINT
+        except Exception as e:  # noqa: BLE001
+            print(f"⚠️  pywebview 启动失败({e}), 降级为系统浏览器...")
+            # 继续走下方的 browser/tray fallback
+
+    # ── 浏览器 + 托盘路径 ────────────────────────────────────────────────
+    if not args.no_browser:
+        browser_thread = threading.Thread(
+            target=open_browser_fallback, args=(url,), daemon=True)
         browser_thread.start()
 
-    # macOS: 菜单栏托盘
     tray = None
     if sys.platform == "darwin" and not args.no_tray:
-        tray = create_tray_app(args.host, args.port, server_thread, preflight_results)
+        # server_thread 可能为 None(SRS 已在运行), 托盘状态检查时需兼容
+        tray = create_tray_app(args.host, args.port,
+                               server_thread or threading.current_thread(),
+                               preflight_results)
 
     if tray is not None:
-        tray.run()
+        tray.run()   # 阻塞主线程 (rumps 事件循环)
     else:
-        # 无托盘: 等待 Ctrl+C
-        print("✅ SRS 服务已启动。按 Ctrl+C 退出。")
+        if server_thread is not None:
+            print("✅ SRS 服务已启动。按 Ctrl+C 退出。")
         try:
-            while server_thread.is_alive():
-                server_thread.join(timeout=1)
+            while server_thread is None or server_thread.is_alive():
+                if server_thread is None:
+                    time.sleep(1)
+                else:
+                    server_thread.join(timeout=1)
         except KeyboardInterrupt:
             print("\n🛑 正在关闭 SRS...")
 

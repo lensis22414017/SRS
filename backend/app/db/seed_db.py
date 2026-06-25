@@ -111,7 +111,8 @@ def seed():
 
 
 def seed_tech(db):
-    path = os.path.join(os.path.dirname(__file__), "..", "..", "..",
+    from app.core.config import resource_root
+    path = os.path.join(resource_root(),
                         "data", "knowledge_base", "technology_library_seed.csv")
     path = os.path.abspath(path)
     if not os.path.exists(path):

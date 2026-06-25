@@ -8,7 +8,7 @@ from collections import defaultdict
 
 from sqlalchemy.orm import Session
 
-from app.models import EvaluationResult, FactorDictionary, Measurement, SamplingPoint, Site
+from app.models import EvaluationResult, FactorDictionary, Measurement, SamplingPoint, Site, ThresholdRule
 from app.services.threshold_resolver import build_pollutant_limits, resolve_limit
 
 from app.core.config import resource_root

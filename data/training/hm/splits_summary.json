@@ -7,9 +7,21 @@
   },
   "leakage_all_passed": true,
   "label_dist": {
-    "valid_real_group_split": 2913,
-    "test_real_group_split": 3182,
-    "external_literature_holdout": 804,
-    "train_real": 7072
+    "valid_real_group_split": {
+      "生产": 2814,
+      "生态": 566
+    },
+    "test_real_group_split": {
+      "生产": 2980,
+      "生态": 588
+    },
+    "external_literature_holdout": {
+      "生产": 764,
+      "生态": 134
+    },
+    "train_real": {
+      "生产": 6814,
+      "生态": 1641
+    }
   }
 }

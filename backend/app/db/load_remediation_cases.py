@@ -8,7 +8,9 @@ from app.db.init_db import create_all
 from app.db.session import SessionLocal
 from app.models import RemediationCase
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+from app.core.config import resource_root
+
+ROOT = resource_root()
 CSV = os.path.join(ROOT, "data", "knowledge_base", "remediation_case_library_seed.csv")
 
 

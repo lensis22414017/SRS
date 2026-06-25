@@ -23,12 +23,25 @@ class ChatBody(BaseModel):
 
 @router.get("/status")
 def ai_status(user: User = Depends(get_current_user)):
-    from app.core.ai_config import effective_ai
+    from app.core.ai_config import connectivity_status, effective_ai
     cfg = effective_ai()
-    return {"configured": cfg["configured"],
-            "model": cfg["model"] if cfg["configured"] else None,
-            "source": cfg["source"],
-            "degraded_hint": not cfg["configured"]}  # brief 4.7: 未配置→将走 RAG 降级, 前端提示
+    conn = connectivity_status()
+    has_config = cfg["configured"]
+    connectivity_ok = conn["ok"] is True  # None(未测)/False 都不算"已连通"
+    # brief 4.7 + 裴总 P0-2: 区分"已配置"与"已连通"; configured 旧字段保留兼容, UI 以 has_config/connectivity_ok 为准
+    return {
+        "has_config": has_config,
+        "configured": has_config,  # 兼容旧前端
+        "connectivity_ok": connectivity_ok,
+        "connectivity_stale": conn["stale"],  # 缓存过期 → 前端提示重测
+        "last_test_error": conn["error"],
+        "last_checked": conn["last_checked"],
+        "provider": cfg["provider"],
+        "model": cfg["model"] if has_config else None,
+        "source": cfg["source"],
+        # 仅"已配置且连通"才算就绪; 未配置/未连通都走 RAG 降级提示
+        "degraded_hint": not (has_config and connectivity_ok),
+    }
 
 
 @router.post("/chat")

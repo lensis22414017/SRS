@@ -56,8 +56,9 @@ def train(csv_path: str | None = None, random_state: int = 42) -> dict:
         "feature_list": meta["feature_list"],
         "medians": meta["medians"],
         "data_version": meta["data_version"],
-        "is_real_data": meta.get("is_real_data", False),  # ⚠️ 模拟数据则 False
+        "is_real_data": meta.get("is_real_data", False),  # True=真实文献(GB15618标签)
         "data_source": meta.get("data_source", ""),
+        "label_source": meta.get("label_source", ""),  # 标签派生方式(可追溯)
         "dropped_leakage_cols": meta.get("dropped_leakage_cols", []),
         "metrics": metrics,
         "trained_at": datetime.now(timezone.utc).isoformat(),
@@ -72,8 +73,14 @@ def train(csv_path: str | None = None, random_state: int = 42) -> dict:
     return {"artifact_path": path, **{k: v for k, v in bundle.items() if k != "model"}}
 
 
-def load_latest():
-    """加载最新模型 bundle; 无产物时返回 None。"""
+def load_latest(track=None):
+    """加载最新模型 bundle; 无产物时返回 None。
+
+    双轨接入(2026-06-24 Wave): track='prod'/'eco' 按修复后用途选对应轨模型
+    (lake_prod=生产严 GB15618/GB36600一类; lake_eco=生态宽 GB36600二类)。
+    track=None 取字典序最后(向后兼容旧调用); 无指定轨产物则回退全部最新。
+    diagnosis_service 应按 Site.land_use_type 传 track 实现双轨路由。
+    """
     import joblib
     if not os.path.isdir(ARTIFACTS):
         return None
@@ -81,6 +88,9 @@ def load_latest():
                    if f.startswith(MODEL_NAME) and f.endswith(".joblib"))
     if not cands:
         return None
+    if track:  # 双轨: 优先选 _{track}.joblib 结尾(如 lake_prod/lake_eco)
+        filt = [f for f in cands if f.endswith(f"_{track}.joblib")]
+        cands = filt if filt else cands
     return joblib.load(os.path.join(ARTIFACTS, cands[-1]))
 
 

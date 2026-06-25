@@ -11,6 +11,7 @@ export default function SiteDetail() {
   const sid = Number(id);
   const nav = useNavigate();
   const [site, setSite] = useState<any>(null);
+  const [loadErr, setLoadErr] = useState(false);
   const [points, setPoints] = useState<any[]>([]);
   const [wide, setWide] = useState<any>({ factors: [], items: [] });
   const [reports, setReports] = useState<any[]>([]);
@@ -18,11 +19,14 @@ export default function SiteDetail() {
   const [mapFactor, setMapFactor] = useState<string | undefined>();
 
   const load = async () => {
-    setSite(await api.site(sid));
-    setPoints(await api.points(sid));
-    setWide(await api.pointsWide(sid).catch(() => ({ factors: [], items: [] })));
-    setReports(await api.reports(sid).then((d) => d.items).catch(() => []));
-    setMapLayer(await api.siteMapLayers(sid, mapFactor ? { factor: mapFactor } : undefined).catch(() => null));
+    try {
+      setSite(await api.site(sid));
+      setPoints(await api.points(sid));
+      setWide(await api.pointsWide(sid).catch(() => ({ factors: [], items: [] })));
+      setReports(await api.reports(sid).then((d) => d.items).catch(() => []));
+      setMapLayer(await api.siteMapLayers(sid, mapFactor ? { factor: mapFactor } : undefined).catch(() => null));
+      setLoadErr(false);
+    } catch (e: any) { setSite(null); setLoadErr(true); }  // 场地不存在/已删除(清理重复等)不白屏
   };
   useEffect(() => { load(); }, [sid]);
   useEffect(() => {
@@ -32,6 +36,7 @@ export default function SiteDetail() {
       .catch(() => setMapLayer(null));
   }, [mapFactor]);
 
+  if (loadErr) return <Card><div style={{ textAlign: "center", padding: 60, color: "#999" }}>场地不存在或已删除（id={sid}）。请从<a onClick={() => nav("/sites")}>场地管理</a>选择有效场地。</div></Card>;
   if (!site) return <Spin style={{ marginTop: 80 }} />;
 
   // 采样点宽表: 元数据列 + 动态因子列, 横向滚动

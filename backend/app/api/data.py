@@ -14,7 +14,7 @@ from app.core.deps import (
 )
 from app.db.session import get_db
 from app.models import (
-    FactorDictionary, ImportBatch, Measurement, SamplingPoint, Site, ThresholdRule, User,
+    FactorDictionary, ImportBatch, Measurement, SamplingPoint, Site, StandardThreshold, ThresholdRule, User,
 )
 from app.services.audit_service import log
 from app.services.import_service import load_mapping, read_table, resolve_mapping_for_file
@@ -239,16 +239,25 @@ def list_sites(q: str | None = None, pollution_type: str | None = None,
                    .filter(Measurement.site_id.in_(site_ids))
                    .group_by(Measurement.site_id).all())
         factor_cnt = {sid: int(c) for sid, c in fc_rows}
-        # 超标记录: value > 该因子的正阈值上限(join ThresholdRule)
-        # 超标按测量指标计: 每条 measurement 只要超过任意对应阈值档算1次(distinct去重, 避免pH档笛卡尔膨胀)
-        ec_rows = (db.query(Measurement.site_id, func.count(func.distinct(Measurement.id)))
-                   .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id)
-                   .join(ThresholdRule, ThresholdRule.factor_id == FactorDictionary.id)
-                   .filter(Measurement.site_id.in_(site_ids),
-                           ThresholdRule.threshold_max != None,
-                           Measurement.value > ThresholdRule.threshold_max)
-                   .group_by(Measurement.site_id).all())
-        exceed_cnt = {sid: int(c) for sid, c in ec_rows}
+        # 超标记录: standard_thresholds(screening_value) ∪ threshold_rules(threshold_max) 并集
+        # 修复两套阈值表不统一回归(production用standard_thresholds 47行 / 测试load_kb填threshold_rules 403行)
+        # 超标按测量指标计: 每条measurement超过任意对应阈值档算1次(distinct去重, 避免pH档笛卡尔膨胀)
+        _std = (db.query(Measurement.id, Measurement.site_id)
+                .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id)
+                .join(StandardThreshold, StandardThreshold.factor_id == FactorDictionary.id)
+                .filter(Measurement.site_id.in_(site_ids),
+                        StandardThreshold.screening_value != None,
+                        Measurement.value > StandardThreshold.screening_value)).all()
+        _rule = (db.query(Measurement.id, Measurement.site_id)
+                 .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id)
+                 .join(ThresholdRule, ThresholdRule.factor_id == FactorDictionary.id)
+                 .filter(Measurement.site_id.in_(site_ids),
+                         ThresholdRule.threshold_max != None,
+                         Measurement.value > ThresholdRule.threshold_max)).all()
+        _sid_mids: dict[int, set] = {}
+        for _mid, _sid in list(_std) + list(_rule):
+            _sid_mids.setdefault(_sid, set()).add(_mid)
+        exceed_cnt = {sid: len(mids) for sid, mids in _sid_mids.items()}
     items = [{
         "id": s.id, "site_code": s.site_code, "name": s.name,
         "pollution_type": s.pollution_type, "land_use_type": s.land_use_type,

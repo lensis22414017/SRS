@@ -92,6 +92,24 @@ def _score_mapping(mapping: dict, sheet_cols: dict[str, list[str]]) -> tuple[int
     return best
 
 
+# 从文件名/场地名推断省份(修复 smart_detect province=None 致覆盖省份=0, 问题7代码根因)
+_PROVINCE_MAP = [("北京", "北京市"), ("天津", "天津市"), ("上海", "上海市"), ("重庆", "重庆市"),
+    ("河北", "河北省"), ("山西", "山西省"), ("辽宁", "辽宁省"), ("吉林", "吉林省"), ("黑龙江", "黑龙江省"),
+    ("江苏", "江苏省"), ("浙江", "浙江省"), ("安徽", "安徽省"), ("福建", "福建省"), ("江西", "江西省"),
+    ("山东", "山东省"), ("河南", "河南省"), ("湖北", "湖北省"), ("湖南", "湖南省"), ("广东", "广东省"),
+    ("海南", "海南省"), ("四川", "四川省"), ("贵州", "贵州省"), ("云南", "云南省"), ("陕西", "陕西省"),
+    ("甘肃", "甘肃省"), ("青海", "青海省"), ("台湾", "台湾省"), ("内蒙古", "内蒙古自治区"),
+    ("广西", "广西壮族自治区"), ("西藏", "西藏自治区"), ("宁夏", "宁夏回族自治区"),
+    ("新疆", "新疆维吾尔自治区")]
+
+
+def _infer_province_from_name(name: str) -> str | None:
+    for k, v in _PROVINCE_MAP:
+        if k in name:
+            return v
+    return None
+
+
 def _matches_heavy_metal_token(col_lower: str) -> bool:
     """重金属因子列识别: token 边界匹配, 排除含 as/cd/pb 字母片段的普通词(brief 4.1)。
 
@@ -300,7 +318,9 @@ def smart_detect_and_map(path: str) -> tuple[str, dict, list[dict]]:
 
     has_hm = any(d["type"] == "pollutant" and d.get("category") == "环境指标" for d in detail) and              any(_matches_heavy_metal_token(str(fc["column"]).lower()) for fc in factor_columns)
     has_org = any(any(k in str(fc["column"]).lower() for k in _ORG) for fc in factor_columns)
-    if has_hm:
+    if has_hm and has_org:
+        pollution_type = "composite"
+    elif has_hm:
         pollution_type = "heavy_metal"
     elif has_org:
         pollution_type = "organic"
@@ -319,7 +339,7 @@ def smart_detect_and_map(path: str) -> tuple[str, dict, list[dict]]:
             "site_code": "AUTO-" + site_name,
             "name": site_name,
             "pollution_type": pollution_type,
-            "province": None, "city": None,
+            "province": _infer_province_from_name(site_name), "city": None,
             "land_use_type": None, "sampled_at": None,
         },
         "point_columns": {

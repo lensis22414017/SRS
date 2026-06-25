@@ -49,6 +49,13 @@ ml_artifacts = PROJECT_ROOT / "ml" / "artifacts"
 if ml_artifacts.is_dir() and any(ml_artifacts.iterdir()):
     added_files.append((str(ml_artifacts), "ml/artifacts"))
 
+# ML 源码子目录: 后端服务运行时 sys.path.insert(resource_root()/ml/<sub>) 后再 import,
+# 这些 .py 必须随包分发, 否则打包后 诊断/评价/推荐/知识库入库 会 ImportError。
+for _sub in ("etl", "models", "explain", "recommend", "evaluation", "cleaning", "eda"):
+    _d = PROJECT_ROOT / "ml" / _sub
+    if _d.is_dir() and any(_d.glob("*.py")):
+        added_files.append((str(_d), f"ml/{_sub}"))
+
 # 服务映射文件
 mappings_dir = PROJECT_ROOT / "backend" / "app" / "services" / "mappings"
 if mappings_dir.is_dir():
@@ -79,6 +86,9 @@ hidden_imports = [
     "bcrypt", "jose",
     # 工具
     "redis",
+    # 桌面原生窗口 (pywebview, 可选; 若未安装则降级到 webbrowser)
+    "webview", "webview.platforms.cocoa", "webview.platforms.winforms",
+    "webview.platforms.gtk",
 ]
 
 # ── 排除模块 ────────────────────────────────────────────────────

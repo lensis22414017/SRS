@@ -316,7 +316,10 @@ function AiModelConfig() {
         base_url: v.base_url, model: v.model, provider,
         api_key: v.api_key || undefined,   // 留空＝沿用已存 key
       });
-      message.success(r.configured ? "已保存，AI 已就绪" : "已保存（尚未填写 API Key）");
+      message.success(
+        r.connectivity_ok ? `已保存并连通正常（${r.model}）`
+        : r.configured ? `已保存，但连通失败：${r.connectivity_error || "请点「测试连通」排查 key/模型/端点"}`
+        : "已保存（尚未填写 API Key）");
       form.setFieldsValue({ api_key: "" });
       load();
     } catch (e: any) {
@@ -347,10 +350,17 @@ function AiModelConfig() {
 
       <Card type="inner" title={<Space><ApiOutlined />当前状态</Space>} size="small">
         <Descriptions size="small" column={2}>
-          <Descriptions.Item label="状态">
+          <Descriptions.Item label="配置">
             {cfg?.configured
-              ? <Tag color="green" icon={<CheckCircleOutlined />}>已就绪</Tag>
+              ? <Tag color="blue" icon={<CheckCircleOutlined />}>已配置</Tag>
               : <Tag icon={<CloseCircleOutlined />}>未配置 Key</Tag>}
+          </Descriptions.Item>
+          <Descriptions.Item label="连通性">
+            {cfg?.connectivity_ok === true
+              ? <Tag color="green" icon={<CheckCircleOutlined />}>已连通</Tag>
+              : cfg?.connectivity_ok === false
+                ? <Tag color="red" icon={<CloseCircleOutlined />} title={cfg?.connectivity_error || ""}>连通失败</Tag>
+                : <Tag color="orange">未测试</Tag>}
           </Descriptions.Item>
           <Descriptions.Item label="当前模型">{cfg?.model || "—"}</Descriptions.Item>
           <Descriptions.Item label="接入端点" span={2}>

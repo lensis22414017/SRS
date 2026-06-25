@@ -365,15 +365,108 @@ def _tech_dict(t: TechnologyLibrary) -> dict:
 @router.get("/config")
 def system_config(user: User = Depends(get_current_user), db: Session = Depends(get_db)):
     """系统配置概览(只读): 角色/权限矩阵、参数版本等。"""
+    from app.core.ai_config import effective_ai
     s = get_settings()
+    cfg = effective_ai()
     roles = [{"code": r.code, "name": r.name,
               "permissions": sorted(p.code for p in r.permissions)}
              for r in db.query(Role).all()]
     return {
         "app_name": s.app_name,
-        "ai_configured": bool(s.ai_base_url and s.ai_api_key),
-        "ai_model": s.ai_model if s.ai_base_url else None,
+        "ai_configured": cfg["configured"],
+        "ai_model": cfg["model"] if cfg["configured"] else None,
         "roles": roles,
         "param_version": "evaluation_params_v0.1",
         "knowledge_base_version": "V1.0",
     }
+
+
+# ---------------- AI 模型配置 (管理员可改, key 仅存本机) ----------------
+class AiConfigBody(BaseModel):
+    base_url: str
+    model: str
+    provider: str = "custom"
+    api_key: str | None = None  # 留空表示沿用已存 key, 仅改端点/模型
+
+
+@router.get("/ai-config")
+def get_ai_config(user: User = Depends(require_permission("param:config"))):
+    """读取当前 AI 配置(key 脱敏)+ 可选服务商预设 + 最近一次连通性结果。"""
+    from app.core.ai_config import (PROVIDER_PRESETS, connectivity_status,
+                                    effective_ai, load_override, mask_key)
+    cfg = effective_ai()
+    ov = load_override()
+    conn = connectivity_status()
+    return {
+        "base_url": cfg["base_url"],
+        "model": cfg["model"],
+        "provider": cfg["provider"],
+        "configured": cfg["configured"],
+        "source": cfg["source"],          # override / env / default
+        "api_key_masked": mask_key(cfg["api_key"]),
+        "has_key": bool(cfg["api_key"]),
+        "is_override": bool(ov),
+        "presets": PROVIDER_PRESETS,
+        # 连通性(裴总 P0-2: 配置≠连通; ok=None 表示从未测试过)
+        "connectivity_ok": conn["ok"],
+        "connectivity_stale": conn["stale"],
+        "connectivity_error": conn["error"],
+        "last_checked": conn["last_checked"],
+    }
+
+
+@router.put("/ai-config")
+def put_ai_config(body: AiConfigBody,
+                  _actor: User = Depends(require_permission("param:config")),
+                  db: Session = Depends(get_db)):
+    """保存 AI 配置到本机覆盖文件(不入库、不进 Git)。审计日志不记录 key。"""
+    from app.core.ai_config import effective_ai, save_override
+    if not body.base_url.strip():
+        raise HTTPException(400, "base_url 不能为空")
+    save_override(body.base_url, body.api_key, body.model, body.provider)
+    log(db, action="update_ai_config", user_id=_actor.id, resource_type="ai_config",
+        detail={"provider": body.provider, "model": body.model,
+                "base_url": body.base_url, "key_changed": bool(body.api_key)})
+    # 保存后立即测一次连通性并落盘, 让 /ai/status 马上反映新配置是否真的可用(裴总 P0-2: 不假装成功)
+    from app.core.ai_config import test_connectivity
+    conn_ok, conn_err = test_connectivity()
+    cfg = effective_ai()
+    from app.core.ai_config import mask_key
+    return {"ok": True, "configured": cfg["configured"], "model": cfg["model"],
+            "base_url": cfg["base_url"], "api_key_masked": mask_key(cfg["api_key"]),
+            "connectivity_ok": conn_ok, "connectivity_error": conn_err}
+
+
+@router.post("/ai-config/test")
+def test_ai_config(_actor: User = Depends(require_permission("param:config"))):
+    """对当前生效 AI 配置做一次最小连通性测试(不写库); 结果落盘供 /ai/status 读取。"""
+    import json
+    import urllib.error
+    import urllib.request
+    from app.core.ai_config import effective_ai, save_connectivity
+    cfg = effective_ai()
+    if not cfg["base_url"] or not cfg["api_key"]:
+        save_connectivity(False, "尚未配置 base_url 或 api_key")
+        return {"ok": False, "message": "尚未配置 base_url 或 api_key。"}
+    payload = json.dumps({"model": cfg["model"],
+                          "messages": [{"role": "user", "content": "你好"}],
+                          "max_tokens": 8, "temperature": 0}).encode("utf-8")
+    req = urllib.request.Request(
+        cfg["base_url"].rstrip("/") + "/chat/completions", data=payload,
+        headers={"Content-Type": "application/json",
+                 "Authorization": f"Bearer {cfg['api_key']}"})
+    try:
+        with urllib.request.urlopen(req, timeout=get_settings().ai_timeout) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        reply = data.get("choices", [{}])[0].get("message", {}).get("content", "")
+        save_connectivity(True, None)
+        return {"ok": True, "model": cfg["model"],
+                "message": f"连通正常, 模型已响应: {reply[:40] or '(空)'}"}
+    except urllib.error.HTTPError as e:
+        msg = f"HTTP {e.code}: {e.reason}"
+        save_connectivity(False, msg)
+        return {"ok": False, "message": f"{msg}。请检查 key/模型名/端点。"}
+    except Exception as e:  # noqa: BLE001
+        msg = f"连接失败: {e}"
+        save_connectivity(False, msg)
+        return {"ok": False, "message": f"{msg}。请检查 base_url 与网络。"}

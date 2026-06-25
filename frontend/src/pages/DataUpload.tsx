@@ -7,6 +7,7 @@ import { api } from "../api/client";
 const { Text } = Typography;
 
 const MAPPINGS = [
+  { value: "auto", label: "🔎 自动识别模板（推荐，按列名/工作表匹配）" },
   { value: "yunnan_gejiu", label: "云南个旧重金属污染场地（标准模板）" },
   { value: "nanjing_qixia", label: "南京栖霞有机污染场地（有机污染模板）" },
   { value: "xiangcun_fuhe", label: "乡村建设用地复合污染场地（复合污染模板）" },
@@ -14,7 +15,7 @@ const MAPPINGS = [
 
 export default function DataUpload() {
   const nav = useNavigate();
-  const [mapping, setMapping] = useState("yunnan_gejiu");
+  const [mapping, setMapping] = useState("auto");
   const [files, setFiles] = useState<File[]>([]);
   const [loading, setLoading] = useState(false);
   const [batchResult, setBatchResult] = useState<any>(null);
@@ -46,6 +47,7 @@ export default function DataUpload() {
     key: i,
     filename: r.original_filename || "—",
     ok: r.ok,
+    mapping_label: r.mapping_label || r.mapping_id,
     site_id: r.site_id,
     n_points: r.n_points ?? r.validation?.n_points,
     n_measurements: r.n_measurements,
@@ -98,6 +100,8 @@ export default function DataUpload() {
               { title: "文件", dataIndex: "filename", ellipsis: true },
               { title: "状态", dataIndex: "ok", align: "center", width: 80,
                 render: (ok: boolean) => ok ? <Tag color="green">成功</Tag> : <Tag color="red">失败</Tag> },
+              { title: "识别模板", dataIndex: "mapping_label", ellipsis: true,
+                render: (v: string) => v ? <Tag color="blue">{v}</Tag> : <Text type="secondary">—</Text> },
               { title: "场地", dataIndex: "site_id", width: 70,
                 render: (id: number) => id ? <a onClick={() => nav(`/sites/${id}`)}>#{id}</a> : "—" },
               { title: "采样点", dataIndex: "n_points", width: 70, render: (v: any) => v ?? "—" },

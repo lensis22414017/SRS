@@ -267,10 +267,13 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
     if pivot.empty:
         raise ValueError("该场地无检测数据, 请先导入")
 
-    bundle = load_latest()
+    # 双轨路由(2026-06-24 Wave): 按修复后用途选生产(严)/生态(宽)模型
+    _track_map = {"生产": "prod", "生态": "eco"}
+    track = _track_map.get(getattr(site, "land_use_type", None))
+    bundle = load_latest(track=track)
     if bundle is None:
         train()  # 首次自动训练
-        bundle = load_latest()
+        bundle = load_latest(track=track)
     model = bundle["model"]
     mapping = load_feature_mapping()
     X, imputed = align_features(pivot, bundle["feature_list"],

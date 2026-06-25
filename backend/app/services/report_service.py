@@ -24,7 +24,9 @@ from app.models import (
 from app.services.file_service import save_bytes
 from app.services.workflow_service import STAGE_NAME, get_stages
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+from app.core.config import resource_root
+
+ROOT = resource_root()
 TEMPLATE_DIR = os.path.join(ROOT, "reporting", "templates")
 TEMPLATE_VERSION = "tpl_v0.1"
 
@@ -190,6 +192,42 @@ def _render_points_map_png(coord_points: list, exceed_by_point: dict[int, float]
     return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode("ascii")
 
 
+def _render_shap_figure_png(top_factors: list, site_name: str) -> str | None:
+    """用 matplotlib 画 Top-N 障碍因子 SHAP 排名横向条形图(nature-figure 顶刊风格)。
+    裴总问题3/10: 报告增加顶刊级 SHAP 排名图(matplotlib 科研配图, 非 dashboard)。
+    正向(加重)=npg红 #E64B35, 负向(缓解)=npg蓝 #4DBBD5; 去顶右边框, 数值标注。"""
+    try:
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+    except Exception:
+        return None
+    if not top_factors:
+        return None
+    import io, base64
+    facts = top_factors[:8][::-1]  # 横向 bar 倒序(最重要在顶部)
+    names = [str(f.get("factor", "?")) for f in facts]
+    vals = [float(f.get("importance", 0) or 0) for f in facts]
+    dirs = [str(f.get("direction", "")) for f in facts]
+    colors = ["#E64B35" if d == "positive" else "#4DBBD5" for d in dirs]
+    fig, ax = plt.subplots(figsize=(7, 3.4), dpi=150)
+    ax.barh(range(len(names)), vals, color=colors, height=0.62, edgecolor="white", linewidth=0.6)
+    ax.set_yticks(range(len(names)))
+    ax.set_yticklabels(names, fontsize=9)
+    ax.set_xlabel("|SHAP| 相对重要性", fontsize=9)
+    ax.set_title(f"关键障碍因子 SHAP 排名 — {site_name}", fontsize=10.5, pad=8, color="#222")
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.tick_params(length=0)
+    for i, v in enumerate(vals):
+        ax.text(v, i, f" {v:.3f}", va="center", fontsize=7.5, color="#555")
+    buf = io.BytesIO()
+    fig.tight_layout()
+    fig.savefig(buf, format="png", bbox_inches="tight", facecolor="white")
+    plt.close(fig)
+    return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode("ascii")
+
+
 def collect(db: Session, site_id: int, version: str) -> dict:
     site = db.get(Site, site_id)
     if site is None:
@@ -296,6 +334,7 @@ def collect(db: Session, site_id: int, version: str) -> dict:
             if ratio > exceed_by_point.get(pid, 0.0):
                 exceed_by_point[pid] = ratio
     map_image = _render_points_map_png(coord_points, exceed_by_point)
+    shap_image = _render_shap_figure_png((diag_ctx or {}).get("top_factors", []), site.name)
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     return {
@@ -319,6 +358,7 @@ def collect(db: Session, site_id: int, version: str) -> dict:
                         "coverage_pct": round(len(coord_points) / max(len(points), 1) * 100, 2),
                         "bounds": bounds,
                         "map_image": map_image,
+                        "shap_image": shap_image,
                         "note": "地图交互图层由系统 /api/v1/sites/{site_id}/map/layers 生成, 按污染物筛选并以超标倍数分级。上方静态图件由 matplotlib 离线渲染, 不依赖天地图 key。"},
         "coverage": _coverage_summary(db, site_id, len(points)),
         "validation": {"passed": vr.get("passed", True), "n_errors": vr.get("n_errors", 0),

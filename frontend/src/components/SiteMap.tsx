@@ -28,6 +28,41 @@ const STATUS_COLOR: Record<string, string> = {
   high: "#dc2626", medium: "#f59e0b", low: "#16a34a", unknown: "#64748b",
 };
 
+// 超标倍数 → 连续色阶(绿→黄→橙→红→深红→暗红)。
+// 离散 risk 仅 high/medium/low 三档, 重度污染场地全部 high 无层次;
+// 改用 exceedance 值分桶着色, 让 42倍 vs 497倍 的点颜色明显不同。
+function excColor(exc: number | null | undefined): string {
+  if (exc == null) return "#64748b";   // 灰 无阈值/无数据
+  if (exc < 1)   return "#16a34a";      // 绿 未超标
+  if (exc < 3)   return "#facc15";      // 黄 轻度
+  if (exc < 10)  return "#f59e0b";      // 橙 中度
+  if (exc < 30)  return "#ea580c";      // 深橙 偏重
+  if (exc < 80)  return "#dc2626";      // 红 重度
+  if (exc < 200) return "#9f1239";      // 深红 极重
+  return "#6b0f1a";                      // 暗红 超极重
+}
+
+// 凸包(Andrew monotone chain) — 输入 [lng,lat][], 返回凸包顶点 [lng,lat][]。
+// 用于在采样点最外围画虚线轮廓, 体现采样范围边界。
+function convexHull(pts: [number, number][]): [number, number][] {
+  if (pts.length < 3) return pts;
+  const p = [...pts].sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  const cross = (o: [number, number], a: [number, number], b: [number, number]) =>
+    (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+  const lower: [number, number][] = [];
+  for (const pt of p) {
+    while (lower.length >= 2 && cross(lower[lower.length - 2], lower[lower.length - 1], pt) <= 0) lower.pop();
+    lower.push(pt);
+  }
+  const upper: [number, number][] = [];
+  for (let i = p.length - 1; i >= 0; i--) {
+    const pt = p[i];
+    while (upper.length >= 2 && cross(upper[upper.length - 2], upper[upper.length - 1], pt) <= 0) upper.pop();
+    upper.push(pt);
+  }
+  return lower.slice(0, -1).concat(upper.slice(0, -1));
+}
+
 // 高德 hybrid 瓦片 — 卫星影像 + 中文注记, 通过后端代理访问(无 IP 白名单, 换电脑/换网络均可用)
 const GAODE_PROXY = "/api/v1/map/tile/gaode/{z}/{x}/{y}";
 
@@ -187,16 +222,19 @@ export default function SiteMap({
     if (!map) return;
     const layer = L.layerGroup().addTo(map);
     const pts: L.LatLng[] = [];
+    const lngLats: [number, number][] = [];
 
     if (layerFeatures.length) {
       layerFeatures.forEach((f) => {
+        if (f.geometry?.type !== "Point") return;  // 仅采样点Point参与凸包(过滤行政Polygon,防layerData混入致凸包失效,问题1防御)
         const [lon, lat] = f.geometry?.coordinates || [];
         if (lon == null || lat == null) return;
         const props = f.properties || {};
         const selected = props.selected || {};
         const ll = L.latLng(lat, lon);
         pts.push(ll);
-        const color = STATUS_COLOR[props.risk_level || "unknown"] || "#64748b";
+        lngLats.push([lon, lat]);
+        const color = excColor(selected.exceedance);
         const title = esc(props.point_code || "点位");
         const value = selected.value == null ? "—" : Number(selected.value).toFixed(3);
         const exceed = selected.exceedance == null ? "无阈值" : `${Number(selected.exceedance).toFixed(2)} 倍`;
@@ -215,12 +253,32 @@ export default function SiteMap({
         if (s.longitude == null || s.latitude == null) return;
         const ll = L.latLng(s.latitude, s.longitude);
         pts.push(ll);
+        lngLats.push([s.longitude!, s.latitude!]);
         const color = STATUS_COLOR[s.status || "danger"] || "#dc2626";
         const mk = L.circleMarker(ll, { radius: 8, color: "#fff", weight: 2, fillColor: color, fillOpacity: 0.9 })
           .bindPopup(`<b>${esc(s.name || s.point_code || "点位")}</b><br/>${esc(s.pollution_type || "")}<br/>${s.latitude}, ${s.longitude}`)
           .addTo(layer);
         if (onMarkerClick) mk.on("click", () => onMarkerClick(s));
       });
+    }
+
+    // 采样点外围凸包虚线轮廓 + 顶点经纬度标注(体现采样范围边界与坐标)
+    if (lngLats.length >= 3) {
+      const hull = convexHull(lngLats);
+      if (hull.length >= 3) {
+        L.polygon(hull.map(([lon, lat]) => [lat, lon] as [number, number]), {
+          color: "#0f3d6e", weight: 2, dashArray: "6 6", fillOpacity: 0, opacity: 0.75,
+        }).addTo(layer);
+        hull.forEach(([lon, lat]) => {
+          L.marker([lat, lon], {
+            interactive: false,
+            icon: L.divIcon({
+              html: `<span style="font-size:10px;color:#0f3d6e;background:rgba(255,255,255,.88);padding:1px 4px;border-radius:3px;border:1px solid #0f3d6e55;white-space:nowrap;">${lon.toFixed(3)}, ${lat.toFixed(3)}</span>`,
+              className: "hull-vertex", iconSize: [64, 16], iconAnchor: [32, 8],
+            }),
+          }).addTo(layer);
+        });
+      }
     }
 
     if (pts.length) {
@@ -242,9 +300,9 @@ export default function SiteMap({
   );
 
   return (
-    <div style={{ position: "relative", height, width: "100%" }}>
-      {/* 地图画布 */}
-      <div ref={ref} style={{ height, width: "100%", borderRadius: 8, background: "#e8eef3" }} />
+    <div style={{ position: "relative", aspectRatio: "4 / 3", width: "100%" }}>
+      {/* 地图画布 — inset:0 填满 4:3 容器; height prop 已弃用, 由 aspectRatio 控制(裴总要求 4:3 比例) */}
+      <div ref={ref} style={{ position: "absolute", inset: 0, borderRadius: 8, background: "#e8eef3" }} />
 
       {/* 遮罩提示 */}
       {!hasCoords && overlay("当前无可用坐标点位：该场地采样点缺少经纬度，无法在地图上展示。")}

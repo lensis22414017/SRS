@@ -6,7 +6,9 @@ from app.db.init_db import create_all
 from app.db.session import SessionLocal
 
 # 引入 ml/etl 的解析+入库逻辑
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+from app.core.config import resource_root
+
+ROOT = resource_root()
 sys.path.insert(0, os.path.join(ROOT, "ml", "etl"))
 from load_knowledge_base import load  # noqa: E402
 

@@ -127,6 +127,10 @@
   </table>
 
   <h2>八、关键障碍因子识别（RF + SHAP）</h2>
+  {% if map_summary.shap_image %}
+  <img src="{{ map_summary.shap_image }}" alt="SHAP障碍因子排名图" style="width:92%;max-width:560px;margin:6pt 0;border:1px solid #eee"/>
+  <div class="muted" style="margin-bottom:6pt">图: Top-N 障碍因子 SHAP 排名(红=正向加重, 蓝=负向缓解, nature 顶刊配色)。裴总问题3/10。</div>
+  {% endif %}
   {% if diagnosis %}
   <table class="kv">
     <tr><td>模型</td><td>{{ diagnosis.model_name }} {{ diagnosis.model_version }}（AUC={{ diagnosis.metrics.auc }}, F1={{ diagnosis.metrics.f1 }}）</td></tr>
@@ -214,15 +218,7 @@
   </table>
   {% else %}<div class="muted">暂无附件。</div>{% endif %}
 
-  <h2>十五、操作日志摘要（最近 10 条）</h2>
-  <table>
-    <tr><th>时间</th><th>操作</th><th>对象</th><th>结果</th></tr>
-    {% for a in audit_logs %}
-    <tr><td>{{ a.created_at }}</td><td>{{ a.action }}</td><td>{{ a.resource_type or '—' }}#{{ a.resource_id or '' }}</td><td>{{ a.result }}</td></tr>
-    {% endfor %}
-  </table>
-
-  <h2>十六、模型版本、数据版本、标准版本、报告版本</h2>
+  <h2>十五、模型版本、数据版本、标准版本、报告版本</h2>
   <table class="kv">
     <tr><td>模型版本</td><td>{% if diagnosis %}{{ diagnosis.model_name }} {{ diagnosis.model_version }}{% else %}—{% endif %}</td></tr>
     <tr><td>数据版本</td><td>{{ report.data_version }}</td></tr>

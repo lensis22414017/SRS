@@ -133,6 +133,22 @@ export default function TraceDetail() {
         )}
       </Card>
 
+      {/* 网盘 · 跨阶段已上传文件库汇总(裴总问题5: 存放已上传数据) */}
+      {(() => {
+        const allFiles = stages.flatMap((s: any) =>
+          (s.attachments || []).map((a: any) => ({ ...a, stage: s.stage, stage_name: s.stage_name })));
+        if (!allFiles.length) return null;
+        return (
+          <Card title={<Space><FileAddOutlined />网盘 · 已上传文件库（{allFiles.length} 个文件）</Space>} size="small">
+            <Table rowKey={(r: any) => `${r.stage}_${r.id}`} size="small" pagination={{ pageSize: 8 }} dataSource={allFiles}
+              columns={[seqCol(50), textCol("所属阶段", "stage_name"), textCol("文件类型", "file_role"),
+                { title: "操作", align: "center", render: (_: any, r: any) => (
+                  <Button size="small" icon={<DownloadOutlined />}
+                    onClick={() => api.downloadAttachment(sid, r.stage, r.id, r.file_role || "附件")}>下载</Button>) }]} />
+          </Card>
+        );
+      })()}
+
       {reports.length > 0 && (
         <Card title="已生成报告">
           <Table rowKey="report_id" size="small" pagination={false} dataSource={reports}

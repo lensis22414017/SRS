@@ -20,22 +20,33 @@ import os
 import pandas as pd
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-# ⚠️ 模拟特征表 (非真实), 之前误命名为"真实数据集.csv"。真实数据为 merged_std33,zh .xlsx
-DEFAULT_CSV = os.path.join(ROOT, "data", "raw", "模拟特征表_F127_n11690.csv")
+
+# 数据源(优先真实, 回退模拟):
+#   真实训练集_GB15618.csv — merged_std33 真实文献数据, GB15618 阈值派生标签 (is_real_data=True)
+#   模拟特征表_F127_n11690.csv — F1-F127 模拟特征 (is_real_data=False, 仅压力测试)
+REAL_CSV = os.path.join(ROOT, "data", "raw", "真实训练集_GB15618.csv")
+SIM_CSV = os.path.join(ROOT, "data", "raw", "模拟特征表_F127_n11690.csv")
+DEFAULT_CSV = REAL_CSV if os.path.exists(REAL_CSV) else SIM_CSV
 
 TARGET = "标签"
 # 唯一标识列 + 标签派生列: 绝不进特征 (防泄漏)
-ID_COLS = ["ID", "StudyID", "ExperimentID"]  # ID 在模拟表中是 1..N 唯一序号, 必须剔除
-META_COLS = ["污染风险等级", "土地利用类型", "Texture", "省市", "采样地类型", "经度", "纬度"]
+ID_COLS = ["ID", "StudyID", "ExperimentID"]  # 唯一标识, 必须剔除
+META_COLS = ["DOI", "Source", "Year", "污染风险等级", "土地利用类型", "Texture",
+             "省市", "采样地类型", "经度", "纬度", "超标因子数"]  # 溯源/分类/派生列
 DROP_MISSING_ABOVE = 0.95  # 缺失率阈值
 
-# ⚠️ 如实标注: 当前为模拟数据 (非真实文献数据)
-IS_REAL_DATA = False
-DATA_VERSION = "模拟特征表_F127_n11690"  # 之前误标"真实数据集_n1119", 已正名
+# 真实性自动判定: 文件名含"真实"且非 F127 模拟表 → True
+def _is_real(csv_path: str) -> bool:
+    base = os.path.basename(csv_path)
+    p = csv_path.replace(os.sep, "/").lower()
+    # 三块真实训练切分(hm/op/composite) + 数据湖 concat 均为真实文献派生(2026-06-24 双轨重建)
+    if "data/training" in p and "/imputed/" in p:
+        return True
+    return "真实" in base and "F127" not in base
 
 
 def load_raw(csv_path: str = DEFAULT_CSV) -> pd.DataFrame:
-    df = pd.read_csv(csv_path)
+    df = pd.read_csv(csv_path, low_memory=False)
     df.columns = [str(c).strip() for c in df.columns]
     return df
 
@@ -61,15 +72,21 @@ def prepare(csv_path: str = DEFAULT_CSV, add_missing_flags: bool = True):
     flags = {}
     if add_missing_flags:
         for c in feat.columns[feat.isna().any()]:
+            if c.endswith("__missing"):
+                continue  # 不对缺失标记列再生成标记(避免 __missing__missing 双层冗余, 2026-06-24 双轨重建)
             flags[f"{c}__missing"] = feat[c].isna().astype(int)
     X = feat.fillna(medians)
     for k, v in flags.items():
         X[k] = v
 
+    is_real = _is_real(csv_path)
+    base = os.path.basename(csv_path)
+    data_version = ("真实训练集_GB15618_n" + str(len(X))) if is_real else base.replace(".csv", "")
     meta = {
-        "data_version": DATA_VERSION,
-        "is_real_data": IS_REAL_DATA,  # ⚠️ False=模拟数据, AUC 虚高不可外推
-        "data_source": os.path.basename(csv_path),
+        "data_version": data_version,
+        "is_real_data": is_real,  # True=真实文献数据(GB15618标签), False=模拟F127
+        "data_source": base,
+        "label_source": ("GB15618-2018 阈值派生" if is_real else "模拟生成规则"),
         "dropped_leakage_cols": drop_cols,  # 记录剔除的泄漏列 (可追溯)
         "n_samples": int(len(X)),
         "n_features": int(X.shape[1]),

@@ -8,6 +8,33 @@ from functools import lru_cache
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
+def resource_root() -> str:
+    """返回打包资源根目录(其下含 data/ ml/ reporting/ frontend/ app/services/mappings)。
+
+    - 源码运行: 项目根(backend/app/core/config.py 上溯三级)。
+    - PyInstaller 打包(.app/onedir): datas 落点。macOS .app 为 Contents/Resources,
+      但 sys._MEIPASS 常指向 Contents/Frameworks, 故按"是否含 data/knowledge_base"探测真正落点。
+    旧代码用 dirname(__file__)/../../.. 在打包后会上溯到 Contents(缺 data/), 导致 FileNotFoundError。
+    """
+    if getattr(_sys, "frozen", False):
+        cands = []
+        meipass = getattr(_sys, "_MEIPASS", None)
+        if meipass:
+            cands.append(meipass)
+        exe_dir = _os.path.dirname(_os.path.abspath(_sys.executable))
+        cands += [
+            _os.path.join(exe_dir, "..", "Resources"),
+            _os.path.join(exe_dir, "..", "Frameworks"),
+            exe_dir,
+        ]
+        for c in cands:
+            c = _os.path.abspath(c)
+            if _os.path.isdir(_os.path.join(c, "data", "knowledge_base")):
+                return c
+        return _os.path.abspath(meipass or exe_dir)
+    return _os.path.abspath(_os.path.join(_os.path.dirname(__file__), "..", "..", ".."))
+
+
 def _app_data_dir() -> str:
     """返回平台标准应用数据目录, 不存在则自动创建。"""
     if _sys.platform == "darwin":

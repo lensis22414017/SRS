@@ -3,10 +3,11 @@ import { Card, Table, Select, Spin, Empty, Row, Col, Tag, Space, Tabs, Typograph
 import ReactECharts from "echarts-for-react";
 import { api } from "../api/client";
 import { seqCol, numCol, textCol } from "../utils/table";
+import { CATEGORICAL, PRIMARY, NEUTRAL_TEXT } from "../theme/palette";  // 全局配色(对齐裴总精品案例, 问题5/9 EDA降饱和+频次显示)
 
 const { Text } = Typography;
 
-const PALETTE = ["#0f3d6e", "#1d6fb8", "#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6", "#ec4899"];
+const PALETTE = CATEGORICAL;  // 原局部色板(后5色高饱和) → 全局裴总莫兰迪(问题5 EDA降饱和)
 
 /** 进入模型前的 EDA 数据体检: 统计表 + 科研级图件(箱线/小提琴/散点/热力/QQ/柱状)。 */
 export default function EdaPanel({ siteId }: { siteId: number }) {
@@ -76,7 +77,7 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
           children: (
             <Card title="分布直方图" size="small"
               extra={<Select style={{ width: 220 }} value={sel} onChange={setSel} options={factorOptions} />}>
-              <Text type="secondary">选定因子的浓度分布频数直方图（15 等宽分箱）。横轴=浓度区间，纵轴=样本频数。用于判断因子分布形态（正态/偏态/多峰）。单位见因子字典。</Text>
+              <Text type="secondary">选定因子的浓度分布频数直方图（15 等宽分箱）。横轴=浓度区间，纵轴=样本频次。用于判断因子分布形态（正态/偏态/多峰）。单位见因子字典。</Text>
               <Row gutter={16} style={{ marginTop: 8 }}>
                 <Col span={16}>{histOption ? <ReactECharts option={histOption} style={{ height: 340 }} /> : <Empty />}</Col>
                 <Col span={8}>
@@ -96,9 +97,9 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
           ),
         },
         {
-          key: "box", label: "箱线/小提琴",
+          key: "box", label: "云雨图",
           children: (
-            <Card title="箱线图 + 小提琴图（多因子分布对比）" size="small">
+            <Card title="云雨图 Raincloud（半小提琴密度 + 样本散点 + 箱线，多因子分布对比）" size="small">
               <Text type="secondary">箱体=IQR(Q1~Q3)，中线=中位数，须线=1.5×IQR 边界；外层多边形=核密度估计(KDE)轮廓，红点=离群点。</Text>
               <div style={{ marginTop: 8 }}>{boxOption ? <ReactECharts option={boxOption} style={{ height: 440 }} /> : <Empty />}</div>
             </Card>
@@ -184,8 +185,13 @@ function buildHistogram(cur: any) {
     xAxis: { type: "category",
       data: hist.edges.slice(0, -1).map((e: number, i: number) => `${e}~${hist.edges[i + 1]}`),
       axisLabel: { rotate: 45, fontSize: 9 }, name: cur.factor },
-    yAxis: { type: "value", name: "频数" },
-    series: [{ type: "bar", data: hist.counts, itemStyle: { color: "#0f3d6e" } }],
+    yAxis: { type: "value", name: "频次", nameLocation: "end", nameGap: 10,
+             nameTextStyle: { fontSize: 12, color: NEUTRAL_TEXT, padding: [0, 0, 4, 0] },
+             axisLabel: { fontSize: 10, color: NEUTRAL_TEXT } },
+    series: [{ type: "bar", data: hist.counts, barMaxWidth: 28,
+               itemStyle: { color: PRIMARY, borderRadius: [3, 3, 0, 0] },
+               label: { show: true, position: "top", fontSize: 9, color: NEUTRAL_TEXT,
+                        formatter: (p: any) => (p.value ? String(p.value) : "") } }],
   };
 }
 
@@ -204,15 +210,21 @@ function buildBoxViolin(factors: any[]) {
     { name: "箱线", type: "boxplot", data: boxData, itemStyle: { color: "#dbeafe", borderColor: "#0f3d6e" } },
     { name: "离群点", type: "scatter", data: outlierData, symbolSize: 5, itemStyle: { color: "#ef4444", opacity: 0.6 } },
   ];
-  // 小提琴: 每因子 KDE 直方图 → 对称多边形闭合 line+area(平移到 fi 位置)
+  // 云雨图 raincloud(裴总问题6明确要"云雨图最好看"): 半小提琴(KDE右半"云") + jitter散点(原始值"雨") + 箱线
   valid.forEach((f, fi) => {
-    const { right, left } = kdeOutline(f.distribution.values, 24, 0.38);
-    const polygon = [...right, ...left].map(([x, y]) => [fi + x, y]);
+    const { right } = kdeOutline(f.distribution.values, 24, 0.38);
+    const half = right.map(([x, y]) => [fi + x, y]);
+    const polygon = [[fi, half[0][1]], ...half, [fi, half[half.length - 1][1]]];
     series.push({
-      name: `小提琴-${f.factor}`, type: "line", z: 0,
+      name: `密度-${f.factor}`, type: "line", z: 0,
       data: polygon, showSymbol: false, smooth: true,
-      lineStyle: { color: PALETTE[fi % PALETTE.length], width: 1.2, opacity: 0.6 },
-      areaStyle: { color: PALETTE[fi % PALETTE.length], opacity: 0.15 },
+      lineStyle: { color: PALETTE[fi % PALETTE.length], width: 1.2, opacity: 0.7 },
+      areaStyle: { color: PALETTE[fi % PALETTE.length], opacity: 0.22 },
+    });
+    const rain = f.distribution.values.map((v: number) => [fi - 0.1 - Math.random() * 0.2, v]);
+    series.push({
+      name: `样本-${f.factor}`, type: "scatter", z: 1, data: rain, symbolSize: 3.5,
+      itemStyle: { color: PALETTE[fi % PALETTE.length], opacity: 0.5 },
     });
   });
   return {
@@ -369,7 +381,7 @@ function buildPie(factors: any[]) {
   factors.forEach((f) => { const c = f.category || "未分类"; cnt[c] = (cnt[c] || 0) + 1; });
   const data = Object.entries(cnt).map(([name, value]) => ({ name, value }));
   if (!data.length) return null;
-  const PALETTE_PIE = ["#0f3d6e", "#1d6fb8", "#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6", "#ec4899"];
+  const PALETTE_PIE = CATEGORICAL;  // 饼图色板对齐全局莫兰迪
   return {
     tooltip: { trigger: "item", formatter: "{b}: {c} ({d}%)" },
     legend: { bottom: 0, type: "scroll", textStyle: { fontSize: 11 } },

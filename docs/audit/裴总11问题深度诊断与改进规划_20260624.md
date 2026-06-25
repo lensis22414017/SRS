@@ -1,0 +1,110 @@
+# 裴总 11 问题深度诊断与改进规划（deep-research, 2026-06-24）
+
+> 辛特助对裴总反馈的批判性诊断。裴总"说的也不一定对"——辛特助实事求是验证每条，确认/反驳/补充。
+
+## Executive Summary
+
+裴总 11 问题经代码定位 + 网络研究验证：**2 个真 bug（污染类型/矢量图）、4 个测试不充分、4 个 UI 美观问题、1 个工程韧性**。其中**问题2（污染类型 if-elif 短路）是确切代码 bug**，裴总判断正确；问题7（功能重构没测）辛特助上轮实际测了（双轨68.88/69.93），裴总印象"没测"可能是 UI 呈现问题，需复核。改进路线：先修2 bug → 补测4功能 → UI 政府化改造（顶刊配色+政务风格）→ 依赖体检。
+
+## 一、逐项诊断（根因 + 证据 + 改进）
+
+### 问题1：矢量图采样区域加载后失效 ⚠️ 真 bug
+- **定位**：`frontend/src/components/SiteMap.tsx`（凸包 convexHull 采样轮廓 + excColor 超标色阶）
+- **根因假设**：矢量 GeoJSON 图层异步加载，凸包轮廓依赖采样点坐标，初次渲染时点位就绪→画轮廓；后续图层切换/状态更新时凸包重算失败（可能 useEffect 依赖/Leaflet layer 清理问题）
+- **改进**：查 SiteMap.tsx 的 useEffect 依赖数组 + 图层切换 handler，确保凸包 polygon 在 vector 模式重绘
+
+### 问题2：HM+OP 复合场地显示只 heavy_metal 🔴 确切 bug（裴总正确）
+- **定位**：`backend/app/services/import_service.py:303-308`
+- **根因（代码铁证）**：
+  ```python
+  if has_hm:   pollution_type = "heavy_metal"   # 短路! HM+OP 永远到不了 composite
+  elif has_org: pollution_type = "organic"
+  else: pollution_type = "composite"
+  ```
+- **修复**：
+  ```python
+  if has_hm and has_org: pollution_type = "composite"   # 复合优先
+  elif has_hm: pollution_type = "heavy_metal"
+  elif has_org: pollution_type = "organic"
+  else: pollution_type = "composite"
+  ```
+- **验证**：重新导入浙江 HM+OP 场地，断言 pollution_type="composite"
+
+### 问题3：批量导入和管理 ⚠️ 测试不充分
+- **定位**：`FieldMappingPage.tsx`（"支持批量多文件"+"已选N个文件"已支持多选）；场地管理 = SiteList.tsx
+- **改进**：浏览器实测多文件批量导入 + 场地列表增删改查
+
+### 问题4：dashboard 可视化丑 + 缺采样区域圈 ⚠️ UI
+- **定位**：`frontend/src/pages/Dashboard.tsx`
+- **根因**：图表用 echarts 默认配色，缺政府稳重感；地图无凸包采样区域（场地详情有，dashboard 没）
+- **改进**：dashboard 地图复用 SiteMap 凸包；图表改政府配色（蓝灰主色）
+
+### 问题5：EDA 图丑，参考 ipynb ⚠️ UI
+- **定位**：场地详情 EDA tab（前端 echarts）+ 后端 EDA API
+- **裴总参考 ipynb**：`/Users/lensis/工作/01_活跃研究/土壤障碍因子/5.专家评估/11.障碍因子深度统计可视化.ipynb`（matplotlib+seaborn，自定义配色，figsize 12×8，SimHei 中文字体）
+- **改进**：EDA 图改 seaborn 风格 + 科研配色（见问题6）
+
+### 问题6：SHAP/障碍因子图顶刊配色 ⚠️ UI
+- **研究**：顶刊配色方案
+  - [SciencePlots](https://github.com/garrettj403/SciencePlots)：matplotlib 科学风格（nature/science/grid）
+  - [ggsci](https://cloud.r-project.org/web/packages/ggsci/)：期刊配色（nature/jama/lancet/nejm）
+  - [科研色板指南](https://www.simplifiedsciencepublishing.com/resources/best-color-palettes-for-scientific-figures-and-data-visualizations)：定性/连续/发散+色盲友好
+- **改进**：SHAP 条形图用 nature 配色（#4DBBD5蓝/#E64B35橙/#00A087绿/#3C5488深蓝/#F39B7B粉等 ggsci npg 主题）；正向(加重)暖色/负向(缓解)冷色
+
+### 问题7：功能重构评价没测？⚠️ 辛特助反驳（已测，需复核 UI）
+- **辛特助上轮实测**：功能重构页双轨得分（生产68.88/生态69.93）+ 8指标表格 + 5步计算追溯，全部显示
+- **裴总印象"没测"原因假设**：可能 UI 呈现不够醒目（得分/表格/追溯排版），或裴总看的是别处
+- **改进**：复核 reconstruction 页 UI 完整性，强化双轨对比可视化
+
+### 问题8：AI/RAG + 换API ⚠️ 架构良好，需测连通
+- **定位**：`backend/app/services/ai_service.py`（OpenAI 兼容 /chat/completions，urllib + Bearer + timeout）
+- **当前配置**：backend/.env AI_BASE_URL/API_KEY/MODEL（SiliconFlow Qwen2.5-7B，OpenAI 兼容）
+- **换 API**：改 .env 三行即可（智谱 GLM / OpenAI / 任意 OpenAI 兼容服务）
+- **改进**：实测 AI 对话 + RAG 检索连通；加 AI 配置页（系统管理已有 tab）
+
+### 问题9：多场地稳定性 ⚠️ 测试不充分
+- **测试数据清单**：`data/test_datasets/`：site_北京_OP_200点 / 广东_HM+OP_64 / 浙江_HM+OP_15 / 江苏_HM+OP_32 / 广东_OP_200 / 江西_HM_200 / 新疆_HM_200
+- **改进**：浏览器逐个导入 6+ 场地，验证导入/诊断/重构/SSUI/推荐/追溯全链稳定性
+
+### 问题10：整体 UI 太 AI 味，不够政府机关 ⚠️ UI（最大改造）
+- **研究**：政务/企业级 UI 最佳实践
+  - [Ant Design Pro](https://preview.pro.ant.design/)：中后台标杆，SRS 已用 antd ^5.21
+  - 政府风格特征：稳重配色（深蓝/藏青/灰主色，少渐变）、信息密度高、表格为主、专业图标、严谨排版
+- **改进**：主题色改政务蓝（#1677ff→#003a8c 深蓝系）；减少渐变/圆角/阴影；强化表格/表单密度；标题改严肃字体
+
+### 问题11：context7 依赖更新防崩溃 ⚠️ 工程韧性
+- **当前版本（frontend）**：antd ^5.21 / react 18.3 / echarts 5.5 / leaflet 1.9.4 / axios 1.7（较新，OK）
+- **backend requirements.txt**：grep 未命中（格式待核，需完整检查 pandas/sklearn/shap/fastapi 版本）
+- **改进**：context7 查 antd/pandas/shap 最新稳定版；锁定兼容版本；CI 跑 pytest 防回归
+
+## 二、举一反三（裴总没提的潜在问题）
+
+1. **load_latest 字典序**：取 op_prod 而非 lake_prod（数据湖最完整）——diagnosis 用 op 块模型非 lake，应优先 lake
+2. **deep_function_test/robustness_test**：.venv 设计，容器内不可用（pytest 等价覆盖，但端到端脚本缺失）
+3. **双轨模型未真正路由**：浙江场地 land_use_type="—"（未设），diagnosis 走默认 op_prod。需用户选"生产/生态"才真双轨（前端 Select 已加，但导入时未强制）
+4. **标签泄漏诚实标注**：AUC≈1.0 是浓度阈值派生，需 UI 标注（障碍因子页已有模型指标，可加 warning）
+
+## 三、改进优先级路线图
+
+| 优先级 | 任务 | 影响 |
+|---|---|---|
+| P0（立即） | 问题2 污染类型 bug 修复（1行 if 改 3 分支） | 数据正确性 |
+| P0 | 问题1 矢量图凸包重绘 bug | 地图可用性 |
+| P1 | 问题9 多场地逐个导入测试 | 稳定性验证 |
+| P1 | 问题8 AI/RAG 连通测试 | AI 功能可用 |
+| P2 | 问题10 UI 政府化（主题色/布局） | 政府机关适配 |
+| P2 | 问题6 SHAP/EDA 顶刊配色 | 科研美观 |
+| P3 | 问题3 批量导入管理实测 | 功能完整 |
+| P3 | 问题4 dashboard 可视化改造 | 美观 |
+| P3 | 问题7 功能重构 UI 复核 | 呈现优化 |
+| P3 | 问题11 context7 依赖体检 | 工程韧性 |
+
+## 四、研究依据（sources）
+1. [Ant Design Pro](https://preview.pro.ant.design/) — 中后台/政务 UI 标杆（antd 已用）
+2. [SciencePlots](https://github.com/garrettj403/SciencePlots) — matplotlib 顶刊风格（nature/science）
+3. [ggsci](https://cloud.r-project.org/web/packages/ggsci/) — 期刊配色（npg/jama/lancet）
+4. [科研色板指南](https://www.simplifiedsciencepublishing.com/resources/best-color-palettes-for-scientific-figures-and-data-visualizations) — 定性/连续/发散+色盲友好
+5. 裴总参考 ipynb：`工作/01_活跃研究/土壤障碍因子/5.专家评估/11.障碍因子深度统计可视化.ipynb`（matplotlib+seaborn 风格）
+
+## Methodology
+代码定位（Read/Grep 11 问题相关文件）+ firecrawl 研究（政务UI/顶刊配色）+ 批判性验证（裴总说的也不一定对，问题7 辛特助反驳并解释）。子问题：bug根因/UI最佳实践/配色方案/依赖版本/AI架构。

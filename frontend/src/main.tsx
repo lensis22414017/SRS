@@ -34,7 +34,11 @@ function AdminOnly({ children }: { children: JSX.Element }) {
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ConfigProvider locale={zhCN} theme={{ token: { colorPrimary: "#0f3d6e" } }}>
+    <ConfigProvider locale={zhCN} theme={{ token: {
+      colorPrimary: "#0f3d6e",
+      borderRadius: 4,  // 政府严肃风格(小圆角,去AI味,问题10)
+      fontFamily: '"PingFang SC", "Microsoft YaHei", -apple-system, "Segoe UI", sans-serif',  // 政务中文字体
+    } }}>
       <AuthProvider>
         <BrowserRouter>
           <Routes>

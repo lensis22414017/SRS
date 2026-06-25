@@ -116,12 +116,24 @@ def seed_rows() -> list[dict]:
     return _gb15618_rows() + _gb36600_rows() + _hj255_rows()
 
 
+# 英文符号→中文因子名映射: standard_thresholds 存英文(As/Hg/Pb), factor_dictionary 存中文(砷/汞/铅)
+# 修复 load 键不匹配致 factor_id 全 NULL(问题6 三重根因之一)
+_EN2ZH = {"As": "砷", "Hg": "汞", "Pb": "铅", "Cr": "铬", "Zn": "锌", "Cd": "镉",
+          "Cu": "铜", "Ni": "镍", "Cr(VI)": "铬(六价)", "pH": "pH",
+          "benzene": "苯", "toluene": "甲苯", "ethylbenzene": "乙苯", "xylene": "二甲苯"}
+
+
 def load(db) -> int:
-    factors = {f.factor_code: f.id for f in db.query(FactorDictionary).all()}
+    # factor_code + factor_name 双 key + 英文→中文映射, 修复 factor_id 全 NULL
+    factors: dict[str, int] = {}
+    for f in db.query(FactorDictionary).all():
+        factors[f.factor_code] = f.id
+        factors[f.factor_name] = f.id
     db.query(StandardThreshold).delete()
     rows = seed_rows()
     for row in rows:
-        factor_id = factors.get(row["factor_name"])
+        fn = row["factor_name"]
+        factor_id = factors.get(fn) or factors.get(_EN2ZH.get(fn, fn))
         db.add(StandardThreshold(factor_id=factor_id, **row))
     db.commit()
     return len(rows)

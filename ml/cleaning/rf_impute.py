@@ -15,8 +15,8 @@ TRAIN_BASE = os.path.join(ROOT, "data", "training")
 SPLITS = ["train", "valid", "test", "external"]
 # 非特征列(不插补, 保留)
 META = {"id_DOI", "id_Source", "DOI", "Source", "Latitude", "Longitude", "Province",
-        "City", "Pollution_Type", "标签", "split_source", "is_synthetic", "ID", "Year",
-        "LandUse", "SamplingDepth", "region"}
+        "City", "Pollution_Type", "标签", "标签_生产", "标签_生态", "split_source",
+        "is_synthetic", "ID", "Year", "LandUse", "SamplingDepth", "region"}
 
 
 def _feature_cols(df):

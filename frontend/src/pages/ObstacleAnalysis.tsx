@@ -28,8 +28,12 @@ export default function ObstacleAnalysis() {
     tooltip: { trigger: "axis" }, grid: { left: 100, right: 30, top: 10, bottom: 30 },
     xAxis: { type: "value", name: "|SHAP|" },
     yAxis: { type: "category", inverse: true, data: diag.top_factors.map((t: any) => t.factor) },
-    series: [{ type: "bar", data: diag.top_factors.map((t: any) => t.importance),
-      itemStyle: { color: "#0f3d6e" }, label: { show: true, position: "right" } }],
+    series: [{ type: "bar",
+      data: diag.top_factors.map((t: any) => ({
+        value: t.importance,
+        itemStyle: { color: t.direction === "negative" ? "#4DBBD5" : "#E64B35" }  // 顶刊npg(Nature)配色: 负向缓解=蓝/正向加重=红橙(问题6)
+      })),
+      label: { show: true, position: "right" } }],
   } : null;
 
   return (
@@ -60,7 +64,7 @@ export default function ObstacleAnalysis() {
                 textCol("类别", "category"),
                 numCol("|SHAP|", "importance"),
                 { title: "影响方向", dataIndex: "direction", align: "center",
-                  render: (v: string) => <Tag color={v === "positive" ? "red" : "green"}>{v === "positive" ? "正向(加重)" : "负向(缓解)"}</Tag> },
+                  render: (v: string) => <Tag color={v === "positive" ? "#E64B35" : "#4DBBD5"} style={{ color: "#fff" }}>{v === "positive" ? "正向(加重)" : "负向(缓解)"}</Tag> },
               ]} />
           </Card>
           {diag.shap_global?.calculation_trace?.length > 0 && (

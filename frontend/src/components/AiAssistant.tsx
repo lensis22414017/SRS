@@ -51,10 +51,17 @@ export default function AiAssistant({ siteId }: { siteId?: number }) {
   };
 
   const sid = resolveSiteId();
-  const modelLabel = aiStat?.configured
-    ? `模型: ${aiStat.model}`
-    : aiStat?.degraded_hint ? "模型未配置(走 RAG 降级)" : "模型状态加载中…";
-  const modelColor = aiStat?.configured ? "green" : "orange";
+  // 裴总 P0-2: 区分"已配置"与"已连通", UI 不得把"填了 key"显示成"已就绪"
+  const modelLabel = !aiStat
+    ? "模型状态加载中…"
+    : !aiStat.has_config
+      ? "模型未配置(走 RAG 降级)"
+      : aiStat.connectivity_ok
+        ? `模型: ${aiStat.model}`
+        : aiStat.connectivity_stale
+          ? `模型: ${aiStat.model}(连通待复测)`
+          : "已配置但连通失败(走 RAG 降级)";
+  const modelColor = aiStat?.has_config && aiStat?.connectivity_ok ? "green" : "orange";
 
   return (
     <>
