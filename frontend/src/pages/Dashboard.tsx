@@ -80,7 +80,7 @@ export default function Dashboard() {
       prov = m ? m[1] : (s.name || "场地").slice(0, 4);
     }
     _provCount[prov] = (_provCount[prov] || 0) + 1;
-    return _provCount[prov] > 1 ? `${prov}${_provCount[prov]}` : `${prov}场地`;
+    return _provCount[prov] > 1 ? `${prov}场地${_provCount[prov]}` : `${prov}场地`;
   };
   const riskBarOption = {
     tooltip: { trigger: "axis", formatter: (p: any) => {
@@ -89,7 +89,7 @@ export default function Dashboard() {
     } },
     grid: { left: 12, right: 40, top: 16, bottom: 24, containLabel: true },
     xAxis: { type: "value", name: "超标记录数", nameLocation: "middle", nameGap: 24 },
-    yAxis: { type: "category", data: topExceed.map(shortName),
+    yAxis: { type: "category", data: topExceed.map(shortName), inverse: true,
       axisLabel: { fontSize: 11, color: "#374151" } },
     series: [{
       type: "bar",

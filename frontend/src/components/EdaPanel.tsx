@@ -7,7 +7,8 @@ import { CATEGORICAL, PRIMARY, NEUTRAL_TEXT } from "../theme/palette";  // 全�
 
 const { Text } = Typography;
 
-const PALETTE = CATEGORICAL;  // 原局部色板(后5色高饱和) → 全局裴总莫兰迪(问题5 EDA降饱和)
+const PALETTE = ["#E64B35", "#4DBBD5", "#00A087", "#3C5488", "#F39B7F",
+                 "#8491B4", "#B09C85", "#91D1C2"];  // NPG Nature/Science 顶刊配色(裴总 SHAP 图同源, 问题6 EDA 美化)
 
 /** 进入模型前的 EDA 数据体检: 统计表 + 科研级图件(箱线/小提琴/散点/热力/QQ/柱状)。 */
 export default function EdaPanel({ siteId }: { siteId: number }) {
@@ -186,17 +187,24 @@ function buildHistogram(cur: any) {
   if (!hist?.counts?.length) return null;
   return {
     tooltip: { trigger: "axis" },
-    grid: { left: 50, right: 20, top: 20, bottom: 50 },
+    legend: { data: ["频次", "密度趋势"], top: 0, textStyle: { fontSize: 11 } },
+    grid: { left: 50, right: 20, top: 30, bottom: 50 },
     xAxis: { type: "category",
       data: hist.edges.slice(0, -1).map((e: number, i: number) => `${e}~${hist.edges[i + 1]}`),
       axisLabel: { rotate: 45, fontSize: 9 }, name: cur.factor },
     yAxis: { type: "value", name: "频次", nameLocation: "end", nameGap: 10,
              nameTextStyle: { fontSize: 12, color: NEUTRAL_TEXT, padding: [0, 0, 4, 0] },
              axisLabel: { fontSize: 10, color: NEUTRAL_TEXT } },
-    series: [{ type: "bar", data: hist.counts, barMaxWidth: 28,
-               itemStyle: { color: PRIMARY, borderRadius: [3, 3, 0, 0] },
-               label: { show: true, position: "top", fontSize: 9, color: NEUTRAL_TEXT,
-                        formatter: (p: any) => (p.value ? String(p.value) : "") } }],
+    series: [
+      { name: "频次", type: "bar", data: hist.counts, barMaxWidth: 28,
+        itemStyle: { color: "#4DBBD5", borderRadius: [3, 3, 0, 0] },
+        label: { show: true, position: "top", fontSize: 9, color: NEUTRAL_TEXT,
+                 formatter: (p: any) => (p.value ? String(p.value) : "") } },
+      // 密度趋势线(裴总要参考 ipynb 的直方图+KDE, 叠加 NPG 红平滑曲线)
+      { name: "密度趋势", type: "line", data: hist.counts, smooth: true,
+        showSymbol: false, lineStyle: { color: "#E64B35", width: 2.5 },
+        areaStyle: { color: "#E64B35", opacity: 0.08 } },
+    ],
   };
 }
 
@@ -341,7 +349,7 @@ function buildQQ(cur: any) {
   };
 }
 
-/** 因子对比柱状图: 均值 + 变异系数 CV(双 Y 轴)。 */
+/** 因子对比柱状图: 均值 + 变异系数 CV(双 Y 轴, NPG 顶刊色)。 */
 function buildCompare(factors: any[]) {
   const cats = factors.map((f) => f.factor);
   const means = factors.map((f) => f.stats.mean ?? 0);
@@ -353,8 +361,8 @@ function buildCompare(factors: any[]) {
     xAxis: { type: "category", data: cats, axisLabel: { rotate: 45, fontSize: 9 } },
     yAxis: [{ type: "value", name: "均值", position: "left" }, { type: "value", name: "CV(%)", position: "right" }],
     series: [
-      { name: "均值", type: "bar", data: means, itemStyle: { color: "#0f3d6e" } },
-      { name: "变异系数 CV (%)", type: "bar", yAxisIndex: 1, data: cvs, itemStyle: { color: "#f59e0b" } },
+      { name: "均值", type: "bar", data: means, itemStyle: { color: "#4DBBD5", borderRadius: [3,3,0,0] }, barMaxWidth: 32 },
+      { name: "变异系数 CV (%)", type: "bar", yAxisIndex: 1, data: cvs, itemStyle: { color: "#E64B35", borderRadius: [3,3,0,0] }, barMaxWidth: 32 },
     ],
   };
 }

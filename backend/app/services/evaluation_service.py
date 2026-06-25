@@ -8,7 +8,8 @@ from collections import defaultdict
 
 from sqlalchemy.orm import Session
 
-from app.models import EvaluationResult, FactorDictionary, Measurement, SamplingPoint, Site, ThresholdRule
+from app.models import (EvaluationResult, FactorDictionary, Measurement, SamplingPoint,
+                        Site, StandardThreshold, ThresholdRule)
 from app.services.threshold_resolver import build_pollutant_limits, resolve_limit
 
 from app.core.config import resource_root
@@ -54,8 +55,9 @@ PROPERTY_CATEGORIES = {"化学性质", "肥力指标", "物理性质", "生物�
 def _organic_risk(db: Session, site_id: int, series: dict, means: dict) -> dict:
     """有机污染物超标风险诊断(规则型, 非 ML)。
 
-    对场地实测的有机因子(环境指标 - 重金属 - pH)逐个查 threshold_rules 最严档阈值,
-    算最大超标倍数/检出率/超标因子清单。基于 GB36600-2018 / GB15618-2018 真实阈值, 可追溯。
+    裴总 P0-3 + 数据真实性: 查 threshold_rules ∪ standard_thresholds 两表最严档阈值,
+    区分三类: 超标(有阈值且>阈值)/ 未超标(有阈值且≤阈值)/ 无阈值无法判定。
+    不把"无阈值"默认当"未超标"——诚实报告数据缺口, 避免给假的"达标"结论。
     """
     rows = (db.query(FactorDictionary.factor_code, FactorDictionary.factor_name,
                      FactorDictionary.level1_category)
@@ -66,41 +68,69 @@ def _organic_risk(db: Session, site_id: int, series: dict, means: dict) -> dict:
                if cat == "环境指标" and name not in HM_EVAL_FACTORS and fc != "pH"}
     if not organic:
         return {"n_organic_factors": 0, "detected_factors": {}, "exceed_factors": [],
-                "max_ratios": {}, "overall": "未检出有机污染物",
+                "max_ratios": {}, "no_threshold_factors": {}, "overall": "未检出有机污染物",
                 "note": "该场地未检测到有机污染物因子(环境指标中无非重金属有机物)。"}
-    th_rows = (db.query(FactorDictionary.factor_name, ThresholdRule.threshold_max)
+    organic_names = list(organic.values())
+    # 阈值并集: threshold_rules(threshold_max) ∪ standard_thresholds(screening_value), 取最严档(min)
+    tr_rows = (db.query(FactorDictionary.factor_name, ThresholdRule.threshold_max)
                .join(ThresholdRule, ThresholdRule.factor_id == FactorDictionary.id)
-               .filter(FactorDictionary.factor_name.in_(list(organic.values())),
+               .filter(FactorDictionary.factor_name.in_(organic_names),
                        ThresholdRule.threshold_max != None,
                        ThresholdRule.threshold_max > 0).all())
+    st_rows = (db.query(FactorDictionary.factor_name, StandardThreshold.screening_value)
+               .join(StandardThreshold, StandardThreshold.factor_id == FactorDictionary.id)
+               .filter(FactorDictionary.factor_name.in_(organic_names),
+                       StandardThreshold.screening_value != None,
+                       StandardThreshold.screening_value > 0).all())
     min_thr: dict[str, float] = {}
-    for name, tmax in th_rows:
-        if name not in min_thr or float(tmax) < min_thr[name]:
-            min_thr[name] = float(tmax)
+    for name, v in list(tr_rows) + list(st_rows):
+        try:
+            fv = float(v)
+        except (TypeError, ValueError):
+            continue
+        if fv > 0 and (name not in min_thr or fv < min_thr[name]):
+            min_thr[name] = fv
     exceed_factors: list[str] = []
     max_ratios: dict[str, float] = {}
     detected: dict[str, int] = {}
+    no_threshold: dict[str, float] = {}  # 无阈值因子(诚实标注) → 最大值供人工核对
     for fc, name in organic.items():
         vals = [v for v in series.get(fc, []) if v is not None]
         if not vals:
             continue
+        mx = max(float(v) for v in vals)
         detected[name] = len(vals)
         thr = min_thr.get(name)
         if thr and thr > 0:
-            mx = max(float(v) / thr for v in vals)
-            if mx > 1:
+            ratio = mx / thr
+            if ratio > 1:
                 exceed_factors.append(name)
-                max_ratios[name] = round(mx, 2)
-    overall = ("有机物超标" if exceed_factors
-               else "有机物检出未超标" if detected else "未检出有机物")
+                max_ratios[name] = round(ratio, 2)
+        else:
+            no_threshold[name] = round(mx, 3)
+    n_exceed = len(exceed_factors)
+    n_with_thr = len([n for n in detected if n in min_thr])
+    n_no_thr = len(no_threshold)
+    if n_exceed > 0:
+        overall = f"有机物超标({n_exceed} 个因子; 另 {n_no_thr} 个无阈值无法判定)"
+    elif n_with_thr > 0:
+        overall = f"有阈值因子未超标({n_with_thr}); 无阈值无法判定({n_no_thr})"
+    elif n_no_thr > 0:
+        overall = f"全部 {n_no_thr} 个有机因子无 GB36600 筛选值, 无法定量判定(需补权威阈值)"
+    else:
+        overall = "未检出有机物"
     return {
         "n_organic_factors": len(organic),
         "detected_factors": detected,
         "exceed_factors": exceed_factors,
         "max_ratios": max_ratios,
+        "no_threshold_factors": no_threshold,
+        "n_with_threshold": n_with_thr,
+        "n_no_threshold": n_no_thr,
         "overall": overall,
-        "threshold_source": "GB36600-2018 / GB15618-2018 (threshold_rules 最严档)",
-        "note": "基于有机污染物实测浓度与标准筛选值最严档的超标诊断(规则型, 非 ML, 可追溯)。",
+        "threshold_source": "GB36600-2018 / GB15618-2018 (threshold_rules ∪ standard_thresholds 最严档)",
+        "note": ("无 GB36600 单项筛选值的有机因子单独列出(不默认判'未超标'); "
+                 "需补权威阈值方可定量判定(遵守不凭记忆补阈值原则)。"),
     }
 
 

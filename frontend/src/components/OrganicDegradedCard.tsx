@@ -49,7 +49,14 @@ export default function OrganicDegradedCard({ organicRisk, limitingFactors, expl
               <Descriptions.Item label="超标因子(最大倍数)" span={2}>
                 {exceed.length ? exceed.map((f) => (
                   <Tag key={f} color="red" style={{ margin: 2 }}>{f} ({ratios[f]} 倍)</Tag>
-                )) : <Text type="secondary">无超标或无可比对阈值</Text>}
+                )) : <Text type="secondary">无(有阈值的因子均未超标)</Text>}
+              </Descriptions.Item>
+              <Descriptions.Item label="无阈值因子(无法判定)" span={2}>
+                {organicRisk?.no_threshold_factors && Object.keys(organicRisk.no_threshold_factors).length
+                  ? Object.entries(organicRisk.no_threshold_factors).map(([f, v]: [string, any]) => (
+                    <Tag key={f} color="default" style={{ margin: 2 }}>{f} (max {v})</Tag>
+                  ))
+                  : <Text type="secondary">无(所有因子都有阈值)</Text>}
               </Descriptions.Item>
               <Descriptions.Item label="阈值来源" span={2}>
                 <Text type="secondary" style={{ fontSize: 12 }}>{organicRisk.threshold_source || "—"}</Text>

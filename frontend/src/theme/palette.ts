@@ -53,12 +53,13 @@ export const GAUGE_STOPS: [number, string][] = [
   [1, SUCCESS],    // >80 高/可行
 ];
 
-// ── 污染类型语义色(裴总 P1-5a: 全系统统一, 重金属红/有机紫/复合橙) ──
-// 首页饼图/地图点位、场地详情 Tag、场地列表标签全部引用本常量, 避免首页一套色、详情页另一套色。
+// ── 污染类型语义色(裴总 P1-5a: 全系统统一; 三色拉开区分度, 不挤在暖色区) ──
+// 首页饼图/地图点位、场地详情 Tag、场地列表标签全部引用本常量。
+// 红(重金属危险) / 深蓝紫(有机, 冷色远离红) / 琥珀(复合, 偏黄远离红) → 三色相隔大, 易区分。
 export const POLLUTION_TYPE: Record<string, string> = {
   heavy_metal: "#dc2626",  // 红
-  organic: "#7c3aed",      // 紫
-  composite: "#ea580c",    // 橙
+  organic: "#6d28d9",      // 深蓝紫(原 #7c3aed 太靠近红橙, 改冷色拉开)
+  composite: "#f59e0b",    // 琥珀(原 #ea580c 太靠近红, 改偏黄拉开)
 };
 export const POLLUTION_LABEL: Record<string, string> = {
   heavy_metal: "重金属", organic: "有机", composite: "复合污染",
