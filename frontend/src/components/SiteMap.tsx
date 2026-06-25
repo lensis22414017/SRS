@@ -338,7 +338,7 @@ export default function SiteMap({
               transition: "background 0.15s",
             }}
           >
-            {mode === "vector" ? "🗺 矢量" : "🛰 影像"}
+            {mode === "vector" ? "矢量底图" : "卫星影像"}
           </button>
         ))}
       </div>
