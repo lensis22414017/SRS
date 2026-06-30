@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { Card, Button, Empty, message, Row, Col, Statistic, Tag, Space, Table, Divider, Timeline, Progress, Alert } from "antd";
+import { Card, Button, Empty, App, Row, Col, Statistic, Tag, Space, Table, Divider, Timeline, Progress, Alert } from "antd";
 import { api } from "../api/client";
 import SitePicker from "../components/SitePicker";
 import FormulaBlock from "../components/FormulaBlock";
 import OrganicDegradedCard from "../components/OrganicDegradedCard";
+import ReactECharts from "echarts-for-react";
 import { seqCol, numCol, textCol } from "../utils/table";
 
 /** 功能重构分析 = 方法文件第2章 污染土壤生产-生态功能重构可行性评价(生产功能 + 生态功能) */
@@ -17,6 +18,31 @@ function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRi
   }
   const dims = (e.dimensions?.dimensions || []) as any[];
   const trace = (e.dimensions?.calculation_trace || []) as string[];
+  // 裴总 deep-research: 功能重构模块补可视化(雷达图 + 贡献度条形图, NPG 顶刊色)
+  // 雷达图: 各评价指标 F 得分(0-100), 一眼识别短板(木桶效应可视化)
+  const radarOption = dims.length >= 3 ? {
+    tooltip: {},
+    radar: { indicator: dims.map((d: any) => ({ name: d.indicator ?? "?", max: 100 })), radius: "62%" },
+    series: [{ type: "radar", data: [{ value: dims.map((d: any) => d.F ?? 0), name: title,
+      areaStyle: { color: "#3C5488", opacity: 0.22 }, lineStyle: { color: "#3C5488", width: 2 },
+      itemStyle: { color: "#3C5488" } }] }],
+  } : null;
+  // 贡献度条形图: 按 contribution 降序, 前2红(主限制)/中2蓝/其余深蓝(NPG 梯度突出障碍因子)
+  const sortedDims = [...dims].sort((a: any, b: any) => (b.contribution ?? 0) - (a.contribution ?? 0));
+  const contribOption = sortedDims.length ? {
+    tooltip: { trigger: "axis", formatter: (p: any) => {
+      const d = sortedDims[p[0].dataIndex];
+      return `${d.indicator}<br/>贡献分: ${p[0].value}<br/>权重: ${d.norm_weight != null ? (d.norm_weight * 100).toFixed(1) + "%" : "—"}`;
+    } },
+    grid: { left: 110, right: 50, top: 16, bottom: 24 },
+    xAxis: { type: "value", name: "贡献分" },
+    yAxis: { type: "category", inverse: true, data: sortedDims.map((d: any) => d.indicator),
+      axisLabel: { fontSize: 11 } },
+    series: [{ type: "bar", barMaxWidth: 22,
+      data: sortedDims.map((d: any, i: number) => ({ value: d.contribution ?? 0,
+        itemStyle: { color: i < 2 ? "#E64B35" : i < 4 ? "#4DBBD5" : "#3C5488", borderRadius: [0, 3, 3, 0] } })),
+      label: { show: true, position: "right", fontSize: 10 } }],
+  } : null;
   return (
     <Card type="inner" title={title} style={{ marginBottom: 16 }}>
       <Row gutter={16} style={{ marginBottom: 12 }}>
@@ -47,6 +73,24 @@ function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRi
             ),
           },
         ]} />
+      {(radarOption || contribOption) && (
+        <Row gutter={16} style={{ marginTop: 12 }}>
+          {radarOption && (
+            <Col span={10}>
+              <Card size="small" title="各评价指标得分（雷达图 · 识别短板）">
+                <ReactECharts option={radarOption} style={{ height: 260 }} />
+              </Card>
+            </Col>
+          )}
+          {contribOption && (
+            <Col span={14}>
+              <Card size="small" title="指标贡献度排序（条形图 · 突出障碍因子）">
+                <ReactECharts option={contribOption} style={{ height: 260 }} />
+              </Card>
+            </Col>
+          )}
+        </Row>
+      )}
       {trace.length > 0 && (
         <>
           <Divider style={{ margin: "12px 0" }} />
@@ -60,6 +104,7 @@ function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRi
 }
 
 export default function ReconstructionAnalysis() {
+  const { message } = App.useApp();
   const [sid, setSid] = useState<number>();
   const [data, setData] = useState<any>(null);
   const [hasRun, setHasRun] = useState(false);

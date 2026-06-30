@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Card, Descriptions, Tabs, Table, Button, Spin, Space, message, Select } from "antd";
+import { Card, Descriptions, Tabs, Table, Button, Spin, Space, App, Select } from "antd";
 import { api } from "../api/client";
 import SiteMap from "../components/SiteMap";
 import EdaPanel from "../components/EdaPanel";
 import { seqCol, numCol, textCol } from "../utils/table";
 
 export default function SiteDetail() {
+  const { message } = App.useApp();
   const { id } = useParams();
   const sid = Number(id);
   const nav = useNavigate();

@@ -1,0 +1,54 @@
+SRS 污染场地土壤生态-生产功能重构监管系统
+Copyright (c) 2026 SRS Project
+
+本产品基于以下开源组件构建(third-party notices), 在其各自许可证下分发:
+
+==========================================================================
+核心框架
+==========================================================================
+FastAPI                MIT License          Copyright (c) Sebastián Ramírez
+Starlette              BSD-3-Clause         Copyright (c) Encode OSS
+Uvicorn                BSD-3-Clause         Copyright (c) Encode OSS
+SQLAlchemy             MIT License          Copyright (c) SQLAlchemy authors
+Pydantic               MIT License          Copyright (c) Pydantic
+
+前端
+React                  MIT License          Copyright (c) Meta Platforms, Inc.
+Ant Design             MIT License          Copyright (c) Ant Group
+Vite                   MIT License          Copyright (c) Vite contributors
+ECharts                Apache-2.0           Copyright (c) Apache Software Foundation
+
+机器学习与数据
+scikit-learn           BSD-3-Clause         Copyright (c) scikit-learn developers
+SHAP                   MIT License          Copyright (c) Scott Lundberg
+pandas                 BSD-3-Clause         Copyright (c) pandas development team
+NumPy                  BSD-3-Clause         Copyright (c) NumPy developers
+
+报告与文档
+Jinja2                 BSD-3-Clause         Copyright (c) Pallets
+WeasyPrint             BSD-3-Clause         Copyright (c) Simon Sapin & contributors
+                       (注: WeasyPrint 本身 BSD; 其依赖 pyphen 为 GPLv2+/LGPLv2+ dual,
+                        系统 Pango/Cairo 为 LGPL。本项目 PDF 渲染 WeasyPrint 为一级,
+                        xhtml2pdf(Apache-2.0 纯Python)为降级备选, 可规避 pyphen GPL 边界)
+python-docx            MIT License          Copyright (c) Steve Canny
+matplotlib             Matplotlib License   Copyright (c) Matplotlib development team
+
+认证与安全
+python-jose            MIT License          Copyright (c) Michael Davis
+bcrypt                 Apache-2.0           Copyright (c) Solar Designer
+
+地理与可视化
+Leaflet                BSD-2-Clause         Copyright (c) Volodymyr Agafonkin
+
+==========================================================================
+数据来源声明
+==========================================================================
+- Google Earth Engine (GEE): 协变量采样(MODIS/WorldClim/SRTM/SoilGrids 2.0),
+  依据 Google Earth Engine 服务条款用于非商业科研用途。
+- GB 15618-2018 农用地土壤污染风险管控标准
+- GB 36600-2018 建设用地土壤污染风险管控标准
+- HJ 25.5-2018 污染地块风险管控与土壤修复效果评估技术导则
+
+==========================================================================
+完整依赖清单见 backend/requirements.txt 与 frontend/package.json
+各组件完整许可证文本见其官方仓库。

@@ -5,7 +5,6 @@ backend/storage/
 backend/storage_extreme/
 backend/storage_extreme_rerun/
 frontend/node_modules/
-frontend/dist/
 validation_outputs/
 logs/
 **/__pycache__/

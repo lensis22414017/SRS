@@ -20,12 +20,13 @@ export const CATEGORICAL = [
   "#9dc1c5",  // 灰青
 ];
 
-// ── 主色系(政务深蓝, 与 main.tsx ConfigProvider token colorPrimary 一致) ──
-export const PRIMARY = "#0f3d6e";          // 政务深蓝(token 主色)
-export const PRIMARY_DEEP = "#214e81";     // 裴总深蓝
-export const PRIMARY_MID = "#3680ae";      // 中蓝
-export const PRIMARY_LIGHT = "#81b7d9";    // 浅蓝
-export const PRIMARY_MORANDI = "#515a85";  // 莫兰迪灰蓝紫(裴总主色)
+// ── 主色系(蓝灰科技风, 与 main.tsx ConfigProvider token colorPrimary 一致) ──
+// 裴总: 更现代的蓝灰科技风(类 Linear/Vercel 但政务克制) — 降饱和、加中性灰、冷调
+export const PRIMARY = "#2c5282";          // 蓝灰科技主色(冷调克制, 原 #0f3d6e 政务深蓝)
+export const PRIMARY_DEEP = "#1e3a5f";     // 深蓝灰(悬停/强调)
+export const PRIMARY_MID = "#3b82f6";      // 科技亮蓝(交互高亮/accent)
+export const PRIMARY_LIGHT = "#93c5fd";    // 浅科技蓝
+export const PRIMARY_MORANDI = "#515a85";  // 莫兰迪灰蓝紫(图表保留, 不作主色)
 
 // ── 语义色(保留: 状态/等级判定用, 非装饰; 饱和度较高以确保警示性) ──
 export const SUCCESS = "#16a34a";  // 达标/可行/低风险
@@ -39,10 +40,11 @@ export const DIVERGING = ["#b91c1c", "#fee2e2", "#f8fafc", "#dbeafe", "#0f3d6e"]
 // ── 连续色板(超标倍数/浓度渐变: 浅 → 深蓝) ──
 export const SEQUENTIAL = ["#dee5ef", "#c6d3e2", "#81b7d9", "#3680ae", "#214e81"];
 
-// ── 中性色(文本/边框/背景) ──
-export const NEUTRAL_TEXT = "#64748b";
-export const NEUTRAL_BORDER = "#d9e2ec";
-export const NEUTRAL_BG = "#f8fafc";
+// ── 中性色(文本/边框/背景 — 蓝灰科技风加大中性灰比例) ──
+export const NEUTRAL_TEXT = "#475569";       // 靛灰文字(原 #64748b, 提对比度)
+export const NEUTRAL_TEXT_LIGHT = "#94a3b8";  // 浅靛灰(次要文字)
+export const NEUTRAL_BORDER = "#e2e8f0";      // 冷调浅灰边(原 #d9e2ec)
+export const NEUTRAL_BG = "#f1f5f9";          // 冷调中性灰底(原 #f8fafc, 科技感更深)
 
 // ── 仪表盘等级色(从低到高, 用于 SSUI/重构可行性仪表盘 axisLine) ──
 // 格式: [累计占比阈值, 颜色]

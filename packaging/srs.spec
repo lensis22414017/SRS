@@ -14,7 +14,32 @@ import os
 import sys
 from pathlib import Path
 
-PROJECT_ROOT = Path('/Users/lensis/Claude/Projects/SRS')
+# Windows exe 版本信息: 无条件 import + 对象内联到 EXE(version_info=...), onedir 入口 exe 有效
+if sys.platform == "win32":
+    from PyInstaller.utils.win32.versioninfo import (
+        VSVersionInfo, FixedFileInfo, StringFileInfo, StringTable,
+        StringStruct, VarFileInfo, VarStruct,
+    )
+    _VI = VSVersionInfo(
+        ffi=FixedFileInfo(filevers=(0,1,0,0), prodvers=(0,1,0,0), mask=0x3f,
+                          flags=0x0, OS=0x40004, fileType=0x1, subtype=0x0, date=(0,0)),
+        kids=[StringFileInfo([StringTable('040904B0', [
+            StringStruct('CompanyName', 'Zhejiang University, College of Environmental & Resource Sciences, Wang Wei Lab (ZJU WW Lab)'),
+            StringStruct('FileDescription', 'Soil Remediation Supervision System (SRS)'),
+            StringStruct('FileVersion', '0.1.0.0'),
+            StringStruct('InternalName', 'SRS'),
+            StringStruct('LegalCopyright', 'Copyright (c) 2026 ZJU WW Lab. Licensed under MIT.'),
+            StringStruct('OriginalFilename', 'SRS.exe'),
+            StringStruct('ProductName', 'SRS - Contaminated Site Supervision System'),
+            StringStruct('ProductVersion', '0.1.0.0'),
+        ])]), VarFileInfo([VarStruct('Translation', [0x0409, 1200])])])
+else:
+    _VI = None
+_version_file = None  # 不用 version_file(spec 内 version_info 对象更直接)
+
+# 自动定位项目根: SPECPATH 是 PyInstaller 注入的 spec 文件所在目录(packaging/), 父级即项目根
+# 跨平台跨机器通用, 不依赖 __file__(spec 执行时未定义)
+PROJECT_ROOT = Path(SPECPATH).resolve().parent
 
 # ── 数据文件 ────────────────────────────────────────────────────
 added_files = []
@@ -89,6 +114,8 @@ hidden_imports = [
     # 桌面原生窗口 (pywebview, 可选; 若未安装则降级到 webbrowser)
     "webview", "webview.platforms.cocoa", "webview.platforms.winforms",
     "webview.platforms.gtk",
+    # pkg_resources 运行时依赖(weasyprint/reportlab 间接引入)
+    "jaraco", "jaraco.text", "jaraco.functools", "jaraco.context",
 ]
 
 # ── 排除模块 ────────────────────────────────────────────────────
@@ -97,6 +124,9 @@ excluded_imports = [
     "pip", "setuptools", "wheel",
     "tkinter", "_tkinter",
     "PIL",  # 未使用
+    # Qt bindings: matplotlib backend 探测会引入 PyQt5/PySide6, 两者冲突且 SRS 不需要(Qt 桌面框架)
+    "PyQt5", "PyQt6", "PySide2", "PySide6",
+    "matplotlib.backends.backend_qt5agg", "matplotlib.backends.backend_qt",
 ]
 
 # ── macOS .app 信息 ─────────────────────────────────────────────
@@ -134,35 +164,40 @@ a.binaries = [
 # ── PYZ ─────────────────────────────────────────────────────────
 pyz = PYZ(a.pure, a.zipped_data)
 
-# ── EXE (onedir: EXE 只含入口脚本, 依赖由 COLLECT 收集) ─────────
+# ── EXE + COLLECT (onedir: Windows/Linux 输出 dist/SRS/ 目录含 SRS.exe) ─
 exe = EXE(
     pyz,
     a.scripts,
     [],
-    exclude_binaries=True,  # onedir: 二进制/数据由 COLLECT 收集, .app 更稳定
+    exclude_binaries=True,  # onedir: 二进制/数据由 COLLECT 收集
     name="SRS",
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
-    console=False,  # 不显示终端窗口 (macOS .app)
+    console=False,  # GUI 模式不显示终端(pyperforms 窗口/浏览器降级)
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
+    icon=str(PROJECT_ROOT / "packaging" / "srs_512.png") if (PROJECT_ROOT / "packaging" / "srs_512.png").exists() else None,
+    version_info=_VI,  # Windows 版本信息对象(公司名=ZJU WW Lab/版权/版本)
 )
 
-# ── macOS .app Bundle (onedir: COLLECT 收集全部依赖, BUNDLE 包装成 .app) ─
+# Windows/Linux: COLLECT 收集全部依赖到 dist/SRS/ 目录
+coll = COLLECT(
+    exe,
+    a.binaries,
+    a.datas,
+    strip=False,
+    upx=True,
+    upx_exclude=[],
+    name="SRS",
+)
+
+# ── macOS .app Bundle (仅 darwin) ─
 if sys.platform == "darwin":
     app = BUNDLE(
-        COLLECT(
-            exe,
-            a.binaries,
-            a.datas,
-            strip=False,
-            upx=True,
-            upx_exclude=[],
-            name="SRS",
-        ),
+        coll,
         name="SRS.app",
         icon=str(PROJECT_ROOT / "packaging" / "srs.icns") if (PROJECT_ROOT / "packaging" / "srs.icns").exists() else None,
         bundle_identifier="com.srs.soil-remediation",

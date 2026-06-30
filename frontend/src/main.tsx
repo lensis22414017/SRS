@@ -42,9 +42,28 @@ function AdminOnly({ children }: { children: JSX.Element }) {
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ConfigProvider locale={zhCN} theme={{ token: {
-      colorPrimary: "#0f3d6e",
-      borderRadius: 4,  // 政府严肃风格(小圆角,去AI味,问题10)
-      fontFamily: '"PingFang SC", "Microsoft YaHei", -apple-system, "Segoe UI", sans-serif',  // 政务中文字体
+      colorPrimary: "#2c5282",           // 蓝灰科技主色(原 #0f3d6e 政务深蓝)
+      colorInfo: "#3b82f6",              // 科技亮蓝
+      colorSuccess: "#16a34a",
+      colorWarning: "#f59e0b",
+      colorError: "#dc2626",
+      colorBgLayout: "#f1f5f9",          // 冷调中性灰底(加大中性灰比例, 科技感)
+      colorBgContainer: "#ffffff",
+      colorBorderSecondary: "#e2e8f0",   // 冷调浅灰边
+      colorTextSecondary: "#475569",     // 靛灰次要文字
+      borderRadius: 6,                   // 略柔和(原4政务严肃, 科技风6克制不滑向SaaS大圆角)
+      fontFamily: '"PingFang SC", "Microsoft YaHei", -apple-system, "Segoe UI", sans-serif',
+    }, components: {
+      // 蓝灰科技风 component token — 冷调中性 + 精致层次(去政务深蓝表头, 去SaaS高饱和)
+      Card: { borderRadiusLG: 8, boxShadowTertiary: "0 4px 12px rgba(44, 82, 130, 0.06)" },
+      Table: { headerBg: "#f1f5f9", headerColor: "#2c5282", rowHoverBg: "#f8fafc", borderColor: "#e2e8f0" },
+      Button: { primaryShadow: "none", defaultShadow: "none", borderRadius: 6 },
+      Menu: { itemSelectedBg: "#eaf1fb", itemSelectedColor: "#2c5282", activeBarBorderWidth: 0 },
+      Tabs: { inkBarColor: "#2c5282", itemActiveColor: "#2c5282", itemSelectedColor: "#2c5282", titleFontSize: 14 },
+      Tag: { defaultBg: "#f1f5f9", defaultColor: "#475569" },
+      Statistic: { contentFontSize: 24 },
+      Descriptions: { labelBg: "#f1f5f9", labelColor: "#475569" },
+      Pagination: { itemActiveBg: "#eaf1fb" },
     } }}>
       {/* 裴总 P2(T11): App provider 包裹, 让静态 message/notification 消费 theme context, 抑制 AntD warning */}
       <App>

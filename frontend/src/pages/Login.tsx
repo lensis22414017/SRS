@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Form, Input, Button, Card, message, Typography } from "antd";
+import { Form, Input, Button, Card, App, Typography } from "antd";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/client";
 import { useAuth } from "../auth";
 
 export default function Login() {
+  const { message } = App.useApp();
   const nav = useNavigate();
   const { setSession } = useAuth();
 

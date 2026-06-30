@@ -89,8 +89,15 @@ def pivot_site_measurements(db: Session, site_id: int) -> pd.DataFrame:
     if not rows:
         return pd.DataFrame()
     df = pd.DataFrame(rows, columns=["point_code", "factor_code", "value"])
-    return df.pivot_table(index="point_code", columns="factor_code",
-                          values="value", aggfunc="mean")
+    pivot = df.pivot_table(index="point_code", columns="factor_code",
+                           values="value", aggfunc="mean")
+    # gee_场地级协变量广播到所有采样点(绑第一个采样点 → 全采样点同值)
+    for col in list(pivot.columns):
+        if col.startswith("gee_"):
+            vals = pivot[col].dropna()
+            if len(vals) > 0:
+                pivot[col] = vals.iloc[0]
+    return pivot
 
 
 def align_features(pivot: pd.DataFrame, feature_list: list[str],
@@ -112,9 +119,12 @@ def align_features(pivot: pd.DataFrame, feature_list: list[str],
     imputed = []
     for feature in feature_list:
         if feature not in X.columns:
-            X[feature] = medians.get(feature, 0.0)
-            if not feature.endswith("__missing"):
-                imputed.append(feature)
+            if feature in pivot.columns:  # gee_协变量等(pivot有则用真实值, 非medians)
+                X[feature] = pivot[feature].fillna(medians.get(feature, 0.0))
+            else:
+                X[feature] = medians.get(feature, 0.0)
+                if not feature.endswith("__missing"):
+                    imputed.append(feature)
         else:
             med = medians.get(feature, 0.0)
             X[feature] = X[feature].fillna(med)
@@ -256,6 +266,87 @@ def ensure_model_record(db: Session, bundle: dict) -> MLModel:
     return m
 
 
+def _build_dual_track(prod_r: dict, eco_r: dict) -> dict:
+    """构造生产-生态双轨对比块(裴总 goal: 双轨诊断真正生效)。
+
+    prod_r/eco_r 为 run_diagnosis 内 _single() 返回的单轨结果
+    (bundle/X/proba/shap_out/feat2factor/ranked)。
+    """
+    pp = float(prod_r["proba"].mean())
+    ep = float(eco_r["proba"].mean())
+    return {
+        "prod_proba_mean": round(pp, 4),
+        "eco_proba_mean": round(ep, 4),
+        "prod_model": prod_r["bundle"]["version"],
+        "eco_model": eco_r["bundle"]["version"],
+        "prod_auc": prod_r["bundle"]["metrics"].get("auc"),
+        "eco_auc": eco_r["bundle"]["metrics"].get("auc"),
+        "delta_prod_minus_eco": round(pp - ep, 4),
+        "dominant_track": "prod" if pp >= ep else "eco",
+        "prod_top_factors": [{
+            "rank": i + 1,
+            "factor": (g.get("factor_code")
+                       or prod_r["feat2factor"].get(g["feature"], g["feature"])),
+            "importance": g["mean_abs_shap"],
+            "direction": g["direction"],
+            "source": g.get("source", "rf_shap"),
+        } for i, g in enumerate(prod_r["ranked"])],
+        "eco_top_factors": [{
+            "rank": i + 1,
+            "factor": (g.get("factor_code")
+                       or eco_r["feat2factor"].get(g["feature"], g["feature"])),
+            "importance": g["mean_abs_shap"],
+            "direction": g["direction"],
+            "source": g.get("source", "rf_shap"),
+        } for i, g in enumerate(eco_r["ranked"])],
+    }
+
+
+_EE_INITIALIZED = False
+
+
+def _enrich_gee_if_needed(pivot: pd.DataFrame, site, feature_list: list) -> pd.DataFrame:
+    """GEE 协变量补入(裴总 goal: 场地诊断用真实 GEE 值, 非全中位数)。
+    模型 feature_list 含 gee_ 列且场地有经纬度 → 按场地坐标 GEE 采样填入 pivot;
+    GEE 未配置或失败 → 返回原 pivot(align_features 用训练中位数兜底, 不阻断诊断)。
+    """
+    global _EE_INITIALIZED
+    gee_cols = [c for c in feature_list if str(c).startswith("gee_")]
+    if not gee_cols:
+        return pivot
+    # 已持久化 gee_(pivot有值, 来自measurements)直接用, 跳过GEE在线采样(快速)
+    missing = [c for c in gee_cols if c not in pivot.columns or pivot[c].isna().all()]
+    if not missing:
+        return pivot
+    if getattr(site, "latitude", None) is None or getattr(site, "longitude", None) is None:
+        return pivot
+    try:
+        project = os.environ.get("GEE_PROJECT_ID")
+        if not project:
+            return pivot
+        import ee
+        if not _EE_INITIALIZED:
+            ee.Initialize(project=project)
+            _EE_INITIALIZED = True
+        cov_dir = os.path.join(ML_DIR, "covariates")
+        if cov_dir not in sys.path:
+            sys.path.insert(0, cov_dir)
+        from gee_fetch import build_covariate_image  # noqa
+        pt = ee.Feature(ee.Geometry.Point([float(site.longitude), float(site.latitude)]))
+        cov = build_covariate_image()
+        res = cov.sampleRegions(collection=ee.FeatureCollection([pt]),
+                                scale=250).getInfo()
+        if res.get("features"):
+            props = res["features"][0]["properties"]
+            for c in gee_cols:
+                v = props.get(c)
+                if v is not None:
+                    pivot[c] = v
+    except Exception:
+        pass  # GEE 失败(网络/配额)用 medians 兜底, 不阻断诊断
+    return pivot
+
+
 def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
     from rf_barrier import load_latest, train  # ml/models
     from shap_service import explain  # ml/explain
@@ -267,47 +358,55 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
     if pivot.empty:
         raise ValueError("该场地无检测数据, 请先导入")
 
-    # 双轨路由(2026-06-24 Wave): 按修复后用途选生产(严)/生态(宽)模型
-    _track_map = {"生产": "prod", "生态": "eco"}
-    track = _track_map.get(getattr(site, "land_use_type", None))
-    bundle = load_latest(track=track)
-    if bundle is None:
-        train()  # 首次自动训练
-        bundle = load_latest(track=track)
-    model = bundle["model"]
     mapping = load_feature_mapping()
-    X, imputed = align_features(pivot, bundle["feature_list"],
-                                bundle["medians"], mapping)
-
-    proba = model.predict_proba(X)[:, 1]
-    shap_out = explain(model, X)
-
-    # 反向映射: 训练特征 -> 因子中文名
-    feat2factor = feature_to_factor_mapping(mapping, bundle["feature_list"])
     fd_by_code = {f.factor_code: f for f in db.query(FactorDictionary).all()}
     sp_by_code = {p.point_code: p for p in
                   db.query(SamplingPoint).filter_by(site_id=site_id).all()}
 
-    # 仅对"有实测数据"的特征参与 Top-N 排名(填充特征不进结论, 诚实原则)
-    measured_feats = {f for f in bundle["feature_list"]
-                      if f not in imputed and not f.endswith("__missing")}
-    shap_ranked = [dict(g, factor_code=feat2factor.get(g["feature"]),
-                        source="rf_shap")
-                   for g in shap_out["global"] if g["feature"] in measured_feats]
-    exceedance_ranked = pollutant_exceedance_factors(pivot)
-    rule_ranked = production_limiting_factors(pivot)
-    ranked_all = sorted(shap_ranked + exceedance_ranked + rule_ranked,
-                        key=lambda x: x["mean_abs_shap"], reverse=True)
-    ranked = []
-    seen_factors: set[str] = set()
-    for item in ranked_all:
-        fcode = item.get("factor_code") or feat2factor.get(item["feature"], item["feature"])
-        if fcode in seen_factors:
-            continue
-        seen_factors.add(fcode)
-        ranked.append(item)
-        if len(ranked) >= top_n:
-            break
+    # ── 双轨对比(2026-06-28 裴总 goal: 生产-生态双轨诊断真正生效) ──
+    # 对同一场地同时加载 prod(GB15618 严阈值标签) + eco(GB36600 二类宽阈值标签)
+    # 两个独立训练的模型, 输出双轨 proba/Top 因子对比。此前 API 层只按
+    # land_use_type 选单轨(waveF 脚本靠临时改 land_use_type 调 2 次模拟对比),
+    # 而 17 真实场地 land_use_type 全 null → 永远 fallback 单轨, 双轨从未生效。
+    def _single(track: str) -> dict:
+        b = load_latest(track=track)
+        if b is None:
+            train()
+            b = load_latest(track=track)
+        pivot_g = _enrich_gee_if_needed(pivot, site, b["feature_list"])
+        Xt, imp = align_features(pivot_g, b["feature_list"], b["medians"], mapping)
+        pr = b["model"].predict_proba(Xt)[:, 1]
+        sh = explain(b["model"], Xt)
+        f2f = feature_to_factor_mapping(mapping, b["feature_list"])
+        measured = {f for f in b["feature_list"]
+                    if f not in imp and not f.endswith("__missing")}
+        sh_ranked = [dict(g, factor_code=f2f.get(g["feature"]), source="rf_shap")
+                     for g in sh["global"] if g["feature"] in measured]
+        ex_ranked = pollutant_exceedance_factors(
+            pivot, scope="production" if track == "prod" else "ecology")
+        rl_ranked = production_limiting_factors(pivot)
+        all_ranked = sorted(sh_ranked + ex_ranked + rl_ranked,
+                            key=lambda x: x["mean_abs_shap"], reverse=True)
+        rk, seen = [], set()
+        for item in all_ranked:
+            fc = item.get("factor_code") or f2f.get(item["feature"], item["feature"])
+            if fc in seen:
+                continue
+            seen.add(fc)
+            rk.append(item)
+            if len(rk) >= top_n:
+                break
+        return {"bundle": b, "X": Xt, "imputed": imp, "proba": pr,
+                "shap_out": sh, "feat2factor": f2f, "ranked": rk}
+
+    prod_r = _single("prod")
+    eco_r = _single("eco")
+    # 主轨: 场地明确标"生态"则主轨=eco, 否则 prod(向后兼容旧 model/top_factors 字段)
+    _lut = (getattr(site, "land_use_type", None) or "").strip()
+    main = eco_r if "生态" in _lut else prod_r
+    bundle, X = main["bundle"], main["X"]
+    imputed, proba = main["imputed"], main["proba"]
+    shap_out, feat2factor, ranked = main["shap_out"], main["feat2factor"], main["ranked"]
 
     model_rec = ensure_model_record(db, bundle)
     summary = (
@@ -340,7 +439,8 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
         shap_global={"global": shap_out["global"],
                      "imputed_features": imputed,
                      "risk_proba_mean": float(proba.mean()),
-                     "calculation_trace": calc_trace},
+                     "calculation_trace": calc_trace,
+                     "dual_track": _build_dual_track(prod_r, eco_r)},
         status="done")
     db.add(diag)
     db.flush()
@@ -395,4 +495,5 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
         "imputed_features": imputed,
         "calculation_trace": calc_trace,
         "summary": summary,
+        "dual_track": _build_dual_track(prod_r, eco_r),
     }

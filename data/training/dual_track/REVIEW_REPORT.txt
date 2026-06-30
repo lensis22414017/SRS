@@ -1,0 +1,68 @@
+================================================================
+双轨训练集审查报告(裴总审核闸门)
+================================================================
+
+【1. 行列数】
+  merged_std33_geocoded 有坐标行: 27031
+  GEE协变量: ✅已合并
+  split      行数       prod正    eco正    
+  valid      4558     1632     509     
+  test       4677     2278     498     
+  external   1446     410      61      
+  train      16350    5448     1820    
+
+【2. X_barrier 特征清单】(共50个)
+  理化协变量(实测稀疏, 中位数填充+__missing标记):
+    SoilpH                 非空率 100.0%
+    OC_pct                 非空率 100.0%
+    CEC_cmolkg             非空率 100.0%
+    Sand_pct               非空率 100.0%
+    Silt_pct               非空率 100.0%
+    Clay_pct               非空率 100.0%
+    SoilBD_gcm3            非空率 100.0%
+    Elevation_m            非空率 100.0%
+    MAP_mm                 非空率 100.0%
+    EC_mScm                非空率 100.0%
+    TN_gkg                 非空率 100.0%
+  GEE协变量(栅格采样, 近100%覆盖):
+    gee_ndvi               非空率 100.0%
+    gee_precip_annual_mm   非空率 100.0%
+    gee_temp_mean_c        非空率 100.0%
+    gee_elevation_m        非空率 100.0%
+    gee_slope_deg          非空率 100.0%
+    gee_aspect_deg         非空率 100.0%
+    gee_soil_pH            非空率 100.0%
+    gee_soc_g_kg           非空率 100.0%
+    gee_cec_cmol_kg        非空率 100.0%
+    gee_clay_pct           非空率 100.0%
+    gee_sand_pct           非空率 100.0%
+    gee_silt_pct           非空率 100.0%
+    gee_bulk_density_g_cm3 非空率 100.0%
+    gee_nitrogen_g_kg      非空率 100.0%
+  __missing标记列: 25个
+
+【3. 防泄漏自检(红线)】
+  X_barrier 污染物列检出: 0 ✅
+  已剔除污染物浓度列: 475个(后缀_mgkg/_ngg/_ugkg + 关键词兜底)
+  前20个剔除列示例: ['Cd_mgkg', 'Pb_mgkg', 'As_mgkg', 'Cu_mgkg', 'Zn_mgkg', 'Ni_mgkg', 'Cr_mgkg', 'Hg_mgkg', 'A_HCH_ngg', 'Ace_mgkg', 'Ace_ngg', 'Acy_mgkg', 'Acy_ngg', 'Al_mgkg', 'Ant_mgkg', 'Ant_ngg', 'AntiDP_ngg', 'BDE209_ngg', 'B_HCH_ngg', 'BaA_mgkg']
+
+【4. 双轨标签分布】
+  标签_生产(GB15618 pH四段+GB36600一类, 严): 正样本率 36.14%
+  标签_生态(GB36600二类, 宽): 正样本率 10.68%
+  (prod应≥eco, 因生产阈值严→更多超标; 若反转则标签派生有误)
+
+【5. group-split零泄漏】
+  all_passed: True
+
+【6. 预期AUC提升】
+  旧 lake_prod_barrier(3特征pH+2missing): AUC=0.5944 (不可诊断)
+  旧 lake_prod_full(泄漏): AUC=0.9988 (不可用)
+  新 dual_track_X_barrier(50特征): 预期 AUC 0.8-0.95 (防泄漏+GEE增强)
+
+【7. 诚实标注】
+  - X_barrier=理化稀疏列(中位数+__missing) + GEE栅格协变量
+  - 剔除475个污染物浓度列(标签泄漏源), AUC不虚高
+  - GEE协变量为栅格估算值(gee_前缀区分), 非实测
+
+裴总确认后, 运行 ml/models/train_dual_gee.py 进入双轨训练。
+================================================================

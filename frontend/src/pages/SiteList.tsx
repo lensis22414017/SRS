@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, Table, Tag, Input, Button, Space, message } from "antd";
+import { Card, Table, Tag, Input, Button, Space, App } from "antd";
 import { ImportOutlined, ReloadOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/client";
@@ -12,6 +12,7 @@ const POLLUTION: Record<string, { c: string; t: string }> = {
 };
 
 export default function SiteList() {
+  const { message } = App.useApp();
   const nav = useNavigate();
   const [data, setData] = useState<any>({ items: [], total: 0 });
   const [loading, setLoading] = useState(true);

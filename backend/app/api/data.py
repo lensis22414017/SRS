@@ -5,6 +5,7 @@ import os
 import shutil
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Response, UploadFile
+from pydantic import BaseModel
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
@@ -296,6 +297,35 @@ def site_detail(site_id: int, user: User = Depends(get_current_user),
     }
 
 
+class LandUseUpdate(BaseModel):
+    """修复后用途(生产用地/生态用地) — 贯穿诊断主轨 + 功能重构评价 + SSUI + 方案推荐。"""
+    land_use_type: str
+
+
+@router.put("/sites/{site_id}/land-use")
+def update_site_land_use(site_id: int, body: LandUseUpdate,
+                         user: User = Depends(get_current_user),
+                         db: Session = Depends(get_db)):
+    """更新场地修复后用途(裴总决策: 在障碍因子诊断页选择, 影响整条决策链)。
+
+    - 生产用地 → 诊断主轨 prod 模型(GB15618 严阈值) + 生产功能重构评价 + 生产修复技术
+    - 生态用地 → 诊断主轨 eco 模型(GB36600 二类宽阈值) + 生态功能重构评价 + 生态修复技术
+    """
+    s = db.get(Site, site_id)
+    if not s:
+        raise HTTPException(404, "场地不存在")
+    assert_site_access(db, user, s)
+    if body.land_use_type not in ("生产用地", "生态用地"):
+        raise HTTPException(400, "land_use_type 仅允许: 生产用地 / 生态用地")
+    old = s.land_use_type
+    s.land_use_type = body.land_use_type
+    log(db, action="update_land_use", user_id=user.id,
+        resource_type="site", resource_id=s.id,
+        detail={"old": old, "new": body.land_use_type})
+    db.commit()
+    return {"ok": True, "site_id": site_id, "land_use_type": s.land_use_type}
+
+
 @router.get("/sites/{site_id}/points")
 def site_points(site_id: int, user: User = Depends(get_current_user),
                 db: Session = Depends(get_db)):
@@ -502,7 +532,8 @@ def site_eda(site_id: int,
         effective_gb = requested_gb
         degraded_reason = None
         df["_depth_band"] = df.apply(
-            lambda r: f"{int(r['depth_top'] or 0)}-{int(r['depth_bottom'] or 0)}cm", axis=1)
+            lambda r: f"{int(r['depth_top']) if pd.notna(r['depth_top']) else 0}-"
+                      f"{int(r['depth_bottom']) if pd.notna(r['depth_bottom']) else 0}cm", axis=1)
 
         def _nunique(col: str) -> int:
             s = df[col].dropna().astype(str)

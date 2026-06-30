@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import {
-  Card, Col, Row, Statistic, Spin, Button, List, Tag, Space, message, Alert,
+  App, Card, Col, Row, Statistic, Spin, Button, List, Tag, Space, Alert,
   Badge, Typography, Divider,
 } from "antd";
 import {
@@ -27,6 +27,9 @@ export default function Dashboard() {
   const [sites, setSites] = useState<any[]>([]);
   const [logs, setLogs] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  // 裴总 P2(T11): 用 App.useApp() 的 messageApi 替代静态 message,
+  // 彻底消费 ConfigProvider theme context, 消除 AntD "static fn can not consume context" warning。
+  const { message } = App.useApp();
 
   useEffect(() => {
     Promise.all([

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Select, Space, message } from "antd";
+import { Select, Space, App } from "antd";
 import { api } from "../api/client";
 
 export default function SitePicker({ value, onChange }: { value?: number; onChange: (id: number) => void }) {
+  const { message } = App.useApp();
   const [sites, setSites] = useState<any[]>([]);
   useEffect(() => {
     api.sites({ size: 200 }).then((d) => {

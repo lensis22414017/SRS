@@ -301,10 +301,10 @@ function buildScatter(factors: any[], xFactor?: string, yFactor?: string) {
     xAxis: { type: "value", name: xFactor, nameLocation: "middle", nameGap: 30 },
     yAxis: { type: "value", name: yFactor, nameLocation: "middle", nameGap: 50 },
     series: [
-      { name: "分位点对照", type: "scatter", data, symbolSize: 6, itemStyle: { color: "#1d6fb8", opacity: 0.6 } },
+      { name: "分位点对照", type: "scatter", data, symbolSize: 6, itemStyle: { color: PALETTE[3], opacity: 0.65 } },
       { name: `线性拟合 (r=${r.toFixed(3)})`, type: "line",
         data: [[xMin, slope * xMin + intercept], [xMax, slope * xMax + intercept]] as any,
-        showSymbol: false, lineStyle: { color: "#ef4444", width: 2 } },
+        showSymbol: false, lineStyle: { color: PALETTE[0], width: 2 } },
     ],
   };
 }
@@ -342,9 +342,9 @@ function buildQQ(cur: any) {
     xAxis: { type: "value", name: "理论正态分位", nameLocation: "middle", nameGap: 30 },
     yAxis: { type: "value", name: `样本(${cur.factor})`, nameLocation: "middle", nameGap: 50 },
     series: [
-      { name: "Q-Q 点", type: "scatter", data, symbolSize: 6, itemStyle: { color: "#1d6fb8", opacity: 0.6 } },
+      { name: "Q-Q 点", type: "scatter", data, symbolSize: 6, itemStyle: { color: PALETTE[3], opacity: 0.65 } },
       { name: "y=x 参考", type: "line", data: [[-3, yMin], [3, yMax]] as any,
-        showSymbol: false, lineStyle: { color: "#ef4444", type: "dashed", width: 2 } },
+        showSymbol: false, lineStyle: { color: PALETTE[0], type: "dashed", width: 2 } },
     ],
   };
 }
@@ -382,8 +382,8 @@ function buildGrouped(grouped: any, factor?: string) {
     xAxis: { type: "category", data: cats, axisLabel: { rotate: 30, fontSize: 10 }, name: groupByLabel(grouped.group_by) },
     yAxis: { type: "value", name: "浓度" },
     series: [
-      { name: "均值", type: "bar", data: groups.map((g: any) => g.mean), itemStyle: { color: "#0f3d6e" } },
-      { name: "中位数", type: "bar", data: groups.map((g: any) => g.median), itemStyle: { color: "#10b981" } },
+      { name: "均值", type: "bar", data: groups.map((g: any) => g.mean), itemStyle: { color: PALETTE[3], borderRadius: [3,3,0,0] }, barMaxWidth: 32 },
+      { name: "中位数", type: "bar", data: groups.map((g: any) => g.median), itemStyle: { color: PALETTE[2], borderRadius: [3,3,0,0] }, barMaxWidth: 32 },
     ],
   };
 }

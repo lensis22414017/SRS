@@ -77,9 +77,14 @@ def load_latest(track=None):
     """加载最新模型 bundle; 无产物时返回 None。
 
     双轨接入(2026-06-24 Wave): track='prod'/'eco' 按修复后用途选对应轨模型
-    (lake_prod=生产严 GB15618/GB36600一类; lake_eco=生态宽 GB36600二类)。
+    (lake_prod_full=生产严 GB15618/GB36600一类; lake_eco_full=生态宽 GB36600二类)。
     track=None 取字典序最后(向后兼容旧调用); 无指定轨产物则回退全部最新。
     diagnosis_service 应按 Site.land_use_type 传 track 实现双轨路由。
+
+    2026-06-26 修复(裴总要求打通双轨诊断): track 过滤兼容 Wave E 命名
+    (_{block}_{track}_{group}.joblib, 如 _lake_prod_full) — 旧 endswith('_prod.joblib')
+    只匹配单层命名致路由失效(实测选了 op_prod 而非 lake_prod_full)。
+    诊断主模型强制 lake(数据湖完整)+full组(过渡含浓度; barrier组AUC≈0.54不可诊断)。
     """
     import joblib
     if not os.path.isdir(ARTIFACTS):
@@ -88,9 +93,19 @@ def load_latest(track=None):
                    if f.startswith(MODEL_NAME) and f.endswith(".joblib"))
     if not cands:
         return None
-    if track:  # 双轨: 优先选 _{track}.joblib 结尾(如 lake_prod/lake_eco)
-        filt = [f for f in cands if f.endswith(f"_{track}.joblib")]
+    if track:
+        # 1) 按轨过滤: 兼容旧 _prod.joblib + Wave E _lake_prod_full.joblib 两种命名
+        filt = [f for f in cands
+                if f.endswith(f"_{track}.joblib") or f"_{track}_" in f]
         cands = filt if filt else cands
+        # 2) 优先 _barrier_gee (防泄漏+GEE协变量, v0.2, CV AUC 0.83 达裴总目标 0.8-0.95)
+        barrier_gee = sorted(f for f in cands if "_barrier_gee" in f)
+        if barrier_gee:
+            return joblib.load(os.path.join(ARTIFACTS, barrier_gee[-1]))
+        # 3) 过渡兼容: _lake_full (含浓度泄漏, 仅新模型不存在时)
+        lake_full = sorted(f for f in cands if "_lake_" in f and "_full" in f)
+        if lake_full:
+            return joblib.load(os.path.join(ARTIFACTS, lake_full[-1]))
     return joblib.load(os.path.join(ARTIFACTS, cands[-1]))
 
 

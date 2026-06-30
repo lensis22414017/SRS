@@ -212,3 +212,79 @@ def test_workflow_attachment_download_and_authz():
                  headers=h).status_code == 404
     # 越权 3: 不带令牌应 401
     assert c.get(f"/api/v1/sites/{sid}/workflow/survey/attachments/{att_id}/download").status_code == 401
+
+
+@needs_db
+def test_workflow_five_stage_full_e2e():
+    """T10.1 端到端: 五阶段各上传(中文文件名) + 刷新持久化 + 下载SHA256一致。
+
+    裴总 P1: 证明追溯上传闭环真实可用(非摆设), 覆盖 Stop hook 要求:
+    - 五阶段(survey/approval/construction/effect/maintenance)各一附件
+    - 中文文件名(save_upload 用 uuid_原名, 中文不乱码)
+    - 刷新持久化(GET → GET, 附件数稳定, 不因刷新丢失)
+    - 下载内容 SHA256 与原文件一致(FileObject 内容完整性)
+    """
+    import hashlib
+    import io
+    from fastapi.testclient import TestClient
+    from app.db.bootstrap import main as bootstrap
+    from app.db.session import SessionLocal
+    from app.main import app
+    from app.services import workflow_service as W
+    from app.services.pipeline import run_import
+
+    bootstrap()
+    db = SessionLocal()
+    sid = None
+    try:
+        imp = run_import(db, GEJIU, "yunnan_gejiu")
+        sid = imp["site_id"]
+        W.init_stages(db, sid)
+    finally:
+        db.close()
+
+    c = TestClient(app)
+    tok = c.post("/api/v1/auth/login",
+                 json={"username": "admin", "password": "Demo@2026"}).json()["access_token"]
+    h = {"Authorization": f"Bearer {tok}"}
+
+    # 五阶段各上传一附件(中文文件名 + 中文角色 + 不同内容)
+    stages_files = [
+        ("survey", "调查报告", "调查评估原始数据_2026.pdf", b"survey content alpha"),
+        ("approval", "审批意见", "方案审批意见书_盖章版.docx", b"approval content beta"),
+        ("construction", "监理报告", "施工监理周报_第3周.xlsx", b"construction content gamma"),
+        ("effect", "效果评估报告", "修复效果评估报告_终版.pdf", b"effect content delta"),
+        ("maintenance", "管护记录", "后期管护记录_年度.xlsx", b"maintenance content epsilon"),
+    ]
+    for stage, role, fname, content in stages_files:
+        up = c.post(f"/api/v1/sites/{sid}/workflow/{stage}/attachment", headers=h,
+                    data={"file_role": role},
+                    files={"file": (fname, io.BytesIO(content), "application/octet-stream")})
+        assert up.status_code == 200, f"{stage} 上传失败: {up.text}"
+
+    # 刷新持久化: GET → GET, 五阶段附件数稳定不丢失
+    wf1 = c.get(f"/api/v1/sites/{sid}/workflow", headers=h).json()
+    wf2 = c.get(f"/api/v1/sites/{sid}/workflow", headers=h).json()
+    for stage, _role, _fname, _content in stages_files:
+        a1 = ([s for s in wf1["stages"] if s["stage"] == stage][0].get("attachments")) or []
+        a2 = ([s for s in wf2["stages"] if s["stage"] == stage][0].get("attachments")) or []
+        assert len(a1) >= 1 and len(a1) == len(a2), \
+            f"{stage} 刷新后附件数变化: {len(a1)}→{len(a2)} (持久化失败)"
+
+    # 中文文件名 + 下载SHA256 完整性(FileObject.original_name 存中文, save_upload 用 uuid_原名)
+    from app.models import FileObject
+    db2 = SessionLocal()
+    try:
+        for stage, _role, fname, content in stages_files:
+            wf = c.get(f"/api/v1/sites/{sid}/workflow", headers=h).json()
+            s = [x for x in wf["stages"] if x["stage"] == stage][0]
+            att = (s.get("attachments") or [])[0]
+            fo = db2.get(FileObject, att["file_object_id"])
+            assert fo and fo.original_name == fname, \
+                f"{stage} 中文文件名: 期望'{fname}', 实际'{fo.original_name if fo else None}'"
+            dl = c.get(f"/api/v1/sites/{sid}/workflow/{stage}/attachments/{att['id']}/download", headers=h)
+            assert dl.status_code == 200, f"{stage} 下载失败: {dl.text}"
+            assert hashlib.sha256(dl.content).hexdigest() == hashlib.sha256(content).hexdigest(), \
+                f"{stage} 下载内容 SHA256 与上传不一致(内容被篡改/丢失)"
+    finally:
+        db2.close()

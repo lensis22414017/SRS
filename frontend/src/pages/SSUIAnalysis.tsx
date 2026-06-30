@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, Button, Empty, message, Row, Col, Statistic, Tag, Space, Table, Divider, Alert, Timeline, Typography } from "antd";
+import { Card, Button, Empty, App, Row, Col, Statistic, Tag, Space, Table, Divider, Alert, Timeline, Typography } from "antd";
 import ReactECharts from "echarts-for-react";
 import { api } from "../api/client";
 import SitePicker from "../components/SitePicker";
@@ -11,6 +11,7 @@ const { Text } = Typography;
 
 /** SSUI 评价 = 方法文件第3章 土壤持续利用经济性和安全性评价(SSUI 模型) */
 export default function SSUIAnalysis() {
+  const { message } = App.useApp();
   const [sid, setSid] = useState<number>();
   const [data, setData] = useState<any>(null);     // GET: 历史 + current_data_version
   const [hasRun, setHasRun] = useState(false);     // 是否已点击运行(控制本次结果区显隐, brief 4.5)
@@ -46,6 +47,26 @@ export default function SSUIAnalysis() {
       axisLine: { lineStyle: { width: 18, color: [[0.4, "#dc2626"], [0.6, "#f59e0b"], [0.8, "#3b82f6"], [1, "#16a34a"]] } },
       pointer: { width: 5 }, detail: { formatter: "{value}", fontSize: 24, offsetCenter: [0, "70%"] },
       data: [{ value: s.score }] }],
+  } : null;
+  // 裴总 deep-research: SSUI 补维度可视化(归一化得分 + 权重双轴条形图, NPG 顶刊色)
+  // 一眼看出哪个元指标"得分低且权重大"(= 重点管控对象), 契合 SSUI 限制因子识别目标
+  const partsOption = parts.length ? {
+    tooltip: { trigger: "axis", formatter: (p: any) => {
+      const d = parts[p[0].dataIndex];
+      return `${d.meta}<br/>归一化得分: ${p[0].value}<br/>权重: ${d.weight != null ? (d.weight * 100).toFixed(1) + "%" : "—"}`;
+    } },
+    legend: { data: ["归一化得分", "权重(%)"] },
+    grid: { left: 60, right: 60, top: 40, bottom: 70 },
+    xAxis: { type: "category", data: parts.map((p: any) => p.meta), axisLabel: { rotate: 30, fontSize: 10 } },
+    yAxis: [{ type: "value", name: "归一化得分", position: "left" },
+            { type: "value", name: "权重(%)", position: "right", max: 100 }],
+    series: [
+      { name: "归一化得分", type: "bar", data: parts.map((p: any) => p.normalized ?? 0),
+        itemStyle: { color: "#4DBBD5", borderRadius: [3,3,0,0] }, barMaxWidth: 32 },
+      { name: "权重(%)", type: "bar", yAxisIndex: 1,
+        data: parts.map((p: any) => (p.weight != null ? p.weight * 100 : 0)),
+        itemStyle: { color: "#E64B35", borderRadius: [3,3,0,0] }, barMaxWidth: 32 },
+    ],
   } : null;
 
   return (
@@ -124,6 +145,11 @@ export default function SSUIAnalysis() {
               numCol("归一化得分", "normalized"),
               numCol("权重", "weight", { render: (v: number) => v != null ? (v * 100).toFixed(2) + "%" : "—" }),
             ]} />
+          {partsOption && (
+            <Card size="small" title="各元指标归一化得分与权重（双轴条形图 · 识别重点管控对象）" style={{ marginTop: 12 }}>
+              <ReactECharts option={partsOption} style={{ height: 280 }} />
+            </Card>
+          )}
           {trace.length > 0 && (
             <>
               <Divider />

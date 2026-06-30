@@ -67,6 +67,9 @@ logs/
 
 # 系统
 .DS_Store
+._*
+.AppleDouble
+.LSOverride
 .playwright-mcp/
 
 # 参考文件 (甲方需求/预算文档, 不入代码仓库)

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Card, Table, Tag, Input, Space, Button, message } from "antd";
+import { Card, Table, Tag, Input, Space, Button, App } from "antd";
 import { ReloadOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/client";
 import { seqCol, numCol, textCol } from "../utils/table";
 
 export default function TraceList() {
+  const { message } = App.useApp();
   const nav = useNavigate();
   const [data, setData] = useState<any>({ items: [] });
   const [loading, setLoading] = useState(true);

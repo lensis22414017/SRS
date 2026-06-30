@@ -15,5 +15,8 @@ COPY data /app/data
 COPY ml /app/ml
 COPY reporting /app/reporting
 COPY scripts /app/scripts
+# 前端 SPA 产物(打包形态由后端 :8000 单体挂载, main.py _resolve_dist 解析 /app/frontend/dist)
+# 构建前需先 `cd frontend && npm run build` 生成 dist
+COPY frontend/dist /app/frontend/dist
 EXPOSE 8000
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -25,6 +25,13 @@ import threading
 import time
 import webbrowser
 
+# Windows 控制台默认 GBK, print emoji(🛡️🔍✅等)会 UnicodeEncodeError; 打包后无控制台但仍可能触发
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
 
 def ensure_app_dirs():
     """确保应用数据目录存在 (首次启动由 lifespan 自动建表)。"""
@@ -353,7 +360,9 @@ def main():
         os.chdir(project_root)
         sys.path.insert(0, os.path.join(project_root, "backend"))
 
-    print(f"🛡️  SRS 污染场地监管系统 v0.1")
+    print(f"🛡️  SRS 污染场地监管系统 v0.1.0")
+    print(f"   开发者: 浙江大学环境与资源学院 王玮实验室 (ZJU WW Lab)")
+    print(f"   协议: MIT License  © 2026 ZJU WW Lab")
     print(f"   数据目录: {_get_data_dir()}")
     print(f"   启动地址: http://{args.host}:{args.port}")
     print()

@@ -8,6 +8,7 @@ import {
   CheckCircleOutlined, CloseCircleOutlined, WarningOutlined,
   DatabaseOutlined, SettingOutlined, TeamOutlined, FileTextOutlined,
   HeartOutlined, ApiOutlined, ThunderboltOutlined, PlusOutlined, ExperimentOutlined,
+  InfoCircleOutlined,
 } from "@ant-design/icons";
 import { api } from "../api/client";
 import { seqCol, textCol } from "../utils/table";
@@ -184,16 +185,18 @@ function SystemConfig() {
 // ──────────────────────────────────────────────────────────────────────────────
 function SystemHealth() {
   const [cfg, setCfg] = useState<any>(null);
-  useEffect(() => { api.systemConfig().then(setCfg).catch(() => {}); }, []);
+  const [health, setHealth] = useState<any>(null);
+  useEffect(() => {
+    api.systemConfig().then(setCfg).catch(() => {});
+    api.systemHealth().then(setHealth).catch(() => {});
+  }, []);
 
-  // 当前无独立 /system/health 端点，直接用 systemConfig 信息拼装状态卡片
-  const health = null;
-
+  // 真实健康检查(/system/health: SELECT 1 ping DB + 模型产物 + AI 配置), 替代此前硬编码 ok:true
   const items = cfg ? [
     {
       name: "数据库连接",
-      ok: true,
-      detail: "SQLite / PostgreSQL — 正常",
+      ok: health?.checks?.database?.ok === true,
+      detail: health?.checks?.database?.detail || "检测中…",
       icon: <DatabaseOutlined />,
     },
     {
@@ -562,9 +565,66 @@ export default function SystemManagement() {
           { key: "ai", label: <Space><ApiOutlined />AI 模型配置</Space>, children: <AiModelConfig /> },
           { key: "log", label: <Space><FileTextOutlined />操作日志</Space>, children: <AuditLogs /> },
           { key: "pwd", label: <Space><TeamOutlined />修改密码</Space>, children: <ChangePassword /> },
+          { key: "about", label: <Space><InfoCircleOutlined />关于系统</Space>, children: <AboutSystem /> },
         ]}
         defaultActiveKey="health"
       />
     </Card>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────────────────────
+// 子组件: 关于系统(裴总 2026-06-30: 系统内展示开发者信息, 因 exe 属性页版本信息在
+// PyInstaller onedir+windowed 下不写入, 改系统内展示 ZJU WW Lab + 版本 + MIT 版权)
+// ──────────────────────────────────────────────────────────────────────────────
+function AboutSystem() {
+  return (
+    <Space direction="vertical" style={{ width: "100%" }} size={16}>
+      <Card title={<Space><InfoCircleOutlined />系统信息</Space>}>
+        <Descriptions bordered size="small" column={1}>
+          <Descriptions.Item label="系统名称">污染场地土壤生态-生产功能重构监管系统</Descriptions.Item>
+          <Descriptions.Item label="英文名称">Soil Remediation Supervision System (SRS)</Descriptions.Item>
+          <Descriptions.Item label="版本">v0.1.0 (MVP, 2026-06-30)</Descriptions.Item>
+          <Descriptions.Item label="开源协议">
+            <Tag color="green">MIT License</Tag> 允许商用/修改/分发, 保留版权声明即可
+          </Descriptions.Item>
+          <Descriptions.Item label="开发者">
+            浙江大学环境与资源学院 · 王玮实验室<br/>
+            <Text type="secondary" style={{ fontSize: 12 }}>
+              Zhejiang University, College of Environmental &amp; Resource Sciences, Wang Wei Lab (ZJU WW Lab)
+            </Text>
+          </Descriptions.Item>
+          <Descriptions.Item label="版权">Copyright © 2026 ZJU WW Lab. Licensed under MIT.</Descriptions.Item>
+        </Descriptions>
+      </Card>
+
+      <Card title={<Space><ExperimentOutlined />核心技术</Space>} size="small">
+        <Descriptions bordered size="small" column={2}>
+          <Descriptions.Item label="后端">FastAPI + SQLAlchemy</Descriptions.Item>
+          <Descriptions.Item label="前端">React + Ant Design + ECharts</Descriptions.Item>
+          <Descriptions.Item label="算法">双轨防泄漏 RF + SHAP (CV AUC 0.83)</Descriptions.Item>
+          <Descriptions.Item label="协变量">GEE (MODIS/WorldClim/SRTM/SoilGrids2.0)</Descriptions.Item>
+          <Descriptions.Item label="报告">Jinja2 + WeasyPrint/xhtml2pdf</Descriptions.Item>
+          <Descriptions.Item label="数据库">SQLite (桌面) / PostgreSQL (生产)</Descriptions.Item>
+        </Descriptions>
+      </Card>
+
+      <Card title={<Space><InfoCircleOutlined />数据来源与标准</Space>} size="small">
+        <List size="small" split>
+          <List.Item>Google Earth Engine (GEE): 协变量采样, 非商业科研用途</List.Item>
+          <List.Item>GB 15618-2018 农用地土壤污染风险管控标准</List.Item>
+          <List.Item>GB 36600-2018 建设用地土壤污染风险管控标准</List.Item>
+          <List.Item>HJ 25.5-2018 污染地块风险管控与土壤修复效果评估技术导则</List.Item>
+          <List.Item>第三方组件清单详见 NOTICE 文件 (FastAPI/React/scikit-learn/SHAP 等均 MIT/BSD/Apache 商用友好)</List.Item>
+        </List>
+      </Card>
+
+      <Card size="small">
+        <Text type="secondary" style={{ fontSize: 12 }}>
+          本系统基于真实文献数据训练, 双轨 RF 防泄漏(剔除污染物浓度列), CV AUC 0.8-0.95 区间为可信诊断。
+          所有结论可追溯到检测值与标准来源, 详见追溯报告。
+        </Text>
+      </Card>
+    </Space>
   );
 }

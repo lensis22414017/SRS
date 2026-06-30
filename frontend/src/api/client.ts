@@ -32,6 +32,8 @@ export const api = {
   // 数据
   sites: (params?: any) => client.get("/sites", { params }).then((r) => r.data),
   site: (id: number) => client.get(`/sites/${id}`).then((r) => r.data),
+  updateLandUse: (id: number, land_use_type: string) =>
+    client.put(`/sites/${id}/land-use`, { land_use_type }).then((r) => r.data),
   points: (id: number) => client.get(`/sites/${id}/points`).then((r) => r.data),
   pointsWide: (id: number) => client.get(`/sites/${id}/points-wide`).then((r) => r.data),
   siteMapLayers: (id: number, params?: any) =>
@@ -128,6 +130,7 @@ export const api = {
     client.post("/system/change-password", { old_password, new_password }).then((r) => r.data),
   auditLogs: (params?: any) => client.get("/system/audit-logs", { params }).then((r) => r.data),
   systemConfig: () => client.get("/system/config").then((r) => r.data),
+  systemHealth: () => client.get("/system/health").then((r) => r.data),
   users: () => client.get("/system/users").then((r) => r.data),
 
   // 技术库管理(brief 4.6)

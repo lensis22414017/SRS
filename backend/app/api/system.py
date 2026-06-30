@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel, field_validator
+from sqlalchemy import text
 from sqlalchemy.orm import Session
 
 from app.core.config import get_settings
@@ -32,6 +33,32 @@ def change_password(body: ChangePwd, user: User = Depends(get_current_user),
     log(db, action="change_password", user_id=user.id, result="success")
     db.commit()
     return {"ok": True, "message": "密码已更新"}
+
+
+@router.get("/health")
+def system_health(db: Session = Depends(get_db)):
+    """真实系统健康检查: DB 连接(SELECT 1 ping) + 模型产物 + AI 配置。
+
+    替代前端 SystemHealth 此前硬编码的 ok:true(CLAUDE.md 禁伪造)。
+    """
+    import os
+    from app.core.config import resource_root
+    checks: dict = {}
+    try:
+        db.execute(text("SELECT 1"))
+        checks["database"] = {"ok": True, "detail": "SQL 连接正常"}
+    except Exception as e:
+        checks["database"] = {"ok": False, "detail": f"连接失败: {str(e)[:80]}"}
+    try:
+        arts = os.path.join(resource_root(), "ml", "artifacts")
+        n = len([f for f in os.listdir(arts) if f.endswith(".joblib")]) if os.path.isdir(arts) else 0
+        checks["model"] = {"ok": n > 0, "detail": f"{n} 个 RF 模型产物"}
+    except Exception as e:
+        checks["model"] = {"ok": False, "detail": str(e)[:80]}
+    s = get_settings()
+    checks["ai"] = {"ok": bool(s.ai_api_key),
+                    "detail": (f"{s.ai_model} 已启用" if s.ai_api_key else "未配置 AI_API_KEY")}
+    return {"all_ok": all(c["ok"] for c in checks.values()), "checks": checks}
 
 
 @router.get("/audit-logs")
