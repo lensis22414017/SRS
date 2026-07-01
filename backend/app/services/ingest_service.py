@@ -179,15 +179,17 @@ def ingest(db: Session, parsed: ParsedSite, mapping: dict | None = None,
         db.flush()
         n_points += 1
         for m in p.measurements:
-            if m.value is None:
-                continue  # 缺失值不入库, 已在校验报告体现
+            if m.value is None and not m.is_below_detection:
+                continue  # 纯缺失值不入库; 低于检出限(ND)的保留
             db.add(Measurement(
                 site_id=site.id,
                 sampling_point_id=sp.id,
                 factor_id=factor_ids[m.factor_code],
                 value=m.value,
                 unit=m.unit,
-                is_below_detection=False,
+                # v0.2 P0-1: 检测限字段
+                is_below_detection=m.is_below_detection,
+                method=m.method,
                 source_file=parsed.source_file,
                 import_batch_id=batch.id,
                 detected_at=sampled_at,

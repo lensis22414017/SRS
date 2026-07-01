@@ -363,6 +363,12 @@ class ParsedMeasurement:
     level1_category: str | None = None
     factor_type: str | None = None
     in_kb: bool = True
+    # v0.2 P0-1: 检测限解析
+    original_value_text: str | None = None  # 导入原始文本, 如 "<0.001"
+    qualifier: str | None = None            # '<' / '>' / '=' / 'ND'
+    detection_limit: float | None = None    # 检出限数值
+    method: str | None = None               # 检测方法
+    is_below_detection: bool = False        # 是否低于检出限
 
 
 @dataclass
@@ -403,6 +409,71 @@ def _to_float(v) -> float | None:
         return float(v)
     except (TypeError, ValueError):
         return None
+
+
+# v0.2 P0-1: 检测限解析 — 识别 <0.001, ND, 未检出, <=0.01 等
+import re as _re
+
+_DETECTION_LIMIT_PATTERNS = [
+    # "<=0.01", "≤0.01", "<0.001", "< 0.5"
+    (_re.compile(r'^[<≤]=?\s*([0-9.]+)\s*$'), '<'),
+    # ">=50", "≥50", ">100"
+    (_re.compile(r'^[>≥]=?\s*([0-9.]+)\s*$'), '>'),
+    # "ND", "nd", "N.D.", "n.d."
+    (_re.compile(r'^(ND|nd|N\.?D\.?|n\.?d\.?)$'), 'ND'),
+    # "未检出", "检出限以下", "低于检出限", "低于检测限", "未达到检出限"
+    (_re.compile(r'^(未检出|检出限以下|低于检出限|低于检测限|未达到检出限)$'), 'ND'),
+    # "/" 或 "-" 或 "—" 表示无数据
+    (_re.compile(r'^[—\-–/]+$'), None),
+]
+
+def _parse_detection_limit(raw: str) -> dict:
+    """解析检测限标记。返回 {value, qualifier, detection_limit, is_below_detection, original_value_text}。"""
+    result = {
+        "value": None,
+        "qualifier": None,
+        "detection_limit": None,
+        "is_below_detection": False,
+        "original_value_text": raw,
+    }
+    if not raw:
+        return result
+
+    stripped = raw.strip()
+    if not stripped:
+        return result
+
+    for pattern, qualifier in _DETECTION_LIMIT_PATTERNS:
+        m = pattern.match(stripped)
+        if m:
+            if qualifier == 'ND':
+                result["qualifier"] = 'ND'
+                result["is_below_detection"] = True
+                result["value"] = None  # ND 无法量化
+                return result
+            elif qualifier == '<':
+                result["qualifier"] = '<'
+                result["detection_limit"] = float(m.group(1))
+                result["is_below_detection"] = True
+                # 保守原则: 取检出限的一半
+                result["value"] = result["detection_limit"] / 2.0
+                return result
+            elif qualifier == '>':
+                result["qualifier"] = '>'
+                result["detection_limit"] = float(m.group(1))
+                result["value"] = result["detection_limit"]
+                return result
+            elif qualifier is None:
+                # "/" 或 "-" 表示无数据
+                result["value"] = None
+                return result
+
+    # 无匹配 → 尝试直接转浮点数
+    try:
+        result["value"] = float(stripped)
+    except (TypeError, ValueError):
+        result["value"] = None
+    return result
 
 
 def _to_str(v) -> str | None:
@@ -454,14 +525,23 @@ def parse(path: str, mapping: dict) -> ParsedSite:
             col = fc["column"]
             if col not in df.columns:
                 continue
+            raw_val = row.get(col)
+            raw_text = str(raw_val).strip() if raw_val is not None else None
+            # v0.2 P0-1: 检测限解析
+            dl = _parse_detection_limit(raw_text) if raw_text else {"value": None}
             p.measurements.append(ParsedMeasurement(
                 factor_code=fc["factor_code"],
                 factor_name=fc.get("factor_name", fc["factor_code"]),
-                value=_to_float(row.get(col)),
+                value=dl.get("value") if dl.get("value") is not None else _to_float(raw_val),
                 unit=fc.get("unit"),
                 level1_category=fc.get("level1_category"),
                 factor_type=fc.get("factor_type"),
                 in_kb=fc.get("in_kb", True),
+                original_value_text=raw_text,
+                qualifier=dl.get("qualifier"),
+                detection_limit=dl.get("detection_limit"),
+                method=fc.get("method"),
+                is_below_detection=dl.get("is_below_detection", False),
             ))
         points.append(p)
 

@@ -376,7 +376,13 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
         pivot_g = _enrich_gee_if_needed(pivot, site, b["feature_list"])
         Xt, imp = align_features(pivot_g, b["feature_list"], b["medians"], mapping)
         pr = b["model"].predict_proba(Xt)[:, 1]
-        sh = explain(b["model"], Xt)
+        # v0.2 P0-3: SHAP 降级 — 异常时回退为仅 RF 概率 + 规则
+        try:
+            sh = explain(b["model"], Xt)
+            shap_ok = True
+        except Exception:
+            sh = {"global": [], "local": {}}
+            shap_ok = False
         f2f = feature_to_factor_mapping(mapping, b["feature_list"])
         measured = {f for f in b["feature_list"]
                     if f not in imp and not f.endswith("__missing")}
