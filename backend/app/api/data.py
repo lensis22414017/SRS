@@ -643,6 +643,11 @@ def validation_report(batch_id: int, user: User = Depends(get_current_user),
     b = db.get(ImportBatch, batch_id)
     if not b:
         raise HTTPException(404, "导入批次不存在")
+    # v0.2 P1-6: 校验报告数据隔离 — 企业用户只能看自己的
+    if b.site_id:
+        site = db.get(Site, b.site_id)
+        if site:
+            assert_site_access(db, user, site)
     return {
         "batch_id": b.id, "site_id": b.site_id, "source_file": b.source_file,
         "row_count": b.row_count, "valid_count": b.valid_count,

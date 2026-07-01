@@ -65,23 +65,28 @@ VALID_TRANSITIONS = {
     "not_started": ["in_progress"],
     "in_progress": ["completed", "returned"],
     "returned":    ["in_progress"],               # 退回后只能重新进入进行中
-    "completed":   [],                            # 已完成不能被直接覆盖(需先退回)
+    "completed":   ["in_progress"],               # v0.2 P1-7: 已完成可重新打开(需要原因)
 }
 
 STAGE_ORDER = ["survey", "approval", "construction", "effect", "maintenance"]
 
 
-def _validate_transition(current_status: str, new_status: str, stage: str, is_returned: bool | None) -> None:
+def _validate_transition(current_status: str, new_status: str, stage: str,
+                         is_returned: bool | None, review_comment: str | None = None) -> None:
     """校验状态转移是否合法。不合法抛出 ValueError。"""
     allowed = VALID_TRANSITIONS.get(current_status, [])
     if new_status not in allowed:
         raise ValueError(
             f"阶段「{stage}」不允许从「{current_status}」直接变更为「{new_status}」。"
-            f"允许的变更为: {allowed if allowed else '无(已完成状态不可直接修改)'}"
+            f"允许的变更为: {allowed}"
         )
-    # 退回操作必须有退回原因（由API层保证）
+    # 退回操作必须有退回原因
     if new_status == "returned" and not is_returned:
         raise ValueError("退回操作必须设置 is_returned=True")
+    # v0.2 P1-7: 已完成重新打开必须填写原因
+    if current_status == "completed" and new_status == "in_progress":
+        if not review_comment or not review_comment.strip():
+            raise ValueError("重新打开已完成阶段必须填写审核意见(review_comment)")
 
 
 def _validate_advance_chain(db, site_id: int, stage: str, advance: bool) -> None:
@@ -111,7 +116,7 @@ def update_stage(db: Session, site_id: int, stage: str, *,
 
     # 状态转移校验
     if status is not None and status != w.status:
-        _validate_transition(w.status, status, stage, is_returned)
+        _validate_transition(w.status, status, stage, is_returned, review_comment)
 
     # 推进下一阶段前校验前置
     if advance:

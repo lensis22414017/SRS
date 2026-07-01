@@ -88,8 +88,21 @@ def _slim_mapping_snapshot(mapping: dict | None) -> dict | None:
     }
 
 
+def _check_site_ownership(db: Session, site_code: str, user_org_id: int | None) -> None:
+    """v0.2 P1-5: 校验用户有权操作该 site_code。若 site_code 已被其他组织占用, 拒绝导入。"""
+    if user_org_id is None:
+        return  # 管理员无组织限制
+    existing = db.query(Site).filter_by(site_code=site_code).first()
+    if existing and existing.organization_id is not None and existing.organization_id != user_org_id:
+        raise ValueError(
+            f"场地代码 '{site_code}' 已被其他组织占用 (org_id={existing.organization_id})。"
+            f"当前用户组织 (org_id={user_org_id}) 无权导入该场地数据。"
+        )
+
+
 def _purge_site_data(db: Session, site_id: int) -> None:
-    """删除场地全部检测数据(measurements/sampling_points/import_batches), 保留 site 行供 overwrite 复用。"""
+    """删除场地全部检测数据(measurements/sampling_points/import_batches), 保留 site 行供 overwrite 复用。
+    v0.2 P1-6: 仅删除测量数据和采样点, 保留诊断/评价/推荐/追溯记录。"""
     db.query(Measurement).filter_by(site_id=site_id).delete()
     db.query(SamplingPoint).filter_by(site_id=site_id).delete()
     db.query(ImportBatch).filter_by(site_id=site_id).delete()
@@ -109,6 +122,12 @@ def ingest(db: Session, parsed: ParsedSite, mapping: dict | None = None,
     source_sha = compute_source_sha256(source_path) if source_path else None
     map_hash = compute_mapping_hash(mapping) if mapping else None
 
+    # v0.2 P1-5: 导入前校验 site_code 归属
+    user_org_id = parsed.site.get("_user_org_id") or parsed.site.get("organization_id")
+    target_code = parsed.site.get("site_code")
+    if target_code:
+        _check_site_ownership(db, target_code, user_org_id)
+
     # 全局判重(不限 site_id): 同 sha256 + mapping_hash = 同一份数据
     existing_batch = None
     if source_sha and map_hash:
@@ -118,6 +137,12 @@ def ingest(db: Session, parsed: ParsedSite, mapping: dict | None = None,
 
     if existing_batch:
         existing_site = db.get(Site, existing_batch.site_id)
+        # v0.2 P1-6: overwrite 校验 — 防止因全局去重误删其他企业场地
+        if existing_site and user_org_id is not None and existing_site.organization_id != user_org_id:
+            raise ValueError(
+                f"该文件此前已由组织 org_id={existing_site.organization_id} 导入为场地 "
+                f"'{existing_site.site_code}'。当前组织无权覆盖。请使用 'new_version' 模式或联系管理员。"
+            )
         if on_conflict == "skip":
             n_meas = db.query(Measurement).filter_by(site_id=existing_site.id).count()
             return {"site_id": existing_site.id, "batch_id": existing_batch.id,
