@@ -19,6 +19,8 @@ ALLOWED_MIME_PREFIXES = (
     "application/pdf", "application/msword",
     "application/vnd.openxmlformats-officedocument",
     "application/vnd.ms-excel",
+    "application/octet-stream",      # 通用二进制(允许未知类型)
+    "application/zip",               # ZIP 压缩包
     "image/", "text/csv", "text/plain",
 )
 

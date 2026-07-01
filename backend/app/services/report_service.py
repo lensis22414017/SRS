@@ -435,7 +435,7 @@ def collect(db: Session, site_id: int, version: str) -> dict:
                         "bounds": bounds,
                         "map_image": map_image,
                         "shap_image": shap_image,
-                        "note": "地图交互图层由系统 /api/v1/sites/{site_id}/map/layers 生成, 按污染物筛选并以超标倍数分级。上方静态图件由 matplotlib 离线渲染, 不依赖天地图 key。"},
+                        "note": "交互式地图由系统图层接口生成, 按污染物筛选并以超标倍数分级。上方静态图件由 matplotlib 离线渲染(无瓦片底图)。"},
         "coverage": _coverage_summary(db, site_id, len(points)),
         "validation": {"passed": vr.get("passed", True), "n_errors": vr.get("n_errors", 0),
                        "n_warnings": vr.get("n_warnings", 0), "n_exceed": vr.get("n_exceed", 0),
