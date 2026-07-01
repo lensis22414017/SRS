@@ -683,7 +683,6 @@ export default function SystemManagement() {
           { key: "tech", label: <Space><ExperimentOutlined />技术库管理</Space>, children: <TechLibrary /> },
           { key: "contact", label: <Space><PhoneOutlined />联系方式</Space>, children: <ContactInfoEditor /> },
           { key: "cfg", label: <Space><SettingOutlined />系统配置</Space>, children: <SystemConfig /> },
-          { key: "cfg", label: <Space><SettingOutlined />系统配置</Space>, children: <SystemConfig /> },
           { key: "ai", label: <Space><ApiOutlined />AI 模型配置</Space>, children: <AiModelConfig /> },
           { key: "log", label: <Space><FileTextOutlined />操作日志</Space>, children: <AuditLogs /> },
           { key: "pwd", label: <Space><TeamOutlined />修改密码</Space>, children: <ChangePassword /> },

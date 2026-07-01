@@ -35,7 +35,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
   const hasPermission = (code: string) => {
     if (!user) return false;
-    if (user.roles?.includes("admin")) return true;
+    // 管理员也按实际权限码校验，不再无条件放行
     return user.permissions?.includes(code) ?? false;
   };
   return <Ctx.Provider value={{ user, setSession, logout, hasPermission }}>{children}</Ctx.Provider>;

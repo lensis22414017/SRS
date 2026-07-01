@@ -12,10 +12,10 @@ import styles from "./Login.module.css";
 const { Title, Text } = Typography;
 
 const ROLE_CARDS = [
-  { icon: <CrownOutlined />, label: "系统管理员", desc: "全功能访问，用户审核，系统配置", color: "#2c5282" },
-  { icon: <TeamOutlined />, label: "企业用户", desc: "场地数据录入，方案生成，流程上传", color: "#1B7837" },
-  { icon: <ExperimentOutlined />, label: "第三方机构", desc: "检测/评估，授权项目数据上传", color: "#3680ae" },
-  { icon: <AuditOutlined />, label: "监管人员", desc: "政府监管，查看与审计", color: "#E08214" },
+  { icon: <CrownOutlined />, label: "系统管理员", desc: "全功能访问，用户审核，系统配置", color: "#2c5282", username: "admin" },
+  { icon: <TeamOutlined />, label: "企业用户", desc: "场地数据录入，方案生成，流程上传", color: "#1B7837", username: "" },
+  { icon: <ExperimentOutlined />, label: "第三方机构", desc: "检测/评估，授权项目数据上传", color: "#3680ae", username: "" },
+  { icon: <AuditOutlined />, label: "监管人员", desc: "政府监管，查看与审计", color: "#E08214", username: "" },
 ];
 
 export default function Login() {
@@ -54,14 +54,38 @@ export default function Login() {
           </Space>
         </div>
 
-        {/* 四类角色身份说明 */}
+        {/* 四类角色身份选择 — 点击预填用户名 */}
         <Row gutter={[8, 8]} style={{ marginBottom: 24 }}>
-          {ROLE_CARDS.map((r) => (
+          {ROLE_CARDS.map((r, idx) => (
             <Col span={6} key={r.label}>
               <div style={{
                 textAlign: "center", padding: "8px 4px", borderRadius: 4,
-                background: "#f8f9fb", border: "1px solid #eef0f5",
-              }}>
+                background: "#f8f9fb", border: `2px solid ${r.color}20`,
+                cursor: "pointer", transition: "all 0.2s",
+              }}
+                onMouseEnter={(e) => { e.currentTarget.style.border = `2px solid ${r.color}`; e.currentTarget.style.background = r.color + "10"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.border = `2px solid ${r.color}20`; e.currentTarget.style.background = "#f8f9fb"; }}
+                onClick={() => {
+                  if (r.username) {
+                    // 获取表单实例并设置用户名
+                    const form = document.querySelector('form');
+                    if (form) {
+                      const usernameInput = form.querySelector('input[id="username"], input[placeholder*="用户名"]') as HTMLInputElement;
+                      if (usernameInput) {
+                        const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')?.set;
+                        nativeInputValueSetter?.call(usernameInput, r.username);
+                        usernameInput.dispatchEvent(new Event('input', { bubbles: true }));
+                      }
+                    }
+                  }
+                  // 系统管理员直接聚焦密码框，其他角色提示注册
+                  if (r.label === "系统管理员") {
+                    message.info("已选择系统管理员身份，输入密码登录");
+                  } else {
+                    message.info(`${r.label}请先注册账号，等待管理员审核后登录`);
+                  }
+                }}
+              >
                 <div style={{ fontSize: 18, color: r.color, marginBottom: 2 }}>{r.icon}</div>
                 <div style={{ fontSize: 11, fontWeight: 600, color: "#333", lineHeight: 1.3 }}>{r.label}</div>
                 <div style={{ fontSize: 9, color: "#999", lineHeight: 1.2, marginTop: 2 }}>{r.desc}</div>

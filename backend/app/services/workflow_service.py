@@ -59,6 +59,47 @@ def get_stages(db: Session, site_id: int) -> list[dict]:
     return out
 
 
+# ── 五阶段状态转移矩阵 ──
+# 合法转移: {当前状态: [允许的目标状态]}
+VALID_TRANSITIONS = {
+    "not_started": ["in_progress"],
+    "in_progress": ["completed", "returned"],
+    "returned":    ["in_progress"],               # 退回后只能重新进入进行中
+    "completed":   [],                            # 已完成不能被直接覆盖(需先退回)
+}
+
+STAGE_ORDER = ["survey", "approval", "construction", "effect", "maintenance"]
+
+
+def _validate_transition(current_status: str, new_status: str, stage: str, is_returned: bool | None) -> None:
+    """校验状态转移是否合法。不合法抛出 ValueError。"""
+    allowed = VALID_TRANSITIONS.get(current_status, [])
+    if new_status not in allowed:
+        raise ValueError(
+            f"阶段「{stage}」不允许从「{current_status}」直接变更为「{new_status}」。"
+            f"允许的变更为: {allowed if allowed else '无(已完成状态不可直接修改)'}"
+        )
+    # 退回操作必须有退回原因（由API层保证）
+    if new_status == "returned" and not is_returned:
+        raise ValueError("退回操作必须设置 is_returned=True")
+
+
+def _validate_advance_chain(db, site_id: int, stage: str, advance: bool) -> None:
+    """进入下一阶段前，校验前一阶段已完成。"""
+    if not advance:
+        return
+    idx = STAGE_ORDER.index(stage) if stage in STAGE_ORDER else -1
+    if idx <= 0:
+        return  # 第一阶段无需前置
+    prev_stage = STAGE_ORDER[idx - 1]
+    prev = db.query(WorkflowRecord).filter_by(site_id=site_id, stage=prev_stage).first()
+    if not prev or not prev.is_completed:
+        raise ValueError(
+            f"无法进入阶段「{stage}」：前置阶段「{prev_stage}」尚未完成。"
+            f"请先完成「{prev_stage}」后再推进。"
+        )
+
+
 def update_stage(db: Session, site_id: int, stage: str, *,
                  status: str | None = None, operator_id: int | None = None,
                  review_comment: str | None = None, data_source: str | None = None,
@@ -67,6 +108,15 @@ def update_stage(db: Session, site_id: int, stage: str, *,
     w = db.query(WorkflowRecord).filter_by(site_id=site_id, stage=stage).first()
     if w is None:
         raise ValueError(f"阶段不存在: {stage}(请先初始化五阶段)")
+
+    # 状态转移校验
+    if status is not None and status != w.status:
+        _validate_transition(w.status, status, stage, is_returned)
+
+    # 推进下一阶段前校验前置
+    if advance:
+        _validate_advance_chain(db, site_id, stage, advance)
+
     if status is not None:
         w.status = status
     if operator_id is not None:

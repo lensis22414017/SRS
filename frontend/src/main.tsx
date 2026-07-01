@@ -35,10 +35,17 @@ function Protected({ children }: { children: JSX.Element }) {
   return user ? children : <Navigate to="/login" replace />;
 }
 
-function AdminOnly({ children }: { children: JSX.Element }) {
-  const { user } = useAuth();
+function RequirePermission({ code, children }: { code: string; children: JSX.Element }) {
+  const { user, hasPermission } = useAuth();
   if (!user) return <Navigate to="/login" replace />;
-  if (!user.roles?.includes("admin")) return <ErrorPage status={403} />;
+  if (!hasPermission(code)) return <ErrorPage status={403} message={`缺少权限: ${code}`} />;
+  return children;
+}
+
+function AdminOnly({ children }: { children: JSX.Element }) {
+  const { user, hasPermission } = useAuth();
+  if (!user) return <Navigate to="/login" replace />;
+  if (!hasPermission("user:manage")) return <ErrorPage status={403} />;
   return children;
 }
 
@@ -81,16 +88,16 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/" element={<Protected><AppLayout /></Protected>}>
                   <Route index element={<Dashboard />} />
-                  <Route path="sites" element={<SiteList />} />
-                  <Route path="sites/import" element={<DataUpload />} />
-                  <Route path="sites/import/wizard" element={<FieldMappingPage />} />
-                  <Route path="sites/:id" element={<SiteDetail />} />
-                  <Route path="obstacle" element={<ObstacleAnalysis />} />
-                  <Route path="reconstruction" element={<ReconstructionAnalysis />} />
-                  <Route path="ssui" element={<SSUIAnalysis />} />
-                  <Route path="recommend" element={<RecommendationPage />} />
-                  <Route path="trace" element={<TraceList />} />
-                  <Route path="trace/:id" element={<TraceDetail />} />
+                  <Route path="sites" element={<RequirePermission code="data:query"><SiteList /></RequirePermission>} />
+                  <Route path="sites/import" element={<RequirePermission code="data:input"><DataUpload /></RequirePermission>} />
+                  <Route path="sites/import/wizard" element={<RequirePermission code="data:input"><FieldMappingPage /></RequirePermission>} />
+                  <Route path="sites/:id" element={<RequirePermission code="data:query"><SiteDetail /></RequirePermission>} />
+                  <Route path="obstacle" element={<RequirePermission code="data:query"><ObstacleAnalysis /></RequirePermission>} />
+                  <Route path="reconstruction" element={<RequirePermission code="data:query"><ReconstructionAnalysis /></RequirePermission>} />
+                  <Route path="ssui" element={<RequirePermission code="data:query"><SSUIAnalysis /></RequirePermission>} />
+                  <Route path="recommend" element={<RequirePermission code="data:query"><RecommendationPage /></RequirePermission>} />
+                  <Route path="trace" element={<RequirePermission code="workflow:view"><TraceList /></RequirePermission>} />
+                  <Route path="trace/:id" element={<RequirePermission code="workflow:view"><TraceDetail /></RequirePermission>} />
                   <Route path="system" element={<AdminOnly><SystemManagement /></AdminOnly>} />
                   <Route path="*" element={<ErrorPage />} />
                 </Route>

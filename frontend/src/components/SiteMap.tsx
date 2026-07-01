@@ -362,7 +362,15 @@ export default function SiteMap({
       </div>
 
       {/* 图例 — 左下角 */}
-      {hasCoords && layerData?.legend?.length ? <Legend items={layerData.legend} /> : null}
+      {hasCoords && layerData?.legend?.length ? (
+        <Legend items={layerData.legend} />
+      ) : hasCoords && scope === "overview" ? (
+        <Legend items={[
+          { risk_level: "heavy_metal", label: "重金属污染", color: POLLUTION_TYPE.heavy_metal },
+          { risk_level: "organic", label: "有机污染", color: POLLUTION_TYPE.organic },
+          { risk_level: "composite", label: "复合污染", color: POLLUTION_TYPE.composite },
+        ]} />
+      ) : null}
     </div>
   );
 }
