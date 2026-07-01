@@ -1,4 +1,4 @@
-"""系统管理 API: 改密码、操作日志、用户/角色查询、用户 CRUD、技术库 CRUD。"""
+"""系统管理 API: 改密码、操作日志、用户/角色查询、用户 CRUD、技术库 CRUD、联系方式。"""
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException, Query
@@ -8,9 +8,9 @@ from sqlalchemy.orm import Session
 
 from app.core.config import get_settings
 from app.core.deps import get_current_user, require_permission, user_role_codes
-from app.core.security import hash_password, verify_password
+from app.core.security import hash_password, validate_password_strength, verify_password
 from app.db.session import get_db
-from app.models import AuditLog, Organization, Role, TechnologyLibrary, User, UserRole
+from app.models import AuditLog, Organization, Role, SystemConfig, TechnologyLibrary, User, UserRole
 from app.services.audit_service import log
 
 router = APIRouter(prefix=get_settings().api_v1_prefix + "/system", tags=["system"])
@@ -27,8 +27,11 @@ def change_password(body: ChangePwd, user: User = Depends(get_current_user),
     if not verify_password(body.old_password, user.password_hash):
         log(db, action="change_password", user_id=user.id, result="fail")
         raise HTTPException(400, "原密码错误")
-    if len(body.new_password) < 6:
-        raise HTTPException(400, "新密码至少 6 位")
+    ok, msg = validate_password_strength(body.new_password)
+    if not ok:
+        raise HTTPException(400, msg)
+    if verify_password(body.new_password, user.password_hash):
+        raise HTTPException(400, "新密码不能与旧密码相同")
     user.password_hash = hash_password(body.new_password)
     log(db, action="change_password", user_id=user.id, result="success")
     db.commit()
@@ -497,3 +500,126 @@ def test_ai_config(_actor: User = Depends(require_permission("param:config"))):
         msg = f"连接失败: {e}"
         save_connectivity(False, msg)
         return {"ok": False, "message": f"{msg}。请检查 base_url 与网络。"}
+
+
+# ---------------- 系统联系方式 CRUD ----------------
+
+class ContactInfoBody(BaseModel):
+    phone: str | None = None
+    email: str | None = None
+
+
+@router.get("/contact-info")
+def get_contact_info(db: Session = Depends(get_db)):
+    """获取系统管理员联系方式（公开，供注册页使用）。"""
+    phone_cfg = db.query(SystemConfig).filter_by(config_key="admin_contact_phone").first()
+    email_cfg = db.query(SystemConfig).filter_by(config_key="admin_contact_email").first()
+    name_cfg = db.query(SystemConfig).filter_by(config_key="admin_display_name").first()
+    return {
+        "phone": phone_cfg.config_value if phone_cfg else "",
+        "email": email_cfg.config_value if email_cfg else "",
+        "display_name": name_cfg.config_value if name_cfg else "",
+        "updated_at": str(phone_cfg.updated_at) if phone_cfg and phone_cfg.updated_at else None,
+    }
+
+
+@router.put("/contact-info")
+def update_contact_info(body: ContactInfoBody,
+                        actor: User = Depends(require_permission("param:config")),
+                        db: Session = Depends(get_db)):
+    """更新系统管理员联系方式（仅管理员）。修改后注册页即时生效。"""
+    changes = {}
+    if body.phone is not None:
+        _upsert_config(db, "admin_contact_phone", body.phone.strip(),
+                       "管理员联系电话", actor.username)
+        changes["phone"] = body.phone
+    if body.email is not None:
+        _upsert_config(db, "admin_contact_email", body.email.strip(),
+                       "管理员联系邮箱", actor.username)
+        changes["email"] = body.email
+    log(db, action="update_contact_info", user_id=actor.id,
+        resource_type="system_config", detail=changes, commit=False)
+    db.commit()
+    return {"ok": True, "message": "联系方式已更新", "changes": changes}
+
+
+def _upsert_config(db: Session, key: str, value: str, desc: str, updated_by: str):
+    cfg = db.query(SystemConfig).filter_by(config_key=key).first()
+    if cfg:
+        cfg.config_value = value
+        cfg.updated_by = updated_by
+    else:
+        db.add(SystemConfig(config_key=key, config_value=value,
+                           description=desc, updated_by=updated_by))
+
+
+# ---------------- 审计日志 / 技术库 CSV 导出 ----------------
+
+@router.get("/audit-logs/export")
+def export_audit_logs(action: str | None = None,
+                      date_from: str | None = None,
+                      date_to: str | None = None,
+                      user: User = Depends(require_permission("audit:view")),
+                      db: Session = Depends(get_db)):
+    """导出审计日志为 CSV。支持按操作类型和日期范围筛选。"""
+    import csv as _csv
+    import io
+    from datetime import datetime as _dt
+
+    q = db.query(AuditLog)
+    if action:
+        q = q.filter(AuditLog.action == action)
+    if date_from:
+        q = q.filter(AuditLog.created_at >= _dt.fromisoformat(date_from))
+    if date_to:
+        q = q.filter(AuditLog.created_at <= _dt.fromisoformat(date_to))
+    rows = q.order_by(AuditLog.id.desc()).all()
+    user_map = {u.id: u.display_name for u in db.query(User).all()}
+    buf = io.StringIO()
+    buf.write("﻿")  # BOM
+    w = _csv.writer(buf)
+    w.writerow(["ID", "时间", "操作人", "操作", "对象", "结果", "IP", "详情"])
+    for a in rows:
+        w.writerow([a.id, str(a.created_at), user_map.get(a.user_id, "—"),
+                    a.action, f"{a.resource_type or ''}#{a.resource_id or ''}",
+                    a.result, a.ip or "", str(a.detail or "")])
+    log(db, action="export_audit_logs", user_id=user.id,
+        resource_type="audit_logs", detail={"n_rows": len(rows)})
+    return _csv_response(buf, "audit_logs")
+
+
+@router.get("/technologies/export")
+def export_technologies(user: User = Depends(require_permission("tech:manage")),
+                        db: Session = Depends(get_db)):
+    """导出技术库为 CSV。"""
+    import csv as _csv
+    import io
+    import json as _json
+
+    rows = db.query(TechnologyLibrary).order_by(TechnologyLibrary.tech_name).all()
+    buf = io.StringIO()
+    buf.write("﻿")
+    w = _csv.writer(buf)
+    w.writerow(["技术名称", "适用污染物", "适用土壤", "适用用地类型", "适用阶段",
+                "优点", "局限", "成本等级", "工期等级", "二次风险", "禁用条件", "来源"])
+    for t in rows:
+        w.writerow([
+            t.tech_name,
+            _json.dumps(t.applicable_pollutants, ensure_ascii=False) if t.applicable_pollutants else "",
+            t.applicable_soil or "",
+            _json.dumps(t.applicable_land_type, ensure_ascii=False) if t.applicable_land_type else "",
+            t.applicable_stage or "", t.advantages or "", t.limitations or "",
+            t.cost_level or "", t.duration_level or "",
+            t.secondary_risk or "", t.forbidden_conditions or "", t.source or "",
+        ])
+    log(db, action="export_technologies", user_id=user.id,
+        resource_type="technology_library", detail={"n_rows": len(rows)})
+    return _csv_response(buf, "technologies")
+
+
+def _csv_response(buf, prefix: str):
+    from fastapi import Response
+    return Response(content=buf.getvalue().encode("utf-8-sig"),
+                    media_type="text/csv; charset=utf-8",
+                    headers={"Content-Disposition":
+                             f'attachment; filename="{prefix}_{__import__("datetime").datetime.now().strftime("%Y%m%d")}.csv"'})

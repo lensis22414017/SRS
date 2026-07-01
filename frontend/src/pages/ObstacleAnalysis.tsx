@@ -1,28 +1,54 @@
 import { useEffect, useState } from "react";
-import { Card, Button, Empty, App, Descriptions, Table, Tag, Space, Timeline, Divider, Row, Col, Segmented } from "antd";
+import { Card, Button, Row, Col, Space, Alert, Typography, App, Descriptions, Table, Tag, Timeline, Segmented, Tooltip } from "antd";
+import { InfoCircleOutlined, ExportOutlined } from "@ant-design/icons";
 import ReactECharts from "echarts-for-react";
 import { api } from "../api/client";
 import SitePicker from "../components/SitePicker";
+import EmptyState from "../components/EmptyState";
 import { seqCol, numCol, textCol } from "../utils/table";
+import { POLLUTION_TYPE, POLLUTION_LABEL } from "../theme/palette";
+import { SVG_OPTS } from "../theme/echarts";
+
+const { Text, Paragraph } = Typography;
+
+const AUC_GUIDE = `AUC 值含义（0-1 范围）:
+≥ 0.90 → 优秀 — 模型能很好地区分障碍因子
+0.80-0.90 → 良好 — 模型有较好的区分能力
+0.70-0.80 → 一般 — 模型有一定参考价值
+0.60-0.70 → 偏低 — 建议人工复核
+< 0.60 → 低 — 结果不可靠，需检查数据`;
+
+const F1_GUIDE = `F1 值含义（0-1 范围）:
+≥ 0.85 → 优秀 — 诊断结论精准可靠
+0.70-0.85 → 良好 — 诊断结论较为可靠
+0.50-0.70 → 一般 — 存在一定误判风险
+< 0.50 → 偏低 — 误判风险较高`;
 
 export default function ObstacleAnalysis() {
   const { message } = App.useApp();
   const [sid, setSid] = useState<number>();
   const [diag, setDiag] = useState<any>(null);
+  const [site, setSite] = useState<any>(null);
   const [busy, setBusy] = useState(false);
   const [landUse, setLandUse] = useState<string>("生产用地");
 
   const load = (id?: number) => {
     const s = id ?? sid; if (!s) return;
     api.diagnosis(s).then(setDiag).catch(() => setDiag(null));
-    api.site(s).then((d: any) => setLandUse(d.land_use_type || "生产用地")).catch(() => {});
+    api.site(s).then((d: any) => {
+      setSite(d);
+      setLandUse(d.land_use_type || "生产用地");
+    }).catch(() => {});
   };
   useEffect(() => { if (sid) load(sid); }, [sid]);
 
   const switchLandUse = async (v: string) => {
     if (!sid) return;
-    try { await api.updateLandUse(sid, v); setLandUse(v); message.success(`修复后用途已切换为「${v}」, 诊断主轨 + 评价/SSUI/推荐将按此用途`); }
-    catch (e: any) { message.error(e?.response?.data?.detail || "用途切换失败"); }
+    try {
+      await api.updateLandUse(sid, v);
+      setLandUse(v);
+      message.success(`修复后用途已切换为「${v}」，请重新运行诊断以获取对应轨结果`);
+    } catch (e: any) { message.error(e?.response?.data?.detail || "用途切换失败"); }
   };
 
   const run = async () => {
@@ -33,19 +59,29 @@ export default function ObstacleAnalysis() {
     finally { setBusy(false); }
   };
 
-  const opt = diag?.top_factors?.length ? {
+  // 按 land_use_type 过滤显示对应轨的因子
+  const trackKey = landUse === "生态用地" ? "eco" : "prod";
+  const trackFactors = (diag?.shap_global?.dual_track?.[trackKey + "_top_factors"]) || diag?.top_factors || [];
+  const probaMean = diag?.shap_global?.dual_track?.[trackKey + "_proba_mean"];
+
+  const opt = trackFactors.length ? {
     tooltip: { trigger: "axis" }, grid: { left: 100, right: 30, top: 10, bottom: 30 },
-    xAxis: { type: "value", name: "|SHAP|" },
-    yAxis: { type: "category", inverse: true, data: diag.top_factors.map((t: any) => t.factor) },
+    xAxis: { type: "value", name: "影响程度 |SHAP|" },
+    yAxis: { type: "category", inverse: true, data: trackFactors.map((t: any) => t.factor) },
     series: [{ type: "bar",
-      data: diag.top_factors.map((t: any) => ({
+      data: trackFactors.map((t: any) => ({
         value: t.importance,
-        itemStyle: { color: t.direction === "negative" ? "#4DBBD5" : "#E64B35" }  // 顶刊npg(Nature)配色: 负向缓解=蓝/正向加重=红橙(问题6)
+        itemStyle: {
+          color: t.direction === "negative" ? "#4DBBD5" : POLLUTION_TYPE["heavy_metal"],
+          borderRadius: [0, 4, 4, 0],
+          shadowBlur: 4,
+          shadowColor: "rgba(0,0,0,0.15)",
+        },
       })),
+      emphasis: { focus: "series", blurScope: "coordinateSystem" },
       label: { show: true, position: "right" } }],
   } : null;
-  // 裴总 deep-research: RF+SHAP 补可视化(局部SHAP解释 + 影响方向分布, NPG 顶刊色)
-  // 局部SHAP条形图: 最高风险采样点的因子级SHAP(force plot近似), 正向加重=红/负向缓解=蓝
+
   const localRows = (diag?.local_explanation || []).slice(0, 12);
   const localOption = localRows.length ? {
     tooltip: { trigger: "axis", formatter: (p: any) => {
@@ -60,37 +96,56 @@ export default function ObstacleAnalysis() {
     series: [{ type: "bar", barMaxWidth: 20,
       data: localRows.map((r: any) => ({
         value: r.shap_value ?? 0,
-        itemStyle: { color: r.direction === "positive" ? "#E64B35" : "#4DBBD5",
-          borderRadius: r.direction === "positive" ? [0, 3, 3, 0] : [3, 0, 0, 3] },
-      })) }],
+        itemStyle: {
+          color: r.direction === "positive" ? POLLUTION_TYPE["heavy_metal"] : "#4DBBD5",
+          borderRadius: r.direction === "positive" ? [0, 4, 4, 0] : [4, 0, 0, 4],
+          shadowBlur: 4, shadowColor: "rgba(0,0,0,0.15)",
+        },
+      })),
+      emphasis: { focus: "series", blurScope: "coordinateSystem" },
+    }],
   } : null;
-  // 方向分布饼图: 正向(加重) vs 负向(缓解) 因子数占比
-  const tf = diag?.top_factors || [];
+
+  const tf = trackFactors;
   const posCount = tf.filter((t: any) => t.direction === "positive").length;
   const negCount = tf.filter((t: any) => t.direction === "negative").length;
   const directionOption = tf.length ? {
     tooltip: { trigger: "item", formatter: "{b}: {c} 个 ({d}%)" },
     legend: { bottom: 0, data: ["正向(加重)", "负向(缓解)"] },
     series: [{ type: "pie", radius: ["42%", "68%"],
+      itemStyle: { borderRadius: 4, borderColor: "#fff", borderWidth: 2 },
       data: [
-        { name: "正向(加重)", value: posCount, itemStyle: { color: "#E64B35" } },
+        { name: "正向(加重)", value: posCount, itemStyle: { color: POLLUTION_TYPE["heavy_metal"] } },
         { name: "负向(缓解)", value: negCount, itemStyle: { color: "#4DBBD5" } },
       ],
+      emphasis: { focus: "self", scale: true, label: { show: true, fontSize: 14, fontWeight: "bold" },
+        itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: "rgba(0,0,0,0.3)" } },
       label: { formatter: "{b}: {c}" } }],
   } : null;
 
-  // 生产-生态双轨对比(裴总 goal: 双轨诊断真正生效, 后端 run_diagnosis 同时跑 prod+eco 两模型)
-  const dual = (diag as any)?.shap_global?.dual_track;
-  const dualOption = dual ? {
-    tooltip: { trigger: "axis" },
-    grid: { left: 80, right: 50, top: 16, bottom: 24 },
-    xAxis: { type: "value", name: "高风险概率均值", max: 1 },
-    yAxis: { type: "category", data: ["生态轨 eco", "生产轨 prod"] },
-    series: [{ type: "bar", barMaxWidth: 30, data: [
-      { value: dual.eco_proba_mean, itemStyle: { color: "#3C5488B0" } },
-      { value: dual.prod_proba_mean, itemStyle: { color: "#E64B35" } },
-    ], label: { show: true, position: "right", formatter: (p: any) => Number(p.value).toFixed(4) } }],
-  } : null;
+  // 场地背景信息卡片
+  const siteBg = site ? (
+    <Card size="small" style={{ background: "#f8f9fb" }}>
+      <Descriptions size="small" column={2}>
+        <Descriptions.Item label="场地区位">
+          {[site.province, site.city].filter(Boolean).join(" ")}，{POLLUTION_LABEL[site.pollution_type] || "—"}污染场地
+        </Descriptions.Item>
+        <Descriptions.Item label="修复后用途">{landUse}</Descriptions.Item>
+        <Descriptions.Item label="采样点">{site.n_points ?? "—"} 个</Descriptions.Item>
+        <Descriptions.Item label="检测记录">{site.n_measurements ?? "—"} 条</Descriptions.Item>
+      </Descriptions>
+      <Paragraph type="secondary" style={{ fontSize: 12, margin: "8px 0 0 0" }}>
+        诊断模型：RF+SHAP 综合诊断。当前为「{landUse}」轨专属诊断结果。
+      </Paragraph>
+    </Card>
+  ) : null;
+
+  // 诊断分低时警告
+  const aucVal = diag?.model?.metrics?.auc;
+  const f1Val = diag?.model?.metrics?.f1;
+  const aucNum = typeof aucVal === "string" ? parseFloat(aucVal) : aucVal;
+  const lowConfidence = aucNum != null && aucNum < 0.7;
+  const veryLowConfidence = aucNum != null && aucNum < 0.5;
 
   return (
     <Space direction="vertical" style={{ width: "100%" }} size={16}>
@@ -101,96 +156,90 @@ export default function ObstacleAnalysis() {
             <Segmented value={landUse} onChange={(v) => switchLandUse(v as string)} disabled={!sid}
               options={[{ label: "修复后·生产用地", value: "生产用地" }, { label: "修复后·生态用地", value: "生态用地" }]} />
           </Space>
-          <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行 RF+SHAP 障碍因子识别</Button>
+          <Space>
+            {diag && (
+              <Button icon={<ExportOutlined />} onClick={() => {
+                api.generateReport(sid!, "pdf").then((r: any) => {
+                  message.success("诊断报告生成中...");
+                }).catch(() => message.error("导出失败"));
+              }}>导出诊断报告</Button>
+            )}
+            <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行障碍因子诊断</Button>
+          </Space>
         </Space>
         <div style={{ marginTop: 8, color: "#666", fontSize: 12 }}>
-          「修复后用途」决定诊断主轨(生产=GB15618严阈值/生态=GB36600二类宽阈值) + 功能重构评价方向 + SSUI + 方案推荐; 双轨对比卡片始终展示 prod/eco 全貌以供决策参照。
+          「修复后用途」决定诊断轨。当前展示「{landUse}」专属诊断结果。切换用途后需重新运行诊断。
         </div>
       </Card>
+
       {diag ? (
         <>
-          <Card title="模型与结论">
+          {/* 场地背景信息 */}
+          {siteBg}
+
+          {/* 模型与结论 — 术语简化 */}
+          <Card title="诊断模型与结论">
+            {veryLowConfidence && (
+              <Alert type="error" showIcon message="诊断结果不可靠，请检查数据完整性后重新诊断"
+                style={{ marginBottom: 12 }} />
+            )}
+            {lowConfidence && !veryLowConfidence && (
+              <Alert type="warning" showIcon message={`当前诊断结果置信度偏低（AUC: ${aucNum?.toFixed(2)}），建议人工复核关键因子`}
+                style={{ marginBottom: 12 }} />
+            )}
             <Descriptions size="small" column={2}>
-              <Descriptions.Item label="模型">{diag.model?.name} {diag.model?.version}</Descriptions.Item>
-              <Descriptions.Item label="模型指标">AUC={diag.model?.metrics?.auc}，F1={diag.model?.metrics?.f1}</Descriptions.Item>
-              <Descriptions.Item label="数据版本">{diag.data_version}</Descriptions.Item>
-              <Descriptions.Item label="训练数据">{diag.model?.training_data_version}</Descriptions.Item>
-              <Descriptions.Item label="结论摘要" span={2}>{diag.summary}</Descriptions.Item>
+              <Descriptions.Item label="诊断模型">{diag.model?.name || "RF+SHAP 综合诊断"}</Descriptions.Item>
+              <Descriptions.Item label="模型可信度">
+                AUC={aucVal ?? "—"}，F1={f1Val ?? "—"}
+                <Tooltip title={<pre style={{ fontSize: 11, margin: 0, whiteSpace: "pre-line" }}>{AUC_GUIDE + "\n\n" + F1_GUIDE}</pre>}>
+                  <InfoCircleOutlined style={{ marginLeft: 6, color: "#888", cursor: "help" }} />
+                </Tooltip>
+              </Descriptions.Item>
+              <Descriptions.Item label="结论摘要" span={2}>
+                <Text>{diag.summary || "—"}</Text>
+              </Descriptions.Item>
             </Descriptions>
           </Card>
-          {dual && (
-            <Card title={<Space><span>生产-生态双轨对比</span><Tag color={dual.dominant_track === "prod" ? "#E64B35" : "#00A087"} style={{ color: "#fff" }}>主导: {dual.dominant_track === "prod" ? "生产轨" : "生态轨"}</Tag></Space>}>
-              <Row gutter={16}>
-                <Col span={10}>
-                  <ReactECharts option={dualOption} style={{ height: 200 }} />
-                </Col>
-                <Col span={14}>
-                  <Descriptions size="small" column={2}>
-                    <Descriptions.Item label="生产轨 proba">{dual.prod_proba_mean}</Descriptions.Item>
-                    <Descriptions.Item label="生态轨 proba">{dual.eco_proba_mean}</Descriptions.Item>
-                    <Descriptions.Item label="生产轨模型">{dual.prod_model}</Descriptions.Item>
-                    <Descriptions.Item label="生态轨模型">{dual.eco_model}</Descriptions.Item>
-                    <Descriptions.Item label="Δ(生产−生态)">{dual.delta_prod_minus_eco}</Descriptions.Item>
-                    <Descriptions.Item label="生产/生态 AUC">{dual.prod_auc} / {dual.eco_auc}</Descriptions.Item>
-                    <Descriptions.Item label="双轨说明" span={2}>生产轨用 GB15618 严阈值标签(风险判定保守)、生态轨用 GB36600 二类宽阈值标签; Δ&gt;0 表示生产功能重构风险系统性更高, 符合"严阈值→高 proba"物理解释。</Descriptions.Item>
-                  </Descriptions>
-                </Col>
-              </Row>
-              {(dual.prod_top_factors?.length || dual.eco_top_factors?.length) ? (
-                <Row gutter={12} style={{ marginTop: 12 }}>
-                  <Col span={12}>
-                    <Card size="small" type="inner" title={<Space><span>生产轨 Top 障碍因子</span><Tag color="#E64B35" style={{ color: "#fff" }}>GB15618 严阈值</Tag></Space>}>
-                      <Table rowKey="rank" size="small" pagination={false} dataSource={(dual.prod_top_factors || []).slice(0, 5)}
-                        columns={[seqCol(40), textCol("因子", "factor"), numCol("|影响|", "importance"),
-                          { title: "来源", dataIndex: "source", render: (v: string) => <Tag style={{ fontSize: 10 }}>{v === "rf_shap" ? "SHAP" : v === "threshold_exceedance_rule" ? "超标规则" : "短板规则"}</Tag> }]} />
-                    </Card>
-                  </Col>
-                  <Col span={12}>
-                    <Card size="small" type="inner" title={<Space><span>生态轨 Top 障碍因子</span><Tag color="#3C5488" style={{ color: "#fff" }}>GB36600 二类宽</Tag></Space>}>
-                      <Table rowKey="rank" size="small" pagination={false} dataSource={(dual.eco_top_factors || []).slice(0, 5)}
-                        columns={[seqCol(40), textCol("因子", "factor"), numCol("|影响|", "importance"),
-                          { title: "来源", dataIndex: "source", render: (v: string) => <Tag style={{ fontSize: 10 }}>{v === "rf_shap" ? "SHAP" : v === "threshold_exceedance_rule" ? "超标规则" : "短板规则"}</Tag> }]} />
-                    </Card>
-                  </Col>
-                </Row>
-              ) : null}
-            </Card>
-          )}
-          <Card title="Top-N 关键障碍因子（全局 SHAP 重要性）">
-            {opt && <ReactECharts option={opt} style={{ height: 340 }} />}
-            <Table rowKey="rank" size="small" pagination={false} dataSource={diag.top_factors}
+
+          {/* 关键障碍因子 */}
+          <Card title="关键障碍因子（影响程度排序）">
+            {opt && <ReactECharts option={opt} theme="srs-light" opts={SVG_OPTS} style={{ height: 340 }} />}
+            <Table rowKey="rank" size="small" pagination={false} dataSource={trackFactors}
               columns={[
                 seqCol(64),
                 textCol("障碍因子", "factor"),
                 textCol("类别", "category"),
-                numCol("|SHAP|", "importance"),
+                numCol("影响程度 |SHAP|", "importance"),
                 { title: "影响方向", dataIndex: "direction", align: "center",
-                  render: (v: string) => <Tag color={v === "positive" ? "#E64B35" : "#4DBBD5"} style={{ color: "#fff" }}>{v === "positive" ? "正向(加重)" : "负向(缓解)"}</Tag> },
+                  render: (v: string) => <Tag color={v === "positive" ? POLLUTION_TYPE["heavy_metal"] : "#4DBBD5"} style={{ color: "#fff" }}>{v === "positive" ? "正向(加重)" : "负向(缓解)"}</Tag> },
               ]} />
           </Card>
+
           {(localOption || directionOption) && (
             <Row gutter={16}>
               {localOption && (
                 <Col span={14}>
-                  <Card title="局部 SHAP 解释（最高风险采样点 · force plot 近似）">
-                    <ReactECharts option={localOption} style={{ height: 320 }} />
+                  <Card title="采样点风险成因分析">
+                    <ReactECharts option={localOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 320 }} />
                   </Card>
                 </Col>
               )}
               {directionOption && (
                 <Col span={10}>
                   <Card title="障碍因子影响方向分布">
-                    <ReactECharts option={directionOption} style={{ height: 320 }} />
+                    <ReactECharts option={directionOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 320 }} />
                   </Card>
                 </Col>
               )}
             </Row>
           )}
+
           {diag.shap_global?.calculation_trace?.length > 0 && (
             <Card title="计算过程追溯">
               <Timeline items={diag.shap_global.calculation_trace.map((s: string) => ({ children: s }))} />
             </Card>
           )}
+
           {diag.local_explanation?.length > 0 && (
             <Card title="局部解释（最高风险采样点）">
               <Table rowKey={(r: any) => r.factor + r.point_code} size="small" pagination={false}
@@ -201,7 +250,7 @@ export default function ObstacleAnalysis() {
             </Card>
           )}
         </>
-      ) : <Empty description="请选择场地并运行障碍因子识别" />}
+      ) : <EmptyState description="请选择场地并运行障碍因子识别" />}
     </Space>
   );
 }

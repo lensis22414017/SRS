@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { api } from "../api/client";
+import { POLLUTION_TYPE, POLLUTION_LABEL } from "../theme/palette";
 
 interface SitePoint {
   id?: number;
@@ -264,9 +265,16 @@ export default function SiteMap({
         const ll = L.latLng(s.latitude, s.longitude);
         pts.push(ll);
         lngLats.push([s.longitude!, s.latitude!]);
-        const color = s.color || STATUS_COLOR[s.status || "danger"] || "#dc2626";
+        const color = s.color || POLLUTION_TYPE[s.pollution_type || ""] || STATUS_COLOR[s.status || "danger"] || "#dc2626";
+        const ptLabel = POLLUTION_LABEL[s.pollution_type || ""] || s.pollution_type || "—";
+        const popupHtml = [
+          `<b>${esc(s.name || s.point_code || "点位")}</b>`,
+          `<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${color};margin-right:4px;"></span> ${ptLabel}`,
+          `坐标: ${s.latitude?.toFixed?.(4) ?? "—"}, ${s.longitude?.toFixed?.(4) ?? "—"}`,
+          s.id ? `<a href="/sites/${s.id}" style="font-size:12px;">进入场地详情 →</a>` : "",
+        ].filter(Boolean).join("<br/>");
         const mk = L.circleMarker(ll, { radius: 8, color: "#fff", weight: 2, fillColor: color, fillOpacity: 0.9 })
-          .bindPopup(`<b>${esc(s.name || s.point_code || "点位")}</b><br/>${esc(s.pollution_type || "")}<br/>${s.latitude}, ${s.longitude}`)
+          .bindPopup(popupHtml)
           .addTo(layer);
         if (onMarkerClick) mk.on("click", () => onMarkerClick(s));
       });

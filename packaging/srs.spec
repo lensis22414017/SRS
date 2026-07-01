@@ -179,7 +179,7 @@ exe = EXE(
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
-    icon=str(PROJECT_ROOT / "packaging" / "srs_512.png") if (PROJECT_ROOT / "packaging" / "srs_512.png").exists() else None,
+    icon=str(PROJECT_ROOT / "packaging" / "srs.ico") if (PROJECT_ROOT / "packaging" / "srs.ico").exists() else (str(PROJECT_ROOT / "packaging" / "srs_512.png") if (PROJECT_ROOT / "packaging" / "srs_512.png").exists() else None),  # 裴总: 扁平生态科技风新图标(多尺寸ico优先, 回退旧png)
     version_info=_VI,  # Windows 版本信息对象(公司名=ZJU WW Lab/版权/版本)
 )
 

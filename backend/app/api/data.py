@@ -21,6 +21,27 @@ from app.services.audit_service import log
 from app.services.import_service import load_mapping, read_table, resolve_mapping_for_file
 from app.services.pipeline import run_import_with_mapping
 
+def _format_site_code(db: Session, site_id: int):
+    site = db.get(Site, site_id)
+    if not site:
+        return
+    n_points = db.query(func.count(SamplingPoint.id)).filter_by(site_id=site_id).scalar()
+
+    prov = site.province or "未知"
+    # 保留省份全称，不做简写
+
+    pt = site.pollution_type
+    pt_abbr = "OP"
+    if pt == "heavy_metal":
+        pt_abbr = "HM"
+    elif pt == "composite":
+        pt_abbr = "HM+OP"
+
+    code = f"{site.id:02d}.{prov}-{pt_abbr}-{n_points}点"
+    site.site_code = code
+    site.name = code
+    db.commit()
+
 router = APIRouter(prefix=get_settings().api_v1_prefix, tags=["data"])
 
 
@@ -56,6 +77,9 @@ async def import_data(mapping_id: str = Form(...), file: UploadFile = File(...),
     try:
         result = run_import_with_mapping(db, dest, mapping, imported_by=user.id,
                                          on_conflict=on_conflict)
+        if result.get("site_id"):
+            _format_site_code(db, result["site_id"])
+        
         result["stored_filename"] = canonical
         result["original_filename"] = file.filename
         result["mapping_id"] = used_id
@@ -206,6 +230,10 @@ async def import_batch(mapping_id: str = Form(...),
             _apply_auto_site_code(file_mapping, mapping_id, original_name)
             res = run_import_with_mapping(db, dest, file_mapping, imported_by=user.id,
                                           on_conflict=on_conflict)
+            
+            if res.get("site_id"):
+                _format_site_code(db, res["site_id"])
+
             res["stored_filename"] = canonical
             res["original_filename"] = original_name
             res["mapping_id"] = used_id
@@ -276,6 +304,54 @@ def list_sites(q: str | None = None, pollution_type: str | None = None,
                          "部分超标" if exceed_cnt.get(s.id, 0) < 10 else "大量超标"),
     } for s in rows]
     return {"total": total, "page": page, "size": size, "items": items}
+
+
+@router.get("/sites/statistics")
+def site_statistics(user: User = Depends(get_current_user),
+                    db: Session = Depends(get_db)):
+    """场地统计聚合: 按污染类型分类计数 + 覆盖省份 + 检测/超标总量。
+    企业用户自动 scope 到本企业场地。
+    """
+    base_q = scope_sites_query(db, user, db.query(Site))
+    sites = base_q.all()
+    site_ids = [s.id for s in sites]
+
+    hm = sum(1 for s in sites if s.pollution_type == "heavy_metal")
+    op = sum(1 for s in sites if s.pollution_type == "organic")
+    composite = sum(1 for s in sites if s.pollution_type == "composite")
+    provinces = len({s.province for s in sites if s.province})
+
+    n_points = db.query(func.count(SamplingPoint.id)).filter(
+        SamplingPoint.site_id.in_(site_ids)).scalar() if site_ids else 0
+    n_meas = db.query(func.count(Measurement.id)).filter(
+        Measurement.site_id.in_(site_ids)).scalar() if site_ids else 0
+
+    exceed = 0
+    if site_ids:
+        _std = (db.query(Measurement.id)
+                .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id)
+                .join(StandardThreshold, StandardThreshold.factor_id == FactorDictionary.id)
+                .filter(Measurement.site_id.in_(site_ids),
+                        StandardThreshold.screening_value != None,
+                        Measurement.value > StandardThreshold.screening_value)).all()
+        _rule = (db.query(Measurement.id)
+                 .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id)
+                 .join(ThresholdRule, ThresholdRule.factor_id == FactorDictionary.id)
+                 .filter(Measurement.site_id.in_(site_ids),
+                         ThresholdRule.threshold_max != None,
+                         Measurement.value > ThresholdRule.threshold_max)).all()
+        exceed = len({r[0] for r in list(_std) + list(_rule)})
+
+    return {
+        "total_sites": len(sites),
+        "total_provinces": provinces,
+        "heavy_metal_count": hm,
+        "organic_count": op,
+        "composite_count": composite,
+        "total_sampling_points": n_points,
+        "total_measurements": n_meas,
+        "exceedance_count": exceed,
+    }
 
 
 @router.get("/sites/{site_id}")
@@ -573,3 +649,5 @@ def validation_report(batch_id: int, user: User = Depends(get_current_user),
         "invalid_count": b.invalid_count, "status": b.status,
         "report": b.validation_report,
     }
+
+

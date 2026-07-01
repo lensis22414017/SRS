@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { Card, Button, Empty, App, Row, Col, Statistic, Tag, Space, Table, Divider, Alert, Timeline, Typography } from "antd";
+import { ExportOutlined } from "@ant-design/icons";
 import ReactECharts from "echarts-for-react";
 import { api } from "../api/client";
 import SitePicker from "../components/SitePicker";
 import FormulaBlock from "../components/FormulaBlock";
 import OrganicDegradedCard from "../components/OrganicDegradedCard";
+import EmptyState from "../components/EmptyState";
 import { seqCol, numCol, textCol } from "../utils/table";
+import { SVG_OPTS } from "../theme/echarts";
 
 const { Text } = Typography;
 
@@ -62,10 +65,10 @@ export default function SSUIAnalysis() {
             { type: "value", name: "权重(%)", position: "right", max: 100 }],
     series: [
       { name: "归一化得分", type: "bar", data: parts.map((p: any) => p.normalized ?? 0),
-        itemStyle: { color: "#4DBBD5", borderRadius: [3,3,0,0] }, barMaxWidth: 32 },
+        itemStyle: { color: "#4DBBD5", borderRadius: [4,4,0,0], shadowBlur: 4, shadowColor: "rgba(0,0,0,0.15)" }, barMaxWidth: 32 },
       { name: "权重(%)", type: "bar", yAxisIndex: 1,
         data: parts.map((p: any) => (p.weight != null ? p.weight * 100 : 0)),
-        itemStyle: { color: "#E64B35", borderRadius: [3,3,0,0] }, barMaxWidth: 32 },
+        itemStyle: { color: "#E64B35", borderRadius: [4,4,0,0], shadowBlur: 4, shadowColor: "rgba(0,0,0,0.15)" }, barMaxWidth: 32 },
     ],
   } : null;
 
@@ -74,7 +77,12 @@ export default function SSUIAnalysis() {
       <Card>
         <Space style={{ width: "100%", justifyContent: "space-between" }}>
           <SitePicker value={sid} onChange={setSid} />
-          <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行 SSUI 可持续利用评价</Button>
+          <Space>
+            {data && <Button icon={<ExportOutlined />} onClick={() => {
+              api.generateReport(sid!, "pdf").then(() => message.success("SSUI 评价报告生成中...")).catch(() => message.error("导出失败"));
+            }}>导出评价报告</Button>}
+            <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行 SSUI 可持续利用评价</Button>
+          </Space>
         </Space>
         <div style={{ marginTop: 12 }}>
           <FormulaBlock
@@ -130,7 +138,7 @@ export default function SSUIAnalysis() {
           <Alert type="warning" style={{ marginBottom: 16 }}
             message="MVP 口径说明" description={s.explanation} />
           <Row gutter={16} align="middle">
-            <Col span={8}>{gauge && <ReactECharts option={gauge} style={{ height: 220 }} />}</Col>
+            <Col span={8}>{gauge && <ReactECharts option={gauge} theme="srs-light" opts={SVG_OPTS} style={{ height: 220 }} />}</Col>
             <Col span={8}><Statistic title="SSUI 指数" value={s.score} /></Col>
             <Col span={8}><div>可持续性等级</div>
               <Tag color={s.grade?.includes("不") ? "red" : s.grade?.includes("低") ? "orange" : "green"}
@@ -147,7 +155,7 @@ export default function SSUIAnalysis() {
             ]} />
           {partsOption && (
             <Card size="small" title="各元指标归一化得分与权重（双轴条形图 · 识别重点管控对象）" style={{ marginTop: 12 }}>
-              <ReactECharts option={partsOption} style={{ height: 280 }} />
+              <ReactECharts option={partsOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 280 }} />
             </Card>
           )}
           {trace.length > 0 && (
@@ -159,7 +167,7 @@ export default function SSUIAnalysis() {
             </>
           )}
         </Card>
-      ) : <Empty description="请选择场地并运行 SSUI 评价" />}
+      ) : <EmptyState description="请选择场地并运行 SSUI 评价" />}
     </Space>
   );
 }

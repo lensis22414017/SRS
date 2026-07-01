@@ -3,7 +3,8 @@ import { Card, Table, Select, Spin, Empty, Row, Col, Tag, Space, Tabs, Typograph
 import ReactECharts from "echarts-for-react";
 import { api } from "../api/client";
 import { seqCol, numCol, textCol } from "../utils/table";
-import { CATEGORICAL, PRIMARY, NEUTRAL_TEXT } from "../theme/palette";  // 全局配色(对齐裴总精品案例, 问题5/9 EDA降饱和+频次显示)
+import { CATEGORICAL, PRIMARY, NEUTRAL_TEXT } from "../theme/palette";
+import { SVG_OPTS } from "../theme/echarts";
 
 const { Text } = Typography;
 
@@ -80,7 +81,7 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
               extra={<Select style={{ width: 220 }} value={sel} onChange={setSel} options={factorOptions} />}>
               <Text type="secondary">选定因子的浓度分布频数直方图（15 等宽分箱）。横轴=浓度区间，纵轴=样本频次。用于判断因子分布形态（正态/偏态/多峰）。单位见因子字典。</Text>
               <Row gutter={16} style={{ marginTop: 8 }}>
-                <Col span={16}>{histOption ? <ReactECharts option={histOption} style={{ height: 340 }} /> : <Empty />}</Col>
+                <Col span={16}>{histOption ? <ReactECharts option={histOption} style={{ height: 340 }} theme="srs-light" opts={SVG_OPTS} /> : <Empty />}</Col>
                 <Col span={8}>
                   {cur && (
                     <Table size="small" pagination={false} showHeader={false} rowKey="k" dataSource={[
@@ -102,7 +103,7 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
           children: (
             <Card title="云雨图 Raincloud（半小提琴密度 + 样本散点 + 箱线，多因子分布对比）" size="small">
               <Text type="secondary">箱体=IQR(Q1~Q3)，中线=中位数，须线=1.5×IQR 边界；外层多边形=核密度估计(KDE)轮廓，红点=离群点。</Text>
-              <div style={{ marginTop: 8 }}>{boxOption ? <ReactECharts option={boxOption} style={{ height: 440 }} /> : <Empty />}</div>
+              <div style={{ marginTop: 8 }}>{boxOption ? <ReactECharts option={boxOption} style={{ height: 440 }} theme="srs-light" opts={SVG_OPTS} /> : <Empty />}</div>
             </Card>
           ),
         },
@@ -116,7 +117,7 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
                 <Select style={{ width: 170 }} value={scatterY} onChange={setScatterY} options={factorOptions} />
               </Space>}>
               <Text type="secondary">双因子分位点散点对照（两因子各自排序后按等分位点配对）+ 最小二乘线性拟合，r 为皮尔逊相关系数。|r|→1 表示两因子强线性相关，可用于识别污染同源性（如重金属伴生）。</Text>
-              <div style={{ marginTop: 8 }}>{scatterOption ? <ReactECharts option={scatterOption} style={{ height: 400 }} /> : <Empty />}</div>
+              <div style={{ marginTop: 8 }}>{scatterOption ? <ReactECharts option={scatterOption} style={{ height: 400 }} theme="srs-light" opts={SVG_OPTS} /> : <Empty />}</div>
             </Card>
           ),
         },
@@ -125,7 +126,7 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
           children: (
             <Card title="跨因子相关系数矩阵（Pearson）" size="small">
               <Text type="secondary">基于采样点宽表 pivot 计算皮尔逊相关。常数/低方差列已自动剔除。蓝=正相关，红=负相关。</Text>
-              <div style={{ marginTop: 8 }}>{heatOption ? <ReactECharts option={heatOption} style={{ height: 480 }} /> : <Empty description="因子数 < 2，无法计算相关矩阵" />}</div>
+              <div style={{ marginTop: 8 }}>{heatOption ? <ReactECharts option={heatOption} style={{ height: 480 }} theme="srs-light" opts={SVG_OPTS} /> : <Empty description="因子数 < 2，无法计算相关矩阵" />}</div>
             </Card>
           ),
         },
@@ -135,7 +136,7 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
             <Card title="正态 Q-Q 图（检验正态性）" size="small"
               extra={<Select style={{ width: 220 }} value={sel} onChange={setSel} options={factorOptions} />}>
               <Text type="secondary">点越贴近红色 y=x 参考线，分布越接近正态。偏态因子点会呈 S 形弯曲。</Text>
-              <div style={{ marginTop: 8 }}>{qqOption ? <ReactECharts option={qqOption} style={{ height: 400 }} /> : <Empty />}</div>
+              <div style={{ marginTop: 8 }}>{qqOption ? <ReactECharts option={qqOption} style={{ height: 400 }} theme="srs-light" opts={SVG_OPTS} /> : <Empty />}</div>
             </Card>
           ),
         },
@@ -144,7 +145,7 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
           children: (
             <Card title="因子对比柱状图（均值 / 变异系数 CV）" size="small">
               <Text type="secondary">左 Y 轴=各因子浓度均值（深蓝），右 Y 轴=变异系数 CV%（橙）。CV 越大表示该因子在场内空间变异越剧烈，CV&gt;50% 通常提示存在局部污染热点。用于横向比较各因子的平均水平与空间稳定性。</Text>
-              <div style={{ marginTop: 8 }}>{compareOption ? <ReactECharts option={compareOption} style={{ height: 420 }} /> : <Empty />}</div>
+              <div style={{ marginTop: 8 }}>{compareOption ? <ReactECharts option={compareOption} style={{ height: 420 }} theme="srs-light" opts={SVG_OPTS} /> : <Empty />}</div>
             </Card>
           ),
         },
@@ -163,7 +164,7 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
                   message={`已自动降级：${data.grouped.degraded_reason}`}
                   description={`当前实际按「${groupByLabel(data.grouped.group_by)}」分组展示`} />
               )}
-              <div style={{ marginTop: 8 }}>{groupedOption ? <ReactECharts option={groupedOption} style={{ height: 420 }} /> : <Empty />}</div>
+              <div style={{ marginTop: 8 }}>{groupedOption ? <ReactECharts option={groupedOption} style={{ height: 420 }} theme="srs-light" opts={SVG_OPTS} /> : <Empty />}</div>
             </Card>
           ),
         },
@@ -172,7 +173,7 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
           children: (
             <Card title="因子类别分布（环形图）" size="small">
               <Text type="secondary">各因子类别（环境指标/化学性质/肥力指标等）数量占比环形图，快速识别场地主导污染物类型。</Text>
-              <div style={{ marginTop: 8 }}>{pieOption ? <ReactECharts option={pieOption} style={{ height: 380 }} /> : <Empty />}</div>
+              <div style={{ marginTop: 8 }}>{pieOption ? <ReactECharts option={pieOption} style={{ height: 380 }} theme="srs-light" opts={SVG_OPTS} /> : <Empty />}</div>
             </Card>
           ),
         },

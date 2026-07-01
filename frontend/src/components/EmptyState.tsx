@@ -1,50 +1,34 @@
-import { Empty, Button } from "antd";
+import { Typography, Space } from "antd";
+import { InboxOutlined } from "@ant-design/icons";
+
+const { Text } = Typography;
 
 interface EmptyStateProps {
-  /** 显示图标（可用 antd 图标或自定义 ReactNode） */
-  icon?: React.ReactNode;
-  title?: string;
   description?: string;
-  actionLabel?: string;
-  onAction?: () => void;
   style?: React.CSSProperties;
 }
 
-/**
- * 通用空状态组件。
- * 用于列表页、图表区、分析结果等无数据时的统一展示。
- * 支持自定义图标、说明文字和操作按钮。
- */
-export default function EmptyState({
-  icon,
-  title = "暂无数据",
-  description,
-  actionLabel,
-  onAction,
-  style,
-}: EmptyStateProps) {
+export default function EmptyState({ description = "暂无数据，请先选择或运行", style }: EmptyStateProps) {
   return (
-    <Empty
-      image={icon ?? Empty.PRESENTED_IMAGE_SIMPLE}
-      description={
-        <span>
-          <span style={{ display: "block", fontWeight: 500, fontSize: 14, color: "#374151" }}>
-            {title}
-          </span>
-          {description && (
-            <span style={{ display: "block", fontSize: 12, color: "#6b7280", marginTop: 4 }}>
-              {description}
-            </span>
-          )}
-        </span>
-      }
-      style={{ padding: "32px 0", ...style }}
-    >
-      {actionLabel && onAction && (
-        <Button type="primary" onClick={onAction}>
-          {actionLabel}
-        </Button>
-      )}
-    </Empty>
+    <div style={{
+      padding: "64px 24px",
+      textAlign: "center",
+      background: "linear-gradient(180deg, rgba(248, 250, 252, 0.4) 0%, rgba(241, 245, 249, 0.6) 100%)",
+      border: "1px dashed #cbd5e1",
+      borderRadius: 12,
+      ...style
+    }}>
+      <Space direction="vertical" size={16}>
+        <div style={{ 
+          width: 72, height: 72, margin: "0 auto", borderRadius: "50%",
+          background: "#f1f5f9", display: "flex", alignItems: "center", justifyContent: "center" 
+        }}>
+          <InboxOutlined style={{ fontSize: 36, color: "#94a3b8" }} />
+        </div>
+        <Text type="secondary" style={{ fontSize: 14, color: "#64748b", letterSpacing: 0.5 }}>
+          {description}
+        </Text>
+      </Space>
+    </div>
   );
 }

@@ -1,22 +1,22 @@
-"""种子数据: 角色、权限、4 类演示账号、技术库。
+"""种子数据: 角色、权限、系统管理员账号、技术库、系统配置。
 
-演示账号密码统一为环境变量 DEMO_PASSWORD (默认 'Demo@2026'), 哈希存储。
-可重复运行 (按唯一键幂等)。需在安装 backend 依赖的环境中执行。
+仅预置系统管理员 (admin)，企业用户/第三方机构/监管人员需通过注册→审核流程创建。
+管理员初始密码由环境变量 ADMIN_PASSWORD (默认 'Admin@2026') 控制，哈希存储。
+可重复运行 (按唯一键幂等)。
 """
 from __future__ import annotations
 
 import csv
-import json
 import os
 
 from app.core.security import hash_password
 from app.db.init_db import create_all
 from app.db.session import SessionLocal
 from app.models import (
-    Organization, Permission, Role, RolePermission, TechnologyLibrary, User, UserRole,
+    Organization, Permission, Role, RolePermission, SystemConfig, TechnologyLibrary, User, UserRole,
 )
 
-DEMO_PASSWORD = os.environ.get("DEMO_PASSWORD", "Demo@2026")
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "Admin@2026")
 
 ROLES = [
     ("admin", "系统管理员", "全功能访问"),
@@ -44,19 +44,15 @@ ROLE_PERMS = {
                   "report:generate", "audit:view"],
 }
 
-ORGS = [
-    ("系统管理方", "admin"),
-    ("示范企业A(个旧场地)", "enterprise"),
-    ("第三方检测机构B", "agency"),
-    ("属地监管单位C", "regulator"),
-]
+# 仅预置系统管理方组织和管理员账户
+ADMIN_ORG = ("系统管理方", "admin")
+ADMIN_USER = ("admin", "系统管理员", "admin", "系统管理方")
 
-# username, display, role_code, org_name
-USERS = [
-    ("admin", "系统管理员", "admin", "系统管理方"),
-    ("enterprise", "企业用户(示范企业A)", "enterprise", "示范企业A(个旧场地)"),
-    ("agency", "第三方机构B", "agency", "第三方检测机构B"),
-    ("regulator", "监管人员C", "regulator", "属地监管单位C"),
+# 系统配置初始值
+SYSTEM_CONFIG_DEFAULTS = [
+    ("admin_contact_phone", "010-0000-0000", "管理员联系电话"),
+    ("admin_contact_email", "admin@srs-system.cn", "管理员联系邮箱"),
+    ("admin_display_name", "系统管理方", "管理员显示名称"),
 ]
 
 
@@ -64,14 +60,15 @@ def seed():
     create_all()
     db = SessionLocal()
     try:
-        # 组织
+        # 组织 — 仅预置系统管理方
         org_map = {}
-        for name, otype in ORGS:
-            o = db.query(Organization).filter_by(name=name).first()
-            if not o:
-                o = Organization(name=name, org_type=otype)
-                db.add(o); db.flush()
-            org_map[name] = o.id
+        name, otype = ADMIN_ORG
+        o = db.query(Organization).filter_by(name=name).first()
+        if not o:
+            o = Organization(name=name, org_type=otype)
+            db.add(o); db.flush()
+        org_map[name] = o.id
+
         # 权限
         perm_map = {}
         for code, name, cat in PERMISSIONS:
@@ -80,7 +77,8 @@ def seed():
                 p = Permission(code=code, name=name, category=cat)
                 db.add(p); db.flush()
             perm_map[code] = p.id
-        # 角色 + 角色权限
+
+        # 角色 + 角色权限 (4 角色全部创建，供注册时选择)
         role_map = {}
         for code, name, desc in ROLES:
             r = db.query(Role).filter_by(code=code).first()
@@ -91,21 +89,29 @@ def seed():
             for pc in ROLE_PERMS[code]:
                 if not db.query(RolePermission).filter_by(role_id=r.id, permission_id=perm_map[pc]).first():
                     db.add(RolePermission(role_id=r.id, permission_id=perm_map[pc]))
-        # 用户 + 角色绑定
-        for uname, disp, rcode, oname in USERS:
-            u = db.query(User).filter_by(username=uname).first()
-            if not u:
-                u = User(username=uname, display_name=disp,
-                         password_hash=hash_password(DEMO_PASSWORD),
-                         organization_id=org_map[oname])
-                db.add(u); db.flush()
-            if not db.query(UserRole).filter_by(user_id=u.id, role_id=role_map[rcode]).first():
-                db.add(UserRole(user_id=u.id, role_id=role_map[rcode]))
+
+        # 用户 — 仅预置系统管理员
+        uname, disp, rcode, oname = ADMIN_USER
+        u = db.query(User).filter_by(username=uname).first()
+        if not u:
+            u = User(username=uname, display_name=disp,
+                     password_hash=hash_password(ADMIN_PASSWORD),
+                     organization_id=org_map[oname])
+            db.add(u); db.flush()
+        if not db.query(UserRole).filter_by(user_id=u.id, role_id=role_map[rcode]).first():
+            db.add(UserRole(user_id=u.id, role_id=role_map[rcode]))
+
+        # 系统配置初始值
+        for key, value, desc in SYSTEM_CONFIG_DEFAULTS:
+            if not db.query(SystemConfig).filter_by(config_key=key).first():
+                db.add(SystemConfig(config_key=key, config_value=value,
+                                   description=desc, updated_by="system"))
+
         # 技术库
         seed_tech(db)
         db.commit()
-        print(f"种子完成: 组织 {len(ORGS)}, 角色 {len(ROLES)}, 权限 {len(PERMISSIONS)}, "
-              f"用户 {len(USERS)} (密码={DEMO_PASSWORD})")
+        print(f"种子完成: 组织 1, 角色 {len(ROLES)}, 权限 {len(PERMISSIONS)}, "
+              f"管理员用户=admin (密码={ADMIN_PASSWORD})")
     finally:
         db.close()
 

@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { Card, Button, Empty, App, Row, Col, Statistic, Tag, Space, Table, Divider, Timeline, Progress, Alert } from "antd";
+import { ExportOutlined } from "@ant-design/icons";
 import { api } from "../api/client";
 import SitePicker from "../components/SitePicker";
 import FormulaBlock from "../components/FormulaBlock";
 import OrganicDegradedCard from "../components/OrganicDegradedCard";
 import ReactECharts from "echarts-for-react";
 import { seqCol, numCol, textCol } from "../utils/table";
+import { SVG_OPTS } from "../theme/echarts";
 
 /** 功能重构分析 = 方法文件第2章 污染土壤生产-生态功能重构可行性评价(生产功能 + 生态功能) */
 function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRisk?: any }) {
@@ -78,14 +80,14 @@ function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRi
           {radarOption && (
             <Col span={10}>
               <Card size="small" title="各评价指标得分（雷达图 · 识别短板）">
-                <ReactECharts option={radarOption} style={{ height: 260 }} />
+                <ReactECharts option={radarOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 260 }} />
               </Card>
             </Col>
           )}
           {contribOption && (
             <Col span={14}>
               <Card size="small" title="指标贡献度排序（条形图 · 突出障碍因子）">
-                <ReactECharts option={contribOption} style={{ height: 260 }} />
+                <ReactECharts option={contribOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 260 }} />
               </Card>
             </Col>
           )}
@@ -132,7 +134,12 @@ export default function ReconstructionAnalysis() {
       <Card>
         <Space style={{ width: "100%", justifyContent: "space-between" }}>
           <SitePicker value={sid} onChange={setSid} />
-          <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行功能重构可行性评价</Button>
+          <Space>
+            {data && <Button icon={<ExportOutlined />} onClick={() => {
+              api.generateReport(sid!, "pdf").then(() => message.success("重构评价报告生成中...")).catch(() => message.error("导出失败"));
+            }}>导出分析报告</Button>}
+            <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行功能重构可行性评价</Button>
+          </Space>
         </Space>
         <div style={{ marginTop: 12 }}>
           <FormulaBlock

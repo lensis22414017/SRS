@@ -8,7 +8,8 @@ import {
   CheckCircleOutlined, CloseCircleOutlined, WarningOutlined,
   DatabaseOutlined, SettingOutlined, TeamOutlined, FileTextOutlined,
   HeartOutlined, ApiOutlined, ThunderboltOutlined, PlusOutlined, ExperimentOutlined,
-  InfoCircleOutlined,
+  InfoCircleOutlined, UserAddOutlined, PhoneOutlined, MailOutlined,
+  EditOutlined, SaveOutlined,
 } from "@ant-design/icons";
 import { api } from "../api/client";
 import { seqCol, textCol } from "../utils/table";
@@ -544,6 +545,124 @@ function TechLibrary() {
 }
 
 // ──────────────────────────────────────────────────────────────────────────────
+// 子组件: 账户审核
+// ──────────────────────────────────────────────────────────────────────────────
+function AccountApprovals() {
+  const [data, setData] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  const load = () => {
+    setLoading(true);
+    api.pendingApprovals().then((r) => setData(r.items || [])).catch(() => message.error("无权限"))
+      .finally(() => setLoading(false));
+  };
+  useEffect(() => { load(); }, []);
+
+  const approve = (uid: number) => {
+    Modal.confirm({
+      title: "确认通过", content: "通过后用户即可登录系统", onOk: () =>
+        api.approveUser(uid).then(() => { message.success("已激活"); load(); }).catch((e) =>
+          message.error(e?.response?.data?.detail || "操作失败")),
+    });
+  };
+  const reject = (uid: number) => {
+    let reason = "";
+    Modal.confirm({
+      title: "拒绝注册",
+      content: (
+        <Input.TextArea placeholder="请输入拒绝原因" onChange={(e) => reason = e.target.value} rows={3} style={{ marginTop: 8 }} />
+      ),
+      onOk: () => {
+        if (!reason.trim()) { message.warning("请填写拒绝原因"); return Promise.reject(); }
+        return api.rejectUser(uid, reason).then(() => { message.success("已拒绝"); load(); }).catch((e) =>
+          message.error(e?.response?.data?.detail || "操作失败"));
+      },
+    });
+  };
+
+  return (
+    <Table rowKey="user_id" loading={loading} dataSource={data}
+      columns={[
+        { title: "用户名", dataIndex: "username" },
+        { title: "显示名", dataIndex: "display_name" },
+        { title: "申请角色", dataIndex: "role_code", render: (v: string) => {
+          const m: Record<string, string> = { enterprise: "企业用户", agency: "第三方机构", regulator: "监管人员" };
+          return m[v] || v;
+        }},
+        { title: "组织", dataIndex: "organization_name" },
+        { title: "联系方式", render: (_: any, r: any) =>
+          [r.contact_phone, r.contact_email].filter(Boolean).join(" / ") || "—" },
+        { title: "申请时间", dataIndex: "created_at", render: (v: string) =>
+          v ? new Date(v).toLocaleString("zh-CN") : "—" },
+        { title: "操作", render: (_: any, r: any) => (
+          <Space>
+            <Button type="primary" size="small" icon={<CheckCircleOutlined />}
+              onClick={() => approve(r.user_id)}>通过</Button>
+            <Button danger size="small" icon={<CloseCircleOutlined />}
+              onClick={() => reject(r.user_id)}>拒绝</Button>
+          </Space>
+        )},
+      ]}
+      locale={{ emptyText: "暂无待审核账户" }}
+    />
+  );
+}
+
+// ──────────────────────────────────────────────────────────────────────────────
+// 子组件: 系统联系方式编辑
+// ──────────────────────────────────────────────────────────────────────────────
+function ContactInfoEditor() {
+  const [info, setInfo] = useState({ phone: "", email: "", display_name: "", updated_at: "" });
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [saving, setSaving] = useState(false);
+
+  const load = () => {
+    api.contactInfo().then((r) => {
+      setInfo(r); setPhone(r.phone || ""); setEmail(r.email || "");
+    }).catch(() => {});
+  };
+  useEffect(() => { load(); }, []);
+
+  const save = async (field: "phone" | "email", value: string) => {
+    setSaving(true);
+    try {
+      await api.updateContactInfo({ [field]: value });
+      message.success(`${field === "phone" ? "电话" : "邮箱"}已更新`);
+      load();
+    } catch (e: any) {
+      message.error(e?.response?.data?.detail || "保存失败");
+    } finally { setSaving(false); }
+  };
+
+  return (
+    <Space direction="vertical" style={{ width: "100%", maxWidth: 520 }} size={16}>
+      <Alert type="info" showIcon
+        message="此处填写的联系方式将在新用户注册页面展示，供申请人联系审核。" />
+      <Card type="inner" size="small">
+        <Descriptions column={1} size="small">
+          <Descriptions.Item label="联系电话">
+            <Space>
+              <Input prefix={<PhoneOutlined />} value={phone} onChange={(e) => setPhone(e.target.value)}
+                style={{ width: 260 }} placeholder="010-0000-0000" />
+              <Button icon={<SaveOutlined />} loading={saving} onClick={() => save("phone", phone)}>保存</Button>
+            </Space>
+          </Descriptions.Item>
+          <Descriptions.Item label="联系邮箱">
+            <Space>
+              <Input prefix={<MailOutlined />} value={email} onChange={(e) => setEmail(e.target.value)}
+                style={{ width: 260 }} placeholder="admin@srs-system.cn" />
+              <Button icon={<SaveOutlined />} loading={saving} onClick={() => save("email", email)}>保存</Button>
+            </Space>
+          </Descriptions.Item>
+          <Descriptions.Item label="最后更新">{info.updated_at ? new Date(info.updated_at).toLocaleString("zh-CN") : "—"}</Descriptions.Item>
+        </Descriptions>
+      </Card>
+    </Space>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────────────────────
 // 主页面
 // ──────────────────────────────────────────────────────────────────────────────
 export default function SystemManagement() {
@@ -560,7 +679,10 @@ export default function SystemManagement() {
       <Tabs
         items={[
           { key: "health", label: <Space><HeartOutlined />系统健康</Space>, children: <SystemHealth /> },
+          { key: "approvals", label: <Space><UserAddOutlined />账户审核</Space>, children: <AccountApprovals /> },
           { key: "tech", label: <Space><ExperimentOutlined />技术库管理</Space>, children: <TechLibrary /> },
+          { key: "contact", label: <Space><PhoneOutlined />联系方式</Space>, children: <ContactInfoEditor /> },
+          { key: "cfg", label: <Space><SettingOutlined />系统配置</Space>, children: <SystemConfig /> },
           { key: "cfg", label: <Space><SettingOutlined />系统配置</Space>, children: <SystemConfig /> },
           { key: "ai", label: <Space><ApiOutlined />AI 模型配置</Space>, children: <AiModelConfig /> },
           { key: "log", label: <Space><FileTextOutlined />操作日志</Space>, children: <AuditLogs /> },

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Card, Descriptions, Tabs, Table, Button, Spin, Space, App, Select } from "antd";
+import { Card, Descriptions, Tabs, Table, Button, Spin, Space, App, Select, Tag } from "antd";
 import { api } from "../api/client";
 import SiteMap from "../components/SiteMap";
 import EdaPanel from "../components/EdaPanel";
 import { seqCol, numCol, textCol } from "../utils/table";
+import { POLLUTION_TYPE, POLLUTION_LABEL } from "../theme/palette";
 
 export default function SiteDetail() {
   const { message } = App.useApp();
@@ -59,7 +60,11 @@ export default function SiteDetail() {
     <Space direction="vertical" style={{ width: "100%" }} size={16}>
       <Card>
         <Descriptions title={`${site.name}（${site.site_code}）`} column={3} size="small">
-          <Descriptions.Item label="污染类型">{site.pollution_type || "—"}</Descriptions.Item>
+          <Descriptions.Item label="污染类型">
+            {site.pollution_type
+              ? <Tag color={POLLUTION_TYPE[site.pollution_type] || "#888"}>{POLLUTION_LABEL[site.pollution_type] || site.pollution_type}</Tag>
+              : "—"}
+          </Descriptions.Item>
           <Descriptions.Item label="用地类型">{site.land_use_type || "—"}</Descriptions.Item>
           <Descriptions.Item label="区域">{(site.province || "") + (site.city || "") || "—"}</Descriptions.Item>
           <Descriptions.Item label="采样点">{site.n_points}</Descriptions.Item>

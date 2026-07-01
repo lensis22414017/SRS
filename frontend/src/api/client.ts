@@ -21,13 +21,31 @@ client.interceptors.response.use(
 
 export interface LoginResp {
   access_token: string;
-  user: { username: string; display_name: string; roles: string[]; organization_id: number | null };
+  user: { username: string; display_name: string; roles: string[]; permissions: string[]; organization_id: number | null };
 }
 
 export const api = {
   login: (username: string, password: string) =>
     client.post<LoginResp>("/auth/login", { username, password }).then((r) => r.data),
   me: () => client.get("/auth/me").then((r) => r.data),
+
+  // 注册 / 审核
+  register: (body: {
+    username: string; password: string; display_name: string;
+    organization_name: string; role_code: string;
+    contact_email?: string; contact_phone?: string;
+  }) => client.post("/auth/register", body).then((r) => r.data),
+  adminContact: () => client.get("/auth/admin-contact").then((r) => r.data),
+  pendingApprovals: () => client.get("/auth/pending-approvals").then((r) => r.data),
+  approveUser: (userId: number) => client.post(`/auth/approve/${userId}`).then((r) => r.data),
+  rejectUser: (userId: number, reason: string) =>
+    client.post(`/auth/reject/${userId}`, { reason }).then((r) => r.data),
+
+  // 忘记密码 / 重置密码
+  forgotPassword: (username: string) =>
+    client.post("/auth/forgot-password", { username }).then((r) => r.data),
+  resetPassword: (token: string, new_password: string) =>
+    client.post("/auth/reset-password", { token, new_password }).then((r) => r.data),
 
   // 数据
   sites: (params?: any) => client.get("/sites", { params }).then((r) => r.data),
@@ -129,9 +147,31 @@ export const api = {
   changePassword: (old_password: string, new_password: string) =>
     client.post("/system/change-password", { old_password, new_password }).then((r) => r.data),
   auditLogs: (params?: any) => client.get("/system/audit-logs", { params }).then((r) => r.data),
+  exportAuditLogs: async (params?: any) => {
+    const r = await client.get("/system/audit-logs/export", { params, responseType: "blob" });
+    const url = URL.createObjectURL(r.data as Blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = `audit_logs_${new Date().toISOString().slice(0, 10)}.csv`; a.click();
+    URL.revokeObjectURL(url);
+  },
+  exportTechnologies: async () => {
+    const r = await client.get("/system/technologies/export", { responseType: "blob" });
+    const url = URL.createObjectURL(r.data as Blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = `technologies_${new Date().toISOString().slice(0, 10)}.csv`; a.click();
+    URL.revokeObjectURL(url);
+  },
   systemConfig: () => client.get("/system/config").then((r) => r.data),
   systemHealth: () => client.get("/system/health").then((r) => r.data),
   users: () => client.get("/system/users").then((r) => r.data),
+
+  // 联系方式
+  contactInfo: () => client.get("/system/contact-info").then((r) => r.data),
+  updateContactInfo: (body: { phone?: string; email?: string }) =>
+    client.put("/system/contact-info", body).then((r) => r.data),
+
+  // 场地统计
+  siteStatistics: () => client.get("/sites/statistics").then((r) => r.data),
 
   // 技术库管理(brief 4.6)
   technologies: (params?: any) => client.get("/system/technologies", { params }).then((r) => r.data),

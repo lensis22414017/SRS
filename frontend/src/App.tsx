@@ -1,25 +1,26 @@
-import { Layout, Menu, Dropdown, Avatar, Space, Typography, Breadcrumb } from "antd";
+import { Layout, Menu, Dropdown, Avatar, Space, Typography, Breadcrumb, App as AntApp } from "antd";
 import {
   DashboardOutlined, DatabaseOutlined, SearchOutlined, ExperimentOutlined,
   LineChartOutlined, NodeIndexOutlined, SettingOutlined, UserOutlined, LogoutOutlined,
-  BulbOutlined, AppstoreOutlined,
+  BulbOutlined,
 } from "@ant-design/icons";
-import { Outlet, useNavigate, useLocation, Link } from "react-router-dom";
+import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "./auth";
 import AiAssistant from "./components/AiAssistant";
+import "./App.css";
 
 const { Header, Sider, Content } = Layout;
 const { Text } = Typography;
 
-const NAV = [
-  { key: "/", icon: <DashboardOutlined />, label: "数据概览" },
-  { key: "/sites", icon: <DatabaseOutlined />, label: "场地管理" },
-  { key: "/obstacle", icon: <SearchOutlined />, label: "障碍因子分析" },
-  { key: "/reconstruction", icon: <ExperimentOutlined />, label: "功能重构分析" },
-  { key: "/ssui", icon: <LineChartOutlined />, label: "SSUI评价" },
-  { key: "/recommend", icon: <BulbOutlined />, label: "方案推荐" },
-  { key: "/trace", icon: <NodeIndexOutlined />, label: "全流程追溯" },
-  { key: "/system", icon: <SettingOutlined />, label: "系统管理" },
+const ALL_NAV = [
+  { key: "/", icon: <DashboardOutlined />, label: "数据概览", perm: null },
+  { key: "/sites", icon: <DatabaseOutlined />, label: "场地管理", perm: "data:query" },
+  { key: "/obstacle", icon: <SearchOutlined />, label: "障碍因子分析", perm: "data:query" },
+  { key: "/reconstruction", icon: <ExperimentOutlined />, label: "功能重构分析", perm: "data:query" },
+  { key: "/ssui", icon: <LineChartOutlined />, label: "SSUI评价", perm: "data:query" },
+  { key: "/recommend", icon: <BulbOutlined />, label: "方案推荐", perm: "data:query" },
+  { key: "/trace", icon: <NodeIndexOutlined />, label: "全流程追溯", perm: "workflow:view" },
+  { key: "/system", icon: <SettingOutlined />, label: "系统管理", perm: "user:manage" },
 ];
 
 /** 路由 → 面包屑标签 */
@@ -37,11 +38,29 @@ const BREADCRUMB: Record<string, string> = {
 export default function AppLayout() {
   const nav = useNavigate();
   const loc = useLocation();
-  const { user, logout } = useAuth();
+  const { user, logout, hasPermission } = useAuth();
+  const { modal } = AntApp.useApp();
   const top = "/" + (loc.pathname.split("/")[1] || "");
+
+  // 按权限过滤菜单
+  const NAV = ALL_NAV.filter((n) => n.perm === null || hasPermission(n.perm));
   const selected = top === "/" ? "/" : NAV.find((n) => n.key === top)?.key || "/";
 
   const breadcrumbLabel = BREADCRUMB[selected] || "—";
+
+  const handleLogout = () => {
+    modal.confirm({
+      title: "确认退出",
+      content: "退出后需要重新登录，确认退出吗？",
+      okText: "确认退出",
+      cancelText: "取消",
+      okButtonProps: { danger: true },
+      onOk: () => {
+        logout();
+        nav("/login");
+      },
+    });
+  };
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
@@ -79,7 +98,7 @@ export default function AppLayout() {
           </div>
         </div>
 
-        {/* 导航菜单 */}
+        {/* 导航菜单 — 按权限过滤 */}
         <Menu
           theme="dark"
           mode="inline"
@@ -127,7 +146,7 @@ export default function AppLayout() {
               key: "logout",
               icon: <LogoutOutlined />,
               label: "退出登录",
-              onClick: () => { logout(); nav("/login"); },
+              onClick: handleLogout,
             }],
           }}>
             <Space style={{ cursor: "pointer" }}>
@@ -148,7 +167,9 @@ export default function AppLayout() {
 
         {/* ── 内容区 ───────────────────────────────────────── */}
         <Content style={{ margin: 16, minHeight: "calc(100vh - 52px - 32px)" }}>
-          <Outlet />
+          <div key={loc.pathname} className="page-transition-enter">
+            <Outlet />
+          </div>
         </Content>
       </Layout>
 

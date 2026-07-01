@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  background-color: #F3F3F3; /* TDesign Gray 2 */
+  color: rgba(0, 0, 0, 0.9); /* TDesign primary text */
+}
+
+.ant-layout {
+  background: transparent !important;
+}
+
+/* Remove all backgrounds */
+.ant-layout::before {
+  display: none;
+}
+
+.ant-card, .ant-table, .ant-descriptions-view {
+  background: #FFFFFF !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 1px solid #E7E7E7 !important; /* TDesign Gray 3 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+.page-transition-enter {
+  animation: fadeIn 0.2s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

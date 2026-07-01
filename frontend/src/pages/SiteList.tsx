@@ -4,12 +4,7 @@ import { ImportOutlined, ReloadOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/client";
 import { seqCol, numCol, textCol } from "../utils/table";
-
-const POLLUTION: Record<string, { c: string; t: string }> = {
-  heavy_metal: { c: "red", t: "重金属" },
-  organic: { c: "orange", t: "有机" },
-  composite: { c: "purple", t: "复合" },
-};
+import { POLLUTION_TYPE, POLLUTION_LABEL } from "../theme/palette";
 
 export default function SiteList() {
   const { message } = App.useApp();
@@ -34,7 +29,7 @@ export default function SiteList() {
           textCol("场地编号", "site_code"),
           textCol("名称", "name"),
           { title: "污染类型", dataIndex: "pollution_type", align: "center",
-            render: (v) => v ? <Tag color={POLLUTION[v]?.c}>{POLLUTION[v]?.t || v}</Tag> : "—" },
+            render: (v: string) => v ? <Tag color={POLLUTION_TYPE[v] || "#888"}>{POLLUTION_LABEL[v] || v}</Tag> : "—" },
           textCol("用地类型", "land_use_type"),
           textCol("区域", "city", { render: (_: any, r: any) => `${r.province || ""}${r.city || ""}` || "—" }),
           numCol("采样点", "n_points"),

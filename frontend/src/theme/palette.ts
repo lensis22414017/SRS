@@ -34,8 +34,8 @@ export const WARNING = "#f59e0b";  // 警告/中度
 export const DANGER = "#dc2626";   // 超标/危险/不可行
 export const INFO = "#3b82f6";     // 信息/中高
 
-// ── 发散色板(相关矩阵热力图: 负相关红 → 0 白 → 正相关蓝) ──
-export const DIVERGING = ["#b91c1c", "#fee2e2", "#f8fafc", "#dbeafe", "#0f3d6e"];
+// ── 发散色板(相关矩阵热力图: 负相关红 → 0 白 → 正相关蓝, 蓝端对齐 PRIMARY) ──
+export const DIVERGING = ["#b91c1c", "#fee2e2", "#f8fafc", "#dbeafe", "#2c5282"];
 
 // ── 连续色板(超标倍数/浓度渐变: 浅 → 深蓝) ──
 export const SEQUENTIAL = ["#dee5ef", "#c6d3e2", "#81b7d9", "#3680ae", "#214e81"];
@@ -57,12 +57,27 @@ export const GAUGE_STOPS: [number, string][] = [
 
 // ── 污染类型语义色(裴总 P1-5a: 全系统统一; 三色拉开区分度, 不挤在暖色区) ──
 // 首页饼图/地图点位、场地详情 Tag、场地列表标签全部引用本常量。
-// 红(重金属危险) / 深蓝紫(有机, 冷色远离红) / 琥珀(复合, 偏黄远离红) → 三色相隔大, 易区分。
+// Nature/Science 期刊级配色: 红(重金属) / 绿(有机) / 橙(复合) — 三色相隔大, 易区分。
 export const POLLUTION_TYPE: Record<string, string> = {
-  heavy_metal: "#dc2626",  // 红
-  organic: "#6d28d9",      // 深蓝紫(原 #7c3aed 太靠近红橙, 改冷色拉开)
-  composite: "#f59e0b",    // 琥珀(原 #ea580c 太靠近红, 改偏黄拉开)
+  heavy_metal: "#D73027",  // Nature 深红
+  organic: "#1B7837",      // Nature 深绿
+  composite: "#E08214",    // Nature 琥珀橙
 };
+
+// 浅色变体 — Tag 背景、地图淡色标记、进度条浅底色
+export const POLLUTION_TYPE_LIGHT: Record<string, string> = {
+  heavy_metal: "#FCBBA1",  // 浅红
+  organic: "#A6DBA0",      // 浅绿
+  composite: "#FDB863",    // 浅橙
+};
+
+// 极浅底色 — 卡片背景、大面积区域
+export const POLLUTION_TYPE_BG: Record<string, string> = {
+  heavy_metal: "#FFF5F0",
+  organic: "#F0F7F0",
+  composite: "#FFF8F0",
+};
+
 export const POLLUTION_LABEL: Record<string, string> = {
   heavy_metal: "重金属", organic: "有机", composite: "复合污染",
 };

@@ -1,8 +1,22 @@
 import { useState } from "react";
-import { Form, Input, Button, Card, App, Typography } from "antd";
+import { Form, Input, Button, Card, App, Typography, Space, Tag, Row, Col } from "antd";
+import {
+  UserOutlined, LockOutlined, SafetyCertificateOutlined,
+  CrownOutlined, TeamOutlined, ExperimentOutlined, AuditOutlined,
+} from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/client";
 import { useAuth } from "../auth";
+import styles from "./Login.module.css";
+
+const { Title, Text } = Typography;
+
+const ROLE_CARDS = [
+  { icon: <CrownOutlined />, label: "系统管理员", desc: "全功能访问，用户审核，系统配置", color: "#2c5282" },
+  { icon: <TeamOutlined />, label: "企业用户", desc: "场地数据录入，方案生成，流程上传", color: "#1B7837" },
+  { icon: <ExperimentOutlined />, label: "第三方机构", desc: "检测/评估，授权项目数据上传", color: "#3680ae" },
+  { icon: <AuditOutlined />, label: "监管人员", desc: "政府监管，查看与审计", color: "#E08214" },
+];
 
 export default function Login() {
   const { message } = App.useApp();
@@ -16,7 +30,7 @@ export default function Login() {
     try {
       const r = await api.login(v.username, v.password);
       setSession(r.access_token, r.user);
-      message.success(`欢迎，${r.user.display_name}`);
+      message.success(`欢迎回来，${r.user.display_name}`);
       nav("/");
     } catch {
       message.error("用户名或密码错误");
@@ -26,25 +40,69 @@ export default function Login() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center",
-      background: "linear-gradient(135deg,#0f3d6e,#1a5a9e)" }}>
-      <Card style={{ width: 380 }}>
-        <Typography.Title level={4} style={{ textAlign: "center", color: "#0f3d6e" }}>
-          污染场地土壤生态-生产<br />功能重构监管系统
-        </Typography.Title>
-        <Form layout="vertical" onFinish={onFinish} initialValues={{ username: "admin", password: "Demo@2026" }}>
-          <Form.Item name="username" label="用户名" rules={[{ required: true }]}>
-            <Input size="large" placeholder="admin / enterprise / agency / regulator" />
+    <div className={styles.loginContainer}>
+      <Card className={styles.glassCard}>
+        <div style={{ textAlign: "center", marginBottom: 24 }}>
+          <Space direction="vertical" size={0}>
+            <SafetyCertificateOutlined style={{ fontSize: 40, color: "#0052D9", marginBottom: 12 }} />
+            <Title level={4} style={{ color: "rgba(0,0,0,0.9)", margin: 0, fontWeight: 700, letterSpacing: 1 }}>
+              污染场地土壤生态-生产
+            </Title>
+            <Title level={5} style={{ color: "#0052D9", margin: "4px 0 0 0", fontWeight: 500 }}>
+              功能重构监管系统
+            </Title>
+          </Space>
+        </div>
+
+        {/* 四类角色身份说明 */}
+        <Row gutter={[8, 8]} style={{ marginBottom: 24 }}>
+          {ROLE_CARDS.map((r) => (
+            <Col span={6} key={r.label}>
+              <div style={{
+                textAlign: "center", padding: "8px 4px", borderRadius: 4,
+                background: "#f8f9fb", border: "1px solid #eef0f5",
+              }}>
+                <div style={{ fontSize: 18, color: r.color, marginBottom: 2 }}>{r.icon}</div>
+                <div style={{ fontSize: 11, fontWeight: 600, color: "#333", lineHeight: 1.3 }}>{r.label}</div>
+                <div style={{ fontSize: 9, color: "#999", lineHeight: 1.2, marginTop: 2 }}>{r.desc}</div>
+              </div>
+            </Col>
+          ))}
+        </Row>
+
+        <Form layout="vertical" onFinish={onFinish}>
+          <Form.Item name="username" rules={[{ required: true, message: "请输入用户名" }]}>
+            <Input
+              prefix={<UserOutlined style={{ color: "#bfbfbf" }} />}
+              size="large"
+              placeholder="请输入用户名"
+              style={{ borderRadius: 3 }}
+            />
           </Form.Item>
-          <Form.Item name="password" label="密码" rules={[{ required: true }]}>
-            <Input.Password size="large" />
+          <Form.Item name="password" rules={[{ required: true, message: "请输入密码" }]}>
+            <Input.Password
+              prefix={<LockOutlined style={{ color: "#bfbfbf" }} />}
+              size="large"
+              placeholder="请输入密码"
+              style={{ borderRadius: 3 }}
+            />
           </Form.Item>
-          <Button type="primary" htmlType="submit" size="large" block loading={submitting}>登录</Button>
+          <div style={{ display: "flex", justifyContent: "space-between", marginTop: -12, marginBottom: 24, fontSize: 13 }}>
+            <a onClick={() => nav("/register")}>还没有账号？立即注册</a>
+            <a onClick={() => nav("/forgot-password")} style={{ color: "#888" }}>忘记密码？</a>
+          </div>
+          <Form.Item style={{ marginTop: 8, marginBottom: 12 }}>
+            <Button type="primary" htmlType="submit" size="large" block loading={submitting}
+              style={{ borderRadius: 3, background: "#0052D9", color: "#FFFFFF", borderColor: "#0052D9", fontWeight: 600 }}>
+              系统登录
+            </Button>
+          </Form.Item>
         </Form>
-        <Typography.Paragraph type="secondary" style={{ marginTop: 12, fontSize: 12 }}>
-          演示账号密码均为 Demo@2026；不同角色可见数据与权限不同。
-        </Typography.Paragraph>
       </Card>
+
+      <div className={styles.footerText}>
+        © {new Date().getFullYear()} 污染场地土壤生态-生产功能重构评价课题组 版权所有
+      </div>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { ConfigProvider, App, Spin } from "antd";
 import zhCN from "antd/locale/zh_CN";
 import { AuthProvider, useAuth } from "./auth";
 import AppLayout from "./App";
+import "./theme/echarts";  // ECharts SVG 全局主题注册
 
 // 裴总 P2(T12): 路由级懒加载, 把 ECharts/leaflet/KaTeX 大依赖拆到各页面 chunk,
 // 主 bundle 从 ~2.6MB 降到 ~1MB, 首屏只加载当前路由代码。
@@ -22,6 +23,8 @@ const SystemManagement = lazy(() => import("./pages/SystemManagement"));
 const RecommendationPage = lazy(() => import("./pages/RecommendationPage"));
 const FieldMappingPage = lazy(() => import("./pages/FieldMappingPage"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
+const Register = lazy(() => import("./pages/Register"));
+const ForgotPassword = lazy(() => import("./pages/ForgotPassword"));
 
 const Fallback = () => (
   <div style={{ padding: 120, textAlign: "center" }}><Spin size="large" /></div>
@@ -41,29 +44,31 @@ function AdminOnly({ children }: { children: JSX.Element }) {
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ConfigProvider locale={zhCN} theme={{ token: {
-      colorPrimary: "#2c5282",           // 蓝灰科技主色(原 #0f3d6e 政务深蓝)
-      colorInfo: "#3b82f6",              // 科技亮蓝
-      colorSuccess: "#16a34a",
-      colorWarning: "#f59e0b",
-      colorError: "#dc2626",
-      colorBgLayout: "#f1f5f9",          // 冷调中性灰底(加大中性灰比例, 科技感)
-      colorBgContainer: "#ffffff",
-      colorBorderSecondary: "#e2e8f0",   // 冷调浅灰边
-      colorTextSecondary: "#475569",     // 靛灰次要文字
-      borderRadius: 6,                   // 略柔和(原4政务严肃, 科技风6克制不滑向SaaS大圆角)
-      fontFamily: '"PingFang SC", "Microsoft YaHei", -apple-system, "Segoe UI", sans-serif',
-    }, components: {
-      // 蓝灰科技风 component token — 冷调中性 + 精致层次(去政务深蓝表头, 去SaaS高饱和)
-      Card: { borderRadiusLG: 8, boxShadowTertiary: "0 4px 12px rgba(44, 82, 130, 0.06)" },
-      Table: { headerBg: "#f1f5f9", headerColor: "#2c5282", rowHoverBg: "#f8fafc", borderColor: "#e2e8f0" },
-      Button: { primaryShadow: "none", defaultShadow: "none", borderRadius: 6 },
-      Menu: { itemSelectedBg: "#eaf1fb", itemSelectedColor: "#2c5282", activeBarBorderWidth: 0 },
-      Tabs: { inkBarColor: "#2c5282", itemActiveColor: "#2c5282", itemSelectedColor: "#2c5282", titleFontSize: 14 },
-      Tag: { defaultBg: "#f1f5f9", defaultColor: "#475569" },
-      Statistic: { contentFontSize: 24 },
-      Descriptions: { labelBg: "#f1f5f9", labelColor: "#475569" },
-      Pagination: { itemActiveBg: "#eaf1fb" },
+    <ConfigProvider locale={zhCN} theme={{ 
+      token: {
+        colorPrimary: "#0052D9",           // 腾讯蓝
+        colorInfo: "#0052D9",              
+        colorSuccess: "#00A870",           // TDesign 绿
+        colorWarning: "#ED7B2F",           // TDesign 橙
+        colorError: "#E34D59",             // TDesign 红
+        colorBgBase: "#FFFFFF",
+        colorBgLayout: "#F3F3F3",          // TDesign 底层灰
+        colorBgContainer: "#FFFFFF", 
+        colorBorderSecondary: "#E7E7E7",   // TDesign 边框线
+        colorTextBase: "rgba(0,0,0,0.9)",
+        colorTextSecondary: "rgba(0,0,0,0.6)",
+        borderRadius: 3,                   // 极小圆角，工业感
+        fontFamily: 'PingFang SC, Microsoft YaHei, Arial, sans-serif',
+      }, components: {
+        Card: { borderRadiusLG: 8, boxShadowTertiary: "0 2px 8px rgba(0, 0, 0, 0.04)" },
+        Table: { headerBg: "#F3F3F3", headerColor: "rgba(0,0,0,0.9)", rowHoverBg: "#F3F3F3", borderColor: "#E7E7E7" },
+        Button: { primaryShadow: "none", defaultShadow: "none", borderRadius: 3 },
+        Menu: { itemSelectedBg: "#E0EBFF", itemSelectedColor: "#0052D9", activeBarBorderWidth: 0 },
+        Tabs: { inkBarColor: "#0052D9", itemActiveColor: "#0052D9", itemSelectedColor: "#0052D9", titleFontSize: 14 },
+        Tag: { defaultBg: "#F3F3F3", defaultColor: "rgba(0,0,0,0.9)" },
+        Statistic: { contentFontSize: 24, titleFontSize: 14, titleColor: "rgba(0,0,0,0.6)" },
+        Descriptions: { labelBg: "#F3F3F3", labelColor: "rgba(0,0,0,0.6)" },
+        Pagination: { itemActiveBg: "#E0EBFF" },
     } }}>
       {/* 裴总 P2(T11): App provider 包裹, 让静态 message/notification 消费 theme context, 抑制 AntD warning */}
       <App>
@@ -72,6 +77,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             <Suspense fallback={<Fallback />}>
               <Routes>
                 <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/" element={<Protected><AppLayout /></Protected>}>
                   <Route index element={<Dashboard />} />
                   <Route path="sites" element={<SiteList />} />

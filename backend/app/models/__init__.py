@@ -362,6 +362,16 @@ class ReportRecord(Base, TimestampMixin):
 
 
 # ---------------- 系统 ----------------
+class SystemConfig(Base, TimestampMixin):
+    """系统级键值配置: 管理员联系方式等可编辑项。"""
+    __tablename__ = "system_config"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    config_key: Mapped[str] = mapped_column(String(100), unique=True, nullable=False, index=True)
+    config_value: Mapped[str] = mapped_column(Text, nullable=False)
+    description: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    updated_by: Mapped[str | None] = mapped_column(String(100), nullable=True)
+
+
 class AuditLog(Base, TimestampMixin):
     __tablename__ = "audit_logs"
     id: Mapped[int] = mapped_column(primary_key=True)
@@ -381,5 +391,6 @@ __all__ = [
     "ImportBatch", "Measurement",
     "MLModel", "DiagnosisResult", "DiagnosisFactorDetail", "EvaluationResult",
     "TechnologyLibrary", "RemediationCase", "Recommendation",
-    "WorkflowRecord", "FileObject", "WorkflowAttachment", "ReportRecord", "AuditLog",
+    "WorkflowRecord", "FileObject", "WorkflowAttachment", "ReportRecord",
+    "SystemConfig", "AuditLog",
 ]

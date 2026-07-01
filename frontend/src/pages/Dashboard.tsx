@@ -1,42 +1,41 @@
 import { useEffect, useState } from "react";
 import {
-  App, Card, Col, Row, Statistic, Spin, Button, List, Tag, Space, Alert,
-  Badge, Typography, Divider,
+  App, Card, Col, Row, Statistic, Spin, Skeleton, Button, List, Tag, Space, Alert,
+  Badge, Typography,
 } from "antd";
 import {
   PlusOutlined, ImportOutlined, FileTextOutlined, WarningOutlined,
   DatabaseOutlined, EnvironmentOutlined, ApartmentOutlined,
-  ClockCircleOutlined, ArrowUpOutlined, ArrowDownOutlined,
+  ClockCircleOutlined, ExportOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import ReactECharts from "echarts-for-react";
 import { api } from "../api/client";
 import SiteMap from "../components/SiteMap";
-import { CATEGORICAL, POLLUTION_TYPE, POLLUTION_LABEL } from "../theme/palette";  // 全局配色(裴总精品案例莫兰迪对齐, 问题4/10政府化)
+import { POLLUTION_TYPE, POLLUTION_TYPE_BG, POLLUTION_LABEL } from "../theme/palette";
+import { SVG_OPTS } from "../theme/echarts";
+import styles from "./Dashboard.module.css";
 
 const { Text } = Typography;
 
-/** 污染类型 → AntD Tag 颜色名(语义同 POLLUTION_TYPE) */
-const TYPE_COLOR: Record<string, string> = {
-  heavy_metal: "red", organic: "purple", composite: "orange",
-};
 const TYPE_LABEL = POLLUTION_LABEL;
 
 export default function Dashboard() {
   const nav = useNavigate();
   const [sites, setSites] = useState<any[]>([]);
+  const [stats, setStats] = useState<any>({});
   const [logs, setLogs] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  // 裴总 P2(T11): 用 App.useApp() 的 messageApi 替代静态 message,
-  // 彻底消费 ConfigProvider theme context, 消除 AntD "static fn can not consume context" warning。
   const { message } = App.useApp();
 
   useEffect(() => {
     Promise.all([
       api.sites({ size: 200 }),
+      api.siteStatistics().catch(() => null),
       api.auditLogs({ page: 1, size: 6 }).catch(() => ({ items: [] })),
-    ]).then(([d, l]) => {
+    ]).then(([d, st, l]) => {
       setSites(d.items || []);
+      setStats(st || {});
       setLogs(l.items || []);
     }).catch((err) => {
       message.error(err?.response?.data?.detail || "加载失败");
@@ -45,13 +44,26 @@ export default function Dashboard() {
   }, []);
 
   if (loading) return (
-    <div style={{ textAlign: "center", paddingTop: 120 }}><Spin size="large" /></div>
+    <Space direction="vertical" style={{ width: "100%", padding: "16px 0" }} size={16}>
+      <Row gutter={12}>
+        {[1, 2, 3, 4, 5].map((i) => (
+          <Col span={Math.floor(24 / 5)} key={i}>
+            <Card style={{ borderRadius: 8, height: 110 }}><Skeleton active paragraph={{ rows: 1 }} title={false} /></Card>
+          </Col>
+        ))}
+      </Row>
+      <Row gutter={16}>
+        <Col span={10}><Card style={{ borderRadius: 8, height: 350 }}><Skeleton active paragraph={{ rows: 6 }} /></Card></Col>
+        <Col span={14}><Card style={{ borderRadius: 8, height: 350 }}><Skeleton active paragraph={{ rows: 6 }} /></Card></Col>
+      </Row>
+    </Space>
   );
 
-  const points = sites.reduce((a, s) => a + (s.n_points || 0), 0);
-  const heavy = sites.filter((s) => s.pollution_type === "heavy_metal").length;
-  const provinces = new Set(sites.map((s) => s.province).filter(Boolean)).size;
-  const totalExceed = sites.reduce((a, s) => a + (s.n_exceed || 0), 0);
+  const heavy = stats.heavy_metal_count ?? sites.filter((s) => s.pollution_type === "heavy_metal").length;
+  const organic = stats.organic_count ?? sites.filter((s) => s.pollution_type === "organic").length;
+  const composite = stats.composite_count ?? sites.filter((s) => s.pollution_type === "composite").length;
+  const provinces = stats.total_provinces ?? new Set(sites.map((s) => s.province).filter(Boolean)).size;
+  const totalExceed = stats.exceedance_count ?? sites.reduce((a, s) => a + (s.n_exceed || 0), 0);
   const highRiskSites = sites.filter((s) => (s.n_exceed || 0) >= 10);
 
   const byType = ["heavy_metal", "organic", "composite"].map((t) => ({
@@ -61,14 +73,23 @@ export default function Dashboard() {
   })).filter((x) => x.value > 0);
 
   const pieOption = {
-    tooltip: { trigger: "item", formatter: "{b}: {c} 个场地 ({d}%)" },
+    tooltip: {
+      trigger: "item",
+      formatter: (p: any) =>
+        `<b>${p.name}</b><br/>场地数量: <b>${p.value} 个</b><br/>占比: <b>${p.percent}%</b>`,
+    },
     legend: { bottom: 0 },
     series: [{
       type: "pie", radius: ["45%", "70%"], data: byType,
       label: { formatter: "{b}: {c}" },
-      // 裴总 P1-5a: 污染类型语义色(红/紫/橙), 与场地详情 Tag/地图点位同源
       color: byType.map((d) => POLLUTION_TYPE[d.key]),
-      emphasis: { itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: "rgba(0,0,0,0.3)" } },
+      itemStyle: { borderRadius: 4, borderColor: "#fff", borderWidth: 2 },
+      emphasis: {
+        focus: "self",
+        scale: true,
+        label: { show: true, fontSize: 14, fontWeight: "bold" },
+        itemStyle: { shadowBlur: 12, shadowOffsetX: 0, shadowColor: "rgba(0,0,0,0.3)" },
+      },
     }],
   };
 
@@ -102,7 +123,9 @@ export default function Dashboard() {
           const v = p.data;
           return v >= 10 ? "#dc2626" : v >= 5 ? "#f59e0b" : "#3b82f6";
         },
-        borderRadius: [0, 3, 3, 0],
+        borderRadius: [0, 4, 4, 0],
+        shadowBlur: 4,
+        shadowColor: "rgba(0,0,0,0.1)",
       },
       label: { show: true, position: "right", fontSize: 10, color: "#374151" },
     }],
@@ -149,28 +172,34 @@ export default function Dashboard() {
             color: "#0f3d6e", suffix: "个",
           },
           {
-            title: "重金属污染场地", value: heavy,
-            icon: <WarningOutlined style={{ fontSize: 20, color: "#dc2626" }} />,
-            color: "#dc2626", suffix: "个",
+            title: "覆盖省份", value: provinces,
+            icon: <EnvironmentOutlined style={{ fontSize: 20, color: "#059669" }} />,
+            color: "#059669", suffix: "个",
           },
           {
-            title: "采样点总数", value: points,
-            icon: <EnvironmentOutlined style={{ fontSize: 20, color: "#0f766e" }} />,
-            color: "#0f766e", suffix: "个",
+            title: "重金属污染", value: heavy,
+            icon: <WarningOutlined style={{ fontSize: 20, color: POLLUTION_TYPE["heavy_metal"] }} />,
+            color: POLLUTION_TYPE["heavy_metal"], bg: POLLUTION_TYPE_BG["heavy_metal"], suffix: "个场地",
           },
           {
-            title: "超标记录总数", value: totalExceed,
+            title: "有机污染", value: organic,
+            icon: <WarningOutlined style={{ fontSize: 20, color: POLLUTION_TYPE["organic"] }} />,
+            color: POLLUTION_TYPE["organic"], bg: POLLUTION_TYPE_BG["organic"], suffix: "个场地",
+          },
+          {
+            title: "复合污染", value: composite,
+            icon: <WarningOutlined style={{ fontSize: 20, color: POLLUTION_TYPE["composite"] }} />,
+            color: POLLUTION_TYPE["composite"], bg: POLLUTION_TYPE_BG["composite"], suffix: "个场地",
+          },
+          {
+            title: "超标记录", value: totalExceed,
             icon: <ApartmentOutlined style={{ fontSize: 20, color: "#b45309" }} />,
             color: "#b45309", suffix: "条",
           },
-          {
-            title: "覆盖省份", value: provinces,
-            icon: <EnvironmentOutlined style={{ fontSize: 20, color: "#1d6fb8" }} />,
-            color: "#1d6fb8", suffix: "个",
-          },
         ].map((k) => (
-          <Col span={Math.floor(24 / 5)} key={k.title}>
+          <Col span={4} key={k.title}>
             <Card
+              className={styles.kpiCard}
               style={{ borderRadius: 8, borderTop: `3px solid ${k.color}` }}
               styles={{ body: { padding: "16px 20px" } }}
             >
@@ -183,7 +212,7 @@ export default function Dashboard() {
                 />
                 <div style={{
                   width: 40, height: 40, borderRadius: "50%",
-                  background: k.color + "18",
+                  background: (k as any).bg || k.color + "18",
                   display: "flex", alignItems: "center", justifyContent: "center",
                 }}>
                   {k.icon}
@@ -198,18 +227,20 @@ export default function Dashboard() {
       <Row gutter={16}>
         <Col span={10}>
           <Card
+            className={styles.chartCard}
             title="污染类型分布"
             extra={<Text type="secondary" style={{ fontSize: 12 }}>共 {sites.length} 个场地</Text>}
             style={{ borderRadius: 8 }}
           >
             {byType.length
-              ? <ReactECharts option={pieOption} style={{ height: 280 }} />
+              ? <ReactECharts option={pieOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 280 }} />
               : <div style={{ height: 280, display: "flex", alignItems: "center", justifyContent: "center", color: "#ccc" }}>暂无数据</div>
             }
           </Card>
         </Col>
         <Col span={14}>
           <Card
+            className={styles.chartCard}
             title="各场地超标记录排行（前8名）"
             extra={
               <Space size={4}>
@@ -221,7 +252,7 @@ export default function Dashboard() {
             style={{ borderRadius: 8 }}
           >
             {sites.length
-              ? <ReactECharts option={riskBarOption} style={{ height: 280 }} />
+              ? <ReactECharts option={riskBarOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 280 }} />
               : <div style={{ height: 280, display: "flex", alignItems: "center", justifyContent: "center", color: "#ccc" }}>暂无数据</div>
             }
           </Card>
@@ -267,7 +298,7 @@ export default function Dashboard() {
                   ]}
                 >
                   <Space size={6}>
-                    <Tag color={TYPE_COLOR[s.pollution_type] || "default"} style={{ fontSize: 11 }}>
+                    <Tag color={POLLUTION_TYPE[s.pollution_type] || "#888"} style={{ fontSize: 11 }}>
                       {TYPE_LABEL[s.pollution_type] || s.pollution_type || "—"}
                     </Tag>
                     <Text style={{ fontSize: 13 }}>{s.name}</Text>
