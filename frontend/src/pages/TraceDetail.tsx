@@ -3,8 +3,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import {
   Card, Steps, Tag, Button, Space, Upload, Select, Modal, Input, message, Table, Descriptions, Spin, Tooltip, Typography,
 } from "antd";
-import { UploadOutlined, FileAddOutlined, DownloadOutlined, EyeOutlined } from "@ant-design/icons";
+import { UploadOutlined, FileAddOutlined, DownloadOutlined, EyeOutlined, ApartmentOutlined } from "@ant-design/icons";
 import { api } from "../api/client";
+import MethodFlowDrawer from "../components/MethodFlowDrawer";
+import { getFlowConfig } from "../config/methodFlows";
 import { seqCol, textCol } from "../utils/table";
 
 const STATUS: Record<string, { c: string; t: string; step: any }> = {
@@ -44,6 +46,7 @@ export default function TraceDetail() {
   const [comment, setComment] = useState("");
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [previewTitle, setPreviewTitle] = useState("");
+  const [flowOpen, setFlowOpen] = useState(false);
 
   const load = async () => {
     setSite(await api.site(sid));
@@ -107,6 +110,7 @@ export default function TraceDetail() {
           {stages.length === 0 && <Button type="primary" loading={busy} onClick={init}>初始化五阶段</Button>}
           <Button type="primary" loading={busy} onClick={() => genReport("pdf")}>生成 PDF 报告</Button>
           <Button loading={busy} onClick={() => genReport("docx")}>生成 DOCX 报告</Button>
+          <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
         </Space>}>
         {stages.length === 0 ? <span>尚未初始化五阶段，请点击右上角“初始化五阶段”。</span> : (
           <Steps direction="vertical" current={-1}
@@ -241,6 +245,8 @@ export default function TraceDetail() {
           </Space>
         )}
       </Modal>
+
+      <MethodFlowDrawer open={flowOpen} onClose={() => setFlowOpen(false)} config={getFlowConfig("trace_workflow")!} />
     </Space>
   );
 }

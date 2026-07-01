@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Card, Upload, Button, Select, App, Tag, Space, Alert, Table, Typography, Radio } from "antd";
-import { InboxOutlined, ControlOutlined } from "@ant-design/icons";
+import { InboxOutlined, ControlOutlined, ApartmentOutlined } from "@ant-design/icons";
+import MethodFlowDrawer from "../components/MethodFlowDrawer";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/client";
+import { getFlowConfig } from "../config/methodFlows";
 
 const { Text } = Typography;
 
@@ -21,6 +23,7 @@ export default function DataUpload() {
   const [conflict, setConflict] = useState("skip");  // 裴总 P1-3: 重复导入策略
   const [loading, setLoading] = useState(false);
   const [batchResult, setBatchResult] = useState<any>(null);
+  const [flowOpen, setFlowOpen] = useState(false);
 
   const submit = async () => {
     if (!files.length) { message.warning("请先选择 Excel/CSV 文件"); return; }
@@ -64,11 +67,15 @@ export default function DataUpload() {
   const firstOk = resultRows.find((r: any) => r.ok);
 
   return (
-    <Card title="数据导入"
+    <>
+      <Card title="数据导入"
       extra={
-        <Button icon={<ControlOutlined />} onClick={() => nav("/sites/import/wizard")}>
-          自定义字段映射 Wizard
-        </Button>
+        <Space>
+          <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
+          <Button icon={<ControlOutlined />} onClick={() => nav("/sites/import/wizard")}>
+            自定义字段映射 Wizard
+          </Button>
+        </Space>
       }>
       <Alert type="info" style={{ marginBottom: 16 }}
         message="支持 .xlsx / .csv，可批量多文件。选择字段映射模板后上传，系统会自动解析→字段映射→校验→写入长表。多文件串行处理，单文件失败不阻断其余。如数据列名与预设模板不同，请使用右上角【自定义字段映射 Wizard】按钮。" />
@@ -142,5 +149,7 @@ export default function DataUpload() {
         </div>
       )}
     </Card>
+      <MethodFlowDrawer open={flowOpen} onClose={() => setFlowOpen(false)} config={getFlowConfig("data_import")!} />
+    </>
   );
 }

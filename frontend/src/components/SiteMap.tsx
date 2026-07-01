@@ -14,6 +14,11 @@ interface SitePoint {
   status?: string;
   color?: string;   // 裴总 P1-5a: 直接指定颜色(优先于 status), 与污染类型语义色一致
   value?: number | null;
+  ph?: number | null;
+  top_factor?: string;
+  max_exceedance?: number | null;
+  risk_level?: string;
+  n_exceed?: number;
   onClick?: () => void;
 }
 
@@ -100,6 +105,7 @@ export default function SiteMap({
   const loadedAdcodeRef = useRef<Set<string>>(new Set());
   const geoIndexRef = useRef<any>(null);
   const gaodeTileRef = useRef<L.TileLayer | null>(null);
+  const tileErrorCountRef = useRef(0);
 
   const [mapMode, setMapMode] = useState<MapMode>("vector");
   const [tileError, setTileError] = useState(false);
@@ -203,8 +209,15 @@ export default function SiteMap({
           attribution: '高德地图 &copy; AutoNavi',
           // 瓦片插入到 tilePane(最底层), GeoJSON 和标记自动在上方
         });
-        tileLayer.on("tileerror", () => setTileError(true));
-        tileLayer.on("tileload", () => setTileError(false));
+        tileLayer.on("tileerror", () => {
+          tileErrorCountRef.current += 1;
+          setTileError(true);
+          if (tileErrorCountRef.current >= 3) {
+            setMapMode("vector");
+            tileErrorCountRef.current = 0;
+          }
+        });
+        tileLayer.on("tileload", () => { tileErrorCountRef.current = 0; setTileError(false); });
         tileLayer.addTo(map);
         gaodeTileRef.current = tileLayer;
       } else {
@@ -220,6 +233,7 @@ export default function SiteMap({
         gaodeTileRef.current.remove();
       }
       setTileError(false);
+      tileErrorCountRef.current = 0;
       // 恢复行政区原始彩色样式
       adminLayersRef.current.forEach(({ gl, level }) => {
         gl.setStyle(ADMIN_STYLE_VECTOR[level] ?? ADMIN_STYLE_VECTOR.county);
@@ -267,9 +281,13 @@ export default function SiteMap({
         lngLats.push([s.longitude!, s.latitude!]);
         const color = s.color || POLLUTION_TYPE[s.pollution_type || ""] || STATUS_COLOR[s.status || "danger"] || "#dc2626";
         const ptLabel = POLLUTION_LABEL[s.pollution_type || ""] || s.pollution_type || "—";
+        const exceedInfo = s.max_exceedance != null ? `${Number(s.max_exceedance).toFixed(1)} 倍` : (s.n_exceed != null ? `${s.n_exceed} 条` : "—");
         const popupHtml = [
           `<b>${esc(s.name || s.point_code || "点位")}</b>`,
           `<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${color};margin-right:4px;"></span> ${ptLabel}`,
+          `超标: ${exceedInfo}`,
+          s.top_factor ? `主要因子: ${esc(s.top_factor)}` : "",
+          s.ph != null ? `pH: ${s.ph}` : "",
           `坐标: ${s.latitude?.toFixed?.(4) ?? "—"}, ${s.longitude?.toFixed?.(4) ?? "—"}`,
           s.id ? `<a href="/sites/${s.id}" style="font-size:12px;">进入场地详情 →</a>` : "",
         ].filter(Boolean).join("<br/>");
@@ -323,7 +341,22 @@ export default function SiteMap({
       <div ref={ref} style={{ position: "absolute", inset: 0, borderRadius: 8, background: "#e8eef3" }} />
 
       {/* 遮罩提示 */}
-      {!hasCoords && overlay("当前无可用坐标点位：该场地采样点缺少经纬度，无法在地图上展示。")}
+      {!hasCoords && (
+  <div style={{
+    position: "absolute", inset: 0, display: "flex", alignItems: "center",
+    justifyContent: "center", background: "rgba(248,249,251,0.95)", borderRadius: 8,
+    zIndex: 500,
+  }}>
+    <div style={{ textAlign: "center", padding: 32 }}>
+      <div style={{ fontSize: 48, color: "#c0c4cc", marginBottom: 12, lineHeight: 1 }}>📍</div>
+      <div style={{ fontSize: 15, fontWeight: 600, color: "#475569", marginBottom: 6 }}>无可用坐标</div>
+      <div style={{ fontSize: 12, color: "#8899aa", maxWidth: 320, lineHeight: 1.6 }}>
+        该场地采样点缺少经纬度信息，无法在地图上展示点位。<br/>
+        请在数据导入时正确填写经度(longitude)和纬度(latitude)字段。
+      </div>
+    </div>
+  </div>
+)}
       {hasCoords && mapMode === "satellite" && tileError &&
         overlay("卫星影像加载失败（网络不可达或高德服务异常）。已降级为矢量底图，采样点正常显示。")}
 
@@ -364,7 +397,7 @@ export default function SiteMap({
       {/* 图例 — 左下角 */}
       {hasCoords && layerData?.legend?.length ? (
         <Legend items={layerData.legend} />
-      ) : hasCoords && scope === "overview" ? (
+      ) : hasCoords ? (
         <Legend items={[
           { risk_level: "heavy_metal", label: "重金属污染", color: POLLUTION_TYPE.heavy_metal },
           { risk_level: "organic", label: "有机污染", color: POLLUTION_TYPE.organic },

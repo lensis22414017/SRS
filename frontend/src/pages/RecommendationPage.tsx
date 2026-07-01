@@ -4,11 +4,13 @@ import {
   Statistic, Spin, Progress, Divider, Descriptions, Typography, Badge,
 } from "antd";
 import {
-  CheckCircleOutlined, WarningOutlined, BookOutlined,
+  ApartmentOutlined, CheckCircleOutlined, WarningOutlined, BookOutlined,
   DollarOutlined, ClockCircleOutlined, ExperimentOutlined,
 } from "@ant-design/icons";
 import { api } from "../api/client";
 import SitePicker from "../components/SitePicker";
+import MethodFlowDrawer from "../components/MethodFlowDrawer";
+import { getFlowConfig } from "../config/methodFlows";
 
 const { Text, Paragraph } = Typography;
 
@@ -204,6 +206,7 @@ export default function RecommendationPage() {
   const [loading, setLoading] = useState(false);
   const [busy, setBusy] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const [flowOpen, setFlowOpen] = useState(false);
 
   const load = (id?: number) => {
     const s = id ?? sid;
@@ -239,9 +242,12 @@ export default function RecommendationPage() {
       <Card>
         <Space style={{ width: "100%", justifyContent: "space-between" }} wrap>
           <SitePicker value={sid} onChange={setSid} />
-          <Button type="primary" loading={busy} onClick={run} disabled={!sid}>
-            运行方案推荐
-          </Button>
+          <Space>
+            <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
+            <Button type="primary" loading={busy} onClick={run} disabled={!sid}>
+              运行方案推荐
+            </Button>
+          </Space>
         </Space>
         <div style={{ marginTop: 8, fontSize: 12, color: "#888" }}>
           推荐依据：障碍因子识别结果 + 技术库规则匹配（适用污染物/用地类型/禁用条件三重过滤），
@@ -270,6 +276,7 @@ export default function RecommendationPage() {
           }
         />
       )}
+      <MethodFlowDrawer open={flowOpen} onClose={() => setFlowOpen(false)} config={getFlowConfig("recommendation")!} />
     </Space>
   );
 }

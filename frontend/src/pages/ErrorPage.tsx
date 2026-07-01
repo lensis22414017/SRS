@@ -21,6 +21,8 @@ const ERROR_CONFIG: Record<StatusCode, { title: string; subTitle: string }> = {
 interface ErrorPageProps {
   /** 显式指定错误码（用于权限拦截等已知场景）。省略时从路由错误中自动推断。 */
   status?: StatusCode;
+  /** 可选的自定义错误描述，优先级高于默认 subTitle */
+  message?: string;
 }
 
 /**
@@ -30,7 +32,7 @@ interface ErrorPageProps {
  *   <Route element={<AdminOnly><X /></AdminOnly>} />              // 403 在 AdminOnly 中使用
  *   errorElement={<ErrorPage />}                                  // React Router v6 errorElement
  */
-export default function ErrorPage({ status }: ErrorPageProps) {
+export default function ErrorPage({ status, message: customMsg }: ErrorPageProps) {
   const nav = useNavigate();
   const routeError = useRouteError() as any;
 
@@ -56,7 +58,7 @@ export default function ErrorPage({ status }: ErrorPageProps) {
       <Result
         status={code as any}
         title={cfg.title}
-        subTitle={cfg.subTitle}
+        subTitle={customMsg || cfg.subTitle}
         extra={
           <Button type="primary" onClick={() => nav("/")}>
             返回首页

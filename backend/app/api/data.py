@@ -15,7 +15,8 @@ from app.core.deps import (
 )
 from app.db.session import get_db
 from app.models import (
-    FactorDictionary, ImportBatch, Measurement, SamplingPoint, Site, StandardThreshold, ThresholdRule, User,
+    FactorDictionary, ImportBatch, Measurement, ReportRecord, SamplingPoint, Site,
+    StandardThreshold, ThresholdRule, User, WorkflowRecord,
 )
 from app.services.audit_service import log
 from app.services.import_service import load_mapping, read_table, resolve_mapping_for_file
@@ -342,6 +343,19 @@ def site_statistics(user: User = Depends(get_current_user),
                          Measurement.value > ThresholdRule.threshold_max)).all()
         exceed = len({r[0] for r in list(_std) + list(_rule)})
 
+    # 全局统计（跨所有场地，不受 RBAC scope 限制）
+    try:
+        total_reports = db.query(func.count(ReportRecord.id)).scalar() or 0
+    except Exception:
+        total_reports = None
+
+    try:
+        active_workflows = db.query(func.count(WorkflowRecord.id)).filter(
+            WorkflowRecord.status.notin_(["completed", "archived"])
+        ).scalar() or 0
+    except Exception:
+        active_workflows = None
+
     return {
         "total_sites": len(sites),
         "total_provinces": provinces,
@@ -351,6 +365,8 @@ def site_statistics(user: User = Depends(get_current_user),
         "total_sampling_points": n_points,
         "total_measurements": n_meas,
         "exceedance_count": exceed,
+        "total_reports": total_reports,
+        "active_workflows": active_workflows,
     }
 
 

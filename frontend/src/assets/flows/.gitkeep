@@ -1,0 +1,3 @@
+# SVG 流程图资产目录
+# 请使用 Excalidraw 创建各模块流程图，导出 SVG 后放入此目录
+# 文件命名: obstacle_analysis.svg / reconstruction_eval.svg / ssui_eval.svg / recommendation.svg / trace_workflow.svg / data_import.svg / report_generation.svg

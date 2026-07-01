@@ -25,6 +25,7 @@ const FieldMappingPage = lazy(() => import("./pages/FieldMappingPage"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 const Register = lazy(() => import("./pages/Register"));
 const ForgotPassword = lazy(() => import("./pages/ForgotPassword"));
+const DashboardScreen = lazy(() => import("./pages/DashboardScreen"));
 
 const Fallback = () => (
   <div style={{ padding: 120, textAlign: "center" }}><Spin size="large" /></div>
@@ -38,7 +39,7 @@ function Protected({ children }: { children: JSX.Element }) {
 function RequirePermission({ code, children }: { code: string; children: JSX.Element }) {
   const { user, hasPermission } = useAuth();
   if (!user) return <Navigate to="/login" replace />;
-  if (!hasPermission(code)) return <ErrorPage status={403} message={`缺少权限: ${code}`} />;
+  if (!hasPermission(code)) return <ErrorPage status={403} />;
   return children;
 }
 
@@ -73,7 +74,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         Menu: { itemSelectedBg: "#E0EBFF", itemSelectedColor: "#0052D9", activeBarBorderWidth: 0 },
         Tabs: { inkBarColor: "#0052D9", itemActiveColor: "#0052D9", itemSelectedColor: "#0052D9", titleFontSize: 14 },
         Tag: { defaultBg: "#F3F3F3", defaultColor: "rgba(0,0,0,0.9)" },
-        Statistic: { contentFontSize: 24, titleFontSize: 14, titleColor: "rgba(0,0,0,0.6)" },
+        Statistic: { contentFontSize: 24, titleFontSize: 14 },
         Descriptions: { labelBg: "#F3F3F3", labelColor: "rgba(0,0,0,0.6)" },
         Pagination: { itemActiveBg: "#E0EBFF" },
     } }}>
@@ -86,6 +87,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/dashboard/screen" element={<Protected><DashboardScreen /></Protected>} />
                 <Route path="/" element={<Protected><AppLayout /></Protected>}>
                   <Route index element={<Dashboard />} />
                   <Route path="sites" element={<RequirePermission code="data:query"><SiteList /></RequirePermission>} />

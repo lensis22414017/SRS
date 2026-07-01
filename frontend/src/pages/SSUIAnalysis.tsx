@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { Card, Button, Empty, App, Row, Col, Statistic, Tag, Space, Table, Divider, Alert, Timeline, Typography } from "antd";
-import { ExportOutlined } from "@ant-design/icons";
+import { ApartmentOutlined, ExportOutlined } from "@ant-design/icons";
 import ReactECharts from "echarts-for-react";
 import { api } from "../api/client";
 import SitePicker from "../components/SitePicker";
 import FormulaBlock from "../components/FormulaBlock";
 import OrganicDegradedCard from "../components/OrganicDegradedCard";
 import EmptyState from "../components/EmptyState";
+import MethodFlowDrawer from "../components/MethodFlowDrawer";
 import { seqCol, numCol, textCol } from "../utils/table";
 import { SVG_OPTS } from "../theme/echarts";
+import { getFlowConfig } from "../config/methodFlows";
 
 const { Text } = Typography;
 
@@ -19,6 +21,7 @@ export default function SSUIAnalysis() {
   const [data, setData] = useState<any>(null);     // GET: 历史 + current_data_version
   const [hasRun, setHasRun] = useState(false);     // 是否已点击运行(控制本次结果区显隐, brief 4.5)
   const [busy, setBusy] = useState(false);
+  const [flowOpen, setFlowOpen] = useState(false);
 
   const load = (id?: number) => {
     const s = id ?? sid; if (!s) return;
@@ -73,11 +76,13 @@ export default function SSUIAnalysis() {
   } : null;
 
   return (
-    <Space direction="vertical" style={{ width: "100%" }} size={16}>
+    <>
+      <Space direction="vertical" style={{ width: "100%" }} size={16}>
       <Card>
         <Space style={{ width: "100%", justifyContent: "space-between" }}>
           <SitePicker value={sid} onChange={setSid} />
           <Space>
+            <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
             {data && <Button icon={<ExportOutlined />} onClick={() => {
               api.generateReport(sid!, "pdf").then(() => message.success("SSUI 评价报告生成中...")).catch(() => message.error("导出失败"));
             }}>导出评价报告</Button>}
@@ -169,5 +174,7 @@ export default function SSUIAnalysis() {
         </Card>
       ) : <EmptyState description="请选择场地并运行 SSUI 评价" />}
     </Space>
+      <MethodFlowDrawer open={flowOpen} onClose={() => setFlowOpen(false)} config={getFlowConfig("ssui_eval")!} />
+    </>
   );
 }

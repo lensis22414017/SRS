@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Card, Button, Row, Col, Space, Alert, Typography, App, Descriptions, Table, Tag, Timeline, Segmented, Tooltip, Select } from "antd";
-import { InfoCircleOutlined, ExportOutlined, GlobalOutlined, HistoryOutlined } from "@ant-design/icons";
+import { InfoCircleOutlined, ExportOutlined, GlobalOutlined, HistoryOutlined, ApartmentOutlined } from "@ant-design/icons";
+import MethodFlowDrawer from "../components/MethodFlowDrawer";
+import { getFlowConfig } from "../config/methodFlows";
 import ReactECharts from "echarts-for-react";
 import dayjs from "dayjs";
 import { api } from "../api/client";
@@ -34,6 +36,7 @@ export default function ObstacleAnalysis() {
   const [landUse, setLandUse] = useState<string>("生产用地");
   const [historyList, setHistoryList] = useState<any[]>([]);
   const [historyId, setHistoryId] = useState<number | null>(null);
+  const [flowOpen, setFlowOpen] = useState(false);
 
   const load = (id?: number, diagnosisId?: number | null) => {
     const s = id ?? sid; if (!s) return;
@@ -174,6 +177,7 @@ export default function ObstacleAnalysis() {
                 }).catch(() => message.error("导出失败"));
               }}>导出诊断报告</Button>
             )}
+            <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
             <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行障碍因子诊断</Button>
           </Space>
         </Space>
@@ -296,6 +300,9 @@ export default function ObstacleAnalysis() {
           )}
         </>
       ) : <EmptyState description="请选择场地并运行障碍因子识别" />}
+
+      <MethodFlowDrawer open={flowOpen} onClose={() => setFlowOpen(false)}
+        config={getFlowConfig("obstacle_analysis")!} />
     </Space>
   );
 }

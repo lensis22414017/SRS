@@ -6,7 +6,7 @@ import {
 import {
   PlusOutlined, ImportOutlined, FileTextOutlined, WarningOutlined,
   DatabaseOutlined, EnvironmentOutlined, ApartmentOutlined,
-  ClockCircleOutlined, ExportOutlined,
+  ClockCircleOutlined, ExportOutlined, FundProjectionScreenOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import ReactECharts from "echarts-for-react";
@@ -350,7 +350,15 @@ export default function Dashboard() {
       {/* ── 地图 ──────────────────────────────────────────────── */}
       <Card
         title="场地分布地图"
-        extra={<Text type="secondary" style={{ fontSize: 12 }}>点击标记跳转详情；右上角切换矢量/影像底图</Text>}
+        extra={
+          <Space size={12}>
+            <Text type="secondary" style={{ fontSize: 12 }}>点击标记跳转详情；右上角切换矢量/影像底图</Text>
+            <Button size="small" type="primary" ghost icon={<FundProjectionScreenOutlined />}
+              onClick={() => nav("/dashboard/screen")}>
+              进入数字大屏
+            </Button>
+          </Space>
+        }
         style={{ borderRadius: 8 }}
       >
         <SiteMap sites={mapSites} height={480} onMarkerClick={(s) => s.id && nav(`/sites/${s.id}`)} />

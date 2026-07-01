@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Card, Button, Empty, App, Row, Col, Statistic, Tag, Space, Table, Divider, Timeline, Progress, Alert } from "antd";
-import { ExportOutlined } from "@ant-design/icons";
+import { ExportOutlined, ApartmentOutlined } from "@ant-design/icons";
 import { api } from "../api/client";
 import SitePicker from "../components/SitePicker";
+import MethodFlowDrawer from "../components/MethodFlowDrawer";
+import { getFlowConfig } from "../config/methodFlows";
 import FormulaBlock from "../components/FormulaBlock";
 import OrganicDegradedCard from "../components/OrganicDegradedCard";
 import ReactECharts from "echarts-for-react";
@@ -111,6 +113,7 @@ export default function ReconstructionAnalysis() {
   const [data, setData] = useState<any>(null);
   const [hasRun, setHasRun] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [flowOpen, setFlowOpen] = useState(false);
 
   const load = (id?: number) => {
     const s = id ?? sid; if (!s) return;
@@ -138,6 +141,7 @@ export default function ReconstructionAnalysis() {
             {data && <Button icon={<ExportOutlined />} onClick={() => {
               api.generateReport(sid!, "pdf").then(() => message.success("重构评价报告生成中...")).catch(() => message.error("导出失败"));
             }}>导出分析报告</Button>}
+            <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
             <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行功能重构可行性评价</Button>
           </Space>
         </Space>
@@ -181,6 +185,7 @@ export default function ReconstructionAnalysis() {
           <EvalBlock title="生态功能重构可行性" e={eco} organicRisk={data?.results?.organic_risk?.dimensions} />
         </Card>
       ) : <Empty description="请选择场地并点击「运行」生成功能重构评价" />}
+      <MethodFlowDrawer open={flowOpen} onClose={() => setFlowOpen(false)} config={getFlowConfig("reconstruction_eval")!} />
     </Space>
   );
 }
