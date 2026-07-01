@@ -1,0 +1,456 @@
+TY  - JOUR
+AU  - Cawley, Gavin C.
+AU  - Talbot, Nicola L. C.
+TI  - On over-fitting in model selection and subsequent selection bias in performance evaluation
+JO  - Journal of Machine Learning Research
+T2  - Journal of Machine Learning Research
+PY  - 2010
+Y1  - 2010
+VL  - 11
+SP  - 2079
+EP  - 2107
+N1  - Extracted from Deep Research report reference links.
+UR  - https://jmlr.org/papers/v11/cawley10a.html
+ER  - 
+
+TY  - CONF
+AU  - Lundberg, Scott M.
+AU  - Lee, Su-In
+TI  - A Unified Approach to Interpreting Model Predictions
+T2  - Advances in Neural Information Processing Systems
+PY  - 2017
+Y1  - 2017
+AN  - arXiv:1705.07874
+N1  - arXiv:1705.07874; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/1705.07874
+ER  - 
+
+TY  - JOUR
+AU  - Rudin, Cynthia
+TI  - Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead
+JO  - Nature Machine Intelligence
+T2  - Nature Machine Intelligence
+PY  - 2019
+Y1  - 2019
+VL  - 1
+SP  - 206
+EP  - 215
+DO  - 10.1038/s42256-019-0048-x
+N1  - Extracted from Deep Research report reference links.
+UR  - https://doi.org/10.1038/s42256-019-0048-x
+ER  - 
+
+TY  - JOUR
+AU  - Goldstein, Alex
+AU  - Kapelner, Adam
+AU  - Bleich, Justin
+AU  - Pitkin, Emil
+TI  - Peeking Inside the Black Box: Visualizing Statistical Learning With Plots of Individual Conditional Expectation
+JO  - Journal of Computational and Graphical Statistics
+T2  - Journal of Computational and Graphical Statistics
+PY  - 2015
+Y1  - 2015
+AN  - arXiv:1309.6392
+N1  - arXiv:1309.6392; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/1309.6392
+ER  - 
+
+TY  - CONF
+AU  - Klein, Aaron
+AU  - Falkner, Stefan
+AU  - Bartels, Simon
+AU  - Hennig, Philipp
+AU  - Hutter, Frank
+TI  - Fast Bayesian Optimization of Machine Learning Hyperparameters on Large Datasets
+T2  - Artificial Intelligence and Statistics
+PY  - 2017
+Y1  - 2017
+AN  - arXiv:1605.07079
+N1  - arXiv:1605.07079; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/1605.07079
+ER  - 
+
+TY  - CONF
+AU  - Zhang, Chiyuan
+AU  - Bengio, Samy
+AU  - Hardt, Moritz
+AU  - Recht, Benjamin
+AU  - Vinyals, Oriol
+TI  - Understanding deep learning requires rethinking generalization
+T2  - International Conference on Learning Representations
+PY  - 2017
+Y1  - 2017
+AN  - arXiv:1611.03530
+N1  - arXiv:1611.03530; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/1611.03530
+ER  - 
+
+TY  - JOUR
+AU  - Apley, Daniel W.
+AU  - Zhu, Jingyu
+TI  - Visualizing the Effects of Predictor Variables in Black Box Supervised Learning Models
+JO  - Journal of the Royal Statistical Society: Series B
+T2  - Journal of the Royal Statistical Society: Series B
+PY  - 2020
+Y1  - 2020
+AN  - arXiv:1612.08468
+N1  - arXiv:1612.08468; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/1612.08468
+ER  - 
+
+TY  - ELEC
+AU  - Probst, Philipp
+AU  - Boulesteix, Anne-Laure
+TI  - To tune or not to tune the number of trees in random forest?
+PY  - 2017
+Y1  - 2017
+AN  - arXiv:1705.05654
+N1  - arXiv:1705.05654; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/1705.05654
+ER  - 
+
+TY  - JOUR
+AU  - Ratner, Alexander
+AU  - Bach, Stephen H.
+AU  - Ehrenberg, Henry
+AU  - Fries, Jason
+AU  - Wu, Sen
+AU  - Ré, Christopher
+TI  - Snorkel: Rapid Training Data Creation with Weak Supervision
+JO  - The VLDB Journal
+T2  - The VLDB Journal
+PY  - 2020
+Y1  - 2020
+AN  - arXiv:1711.10160
+N1  - arXiv:1711.10160; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/1711.10160
+ER  - 
+
+TY  - JOUR
+AU  - Fisher, Aaron
+AU  - Rudin, Cynthia
+AU  - Dominici, Francesca
+TI  - All Models are Wrong, but Many are Useful: Learning a Variable's Importance by Studying an Entire Class of Prediction Models Simultaneously
+JO  - Journal of Machine Learning Research
+T2  - Journal of Machine Learning Research
+PY  - 2019
+Y1  - 2019
+AN  - arXiv:1801.01489
+N1  - arXiv:1801.01489; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/1801.01489
+ER  - 
+
+TY  - JOUR
+AU  - Probst, Philipp
+AU  - Wright, Marvin N.
+AU  - Boulesteix, Anne-Laure
+TI  - Tunability: Importance of Hyperparameters of Machine Learning Algorithms
+JO  - Journal of Machine Learning Research
+T2  - Journal of Machine Learning Research
+PY  - 2019
+Y1  - 2019
+AN  - arXiv:1802.09596
+N1  - arXiv:1802.09596; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/1802.09596
+ER  - 
+
+TY  - JOUR
+AU  - Gebru, Timnit
+AU  - Morgenstern, Jamie
+AU  - Vecchione, Briana
+AU  - Vaughan, Jennifer Wortman
+AU  - Wallach, Hanna
+AU  - Daumé III, Hal
+AU  - Crawford, Kate
+TI  - Datasheets for Datasets
+JO  - Communications of the ACM
+T2  - Communications of the ACM
+PY  - 2021
+Y1  - 2021
+AN  - arXiv:1803.09010
+N1  - arXiv:1803.09010; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/1803.09010
+ER  - 
+
+TY  - JOUR
+AU  - Schratz, Patrick
+AU  - Muenchow, Jannes
+AU  - Iturritxa, Ekaitz
+AU  - Richter, Jakob
+AU  - Brenning, Alexander
+TI  - Performance evaluation and hyperparameter tuning of statistical and machine-learning models using spatial data
+JO  - Ecological Modelling
+T2  - Ecological Modelling
+PY  - 2019
+Y1  - 2019
+DO  - 10.1016/j.ecolmodel.2019.06.002
+AN  - arXiv:1803.11266
+N1  - arXiv:1803.11266; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/1803.11266
+ER  - 
+
+TY  - JOUR
+AU  - Probst, Philipp
+AU  - Wright, Marvin N.
+AU  - Boulesteix, Anne-Laure
+TI  - Hyperparameters and Tuning Strategies for Random Forest
+JO  - Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery
+T2  - Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery
+PY  - 2019
+Y1  - 2019
+DO  - 10.1002/widm.1301
+AN  - arXiv:1804.03515
+N1  - arXiv:1804.03515; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/1804.03515
+ER  - 
+
+TY  - CONF
+AU  - Alvarez-Melis, David
+AU  - Jaakkola, Tommi S.
+TI  - Towards Robust Interpretability with Self-Explaining Neural Networks
+T2  - Advances in Neural Information Processing Systems
+PY  - 2018
+Y1  - 2018
+AN  - arXiv:1806.07538
+N1  - arXiv:1806.07538; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/1806.07538
+ER  - 
+
+TY  - CONF
+AU  - Mitchell, Margaret
+AU  - Wu, Simone
+AU  - Zaldivar, Andrew
+AU  - Barnes, Parker
+AU  - Vasserman, Lucy
+AU  - Hutchinson, Ben
+AU  - Spitzer, Elena
+AU  - Raji, Inioluwa Deborah
+AU  - Gebru, Timnit
+TI  - Model Cards for Model Reporting
+T2  - Proceedings of the Conference on Fairness, Accountability, and Transparency
+PY  - 2019
+Y1  - 2019
+AN  - arXiv:1810.03993
+N1  - arXiv:1810.03993; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/1810.03993
+ER  - 
+
+TY  - JOUR
+AU  - Northcutt, Curtis G.
+AU  - Jiang, Lu
+AU  - Chuang, Isaac L.
+TI  - Confident Learning: Estimating Uncertainty in Dataset Labels
+JO  - Journal of Artificial Intelligence Research
+T2  - Journal of Artificial Intelligence Research
+PY  - 2021
+Y1  - 2021
+AN  - arXiv:1911.00068
+N1  - arXiv:1911.00068; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/1911.00068
+ER  - 
+
+TY  - ELEC
+AU  - Molnar, Christoph
+AU  - König, Gunnar
+AU  - Bischl, Bernd
+AU  - Casalicchio, Giuseppe
+TI  - Model-agnostic Feature Importance and Effects with Dependent Features -- A Conditional Subgroup Approach
+PY  - 2020
+Y1  - 2020
+AN  - arXiv:2006.04628
+N1  - arXiv:2006.04628; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/2006.04628
+ER  - 
+
+TY  - CONF
+AU  - Koh, Pang Wei
+AU  - Nguyen, Thao
+AU  - Tang, Yew Siang
+AU  - Mussmann, Stephen
+AU  - Pierson, Emma
+AU  - Kim, Been
+AU  - Liang, Percy
+TI  - Concept Bottleneck Models
+T2  - International Conference on Machine Learning
+PY  - 2020
+Y1  - 2020
+AN  - arXiv:2007.04612
+N1  - arXiv:2007.04612; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/2007.04612
+ER  - 
+
+TY  - ELEC
+TI  - Reliability in Software Engineering Qualitative Research through Inter-Coder Agreement: A guide using Krippendorff's alpha and Atlas.ti
+PY  - 2020
+Y1  - 2020
+AN  - arXiv:2008.00977
+N1  - arXiv:2008.00977; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/2008.00977
+ER  - 
+
+TY  - CONF
+AU  - Northcutt, Curtis G.
+AU  - Athalye, Anish
+AU  - Mueller, Jonas
+TI  - Pervasive Label Errors in Test Sets Destabilize Machine Learning Benchmarks
+T2  - Advances in Neural Information Processing Systems
+PY  - 2021
+Y1  - 2021
+AN  - arXiv:2103.14749
+N1  - arXiv:2103.14749; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/2103.14749
+ER  - 
+
+TY  - ELEC
+TI  - Stochastic Optimization of Areas Under Precision-Recall Curves with Provable Convergence
+PY  - 2021
+Y1  - 2021
+AN  - arXiv:2104.08736
+N1  - arXiv:2104.08736; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/2104.08736
+ER  - 
+
+TY  - JOUR
+AU  - Shwartz-Ziv, Ravid
+AU  - Armon, Amitai
+TI  - Tabular Data: Deep Learning is Not All You Need
+JO  - Information Fusion
+T2  - Information Fusion
+PY  - 2022
+Y1  - 2022
+AN  - arXiv:2106.03253
+N1  - arXiv:2106.03253; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/2106.03253
+ER  - 
+
+TY  - CONF
+AU  - Gorishniy, Yury
+AU  - Rubachev, Ivan
+AU  - Khrulkov, Valentin
+AU  - Babenko, Artem
+TI  - Revisiting Deep Learning Models for Tabular Data
+T2  - Advances in Neural Information Processing Systems
+PY  - 2021
+Y1  - 2021
+AN  - arXiv:2106.11959
+N1  - arXiv:2106.11959; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/2106.11959
+ER  - 
+
+TY  - ELEC
+AU  - Angelopoulos, Anastasios N.
+AU  - Bates, Stephen
+TI  - A Gentle Introduction to Conformal Prediction and Distribution-Free Uncertainty Quantification
+PY  - 2021
+Y1  - 2021
+AN  - arXiv:2107.07511
+N1  - arXiv:2107.07511; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/2107.07511
+ER  - 
+
+TY  - JOUR
+AU  - Kapoor, Sayash
+AU  - Narayanan, Arvind
+TI  - Leakage and the Reproducibility Crisis in ML-based Science
+JO  - Patterns
+T2  - Patterns
+PY  - 2023
+Y1  - 2023
+AN  - arXiv:2207.07048
+N1  - arXiv:2207.07048; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/2207.07048
+ER  - 
+
+TY  - CONF
+AU  - Grinsztajn, Léo
+AU  - Oyallon, Edouard
+AU  - Varoquaux, Gaël
+TI  - Why do tree-based models still outperform deep learning on tabular data?
+T2  - Advances in Neural Information Processing Systems
+PY  - 2022
+Y1  - 2022
+AN  - arXiv:2207.08815
+N1  - arXiv:2207.08815; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/2207.08815
+ER  - 
+
+TY  - ELEC
+TI  - Assessing the performance of spatial cross-validation approaches for models of spatially structured data
+PY  - 2023
+Y1  - 2023
+AN  - arXiv:2303.07334
+N1  - arXiv:2303.07334; extracted from Deep Research report reference links.
+UR  - https://arxiv.org/abs/2303.07334
+ER  - 
+
+TY  - ELEC
+AU  - scikit-learn developers
+TI  - Nested versus non-nested cross-validation
+PY  - 2026
+Y1  - 2026
+N1  - Extracted from Deep Research report reference links.
+UR  - https://scikit-learn.org/stable/auto_examples/model_selection/plot_nested_cross_validation_iris.html
+ER  - 
+
+TY  - ELEC
+AU  - scikit-learn developers
+TI  - GroupKFold
+PY  - 2026
+Y1  - 2026
+N1  - Extracted from Deep Research report reference links.
+UR  - https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GroupKFold.html
+ER  - 
+
+TY  - ELEC
+AU  - scikit-learn developers
+TI  - LeaveOneGroupOut
+PY  - 2026
+Y1  - 2026
+N1  - Extracted from Deep Research report reference links.
+UR  - https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.LeaveOneGroupOut.html
+ER  - 
+
+TY  - ELEC
+AU  - scikit-learn developers
+TI  - GroupShuffleSplit
+PY  - 2026
+Y1  - 2026
+N1  - Extracted from Deep Research report reference links.
+UR  - https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GroupShuffleSplit.html
+ER  - 
+
+TY  - ELEC
+AU  - scikit-learn developers
+TI  - Pipelines and composite estimators
+PY  - 2026
+Y1  - 2026
+N1  - Extracted from Deep Research report reference links.
+UR  - https://scikit-learn.org/stable/modules/compose.html
+ER  - 
+
+TY  - ELEC
+AU  - scikit-learn developers
+TI  - Probability calibration
+PY  - 2026
+Y1  - 2026
+N1  - Extracted from Deep Research report reference links.
+UR  - https://scikit-learn.org/stable/modules/calibration.html
+ER  - 
+
+TY  - ELEC
+AU  - scikit-learn developers
+TI  - Tuning the decision threshold for class prediction
+PY  - 2026
+Y1  - 2026
+N1  - Extracted from Deep Research report reference links.
+UR  - https://scikit-learn.org/stable/modules/classification_threshold.html
+ER  - 
+
+TY  - ELEC
+AU  - scikit-learn developers
+TI  - RandomizedSearchCV
+PY  - 2026
+Y1  - 2026
+N1  - Extracted from Deep Research report reference links.
+UR  - https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html
+ER  - 
