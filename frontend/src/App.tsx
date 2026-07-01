@@ -116,7 +116,7 @@ export default function AppLayout() {
           fontSize: 10,
           userSelect: "none",
         }}>
-          v0.1.0 · SRS MVP
+          v1.0.0 · SRS
         </div>
       </Sider>
 

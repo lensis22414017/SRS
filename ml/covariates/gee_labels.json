@@ -1,0 +1,17 @@
+{
+  "gee_ndvi": {"display": "NDVI", "category": "遥感植被", "unit": "-"},
+  "gee_precip_annual_mm": {"display": "年降水量", "category": "气候", "unit": "mm"},
+  "gee_temp_mean_c": {"display": "年均温", "category": "气候", "unit": "℃"},
+  "gee_elevation_m": {"display": "海拔", "category": "地形", "unit": "m"},
+  "gee_slope_deg": {"display": "坡度", "category": "地形", "unit": "°"},
+  "gee_aspect_deg": {"display": "坡向", "category": "地形", "unit": "°"},
+  "gee_soil_pH": {"display": "土壤pH", "category": "土壤理化", "unit": "-"},
+  "gee_soc_g_kg": {"display": "SOC", "category": "土壤理化", "unit": "g/kg"},
+  "gee_cec_cmol_kg": {"display": "CEC", "category": "土壤理化", "unit": "cmol/kg"},
+  "gee_clay_pct": {"display": "黏粒含量", "category": "土壤质地", "unit": "%"},
+  "gee_sand_pct": {"display": "砂粒含量", "category": "土壤质地", "unit": "%"},
+  "gee_silt_pct": {"display": "粉粒含量", "category": "土壤质地", "unit": "%"},
+  "gee_bulk_density_g_cm3": {"display": "容重", "category": "土壤物理", "unit": "g/cm³"},
+  "gee_nitrogen_g_kg": {"display": "全氮", "category": "土壤养分", "unit": "g/kg"},
+  "gee_ndwi": {"display": "NDWI", "category": "遥感水分", "unit": "-"}
+}

@@ -23,6 +23,27 @@ from app.core.config import resource_root
 from app.services.versioning import current_site_data_version
 
 ROOT = resource_root()
+
+# L2: 加载 GEE 协变量标签映射（简化名称）
+_gee_labels: dict[str, dict] = {}
+_gee_labels_path = os.path.join(ROOT, "ml", "covariates", "gee_labels.json")
+if os.path.exists(_gee_labels_path):
+    with open(_gee_labels_path, encoding="utf-8") as _f:
+        _gee_labels = json.load(_f)
+
+
+def _resolve_factor_name(feature: str, feat2factor: dict[str, str],
+                          fd_by_code: dict) -> str:
+    """返回特征的可显示名称: 优先因子字典中文名, 其次 GEE 简化名, 最后原始特征名。"""
+    fcode = feat2factor.get(feature)
+    if fcode and fcode in fd_by_code:
+        return fd_by_code[fcode].factor_name
+    if feature in _gee_labels:
+        return _gee_labels[feature]["display"]
+    # 去掉 gee_ 前缀作为后备
+    if feature.startswith("gee_"):
+        return feature[4:]
+    return feature
 ML_DIR = os.path.join(ROOT, "ml")
 for p in (os.path.join(ML_DIR, "models"), os.path.join(ML_DIR, "explain")):
     if p not in sys.path:
@@ -419,7 +440,7 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
         f"基于 RF({bundle['version']}) + SHAP 对 {len(X)} 个采样点分析: "
         f"高风险概率均值 {float(proba.mean()):.2f}。"
         f"Top{len(ranked)} 关键障碍因子(按全局|SHAP|): "
-        + ", ".join(g.get("factor_code") or feat2factor.get(g['feature'], g['feature'])
+        + ", ".join(_resolve_factor_name(g['feature'], feat2factor, fd_by_code)
                     for g in ranked)
         + "。注: 训练特征中 "
         + (f"{len(imputed)} 项在本场地无实测(以训练中位数填充, 未参与结论排名)。"
@@ -442,6 +463,7 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
         site_id=site_id, model_id=model_rec.id,
         data_version=current_site_data_version(db, site_id),
         top_n=top_n, summary=summary,
+        summary_polished=None, polish_model=None,
         shap_global={"global": shap_out["global"],
                      "imputed_features": imputed,
                      "risk_proba_mean": float(proba.mean()),
@@ -450,6 +472,19 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
         status="done")
     db.add(diag)
     db.flush()
+
+    # M1: LLM 润色诊断摘要（失败静默降级到模板 summary）
+    try:
+        from app.services.ai_service import polish_diagnosis
+        polished = polish_diagnosis(db, summary)
+        if polished:
+            diag.summary_polished = polished
+            # 获取当前 AI 模型名
+            from app.core.ai_config import effective_ai
+            diag.polish_model = effective_ai().get("model", "")
+            db.flush()
+    except Exception:
+        pass  # 静默降级
 
     # 全局明细
     for rank, g in enumerate(ranked, 1):
@@ -484,7 +519,7 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
         "worst_point": worst_code,
         "top_factors": [{
             "rank": i + 1,
-            "factor": g.get("factor_code") or feat2factor.get(g["feature"], g["feature"]),
+            "factor": _resolve_factor_name(g["feature"], feat2factor, fd_by_code),
             "feature": g["feature"],
             "importance": g["mean_abs_shap"],
             "direction": g["direction"],
@@ -500,6 +535,8 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
         } for i, g in enumerate(ranked)],
         "imputed_features": imputed,
         "calculation_trace": calc_trace,
-        "summary": summary,
+        "summary": diag.summary_polished or summary,
+        "summary_raw": summary,
+        "polish_model": diag.polish_model,
         "dual_track": _build_dual_track(prod_r, eco_r),
     }

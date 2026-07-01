@@ -9,7 +9,7 @@ import {
   DatabaseOutlined, SettingOutlined, TeamOutlined, FileTextOutlined,
   HeartOutlined, ApiOutlined, ThunderboltOutlined, PlusOutlined, ExperimentOutlined,
   InfoCircleOutlined, UserAddOutlined, PhoneOutlined, MailOutlined,
-  EditOutlined, SaveOutlined,
+  EditOutlined, SaveOutlined, HomeOutlined,
 } from "@ant-design/icons";
 import { api } from "../api/client";
 import { seqCol, textCol } from "../utils/table";
@@ -34,6 +34,125 @@ const PERM_LABEL: Record<string, string> = {
   "workflow:view": "全流程查看",
 };
 const permLabel = (code: string) => PERM_LABEL[code] || code;
+
+// ──────────────────────────────────────────────────────────────────────────────
+// 子组件: 系统概览（默认首标签页）
+// ──────────────────────────────────────────────────────────────────────────────
+function SystemOverview() {
+  const features = [
+    { module: "场地数据管理", desc: "多源数据导入/校验/存储/可视化", key: "1" },
+    { module: "障碍因子诊断", desc: "RF+SHAP 双轨模型识别关键限制因子", key: "2" },
+    { module: "功能重构评价", desc: "生态/生产功能重构可行性量化评估", key: "3" },
+    { module: "SSUI 可持续评价", desc: "修复后中长期持续利用潜力评价", key: "4" },
+    { module: "方案推荐", desc: "基于诊断结果的技术库匹配推荐", key: "5" },
+    { module: "全流程追溯", desc: "五阶段监管追溯（调查→审批→施工→效果→管护）", key: "6" },
+    { module: "报告生成", desc: "一键生成 PDF/DOCX 全流程监管报告", key: "7" },
+    { module: "权限管理", desc: "四角色 RBAC + 组织级数据隔离", key: "8" },
+  ];
+
+  return (
+    <Space direction="vertical" style={{ width: "100%" }} size={16}>
+      {/* 系统简介 */}
+      <Card>
+        <Typography.Title level={4} style={{ marginTop: 0, color: "#0f3d6e", marginBottom: 12 }}>
+          <InfoCircleOutlined style={{ marginRight: 8 }} />
+          污染场地土壤生态-生产功能重构监管系统（SRS）
+        </Typography.Title>
+        <Typography.Paragraph style={{ fontSize: 14, marginBottom: 0, lineHeight: 1.8 }}>
+          本系统由生态环境部土壤与农业农村生态环境监管技术中心主持开发，面向污染场地全过程监管需求，
+          集数据管理、障碍因子诊断、功能重构评价、方案推荐、全流程追溯于一体。
+          系统覆盖污染场地从调查评估到后期管护的全生命周期，
+          为监管部门和从业机构提供科学化、标准化的技术支撑平台。
+        </Typography.Paragraph>
+      </Card>
+
+      {/* 参与单位 */}
+      <Card
+        size="small"
+        title={<Space><TeamOutlined />参与单位</Space>}
+      >
+        <Descriptions bordered size="small" column={1}>
+          <Descriptions.Item label="主持单位">
+            生态环境部土壤与农业农村生态环境监管技术中心
+          </Descriptions.Item>
+          <Descriptions.Item label="技术支持">
+            <Tag>待补充</Tag>
+          </Descriptions.Item>
+          <Descriptions.Item label="数据支持">
+            <Tag>待补充</Tag>
+          </Descriptions.Item>
+        </Descriptions>
+      </Card>
+
+      {/* 核心功能 */}
+      <Card
+        size="small"
+        title={<Space><CheckCircleOutlined />核心功能</Space>}
+      >
+        <Table
+          rowKey="key"
+          size="small"
+          pagination={false}
+          dataSource={features}
+          columns={[
+            {
+              title: "功能模块",
+              dataIndex: "module",
+              width: 180,
+              render: (v: string) => <Text strong style={{ color: "#0f3d6e" }}>{v}</Text>,
+            },
+            { title: "说明", dataIndex: "desc" },
+          ]}
+        />
+      </Card>
+
+      {/* 技术栈 */}
+      <Card
+        size="small"
+        title={<Space><ApiOutlined />技术栈</Space>}
+      >
+        <Descriptions bordered size="small" column={2}>
+          <Descriptions.Item label="后端">
+            Python FastAPI + SQLAlchemy + SQLite/PostgreSQL
+          </Descriptions.Item>
+          <Descriptions.Item label="前端">
+            React 18 + TypeScript + Ant Design + ECharts 5
+          </Descriptions.Item>
+          <Descriptions.Item label="算法">
+            scikit-learn RandomForest + SHAP + GEE 空间协变量
+          </Descriptions.Item>
+          <Descriptions.Item label="报告">
+            Jinja2 模板 + WeasyPrint PDF 引擎
+          </Descriptions.Item>
+          <Descriptions.Item label="部署" span={2}>
+            Docker + Nginx + 桌面端 PyInstaller 打包
+          </Descriptions.Item>
+        </Descriptions>
+      </Card>
+
+      {/* 数据标准依据 */}
+      <Card
+        size="small"
+        title={<Space><FileTextOutlined />数据标准依据</Space>}
+      >
+        <List
+          size="small"
+          dataSource={[
+            "GB 15618-2018 农用地土壤污染风险管控标准",
+            "GB 36600-2018 建设用地土壤污染风险管控标准",
+            "HJ 25.5-2018 污染地块风险管控与修复效果评估技术导则",
+            "GEE 多源遥感与地理空间协变量（MODIS / WorldClim / SRTM / SoilGrids2.0）",
+          ]}
+          renderItem={(item) => (
+            <List.Item style={{ padding: "4px 0" }}>
+              <Text style={{ fontSize: 13 }}>{item}</Text>
+            </List.Item>
+          )}
+        />
+      </Card>
+    </Space>
+  );
+}
 
 // ──────────────────────────────────────────────────────────────────────────────
 // 子组件: 修改密码
@@ -644,14 +763,14 @@ function ContactInfoEditor() {
           <Descriptions.Item label="联系电话">
             <Space>
               <Input prefix={<PhoneOutlined />} value={phone} onChange={(e) => setPhone(e.target.value)}
-                style={{ width: 260 }} placeholder="010-0000-0000" />
+                style={{ width: 260 }} placeholder="请设置联系电话" />
               <Button icon={<SaveOutlined />} loading={saving} onClick={() => save("phone", phone)}>保存</Button>
             </Space>
           </Descriptions.Item>
           <Descriptions.Item label="联系邮箱">
             <Space>
               <Input prefix={<MailOutlined />} value={email} onChange={(e) => setEmail(e.target.value)}
-                style={{ width: 260 }} placeholder="admin@srs-system.cn" />
+                style={{ width: 260 }} placeholder="请设置联系邮箱" />
               <Button icon={<SaveOutlined />} loading={saving} onClick={() => save("email", email)}>保存</Button>
             </Space>
           </Descriptions.Item>
@@ -678,6 +797,7 @@ export default function SystemManagement() {
     >
       <Tabs
         items={[
+          { key: "overview", label: <Space><HomeOutlined />系统概览</Space>, children: <SystemOverview /> },
           { key: "health", label: <Space><HeartOutlined />系统健康</Space>, children: <SystemHealth /> },
           { key: "approvals", label: <Space><UserAddOutlined />账户审核</Space>, children: <AccountApprovals /> },
           { key: "tech", label: <Space><ExperimentOutlined />技术库管理</Space>, children: <TechLibrary /> },
@@ -688,15 +808,14 @@ export default function SystemManagement() {
           { key: "pwd", label: <Space><TeamOutlined />修改密码</Space>, children: <ChangePassword /> },
           { key: "about", label: <Space><InfoCircleOutlined />关于系统</Space>, children: <AboutSystem /> },
         ]}
-        defaultActiveKey="health"
+        defaultActiveKey="overview"
       />
     </Card>
   );
 }
 
 // ──────────────────────────────────────────────────────────────────────────────
-// 子组件: 关于系统(裴总 2026-06-30: 系统内展示开发者信息, 因 exe 属性页版本信息在
-// PyInstaller onedir+windowed 下不写入, 改系统内展示 ZJU WW Lab + 版本 + MIT 版权)
+// 子组件: 关于系统(系统内展示开发者信息、版本、版权)
 // ──────────────────────────────────────────────────────────────────────────────
 function AboutSystem() {
   return (
@@ -705,17 +824,17 @@ function AboutSystem() {
         <Descriptions bordered size="small" column={1}>
           <Descriptions.Item label="系统名称">污染场地土壤生态-生产功能重构监管系统</Descriptions.Item>
           <Descriptions.Item label="英文名称">Soil Remediation Supervision System (SRS)</Descriptions.Item>
-          <Descriptions.Item label="版本">v0.1.0 (MVP, 2026-06-30)</Descriptions.Item>
+          <Descriptions.Item label="版本">v1.0.0 (2026-07-01)</Descriptions.Item>
           <Descriptions.Item label="开源协议">
             <Tag color="green">MIT License</Tag> 允许商用/修改/分发, 保留版权声明即可
           </Descriptions.Item>
           <Descriptions.Item label="开发者">
-            浙江大学环境与资源学院 · 王玮实验室<br/>
+            生态环境部土壤与农业农村生态环境监管技术中心<br/>
             <Text type="secondary" style={{ fontSize: 12 }}>
-              Zhejiang University, College of Environmental &amp; Resource Sciences, Wang Wei Lab (ZJU WW Lab)
+              Soil Remediation Supervision System (SRS)
             </Text>
           </Descriptions.Item>
-          <Descriptions.Item label="版权">Copyright © 2026 ZJU WW Lab. Licensed under MIT.</Descriptions.Item>
+          <Descriptions.Item label="版权">Copyright © 2026 生态环境部土壤与农业农村生态环境监管技术中心</Descriptions.Item>
         </Descriptions>
       </Card>
 

@@ -1,5 +1,5 @@
 """打包后用 pefile 注入 VS_VERSION_INFO 资源到 SRS.exe(PyInstaller version_file 在 onedir 下失效的兜底)。
-开发者: 浙江大学环境与资源学院王玮实验室 (ZJU WW Lab)。
+开发者: 生态环境部土壤与农业农村生态环境监管技术中心。
 用 pefile + 手工构造 RT_VERSION 资源二进制写入。
 用法: python packaging/inject_version.py dist/SRS/SRS.exe
 """
@@ -19,15 +19,15 @@ def build_version_info():
     """构造 VS_VERSION_INFO 资源二进制(UTF-16, 标准格式)。"""
     # StringTable
     strings = [
-        ("CompanyName", "Zhejiang University, College of Environmental & Resource Sciences, Wang Wei Lab (ZJU WW Lab)"),
+        ("CompanyName", "生态环境部土壤与农业农村生态环境监管技术中心"),
         ("FileDescription", "Soil Remediation Supervision System (SRS) - Contaminated Site Ecological-Productive Function Reconstruction"),
-        ("FileVersion", "0.1.0.0"),
+        ("FileVersion", "1.0.0.0"),
         ("InternalName", "SRS"),
-        ("LegalCopyright", "Copyright (c) 2026 ZJU WW Lab. Licensed under MIT."),
+        ("LegalCopyright", "Copyright (c) 2026 生态环境部土壤与农业农村生态环境监管技术中心"),
         ("OriginalFilename", "SRS.exe"),
         ("ProductName", "SRS - Contaminated Site Supervision System"),
-        ("ProductVersion", "0.1.0.0"),
-        ("Comments", "MVP v0.1.0 - Built 2026-06-30"),
+        ("ProductVersion", "1.0.0.0"),
+        ("Comments", "v1.0.0 - Built 2026-07-01"),
     ]
     # StringTable block
     lang = b"\x09\x04\xb0\x04"  # 0x0409, 1200(0x04B0) little-endian

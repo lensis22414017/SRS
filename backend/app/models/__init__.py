@@ -1,6 +1,6 @@
 """核心数据模型 (对应 docs/architecture/database_schema.md)。
 
-MVP 决策: 用 numeric 经纬度替代 PostGIS, 本地文件存储替代 MinIO。
+设计决策: 用 numeric 经纬度替代 PostGIS, 本地文件存储替代 MinIO。
 检测数据采用长表 measurements。
 """
 from datetime import date, datetime
@@ -278,6 +278,8 @@ class DiagnosisResult(Base, TimestampMixin):
     data_version: Mapped[str | None] = mapped_column(String(60), nullable=True)
     top_n: Mapped[int] = mapped_column(Integer, default=10)
     summary: Mapped[str | None] = mapped_column(Text, nullable=True)
+    summary_polished: Mapped[str | None] = mapped_column(Text, nullable=True)
+    polish_model: Mapped[str | None] = mapped_column(String(64), nullable=True)
     shap_global: Mapped[dict | None] = mapped_column(JSON, nullable=True)
     status: Mapped[str] = mapped_column(String(20), default="done")
 
@@ -395,6 +397,7 @@ class FileObject(Base, TimestampMixin):
     size_bytes: Mapped[int | None] = mapped_column(Integer, nullable=True)
     sha256: Mapped[str | None] = mapped_column(String(64), nullable=True)
     organization_id: Mapped[int | None] = mapped_column(ForeignKey("organizations.id"), nullable=True)
+    uploaded_by: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
 
 
 class WorkflowAttachment(Base, TimestampMixin):

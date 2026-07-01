@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Card, Button, Row, Col, Space, Alert, Typography, App, Descriptions, Table, Tag, Timeline, Segmented, Tooltip } from "antd";
-import { InfoCircleOutlined, ExportOutlined } from "@ant-design/icons";
+import { Card, Button, Row, Col, Space, Alert, Typography, App, Descriptions, Table, Tag, Timeline, Segmented, Tooltip, Select } from "antd";
+import { InfoCircleOutlined, ExportOutlined, GlobalOutlined, HistoryOutlined } from "@ant-design/icons";
 import ReactECharts from "echarts-for-react";
+import dayjs from "dayjs";
 import { api } from "../api/client";
 import SitePicker from "../components/SitePicker";
 import EmptyState from "../components/EmptyState";
@@ -31,16 +32,25 @@ export default function ObstacleAnalysis() {
   const [site, setSite] = useState<any>(null);
   const [busy, setBusy] = useState(false);
   const [landUse, setLandUse] = useState<string>("生产用地");
+  const [historyList, setHistoryList] = useState<any[]>([]);
+  const [historyId, setHistoryId] = useState<number | null>(null);
 
-  const load = (id?: number) => {
+  const load = (id?: number, diagnosisId?: number | null) => {
     const s = id ?? sid; if (!s) return;
-    api.diagnosis(s).then(setDiag).catch(() => setDiag(null));
+    const diagPromise = diagnosisId
+      ? api.diagnosisDetail(diagnosisId)
+      : api.diagnosis(s);
+    diagPromise.then(setDiag).catch(() => setDiag(null));
     api.site(s).then((d: any) => {
       setSite(d);
       setLandUse(d.land_use_type || "生产用地");
     }).catch(() => {});
+    // 加载历史诊断列表
+    if (!diagnosisId) {
+      api.diagnosisHistory(s).then(setHistoryList).catch(() => setHistoryList([]));
+    }
   };
-  useEffect(() => { if (sid) load(sid); }, [sid]);
+  useEffect(() => { if (sid) { load(sid); setHistoryId(null); } }, [sid]);
 
   const switchLandUse = async (v: string) => {
     if (!sid) return;
@@ -178,7 +188,28 @@ export default function ObstacleAnalysis() {
           {siteBg}
 
           {/* 模型与结论 — 术语简化 */}
-          <Card title="诊断模型与结论">
+          <Card title={
+            <Space>
+              <span>诊断模型与结论</span>
+              {historyList.length > 1 && (
+                <Select size="small" placeholder="选择历史诊断" value={historyId ?? undefined}
+                  style={{ minWidth: 240, fontWeight: 400 }}
+                  onChange={(v: number) => {
+                    setHistoryId(v);
+                    load(sid, v);
+                    message.info(`正在查看历史诊断记录（${dayjs(historyList.find(h => h.id === v)?.created_at).format("MM-DD HH:mm")}）`);
+                  }}
+                  options={historyList.map((h: any) => ({
+                    value: h.id,
+                    label: `${dayjs(h.created_at).format("MM-DD HH:mm")}${h.is_latest ? " (最新)" : ""} — ${(h.top_factors_summary || []).slice(0, 3).join(", ")}`,
+                  }))}
+                />
+              )}
+              {historyId && (
+                <Tag color="blue" icon={<HistoryOutlined />}>历史记录（{dayjs(historyList.find(h => h.id === historyId)?.created_at).format("MM-DD HH:mm")}）</Tag>
+              )}
+            </Space>
+          }>
             {veryLowConfidence && (
               <Alert type="error" showIcon message="诊断结果不可靠，请检查数据完整性后重新诊断"
                 style={{ marginBottom: 12 }} />
@@ -196,7 +227,12 @@ export default function ObstacleAnalysis() {
                 </Tooltip>
               </Descriptions.Item>
               <Descriptions.Item label="结论摘要" span={2}>
-                <Text>{diag.summary || "—"}</Text>
+                <Paragraph style={{ marginBottom: 4, whiteSpace: "pre-wrap" }}>{diag.summary || "—"}</Paragraph>
+                {diag.polish_model && (
+                  <Text type="secondary" style={{ fontSize: 11 }}>
+                    ⓘ 此结论由 AI 辅助生成（{diag.polish_model}），仅供参考，以原始数据为准。
+                  </Text>
+                )}
               </Descriptions.Item>
             </Descriptions>
           </Card>
@@ -207,7 +243,16 @@ export default function ObstacleAnalysis() {
             <Table rowKey="rank" size="small" pagination={false} dataSource={trackFactors}
               columns={[
                 seqCol(64),
-                textCol("障碍因子", "factor"),
+                { title: "障碍因子", dataIndex: "factor", render: (v: string, r: any) => (
+                  <Space size={4}>
+                    <span>{v}</span>
+                    {(r.feature && r.feature.startsWith("gee_")) && (
+                      <Tooltip title="该指标来源于卫星遥感/地理空间数据">
+                        <GlobalOutlined style={{ color: "#52c41a", fontSize: 12 }} />
+                      </Tooltip>
+                    )}
+                  </Space>
+                )},
                 textCol("类别", "category"),
                 numCol("影响程度 |SHAP|", "importance"),
                 { title: "影响方向", dataIndex: "direction", align: "center",

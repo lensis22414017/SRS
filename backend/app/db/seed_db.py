@@ -61,8 +61,8 @@ DEMO_USERS = [
 
 # 系统配置初始值
 SYSTEM_CONFIG_DEFAULTS = [
-    ("admin_contact_phone", "010-0000-0000", "管理员联系电话"),
-    ("admin_contact_email", "admin@srs-system.cn", "管理员联系邮箱"),
+    ("admin_contact_phone", "", "管理员联系电话"),
+    ("admin_contact_email", "", "管理员联系邮箱"),
     ("admin_display_name", "系统管理方", "管理员显示名称"),
 ]
 

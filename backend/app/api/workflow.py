@@ -60,7 +60,8 @@ async def upload_attachment(site_id: int, stage: str, file: UploadFile = File(..
                            user: User = Depends(get_current_user),
                            db: Session = Depends(get_db)):
     _require_site(db, user, site_id)
-    fo = save_upload(db, file.file, file.filename, file.content_type)
+    fo = save_upload(db, file.file, file.filename, file.content_type,
+                     uploaded_by=user.id)
     db.commit()
     try:
         stages = workflow_service.attach_file(db, site_id, stage, fo.id,

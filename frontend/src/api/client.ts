@@ -107,6 +107,8 @@ export const api = {
   // 诊断 / 评价 / 推荐
   diagnosis: (id: number) => client.get(`/sites/${id}/diagnosis`).then((r) => r.data),
   runDiagnosis: (id: number) => client.post(`/sites/${id}/diagnosis`).then((r) => r.data),
+  diagnosisHistory: (siteId: number) => client.get(`/sites/${siteId}/diagnoses`).then((r) => r.data),
+  diagnosisDetail: (diagnosisId: number) => client.get(`/diagnoses/${diagnosisId}`).then((r) => r.data),
   evaluation: (id: number) => client.get(`/sites/${id}/evaluation`).then((r) => r.data),
   runEvaluation: (id: number) => client.post(`/sites/${id}/evaluation`).then((r) => r.data),
   recommendation: (id: number) => client.get(`/sites/${id}/recommendation`).then((r) => r.data),

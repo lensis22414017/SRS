@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Card, Descriptions, Tabs, Table, Button, Spin, Space, App, Select, Tag } from "antd";
 import { api } from "../api/client";
@@ -38,23 +38,41 @@ export default function SiteDetail() {
       .catch(() => setMapLayer(null));
   }, [mapFactor]);
 
-  if (loadErr) return <Card><div style={{ textAlign: "center", padding: 60, color: "#999" }}>场地不存在或已删除（id={sid}）。请从<a onClick={() => nav("/sites")}>场地管理</a>选择有效场地。</div></Card>;
-  if (!site) return <Spin style={{ marginTop: 80 }} />;
-
-  // 采样点宽表: 元数据列 + 动态因子列, 横向滚动
-  const wideColumns: any[] = [
+  // 采样点宽表: 元数据列 + 动态因子列, 横向滚动; 自动隐藏全空列, 合并经纬度为坐标
+  // NOTE: useMemo MUST be before any conditional return (Rules of Hooks)
+  const hiddenColumns = useMemo(() => {
+    const items: any[] = wide.items || [];
+    const hidden: string[] = [];
+    if (items.length > 0 && items.every((it: any) => it.region == null || it.region === "")) {
+      hidden.push("区域");
+    }
+    if (items.length > 0 && items.every((it: any) => it.soil_type == null || it.soil_type === "")) {
+      hidden.push("土壤类型");
+    }
+    for (const f of (wide.factors || [])) {
+      if (items.every((it: any) => it[f] == null || it[f] === "")) {
+        hidden.push(f);
+      }
+    }
+    return hidden;
+  }, [wide.items, wide.factors]);
+  const wideColumns: any[] = useMemo(() => [
     { title: "序号", dataIndex: "seq", align: "center", width: 64, fixed: "left" },
     { title: "采样点编号", dataIndex: "point_code", align: "left", width: 130, fixed: "left" },
-    { title: "区域", dataIndex: "region", align: "left", width: 90 },
-    { title: "经度", dataIndex: "longitude", align: "center", width: 110 },
-    { title: "纬度", dataIndex: "latitude", align: "center", width: 110 },
-    { title: "深度cm", dataIndex: "depth", align: "center", width: 90 },
-    { title: "土壤类型", dataIndex: "soil_type", align: "left", width: 130 },
-    ...wide.factors.map((f: string) => ({
-      title: f, dataIndex: f, align: "center", width: 110,
-      render: (v: any) => (v === null || v === undefined ? "—" : v),
-    })),
-  ];
+    { title: "坐标", dataIndex: "_coord", align: "center", width: 150, fixed: "left", render: (_: any, r: any) => (r.longitude != null && r.latitude != null ? `${r.longitude}, ${r.latitude}` : "—") },
+    { title: "深度cm", dataIndex: "depth", align: "center", width: 90, fixed: "left" },
+    ...(hiddenColumns.includes("区域") ? [] : [{ title: "区域", dataIndex: "region", align: "left", width: 90 }]),
+    ...(hiddenColumns.includes("土壤类型") ? [] : [{ title: "土壤类型", dataIndex: "soil_type", align: "left", width: 130 }]),
+    ...(wide.factors || [])
+      .filter((f: string) => !hiddenColumns.includes(f))
+      .map((f: string) => ({
+        title: f, dataIndex: f, align: "center", width: 110,
+        render: (v: any) => (v === null || v === undefined ? "—" : v),
+      })),
+  ], [hiddenColumns, wide.factors]);
+
+  if (loadErr) return <Card><div style={{ textAlign: "center", padding: 60, color: "#999" }}>场地不存在或已删除（id={sid}）。请从<a onClick={() => nav("/sites")}>场地管理</a>选择有效场地。</div></Card>;
+  if (!site) return <Spin style={{ marginTop: 80 }} />;
 
   return (
     <Space direction="vertical" style={{ width: "100%" }} size={16}>
@@ -99,6 +117,11 @@ export default function SiteDetail() {
         {
           key: "wide", label: `采样点检测数据（${wide.items.length}）`,
           children: <Card bodyStyle={{ padding: 12 }}>
+            {hiddenColumns.length > 0 && (
+              <div style={{ marginBottom: 8, color: "#8c8c8c", fontSize: 13 }}>
+                已隐藏 {hiddenColumns.length} 个无数据列：{hiddenColumns.join("、")}
+              </div>
+            )}
             <Table rowKey="seq" size="small" dataSource={wide.items} columns={wideColumns}
               scroll={{ x: "max-content", y: 480 }} pagination={{ pageSize: 20 }} bordered />
           </Card>,

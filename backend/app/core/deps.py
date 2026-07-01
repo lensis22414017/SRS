@@ -59,7 +59,7 @@ def require_permission(code: str):
 
 
 def assert_site_access(db: Session, user: User, site: Site) -> None:
-    """企业用户仅能访问本企业场地; 管理员/监管/第三方按现有范围(MVP 放行非企业角色)。"""
+    """企业用户仅能访问本企业场地; 管理员/监管/第三方按现有范围(放行非企业角色)。"""
     roles = user_role_codes(db, user)
     if ADMIN_ROLE in roles:
         return

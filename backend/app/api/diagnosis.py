@@ -36,6 +36,77 @@ def trigger_diagnosis(site_id: int, top_n: int = Query(10, ge=3, le=30),
         raise HTTPException(503, f"算法依赖缺失(需 scikit-learn/shap): {e}")
 
 
+@router.get("/sites/{site_id}/diagnoses")
+def list_diagnoses(site_id: int, user: User = Depends(get_current_user),
+                   db: Session = Depends(get_db)):
+    """列出场地所有历史诊断记录（摘要），按时间倒序。"""
+    _require_site(db, user, site_id)
+    rows = (db.query(DiagnosisResult).filter_by(site_id=site_id)
+            .order_by(DiagnosisResult.id.desc()).all())
+    if not rows:
+        return []
+    result = []
+    for i, d in enumerate(rows):
+        details = (db.query(DiagnosisFactorDetail, FactorDictionary)
+                   .join(FactorDictionary,
+                         DiagnosisFactorDetail.factor_id == FactorDictionary.id)
+                   .filter(DiagnosisFactorDetail.diagnosis_id == d.id,
+                           DiagnosisFactorDetail.sampling_point_id.is_(None))
+                   .order_by(DiagnosisFactorDetail.rank).limit(5).all())
+        top_summary = [fd.factor_name for _, fd in details]
+        result.append({
+            "id": d.id, "site_id": site_id,
+            "data_version": d.data_version,
+            "top_factors_summary": top_summary,
+            "status": d.status,
+            "created_at": str(d.created_at),
+            "is_latest": (i == 0),
+        })
+    return result
+
+
+@router.get("/diagnoses/{diagnosis_id}")
+def get_diagnosis_detail(diagnosis_id: int, user: User = Depends(get_current_user),
+                          db: Session = Depends(get_db)):
+    """查看特定历史诊断的完整结果。"""
+    diag = db.get(DiagnosisResult, diagnosis_id)
+    if not diag:
+        raise HTTPException(404, "诊断记录不存在")
+    _require_site(db, user, diag.site_id)
+    model = db.get(MLModel, diag.model_id) if diag.model_id else None
+    details = (db.query(DiagnosisFactorDetail, FactorDictionary)
+               .join(FactorDictionary,
+                     DiagnosisFactorDetail.factor_id == FactorDictionary.id)
+               .filter(DiagnosisFactorDetail.diagnosis_id == diag.id).all())
+    global_items, local_items = [], []
+    for d, fd in details:
+        item = {"factor": fd.factor_name, "category": fd.level1_category,
+                "importance": d.importance, "shap_value": d.shap_value,
+                "direction": d.direction, "rank": d.rank}
+        if d.sampling_point_id is None:
+            global_items.append(item)
+        else:
+            sp = db.get(SamplingPoint, d.sampling_point_id)
+            item["point_code"] = sp.point_code if sp else None
+            local_items.append(item)
+    global_items.sort(key=lambda x: (x["rank"] or 999))
+    return {
+        "diagnosis_id": diag.id, "site_id": diag.site_id,
+        "model": ({"name": model.model_name, "version": model.version,
+                   "metrics": model.metrics, "feature_list": model.feature_list,
+                   "training_data_version": model.training_data_version}
+                  if model else None),
+        "data_version": diag.data_version,
+        "summary": diag.summary_polished or diag.summary,
+        "summary_raw": diag.summary,
+        "polish_model": diag.polish_model,
+        "top_factors": global_items,
+        "local_explanation": local_items,
+        "shap_global": diag.shap_global,
+        "created_at": str(diag.created_at),
+    }
+
+
 @router.get("/sites/{site_id}/diagnosis")
 def latest_diagnosis(site_id: int, user: User = Depends(get_current_user),
                      db: Session = Depends(get_db)):
@@ -68,7 +139,9 @@ def latest_diagnosis(site_id: int, user: User = Depends(get_current_user),
                    "training_data_version": model.training_data_version}
                   if model else None),
         "data_version": diag.data_version,
-        "summary": diag.summary,
+        "summary": diag.summary_polished or diag.summary,
+        "summary_raw": diag.summary,
+        "polish_model": diag.polish_model,
         "top_factors": global_items,
         "local_explanation": local_items,
         "shap_global": diag.shap_global,

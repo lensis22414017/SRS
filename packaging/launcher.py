@@ -360,9 +360,9 @@ def main():
         os.chdir(project_root)
         sys.path.insert(0, os.path.join(project_root, "backend"))
 
-    print(f"🛡️  SRS 污染场地监管系统 v0.1.0")
-    print(f"   开发者: 浙江大学环境与资源学院 王玮实验室 (ZJU WW Lab)")
-    print(f"   协议: MIT License  © 2026 ZJU WW Lab")
+    print(f"🛡️  SRS 污染场地监管系统 v1.0.0")
+    print(f"   开发者: 生态环境部土壤与农业农村生态环境监管技术中心")
+    print(f"   协议: MIT License  © 2026 生态环境部土壤与农业农村生态环境监管技术中心")
     print(f"   数据目录: {_get_data_dir()}")
     print(f"   启动地址: http://{args.host}:{args.port}")
     print()

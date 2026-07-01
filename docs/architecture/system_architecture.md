@@ -17,7 +17,7 @@ ML(ml/)          eda / cleaning / models(RF+dataset_splits) / explain(SHAP) /
                  evaluation(reconstruction+ssui) / recommend / params
 数据(data/)      raw(immutable) / processed / model_ready / splits / synthetic / knowledge_base
 报告(reporting/) Jinja2 模板 → PDF(xhtml2pdf)/DOCX(python-docx)/HTML
-存储             本地 storage(MVP, 替代 MinIO) / sqlite(开发) / PostgreSQL(部署)
+存储             本地 storage(本地文件存储) / sqlite(开发) / PostgreSQL(部署)
 ```
 
 ## 2. 权限与数据隔离
@@ -26,7 +26,7 @@ ML(ml/)          eda / cleaning / models(RF+dataset_splits) / explain(SHAP) /
   已覆盖 data / workflow / **diagnosis / evaluation / recommendation**(2026-06-13 补齐)。
 - 前端: 业务页 `Protected`(登录), `/system` 用 `AdminOnly`(仅 admin)。
 
-## 3. MVP 单场地闭环
+## 3. SRS系统闭环
 导入→校验(threshold_resolver, pH分段)→场地详情→障碍因子(RF+SHAP, 计算轨迹)→
 功能重构评价→SSUI→方案推荐(技术库匹配)→五阶段追溯(附件)→PDF/DOCX 报告→操作日志。
 
@@ -35,7 +35,7 @@ ML(ml/)          eda / cleaning / models(RF+dataset_splits) / explain(SHAP) /
 - 真实切分按 (DOI,Source) 连通分量分配, 双键零跨集(`dataset_splits.py`)。
 - 模拟数据仅训练增强/压力/演示, 永不进 real 验证集。
 
-## 5. 部署拓扑(MVP)
+## 5. 部署拓扑
 - 开发: uvicorn + sqlite + Vite(proxy /api→8000)。
 - 容器: docker-compose(postgres + redis + backend); 初始化 bootstrap/alembic + loaders。
 - 桌面打包/天地图白名单: 见 `docs/deployment_desktop.md`。

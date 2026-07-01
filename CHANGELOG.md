@@ -3,7 +3,7 @@
 本项目遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/) 格式,
 版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
-## [0.1.0] - 2026-06-30 — MVP 交付版
+## [1.0.0] - 2026-07-01 — v1.0 正式版
 
 ### 新增(核心闭环)
 - 数据管理: Excel/CSV 导入(单文件/批量/wizard) + 字段映射 + pH感知阈值校验 + 全局指纹判重(skip/overwrite/new_version) + 导出

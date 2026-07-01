@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
-  Card, Steps, Tag, Button, Space, Upload, Select, Modal, Input, message, Table, Descriptions, Spin,
+  Card, Steps, Tag, Button, Space, Upload, Select, Modal, Input, message, Table, Descriptions, Spin, Tooltip, Typography,
 } from "antd";
 import { UploadOutlined, FileAddOutlined, DownloadOutlined, EyeOutlined } from "@ant-design/icons";
 import { api } from "../api/client";
@@ -13,6 +13,13 @@ const STATUS: Record<string, { c: string; t: string; step: any }> = {
   returned: { c: "red", t: "已退回", step: "error" },
   not_started: { c: "default", t: "未开始", step: "wait" },
 };
+
+function formatBytes(bytes: number | undefined | null): string {
+  if (bytes === null || bytes === undefined) return "—";
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
 
 // 裴总 P1-5d: 通用文件角色(原始报告/审批意见/盖章版报告/补充材料) + 各阶段专属角色
 // 支持监理上传→甲方审批→盖章版上传 的角色流转
@@ -119,13 +126,21 @@ export default function TraceDetail() {
                   {s.attachments?.length > 0 && (
                     <div style={{ marginTop: 6 }}>
                       {s.attachments.map((a: any) => (
-                        <Tag key={a.id} color="blue" style={{ padding: "2px 6px" }}>
-                          {a.file_role || "材料"}
-                          <a style={{ marginLeft: 6, fontSize: 12 }}
-                             onClick={() => api.downloadAttachment(sid, s.stage, a.id, a.file_role || "附件")}>
-                            <DownloadOutlined /> 下载
+                        <div key={a.id} style={{ marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
+                          <Tag color="blue" style={{ margin: 0 }}>{a.file_role || "材料"}</Tag>
+                          <a style={{ fontSize: 13 }}
+                             onClick={() => api.downloadAttachment(sid, s.stage, a.id, a.original_name || a.file_role || "附件")}>
+                            <DownloadOutlined style={{ marginRight: 2 }} />
+                            {a.original_name || a.file_role || "附件"}
                           </a>
-                        </Tag>
+                          {a.size_bytes != null && (
+                            <Tooltip title={`${a.size_bytes} 字节`}>
+                              <Typography.Text type="secondary" style={{ fontSize: 11 }}>
+                                {formatBytes(a.size_bytes)}
+                              </Typography.Text>
+                            </Tooltip>
+                          )}
+                        </div>
                       ))}
                     </div>
                   )}
@@ -143,10 +158,28 @@ export default function TraceDetail() {
         return (
           <Card title={<Space><FileAddOutlined />网盘 · 已上传文件库（{allFiles.length} 个文件）</Space>} size="small">
             <Table rowKey={(r: any) => `${r.stage}_${r.id}`} size="small" pagination={{ pageSize: 8 }} dataSource={allFiles}
-              columns={[seqCol(50), textCol("所属阶段", "stage_name"), textCol("文件类型", "file_role"),
-                { title: "操作", align: "center", render: (_: any, r: any) => (
-                  <Button size="small" icon={<DownloadOutlined />}
-                    onClick={() => api.downloadAttachment(sid, r.stage, r.id, r.file_role || "附件")}>下载</Button>) }]} />
+              columns={[
+                seqCol(50),
+                textCol("所属阶段", "stage_name"),
+                { title: "文件类型", dataIndex: "file_role", align: "left", render: (v: any) => v || "—" },
+                { title: "文件名", dataIndex: "original_name", align: "left",
+                  render: (v: any) => v || "—" },
+                { title: "大小", align: "right", width: 80,
+                  render: (_: any, r: any) => (
+                    <Tooltip title={r.size_bytes != null ? `${r.size_bytes} 字节` : undefined}>
+                      <Typography.Text type="secondary" style={{ fontSize: 13 }}>
+                        {formatBytes(r.size_bytes)}
+                      </Typography.Text>
+                    </Tooltip>) },
+                { title: "上传者", dataIndex: "uploaded_by_name", align: "center", width: 100,
+                  render: (v: any) => v || "—" },
+                { title: "上传时间", dataIndex: "uploaded_at", align: "center", width: 150,
+                  render: (v: any) => v || "—" },
+                { title: "操作", align: "center", width: 80,
+                  render: (_: any, r: any) => (
+                    <Button size="small" icon={<DownloadOutlined />}
+                      onClick={() => api.downloadAttachment(sid, r.stage, r.id, r.original_name || r.file_role || "附件")}>下载</Button>) },
+              ]} />
           </Card>
         );
       })()}

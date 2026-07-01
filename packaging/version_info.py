@@ -1,6 +1,6 @@
 # -*- mode: python ; coding: utf-8 -*-
 """PyInstaller 版本信息文件(独立, 供 --version-file 使用)。
-开发者: 浙江大学环境与资源学院王玮实验室 (Zhejiang University, College of Environmental & Resource Sciences, Wang Wei Lab; 简写 ZJU WW Lab)。
+开发者: 生态环境部土壤与农业农村生态环境监管技术中心。
 """
 VSVersionInfo(
     ffi=FixedFileInfo(
@@ -19,15 +19,15 @@ VSVersionInfo(
                 StringTable(
                     '040904B0',
                     [
-                        StringStruct('CompanyName', 'Zhejiang University, College of Environmental & Resource Sciences, Wang Wei Lab (ZJU WW Lab)'),
+                        StringStruct('CompanyName', '生态环境部土壤与农业农村生态环境监管技术中心'),
                         StringStruct('FileDescription', 'Soil Remediation Supervision System (SRS) - Contaminated Site Ecological-Productive Function Reconstruction'),
-                        StringStruct('FileVersion', '0.1.0.0'),
+                        StringStruct('FileVersion', '1.0.0.0'),
                         StringStruct('InternalName', 'SRS'),
-                        StringStruct('LegalCopyright', 'Copyright (c) 2026 ZJU WW Lab. Licensed under MIT.'),
+                        StringStruct('LegalCopyright', 'Copyright (c) 2026 生态环境部土壤与农业农村生态环境监管技术中心'),
                         StringStruct('OriginalFilename', 'SRS.exe'),
                         StringStruct('ProductName', 'SRS - Contaminated Site Supervision System'),
-                        StringStruct('ProductVersion', '0.1.0.0'),
-                        StringStruct('Comments', 'MVP v0.1.0 - Built 2026-06-30'),
+                        StringStruct('ProductVersion', '1.0.0.0'),
+                        StringStruct('Comments', 'v1.0.0 - Built 2026-07-01'),
                     ]
                 )
             ]

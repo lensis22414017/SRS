@@ -81,3 +81,4 @@ data/raw/真实数据集.csv
 data/raw/merged_std33,zh .xlsx
 dist/
 build/
+.gstack/

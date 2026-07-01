@@ -446,7 +446,17 @@ def site_points_wide(site_id: int, user: User = Depends(get_current_user),
                "soil_type": p.soil_type}
         row.update(by_point.get(p.id, {}))
         items.append(row)
-    return {"factors": factor_order, "items": items, "total": len(items)}
+    # O2: 过滤全空因子列
+    empty_factors = [f for f in factor_order if all(
+        row.get(f) is None for row in items
+    )]
+    visible_factors = [f for f in factor_order if f not in empty_factors]
+    return {
+        "factors": visible_factors,
+        "hidden_factors": empty_factors,
+        "items": items,
+        "total": len(items),
+    }
 
 
 @router.get("/sites/{site_id}/measurements")

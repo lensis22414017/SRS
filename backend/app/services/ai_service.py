@@ -269,3 +269,45 @@ def chat(db: Session, message: str, site_id: int | None = None,
     except (urllib.error.URLError, KeyError, TimeoutError) as e:
         return {"reply": f"AI 调用失败({e})。以下为知识库检索结果供参考:\n\n{ctx_text}",
                 "context": ctx, "model": model, "configured": True, "error": str(e)}
+
+
+DIAGNOSIS_POLISH_PROMPT = (
+    "你是污染场地土壤修复领域的科普专家。请将以下技术性诊断结果改写为通俗易懂的语言。\n"
+    "要求:\n"
+    "1. 用通俗语言解释障碍因子的含义和影响, 避免 SHAP、AUC、特征重要性等技术术语。\n"
+    "2. 突出最关键的 2-3 个障碍因子, 说明它们在场地中的具体影响。\n"
+    "3. 给出一个总体评价(优/良/中/差), 不用具体分数。\n"
+    "4. 如果诊断置信度偏低, 要坦诚说明, 不要掩盖。\n"
+    "5. 保持专业严谨, 不要编造数据。\n"
+    "6. 字数控制在 200-400 字, 使用简体中文。\n"
+)
+
+
+def polish_diagnosis(db: Session, diagnosis_text: str) -> str | None:
+    """使用已配置的 AI 模型润色诊断摘要, 失败时返回 None（前端回退到原始模板文本）。"""
+    from app.core.ai_config import effective_ai
+    cfg = effective_ai()
+    base_url, api_key, model = cfg["base_url"], cfg["api_key"], cfg["model"]
+    if not base_url or not api_key:
+        return None  # 未配置 AI, 静默降级
+
+    messages = [
+        {"role": "system", "content": DIAGNOSIS_POLISH_PROMPT},
+        {"role": "user", "content": f"原始诊断结果:\n{diagnosis_text}"},
+    ]
+    payload = json.dumps({"model": model, "messages": messages,
+                          "temperature": 0.3, "max_tokens": 800}).encode("utf-8")
+    req = urllib.request.Request(
+        base_url.rstrip("/") + "/chat/completions", data=payload,
+        headers={"Content-Type": "application/json",
+                 "Authorization": f"Bearer {api_key}"})
+    try:
+        timeout = get_settings().ai_timeout
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        reply = data["choices"][0]["message"]["content"]
+        if _quality_issue(reply):
+            return None
+        return reply.strip()
+    except Exception:
+        return None  # 静默降级, 不影响诊断主流程

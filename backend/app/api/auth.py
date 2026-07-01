@@ -200,8 +200,8 @@ def admin_contact(db: Session = Depends(get_db)):
     phone_cfg = db.query(SystemConfig).filter_by(config_key="admin_contact_phone").first()
     email_cfg = db.query(SystemConfig).filter_by(config_key="admin_contact_email").first()
     return {
-        "phone": phone_cfg.config_value if phone_cfg else "010-0000-0000",
-        "email": email_cfg.config_value if email_cfg else "admin@srs-system.cn",
+        "phone": phone_cfg.config_value if phone_cfg else "",
+        "email": email_cfg.config_value if email_cfg else "",
     }
 
 

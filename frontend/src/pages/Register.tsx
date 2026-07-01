@@ -7,7 +7,7 @@ import {
   TeamOutlined, ExperimentOutlined, AuditOutlined,
   PhoneOutlined, MailOutlined, BankOutlined,
 } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { api } from "../api/client";
 import styles from "./Login.module.css";
 
@@ -40,9 +40,11 @@ function passwordStrength(pw: string): { percent: number; status: "exception" | 
 export default function Register() {
   const { message } = App.useApp();
   const nav = useNavigate();
+  const location = useLocation();
+  const preselectedRole = (location.state as any)?.role || "";
   const [form] = Form.useForm();
   const [submitting, setSubmitting] = useState(false);
-  const [pwStrength, setPwStrength] = useState({ percent: 0, status: "exception" as const, text: "" });
+  const [pwStrength, setPwStrength] = useState<{ percent: number; status: "exception" | "active" | "success"; text: string }>({ percent: 0, status: "exception", text: "" });
   const [adminContact, setAdminContact] = useState<{ phone: string; email: string }>({ phone: "", email: "" });
 
   useEffect(() => {
@@ -111,6 +113,7 @@ export default function Register() {
           {/* 角色选择 — 不含管理员 */}
           <Form.Item name="roleCode" rules={[{ required: true, message: "请选择角色" }]}
             style={{ marginBottom: 8 }}
+            initialValue={preselectedRole || undefined}
           >
             <Radio.Group style={{ width: "100%" }}>
               <Space direction="vertical" style={{ width: "100%" }}>

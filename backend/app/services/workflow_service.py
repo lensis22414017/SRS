@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 
 from sqlalchemy.orm import Session
 
-from app.models import Site, WorkflowAttachment, WorkflowRecord
+from app.models import FileObject, Site, User, WorkflowAttachment, WorkflowRecord
 from app.services.audit_service import log
 
 STAGES = [
@@ -45,6 +45,21 @@ def get_stages(db: Session, site_id: int) -> list[dict]:
     out = []
     for w in rows:
         atts = db.query(WorkflowAttachment).filter_by(workflow_record_id=w.id).all()
+        # 关联 FileObject 和 User 获取文件元数据和上传者信息
+        att_data = []
+        for a in atts:
+            fo = db.query(FileObject).filter_by(id=a.file_object_id).first()
+            uploader = db.query(User).filter_by(id=fo.uploaded_by).first() if fo and fo.uploaded_by else None
+            att_data.append({
+                "id": a.id, "file_object_id": a.file_object_id,
+                "file_role": a.file_role,
+                "original_name": fo.original_name if fo else "",
+                "size_bytes": fo.size_bytes if fo else 0,
+                "content_type": fo.content_type if fo else "",
+                "uploaded_by_name": uploader.display_name if uploader else "",
+                "uploaded_by_role": "",  # 前端通过 display_name 即可识别
+                "uploaded_at": str(fo.created_at) if fo and fo.created_at else "",
+            })
         out.append({
             "id": w.id, "stage": w.stage, "stage_name": STAGE_NAME.get(w.stage),
             "status": w.status, "operator_id": w.operator_id,
@@ -53,8 +68,7 @@ def get_stages(db: Session, site_id: int) -> list[dict]:
             "data_source": w.data_source, "is_completed": w.is_completed,
             "is_returned": w.is_returned, "advanced_to_next": w.advanced_to_next,
             "payload": w.payload, "n_attachments": len(atts),
-            "attachments": [{"id": a.id, "file_object_id": a.file_object_id,
-                             "file_role": a.file_role} for a in atts],
+            "attachments": att_data,
         })
     return out
 
