@@ -20,7 +20,22 @@ for p in (os.path.join(ROOT, "ml", "evaluation"),):
     if p not in sys.path:
         sys.path.insert(0, p)
 KB_CSV = os.path.join(ROOT, "data", "knowledge_base", "统一障碍因子知识库_V1.0.csv")
-PARAM_VERSION = "evaluation_params_v0.1"
+PARAM_VERSION = "evaluation_params_v0.2"
+
+# v0.2 P1-9: SSUI 参数从 JSON 加载，不再硬编码
+import json as _json
+_EVAL_PARAMS = None
+
+def _load_eval_params():
+    global _EVAL_PARAMS
+    if _EVAL_PARAMS is None:
+        cfg_path = os.path.join(ROOT, "ml", "evaluation", "evaluation_params.json")
+        if os.path.exists(cfg_path):
+            with open(cfg_path, encoding="utf-8") as f:
+                _EVAL_PARAMS = _json.load(f)
+        else:
+            _EVAL_PARAMS = {"ssui": {"t": 2.0, "intensity": "medium"}}
+    return _EVAL_PARAMS
 
 _LIM = None
 
@@ -191,8 +206,14 @@ def _evaluation_organic_degraded(db: Session, site_id: int, site: Site,
     }
 
 
-def run_evaluation(db: Session, site_id: int, t: float = 2.0,
-                   intensity: str = "medium") -> dict:
+def run_evaluation(db: Session, site_id: int, t: float | None = None,
+                   intensity: str | None = None) -> dict:
+    """运行评价。t 和 intensity 默认从 evaluation_params.json 读取。"""
+    cfg = _load_eval_params().get("ssui", {})
+    if t is None:
+        t = cfg.get("t", 2.0)
+    if intensity is None:
+        intensity = cfg.get("intensity", "medium")
     import reconstruction as R
     import ssui as S
 

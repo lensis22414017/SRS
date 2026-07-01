@@ -31,6 +31,7 @@ class Organization(Base, TimestampMixin):
     org_type: Mapped[str] = mapped_column(String(20))  # enterprise/agency/regulator/admin
     credit_code: Mapped[str | None] = mapped_column(String(50), nullable=True)
     status: Mapped[str] = mapped_column(String(20), default="active")
+    is_seed: Mapped[bool] = mapped_column(Boolean, default=False)  # v0.2: 种子数据标记
 
 
 class User(Base, TimestampMixin):
@@ -43,6 +44,7 @@ class User(Base, TimestampMixin):
     email: Mapped[str | None] = mapped_column(String(120), nullable=True)
     phone: Mapped[str | None] = mapped_column(String(40), nullable=True)
     status: Mapped[str] = mapped_column(String(20), default="active")
+    is_seed: Mapped[bool] = mapped_column(Boolean, default=False)  # v0.2: 种子数据标记
     last_login_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     roles = relationship("Role", secondary="user_roles", back_populates="users")
 

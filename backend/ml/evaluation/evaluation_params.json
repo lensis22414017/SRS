@@ -1,0 +1,31 @@
+{
+  "_version": "evaluation_params_v0.2",
+  "_description": "SSUI 和功能重构评价参数 — 可配置，不硬编码",
+  "_source": "文献 + 专家经验 + 方法文件",
+  "ssui": {
+    "t": 2.0,
+    "t_min": 0.0,
+    "t_max": 10.0,
+    "t_description": "时间参数(年), 用于 f(t)=1+alpha*t 的时间修正函数",
+    "alpha": 0.03,
+    "alpha_source": "经验值, 基于典型修复项目时间衰减曲线",
+    "intensity": "medium",
+    "intensity_options": ["low", "medium", "high"],
+    "M": 1.15,
+    "M_source": "管理调节因子, medium强度对应M=1.15"
+  },
+  "reconstruction": {
+    "production_weights": {
+      "soil_fertility": 0.35,
+      "soil_structure": 0.25,
+      "contamination_level": 0.25,
+      "irrigation_condition": 0.15
+    },
+    "ecology_weights": {
+      "vegetation_potential": 0.30,
+      "habitat_quality": 0.25,
+      "contamination_risk": 0.25,
+      "landscape_connectivity": 0.20
+    }
+  }
+}
