@@ -91,12 +91,16 @@
 
   <h2>五、地图图件与采样点空间分布</h2>
   <div class="map-panel">
-    <div><b>地图图层:</b> 天地图底图 + 采样点 GeoJSON + 污染物筛选 + 超标倍数风险分级。</div>
+    <div><b>图件说明:</b> 采样点空间分布（离线渲染，基于场地实测坐标，无瓦片底图）；交互式地图请登录系统查看。</div>
     <div><b>坐标覆盖:</b> {{ map_summary.n_coord_points }} / {{ map_summary.n_points }} 个采样点有经纬度, 覆盖率 {{ map_summary.coverage_pct }}%。</div>
     {% if map_summary.map_image %}
     <div style="text-align:center; margin-top:8pt;">
       <img src="{{ map_summary.map_image }}" alt="采样点空间分布图"
            style="max-width:100%; border:0.5pt solid #b8c4d0; border-radius:4pt;" />
+      <div class="muted" style="font-size:8pt; margin-top:2pt;">
+        数据版本: {{ report.data_version }} | 渲染时间: {{ report.generated_at }} |
+        阈值来源: {{ report.standard_version }} | 底图: 无(离线坐标散点)
+      </div>
     </div>
     {% elif map_summary.bounds %}
     <div class="muted">静态图件渲染不可用(matplotlib 缺失), 以下为空间范围文字说明。</div>
@@ -105,7 +109,7 @@
     <div><b>空间范围:</b> 经度 {{ map_summary.bounds.min_lon }} 至 {{ map_summary.bounds.max_lon }},
       纬度 {{ map_summary.bounds.min_lat }} 至 {{ map_summary.bounds.max_lat }}。</div>
     {% else %}
-    <div class="muted">当前场地缺少可用采样点坐标, 报告保留地图章节但不生成空间范围。</div>
+    <div class="muted">当前场地缺少可用采样点坐标, 报告保留地图章节但不生成空间范围。缺坐标点位清单及修复建议请见附录。</div>
     {% endif %}
     <div class="muted">{{ map_summary.note }}</div>
   </div>

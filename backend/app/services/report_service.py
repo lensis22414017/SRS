@@ -131,77 +131,93 @@ def _embed_docx_image(doc, data_url: str | None, caption: str) -> None:
         doc.add_paragraph(f"[{caption} 渲染失败]")
 
 
-def _render_points_map_png(coord_points: list, exceed_by_point: dict[int, float]) -> str | None:
-    """用 matplotlib 画采样点静态散点图(按超标倍数着色), 返回 base64 PNG。
-
-    不依赖任何瓦片/天地图 key, 离线可渲染。坐标缺失返回 None(模板回退文字)。
-    """
+def _render_points_map_png(coord_points: list, exceed_by_point: dict[int, float],
+                           exceed_factor: dict[int, str] | None = None) -> str | None:
+    """v0.2: 8级色阶采样点风险散点图(与前端/API一致), 返回 base64 PNG。"""
     if not coord_points:
         return None
     try:
-        import base64
+        # 优先用 static_map_renderer
+        from app.services.static_map_renderer import (
+            _exc_color, COLOR_8_LEVELS, _exc_label, _get_cjk_font,
+        )
+    except ImportError:
+        # fallback: 内联渲染
+        _exc_color = None
+
+    try:
+        import base64 as _b64
         import matplotlib
-        matplotlib.use("Agg")  # 无 GUI 后端
+        matplotlib.use("Agg")
         import matplotlib.pyplot as plt
     except ImportError:
-        return None  # matplotlib 不可用时降级为纯文字(已有回退分支)
+        return None
 
-    # 尝试设置中文字体; 找不到则标题用英文降级(避免方块)
-    from matplotlib import font_manager as _fm
-    _cn_fonts = ["PingFang SC", "Heiti SC", "STHeiti", "Arial Unicode MS",
-                 "Noto Sans CJK SC", "WenQuanYi Zen Hei", "SimHei", "Microsoft YaHei"]
-    _avail_names = {_f.name for _f in _fm.fontManager.ttflist}
-    _has_cn = any(_f in _avail_names for _f in _cn_fonts)
-    if _has_cn:
-        plt.rcParams["font.sans-serif"] = _cn_fonts
-        plt.rcParams["axes.unicode_minus"] = False
+    font = _get_cjk_font() if _get_cjk_font else None
+    if font:
+        plt.rcParams["font.family"] = font
 
     lons = [float(p.longitude) for p in coord_points]
     lats = [float(p.latitude) for p in coord_points]
-    # 每点最大超标倍数(>=1 算超标); 无阈值记为 0(用灰色)
     vals = [exceed_by_point.get(p.id, 0.0) for p in coord_points]
+    factors = (exceed_factor or {})
 
-    fig, ax = plt.subplots(figsize=(7, 4.2), dpi=110)
-    # 按风险分级着色: 未超标灰, 1-2 倍橙, 2-5 倍红, >5 倍深红
-    def color_of(v: float) -> str:
-        if v <= 0: return "#94a3b8"
-        if v < 2: return "#f59e0b"
-        if v < 5: return "#dc2626"
-        return "#7f1d1d"
-    colors = [color_of(v) for v in vals]
-    sizes = [18 if v > 1 else 12 for v in vals]  # 超标点放大
-    ax.scatter(lons, lats, c=colors, s=sizes, alpha=0.85, edgecolors="white", linewidths=0.5)
+    # v0.2: 8级色阶
+    if _exc_color:
+        colors = [_exc_color(v) for v in vals]
+    else:
+        def _fallback_color(v):
+            if v < 1: return "#16a34a"
+            if v < 3: return "#facc15"
+            if v < 10: return "#f59e0b"
+            if v < 30: return "#ea580c"
+            if v < 80: return "#dc2626"
+            if v < 200: return "#9f1239"
+            return "#6b0f1a"
+        colors = [_fallback_color(v) for v in vals]
+    sizes = [24 if v >= 1 else 14 for v in vals]
+    fig, ax = plt.subplots(figsize=(7.5, 5), dpi=120)
+    ax.scatter(lons, lats, c=colors, s=sizes, alpha=0.85, edgecolors="white", linewidths=0.5, zorder=5)
 
-    # 简易图例
-    from matplotlib.lines import Line2D
-    legend = [Line2D([0], [0], marker="o", color="w", markerfacecolor="#94a3b8",
-                     markersize=7, label="未超标/无阈值"),
-              Line2D([0], [0], marker="o", color="w", markerfacecolor="#f59e0b",
-                     markersize=7, label="超标 1-2 倍"),
-              Line2D([0], [0], marker="o", color="w", markerfacecolor="#dc2626",
-                     markersize=8, label="超标 2-5 倍"),
-              Line2D([0], [0], marker="o", color="w", markerfacecolor="#7f1d1d",
-                     markersize=9, label="超标 >5 倍")]
-    ax.legend(handles=legend, loc="best", fontsize=7, framealpha=0.9)
+    # 图例 8级
+    from matplotlib.patches import Patch as _Patch
+    _leg = []
+    if _exc_label:
+        for th, clr in COLOR_8_LEVELS:
+            _leg.append(_Patch(facecolor=clr, edgecolor="white", label=_exc_label(float(th))))
+    else:
+        _leg = [
+            _Patch(facecolor="#16a34a", edgecolor="white", label="未超标"),
+            _Patch(facecolor="#facc15", edgecolor="white", label="轻度 1-3x"),
+            _Patch(facecolor="#f59e0b", edgecolor="white", label="中度 3-10x"),
+            _Patch(facecolor="#ea580c", edgecolor="white", label="偏重 10-30x"),
+            _Patch(facecolor="#dc2626", edgecolor="white", label="重度 30-80x"),
+            _Patch(facecolor="#9f1239", edgecolor="white", label="极重 80-200x"),
+            _Patch(facecolor="#6b0f1a", edgecolor="white", label="超极重 >200x"),
+            _Patch(facecolor="#64748b", edgecolor="white", label="无数据"),
+        ]
+    ax.legend(handles=_leg, loc="lower right", fontsize=6, ncol=2, framealpha=0.9)
 
-    # 自适应坐标范围 + 少量 padding
     if len(set(lons)) > 1:
-        pad_lon = (max(lons) - min(lons)) * 0.08 or 1e-3
-        ax.set_xlim(min(lons) - pad_lon, max(lons) + pad_lon)
+        ax.set_xlim(min(lons) - (max(lons)-min(lons))*0.08, max(lons) + (max(lons)-min(lons))*0.08)
     if len(set(lats)) > 1:
-        pad_lat = (max(lats) - min(lats)) * 0.08 or 1e-3
-        ax.set_ylim(min(lats) - pad_lat, max(lats) + pad_lat)
-    ax.set_xlabel("经度" if _has_cn else "Longitude", fontsize=8)
-    ax.set_ylabel("纬度" if _has_cn else "Latitude", fontsize=8)
-    ax.set_title(
-        f"采样点空间分布与超标风险分级（共 {len(coord_points)} 个点位）" if _has_cn
-        else f"Sampling points distribution & exceedance risk (n={len(coord_points)})",
-        fontsize=9)
+        ax.set_ylim(min(lats) - (max(lats)-min(lats))*0.08, max(lats) + (max(lats)-min(lats))*0.08)
+    ax.set_xlabel("经度" if font else "Longitude", fontsize=8)
+    ax.set_ylabel("纬度" if font else "Latitude", fontsize=8)
+    ax.set_title(f"采样点超标风险分布（{len(coord_points)} 点位, 8级色阶）" if font
+                 else f"Exceedance risk ({len(coord_points)} pts, 8-level)", fontsize=10, fontweight="bold")
     ax.tick_params(labelsize=7)
     ax.grid(True, linestyle="--", alpha=0.3)
-    fig.tight_layout()
-
+    from datetime import datetime as _dt, timezone as _tz
+    wm = f"8级色阶 | 渲染: {_dt.now(_tz.utc).strftime('%Y-%m-%d %H:%M UTC')} | 底图: 无(离线坐标散点)"
+    fig.text(0.5, 0.01, wm, ha="center", fontsize=5.5, color="#888", family="monospace")
+    fig.tight_layout(rect=[0, 0.03, 1, 0.97])
+    from io import BytesIO
     buf = BytesIO()
+    fig.savefig(buf, format="png", dpi=120, bbox_inches="tight")
+    plt.close(fig)
+    buf.seek(0)
+    return f"data:image/png;base64,{_b64.b64encode(buf.read()).decode('ascii')}"
     fig.savefig(buf, format="png", bbox_inches="tight")
     plt.close(fig)
     return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode("ascii")
@@ -373,24 +389,27 @@ def collect(db: Session, site_id: int, version: str) -> dict:
     else:
         bounds = None
 
-    # 计算每个采样点的最大超标倍数(value/threshold_max, 仅正阈值), 供地图图件着色
+    # v0.2: 每个采样点的最大超标倍数 + 最严重因子
     exceed_by_point: dict[int, float] = {}
+    exceed_factor: dict[int, str] = {}  # pid → factor_code
     if coord_points:
         th_rows = (db.query(Measurement.sampling_point_id, Measurement.value,
-                            ThresholdRule.threshold_max)
+                            ThresholdRule.threshold_max, FactorDictionary.factor_code)
                    .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id)
                    .join(ThresholdRule, ThresholdRule.factor_id == FactorDictionary.id)
                    .filter(Measurement.site_id == site_id,
                            ThresholdRule.threshold_max != None,
                            ThresholdRule.threshold_max > 0,
                            Measurement.sampling_point_id != None).all())
-        for pid, val, tmax in th_rows:
+        for pid, val, tmax, fcode in th_rows:
             if val is None:
                 continue
             ratio = float(val) / float(tmax)
             if ratio > exceed_by_point.get(pid, 0.0):
                 exceed_by_point[pid] = ratio
-    map_image = _render_points_map_png(coord_points, exceed_by_point)
+                exceed_factor[pid] = fcode  # v0.2: 保留最严重因子
+                exceed_by_point[pid] = ratio
+    map_image = _render_points_map_png(coord_points, exceed_by_point, exceed_factor)
     shap_image = _render_shap_figure_png((diag_ctx or {}).get("top_factors", []), site.name)
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
@@ -503,7 +522,7 @@ def render_docx(context: dict) -> bytes:
     ])
 
     add_kv("地图图件与采样点空间分布", [
-        ("地图图层", "天地图底图 + 采样点 GeoJSON + 污染物筛选 + 超标倍数风险分级"),
+        ("图件说明", "采样点空间分布（离线渲染，基于场地实测坐标，无瓦片底图）；交互式地图请登录系统查看"),
         ("坐标覆盖", f"{context['map_summary']['n_coord_points']} / "
                  f"{context['map_summary']['n_points']} "
                  f"({context['map_summary']['coverage_pct']}%)"),
