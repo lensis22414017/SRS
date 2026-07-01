@@ -197,6 +197,61 @@ class Measurement(Base, TimestampMixin):
     source_file: Mapped[str | None] = mapped_column(String(300), nullable=True)
     import_batch_id: Mapped[int | None] = mapped_column(ForeignKey("import_batches.id"), nullable=True, index=True)
     detected_at: Mapped[date | None] = mapped_column(Date, nullable=True)
+    # v0.2 P1-1: 监管级数据契约字段
+    original_value_text: Mapped[str | None] = mapped_column(Text, nullable=True)
+    qualifier: Mapped[str | None] = mapped_column(String(10), nullable=True)    # < / > / = / ND
+    detection_limit: Mapped[float | None] = mapped_column(Float, nullable=True)
+    value_used_for_model: Mapped[float | None] = mapped_column(Float, nullable=True)
+    replicate_group_id: Mapped[str | None] = mapped_column(String(40), nullable=True)
+    qa_status: Mapped[str] = mapped_column(String(20), default="raw")
+    evidence_level: Mapped[str] = mapped_column(String(20), default="A")
+    data_origin: Mapped[str] = mapped_column(String(30), default="field")
+    source_file_id: Mapped[int | None] = mapped_column(ForeignKey("file_objects.id"), nullable=True)
+
+
+# v0.2 P1-2: 数据集版本 — 统一管理数据快照
+class DatasetVersion(Base, TimestampMixin):
+    __tablename__ = "dataset_versions"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    site_id: Mapped[int] = mapped_column(ForeignKey("sites.id"), index=True)
+    version_code: Mapped[str] = mapped_column(String(80), nullable=False)
+    source_type: Mapped[str | None] = mapped_column(String(30), nullable=True)  # import/synthetic/manual
+    row_count: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    factor_count: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    point_count: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    qa_summary: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    created_by: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True)
+    __table_args__ = (UniqueConstraint("site_id", "version_code"),)
+
+
+# v0.2 P1-3: 采样事件 — 独立于采样点的采样元数据
+class SamplingEvent(Base, TimestampMixin):
+    __tablename__ = "sampling_events"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    site_id: Mapped[int] = mapped_column(ForeignKey("sites.id"), index=True)
+    event_code: Mapped[str] = mapped_column(String(50), nullable=False)
+    event_date: Mapped[date | None] = mapped_column(Date, nullable=True)
+    event_type: Mapped[str | None] = mapped_column(String(30), nullable=True)
+    sampling_team: Mapped[str | None] = mapped_column(String(200), nullable=True)
+    sampling_plan_ref: Mapped[str | None] = mapped_column(String(300), nullable=True)
+    weather_condition: Mapped[str | None] = mapped_column(String(100), nullable=True)
+    __table_args__ = (UniqueConstraint("site_id", "event_code"),)
+
+
+# v0.2 P1-4: 项目授权 — 第三方机构按项目/场地授权
+class ProjectAuthorization(Base, TimestampMixin):
+    __tablename__ = "project_authorizations"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    site_id: Mapped[int] = mapped_column(ForeignKey("sites.id"), index=True)
+    authorized_org_id: Mapped[int] = mapped_column(ForeignKey("organizations.id"))
+    authorized_by: Mapped[int] = mapped_column(ForeignKey("users.id"))
+    permission_scope: Mapped[str] = mapped_column(String(30), default="read_only")
+    valid_from: Mapped[date] = mapped_column(Date, nullable=False)
+    valid_until: Mapped[date | None] = mapped_column(Date, nullable=True)
+    is_revoked: Mapped[bool] = mapped_column(Boolean, default=False)
+    revoked_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    revoked_by: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
 
 
 # ---------------- 算法与评价 ----------------
@@ -393,4 +448,5 @@ __all__ = [
     "TechnologyLibrary", "RemediationCase", "Recommendation",
     "WorkflowRecord", "FileObject", "WorkflowAttachment", "ReportRecord",
     "SystemConfig", "AuditLog",
+    "DatasetVersion", "SamplingEvent", "ProjectAuthorization",
 ]
