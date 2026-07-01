@@ -442,6 +442,11 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
         ex_ranked = pollutant_exceedance_factors(
             pivot, scope="production" if track == "prod" else "ecology")
         rl_ranked = production_limiting_factors(pivot)
+        # zzv0.4 规则/模型分层(文献[#2 Rudin2019]): 规则层(阈值超标)先行, SHAP归因次之
+        # 不再混排去重, 而是分层呈现, 让甲方看到"规则判定"与"模型归因"各自结论
+        rule_ranked = sorted(ex_ranked + rl_ranked,
+                             key=lambda x: x.get("mean_abs_shap", 0), reverse=True)
+        # 合并去重保留向后兼容(all_ranked), 但分层标注 source
         all_ranked = sorted(sh_ranked + ex_ranked + rl_ranked,
                             key=lambda x: x["mean_abs_shap"], reverse=True)
         rk, seen = [], set()
@@ -454,7 +459,9 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
             if len(rk) >= top_n:
                 break
         return {"bundle": b, "X": Xt, "imputed": imp, "proba": pr,
-                "shap_out": sh, "feat2factor": f2f, "ranked": rk}
+                "shap_out": sh, "feat2factor": f2f, "ranked": rk,
+                "rule_ranked": rule_ranked[:top_n],       # zzv0.4: 规则层(阈值超标)独立
+                "shap_ranked": sh_ranked[:top_n]}          # zzv0.4: 模型归因层独立
 
     prod_r = _single("prod")
     eco_r = _single("eco")

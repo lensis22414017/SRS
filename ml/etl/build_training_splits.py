@@ -173,12 +173,18 @@ def _is_hm_col(col):
 
 
 def _label_dual(row, factor_cols, prod_rows, eco_rows, org_thresh):
-    """派生双标签(标签_生产, 标签_生态)。任一因子超对应轨阈值→1(木桶效应)。
-    HM: 库mg/kg vs 数据mg/kg直接比; 生产按SoilpH路由(无pH默认正常段), 生态按二类用地。
-    OP: ng/g数据 vs ng/g一类阈值(权威CSV), 双轨暂同值(生态二类对齐待Wave B)。"""
+    """派生双标签(标签_生产, 标签_生态) + 因子级severity(zzv0.4)。
+    二分类: 任一因子超对应轨阈值→1(木桶效应), 兼容现有模型。
+    severity(zzv0.4新增): 每因子 log2(val/thr) 超标倍数, 记录"障碍高度"。
+      文献[#42 AHP]/[#43 模糊集]: severity 而非0/1, 支撑因子排序。
+    HM: 生产按SoilpH路由, 生态按二类用地。
+    OP: 生产用一类严阈值, 生态用二类宽阈值(zzv0.4差异化, 不再同值)。"""
+    import math
     soilph = row.get("SoilpH", row.get("pH"))
     lab_prod = 0
     lab_eco = 0
+    sev_prod = {}  # zzv0.4: 因子级severity {col: severity}
+    sev_eco = {}
     for col, cn in factor_cols.items():
         if col not in row:
             continue
@@ -189,27 +195,41 @@ def _label_dual(row, factor_cols, prod_rows, eco_rows, org_thresh):
             val = float(v)
         except (ValueError, TypeError):
             continue
+        eps = 1e-9
         if _is_hm_col(col):
             tp = _prod_hm_thresh(cn, soilph, prod_rows)
             te = _eco_hm_thresh(cn, eco_rows)
-            if tp is not None and val > tp:
-                lab_prod = 1
-            if te is not None and val > te:
-                lab_eco = 1
+            if tp is not None:
+                if val > tp:
+                    lab_prod = 1
+                    sev_prod[col] = max(0.0, math.log2((val + eps) / (tp + eps)))
+            if te is not None:
+                if val > te:
+                    lab_eco = 1
+                    sev_eco[col] = max(0.0, math.log2((val + eps) / (te + eps)))
         else:
-            t = org_thresh.get(cn)
-            if t and val > t:  # OP ng/g vs ng/g 一类阈值
+            t_prod = org_thresh.get(cn)  # 一类严阈值(生产)
+            # zzv0.4: OP生态用二类宽阈值(×2.5松弛, 文献[#67 GB36600]二类>一类)
+            t_eco = t_prod * 2.5 if t_prod else None
+            if t_prod and val > t_prod:
                 lab_prod = 1
-                lab_eco = 1  # OP双轨暂同(一类保守); 生态二类命名对齐待Wave B
-    return lab_prod, lab_eco
+                sev_prod[col] = max(0.0, math.log2((val + eps) / (t_prod + eps)))
+            if t_eco and val > t_eco:
+                lab_eco = 1
+                sev_eco[col] = max(0.0, math.log2((val + eps) / (t_eco + eps)))
+    return lab_prod, lab_eco, sev_prod, sev_eco
 
 
 def _attach_dual_labels(df, factor_cols, prod_rows, eco_rows, org_thresh):
-    """给df附加 标签_生产/标签_生态/标签(=生产, group-split主分层用) 三列。"""
+    """给df附加 标签_生产/标签_生态/标签 + 因子级severity_max(zzv0.4)。
+    severity_max = 该行所有因子的最大severity(障碍高度量化, 文献[#42],[#43])。"""
     dual = df.apply(lambda r: _label_dual(r, factor_cols, prod_rows, eco_rows, org_thresh), axis=1)
     df["标签_生产"] = [x[0] for x in dual]
     df["标签_生态"] = [x[1] for x in dual]
     df["标签"] = df["标签_生产"]
+    # zzv0.4: severity_max 用于排序/回归目标(因子归因任务核心)
+    df["severity_prod_max"] = [max(x[2].values()) if x[2] else 0.0 for x in dual]
+    df["severity_eco_max"] = [max(x[3].values()) if x[3] else 0.0 for x in dual]
     return df
 
 
