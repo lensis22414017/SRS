@@ -268,6 +268,12 @@ class MLModel(Base, TimestampMixin):
     metrics: Mapped[dict | None] = mapped_column(JSON, nullable=True)
     artifact_path: Mapped[str | None] = mapped_column(String(300), nullable=True)
     trained_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    # v1.0 P0-5: 模型治理字段 — 记录验证策略/分组键/特征哈希/OOD策略
+    validation_strategy: Mapped[str | None] = mapped_column(String(60), nullable=True)  # random_split / group_split / loo_site
+    group_key: Mapped[str | None] = mapped_column(String(60), nullable=True)            # id_DOI / site_id / province
+    feature_schema_hash: Mapped[str | None] = mapped_column(String(64), nullable=True)  # SHA-256 of sorted feature list
+    ood_policy: Mapped[str | None] = mapped_column(String(40), nullable=True)           # reject / warn / silent
+    human_review_threshold: Mapped[float | None] = mapped_column(Float, nullable=True)  # AUC/F1 below which human review is required
 
 
 class DiagnosisResult(Base, TimestampMixin):
@@ -275,6 +281,7 @@ class DiagnosisResult(Base, TimestampMixin):
     id: Mapped[int] = mapped_column(primary_key=True)
     site_id: Mapped[int] = mapped_column(ForeignKey("sites.id"), index=True)
     model_id: Mapped[int | None] = mapped_column(ForeignKey("ml_models.id"), nullable=True)
+    dataset_version_id: Mapped[int | None] = mapped_column(ForeignKey("dataset_versions.id"), nullable=True)  # v1.0 P0-2
     data_version: Mapped[str | None] = mapped_column(String(60), nullable=True)
     top_n: Mapped[int] = mapped_column(Integer, default=10)
     summary: Mapped[str | None] = mapped_column(Text, nullable=True)

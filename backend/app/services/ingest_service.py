@@ -10,7 +10,7 @@ from datetime import date, datetime
 from sqlalchemy.orm import Session
 
 from app.models import (
-    FactorDictionary, ImportBatch, Measurement, SamplingPoint, Site,
+    DatasetVersion, FactorDictionary, ImportBatch, Measurement, SamplingPoint, Site,
 )
 from app.services.import_service import ParsedSite
 from app.services.versioning import (
@@ -153,8 +153,9 @@ def ingest(db: Session, parsed: ParsedSite, mapping: dict | None = None,
         if on_conflict == "overwrite" and existing_site:
             _purge_site_data(db, existing_site.id)  # 清旧, upsert_site 按 site_code 复用
         elif on_conflict == "new_version" and existing_site:
-            base = parsed.site.get("site_code") or existing_site.site_code
-            parsed.site["site_code"] = f"{base}_v{existing_batch.id + 1}"
+            # v1.0 P0-2: 不再修改 site_code 创建新场地, 改用 DatasetVersion 记录导入版本
+            # 当前导入沿用同一 site, 后续在当前 site 下创建新 dataset_version 记录
+            pass  # 标记: 下方 upsert_site 将复用 existing_site, 不创建新 site
 
     site = upsert_site(db, parsed.site)
     sampled_at = _parse_date(parsed.site.get("sampled_at"))
@@ -213,16 +214,45 @@ def ingest(db: Session, parsed: ParsedSite, mapping: dict | None = None,
                 value=m.value,
                 unit=m.unit,
                 # v0.2 P0-1: 检测限字段
+                original_value_text=m.original_value_text,
+                qualifier=m.qualifier,
+                detection_limit=m.detection_limit,
                 is_below_detection=m.is_below_detection,
                 method=m.method,
+                # v0.2 P1-1: 监管级数据契约字段
+                value_used_for_model=m.value,           # 初始值=原始值; 模型预处理后再更新
+                replicate_group_id=m.replicate_group_id,
+                qa_status="raw",
+                evidence_level="A",
+                data_origin="field",
+                # 元数据
                 source_file=parsed.source_file,
                 import_batch_id=batch.id,
+                source_file_id=getattr(parsed, 'file_object_id', None),
                 detected_at=sampled_at,
             ))
             n_meas += 1
     # 本批次数据版本(基于内容指纹, 替换旧 site{id}_n{count} 假指纹)
     batch.data_version = batch_data_version(source_sha, n_meas, site.id)
     db.commit()
+    # v1.0 P0-2: new_version 创建 DatasetVersion 记录(同一 site 下)
+    if on_conflict == "new_version" and existing_batch:
+        version_code = f"v{existing_batch.id + 1}"
+        dv = DatasetVersion(
+            site_id=site.id,
+            version_code=version_code,
+            source_type="import",
+            row_count=n_meas,
+            factor_count=len(factor_ids),
+            point_count=n_points,
+            qa_summary={"source_sha256": source_sha, "import_batch_id": batch.id} if source_sha else None,
+            created_by=imported_by,
+            is_active=True,
+        )
+        # 将旧的 active 版本标记为非活跃
+        db.query(DatasetVersion).filter_by(site_id=site.id, is_active=True).update({"is_active": False})
+        db.add(dv)
+        db.commit()
     action = ("new_version" if (on_conflict == "new_version" and existing_batch)
               else "overwritten" if (on_conflict == "overwrite" and existing_batch)
               else "created")

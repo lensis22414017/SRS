@@ -149,10 +149,16 @@ def update_stage(db: Session, site_id: int, stage: str, *,
     if is_completed is not None:
         w.is_completed = is_completed
         if is_completed:
+            # v1.0 P0-1: 统一状态入口 — is_completed 隐式变更也必须经过转移校验, 禁止绕过
+            if w.status != "completed":
+                _validate_transition(w.status, "completed", stage, None, review_comment)
             w.status = "completed"
     if is_returned is not None:
         w.is_returned = is_returned
         if is_returned:
+            # v1.0 P0-1: 同样校验 returned 转移
+            if w.status != "returned":
+                _validate_transition(w.status, "returned", stage, is_returned, review_comment)
             w.status = "returned"
     if advance is not None:
         w.advanced_to_next = advance

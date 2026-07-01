@@ -369,6 +369,8 @@ class ParsedMeasurement:
     detection_limit: float | None = None    # 检出限数值
     method: str | None = None               # 检测方法
     is_below_detection: bool = False        # 是否低于检出限
+    # v1.0 P1-1: 监管级数据契约
+    replicate_group_id: str | None = None   # 平行样分组标识
 
 
 @dataclass

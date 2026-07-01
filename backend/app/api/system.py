@@ -623,3 +623,101 @@ def _csv_response(buf, prefix: str):
                     media_type="text/csv; charset=utf-8",
                     headers={"Content-Disposition":
                              f'attachment; filename="{prefix}_{__import__("datetime").datetime.now().strftime("%Y%m%d")}.csv"'})
+
+
+# ═══════════════════════════════════════════════════════════════
+# v1.0 P0-3: ProjectAuthorization 管理 API — 第三方机构场地授权
+# ═══════════════════════════════════════════════════════════════
+
+from app.models import ProjectAuthorization, Site  # noqa: E402
+
+class GrantAuth(BaseModel):
+    site_id: int
+    authorized_org_id: int
+    permission_scope: str = "read_only"
+    valid_from: str  # YYYY-MM-DD
+    valid_until: str | None = None  # YYYY-MM-DD, None=永久
+
+class RevokeAuth(BaseModel):
+    reason: str | None = None
+
+
+@router.get("/project-authorizations")
+def list_authorizations(site_id: int | None = Query(None),
+                         user: User = Depends(get_current_user),
+                         db: Session = Depends(get_db)):
+    """列出项目授权。管理员可见全部。"""
+    require_permission("user:manage")(user, db)
+    q = db.query(ProjectAuthorization)
+    if site_id is not None:
+        q = q.filter_by(site_id=site_id)
+    auths = q.order_by(ProjectAuthorization.created_at.desc()).all()
+    return [{
+        "id": a.id,
+        "site_id": a.site_id,
+        "authorized_org_id": a.authorized_org_id,
+        "authorized_org_name": db.query(Organization).filter_by(id=a.authorized_org_id).first().name if a.authorized_org_id else "",
+        "permission_scope": a.permission_scope,
+        "valid_from": str(a.valid_from) if a.valid_from else None,
+        "valid_until": str(a.valid_until) if a.valid_until else None,
+        "is_revoked": a.is_revoked,
+        "created_at": str(a.created_at) if a.created_at else None,
+    } for a in auths]
+
+
+@router.post("/project-authorizations")
+def grant_authorization(body: GrantAuth,
+                         user: User = Depends(get_current_user),
+                         db: Session = Depends(get_db)):
+    """管理员授予第三方机构对某场地的项目访问权限。"""
+    require_permission("user:manage")(user, db)
+    site = db.get(Site, body.site_id)
+    if not site:
+        raise HTTPException(404, "场地不存在")
+    org = db.query(Organization).filter_by(id=body.authorized_org_id).first()
+    if not org:
+        raise HTTPException(404, "组织不存在")
+    existing = db.query(ProjectAuthorization).filter_by(
+        site_id=body.site_id, authorized_org_id=body.authorized_org_id,
+        is_revoked=False,
+    ).first()
+    if existing:
+        raise HTTPException(409, "已存在有效授权, 请先撤销后再重新授权")
+    from datetime import date as dt_date
+    valid_from = dt_date.fromisoformat(body.valid_from) if body.valid_from else dt_date.today()
+    valid_until = dt_date.fromisoformat(body.valid_until) if body.valid_until else None
+    auth = ProjectAuthorization(
+        site_id=body.site_id,
+        authorized_org_id=body.authorized_org_id,
+        authorized_by=user.id,
+        permission_scope=body.permission_scope,
+        valid_from=valid_from,
+        valid_until=valid_until,
+    )
+    db.add(auth)
+    log(db, action="grant_authorization", user_id=user.id,
+        resource_type="project_authorizations", resource_id=auth.id,
+        detail={"site_id": body.site_id, "org_id": body.authorized_org_id})
+    db.commit()
+    return {"id": auth.id, "message": "授权成功"}
+
+
+@router.post("/project-authorizations/{auth_id}/revoke")
+def revoke_authorization(auth_id: int, body: RevokeAuth = RevokeAuth(),
+                          user: User = Depends(get_current_user),
+                          db: Session = Depends(get_db)):
+    """撤销项目授权。"""
+    require_permission("user:manage")(user, db)
+    auth = db.get(ProjectAuthorization, auth_id)
+    if not auth:
+        raise HTTPException(404, "授权记录不存在")
+    if auth.is_revoked:
+        raise HTTPException(409, "该授权已被撤销")
+    auth.is_revoked = True
+    auth.revoked_at = __import__("datetime").datetime.now()
+    auth.revoked_by = user.id
+    log(db, action="revoke_authorization", user_id=user.id,
+        resource_type="project_authorizations", resource_id=auth.id,
+        detail={"reason": body.reason})
+    db.commit()
+    return {"message": "已撤销授权"}
