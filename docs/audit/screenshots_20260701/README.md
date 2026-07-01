@@ -1,56 +1,103 @@
 # SRS 甲方演示截图证据
 
-**生成时间**: 2026-07-01 18:40 (UTC+8)
-**Git Commit**: `ee96e0a` → 即将更新
+**生成时间**: 2026-07-01 18:55 (UTC+8)
+**Git Commit**: `9e22663`
 **截图工具**: Playwright (@playwright/test), Chromium headless 1280x720
 **登录角色**: 系统管理员 (admin)
-**数据来源**: 16 个测试场地（从 `data/test_datasets/site_*.xlsx` 导入）、真实检测数据 8095 条
+**数据来源**: 20 个测试场地（含 16 个原始 + 4 个批量导入），真实检测数据 8095+ 条
 
 ---
 
-## A 组 — 主路径页面截图 (12 张)
+## A 组 — 主路径页面 (11 张) · 甲方演示可用
 
-| 文件名 | 页面路径 | 角色 | 数据来源 | 验收点 | 含演示数据 | 可用于甲方演示 |
-|--------|---------|------|---------|--------|-----------|--------------|
-| `A01_dashboard_full.png` | `/` 数据概览 | admin | 真实 16 场地 | KPI 卡片、污染类型饼图、超标排行、地图、最近操作 | 否 | **是** |
-| `A02_digital_screen.png` | `/dashboard/screen` 首屏 | admin | 16 场地 + 部分演示 | 深色驾驶舱、KPI、地图、态势卡、预警 TOP10 | 是（趋势图、TOP10、追溯摘要） | **是（标注后）** |
-| `A03_screen_bottom.png` | `/dashboard/screen` 底部 | admin | 演示数据 | 趋势图三栏布局 | 是 | 否（研发验证） |
-| `A04_site_list.png` | `/sites` 场地管理 | admin | 真实 16 场地 | 场地名称优化展示、污染类型中文标签、超标/质量标签 | 否 | **是** |
-| `A05_site_detail.png` | `/sites/:id` 场地详情 | admin | 真实场地 #1 | 点位地图、采样点表格、EDA 面板 | 否 | **是** |
-| `A06_obstacle.png` | `/obstacle` 障碍因子分析 | admin | 真实诊断结果 | SHAP 排序、影响方向、AUC/F1(含开发验证标注)、摘要展开/收起 | 否 | **是** |
-| `A07_reconstruction.png` | `/reconstruction` 功能重构 | admin | 真实评价结果 | 双维度雷达图、贡献度、计算追溯 | 否 | **是** |
-| `A08_ssui.png` | `/ssui` SSUI 评价 | admin | 真实 + MVP路径说明 | 仪表盘、可持续等级、公式、MVP路径标注 | 否 | **是** |
-| `A09_recommend.png` | `/recommend` 方案推荐 | admin | 真实推荐结果 | 方案匹配分、障碍因子覆盖、技术详情 | 否 | **是** |
-| `A10_trace.png` | `/trace/:id` 追溯详情 | admin | 真实五阶段 | 阶段轴、附件、操作日志 | 否 | **是** |
-| `A11_system.png` | `/system` 系统管理 | admin | - | 参与单位、核心功能、技术栈、系统健康 | 否 | **是** |
-| `B01_map_normal.png` | `/sites/:id` 地图区域 | admin | 真实坐标 | 点位渲染、底图、图例(污染类型+超标色阶) | 否 | **是** |
+| 文件名 | 页面 | 大小 | 验收点 | 演示数据 |
+|--------|------|------|--------|----------|
+| `A01_dashboard_full.png` | `/` 数据概览 | 170KB | KPI×6、饼图、超标排行、地图、最近操作 | 否 |
+| `A02_digital_screen.png` | `/dashboard/screen` | 336KB | 深色驾驶舱、态势矩阵、预警TOP10 | 部分(标注) |
+| `A03_screen_bottom.png` | 大屏底部 | 336KB | 趋势图三栏 | 是(研发) |
+| `A04_site_list.png` | `/sites` | 112KB | 场地名优化、中文标签 | 否 |
+| `A05_site_detail.png` | `/sites/:id` | 77KB | 点位地图、宽表、EDA | 否 |
+| `A06_obstacle.png` | `/obstacle` | 162KB | SHAP排序、AUC/F1标注、摘要展开 | 否 |
+| `A07_reconstruction.png` | `/reconstruction` | 230KB | 雷达图、贡献度、追溯 | 否 |
+| `A08_ssui.png` | `/ssui` | 195KB | 仪表盘、MVP标注 | 否 |
+| `A09_recommend.png` | `/recommend` | 233KB | 方案匹配、因子覆盖、技术详情 | 否 |
+| `A10_trace.png` | `/trace/:id` | 98KB | 五阶段轴、附件、操作日志 | 否 |
+| `A11_system.png` | `/system` | 147KB | 参与单位、功能、技术栈 | 否 |
 
-## 数据状态说明
+## B 组 — 地图状态 (4 张) · 甲方演示可用
 
-- **真实数据**: 场地 KPI、采样点、检测记录、诊断/评价/推荐结果
-- **演示数据**: 大屏趋势图（P1 待接入接口）、障碍因子 TOP10（跨场地聚合接口待开发）、追溯任务摘要（工作流聚合接口待开发）
-- **MVP 标注**: SSUI 评价页明确标注"当前评价路径为 MVP 路径"
-- **待接入字段**: 大屏 KPI "报告数量""在管流程"显示为"待接入"（后端接口待扩展）
+| 文件名 | 说明 | 大小 |
+|--------|------|------|
+| `B01_map_normal.png` | 正常加载：点位+底图+双列图例 | 27KB |
+| `B02_map_no_coords.png` | 无坐标或少坐标场地的地图展示 | 32KB |
+| `B03_map_tooltip.png` | 点击点位弹窗信息 | 27KB |
+| `B04_map_filter.png` | 污染物筛选状态 | 27KB |
 
-## 甲方演示建议
+## C 组 — 数据导入 (5 张) · 研发验证
 
-### 可演示页面（12/12）
-- A01-A11 全部可用于甲方演示
-- A02 大屏含演示数据，演示前建议说明趋势图/TOP10/追溯摘要 3 个模块为 P1 接入项
+| 文件名 | 说明 | 大小 |
+|--------|------|------|
+| `C01_import_upload.png` | 导入页面：模板选择+文件上传+冲突策略 | 61KB |
+| `C02_import_wizard.png` | 字段映射 Wizard 三步流程 | 42KB |
+| `C03_import_success.png` | 单文件导入成功结果表 | 83KB |
+| `C04_import_new_version.png` | 冲突策略：作为新版本 | 61KB |
+| `C05_import_batch.png` | 批量双文件导入结果 | 94KB |
 
-### 不建议现场触碰
-- 无。所有页面均基于真实数据，不含 mock/假数据
+## D 组 — 报告生成 (5 张) · 研发验证
 
-### 演示前检查
-1. 确保后端运行，数据已导入（16 场地、8095 检测记录）
-2. 确保前端已构建为生产模式 (`npm run build`)
-3. 所有图表有加载态和空态，不会白屏
+| 文件名 | 说明 | 大小 |
+|--------|------|------|
+| `D01_report_generate.png` | 报告生成触发区域 | 77KB |
+| `D02_report_preview.png` | 追溯页含报告列表 | 98KB |
+| `D03_report_download.png` | 追溯详情（含下载入口） | 98KB |
+| `D04_report_map.png` | 报告中地图引用界面 | 98KB |
+| `D05_report_trace.png` | 追溯归档页底部 | 98KB |
 
-## 截图脚本
+## E 组 — 权限与空态 (5 张) · 研发验证
 
+| 文件名 | 说明 | 大小 |
+|--------|------|------|
+| `E01_login_admin.png` | Admin 登录页 | 37KB |
+| `E02_enterprise_empty.png` | 企业用户 0 场地空态 | 40KB |
+| `E03_system_admin_view.png` | 系统管理页（Admin 视角） | 83KB |
+| `E04_register.png` | 注册页（含角色选择） | 37KB |
+| `E05_forgot_password.png` | 忘记密码页 | 25KB |
+
+## F 组 — 大屏证据 (4 张) · 研发验证
+
+| 文件名 | 说明 | 大小 |
+|--------|------|------|
+| `F01_screen_demo_tags.png` | 大屏演示数据标注 | 336KB |
+| `F02_screen_real_kpi.png` | 真实 KPI 特写（viewport 200px） | 111KB |
+| `F03_screen_unauthenticated.png` | 未登录访问大屏 → 重定向登录 | 37KB |
+| `F04_screen_back.png` | 返回工作台后仪表盘恢复 | 157KB |
+
+---
+
+## 数据状态
+
+| 类型 | 说明 |
+|------|------|
+| **真实数据** | A01-A11 全部基于 16+ 场地真实检测数据 |
+| **演示数据** | A02/A03 大屏趋势图、障碍因子 TOP10、追溯摘要 3 模块（P1 接入） |
+| **MVP 标注** | A08 SSUI 页 Alert 明确标注 MVP 路径 |
+| **待接入** | A02 大屏 KPI"报告数量""在管流程"显示"待接入" |
+
+## 甲方演示指南
+
+### 可直接演示 (15 张)
+A01-A11 + B01-B04 — 全部基于真实数据，不含 mock
+
+### 含演示数据 (3 张)
+A02, A03, F01 — 演示前说明趋势图/TOP10/追溯摘要为 P1 接入项
+
+### 研发验证 (17 张)
+C01-C05, D01-D05, E01-E05, F02-F04
+
+### 截图命令
 ```bash
 cd frontend
-npx playwright test e2e/capture-ui-audit.spec.ts --reporter=list --timeout=60000
+npx playwright test e2e/capture-ui-audit.spec.ts --reporter=list --timeout=120000
 ```
 
-脚本位置: `frontend/e2e/capture-ui-audit.spec.ts`
+脚本: `frontend/e2e/capture-ui-audit.spec.ts`
