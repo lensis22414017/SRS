@@ -44,11 +44,14 @@ export default function DashboardScreen() {
   const [pendingCount, setPendingCount] = useState(0);
   const [logs, setLogs] = useState<any[]>([]);
   const [now, setNow] = useState(dayjs());
-  const [smallScreen, setSmallScreen] = useState(false);
+  const [screenTier, setScreenTier] = useState<"small" | "compact" | "full">("full");
 
-  // 检测小屏
+  // 三级断点: <1024 小屏提示; 1024-1366 压缩预览; >=1366 正常大屏
   useEffect(() => {
-    const check = () => setSmallScreen(window.innerWidth < 1366);
+    const check = () => {
+      const w = window.innerWidth;
+      setScreenTier(w < 1024 ? "small" : w < 1366 ? "compact" : "full");
+    };
     check();
     window.addEventListener("resize", check);
     return () => window.removeEventListener("resize", check);
@@ -203,18 +206,20 @@ export default function DashboardScreen() {
   ];
 
   // ── 渲染 ──────────────────────────────────────────────────
-  if (smallScreen) {
+  if (screenTier === "small") {
     return (
       <div className={styles.smallScreen}>
         <div>
           <DashboardOutlined style={{ fontSize: 48, color: "rgba(30,144,255,0.3)", marginBottom: 16 }} />
           <div>请使用更大屏幕或缩放浏览器以查看数字大屏</div>
-          <div style={{ fontSize: 13, color: "#4a6785", marginTop: 8 }}>推荐分辨率: 1920×1080，最小: 1366×768</div>
+          <div style={{ fontSize: 13, color: "#4a6785", marginTop: 8 }}>推荐分辨率: 1920×1080，最小: 1024×768</div>
           <Button type="link" onClick={() => nav("/")} style={{ marginTop: 16 }}>返回工作台</Button>
         </div>
       </div>
     );
   }
+
+  const compactMode = screenTier === "compact";
 
   if (loading) {
     return (
@@ -241,7 +246,16 @@ export default function DashboardScreen() {
   }
 
   return (
-    <div className={styles.screenRoot}>
+    <div className={styles.screenRoot} data-testid="digital-screen-root">
+      {/* 压缩预览模式警告条 */}
+      {compactMode && (
+        <div style={{
+          background: "rgba(245,158,11,0.15)", borderBottom: "1px solid rgba(245,158,11,0.3)",
+          color: "#f0b429", fontSize: 12, padding: "4px 16px", textAlign: "center", flexShrink: 0,
+        }}>
+          ⚠ 当前为压缩预览模式（{typeof window !== "undefined" ? window.innerWidth : 0}px），推荐 1920×1080 查看完整大屏
+        </div>
+      )}
       {/* ── 顶部标题栏 ──────────────────────────────────── */}
       <div className={styles.header}>
         <div className={styles.headerLeft}>
@@ -257,7 +271,7 @@ export default function DashboardScreen() {
       </div>
 
       {/* ── KPI 行 ──────────────────────────────────────── */}
-      <div className={styles.kpiRow}>
+      <div className={styles.kpiRow} data-testid="screen-kpi-row">
         {kpiCards.map(k => (
           <div key={k.title} className={styles.kpiCard}>
             <div className={styles.kpiIconWrap} style={{ background: k.bg, color: k.color }}>
@@ -285,7 +299,7 @@ export default function DashboardScreen() {
       {/* ── 主体三栏 ────────────────────────────────────── */}
       <div className={styles.bodyRow}>
         {/* 左栏 */}
-        <div className={styles.leftCol}>
+        <div className={styles.leftCol} data-testid="screen-left-panels">
           <div className={styles.panel}>
             <div className={styles.panelTitle}><span className={styles.panelTitleBar} />污染类型分布</div>
             {typeData.length
@@ -314,7 +328,7 @@ export default function DashboardScreen() {
 
         {/* 中央：地图(55%) + 区域态势矩阵(45%) */}
         <div className={styles.centerCol}>
-          <div className={styles.mapWrap} style={{ flex: "0 0 55%" }}>
+          <div className={styles.mapWrap} style={{ flex: "0 0 55%" }} data-testid="screen-map">
             <SiteMap sites={mapSites} onMarkerClick={(s) => s.id && nav(`/sites/${s.id}`)} />
             {topAlerts.length > 0 && (
               <div className={styles.mapOverlay}>
@@ -366,7 +380,7 @@ export default function DashboardScreen() {
         {/* 右栏 — 扩展为 320px */}
         <div className={styles.rightCol}>
           {/* 预警 TOP10 */}
-          <div className={styles.panel} style={{ flex: 1, overflow: "hidden", display: "flex", flexDirection: "column" }}>
+          <div className={styles.panel} data-testid="screen-alert-top10" style={{ flex: 1, overflow: "hidden", display: "flex", flexDirection: "column" }}>
             <div className={styles.panelTitle}>
               <span className={styles.panelTitleBar} style={{ background: "linear-gradient(180deg, #ff6b6b, #ee5a24)" }} />
               重点场地预警 TOP10
@@ -390,7 +404,7 @@ export default function DashboardScreen() {
           </div>
 
           {/* 追溯摘要 */}
-          <div className={styles.panel}>
+          <div className={styles.panel} data-testid="screen-trace-summary">
             <div className={styles.panelTitle}>
               <span className={styles.panelTitleBar} style={{ background: "linear-gradient(180deg, #00b894, #55efc4)" }} />
               追溯任务摘要
@@ -437,7 +451,7 @@ export default function DashboardScreen() {
       </div>
 
       {/* ── 底部趋势 ──────────────────────────────────────── */}
-      <div className={styles.bottomRow}>
+      <div className={styles.bottomRow} data-testid="screen-trend-row">
         <div className={styles.trendCard}>
           <span className={styles.demoTag} style={{ position: "absolute", top: 6, right: 8, zIndex: 1 }}>演示数据</span>
           <ReactECharts option={trendOption("场地累计趋势",

@@ -35,18 +35,24 @@ test("A01 — Dashboard full", async ({ page }) => {
 
 test("A02 — Digital Screen", async ({ page }) => {
   await login(page);
+  await page.setViewportSize({ width: 1920, height: 1080 });
   await page.goto(`${BASE}/dashboard/screen`);
-  await page.waitForTimeout(3000);
+  await page.waitForSelector('[data-testid="digital-screen-root"]', { timeout: 10000 });
+  await page.waitForSelector('[data-testid="screen-kpi-row"]');
+  await page.waitForSelector('[data-testid="screen-map"]');
+  await page.waitForSelector('text=重点场地预警 TOP10');
+  await page.waitForTimeout(3000); // 等地图瓦片 + ECharts 渲染
   await page.screenshot({ path: path.join(OUT, "A02_digital_screen.png"), fullPage: false });
 });
 
-test("A03 — Screen Bottom", async ({ page }) => {
+test("A03 — Screen Trend Row", async ({ page }) => {
   await login(page);
+  await page.setViewportSize({ width: 1920, height: 1080 });
   await page.goto(`${BASE}/dashboard/screen`);
-  await page.waitForTimeout(2000);
-  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-  await page.waitForTimeout(500);
-  await page.screenshot({ path: path.join(OUT, "A03_screen_bottom.png"), fullPage: false });
+  await page.waitForSelector('[data-testid="screen-trend-row"]', { timeout: 10000 });
+  await page.waitForTimeout(2000); // 等趋势图渲染
+  // locator 截图趋势区特写
+  await page.locator('[data-testid="screen-trend-row"]').screenshot({ path: path.join(OUT, "A03_screen_trends.png") });
 });
 
 test("A04 — Site List", async ({ page }) => {
@@ -153,14 +159,22 @@ test("B02 — Map No Coordinates", async ({ page }) => {
 test("B03 — Map Tooltip", async ({ page }) => {
   await login(page);
   await page.goto(`${BASE}/sites/1`);
+  await page.waitForSelector(".leaflet-container");
   await page.waitForTimeout(3000);
   await page.evaluate(() => { const el = document.querySelector(".leaflet-container"); if (el) el.scrollIntoView(); });
-  await page.waitForTimeout(1000);
-  // Click center of map where marker likely is
-  const mapBox = await page.locator(".leaflet-container").boundingBox();
-  if (mapBox) {
-    await page.mouse.click(mapBox.x + mapBox.width / 3, mapBox.y + mapBox.height / 2);
-    await page.waitForTimeout(1500);
+  await page.waitForTimeout(1500);
+  // Leaflet circleMarker 渲染为 SVG <circle>, 精确点击
+  const circles = page.locator(".leaflet-overlay-pane svg circle, .leaflet-marker-pane svg circle");
+  const count = await circles.count();
+  if (count > 0) {
+    // 点击第一个 circleMarker 中心
+    const box = await circles.first().boundingBox();
+    if (box) {
+      await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
+    }
+    // 等待 popup 出现
+    await page.waitForSelector(".leaflet-popup", { timeout: 5000 });
+    await page.waitForTimeout(500);
   }
   await page.screenshot({ path: path.join(OUT, "B03_map_tooltip.png"), fullPage: false });
 });
@@ -271,8 +285,22 @@ test("D03 — Report Download", async ({ page }) => {
 test("D04 — Report Map in Report", async ({ page }) => {
   await login(page);
   await page.goto(`${BASE}/trace/1`);
-  await page.waitForTimeout(3000);
-  await page.screenshot({ path: path.join(OUT, "D04_report_map.png"), fullPage: true });
+  await page.waitForTimeout(2000);
+  // 1. 若无报告, 先生成一份 PDF
+  const genBtn = page.locator('button:has-text("生成报告")');
+  if (await genBtn.count() > 0) {
+    await genBtn.first().click();
+    await page.waitForTimeout(6000); // 等 PDF 生成
+  }
+  // 2. 点击报告列表中的"预览"链接/按钮
+  const previewBtn = page.locator('a:has-text("预览"), button:has-text("预览")');
+  if (await previewBtn.count() > 0) {
+    await previewBtn.first().click();
+    // 3. 等待 iframe Modal 出现 (openPreview → blob URL → iframe)
+    await page.waitForSelector(".ant-modal iframe", { timeout: 10000 }).catch(() => {});
+    await page.waitForTimeout(4000); // 等 PDF 在 iframe 内渲染
+  }
+  await page.screenshot({ path: path.join(OUT, "D04_report_map.png"), fullPage: false });
 });
 
 test("D05 — Report Traceability Archive", async ({ page }) => {
@@ -295,22 +323,26 @@ test("E01 — Login Admin", async ({ page }) => {
 });
 
 test("E02 — Enterprise Empty Site", async ({ page }) => {
-  // Login as enterprise user
-  await page.goto(`${BASE}/login`);
-  await page.fill('input[id="username"]', "demo_enterprise");
+  // Login as enterprise user (用户名: enterprise, 非 demo_enterprise)
+  await page.goto(`${BASE}/login`, { waitUntil: "networkidle" });
+  await page.fill('input[id="username"]', "enterprise");
   await page.fill('input[id="password"]', "Demo@2026");
   await page.click('button[type="submit"]');
   await page.waitForTimeout(3000);
   await page.screenshot({ path: path.join(OUT, "E02_enterprise_empty.png"), fullPage: true });
 });
 
-test("E03 — Permission 403", async ({ page }) => {
-  await login(page);
-  // Try to access admin-only page as enterprise... actually try as a non-admin
+test("E03 — Permission 403 (Enterprise → System)", async ({ page }) => {
+  // 用 enterprise 账号登录 (无 user:manage 权限)
+  await page.goto(`${BASE}/login`, { waitUntil: "networkidle" });
+  await page.fill('input[id="username"]', "enterprise");
+  await page.fill('input[id="password"]', "Demo@2026");
+  await page.click('button[type="submit"]');
+  await page.waitForTimeout(3000);
+  // 访问 admin-only 的 /system, AdminOnly 守卫应返回 403 ErrorPage
   await page.goto(`${BASE}/system`);
-  await page.waitForTimeout(1500);
-  // If we get a 403-like message, capture it
-  await page.screenshot({ path: path.join(OUT, "E03_system_admin_view.png"), fullPage: false });
+  await page.waitForTimeout(2000);
+  await page.screenshot({ path: path.join(OUT, "E03_permission_403.png"), fullPage: true });
 });
 
 test("E04 — Register Page", async ({ page }) => {
@@ -331,21 +363,22 @@ test("E05 — Forgot Password", async ({ page }) => {
 
 test("F01 — Screen Demo Tags", async ({ page }) => {
   await login(page);
+  await page.setViewportSize({ width: 1920, height: 1080 });
   await page.goto(`${BASE}/dashboard/screen`);
-  await page.waitForTimeout(2000);
-  // Zoom to highlight the demo data tags on left panel
-  await page.screenshot({ path: path.join(OUT, "F01_screen_demo_tags.png"), fullPage: false });
+  await page.waitForSelector('[data-testid="digital-screen-root"]', { timeout: 10000 });
+  await page.waitForTimeout(3000);
+  // 截取左侧面板（含障碍因子 TOP10 + 追溯摘要的演示数据标签）
+  await page.locator('[data-testid="screen-left-panels"]').screenshot({ path: path.join(OUT, "F01_screen_demo_tags.png") });
 });
 
 test("F02 — Screen Real KPI", async ({ page }) => {
   await login(page);
+  await page.setViewportSize({ width: 1920, height: 1080 });
   await page.goto(`${BASE}/dashboard/screen`);
+  await page.waitForSelector('[data-testid="screen-kpi-row"]', { timeout: 10000 });
   await page.waitForTimeout(2000);
-  // Crop to KPI area by setting viewport small
-  await page.setViewportSize({ width: 1280, height: 200 });
-  await page.waitForTimeout(500);
-  await page.screenshot({ path: path.join(OUT, "F02_screen_real_kpi.png"), fullPage: false });
-  await page.setViewportSize({ width: 1280, height: 720 });
+  // locator 截图 KPI 行, 不改 viewport
+  await page.locator('[data-testid="screen-kpi-row"]').screenshot({ path: path.join(OUT, "F02_screen_real_kpi.png") });
 });
 
 test("F03 — Screen Empty State", async ({ page }) => {
