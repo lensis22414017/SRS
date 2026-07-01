@@ -38,7 +38,7 @@ ML(ml/)          eda / cleaning / models(RF+dataset_splits) / explain(SHAP) /
 ## 5. 部署拓扑
 - 开发: uvicorn + sqlite + Vite(proxy /api→8000)。
 - 容器: docker-compose(postgres + redis + backend); 初始化 bootstrap/alembic + loaders。
-- 桌面打包/天地图白名单: 见 `docs/deployment_desktop.md`。
+- 桌面打包/地图服务白名单: 见 `docs/deployment_desktop.md`。
 
 ## 6. 地图服务层（2026-06-13 新增）
 
@@ -48,13 +48,13 @@ ML(ml/)          eda / cleaning / models(RF+dataset_splits) / explain(SHAP) /
 |---|---|---|---|
 | **L1 矢量底图（默认）** | 全国省/地市/县行政区边界 GeoJSON | ✅ 完全离线 | `data/geo/*.geojson`（阿里 DataV 开放数据） |
 | **L2 MBTiles 离线影像（可选）** | 指定区域卫星影像，按需导入 | ✅ 离线 | `data/geo/tiles/*.mbtiles` |
-| **L3 天地图在线影像（可选）** | 实时卫星/矢量影像 | ❌ 需外网+白名单 | 天地图 key（`TIANDITU_KEY` 环境变量） |
+| **L3 地图服务在线影像（可选）** | 实时卫星/矢量影像 | ❌ 需外网+白名单 | 地图服务 key（`TIANDITU_KEY` 环境变量） |
 
 ### 6.2 后端瓦片代理（`backend/app/api/map.py`）
 
 - 路由：`GET /api/v1/map/tile/{layer}/{z}/{x}/{y}`
-- 优先级：本地 MBTiles → 天地图在线 → 503
-- **后端持有天地图 key**，前端通过本代理访问，key 不暴露到浏览器
+- 优先级：本地 MBTiles → 地图服务在线 → 503
+- **后端持有地图服务 key**，前端通过本代理访问，key 不暴露到浏览器
 - 支持图层：`img`（影像）、`cia`（影像注记）、`vec`（矢量）、`cva`（矢量注记）
 - 场地点位 GeoJSON：`GET /api/v1/map/sites/geo`，`GET /api/v1/map/sites/{site_id}/points/geo`
 
@@ -72,7 +72,7 @@ ML(ml/)          eda / cleaning / models(RF+dataset_splits) / explain(SHAP) /
 
 ### 6.4 报告中的地图图件
 
-- 报告 PDF 中的地图使用 `matplotlib` 离线渲染（`ml/artifacts/`），不依赖天地图，内网环境可生成含图报告
+- 报告 PDF 中的地图使用 `matplotlib` 离线渲染（`ml/artifacts/`），不依赖地图服务，内网环境可生成含图报告
 
 ## 7. 待补
 - 接口时序图、ER 图导出、报告静态图表、前端拆包。

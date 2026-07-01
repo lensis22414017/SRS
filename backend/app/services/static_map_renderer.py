@@ -1,4 +1,4 @@
-"""v0.2 报告静态地图渲染器 — 独立于 report_service, 可测试, 无天地图依赖。
+"""v0.2 报告静态地图渲染器 — 独立于 report_service, 可测试, 无地图服务依赖。
 
 渲染优先级:
   1. 本地 MBTiles 底图 (data/geo/tiles/*.mbtiles)

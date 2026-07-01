@@ -93,7 +93,7 @@ export default function Dashboard() {
     }],
   };
 
-  // 裴总 P1-5b: 超标排行改横向条形图 + 短标签(省份+场地, 同省多场地加序号), 不截断
+  // 超标排行改横向条形图 + 短标签(省份+场地, 同省多场地加序号), 不截断
   const topExceed = [...sites].filter((s) => (s.n_exceed || 0) > 0)
     .sort((a, b) => (b.n_exceed || 0) - (a.n_exceed || 0)).slice(0, 8);
   const _provCount: Record<string, number> = {};
@@ -134,7 +134,7 @@ export default function Dashboard() {
   const mapSites = sites.map((s) => ({
     id: s.id, name: s.name, longitude: s.longitude, latitude: s.latitude,
     pollution_type: s.pollution_type,
-    color: POLLUTION_TYPE[s.pollution_type] || "#dc2626",  // 裴总 P1-5a: 地图点位用语义色
+    color: POLLUTION_TYPE[s.pollution_type] || "#dc2626",  // 地图点位用语义色
   }));
 
   return (

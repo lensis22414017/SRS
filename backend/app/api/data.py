@@ -398,7 +398,7 @@ class LandUseUpdate(BaseModel):
 def update_site_land_use(site_id: int, body: LandUseUpdate,
                          user: User = Depends(get_current_user),
                          db: Session = Depends(get_db)):
-    """更新场地修复后用途(裴总决策: 在障碍因子诊断页选择, 影响整条决策链)。
+    """更新场地修复后用途(项目组决策: 在障碍因子诊断页选择, 影响整条决策链)。
 
     - 生产用地 → 诊断主轨 prod 模型(GB15618 严阈值) + 生产功能重构评价 + 生产修复技术
     - 生态用地 → 诊断主轨 eco 模型(GB36600 二类宽阈值) + 生态功能重构评价 + 生态修复技术
@@ -629,7 +629,7 @@ def site_eda(site_id: int,
         resp["correlation"] = correlation_matrix(pivot)
 
     if "grouped" in inc:
-        # 裴总 P1-2: 所选分组维度值不足 → 自动降级 region → depth → factor, 不返回空图
+        # 所选分组维度值不足 → 自动降级 region → depth → factor, 不返回空图
         requested_gb = group_by if group_by in ("region", "depth", "factor") else "region"
         effective_gb = requested_gb
         degraded_reason = None

@@ -81,7 +81,7 @@ def load_latest(track=None):
     track=None 取字典序最后(向后兼容旧调用); 无指定轨产物则回退全部最新。
     diagnosis_service 应按 Site.land_use_type 传 track 实现双轨路由。
 
-    2026-06-26 修复(裴总要求打通双轨诊断): track 过滤兼容 Wave E 命名
+    2026-06-26 修复(项目组要求打通双轨诊断): track 过滤兼容 Wave E 命名
     (_{block}_{track}_{group}.joblib, 如 _lake_prod_full) — 旧 endswith('_prod.joblib')
     只匹配单层命名致路由失效(实测选了 op_prod 而非 lake_prod_full)。
     诊断主模型强制 lake(数据湖完整)+full组(过渡含浓度; barrier组AUC≈0.54不可诊断)。
@@ -98,7 +98,7 @@ def load_latest(track=None):
         filt = [f for f in cands
                 if f.endswith(f"_{track}.joblib") or f"_{track}_" in f]
         cands = filt if filt else cands
-        # 2) 优先 _barrier_gee (防泄漏+GEE协变量, v0.2, CV AUC 0.83 达裴总目标 0.8-0.95)
+        # 2) 优先 _barrier_gee (防泄漏+GEE协变量, v0.2, CV AUC 0.83 达项目组目标 0.8-0.95)
         barrier_gee = sorted(f for f in cands if "_barrier_gee" in f)
         if barrier_gee:
             return joblib.load(os.path.join(ARTIFACTS, barrier_gee[-1]))

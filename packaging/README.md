@@ -41,7 +41,7 @@ cd frontend && npm run build
 
 ### 构建
 ```bash
-cd /Users/lensis/Claude/Projects/SRS
+cd <项目根目录>
 backend/.venv/bin/pyinstaller packaging/srs.spec --clean
 ```
 

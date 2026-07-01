@@ -1,6 +1,6 @@
 """障碍因子诊断: 取数 -> 特征对齐 -> RF 预测 -> SHAP -> 入库。
 
-特征对齐策略(裴总已确认"重标化/诚实标注"原则):
+特征对齐策略(已确认"重标化/诚实标注"原则):
   - 场地因子经 feature_mapping.json 映射到训练特征;
   - 训练特征在场地数据中缺失的, 用训练集中位数填充, 并记录 imputed_features;
   - 结论解释中明确标注哪些特征是填充值, 不冒充实测。
@@ -288,7 +288,7 @@ def ensure_model_record(db: Session, bundle: dict) -> MLModel:
 
 
 def _build_dual_track(prod_r: dict, eco_r: dict) -> dict:
-    """构造生产-生态双轨对比块(裴总 goal: 双轨诊断真正生效)。
+    """构造生产-生态双轨对比块(目标: 双轨诊断真正生效)。
 
     prod_r/eco_r 为 run_diagnosis 内 _single() 返回的单轨结果
     (bundle/X/proba/shap_out/feat2factor/ranked)。
@@ -327,7 +327,7 @@ _EE_INITIALIZED = False
 
 
 def _enrich_gee_if_needed(pivot: pd.DataFrame, site, feature_list: list) -> pd.DataFrame:
-    """GEE 协变量补入(裴总 goal: 场地诊断用真实 GEE 值, 非全中位数)。
+    """GEE 协变量补入(目标: 场地诊断用真实 GEE 值, 非全中位数)。
     模型 feature_list 含 gee_ 列且场地有经纬度 → 按场地坐标 GEE 采样填入 pivot;
     GEE 未配置或失败 → 返回原 pivot(align_features 用训练中位数兜底, 不阻断诊断)。
     """
@@ -384,7 +384,7 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
     sp_by_code = {p.point_code: p for p in
                   db.query(SamplingPoint).filter_by(site_id=site_id).all()}
 
-    # ── 双轨对比(2026-06-28 裴总 goal: 生产-生态双轨诊断真正生效) ──
+    # ── 双轨对比(2026-06-28 目标: 生产-生态双轨诊断真正生效) ──
     # 对同一场地同时加载 prod(GB15618 严阈值标签) + eco(GB36600 二类宽阈值标签)
     # 两个独立训练的模型, 输出双轨 proba/Top 因子对比。此前 API 层只按
     # land_use_type 选单轨(waveF 脚本靠临时改 land_use_type 调 2 次模拟对比),

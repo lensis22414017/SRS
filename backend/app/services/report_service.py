@@ -117,7 +117,7 @@ def docx_emu_width(doc) -> int:
 
 
 def _embed_docx_image(doc, data_url: str | None, caption: str) -> None:
-    """把 base64 PNG 嵌入 DOCX; data_url 为空/损坏时静默跳过(裴总 P1-1 DOCX 同步 PDF 图件)。"""
+    """把 base64 PNG 嵌入 DOCX; data_url 为空/损坏时静默跳过( P1-1 DOCX 同步 PDF 图件)。"""
     if not data_url or not data_url.startswith("data:image/png;base64,"):
         return
     import base64 as _b64
@@ -225,7 +225,7 @@ def _render_points_map_png(coord_points: list, exceed_by_point: dict[int, float]
 
 def _render_shap_figure_png(top_factors: list, site_name: str) -> str | None:
     """用 matplotlib 画 Top-N 障碍因子 SHAP 排名横向条形图(nature-figure 顶刊风格)。
-    裴总问题3/10: 报告增加顶刊级 SHAP 排名图(matplotlib 科研配图, 非 dashboard)。
+    报告增加顶刊级 SHAP 排名图(matplotlib 科研配图, 非 dashboard)。
     正向(加重)=npg红 #E64B35, 负向(缓解)=npg蓝 #4DBBD5; 去顶右边框, 数值标注。"""
     try:
         import matplotlib
@@ -558,7 +558,7 @@ def render_docx(context: dict) -> bytes:
     else:
         doc.add_paragraph("暂无检测数据摘要。")
 
-    # 裴总 P1-1: DOCX 同步嵌入 EDA 分析图(均值 vs 最大值, 与 PDF 章节口径一致)
+    # DOCX 同步嵌入 EDA 分析图(均值 vs 最大值, 与 PDF 章节口径一致)
     _embed_docx_image(doc, _render_eda_figure_png(context.get("factor_summary") or []),
                       "(各因子浓度均值与最大值对比 EDA 图件)")
 
@@ -586,7 +586,7 @@ def render_docx(context: dict) -> bytes:
     else:
         doc.add_paragraph("暂无诊断结果。")
 
-    # 裴总 P1-1: DOCX 同步嵌入 SHAP 障碍因子排名图(与 PDF 口径一致)
+    # DOCX 同步嵌入 SHAP 障碍因子排名图(与 PDF 口径一致)
     _embed_docx_image(doc, context["map_summary"].get("shap_image"),
                       "(关键障碍因子 SHAP 排名图件)")
 

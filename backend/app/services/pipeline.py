@@ -38,13 +38,13 @@ def run_import_with_mapping(db: Session, file_path: str, mapping: dict,
                              on_conflict: str = "skip") -> dict:
     """直接接受 mapping 字典（无需磁盘 JSON 文件）。供 wizard 接口和 run_import 共用。
 
-    on_conflict: 裴总 P1-3 导入幂等策略(skip/overwrite/new_version), 透传 ingest。
+    on_conflict:  P1-3 导入幂等策略(skip/overwrite/new_version), 透传 ingest。
     """
     parsed = parse(file_path, mapping)
     report = validate(parsed, mapping, pollutant_limits=get_pollutant_limits(),
                       scope=scope, land_subtype=land_subtype)
     # 透传 mapping + source_path + on_conflict: 入库时保存 mapping_snapshot、计算
-    # source_sha256/mapping_hash 做全局幂等判重(brief 4.2 + 裴总 P1-3)
+    # source_sha256/mapping_hash 做全局幂等判重(brief 4.2 +  P1-3)
     result = ingest(db, parsed, mapping=mapping, validation_report=report,
                     imported_by=imported_by, source_path=file_path,
                     on_conflict=on_conflict)

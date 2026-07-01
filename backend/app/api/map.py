@@ -3,7 +3,7 @@
 瓦片优先级:
   1. 本地 MBTiles (离线, 桌面打包版首选)
   2. 高德地图 hybrid (在线, 无 IP 白名单, 中文标注, 推荐默认)
-  3. 天地图 (在线, 需固定 IP 白名单, 可选增强)
+  3. 地图服务 (在线, 需固定 IP 白名单, 可选增强)
 """
 from __future__ import annotations
 
@@ -22,10 +22,10 @@ from app.models import FactorDictionary, Measurement, SamplingPoint, Site, Thres
 router = APIRouter(prefix=get_settings().api_v1_prefix, tags=["map"])
 
 TILE_LAYERS = {
-    "img": {"layer": "img", "media_type": "image/jpeg", "label": "天地图影像"},
-    "cia": {"layer": "cia", "media_type": "image/png", "label": "天地图影像注记"},
-    "vec": {"layer": "vec", "media_type": "image/png", "label": "天地图矢量"},
-    "cva": {"layer": "cva", "media_type": "image/png", "label": "天地图矢量注记"},
+    "img": {"layer": "img", "media_type": "image/jpeg", "label": "地图服务影像"},
+    "cia": {"layer": "cia", "media_type": "image/png", "label": "地图服务影像注记"},
+    "vec": {"layer": "vec", "media_type": "image/png", "label": "地图服务矢量"},
+    "cva": {"layer": "cva", "media_type": "image/png", "label": "地图服务矢量注记"},
 }
 
 # 高德地图瓦片服务器列表 (CDN 负载均衡, 同一 x+y 固定路由以利用 CDN 缓存)
@@ -66,9 +66,9 @@ def tianditu_tile(layer: str, z: int, x: int, y: int):
     # 路由顺序:{layer}先于/gaode/声明, 故 /map/tile/gaode/* 会命中此路由; gaode 转发给高德端点
     if layer == "gaode":
         return gaode_tile(z, x, y)
-    """后端瓦片代理: 优先读本地 MBTiles(离线), 无则走天地图在线(需 key)。
+    """后端瓦片代理: 优先读本地 MBTiles(离线), 无则走地图服务在线(需 key)。
 
-    优先级: 本地 MBTiles > 天地图在线 > 503。
+    优先级: 本地 MBTiles > 地图服务在线 > 503。
     MBTiles 查找路径: {项目根}/data/geo/tiles/*.mbtiles (所有文件均尝试)。
     """
     if layer not in TILE_LAYERS:
@@ -80,11 +80,11 @@ def tianditu_tile(layer: str, z: int, x: int, y: int):
     if tile_data is not None:
         return Response(content=tile_data, media_type=TILE_LAYERS[layer]["media_type"])
 
-    # 2) 无本地瓦片 → 走天地图在线(需固定 IP 白名单; 可选增强)
+    # 2) 无本地瓦片 → 走地图服务在线(需固定 IP 白名单; 可选增强)
     if not settings.tianditu_key:
         raise HTTPException(
             503,
-            "未配置天地图 TIANDITU_KEY, 且无本地离线瓦片。"
+            "未配置地图服务 TIANDITU_KEY, 且无本地离线瓦片。"
             "影像底图请改用 /map/tile/gaode/{z}/{x}/{y} (无需 key, 无 IP 限制)。",
         )
     try:
@@ -96,9 +96,9 @@ def tianditu_tile(layer: str, z: int, x: int, y: int):
             return Response(content=resp.read(),
                             media_type=TILE_LAYERS[layer]["media_type"])
     except urllib.error.HTTPError as e:
-        raise HTTPException(e.code, "天地图瓦片服务返回错误")
+        raise HTTPException(e.code, "地图服务瓦片服务返回错误")
     except Exception as e:  # noqa: BLE001
-        raise HTTPException(502, f"天地图瓦片加载失败: {e}")
+        raise HTTPException(502, f"地图服务瓦片加载失败: {e}")
 
 
 @router.get("/map/tile/gaode/{z}/{x}/{y}")

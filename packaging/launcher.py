@@ -90,7 +90,7 @@ def _check_srs_already_running(port: int, host: str = "127.0.0.1") -> bool:
 
 
 def run_preflight(port: int, host: str = "127.0.0.1") -> list[dict]:
-    """首启环境自检: 端口/DB/Redis/AI key/天地图 key。
+    """首启环境自检: 端口/DB/Redis/AI key/地图服务 key。
 
     返回 [{name, level, message}], level ∈ ok/warn/fail。
     严格"只读": 不写任何文件、不改配置, 仅探测与提示。

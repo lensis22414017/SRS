@@ -23,7 +23,7 @@ function formatBytes(bytes: number | undefined | null): string {
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
 
-// 裴总 P1-5d: 通用文件角色(原始报告/审批意见/盖章版报告/补充材料) + 各阶段专属角色
+// 通用文件角色(原始报告/审批意见/盖章版报告/补充材料) + 各阶段专属角色
 // 支持监理上传→甲方审批→盖章版上传 的角色流转
 const COMMON_FILE_ROLES = ["原始报告", "审批意见", "盖章版报告", "补充材料"];
 const FILE_ROLES: Record<string, string[]> = {
@@ -154,7 +154,7 @@ export default function TraceDetail() {
         )}
       </Card>
 
-      {/* 网盘 · 跨阶段已上传文件库汇总(裴总问题5: 存放已上传数据) */}
+      {/* 网盘 · 跨阶段已上传文件库汇总(存放已上传数据) */}
       {(() => {
         const allFiles = stages.flatMap((s: any) =>
           (s.attachments || []).map((a: any) => ({ ...a, stage: s.stage, stage_name: s.stage_name })));

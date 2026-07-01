@@ -12,7 +12,7 @@ interface SitePoint {
   latitude: number | null;
   pollution_type?: string;
   status?: string;
-  color?: string;   // 裴总 P1-5a: 直接指定颜色(优先于 status), 与污染类型语义色一致
+  color?: string;   // 直接指定颜色(优先于 status), 与污染类型语义色一致
   value?: number | null;
   ph?: number | null;
   top_factor?: string;
@@ -97,7 +97,7 @@ export default function SiteMap({
 }: {
   sites: SitePoint[]; layerData?: MapLayerData; height?: number; zoom?: number;
   onMarkerClick?: (s: SitePoint) => void;
-  scope?: "overview" | "site";  // 裴总 P1-5b: overview=首页全国地图; site=场地详情(不加载全国省界)
+  scope?: "overview" | "site";  // overview=首页全国地图; site=场地详情(不加载全国省界)
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const mapRef = useRef<L.Map | null>(null);
@@ -157,7 +157,7 @@ export default function SiteMap({
   // ── 地图初始化 ─────────────────────────────────────────────────
   useEffect(() => {
     if (!ref.current || mapRef.current) return;
-    // 裴总 P1-5b: site=场地详情聚焦到该场地, 不加载全国省界(避免"全国数据"视觉混淆);
+    // site=场地详情聚焦到该场地, 不加载全国省界(避免"全国数据"视觉混淆);
     // overview=首页全国地图才加载全国省界
     const firstPt = sites.find((s) => s.longitude != null && s.latitude != null);
     const initCenter: [number, number] = scope === "site" && firstPt
@@ -340,7 +340,7 @@ export default function SiteMap({
 
   return (
     <div style={{ position: "relative", aspectRatio: "4 / 3", width: "100%" }}>
-      {/* 地图画布 — inset:0 填满 4:3 容器; height prop 已弃用, 由 aspectRatio 控制(裴总要求 4:3 比例) */}
+      {/* 地图画布 — inset:0 填满 4:3 容器; height prop 已弃用, 由 aspectRatio 控制(项目组要求 4:3 比例) */}
       <div ref={ref} style={{ position: "absolute", inset: 0, borderRadius: 8, background: "#e8eef3" }} />
 
       {/* 遮罩提示 */}

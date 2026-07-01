@@ -48,7 +48,7 @@ def run_recommendation(db: Session, site_id: int, top_k: int = 5) -> dict:
     organic_fallback = False
     factor_detail_id: dict = {}
     if diag is None:
-        # 裴总 P0-3: 有机场地无 SHAP 诊断 → 走 OP 技术候选降级, 不抛错
+        # 有机场地无 SHAP 诊断 → 走 OP 技术候选降级, 不抛错
         if site.pollution_type == "organic":
             organic_fallback = True
             factor_names = _organic_factors_of(db, site_id) or ["有机污染物"]

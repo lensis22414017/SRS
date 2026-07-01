@@ -78,7 +78,7 @@ class Settings(BaseSettings):
     ai_model: str = "GLM-4.7-Flash"
     ai_timeout: int = 60
 
-    # 地图服务 — 天地图 (需固定 IP 白名单, 仅服务器部署时配置)
+    # 地图服务 — 地图服务 (需固定 IP 白名单, 仅服务器部署时配置)
     tianditu_key: str = _os.environ.get("TIANDITU_KEY") or _os.environ.get("VITE_TIANDITU_KEY", "")
 
     # 地图服务 — 高德 (无 IP 白名单, 换电脑/换网络均可用; 推荐默认在线影像源)

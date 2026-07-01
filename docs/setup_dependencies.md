@@ -1,9 +1,9 @@
-# 依赖安装清单(裴总一次性安装用)
+# 依赖安装清单(项目组一次性安装用)
 
 ## 一键安装(推荐)
 
 ```bash
-cd /Users/lensis/Claude/Projects/SRS
+cd <项目根目录>
 bash scripts/setup.sh
 ```
 

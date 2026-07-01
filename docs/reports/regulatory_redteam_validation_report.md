@@ -107,7 +107,7 @@
 
 | BLOCKER | 描述 | b22de72 | a454984 |
 |---------|------|---------|---------|
-| BLOCKER-1 | 报告含"天地图"误导文本 | FAILED | **FIXED** — report_service.py 已改为"系统图层接口" |
+| BLOCKER-1 | 报告含"地图服务"误导文本 | FAILED | **FIXED** — report_service.py 已改为"系统图层接口" |
 | BLOCKER-2 | application/octet-stream 被拒 | FAILED | **FIXED** — file_service.py 已加入白名单 |
 | P0 通过率 | 安全+数据契约 | 100% (83/83) | **100% (83/83)** — 维持 |
 | 新增 P0 覆盖 | 检测限 E2E + 工作流绕过 | 无 | **21/22** (单独运行) |
@@ -134,15 +134,15 @@
 
 ## 证据路径
 
-| 文件 | 绝对路径 | 行数 |
+| 文件 | 相对路径 | 行数 |
 |------|----------|------|
-| CI/CD Workflow | `C:\Users\曾鸿\desktop\SRS\.github\workflows\regulatory-redteam-validation.yml` | 1600+ |
-| 安全边界测试 | `C:\Users\曾鸿\desktop\SRS\backend\tests\test_regulatory_api.py` | 1004 |
-| 数据契约测试 | `C:\Users\曾鸿\desktop\SRS\backend\tests\test_regulatory_data_contract.py` | 748 |
-| 报告/地图测试 | `C:\Users\曾鸿\desktop\SRS\backend\tests\test_regulatory_report_map.py` | 955 |
-| 检测限 E2E 测试 | `C:\Users\曾鸿\desktop\SRS\backend\tests\test_detection_limit_e2e.py` | 163 |
-| 工作流绕过测试 | `C:\Users\曾鸿\desktop\SRS\backend\tests\test_workflow_bypass.py` | 108 |
-| 本验收报告 | `C:\Users\曾鸿\desktop\SRS\docs\reports\regulatory_redteam_validation_report.md` | — |
+| CI/CD Workflow | `./.github/workflows/regulatory-redteam-validation.yml` | 1600+ |
+| 安全边界测试 | `./backend/tests/test_regulatory_api.py` | 1004 |
+| 数据契约测试 | `./backend/tests/test_regulatory_data_contract.py` | 748 |
+| 报告/地图测试 | `./backend/tests/test_regulatory_report_map.py` | 955 |
+| 检测限 E2E 测试 | `./backend/tests/test_detection_limit_e2e.py` | 163 |
+| 工作流绕过测试 | `./backend/tests/test_workflow_bypass.py` | 108 |
+| 本验收报告 | `./docs/reports/regulatory_redteam_validation_report.md` | — |
 
 ## 是否建议给甲方演示
 
@@ -179,7 +179,7 @@ python -m pytest tests/test_detection_limit_e2e.py tests/test_workflow_bypass.py
 | P0 数据契约 | 34/34 (100%) | 34/34 (100%) |
 | P0 新增 (检测限+工作流) | 无 | 21/22 (95.5%) |
 | P1 报告/地图 | 27/29 (93.1%) | 9/29 (31.0%*) |
-| 旧 BLOCKER-1 (天地图) | FAILED | FIXED |
+| 旧 BLOCKER-1 (地图服务) | FAILED | FIXED |
 | 旧 BLOCKER-2 (octet-stream) | FAILED | FIXED |
 | 新增代码修复 | 0 | 6 项 (P0-1 ~ P0-6) |
 | 新增测试 | 0 | 22 个 (15 检测限 + 7 工作流) |

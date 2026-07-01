@@ -1,6 +1,6 @@
 """双轨RF训练(模块4): 读 dual_track 切分 → 训练 prod/eco 两 RF → 5折CV + AUC区间标记 → 输出防泄漏模型。
 
-裴总铁律: 防泄漏(X_barrier=理化+GEE, 剔除污染物浓度), 目标AUC 0.8-0.95, 切不能标签泄漏虚高。
+项目组铁律: 防泄漏(X_barrier=理化+GEE, 剔除污染物浓度), 目标AUC 0.8-0.95, 切不能标签泄漏虚高。
 AUC区间标记: <0.70 RED_TOO_LOW_RANDOM / >0.98 RED_SUSPECT_LEAKAGE / 0.8-0.95 GREEN_TARGET / 其他 YELLOW。
 输出: ml/artifacts/rf_barrier_factor_zzv0.2_{date}_dual_{prod,eco}_barrier_gee.joblib + .meta.json
       (zz前缀字典序最末, load_latest 优先选, 压过旧 _zlake_full 泄漏模型)

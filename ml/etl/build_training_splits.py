@@ -2,16 +2,16 @@
 
 复用 ml/models/dataset_splits.build_real_splits(连通分量 DOI/Source 零泄漏)。
 
-双阈值库架构(2026-06-24 Wave D, 方案A — 裴总已批):
+双阈值库架构(2026-06-24 Wave D, 方案A — 项目组已批):
   - 标签_生产: HM按GB15618 pH四段路由(场地SoilpH动态选段, 方案A核心) + OP按GB36600一类阈值
-  - 标签_生态: HM按生态库'二类用地'值(GB36600二类, 裴总定义生态=宽) + OP暂用一类值(生态二类对齐待Wave B)
+  - 标签_生态: HM按生态库'二类用地'值(GB36600二类, 项目组定义生态=宽) + OP暂用一类值(生态二类对齐待Wave B)
   - group-split 用 标签_生产 做主分层; 标签_生产/标签_生态 两列供双模型分别训练
 标签派生: 任一因子超对应轨阈值→1(木桶效应, GB15618§6.2), 否则0。
 数据局限(实事求是标注):
   - HM_CSV(29993行)无SoilpH列 → HM块按默认正常段6.5<pH≤7.5+'其他'旱地派生(无pH无法路由)
   - merged OP/复合块有SoilpH → 按实测pH路由GB15618四段
-  - 训练数据无水田/其他/绿地细分列 → 生产默认'其他'旱地(数据代表性)/生态默认'二类用地'(裴总定义)
-  - 用途是人为决策(裴总): 不按Pollution_Type推断用途, 双标签都派生, 训练两套模型, 测试双用途都试
+  - 训练数据无水田/其他/绿地细分列 → 生产默认'其他'旱地(数据代表性)/生态默认'二类用地'(项目组定义)
+  - 用途是人为决策(项目组): 不按Pollution_Type推断用途, 双标签都派生, 训练两套模型, 测试双用途都试
 运行: cd backend && .venv/bin/python ../ml/etl/build_training_splits.py [hm|op|composite|all]
 """
 import os, sys, csv, json, re
@@ -46,9 +46,9 @@ PH_SEGMENTS = [("pH≤5.5", lambda p: p <= 5.5),
                ("5.5<pH≤6.5", lambda p: 5.5 < p <= 6.5),
                ("6.5<pH≤7.5", lambda p: 6.5 < p <= 7.5),
                ("pH>7.5", lambda p: p > 7.5)]
-DEFAULT_PH_SEG = "6.5<pH≤7.5"   # 无SoilpH默认正常段(裴总"正常pH≤7.5")
+DEFAULT_PH_SEG = "6.5<pH≤7.5"   # 无SoilpH默认正常段(项目组"正常pH≤7.5")
 DEFAULT_PROD_LAND = "其他"      # 生产轨无用地细分默认旱地(GB15618默认类, 数据代表性)
-DEFAULT_ECO_LAND = "二类用地"   # 生态轨默认宽值场景(裴总定义生态=GB36600二类)
+DEFAULT_ECO_LAND = "二类用地"   # 生态轨默认宽值场景(项目组定义生态=GB36600二类)
 
 
 def _write_splits(splits, checks, out_dir):
@@ -154,7 +154,7 @@ def _prod_hm_thresh(factor, soilph, prod_rows):
 
 
 def _eco_hm_thresh(factor, eco_rows):
-    """生态轨重金属默认'二类用地'(宽值, 裴总定义生态=GB36600二类)。退化取该因子任意land。"""
+    """生态轨重金属默认'二类用地'(宽值, 项目组定义生态=GB36600二类)。退化取该因子任意land。"""
     for r in eco_rows:
         if r.get("category") != "HM":
             continue

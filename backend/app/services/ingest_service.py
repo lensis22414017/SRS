@@ -115,7 +115,7 @@ def ingest(db: Session, parsed: ParsedSite, mapping: dict | None = None,
            on_conflict: str = "skip") -> dict:
     """入库 ParsedSite。
 
-    裴总 P1-3: 全局内容指纹(source_sha256 + mapping_hash)判重 — 在 upsert_site 之前拦截,
+    全局内容指纹(source_sha256 + mapping_hash)判重 — 在 upsert_site 之前拦截,
     同一份数据即使 site_code 不同也不重复造场地。on_conflict:
       skip(默认)→ 返回原场地, 不重写; overwrite → 清旧数据重导; new_version → 建新 site_code。
     """

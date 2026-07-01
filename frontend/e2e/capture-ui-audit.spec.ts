@@ -1,11 +1,16 @@
 /**
- * UI Audit 截图脚本 — 甲方演示质量截图
+ * UI Audit 截图脚本 — UI 验收质量截图
  * 用法: npx playwright test e2e/capture-ui-audit.spec.ts --project=chromium
  */
 import { test, expect } from "@playwright/test";
 import path from "path";
+import { fileURLToPath } from "url";
 
-const OUT = "C:\\Users\\曾鸿\\desktop\\SRS_test_screenshots";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const OUT = path.resolve(__dirname, "../../docs/audit/screenshots_20260701");
+const TEST_DATA = path.resolve(__dirname, "../../data/test_datasets");
 const BASE = "http://localhost:5173";
 
 async function login(page: any) {
@@ -207,7 +212,7 @@ test("C03 — Import Success", async ({ page }) => {
   await page.goto(`${BASE}/sites/import`);
   await page.waitForTimeout(1000);
   const fileInput = page.locator('input[type="file"]');
-  await fileInput.setInputFiles("C:\\Users\\曾鸿\\desktop\\SRS\\data\\test_datasets\\site_广东_HM_200点.xlsx");
+  await fileInput.setInputFiles(path.resolve(TEST_DATA, "site_广东_HM_200点.xlsx"));
   await page.waitForTimeout(1500);
   // Click import button (text varies by file count)
   const importBtn = page.locator('button:has-text("并校验")');
@@ -234,8 +239,8 @@ test("C05 — Import Batch", async ({ page }) => {
   await page.waitForTimeout(1000);
   const fileInput = page.locator('input[type="file"]');
   await fileInput.setInputFiles([
-    "C:\\Users\\曾鸿\\desktop\\SRS\\data\\test_datasets\\site_江西_HM_200点.xlsx",
-    "C:\\Users\\曾鸿\\desktop\\SRS\\data\\test_datasets\\site_湖南_HM_200点.xlsx",
+    path.resolve(TEST_DATA, "site_江西_HM_200点.xlsx"),
+    path.resolve(TEST_DATA, "site_湖南_HM_200点.xlsx"),
   ]);
   await page.waitForTimeout(2000);
   // Button text changes to "批量导入 2 个文件并校验"

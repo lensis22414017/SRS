@@ -14,7 +14,7 @@ import { SVG_OPTS } from "../theme/echarts";
 /** 功能重构分析 = 方法文件第2章 污染土壤生产-生态功能重构可行性评价(生产功能 + 生态功能) */
 function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRisk?: any }) {
   if (!e) return <Empty description={`暂无${title}结果`} />;
-  // 裴总 P0-3: 有机场地降级 — 不显示 null 分, 改有机风险诊断卡片
+  // 有机场地降级 — 不显示 null 分, 改有机风险诊断卡片
   if (e.grade === "不适用(有机)") {
     return <OrganicDegradedCard organicRisk={organicRisk || e.dimensions?.organic_risk}
       limitingFactors={e.limiting_factors} explanation={e.explanation}
@@ -22,7 +22,7 @@ function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRi
   }
   const dims = (e.dimensions?.dimensions || []) as any[];
   const trace = (e.dimensions?.calculation_trace || []) as string[];
-  // 裴总 deep-research: 功能重构模块补可视化(雷达图 + 贡献度条形图, NPG 顶刊色)
+  // 功能重构模块补可视化(雷达图 + 贡献度条形图, NPG 顶刊色)
   // 雷达图: 各评价指标 F 得分(0-100), 一眼识别短板(木桶效应可视化)
   const radarOption = dims.length >= 3 ? {
     tooltip: {},

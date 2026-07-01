@@ -437,7 +437,7 @@ def get_ai_config(user: User = Depends(require_permission("param:config"))):
         "has_key": bool(cfg["api_key"]),
         "is_override": bool(ov),
         "presets": PROVIDER_PRESETS,
-        # 连通性(裴总 P0-2: 配置≠连通; ok=None 表示从未测试过)
+        # 连通性(配置≠连通; ok=None 表示从未测试过)
         "connectivity_ok": conn["ok"],
         "connectivity_stale": conn["stale"],
         "connectivity_error": conn["error"],
@@ -457,7 +457,7 @@ def put_ai_config(body: AiConfigBody,
     log(db, action="update_ai_config", user_id=_actor.id, resource_type="ai_config",
         detail={"provider": body.provider, "model": body.model,
                 "base_url": body.base_url, "key_changed": bool(body.api_key)})
-    # 保存后立即测一次连通性并落盘, 让 /ai/status 马上反映新配置是否真的可用(裴总 P0-2: 不假装成功)
+    # 保存后立即测一次连通性并落盘, 让 /ai/status 马上反映新配置是否真的可用(不假装成功)
     from app.core.ai_config import test_connectivity
     conn_ok, conn_err = test_connectivity()
     cfg = effective_ai()

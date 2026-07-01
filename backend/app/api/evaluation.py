@@ -76,7 +76,7 @@ def get_recommendation(site_id: int, user: User = Depends(get_current_user),
     rows = (db.query(Recommendation).filter_by(site_id=site_id)
             .order_by(Recommendation.rank).all())
     if not rows:
-        # 裴总 P0-3: 无推荐不返回 404(OP 场地前端会触发 organic_fallback 生成候选);
+        # 无推荐不返回 404(OP 场地前端会触发 organic_fallback 生成候选);
         # 给 200 + 空列表 + 引导, 避免前端报错或裸 404
         site = db.get(Site, site_id)
         hint = ("该场地为有机污染且尚未生成推荐; 点击「生成推荐」将基于有机因子匹配 OP 修复候选"

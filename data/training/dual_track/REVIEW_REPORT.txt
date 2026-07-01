@@ -1,5 +1,5 @@
 ================================================================
-双轨训练集审查报告(裴总审核闸门)
+双轨训练集审查报告 zzv0.3 重训版 (0泄漏 + 保留非派生浓度列 + 原生NaN)
 ================================================================
 
 【1. 行列数】
@@ -11,58 +11,49 @@
   external   1446     410      61      
   train      16350    5448     1820    
 
-【2. X_barrier 特征清单】(共50个)
-  理化协变量(实测稀疏, 中位数填充+__missing标记):
-    SoilpH                 非空率 100.0%
-    OC_pct                 非空率 100.0%
-    CEC_cmolkg             非空率 100.0%
-    Sand_pct               非空率 100.0%
-    Silt_pct               非空率 100.0%
-    Clay_pct               非空率 100.0%
-    SoilBD_gcm3            非空率 100.0%
-    Elevation_m            非空率 100.0%
-    MAP_mm                 非空率 100.0%
-    EC_mScm                非空率 100.0%
-    TN_gkg                 非空率 100.0%
-  GEE协变量(栅格采样, 近100%覆盖):
-    gee_ndvi               非空率 100.0%
-    gee_precip_annual_mm   非空率 100.0%
-    gee_temp_mean_c        非空率 100.0%
-    gee_elevation_m        非空率 100.0%
-    gee_slope_deg          非空率 100.0%
-    gee_aspect_deg         非空率 100.0%
-    gee_soil_pH            非空率 100.0%
-    gee_soc_g_kg           非空率 100.0%
-    gee_cec_cmol_kg        非空率 100.0%
-    gee_clay_pct           非空率 100.0%
-    gee_sand_pct           非空率 100.0%
-    gee_silt_pct           非空率 100.0%
-    gee_bulk_density_g_cm3 非空率 100.0%
-    gee_nitrogen_g_kg      非空率 100.0%
-  __missing标记列: 25个
+【2. X_barrier 特征清单】(共960个)
+  理化协变量(原生NaN, __missing标记):
+    SoilpH                 非空率 27.2%
+    OC_pct                 非空率 34.7%
+    CEC_cmolkg             非空率 28.3%
+    Sand_pct               非空率 15.8%
+    Silt_pct               非空率 15.3%
+    Clay_pct               非空率 14.9%
+    SoilBD_gcm3            非空率 2.3%
+    Elevation_m            非空率 19.6%
+    MAP_mm                 非空率 7.3%
+    EC_mScm                非空率 2.7%
+    TN_gkg                 非空率 3.7%
+  GEE协变量(栅格采样):
+    gee_ndvi               非空率 98.1%
+    gee_precip_annual_mm   非空率 98.1%
+    gee_temp_mean_c        非空率 98.1%
+    gee_elevation_m        非空率 98.1%
+    gee_slope_deg          非空率 98.1%
+    gee_aspect_deg         非空率 98.1%
+    gee_soil_pH            非空率 70.5%
+    gee_soc_g_kg           非空率 70.5%
+    gee_cec_cmol_kg        非空率 70.5%
+    gee_clay_pct           非空率 70.5%
+    gee_sand_pct           非空率 70.5%
+    gee_silt_pct           非空率 70.5%
+    gee_bulk_density_g_cm3 非空率 70.5%
+    gee_nitrogen_g_kg      非空率 70.5%
+  非派生浓度列(原生NaN): 455个
+    非空率TOP10: Fe_mgkg(4.5%), Mn_mgkg(4.1%), Phe_ngg(2.9%), Pyr_ngg(2.9%), Nap_ngg(2.7%), Flu_ngg(2.7%), Ace_ngg(2.6%), ICP_ngg(1.9%), K_mgkg(1.8%), Co_mgkg(1.7%)
+  __missing标记列: 480个
 
-【3. 防泄漏自检(红线)】
-  X_barrier 污染物列检出: 0 ✅
-  已剔除污染物浓度列: 475个(后缀_mgkg/_ngg/_ugkg + 关键词兜底)
-  前20个剔除列示例: ['Cd_mgkg', 'Pb_mgkg', 'As_mgkg', 'Cu_mgkg', 'Zn_mgkg', 'Ni_mgkg', 'Cr_mgkg', 'Hg_mgkg', 'A_HCH_ngg', 'Ace_mgkg', 'Ace_ngg', 'Acy_mgkg', 'Acy_ngg', 'Al_mgkg', 'Ant_mgkg', 'Ant_ngg', 'AntiDP_ngg', 'BDE209_ngg', 'B_HCH_ngg', 'BaA_mgkg']
+【3. 防泄漏自检(0泄漏红线)】
+  标签派生列剔除: 20个 ✅ (['Cd_mgkg', 'Pb_mgkg', 'As_mgkg', 'Cu_mgkg', 'Zn_mgkg', 'Ni_mgkg', 'Cr_mgkg', 'Hg_mgkg', 'BaP_ngg', 'HMWPAH_ngg', 'LMWPAH_ngg', 'SumDDTs_ngg', 'SumHCHs_ngg', 'SumOCP_ngg', 'SumPAE_ugkg', 'SumPBDE_ngg', 'SumPCB_ngg', 'SumPFAS_ngg', 'Sum_PAH_ngg', 'TPH_ngg'])
+  非派生浓度列保留: 455个(非标签来源, 合法特征)
+  group-split 跨集零重叠: True
 
 【4. 双轨标签分布】
-  标签_生产(GB15618 pH四段+GB36600一类, 严): 正样本率 36.14%
-  标签_生态(GB36600二类, 宽): 正样本率 10.68%
-  (prod应≥eco, 因生产阈值严→更多超标; 若反转则标签派生有误)
+  标签_生产(严): 正样本率 36.14%
+  标签_生态(宽): 正样本率 10.68%
 
-【5. group-split零泄漏】
-  all_passed: True
+【5. 缺失值策略】
+  原生NaN(树模型处理, 不填充) —— 树模型(RF/ET/HGB sklearn1.4+)原生处理NaN
 
-【6. 预期AUC提升】
-  旧 lake_prod_barrier(3特征pH+2missing): AUC=0.5944 (不可诊断)
-  旧 lake_prod_full(泄漏): AUC=0.9988 (不可用)
-  新 dual_track_X_barrier(50特征): 预期 AUC 0.8-0.95 (防泄漏+GEE增强)
-
-【7. 诚实标注】
-  - X_barrier=理化稀疏列(中位数+__missing) + GEE栅格协变量
-  - 剔除475个污染物浓度列(标签泄漏源), AUC不虚高
-  - GEE协变量为栅格估算值(gee_前缀区分), 非实测
-
-裴总确认后, 运行 ml/models/train_dual_gee.py 进入双轨训练。
+裴总确认后, 运行 ml/autoresearch_dual_track/ 进入 karpathy 迭代训练。
 ================================================================

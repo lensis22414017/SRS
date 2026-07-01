@@ -1,6 +1,6 @@
 """验证(模块6): 防泄漏自检 + AUC区间 + load_latest路由 + SHAP可追溯。
 
-裴总铁律验证: X_barrier 0污染物列(红线) / AUC 0.8-0.95(绿) / load_latest返回_barrier_gee(非旧_lake_full泄漏)。
+项目组铁律验证: X_barrier 0污染物列(红线) / AUC 0.8-0.95(绿) / load_latest返回_barrier_gee(非旧_lake_full泄漏)。
 17真实场地回归用 scripts/test_dual_track_diagnosis_e2e.py(已有waveF脚本, 需backend启动)。
 """
 import os

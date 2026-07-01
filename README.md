@@ -19,7 +19,7 @@ deploy/       docker-compose / Dockerfile / .env.example
 
 React+TS+AntD+ECharts(前端,待建) · FastAPI+SQLAlchemy+Alembic(后端) · PostgreSQL+Redis · scikit-learn+SHAP · Jinja2+WeasyPrint · Docker Compose。
 
-> MVP 决策(裴总确认):暂以本地文件存储替代 MinIO、numeric 经纬度散点替代 PostGIS,W2 有余力再补。
+> 当前架构取舍:暂以本地文件存储替代 MinIO、numeric 经纬度散点替代 PostGIS,后续有余力再补。
 
 ## 本地启动(开发)
 

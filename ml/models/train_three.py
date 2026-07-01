@@ -1,6 +1,6 @@
 """阶段C: 三块分别训练 RF + 数据湖合并训练。
 
-裴总: 重金属/OP/复合三块分别训练 + 合并数据湖完整再训练(autoresearch)。
+项目组: 重金属/OP/复合三块分别训练 + 合并数据湖完整再训练(autoresearch)。
 产物: ml/artifacts/rf_barrier_factor_v0.1_<date>_<name>.joblib (4 model: hm/op/composite/lake)。
 load_latest 加载最新(lake 最后, 含重金属+有机, diagnosis 用它)。
 
@@ -42,7 +42,7 @@ def _prep_csv(name, target_col="标签_生产", barrier_only=False):
 
     barrier_only=True (路径C X_barrier 防泄漏组): 额外 drop 所有污染物浓度列+其__missing,
     特征仅剩土壤理化协变量(SoilpH/OC_pct等)。与含浓度组(full)对照, AUC差距=标签泄漏实证。
-    依据: Hu 2026 Nature级 — 障碍因子RF特征应为土壤性质非浓度; plan Wave E修正(裴总2026-06-24科研深问)。
+    依据: Hu 2026 Nature级 — 障碍因子RF特征应为土壤性质非浓度; plan Wave E修正(项目组2026-06-24科研深问)。
     """
     src = os.path.join(TRAIN_BASE, name, "imputed", "train.csv")
     df = pd.read_csv(src, low_memory=False)
@@ -97,7 +97,7 @@ def _train(name, csv_path):
         "auc": round(float(roc_auc_score(y_te, proba)), 4),
         "test_size": int(len(y_te))}
     version = "v0.1_" + datetime.now(timezone.utc).strftime("%Y%m%d") + "_" + name
-    # lake(数据湖)用 z 前缀使字典序最后(>op) → load_latest 优先用它(裴总: 数据湖完整训练)
+    # lake(数据湖)用 z 前缀使字典序最后(>op) → load_latest 优先用它(项目组: 数据湖完整训练)
     if name == "lake":
         version = "v0.1_" + datetime.now(timezone.utc).strftime("%Y%m%d") + "_zlake_final"
     is_barrier = "barrier" in name  # 路径C对照组标识(name含'barrier'=X_barrier防泄漏组)
@@ -141,7 +141,7 @@ def build_lake():
 
 
 if __name__ == "__main__":
-    # 路径C双版本对照(Wave E, 裴总2026-06-25拍板):
+    # 路径C双版本对照(Wave E, 项目组2026-06-25拍板):
     #   full组(含浓度, 标签泄漏, AUC虚高≈1.0) vs barrier组(X_barrier纯协变量, AUC低反映协变量不足)
     #   AUC差距 = 标签泄漏实证(Hu 2026 Commun Earth Environ 7:214 铁证复现)
     #   两组×4块×2轨 = 16 model; 均标 leakage_warning 诚实标注(§18.4不伪造性能)

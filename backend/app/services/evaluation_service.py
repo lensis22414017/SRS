@@ -60,7 +60,7 @@ def _series_and_means(db: Session, site_id: int):
     return dict(series), means
 
 
-# 裴总 P0-3 / CLAUDE.md §3.1 木桶短板: 有机场地缺重金属评价元指标时, 不裸露 null, 走可解释降级。
+#  P0-3 / CLAUDE.md §3.1 木桶短板: 有机场地缺重金属评价元指标时, 不裸露 null, 走可解释降级。
 # 重金属评价因子(与 run_evaluation screen 名单一致; factor_code==factor_name 中文)
 HM_EVAL_FACTORS = {"砷", "铅", "铜", "锌", "镉", "铬", "汞", "镍"}
 # 理化/肥力类 category(定位有机污染物 = 环境指标 - 重金属)
@@ -70,7 +70,7 @@ PROPERTY_CATEGORIES = {"化学性质", "肥力指标", "物理性质", "生物�
 def _organic_risk(db: Session, site_id: int, series: dict, means: dict) -> dict:
     """有机污染物超标风险诊断(规则型, 非 ML)。
 
-    裴总 P0-3 + 数据真实性: 查 threshold_rules ∪ standard_thresholds 两表最严档阈值,
+     P0-3 + 数据真实性: 查 threshold_rules ∪ standard_thresholds 两表最严档阈值,
     区分三类: 超标(有阈值且>阈值)/ 未超标(有阈值且≤阈值)/ 无阈值无法判定。
     不把"无阈值"默认当"未超标"——诚实报告数据缺口, 避免给假的"达标"结论。
     """
@@ -153,7 +153,7 @@ def _evaluation_organic_degraded(db: Session, site_id: int, site: Site,
                                  series: dict, means: dict, data_version: str) -> dict:
     """有机污染场地降级评价: 重构/SSUI 标"不适用(有机)" + organic_risk 风险诊断。
 
-    裴总 P0-3: 评价口径基于重金属+农业肥力, 有机因子不在体系内 → 不评分, 但必须给出:
+    评价口径基于重金属+农业肥力, 有机因子不在体系内 → 不评分, 但必须给出:
     (1) 为什么不能算 (2) 缺哪些指标 (3) 有机污染风险诊断 (4) OP 修复技术候选(见 recommend_service)。
     """
     # 幂等: 同 data_version 已降级过则复用, 不重复 _save(避免反复评价累积)
@@ -226,7 +226,7 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
     ph = means.get("pH")
     data_version = current_site_data_version(db, site_id)
 
-    # 裴总 P0-3: 有机场地缺重金属评价元指标 → 走降级, 不算重构/SSUI 数值分(幂等检查前拦截)
+    # 有机场地缺重金属评价元指标 → 走降级, 不算重构/SSUI 数值分(幂等检查前拦截)
     if site.pollution_type == "organic" and not any(n in means for n in HM_EVAL_FACTORS):
         return _evaluation_organic_degraded(db, site_id, site, series, means, data_version)
 

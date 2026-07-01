@@ -2,7 +2,7 @@
 """PyInstaller spec — SRS 污染场地监管系统 桌面打包。
 
 构建:
-  cd /Users/lensis/Claude/Projects/SRS
+  cd <项目根目录>
   backend/.venv/bin/pyinstaller packaging/srs.spec --clean
 
 输出:
@@ -103,7 +103,7 @@ hidden_imports = [
     "jinja2", "xhtml2pdf", "reportlab",
     "reportlab.pdfbase", "reportlab.pdfbase.cidfonts",
     "weasyprint", "docx",
-    # 报告内采样点静态图件(离线渲染, 不依赖天地图)
+    # 报告内采样点静态图件(离线渲染, 不依赖地图服务)
     "matplotlib", "matplotlib.pyplot", "matplotlib.backends.backend_agg",
     # 数据处理
     "pandas", "numpy", "openpyxl",
@@ -179,7 +179,7 @@ exe = EXE(
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
-    icon=str(PROJECT_ROOT / "packaging" / "srs.ico") if (PROJECT_ROOT / "packaging" / "srs.ico").exists() else (str(PROJECT_ROOT / "packaging" / "srs_512.png") if (PROJECT_ROOT / "packaging" / "srs_512.png").exists() else None),  # 裴总: 扁平生态科技风新图标(多尺寸ico优先, 回退旧png)
+    icon=str(PROJECT_ROOT / "packaging" / "srs.ico") if (PROJECT_ROOT / "packaging" / "srs.ico").exists() else (str(PROJECT_ROOT / "packaging" / "srs_512.png") if (PROJECT_ROOT / "packaging" / "srs_512.png").exists() else None),  # 扁平生态科技风新图标(多尺寸ico优先, 回退旧png)
     version_info=_VI,  # Windows 版本信息对象(公司名/版权/版本)
 )
 

@@ -1,6 +1,6 @@
-// 全局配色系统 — 对齐裴总精品案例审美(低饱和灰蓝紫莫兰迪, 政府稳重 + 顶刊高级感)
+// 全局配色系统 — 对齐精品案例审美(低饱和灰蓝紫莫兰迪, 政府稳重 + 顶刊高级感)
 //
-// 配色源(实证): /Users/lensis/Desktop/Python可视化代码精品案例合集 高频 hex 统计
+// 配色源(实证): 可视化精品案例高频 hex 统计
 //   #515a85(74次最高频) #414f76 #214e81 #3680ae #81b7d9 #8e93af #e98184 #e8cda5
 // 设计原则:
 //   1. 低饱和度(chroma 低) + 中明度 → 莫兰迪/高级灰, 区别于 SaaS 高饱和活力色
@@ -8,9 +8,9 @@
 //   3. 单一数据源: 全站引用本常量, 配色调整只改这一个文件
 //   4. 语义色与装饰色分离: 状态判定用 SEMANTIC, 图表分类用 CATEGORICAL
 
-// ── 分类色板(定性, pie/bar 多系列) ─ 裴总精品案例高频色降饱和排列 ──
+// ── 分类色板(定性, pie/bar 多系列) ─ 精品案例高频色降饱和排列 ──
 export const CATEGORICAL = [
-  "#515a85",  // 灰蓝紫(主色, 裴总案例 74 次最高频)
+  "#515a85",  // 灰蓝紫(主色, 项目组案例 74 次最高频)
   "#3680ae",  // 中蓝
   "#81b7d9",  // 浅蓝
   "#8e93af",  // 灰紫
@@ -21,7 +21,7 @@ export const CATEGORICAL = [
 ];
 
 // ── 主色系(蓝灰科技风, 与 main.tsx ConfigProvider token colorPrimary 一致) ──
-// 裴总: 更现代的蓝灰科技风(类 Linear/Vercel 但政务克制) — 降饱和、加中性灰、冷调
+// : 更现代的蓝灰科技风(类 Linear/Vercel 但政务克制) — 降饱和、加中性灰、冷调
 export const PRIMARY = "#2c5282";          // 蓝灰科技主色(冷调克制, 原 #0f3d6e 政务深蓝)
 export const PRIMARY_DEEP = "#1e3a5f";     // 深蓝灰(悬停/强调)
 export const PRIMARY_MID = "#3b82f6";      // 科技亮蓝(交互高亮/accent)
@@ -55,7 +55,7 @@ export const GAUGE_STOPS: [number, string][] = [
   [1, SUCCESS],    // >80 高/可行
 ];
 
-// ── 污染类型语义色(裴总 P1-5a: 全系统统一; 三色拉开区分度, 不挤在暖色区) ──
+// ── 污染类型语义色(全系统统一; 三色拉开区分度, 不挤在暖色区) ──
 // 首页饼图/地图点位、场地详情 Tag、场地列表标签全部引用本常量。
 // Nature/Science 期刊级配色: 红(重金属) / 绿(有机) / 橙(复合) — 三色相隔大, 易区分。
 export const POLLUTION_TYPE: Record<string, string> = {

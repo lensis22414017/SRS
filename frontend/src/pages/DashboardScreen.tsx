@@ -32,8 +32,8 @@ const DARK_TOOLTIP = {
   textStyle: { color: "#c8d6e5", fontSize: 12 },
 };
 
-// ── 趋势图演示数据 ───────────────────────────────────────────
-const DEMO_TREND_MONTHS = ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"];
+// ── 趋势图示例数据(接口待接入) ───────────────────────────────────────────
+const PLACEHOLDER_TREND_MONTHS = ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"];
 
 export default function DashboardScreen() {
   const nav = useNavigate();
@@ -179,7 +179,7 @@ export default function DashboardScreen() {
     tooltip: { ...DARK_TOOLTIP, trigger: "axis" as const },
     grid: { top: 30, right: 16, bottom: 20, left: 40 },
     title: { text: title, textStyle: { color: "#a0b8d8", fontSize: 12, fontWeight: 400 }, left: 8, top: 4 },
-    xAxis: { type: "category" as const, data: DEMO_TREND_MONTHS,
+    xAxis: { type: "category" as const, data: PLACEHOLDER_TREND_MONTHS,
       axisLine: { lineStyle: { color: DARK_AXIS_LINE } }, axisLabel: { color: DARK_TEXT, fontSize: 9 } },
     yAxis: { type: "value" as const, splitLine: { lineStyle: { color: DARK_SPLIT } },
       axisLabel: { color: DARK_TEXT, fontSize: 9 } },
@@ -289,7 +289,7 @@ export default function DashboardScreen() {
               </div>
               <div className={styles.kpiLabel}>
                 {k.title}
-                {k.demo && <span className={styles.demoTag} style={{ marginLeft: 6 }}>演示数据</span>}
+                {k.demo && <span className={styles.demoTag} style={{ marginLeft: 6 }}>示例数据</span>}
               </div>
             </div>
           </div>
@@ -317,7 +317,7 @@ export default function DashboardScreen() {
           <div className={styles.panel}>
             <div className={styles.panelTitle}>
               <span className={styles.panelTitleBar} />障碍因子 TOP10
-              <span className={styles.demoTag} style={{ marginLeft: "auto" }}>演示数据</span>
+              <span className={styles.demoTag} style={{ marginLeft: "auto" }}>示例数据</span>
             </div>
             <ReactECharts option={top10BarOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 200 }} />
             <Text style={{ color: "#4a6785", fontSize: 10, display: "block", textAlign: "center", marginTop: 4 }}>
@@ -408,7 +408,7 @@ export default function DashboardScreen() {
             <div className={styles.panelTitle}>
               <span className={styles.panelTitleBar} style={{ background: "linear-gradient(180deg, #00b894, #55efc4)" }} />
               追溯任务摘要
-              <span className={styles.demoTag} style={{ marginLeft: "auto" }}>演示数据</span>
+              <span className={styles.demoTag} style={{ marginLeft: "auto" }}>示例数据</span>
             </div>
             {["调查评估","方案审批","施工监理","效果评估","后期管护"].map(stage => (
               <div key={stage} className={styles.traceItem}>
@@ -453,19 +453,19 @@ export default function DashboardScreen() {
       {/* ── 底部趋势 ──────────────────────────────────────── */}
       <div className={styles.bottomRow} data-testid="screen-trend-row">
         <div className={styles.trendCard}>
-          <span className={styles.demoTag} style={{ position: "absolute", top: 6, right: 8, zIndex: 1 }}>演示数据</span>
+          <span className={styles.demoTag} style={{ position: "absolute", top: 6, right: 8, zIndex: 1 }}>示例数据</span>
           <ReactECharts option={trendOption("场地累计趋势",
             [3,5,8,10,12,14,15,16,17,18,18,19],
             ["#1e90ff","#1e90ff"])} theme="srs-light" opts={SVG_OPTS} style={{ height: "100%" }} />
         </div>
         <div className={styles.trendCard}>
-          <span className={styles.demoTag} style={{ position: "absolute", top: 6, right: 8, zIndex: 1 }}>演示数据</span>
+          <span className={styles.demoTag} style={{ position: "absolute", top: 6, right: 8, zIndex: 1 }}>示例数据</span>
           <ReactECharts option={trendOption("检测记录累计趋势",
             [320,680,1050,1480,1920,2410,2950,3520,4100,4720,5380,6080],
             ["#00d4ff","#00d4ff"])} theme="srs-light" opts={SVG_OPTS} style={{ height: "100%" }} />
         </div>
         <div className={styles.trendCard}>
-          <span className={styles.demoTag} style={{ position: "absolute", top: 6, right: 8, zIndex: 1 }}>演示数据</span>
+          <span className={styles.demoTag} style={{ position: "absolute", top: 6, right: 8, zIndex: 1 }}>示例数据</span>
           <ReactECharts option={trendOption("报告生成累计趋势",
             [1,3,5,8,12,16,21,27,33,40,47,55],
             ["#7b68ee","#7b68ee"])} theme="srs-light" opts={SVG_OPTS} style={{ height: "100%" }} />

@@ -20,7 +20,7 @@ export default function DataUpload() {
   const nav = useNavigate();
   const [mapping, setMapping] = useState("auto");
   const [files, setFiles] = useState<File[]>([]);
-  const [conflict, setConflict] = useState("skip");  // 裴总 P1-3: 重复导入策略
+  const [conflict, setConflict] = useState("skip");  // 重复导入策略
   const [loading, setLoading] = useState(false);
   const [batchResult, setBatchResult] = useState<any>(null);
   const [flowOpen, setFlowOpen] = useState(false);

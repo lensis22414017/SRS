@@ -1,6 +1,6 @@
 # 功能重构可行性评价
 
-**版本** v0.1 ·**日期** 2026-06-10 ·**作者** 辛特助 ·**状态** 草稿
+**版本** v0.1 ·**日期** 2026-06-10 ·**作者** 项目组 ·**状态** 草稿
 **参数来源**:《(2025年)污染场地土壤生态-生产功能障碍识别与重构利用的评价方法+年度报告.docx》,已固化至 `ml/params/evaluation_params.json`(`extract_params.py` 生成,勿手改)。
 
 ## 1. 方法
@@ -43,7 +43,7 @@
 
 ## 7. 已实现(2026-06-10)
 
-`ml/evaluation/reconstruction.py`(纯 python)+ `ml/params/reconstruction_scoring_rules.json`(表2.22 结构化转录)。缺测指标按裴总确认采用**"已测指标内重标化权重 + 解释中标注缺测项"**。污染物分等用 `threshold_resolver` 解析 pH 分段筛选值(超筛选=50/未超=100,无管制值时不取10)。权重键模糊匹配处理生态表"砷 (As)"类带后缀键。
+`ml/evaluation/reconstruction.py`(纯 python)+ `ml/params/reconstruction_scoring_rules.json`(表2.22 结构化转录)。缺测指标按项目组确认采用**"已测指标内重标化权重 + 解释中标注缺测项"**。污染物分等用 `threshold_resolver` 解析 pH 分段筛选值(超筛选=50/未超=100,无管制值时不取10)。权重键模糊匹配处理生态表"砷 (As)"类带后缀键。
 
 个旧实证(站点均值,pH 6.28):生产功能 **47.64 不可行**(重金属超标+速效钾/全氮/有效磷不足),生态功能 **75.8 可行**。结果已入 `evaluation_results`(eval_type=reconstruction_prod/eco)。
 

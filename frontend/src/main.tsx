@@ -7,7 +7,7 @@ import { AuthProvider, useAuth } from "./auth";
 import AppLayout from "./App";
 import "./theme/echarts";  // ECharts SVG 全局主题注册
 
-// 裴总 P2(T12): 路由级懒加载, 把 ECharts/leaflet/KaTeX 大依赖拆到各页面 chunk,
+// 路由级懒加载, 把 ECharts/leaflet/KaTeX 大依赖拆到各页面 chunk,
 // 主 bundle 从 ~2.6MB 降到 ~1MB, 首屏只加载当前路由代码。
 const Login = lazy(() => import("./pages/Login"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -78,7 +78,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         Descriptions: { labelBg: "#F3F3F3", labelColor: "rgba(0,0,0,0.6)" },
         Pagination: { itemActiveBg: "#E0EBFF" },
     } }}>
-      {/* 裴总 P2(T11): App provider 包裹, 让静态 message/notification 消费 theme context, 抑制 AntD warning */}
+      {/* App provider 包裹, 让静态 message/notification 消费 theme context, 抑制 AntD warning */}
       <App>
         <AuthProvider>
           <BrowserRouter>

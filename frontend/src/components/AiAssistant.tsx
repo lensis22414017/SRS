@@ -51,7 +51,7 @@ export default function AiAssistant({ siteId }: { siteId?: number }) {
   };
 
   const sid = resolveSiteId();
-  // 裴总 P0-2: 区分"已配置"与"已连通", UI 不得把"填了 key"显示成"已就绪"
+  // 区分"已配置"与"已连通", UI 不得把"填了 key"显示成"已就绪"
   const modelLabel = !aiStat
     ? "模型状态加载中…"
     : !aiStat.has_config

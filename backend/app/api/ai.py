@@ -28,7 +28,7 @@ def ai_status(user: User = Depends(get_current_user)):
     conn = connectivity_status()
     has_config = cfg["configured"]
     connectivity_ok = conn["ok"] is True  # None(未测)/False 都不算"已连通"
-    # brief 4.7 + 裴总 P0-2: 区分"已配置"与"已连通"; configured 旧字段保留兼容, UI 以 has_config/connectivity_ok 为准
+    # brief 4.7 + 区分"已配置"与"已连通"; configured 旧字段保留兼容, UI 以 has_config/connectivity_ok 为准
     return {
         "has_config": has_config,
         "configured": has_config,  # 兼容旧前端

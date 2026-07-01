@@ -9,7 +9,7 @@ import { SVG_OPTS } from "../theme/echarts";
 const { Text } = Typography;
 
 const PALETTE = ["#E64B35", "#4DBBD5", "#00A087", "#3C5488", "#F39B7F",
-                 "#8491B4", "#B09C85", "#91D1C2"];  // NPG Nature/Science 顶刊配色(裴总 SHAP 图同源, 问题6 EDA 美化)
+                 "#8491B4", "#B09C85", "#91D1C2"];  // NPG Nature/Science 顶刊配色( SHAP 图同源, 问题6 EDA 美化)
 
 /** 进入模型前的 EDA 数据体检: 统计表 + 科研级图件(箱线/小提琴/散点/热力/QQ/柱状)。 */
 export default function EdaPanel({ siteId }: { siteId: number }) {
@@ -201,7 +201,7 @@ function buildHistogram(cur: any) {
         itemStyle: { color: "#4DBBD5", borderRadius: [3, 3, 0, 0] },
         label: { show: true, position: "top", fontSize: 9, color: NEUTRAL_TEXT,
                  formatter: (p: any) => (p.value ? String(p.value) : "") } },
-      // 密度趋势线(裴总要参考 ipynb 的直方图+KDE, 叠加 NPG 红平滑曲线)
+      // 密度趋势线(项目组要参考 ipynb 的直方图+KDE, 叠加 NPG 红平滑曲线)
       { name: "密度趋势", type: "line", data: hist.counts, smooth: true,
         showSymbol: false, lineStyle: { color: "#E64B35", width: 2.5 },
         areaStyle: { color: "#E64B35", opacity: 0.08 } },
@@ -224,7 +224,7 @@ function buildBoxViolin(factors: any[]) {
     { name: "箱线", type: "boxplot", data: boxData, itemStyle: { color: "#dbeafe", borderColor: "#0f3d6e" } },
     { name: "离群点", type: "scatter", data: outlierData, symbolSize: 5, itemStyle: { color: "#ef4444", opacity: 0.6 } },
   ];
-  // 云雨图 raincloud(裴总问题6明确要"云雨图最好看"): 半小提琴(KDE右半"云") + jitter散点(原始值"雨") + 箱线
+  // 云雨图 raincloud(明确要"云雨图最好看"): 半小提琴(KDE右半"云") + jitter散点(原始值"雨") + 箱线
   valid.forEach((f, fi) => {
     const { right } = kdeOutline(f.distribution.values, 24, 0.38);
     const half = right.map(([x, y]) => [fi + x, y]);
@@ -389,7 +389,7 @@ function buildGrouped(grouped: any, factor?: string) {
   };
 }
 
-/** 因子类别分布环形图(pie/doughnut)。裴总要求: 柱状/环形/小提琴/热图齐全。 */
+/** 因子类别分布环形图(pie/doughnut)。项目组要求: 柱状/环形/小提琴/热图齐全。 */
 function buildPie(factors: any[]) {
   const cnt: Record<string, number> = {};
   factors.forEach((f) => { const c = f.category || "未分类"; cnt[c] = (cnt[c] || 0) + 1; });

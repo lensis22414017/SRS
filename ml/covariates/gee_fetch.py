@@ -1,6 +1,6 @@
 """GEE 协变量批量采样(模块1): 按 27031 行经纬度提取 16 协变量。
 
-裴总已有 GEE 云项目, project_id 从环境变量 GEE_PROJECT_ID 读(不硬编码)。
+项目组已有 GEE 云项目, project_id 从环境变量 GEE_PROJECT_ID 读(不硬编码)。
 16 协变量:
   植被 gee_ndvi/gee_ndwi (Sentinel-2 SR 2023 年度中位数)
   气候 gee_precip_annual_mm (CHIRPS 年累计) / gee_temp_mean_c (ERA5 年均)
@@ -44,7 +44,7 @@ def init_ee() -> str:
     pid = os.environ.get(GEE_PROJECT_ENV)
     if not pid:
         raise RuntimeError(
-            f"未设置环境变量 {GEE_PROJECT_ENV}。裴总请在终端: "
+            f"未设置环境变量 {GEE_PROJECT_ENV}。请在终端: "
             f"$env:GEE_PROJECT_ID='你的GEE云项目ID'")
     ee.Initialize(project=pid)
     return pid
@@ -136,7 +136,7 @@ def batch_sample(coords_csv: str, batch_size: int = 2000) -> pd.DataFrame:
 def fallback_local_raster(coords_df: pd.DataFrame, soilgrids_dir: str) -> pd.DataFrame:
     """GEE 失败回退: 本地 SoilGrids 栅格(仅土壤类 8 协变量)。
     植被/气候/地形 7 列填 NaN(诚实标注, 不伪造)。
-    需裴总提供本地 SoilGrids 250m 栅格目录(soilgrids_dir)。
+    需提供本地 SoilGrids 250m 栅格目录(soilgrids_dir)。
     """
     sys.path.insert(0, os.path.join(ROOT, "ml", "analysis"))
     try:
@@ -165,7 +165,7 @@ def main():
         result = batch_sample(COORDS_CSV)
     except Exception as e:
         print(f"GEE 失败: {e}")
-        print("⚠️ 回退本地栅格(仅土壤类, 需裴总提供 SoilGrids 目录)")
+        print("⚠️ 回退本地栅格(仅土壤类, 需提供 SoilGrids 目录)")
         coords = pd.read_csv(COORDS_CSV)
         result = fallback_local_raster(coords, os.environ.get("SOILGRIDS_DIR", ""))
 

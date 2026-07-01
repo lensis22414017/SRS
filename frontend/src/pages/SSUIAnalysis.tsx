@@ -54,7 +54,7 @@ export default function SSUIAnalysis() {
       pointer: { width: 5 }, detail: { formatter: "{value}", fontSize: 24, offsetCenter: [0, "70%"] },
       data: [{ value: s.score }] }],
   } : null;
-  // 裴总 deep-research: SSUI 补维度可视化(归一化得分 + 权重双轴条形图, NPG 顶刊色)
+  // SSUI 补维度可视化(归一化得分 + 权重双轴条形图, NPG 顶刊色)
   // 一眼看出哪个元指标"得分低且权重大"(= 重点管控对象), 契合 SSUI 限制因子识别目标
   const partsOption = parts.length ? {
     tooltip: { trigger: "axis", formatter: (p: any) => {

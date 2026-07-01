@@ -1,4 +1,4 @@
-"""RF 插补有机缺失(裴总指定, 非均值填补)。
+"""RF 插补有机缺失(项目组指定, 非均值填补)。
 
 用 sklearn IterativeImputer(RandomForestRegressor) 在 **train 内 fit**(防泄漏),
 transform train/valid/test。保留 __missing 标记列(诚实标注插补来源)。
