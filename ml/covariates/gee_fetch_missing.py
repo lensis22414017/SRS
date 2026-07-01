@@ -10,11 +10,15 @@ import os
 import sys
 import time
 
-os.environ["GEE_PROJECT_ID"] = "project-1bc9db36-ce72-4e39-b2b"
+os.environ.setdefault("GEE_PROJECT_ID", os.environ.get("GEE_PROJECT_ID", ""))
 
 import ee
 
-ee.Initialize(project="project-1bc9db36-ce72-4e39-b2b")
+_pid = os.environ.get("GEE_PROJECT_ID")
+if _pid:
+    ee.Initialize(project=_pid)
+else:
+    raise RuntimeError("未设置 GEE_PROJECT_ID 环境变量")
 import pandas as pd
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))

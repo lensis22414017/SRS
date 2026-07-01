@@ -154,7 +154,37 @@ def align_features(pivot: pd.DataFrame, feature_list: list[str],
         if feature.endswith("__missing"):
             base = feature[:-len("__missing")]
             X[feature] = 0 if base in measured else 1
+    # zzv0.3 工程特征计算(对数变换/pH交互/Nemerow指数), 模型feature_list含这些列时动态算
+    _add_engineered_features(X, feature_list)
     return X[feature_list], imputed
+
+
+def _add_engineered_features(X: pd.DataFrame, feature_list: list[str]) -> None:
+    """zzv0.3: 计算工程特征(log1p/pH交互/Nemerow指数), 就地修改X。
+    仅当模型 feature_list 含这些列时才算(向后兼容旧模型)。"""
+    import numpy as np
+    HM_BG = {"Cd_mgkg": 0.6, "Pb_mgkg": 500, "As_mgkg": 25, "Cr_mgkg": 250,
+             "Hg_mgkg": 1.0, "Cu_mgkg": 100, "Zn_mgkg": 300, "Ni_mgkg": 100}
+    for col in HM_BG:
+        # 对数变换
+        lf = f"log_{col}"
+        if lf in feature_list and col in X.columns and lf not in X.columns:
+            X[lf] = np.log1p(pd.to_numeric(X[col], errors="coerce").clip(lower=0))
+        # pH 交互
+        pf = f"pH_x_{col}"
+        if pf in feature_list and "SoilpH" in X.columns and col in X.columns and pf not in X.columns:
+            X[pf] = pd.to_numeric(X["SoilpH"], errors="coerce") * pd.to_numeric(X[col], errors="coerce")
+    # PI 指数
+    pi_cols = []
+    for col, bg in HM_BG.items():
+        pf = f"PI_{col}"
+        if pf in feature_list and col in X.columns and pf not in X.columns:
+            X[pf] = pd.to_numeric(X[col], errors="coerce") / bg
+            pi_cols.append(pf)
+    if "PI_nemerow" in feature_list and pi_cols:
+        pi_df = X[pi_cols]
+        pmax = pi_df.max(axis=1); pavg = pi_df.mean(axis=1)
+        X["PI_nemerow"] = np.sqrt((pmax**2 + pavg**2) / 2)
 
 
 def production_limiting_factors(pivot: pd.DataFrame) -> list[dict]:

@@ -38,9 +38,9 @@ def _format_site_code(db: Session, site_id: int):
     elif pt == "composite":
         pt_abbr = "HM+OP"
 
-    code = f"{site.id:02d}.{prov}-{pt_abbr}-{n_points}点"
+    code = f"{site.id:02d}-{prov}-{pt_abbr}-{n_points}点"
     site.site_code = code
-    site.name = code
+    # 不覆盖 site.name，保留导入时的可读场地名
     db.commit()
 
 router = APIRouter(prefix=get_settings().api_v1_prefix, tags=["data"])

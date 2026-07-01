@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   App, Card, Col, Row, Statistic, Spin, Skeleton, Button, List, Tag, Space, Alert,
-  Badge, Typography,
+  Badge, Typography, Modal,
 } from "antd";
 import {
   PlusOutlined, ImportOutlined, FileTextOutlined, WarningOutlined,
@@ -26,6 +26,7 @@ export default function Dashboard() {
   const [stats, setStats] = useState<any>({});
   const [logs, setLogs] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [pieModalOpen, setPieModalOpen] = useState(false);
   const { message } = App.useApp();
 
   useEffect(() => {
@@ -229,11 +230,13 @@ export default function Dashboard() {
           <Card
             className={styles.chartCard}
             title="污染类型分布"
-            extra={<Text type="secondary" style={{ fontSize: 12 }}>共 {sites.length} 个场地</Text>}
+            extra={<Text type="secondary" style={{ fontSize: 12, cursor: "pointer" }} onClick={() => setPieModalOpen(true)}>共 {sites.length} 个场地 · 点击放大 📊</Text>}
             style={{ borderRadius: 8 }}
           >
             {byType.length
-              ? <ReactECharts option={pieOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 280 }} />
+              ? <ReactECharts option={pieOption} theme="srs-light" opts={SVG_OPTS}
+                  style={{ height: 280, cursor: "pointer" }}
+                  onEvents={{ click: () => setPieModalOpen(true) }} />
               : <div style={{ height: 280, display: "flex", alignItems: "center", justifyContent: "center", color: "#ccc" }}>暂无数据</div>
             }
           </Card>
@@ -363,6 +366,30 @@ export default function Dashboard() {
       >
         <SiteMap sites={mapSites} height={480} onMarkerClick={(s) => s.id && nav(`/sites/${s.id}`)} />
       </Card>
+
+      {/* ── 饼图放大 Modal ────────────────────────────────────── */}
+      <Modal
+        title="污染类型分布（放大查看）"
+        open={pieModalOpen}
+        onCancel={() => setPieModalOpen(false)}
+        footer={null}
+        width={720}
+      >
+        {byType.length
+          ? <ReactECharts
+              option={{
+                ...pieOption,
+                series: [{
+                  ...pieOption.series[0],
+                  radius: ["35%", "75%"],
+                  label: { show: true, formatter: "{b}\n{c} 个 ({d}%)", fontSize: 14, fontWeight: "bold" },
+                }],
+              }}
+              theme="srs-light" opts={SVG_OPTS} style={{ height: 480 }}
+            />
+          : <div style={{ height: 480, display: "flex", alignItems: "center", justifyContent: "center", color: "#ccc" }}>暂无数据</div>
+        }
+      </Modal>
     </Space>
   );
 }

@@ -16,6 +16,39 @@ ARTIFACTS = os.path.join(ROOT, "ml", "artifacts")
 
 MODEL_NAME = "rf_barrier_factor"
 
+# zzv0.3 retrain 模型的训练集中位数缓存(诊断服务对齐特征时兜底用)
+_RETRAIN_MEDIANS_CACHE: dict | None = None
+
+
+def _get_retrain_medians(feature_cols: list) -> dict:
+    """惰性计算 zzv0.3 retrain 训练集各特征中位数(诊断服务 align_features 兜底用)。
+    原生NaN模型在诊断时, 缺失特征用训练集中位数填充后, 树模型原生处理NaN。"""
+    global _RETRAIN_MEDIANS_CACHE
+    if _RETRAIN_MEDIANS_CACHE is not None:
+        return _RETRAIN_MEDIANS_CACHE
+    import pandas as pd
+    split_dir = os.path.join(ROOT, "data", "training", "dual_track")
+    x_path = os.path.join(split_dir, "train_X_barrier.csv")
+    medians = {}
+    if os.path.exists(x_path):
+        try:
+            df = pd.read_csv(x_path, low_memory=False)
+            base_cols = [c for c in feature_cols if c in df.columns]
+            for c in base_cols:
+                s = pd.to_numeric(df[c], errors="coerce")
+                m = s.median()
+                medians[c] = 0.0 if pd.isna(m) else float(m)
+            # 工程特征中位数(log_/pH_x_/PI_)用兜底0.0, align后_add_engineered_features会重算
+            for c in feature_cols:
+                if c not in medians:
+                    medians[c] = 0.0
+        except Exception:
+            medians = {c: 0.0 for c in feature_cols}
+    else:
+        medians = {c: 0.0 for c in feature_cols}
+    _RETRAIN_MEDIANS_CACHE = medians
+    return medians
+
 
 def train(csv_path: str | None = None, random_state: int = 42) -> dict:
     import joblib
@@ -98,11 +131,36 @@ def load_latest(track=None):
         filt = [f for f in cands
                 if f.endswith(f"_{track}.joblib") or f"_{track}_" in f]
         cands = filt if filt else cands
-        # 2) 优先 _barrier_gee (防泄漏+GEE协变量, v0.2, CV AUC 0.83 达项目组目标 0.8-0.95)
+        # 2) 优先 _retrain (zzv0.3 重训: 0泄漏GroupKFold+重金属+特征工程, CV 0.93-0.97)
+        retrain = sorted(f for f in cands if "_retrain" in f)
+        if retrain:
+            raw = joblib.load(os.path.join(ARTIFACTS, retrain[-1]))
+            # zzv0.3 joblib 结构: {"model":m,"feature_cols":[...]}
+            # 统一为诊断服务期望的 bundle 结构(feature_list/medians/model/...), 从meta.json补齐
+            if isinstance(raw, dict) and "model" in raw and "feature_cols" in raw:
+                meta_path = os.path.join(ARTIFACTS, retrain[-1].replace(".joblib", ".meta.json"))
+                meta = {}
+                if os.path.exists(meta_path):
+                    import json
+                    meta = json.load(open(meta_path, encoding="utf-8"))
+                # medians: zzv0.3 用原生NaN(树模型处理), 但诊断服务对齐需要兜底中位数
+                # 从训练集算(惰性, 只算一次缓存到模块级)
+                medians = _get_retrain_medians(raw["feature_cols"])
+                return {"model": raw["model"],
+                        "feature_list": raw["feature_cols"],
+                        "medians": medians,
+                        "version": meta.get("version", retrain[-1]),
+                        "algorithm": meta.get("algorithm", "HistGradientBoostingClassifier"),
+                        "data_version": meta.get("data_version", "zzv0.3"),
+                        "metrics": meta.get("metrics", {}),
+                        "model_name": MODEL_NAME,
+                        "artifact_path": retrain[-1]}
+            return raw
+        # 3) _barrier_gee (旧v0.2, 防泄漏+GEE, CV 0.83, 已被zzv0.3取代)
         barrier_gee = sorted(f for f in cands if "_barrier_gee" in f)
         if barrier_gee:
             return joblib.load(os.path.join(ARTIFACTS, barrier_gee[-1]))
-        # 3) 过渡兼容: _lake_full (含浓度泄漏, 仅新模型不存在时)
+        # 4) 过渡兼容: _lake_full (含浓度泄漏, 仅新模型不存在时)
         lake_full = sorted(f for f in cands if "_lake_" in f and "_full" in f)
         if lake_full:
             return joblib.load(os.path.join(ARTIFACTS, lake_full[-1]))

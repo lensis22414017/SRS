@@ -75,7 +75,97 @@ def retrieve(db: Session, query: str, site_id: int | None = None, k: int = 8) ->
                 "诊断摘要": diag.summary if diag else None,
                 "评价": seen,
             }
+
+    # 向量语义检索(混合检索): 补充 SQL 关键词检索遗漏的同义/近义条目
+    vctx = vector_retrieve(db, query, k=k)
+    existing_f = {f.get("因子") for f in ctx["factors"]}
+    for v in vctx["factors"]:
+        if v["名称"] not in existing_f:
+            ctx["factors"].append({"因子": v["名称"], "相似度": v["相似度"], "来源": "向量检索"})
+    existing_t = {t.get("因子") for t in ctx["thresholds"]}
+    for v in vctx["thresholds"]:
+        if v["名称"] not in existing_t:
+            ctx["thresholds"].append({"因子": v["名称"], "相似度": v["相似度"], "来源": "向量检索"})
+    existing_tech = {t.get("name") or t.get("名称") for t in ctx["technologies"]}
+    for v in vctx["technologies"]:
+        if v["名称"] not in existing_tech:
+            ctx["technologies"].append({"名称": v["名称"], "相似度": v["相似度"], "来源": "向量检索"})
     return ctx
+
+
+# ── 向量语义检索层(TF-IDF + 余弦相似度, 混合检索) ──────────────────────
+# 裴总要求 AI-RAG 向量化: 在 SQL 关键词检索(精确)之上, 加 TF-IDF 语义检索(同义/近义),
+# 两者结果合并去重。无需外部 embedding 服务, sklearn 即可实现。
+_VECTOR_CACHE: dict = {}  # {cache_key: {"matrix": ..., "names": ..., "vec": ...}}
+
+
+def _build_tfidf_index(db: Session) -> dict | None:
+    """构建因子字典+阈值规则+技术库的 TF-IDF 索引(惰性, 缓存到进程级)。"""
+    import hashlib
+    cache_key = "tfidf_v1"
+    if cache_key in _VECTOR_CACHE:
+        return _VECTOR_CACHE[cache_key]
+    try:
+        from sklearn.feature_extraction.text import TfidfVectorizer
+        from sklearn.metrics.pairwise import cosine_similarity
+        import numpy as np
+    except ImportError:
+        return None
+
+    docs, names, types = [], [], []
+    for f in db.query(FactorDictionary).all():
+        text = " ".join(filter(None, [f.factor_name, f.level1_category, f.default_unit]))
+        docs.append(text); names.append(f.factor_name); types.append("factor")
+    for tr, fd in (db.query(ThresholdRule, FactorDictionary)
+                   .join(FactorDictionary, ThresholdRule.factor_id == FactorDictionary.id).all()):
+        text = " ".join(filter(None, [fd.factor_name, tr.land_type, tr.threshold_original, tr.standard_source]))
+        docs.append(text); names.append(fd.factor_name); types.append("threshold")
+    for t in db.query(TechnologyLibrary).all():
+        text = " ".join(filter(None, [t.name, getattr(t, "applicable_pollutants", ""),
+                                       getattr(t, "description", "")]))
+        docs.append(text); names.append(t.name); types.append("technology")
+    if not docs:
+        return None
+
+    vec = TfidfVectorizer(analyzer="char_wb", ngram_range=(1, 2))  # char_wb 适配中文
+    matrix = vec.fit_transform(docs)
+    _VECTOR_CACHE[cache_key] = {"matrix": matrix, "names": names, "types": types,
+                                "vec": vec, "n_docs": len(docs)}
+    return _VECTOR_CACHE[cache_key]
+
+
+def vector_retrieve(db: Session, query: str, k: int = 5) -> dict:
+    """TF-IDF 向量语义检索: 用余弦相似度找最相关的知识库条目(补充关键词检索的遗漏)。"""
+    idx = _build_tfidf_index(db)
+    if not idx:
+        return {"factors": [], "thresholds": [], "technologies": []}
+    try:
+        from sklearn.metrics.pairwise import cosine_similarity
+        import numpy as np
+    except ImportError:
+        return {"factors": [], "thresholds": [], "technologies": []}
+
+    qvec = idx["vec"].transform([query])
+    sims = cosine_similarity(qvec, idx["matrix"]).flatten()
+    top_idx = np.argsort(sims)[::-1][:k * 3]  # 多取再按类型分
+
+    factors, thresholds, technologies = [], [], []
+    seen_names = set()
+    for i in top_idx:
+        if sims[i] < 0.05:
+            break
+        name = idx["names"][i]; t = idx["types"][i]
+        if name in seen_names:
+            continue
+        seen_names.add(name)
+        entry = {"名称": name, "相似度": round(float(sims[i]), 3)}
+        if t == "factor" and len(factors) < k:
+            factors.append(entry)
+        elif t == "threshold" and len(thresholds) < k:
+            thresholds.append(entry)
+        elif t == "technology" and len(technologies) < k:
+            technologies.append(entry)
+    return {"factors": factors, "thresholds": thresholds, "technologies": technologies}
 
 
 _SINGLE_FACTORS = set("砷铅铜锌镉汞镍铬钒钴铍锑锰钼银铊钛锡钡")  # 单字金属因子

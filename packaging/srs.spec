@@ -74,11 +74,22 @@ ml_artifacts = PROJECT_ROOT / "ml" / "artifacts"
 if ml_artifacts.is_dir() and any(ml_artifacts.iterdir()):
     added_files.append((str(ml_artifacts), "ml/artifacts"))
 
+# ML 关键 JSON 资源(诊断特征映射 + GEE 协变量标签)
+for _json in ("ml/models/feature_mapping.json", "ml/covariates/gee_labels.json"):
+    _f = PROJECT_ROOT / _json
+    if _f.is_file():
+        added_files.append((str(_f), "/".join(_json.split("/")[:-1])))
+
+# 标准阈值 CSV(诊断/评价/超标判定依赖)
+std_dir = PROJECT_ROOT / "data" / "standards"
+if std_dir.is_dir() and any(std_dir.glob("*.csv")):
+    added_files.append((str(std_dir), "data/standards"))
+
 # ML 源码子目录: 后端服务运行时 sys.path.insert(resource_root()/ml/<sub>) 后再 import,
 # 这些 .py 必须随包分发, 否则打包后 诊断/评价/推荐/知识库入库 会 ImportError。
-for _sub in ("etl", "models", "explain", "recommend", "evaluation", "cleaning", "eda"):
+for _sub in ("etl", "models", "explain", "recommend", "evaluation", "cleaning", "eda", "params", "covariates"):
     _d = PROJECT_ROOT / "ml" / _sub
-    if _d.is_dir() and any(_d.glob("*.py")):
+    if _d.is_dir() and (any(_d.glob("*.py")) or any(_d.glob("*.json"))):
         added_files.append((str(_d), f"ml/{_sub}"))
 
 # 服务映射文件
