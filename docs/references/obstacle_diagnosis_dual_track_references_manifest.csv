@@ -1,0 +1,71 @@
+﻿index,type,title,year,doi,url,note
+1,JOUR,On over-fitting in model selection and subsequent selection bias in performance evaluation,2010,,https://jmlr.csail.mit.edu/papers/v11/cawley10a.html,Nested/outer validation and model-selection bias; supports grouped/nested CV for obstacle-factor diagnosis.
+2,JOUR,Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead,2019,10.1038/s42256-019-0048-x,https://arxiv.org/abs/1811.10154,High-stakes decision support should prioritize interpretable and auditable models.
+3,CONF,A Unified Approach to Interpreting Model Predictions,2017,,https://arxiv.org/abs/1705.07874,SHAP theoretical basis for factor-attribution and contribution ranking.
+4,JOUR,Visualizing the Effects of Predictor Variables in Black Box Supervised Learning Models,2020,10.1111/rssb.12377,https://arxiv.org/abs/1612.08468,"Accumulated local effects, recommended over PDP when soil variables are correlated."
+5,JOUR,Hyperparameters and tuning strategies for random forest,2019,10.1002/widm.1301,https://arxiv.org/abs/1804.03515,Random-forest hyperparameter tuning strategy.
+6,JOUR,Confident Learning: Estimating Uncertainty in Dataset Labels,2021,10.1613/jair.1.12125,https://arxiv.org/abs/1911.00068,Label-error auditing for rule-derived and expert-corrected labels.
+7,CONF,Why do tree-based models still outperform deep learning on typical tabular data?,2022,,https://arxiv.org/abs/2207.08815,Supports tree-model baseline for small/medium tabular soil datasets.
+8,JOUR,A Gentle Introduction to Conformal Prediction and Distribution-Free Uncertainty Quantification,2021,,https://arxiv.org/abs/2107.07511,Uncertainty/coverage for diagnosis outputs and manual-review triggers.
+9,CONF,Model Cards for Model Reporting,2019,10.1145/3287560.3287596,https://arxiv.org/abs/1810.03993,"Model-card documentation for validation strategy, limitations and intended use."
+10,JOUR,Datasheets for Datasets,2021,10.1145/3458723,https://arxiv.org/abs/1803.09010,"Dataset-card/datasheet documentation for provenance, missingness and bias."
+11,JOUR,An Overview of Multi-Task Learning in Deep Neural Networks,2017,,https://arxiv.org/abs/1706.05098,Framework for deciding whether production/ecology tracks should share representations.
+12,JOUR,A Survey on Multi-Task Learning,2022,10.1109/TKDE.2021.3070203,,General multi-task learning reference for dual-track modelling.
+13,JOUR,Multi-Task Learning for Dense Prediction Tasks: A Survey,2022,10.1109/TPAMI.2021.3054719,https://arxiv.org/abs/2004.13379,Multi-task design principles and negative-transfer risks.
+14,JOUR,End-to-End Multi-Task Learning with Attention,2018,,https://arxiv.org/abs/1803.10704,"Shared-backbone/multiple-head concept; useful as a comparison, not default for this tabular project."
+15,JOUR,Greedy Function Approximation: A Gradient Boosting Machine,2001,10.1214/aos/1013203451,,Gradient boosting foundation for GBDT alternatives to RF.
+16,JOUR,Random Forests,2001,10.1023/A:1010933404324,,Random forest foundation.
+17,CONF,XGBoost: A Scalable Tree Boosting System,2016,10.1145/2939672.2939785,https://arxiv.org/abs/1603.02754,XGBoost baseline and regularized tree boosting.
+18,CONF,LightGBM: A Highly Efficient Gradient Boosting Decision Tree,2017,,https://papers.nips.cc/paper_files/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html,Efficient GBDT implementation for tabular modelling.
+19,CONF,CatBoost: gradient boosting with categorical features support,2017,,https://arxiv.org/abs/1810.11363,"Categorical-feature handling for regions, soil types and sources."
+20,JOUR,CatBoost: unbiased boosting with categorical features,2017,,https://arxiv.org/abs/1706.09516,Ordered boosting helps reduce target leakage in categorical encodings.
+21,CONF,Intelligible Models for HealthCare: Predicting Pneumonia Risk and Hospital 30-day Readmission,2015,10.1145/2783258.2788613,,Explainable boosting/intelligible modelling reference for high-stakes tabular data.
+22,CONF,Why Should I Trust You? Explaining the Predictions of Any Classifier,2016,10.1145/2939672.2939778,https://arxiv.org/abs/1602.04938,LIME reference; useful as local-explanation cross-check.
+23,CONF,Axiomatic Attribution for Deep Networks,2017,,https://arxiv.org/abs/1703.01365,Integrated Gradients; relevant only if deep models are introduced later.
+24,JOUR,Counterfactual Explanations without Opening the Black Box: Automated Decisions and the GDPR,2017,,https://arxiv.org/abs/1711.00399,Counterfactual explanations for translating obstacles into actionable remediation directions.
+25,JOUR,Peeking Inside the Black Box: Visualizing Statistical Learning With Plots of Individual Conditional Expectation,2015,10.1080/10618600.2014.907095,https://arxiv.org/abs/1309.6392,ICE plots for model effect visualization.
+26,JOUR,Defining Bioavailability and Bioaccessibility of Contaminated Soil and Sediment is Complicated,2004,10.1021/es040548w,,Bioavailability/bioaccessibility foundation for ecology-track differentiation.
+27,BOOK,"Bioavailability of Contaminants in Soils and Sediments: Processes, Tools, and Applications",2003,10.17226/10523,https://nap.nationalacademies.org/catalog/10523/bioavailability-of-contaminants-in-soils-and-sediments-processes-tools-and-applications,Authoritative reference on contaminant bioavailability for ecological exposure.
+28,JOUR,"Contaminant bioavailability in soils, sediments, and aquatic environments",1999,10.1073/pnas.96.7.3365,,Total concentration differs from effective exposure; supports dual-track logic.
+29,BOOK,Defining Soil Quality for a Sustainable Environment,1994,10.2136/sssaspecpub35,,Foundational soil-quality framework.
+30,JOUR,Soil quality – A critical review,2018,10.1016/j.soilbio.2018.01.030,,Soil-quality indicators and monitoring framework.
+31,JOUR,The concept and future prospects of soil health,2020,10.1038/s43017-020-0080-8,,Modern soil-health framing for production/ecology outcomes.
+32,JOUR,"Soil Quality: A Concept, Definition, and Framework for Evaluation",1997,10.2136/sssaj1997.03615995006100010001x,,Soil quality definition and evaluation framework.
+33,JOUR,The Soil Management Assessment Framework: A Quantitative Soil Quality Evaluation Method,2004,10.2136/sssaj2004.1945,,Quantitative soil-quality assessment and indicator scoring.
+34,JOUR,The future of soils and land use in the UK: Soil systems for the provision of land-based ecosystem services,2009,10.1016/j.landusepol.2009.09.016,,Soil functions and ecosystem services.
+35,JOUR,The significance of soils and soil science towards realization of the United Nations Sustainable Development Goals,2016,10.5194/soil-2-111-2016,,Soil functions linked to sustainability objectives.
+36,JOUR,Functional Land Management: A framework for managing soil-based ecosystem services for the sustainable intensification of agriculture,2014,10.1016/j.envsci.2013.10.002,,Functional land management; strong basis for purpose-specific soil-function targets.
+37,JOUR,A framework for classifying and quantifying the natural capital and ecosystem services of soils,2010,10.1016/j.ecolecon.2010.05.002,,Soil natural capital and ecosystem-service classification.
+38,JOUR,"Natural Capital, Ecosystem Services, and Soil Change: Why Soil Science Must Embrace an Ecosystems Approach",2012,10.2136/vzj2011.0051,,Ecosystem-services view of soil change.
+39,BOOK,A Framework for Land Evaluation,1976,,https://www.fao.org/4/x5310e/x5310e00.htm,Land suitability/evaluation foundation; supports different limiting factors under different land-use objectives.
+40,RPRT,Land Evaluation: Towards a Revised Framework,2007,,https://www.fao.org/4/a1080e/a1080e00.htm,Land evaluation and land-use-specific suitability framing.
+41,JOUR,GIS-based multicriteria decision analysis: a survey of the literature,2006,10.1080/13658810600661508,,MCDA/GIS framework for spatial decision support.
+42,BOOK,The Analytic Hierarchy Process,1980,,,AHP method for subjective weighting and consistency testing.
+43,JOUR,Fuzzy sets,1965,10.1016/S0019-9958(65)90241-X,,Fuzzy-set foundation for fuzzy comprehensive evaluation.
+44,JOUR,"Application of AHP, TOPSIS, and TFNs to plant selection for phytoremediation of petroleum-contaminated soils in shale gas and oil fields",2019,10.1016/j.jclepro.2019.05.301,,AHP-TOPSIS-fuzzy approach for remediation option selection.
+45,JOUR,Integration of ecosystem services and life cycle assessment allows improved accounting of sustainability benefits of nature-based solutions for brownfield redevelopment,2023,10.1016/j.jclepro.2023.137352,,Ecosystem services plus LCA for brownfield redevelopment and sustainability benefits.
+46,JOUR,Feature fusion improves performance and interpretability of machine learning models in identifying soil pollution of potentially contaminated sites,2023,10.1016/j.ecoenv.2023.115052,,ML interpretability for potentially contaminated soil sites.
+47,JOUR,Integrating machine learning for enhanced spatial prediction and risk assessment of soil heavy metal(loid)s,2025,10.1016/j.envpol.2025.126919,,Recent soil heavy-metal ML/risk assessment reference.
+48,JOUR,Integrated approach for ecological restoration and ecological spatial network optimization with multiple ecosystem functions in mining areas,2023,10.1016/j.ecolind.2023.111141,,Multiple ecosystem functions in ecological restoration.
+49,JOUR,Optimizing the formulation of soil reconstruction for ecological restoration in mining areas on the Qinghai-Tibetan Plateau,2025,10.1007/s11368-025-04149-w,,Soil reconstruction and ecological restoration formulation.
+50,JOUR,Analysis of sustainable remediation techniques and technologies based on 10 European case studies,2024,10.1002/rem.21773,,Sustainable remediation technology analysis.
+51,JOUR,Nanotechnology approaches for the remediation of agricultural polluted soils,2024,10.1021/acsomega.3c09776,,Remediation technologies for agricultural polluted soils.
+52,JOUR,Using ecological restoration to disentangle the mechanisms and longevity of soil functional legacies,2025,10.1111/1365-2435.70123,,Ecological restoration and soil functional legacies.
+53,JOUR,Soil microbial communities' contributions to soil ecosystem multifunctionality in the natural restoration of abandoned metal mines,2024,10.1016/j.jenvman.2024.120244,,Microbial contribution to soil ecosystem multifunctionality in restoration.
+54,JOUR,Application of Entropy-AHP and WASPAS methods for prioritizing the sub watersheds of Teesta River basin in terms of soil erosion susceptibility,2024,10.1007/s44274-024-00163-w,,Entropy-AHP and WASPAS weighting/ranking reference.
+55,WEB,GroupKFold,2026,,https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GroupKFold.html,Official implementation reference for grouped cross-validation.
+56,WEB,Common pitfalls and recommended practices,2026,,https://scikit-learn.org/stable/common_pitfalls.html,Official preprocessing leakage and pipeline guidance.
+57,WEB,Probability calibration,2026,,https://scikit-learn.org/stable/modules/calibration.html,Official calibration guidance for probability outputs.
+58,WEB,Permutation feature importance,2026,,https://scikit-learn.org/stable/modules/permutation_importance.html,Official permutation-importance reference.
+59,WEB,Novelty and Outlier Detection,2026,,https://scikit-learn.org/stable/modules/outlier_detection.html,Official reference for OOD/outlier checks.
+60,WEB,SHAP documentation,2026,,https://shap.readthedocs.io/en/latest/index.html,Official SHAP API documentation.
+61,WEB,LightGBM documentation,2026,,https://lightgbm.readthedocs.io/en/stable/,Official LightGBM documentation.
+62,WEB,XGBoost documentation,2026,,https://xgboost.readthedocs.io/en/stable/,Official XGBoost documentation.
+63,WEB,CatBoost documentation,2026,,https://catboost.ai/en/docs/,Official CatBoost documentation.
+64,WEB,scipy.stats.bootstrap,2026,,https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html,Bootstrap confidence interval implementation.
+65,WEB,scipy.stats.permutation_test,2026,,https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.permutation_test.html,Permutation-test implementation.
+66,RPRT,GB 15618-2018 土壤环境质量 农用地土壤污染风险管控标准（试行）,2018,,,Production/agricultural-use rule baseline for soil contamination screening and control.
+67,RPRT,GB 36600-2018 土壤环境质量 建设用地土壤污染风险管控标准（试行）,2018,,,Construction-land risk control rule baseline.
+68,RPRT,HJ 25.5-2018 污染地块风险管控与土壤修复效果评估技术导则,2018,,,Remediation-effect assessment and regulatory traceability baseline.
+69,RPRT,HJ/T 166-2004 土壤环境监测技术规范,2004,,,Soil sampling/monitoring QA reference.
+70,RPRT,GB/T 33469-2016 耕地质量等级,2016,,,Cultivated-land quality grade reference for production-track indicators.

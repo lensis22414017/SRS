@@ -1,0 +1,1019 @@
+TY  - JOUR
+AU  - Cawley, Gavin C.
+AU  - Talbot, Nicola L. C.
+TI  - On over-fitting in model selection and subsequent selection bias in performance evaluation
+JO  - Journal of Machine Learning Research
+T2  - Journal of Machine Learning Research
+PY  - 2010
+Y1  - 2010
+VL  - 11
+SP  - 2079
+EP  - 2107
+UR  - https://jmlr.csail.mit.edu/papers/v11/cawley10a.html
+N1  - Nested/outer validation and model-selection bias; supports grouped/nested CV for obstacle-factor diagnosis.
+ER  - 
+
+TY  - JOUR
+AU  - Rudin, Cynthia
+TI  - Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead
+JO  - Nature Machine Intelligence
+T2  - Nature Machine Intelligence
+PY  - 2019
+Y1  - 2019
+VL  - 1
+SP  - 206
+EP  - 215
+DO  - 10.1038/s42256-019-0048-x
+UR  - https://arxiv.org/abs/1811.10154
+N1  - High-stakes decision support should prioritize interpretable and auditable models.
+ER  - 
+
+TY  - CONF
+AU  - Lundberg, Scott M.
+AU  - Lee, Su-In
+TI  - A Unified Approach to Interpreting Model Predictions
+T2  - Advances in Neural Information Processing Systems
+PY  - 2017
+Y1  - 2017
+UR  - https://arxiv.org/abs/1705.07874
+N1  - SHAP theoretical basis for factor-attribution and contribution ranking.
+ER  - 
+
+TY  - JOUR
+AU  - Apley, Daniel W.
+AU  - Zhu, Jingyu
+TI  - Visualizing the Effects of Predictor Variables in Black Box Supervised Learning Models
+JO  - Journal of the Royal Statistical Society: Series B
+T2  - Journal of the Royal Statistical Society: Series B
+PY  - 2020
+Y1  - 2020
+VL  - 82
+IS  - 4
+SP  - 1059
+EP  - 1086
+DO  - 10.1111/rssb.12377
+UR  - https://arxiv.org/abs/1612.08468
+N1  - Accumulated local effects, recommended over PDP when soil variables are correlated.
+ER  - 
+
+TY  - JOUR
+AU  - Probst, Philipp
+AU  - Wright, Marvin N.
+AU  - Boulesteix, Anne-Laure
+TI  - Hyperparameters and tuning strategies for random forest
+JO  - WIREs Data Mining and Knowledge Discovery
+T2  - WIREs Data Mining and Knowledge Discovery
+PY  - 2019
+Y1  - 2019
+VL  - 9
+IS  - 3
+DO  - 10.1002/widm.1301
+UR  - https://arxiv.org/abs/1804.03515
+N1  - Random-forest hyperparameter tuning strategy.
+ER  - 
+
+TY  - JOUR
+AU  - Northcutt, Curtis G.
+AU  - Jiang, Lu
+AU  - Chuang, Isaac L.
+TI  - Confident Learning: Estimating Uncertainty in Dataset Labels
+JO  - Journal of Artificial Intelligence Research
+T2  - Journal of Artificial Intelligence Research
+PY  - 2021
+Y1  - 2021
+VL  - 70
+SP  - 1373
+EP  - 1411
+DO  - 10.1613/jair.1.12125
+UR  - https://arxiv.org/abs/1911.00068
+N1  - Label-error auditing for rule-derived and expert-corrected labels.
+ER  - 
+
+TY  - CONF
+AU  - Grinsztajn, Léo
+AU  - Oyallon, Edouard
+AU  - Varoquaux, Gaël
+TI  - Why do tree-based models still outperform deep learning on typical tabular data?
+T2  - Advances in Neural Information Processing Systems
+PY  - 2022
+Y1  - 2022
+UR  - https://arxiv.org/abs/2207.08815
+N1  - Supports tree-model baseline for small/medium tabular soil datasets.
+ER  - 
+
+TY  - JOUR
+AU  - Angelopoulos, Anastasios N.
+AU  - Bates, Stephen
+TI  - A Gentle Introduction to Conformal Prediction and Distribution-Free Uncertainty Quantification
+JO  - arXiv
+T2  - arXiv
+PY  - 2021
+Y1  - 2021
+UR  - https://arxiv.org/abs/2107.07511
+N1  - Uncertainty/coverage for diagnosis outputs and manual-review triggers.
+ER  - 
+
+TY  - CONF
+AU  - Mitchell, Margaret
+AU  - Wu, Simone
+AU  - Zaldivar, Andrew
+AU  - Barnes, Parker
+AU  - Vasserman, Lucy
+AU  - Hutchinson, Ben
+AU  - Spitzer, Elena
+AU  - Raji, Inioluwa Deborah
+AU  - Gebru, Timnit
+TI  - Model Cards for Model Reporting
+T2  - Proceedings of the Conference on Fairness, Accountability, and Transparency
+PY  - 2019
+Y1  - 2019
+SP  - 220
+EP  - 229
+DO  - 10.1145/3287560.3287596
+UR  - https://arxiv.org/abs/1810.03993
+N1  - Model-card documentation for validation strategy, limitations and intended use.
+ER  - 
+
+TY  - JOUR
+AU  - Gebru, Timnit
+AU  - Morgenstern, Jamie
+AU  - Vecchione, Briana
+AU  - Vaughan, Jennifer Wortman
+AU  - Wallach, Hanna
+AU  - Daumé III, Hal
+AU  - Crawford, Kate
+TI  - Datasheets for Datasets
+JO  - Communications of the ACM
+T2  - Communications of the ACM
+PY  - 2021
+Y1  - 2021
+VL  - 64
+IS  - 12
+SP  - 86
+EP  - 92
+DO  - 10.1145/3458723
+UR  - https://arxiv.org/abs/1803.09010
+N1  - Dataset-card/datasheet documentation for provenance, missingness and bias.
+ER  - 
+
+TY  - JOUR
+AU  - Ruder, Sebastian
+TI  - An Overview of Multi-Task Learning in Deep Neural Networks
+JO  - arXiv
+T2  - arXiv
+PY  - 2017
+Y1  - 2017
+UR  - https://arxiv.org/abs/1706.05098
+N1  - Framework for deciding whether production/ecology tracks should share representations.
+ER  - 
+
+TY  - JOUR
+AU  - Zhang, Yu
+AU  - Yang, Qiang
+TI  - A Survey on Multi-Task Learning
+JO  - IEEE Transactions on Knowledge and Data Engineering
+T2  - IEEE Transactions on Knowledge and Data Engineering
+PY  - 2022
+Y1  - 2022
+VL  - 34
+IS  - 12
+SP  - 5586
+EP  - 5609
+DO  - 10.1109/TKDE.2021.3070203
+N1  - General multi-task learning reference for dual-track modelling.
+ER  - 
+
+TY  - JOUR
+AU  - Vandenhende, Simon
+AU  - Georgoulis, Stamatios
+AU  - Van Gansbeke, Wouter
+AU  - Proesmans, Marc
+AU  - Dai, Dengxin
+AU  - Van Gool, Luc
+TI  - Multi-Task Learning for Dense Prediction Tasks: A Survey
+JO  - IEEE Transactions on Pattern Analysis and Machine Intelligence
+T2  - IEEE Transactions on Pattern Analysis and Machine Intelligence
+PY  - 2022
+Y1  - 2022
+VL  - 44
+IS  - 7
+SP  - 3614
+EP  - 3633
+DO  - 10.1109/TPAMI.2021.3054719
+UR  - https://arxiv.org/abs/2004.13379
+N1  - Multi-task design principles and negative-transfer risks.
+ER  - 
+
+TY  - JOUR
+AU  - Liu, Shikun
+AU  - Johns, Edward
+AU  - Davison, Andrew J.
+TI  - End-to-End Multi-Task Learning with Attention
+JO  - arXiv
+T2  - arXiv
+PY  - 2018
+Y1  - 2018
+UR  - https://arxiv.org/abs/1803.10704
+N1  - Shared-backbone/multiple-head concept; useful as a comparison, not default for this tabular project.
+ER  - 
+
+TY  - JOUR
+AU  - Friedman, Jerome H.
+TI  - Greedy Function Approximation: A Gradient Boosting Machine
+JO  - The Annals of Statistics
+T2  - The Annals of Statistics
+PY  - 2001
+Y1  - 2001
+VL  - 29
+IS  - 5
+SP  - 1189
+EP  - 1232
+DO  - 10.1214/aos/1013203451
+N1  - Gradient boosting foundation for GBDT alternatives to RF.
+ER  - 
+
+TY  - JOUR
+AU  - Breiman, Leo
+TI  - Random Forests
+JO  - Machine Learning
+T2  - Machine Learning
+PY  - 2001
+Y1  - 2001
+VL  - 45
+SP  - 5
+EP  - 32
+DO  - 10.1023/A:1010933404324
+N1  - Random forest foundation.
+ER  - 
+
+TY  - CONF
+AU  - Chen, Tianqi
+AU  - Guestrin, Carlos
+TI  - XGBoost: A Scalable Tree Boosting System
+T2  - Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining
+PY  - 2016
+Y1  - 2016
+SP  - 785
+EP  - 794
+DO  - 10.1145/2939672.2939785
+UR  - https://arxiv.org/abs/1603.02754
+N1  - XGBoost baseline and regularized tree boosting.
+ER  - 
+
+TY  - CONF
+AU  - Ke, Guolin
+AU  - Meng, Qi
+AU  - Finley, Thomas
+AU  - Wang, Taifeng
+AU  - Chen, Wei
+AU  - Ma, Weidong
+AU  - Ye, Qiwei
+AU  - Liu, Tie-Yan
+TI  - LightGBM: A Highly Efficient Gradient Boosting Decision Tree
+T2  - Advances in Neural Information Processing Systems
+PY  - 2017
+Y1  - 2017
+UR  - https://papers.nips.cc/paper_files/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html
+N1  - Efficient GBDT implementation for tabular modelling.
+ER  - 
+
+TY  - CONF
+AU  - Dorogush, Anna Veronika
+AU  - Ershov, Vasily
+AU  - Gulin, Andrey
+TI  - CatBoost: gradient boosting with categorical features support
+T2  - NIPS Workshop on ML Systems
+PY  - 2017
+Y1  - 2017
+UR  - https://arxiv.org/abs/1810.11363
+N1  - Categorical-feature handling for regions, soil types and sources.
+ER  - 
+
+TY  - JOUR
+AU  - Prokhorenkova, Liudmila
+AU  - Gusev, Gleb
+AU  - Vorobev, Aleksandr
+AU  - Dorogush, Anna Veronika
+AU  - Gulin, Andrey
+TI  - CatBoost: unbiased boosting with categorical features
+JO  - arXiv
+T2  - arXiv
+PY  - 2017
+Y1  - 2017
+UR  - https://arxiv.org/abs/1706.09516
+N1  - Ordered boosting helps reduce target leakage in categorical encodings.
+ER  - 
+
+TY  - CONF
+AU  - Caruana, Rich
+AU  - Lou, Yin
+AU  - Gehrke, Johannes
+AU  - Koch, Paul
+AU  - Sturm, Marc
+AU  - Elhadad, Noémie
+TI  - Intelligible Models for HealthCare: Predicting Pneumonia Risk and Hospital 30-day Readmission
+T2  - Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining
+PY  - 2015
+Y1  - 2015
+SP  - 1721
+EP  - 1730
+DO  - 10.1145/2783258.2788613
+N1  - Explainable boosting/intelligible modelling reference for high-stakes tabular data.
+ER  - 
+
+TY  - CONF
+AU  - Ribeiro, Marco Tulio
+AU  - Singh, Sameer
+AU  - Guestrin, Carlos
+TI  - Why Should I Trust You? Explaining the Predictions of Any Classifier
+T2  - Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining
+PY  - 2016
+Y1  - 2016
+SP  - 1135
+EP  - 1144
+DO  - 10.1145/2939672.2939778
+UR  - https://arxiv.org/abs/1602.04938
+N1  - LIME reference; useful as local-explanation cross-check.
+ER  - 
+
+TY  - CONF
+AU  - Sundararajan, Mukund
+AU  - Taly, Ankur
+AU  - Yan, Qiqi
+TI  - Axiomatic Attribution for Deep Networks
+T2  - Proceedings of the 34th International Conference on Machine Learning
+PY  - 2017
+Y1  - 2017
+SP  - 3319
+EP  - 3328
+UR  - https://arxiv.org/abs/1703.01365
+N1  - Integrated Gradients; relevant only if deep models are introduced later.
+ER  - 
+
+TY  - JOUR
+AU  - Wachter, Sandra
+AU  - Mittelstadt, Brent
+AU  - Russell, Chris
+TI  - Counterfactual Explanations without Opening the Black Box: Automated Decisions and the GDPR
+JO  - Harvard Journal of Law & Technology
+T2  - Harvard Journal of Law & Technology
+PY  - 2017
+Y1  - 2017
+VL  - 31
+IS  - 2
+UR  - https://arxiv.org/abs/1711.00399
+N1  - Counterfactual explanations for translating obstacles into actionable remediation directions.
+ER  - 
+
+TY  - JOUR
+AU  - Goldstein, Alex
+AU  - Kapelner, Adam
+AU  - Bleich, Justin
+AU  - Pitkin, Emil
+TI  - Peeking Inside the Black Box: Visualizing Statistical Learning With Plots of Individual Conditional Expectation
+JO  - Journal of Computational and Graphical Statistics
+T2  - Journal of Computational and Graphical Statistics
+PY  - 2015
+Y1  - 2015
+VL  - 24
+IS  - 1
+SP  - 44
+EP  - 65
+DO  - 10.1080/10618600.2014.907095
+UR  - https://arxiv.org/abs/1309.6392
+N1  - ICE plots for model effect visualization.
+ER  - 
+
+TY  - JOUR
+AU  - Semple, Kirk T.
+AU  - Doick, Kieron J.
+AU  - Jones, Kevin C.
+AU  - Burauel, Peter
+AU  - Craven, Amanda
+AU  - Harms, Hauke
+TI  - Defining Bioavailability and Bioaccessibility of Contaminated Soil and Sediment is Complicated
+JO  - Environmental Science & Technology
+T2  - Environmental Science & Technology
+PY  - 2004
+Y1  - 2004
+VL  - 38
+IS  - 12
+SP  - 228A
+EP  - 231A
+DO  - 10.1021/es040548w
+N1  - Bioavailability/bioaccessibility foundation for ecology-track differentiation.
+ER  - 
+
+TY  - BOOK
+AU  - National Research Council
+TI  - Bioavailability of Contaminants in Soils and Sediments: Processes, Tools, and Applications
+PB  - National Academies Press
+CY  - Washington, DC
+PY  - 2003
+Y1  - 2003
+DO  - 10.17226/10523
+UR  - https://nap.nationalacademies.org/catalog/10523/bioavailability-of-contaminants-in-soils-and-sediments-processes-tools-and-applications
+N1  - Authoritative reference on contaminant bioavailability for ecological exposure.
+ER  - 
+
+TY  - JOUR
+AU  - Traina, Samuel J.
+AU  - Laperche, Valérie
+TI  - Contaminant bioavailability in soils, sediments, and aquatic environments
+JO  - Proceedings of the National Academy of Sciences
+T2  - Proceedings of the National Academy of Sciences
+PY  - 1999
+Y1  - 1999
+VL  - 96
+IS  - 7
+SP  - 3365
+EP  - 3371
+DO  - 10.1073/pnas.96.7.3365
+N1  - Total concentration differs from effective exposure; supports dual-track logic.
+ER  - 
+
+TY  - BOOK
+AU  - Doran, John W.
+AU  - Coleman, David C.
+AU  - Bezdicek, Donald F.
+AU  - Stewart, B. A.
+TI  - Defining Soil Quality for a Sustainable Environment
+PB  - Soil Science Society of America
+PY  - 1994
+Y1  - 1994
+DO  - 10.2136/sssaspecpub35
+N1  - Foundational soil-quality framework.
+ER  - 
+
+TY  - JOUR
+AU  - Bünemann, Else K.
+AU  - Bongiorno, Giulia
+AU  - Bai, Zhanguo
+AU  - Creamer, Rachel E.
+AU  - De Deyn, Gerlinde
+AU  - de Goede, Ron
+AU  - Fleskens, Luuk
+AU  - Geissen, Violette
+AU  - Kuyper, Thomas W.
+AU  - Mäder, Paul
+AU  - Pulleman, Mirjam
+AU  - Sukkel, Wijnand
+AU  - van Groenigen, Jan Willem
+AU  - Brussaard, Lijbert
+TI  - Soil quality – A critical review
+JO  - Soil Biology and Biochemistry
+T2  - Soil Biology and Biochemistry
+PY  - 2018
+Y1  - 2018
+VL  - 120
+SP  - 105
+EP  - 125
+DO  - 10.1016/j.soilbio.2018.01.030
+N1  - Soil-quality indicators and monitoring framework.
+ER  - 
+
+TY  - JOUR
+AU  - Lehmann, Johannes
+AU  - Bossio, Deborah A.
+AU  - Kögel-Knabner, Ingrid
+AU  - Rillig, Matthias C.
+TI  - The concept and future prospects of soil health
+JO  - Nature Reviews Earth & Environment
+T2  - Nature Reviews Earth & Environment
+PY  - 2020
+Y1  - 2020
+VL  - 1
+SP  - 544
+EP  - 553
+DO  - 10.1038/s43017-020-0080-8
+N1  - Modern soil-health framing for production/ecology outcomes.
+ER  - 
+
+TY  - JOUR
+AU  - Karlen, Douglas L.
+AU  - Mausbach, Maurice J.
+AU  - Doran, John W.
+AU  - Cline, Richard G.
+AU  - Harris, R. F.
+AU  - Schuman, G. E.
+TI  - Soil Quality: A Concept, Definition, and Framework for Evaluation
+JO  - Soil Science Society of America Journal
+T2  - Soil Science Society of America Journal
+PY  - 1997
+Y1  - 1997
+VL  - 61
+IS  - 1
+SP  - 4
+EP  - 10
+DO  - 10.2136/sssaj1997.03615995006100010001x
+N1  - Soil quality definition and evaluation framework.
+ER  - 
+
+TY  - JOUR
+AU  - Andrews, Susan S.
+AU  - Karlen, Douglas L.
+AU  - Cambardella, Cynthia A.
+TI  - The Soil Management Assessment Framework: A Quantitative Soil Quality Evaluation Method
+JO  - Soil Science Society of America Journal
+T2  - Soil Science Society of America Journal
+PY  - 2004
+Y1  - 2004
+VL  - 68
+IS  - 6
+SP  - 1945
+EP  - 1962
+DO  - 10.2136/sssaj2004.1945
+N1  - Quantitative soil-quality assessment and indicator scoring.
+ER  - 
+
+TY  - JOUR
+AU  - Haygarth, Philip M.
+AU  - Ritz, Karl
+TI  - The future of soils and land use in the UK: Soil systems for the provision of land-based ecosystem services
+JO  - Land Use Policy
+T2  - Land Use Policy
+PY  - 2009
+Y1  - 2009
+VL  - 26
+SP  - S187
+EP  - S197
+DO  - 10.1016/j.landusepol.2009.09.016
+N1  - Soil functions and ecosystem services.
+ER  - 
+
+TY  - JOUR
+AU  - Keesstra, Saskia D.
+AU  - Bouma, Johan
+AU  - Wallinga, Jakob
+AU  - Tittonell, Pablo
+AU  - Smith, Pete
+AU  - Cerdà, Artemi
+AU  - Montanarella, Luca
+AU  - Quinton, John N.
+AU  - Pachepsky, Yakov
+AU  - van der Putten, Wim H.
+AU  - Bardgett, Richard D.
+AU  - Moolenaar, Simon
+AU  - Mol, Gerben
+AU  - Jansen, Boris
+AU  - Fresco, Louise O.
+TI  - The significance of soils and soil science towards realization of the United Nations Sustainable Development Goals
+JO  - Soil
+T2  - Soil
+PY  - 2016
+Y1  - 2016
+VL  - 2
+SP  - 111
+EP  - 128
+DO  - 10.5194/soil-2-111-2016
+N1  - Soil functions linked to sustainability objectives.
+ER  - 
+
+TY  - JOUR
+AU  - Schulte, Rogier P. O.
+AU  - Creamer, Rachel E.
+AU  - Donnellan, Trevor
+AU  - Farrelly, Noel
+AU  - Fealy, Reamonn
+AU  - O'Donoghue, Cathal
+AU  - O'hUallachain, Daire
+TI  - Functional Land Management: A framework for managing soil-based ecosystem services for the sustainable intensification of agriculture
+JO  - Environmental Science & Policy
+T2  - Environmental Science & Policy
+PY  - 2014
+Y1  - 2014
+VL  - 38
+SP  - 45
+EP  - 58
+DO  - 10.1016/j.envsci.2013.10.002
+N1  - Functional land management; strong basis for purpose-specific soil-function targets.
+ER  - 
+
+TY  - JOUR
+AU  - Dominati, Estelle
+AU  - Patterson, Murray
+AU  - Mackay, Alec
+TI  - A framework for classifying and quantifying the natural capital and ecosystem services of soils
+JO  - Ecological Economics
+T2  - Ecological Economics
+PY  - 2010
+Y1  - 2010
+VL  - 69
+IS  - 9
+SP  - 1858
+EP  - 1868
+DO  - 10.1016/j.ecolecon.2010.05.002
+N1  - Soil natural capital and ecosystem-service classification.
+ER  - 
+
+TY  - JOUR
+AU  - Robinson, David A.
+AU  - Hockley, Norman
+AU  - Dominati, Estelle
+AU  - Lebron, Inma
+AU  - Scow, Kate M.
+AU  - Reynolds, Brian
+AU  - Emmett, Bridget A.
+AU  - Keith, Alistair M.
+AU  - de Jonge, Lis Wollesen
+AU  - Schjønning, Per
+AU  - Moldrup, Per
+AU  - Jones, Simon B.
+AU  - Tuller, Markus
+TI  - Natural Capital, Ecosystem Services, and Soil Change: Why Soil Science Must Embrace an Ecosystems Approach
+JO  - Vadose Zone Journal
+T2  - Vadose Zone Journal
+PY  - 2012
+Y1  - 2012
+VL  - 11
+IS  - 1
+DO  - 10.2136/vzj2011.0051
+N1  - Ecosystem-services view of soil change.
+ER  - 
+
+TY  - BOOK
+AU  - Food and Agriculture Organization of the United Nations
+TI  - A Framework for Land Evaluation
+PB  - FAO
+PY  - 1976
+Y1  - 1976
+UR  - https://www.fao.org/4/x5310e/x5310e00.htm
+N1  - Land suitability/evaluation foundation; supports different limiting factors under different land-use objectives.
+ER  - 
+
+TY  - RPRT
+AU  - Food and Agriculture Organization of the United Nations
+TI  - Land Evaluation: Towards a Revised Framework
+PB  - FAO
+PY  - 2007
+Y1  - 2007
+UR  - https://www.fao.org/4/a1080e/a1080e00.htm
+N1  - Land evaluation and land-use-specific suitability framing.
+ER  - 
+
+TY  - JOUR
+AU  - Malczewski, Jacek
+TI  - GIS-based multicriteria decision analysis: a survey of the literature
+JO  - International Journal of Geographical Information Science
+T2  - International Journal of Geographical Information Science
+PY  - 2006
+Y1  - 2006
+VL  - 20
+IS  - 7
+SP  - 703
+EP  - 726
+DO  - 10.1080/13658810600661508
+N1  - MCDA/GIS framework for spatial decision support.
+ER  - 
+
+TY  - BOOK
+AU  - Saaty, Thomas L.
+TI  - The Analytic Hierarchy Process
+PB  - McGraw-Hill
+CY  - New York
+PY  - 1980
+Y1  - 1980
+N1  - AHP method for subjective weighting and consistency testing.
+ER  - 
+
+TY  - JOUR
+AU  - Zadeh, Lotfi A.
+TI  - Fuzzy sets
+JO  - Information and Control
+T2  - Information and Control
+PY  - 1965
+Y1  - 1965
+VL  - 8
+IS  - 3
+SP  - 338
+EP  - 353
+DO  - 10.1016/S0019-9958(65)90241-X
+N1  - Fuzzy-set foundation for fuzzy comprehensive evaluation.
+ER  - 
+
+TY  - JOUR
+AU  - Wang, B.
+AU  - Xie, H. L.
+AU  - Ren, H. Y.
+AU  - Li, X.
+AU  - Chen, L.
+AU  - Wu, B. C.
+TI  - Application of AHP, TOPSIS, and TFNs to plant selection for phytoremediation of petroleum-contaminated soils in shale gas and oil fields
+JO  - Journal of Cleaner Production
+T2  - Journal of Cleaner Production
+PY  - 2019
+Y1  - 2019
+VL  - 233
+SP  - 13
+EP  - 22
+DO  - 10.1016/j.jclepro.2019.05.301
+N1  - AHP-TOPSIS-fuzzy approach for remediation option selection.
+ER  - 
+
+TY  - JOUR
+AU  - Alshehri, Khalid
+AU  - Harbottle, Michael
+AU  - Sapsford, Devin
+AU  - Al-Tabbaa, Abir
+TI  - Integration of ecosystem services and life cycle assessment allows improved accounting of sustainability benefits of nature-based solutions for brownfield redevelopment
+JO  - Journal of Cleaner Production
+T2  - Journal of Cleaner Production
+PY  - 2023
+Y1  - 2023
+VL  - 413
+SP  - 137352
+DO  - 10.1016/j.jclepro.2023.137352
+N1  - Ecosystem services plus LCA for brownfield redevelopment and sustainability benefits.
+ER  - 
+
+TY  - JOUR
+AU  - Lu, X.
+AU  - Du, J.
+AU  - Zheng, L.
+TI  - Feature fusion improves performance and interpretability of machine learning models in identifying soil pollution of potentially contaminated sites
+JO  - Ecotoxicology and Environmental Safety
+T2  - Ecotoxicology and Environmental Safety
+PY  - 2023
+Y1  - 2023
+VL  - 259
+SP  - 115052
+DO  - 10.1016/j.ecoenv.2023.115052
+N1  - ML interpretability for potentially contaminated soil sites.
+ER  - 
+
+TY  - JOUR
+AU  - Xu, Y.
+AU  - Li, P.
+AU  - Zhang, Z.
+TI  - Integrating machine learning for enhanced spatial prediction and risk assessment of soil heavy metal(loid)s
+JO  - Environmental Pollution
+T2  - Environmental Pollution
+PY  - 2025
+Y1  - 2025
+VL  - 383
+SP  - 126919
+DO  - 10.1016/j.envpol.2025.126919
+N1  - Recent soil heavy-metal ML/risk assessment reference.
+ER  - 
+
+TY  - JOUR
+AU  - Zhao, J.
+AU  - Yu, Q.
+AU  - Xu, C.
+TI  - Integrated approach for ecological restoration and ecological spatial network optimization with multiple ecosystem functions in mining areas
+JO  - Ecological Indicators
+T2  - Ecological Indicators
+PY  - 2023
+Y1  - 2023
+VL  - 156
+SP  - 111141
+DO  - 10.1016/j.ecolind.2023.111141
+N1  - Multiple ecosystem functions in ecological restoration.
+ER  - 
+
+TY  - JOUR
+AU  - Li, Q.
+AU  - Fan, K.
+AU  - Shen, Y.
+TI  - Optimizing the formulation of soil reconstruction for ecological restoration in mining areas on the Qinghai-Tibetan Plateau
+JO  - Journal of Soils and Sediments
+T2  - Journal of Soils and Sediments
+PY  - 2025
+Y1  - 2025
+VL  - 25
+SP  - 3712
+EP  - 3722
+DO  - 10.1007/s11368-025-04149-w
+N1  - Soil reconstruction and ecological restoration formulation.
+ER  - 
+
+TY  - JOUR
+AU  - Sweeney, R.
+AU  - Harries, N.
+AU  - Bardos, P.
+TI  - Analysis of sustainable remediation techniques and technologies based on 10 European case studies
+JO  - Remediation Journal
+T2  - Remediation Journal
+PY  - 2024
+Y1  - 2024
+VL  - 34
+IS  - 2
+SP  - e21773
+DO  - 10.1002/rem.21773
+N1  - Sustainable remediation technology analysis.
+ER  - 
+
+TY  - JOUR
+AU  - Dhanapal, A. R.
+AU  - Thiruvengadam, M.
+AU  - Vairavanathan, J.
+TI  - Nanotechnology approaches for the remediation of agricultural polluted soils
+JO  - ACS Omega
+T2  - ACS Omega
+PY  - 2024
+Y1  - 2024
+VL  - 9
+IS  - 12
+SP  - 13522
+EP  - 13533
+DO  - 10.1021/acsomega.3c09776
+N1  - Remediation technologies for agricultural polluted soils.
+ER  - 
+
+TY  - JOUR
+AU  - Nieland, M. A.
+AU  - Keiser, A. D.
+TI  - Using ecological restoration to disentangle the mechanisms and longevity of soil functional legacies
+JO  - Functional Ecology
+T2  - Functional Ecology
+PY  - 2025
+Y1  - 2025
+VL  - 39
+IS  - 9
+SP  - 2193
+EP  - 2204
+DO  - 10.1111/1365-2435.70123
+N1  - Ecological restoration and soil functional legacies.
+ER  - 
+
+TY  - JOUR
+AU  - Li, T.
+AU  - Wang, S.
+AU  - Liu, C.
+TI  - Soil microbial communities' contributions to soil ecosystem multifunctionality in the natural restoration of abandoned metal mines
+JO  - Journal of Environmental Management
+T2  - Journal of Environmental Management
+PY  - 2024
+Y1  - 2024
+VL  - 353
+SP  - 120244
+DO  - 10.1016/j.jenvman.2024.120244
+N1  - Microbial contribution to soil ecosystem multifunctionality in restoration.
+ER  - 
+
+TY  - JOUR
+AU  - Sarkar, P.
+AU  - Gayen, S. K.
+TI  - Application of Entropy-AHP and WASPAS methods for prioritizing the sub watersheds of Teesta River basin in terms of soil erosion susceptibility
+JO  - Discover Environment
+T2  - Discover Environment
+PY  - 2024
+Y1  - 2024
+VL  - 2
+SP  - 135
+DO  - 10.1007/s44274-024-00163-w
+N1  - Entropy-AHP and WASPAS weighting/ranking reference.
+ER  - 
+
+TY  - WEB
+AU  - scikit-learn developers
+TI  - GroupKFold
+PB  - scikit-learn documentation
+PY  - 2026
+Y1  - 2026
+UR  - https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GroupKFold.html
+N1  - Official implementation reference for grouped cross-validation.
+ER  - 
+
+TY  - WEB
+AU  - scikit-learn developers
+TI  - Common pitfalls and recommended practices
+PB  - scikit-learn documentation
+PY  - 2026
+Y1  - 2026
+UR  - https://scikit-learn.org/stable/common_pitfalls.html
+N1  - Official preprocessing leakage and pipeline guidance.
+ER  - 
+
+TY  - WEB
+AU  - scikit-learn developers
+TI  - Probability calibration
+PB  - scikit-learn documentation
+PY  - 2026
+Y1  - 2026
+UR  - https://scikit-learn.org/stable/modules/calibration.html
+N1  - Official calibration guidance for probability outputs.
+ER  - 
+
+TY  - WEB
+AU  - scikit-learn developers
+TI  - Permutation feature importance
+PB  - scikit-learn documentation
+PY  - 2026
+Y1  - 2026
+UR  - https://scikit-learn.org/stable/modules/permutation_importance.html
+N1  - Official permutation-importance reference.
+ER  - 
+
+TY  - WEB
+AU  - scikit-learn developers
+TI  - Novelty and Outlier Detection
+PB  - scikit-learn documentation
+PY  - 2026
+Y1  - 2026
+UR  - https://scikit-learn.org/stable/modules/outlier_detection.html
+N1  - Official reference for OOD/outlier checks.
+ER  - 
+
+TY  - WEB
+AU  - SHAP developers
+TI  - SHAP documentation
+PB  - SHAP documentation
+PY  - 2026
+Y1  - 2026
+UR  - https://shap.readthedocs.io/en/latest/index.html
+N1  - Official SHAP API documentation.
+ER  - 
+
+TY  - WEB
+AU  - LightGBM developers
+TI  - LightGBM documentation
+PB  - LightGBM documentation
+PY  - 2026
+Y1  - 2026
+UR  - https://lightgbm.readthedocs.io/en/stable/
+N1  - Official LightGBM documentation.
+ER  - 
+
+TY  - WEB
+AU  - XGBoost developers
+TI  - XGBoost documentation
+PB  - XGBoost documentation
+PY  - 2026
+Y1  - 2026
+UR  - https://xgboost.readthedocs.io/en/stable/
+N1  - Official XGBoost documentation.
+ER  - 
+
+TY  - WEB
+AU  - CatBoost developers
+TI  - CatBoost documentation
+PB  - CatBoost documentation
+PY  - 2026
+Y1  - 2026
+UR  - https://catboost.ai/en/docs/
+N1  - Official CatBoost documentation.
+ER  - 
+
+TY  - WEB
+AU  - SciPy developers
+TI  - scipy.stats.bootstrap
+PB  - SciPy documentation
+PY  - 2026
+Y1  - 2026
+UR  - https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html
+N1  - Bootstrap confidence interval implementation.
+ER  - 
+
+TY  - WEB
+AU  - SciPy developers
+TI  - scipy.stats.permutation_test
+PB  - SciPy documentation
+PY  - 2026
+Y1  - 2026
+UR  - https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.permutation_test.html
+N1  - Permutation-test implementation.
+ER  - 
+
+TY  - RPRT
+AU  - 中华人民共和国生态环境部
+AU  - 国家市场监督管理总局
+TI  - GB 15618-2018 土壤环境质量 农用地土壤污染风险管控标准（试行）
+PY  - 2018
+Y1  - 2018
+N1  - Production/agricultural-use rule baseline for soil contamination screening and control.
+ER  - 
+
+TY  - RPRT
+AU  - 中华人民共和国生态环境部
+AU  - 国家市场监督管理总局
+TI  - GB 36600-2018 土壤环境质量 建设用地土壤污染风险管控标准（试行）
+PY  - 2018
+Y1  - 2018
+N1  - Construction-land risk control rule baseline.
+ER  - 
+
+TY  - RPRT
+AU  - 中华人民共和国生态环境部
+TI  - HJ 25.5-2018 污染地块风险管控与土壤修复效果评估技术导则
+PY  - 2018
+Y1  - 2018
+N1  - Remediation-effect assessment and regulatory traceability baseline.
+ER  - 
+
+TY  - RPRT
+AU  - 中华人民共和国生态环境部
+TI  - HJ/T 166-2004 土壤环境监测技术规范
+PY  - 2004
+Y1  - 2004
+N1  - Soil sampling/monitoring QA reference.
+ER  - 
+
+TY  - RPRT
+AU  - 中华人民共和国国家质量监督检验检疫总局
+AU  - 中国国家标准化管理委员会
+TI  - GB/T 33469-2016 耕地质量等级
+PY  - 2016
+Y1  - 2016
+N1  - Cultivated-land quality grade reference for production-track indicators.
+ER  - 
