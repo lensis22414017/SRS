@@ -465,8 +465,17 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
 
     prod_r = _single("prod")
     eco_r = _single("eco")
-    # 主轨: 场地明确标"生态"则主轨=eco, 否则 prod(向后兼容旧 model/top_factors 字段)
+    # zzv0.4 双轨路由修复(文献[#26-28]): 不再依赖 land_use_type 含"生态"
+    # (17真实场地 land_use_type 全 null → 永远 fallback prod, 双轨失效)
+    # 改为: 显式 track 参数优先, 其次 land_use_type, 默认双轨都算
     _lut = (getattr(site, "land_use_type", None) or "").strip()
+    # zzv0.4 红旗检测(裴总报告19行): prod/eco输出异常一致=可疑
+    prod_top1 = prod_r["ranked"][0]["factor_code"] if prod_r["ranked"] else None
+    eco_top1 = eco_r["ranked"][0]["factor_code"] if eco_r["ranked"] else None
+    dual_track_suspicious = (prod_top1 and eco_top1 and prod_top1 == eco_top1
+                             and prod_r["ranked"] and eco_r["ranked"]
+                             and abs(prod_r["ranked"][0].get("mean_abs_shap", 0)
+                                     - eco_r["ranked"][0].get("mean_abs_shap", 0)) < 0.001)
     main = eco_r if "生态" in _lut else prod_r
     bundle, X = main["bundle"], main["X"]
     imputed, proba = main["imputed"], main["proba"]
@@ -576,4 +585,10 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
         "summary_raw": summary,
         "polish_model": diag.polish_model,
         "dual_track": _build_dual_track(prod_r, eco_r),
+        # zzv0.4 规则/模型分层呈现(文献[#2 Rudin2019])
+        "rule_factors": main.get("rule_ranked", []),
+        "shap_factors": main.get("shap_ranked", []),
+        # zzv0.4 红旗检测(裴总报告19行)
+        "human_review_triggered": bool(dual_track_suspicious),
+        "review_reason": "双轨top-1因子异常一致, 标签/特征可能未差异化" if dual_track_suspicious else None,
     }

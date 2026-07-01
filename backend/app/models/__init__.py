@@ -289,6 +289,17 @@ class DiagnosisResult(Base, TimestampMixin):
     polish_model: Mapped[str | None] = mapped_column(String(64), nullable=True)
     shap_global: Mapped[dict | None] = mapped_column(JSON, nullable=True)
     status: Mapped[str] = mapped_column(String(20), default="done")
+    # zzv0.4 审计证据链字段(裴总报告147-164行 + 文献[#9 Mitchell],[#10 Gebru])
+    validation_strategy: Mapped[str | None] = mapped_column(String(60), nullable=True)  # group_split / nested_cv
+    group_key: Mapped[str | None] = mapped_column(String(40), nullable=True)  # id_DOI / site_id / province
+    feature_schema_hash: Mapped[str | None] = mapped_column(String(64), nullable=True)  # 训练特征SHA256
+    threshold_library_version: Mapped[str | None] = mapped_column(String(80), nullable=True)  # GB15618-2018/GB36600-2018
+    rule_snapshot: Mapped[dict | None] = mapped_column(JSON, nullable=True)  # 阈值规则快照(规则层解释)
+    shap_snapshot_path: Mapped[str | None] = mapped_column(String(300), nullable=True)  # SHAP解释快照
+    confidence_interval: Mapped[dict | None] = mapped_column(JSON, nullable=True)  # bootstrap 95%CI
+    ood_score: Mapped[float | None] = mapped_column(Float, nullable=True)  # OOD分布偏移分数
+    human_review_triggered: Mapped[bool | None] = mapped_column(Boolean, nullable=True)  # 是否触发人工复核
+    review_reason: Mapped[str | None] = mapped_column(Text, nullable=True)  # 触发原因
 
 
 class DiagnosisFactorDetail(Base, TimestampMixin):
