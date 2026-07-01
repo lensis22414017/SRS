@@ -76,10 +76,10 @@ function SystemOverview() {
             生态环境部土壤与农业农村生态环境监管技术中心
           </Descriptions.Item>
           <Descriptions.Item label="技术支持">
-            <Tag>待补充</Tag>
+            浙江大学王玮课题组
           </Descriptions.Item>
           <Descriptions.Item label="数据支持">
-            <Tag>待补充</Tag>
+            浙江大学王玮课题组
           </Descriptions.Item>
         </Descriptions>
       </Card>
@@ -113,7 +113,7 @@ function SystemOverview() {
       >
         <Descriptions bordered size="small" column={2}>
           <Descriptions.Item label="后端">
-            Python FastAPI + SQLAlchemy + SQLite/PostgreSQL
+            Python FastAPI + SQLAlchemy + SQLite(演示) / PostgreSQL(部署)
           </Descriptions.Item>
           <Descriptions.Item label="前端">
             React 18 + TypeScript + Ant Design + ECharts 5

@@ -79,5 +79,5 @@ export const POLLUTION_TYPE_BG: Record<string, string> = {
 };
 
 export const POLLUTION_LABEL: Record<string, string> = {
-  heavy_metal: "重金属", organic: "有机", composite: "复合污染",
+  heavy_metal: "重金属", organic: "有机污染", composite: "复合污染",
 };

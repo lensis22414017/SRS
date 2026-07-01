@@ -265,12 +265,17 @@ export default function DashboardScreen() {
             </div>
             <div style={{ flex: 1 }}>
               <div className={styles.kpiValue}>
-                {k.value}
-                {k.suffix && <span className={styles.kpiSuffix}>{k.suffix}</span>}
+                {k.demo ? (
+                  <Tooltip title="后端接口未提供此数据，当前显示为演示占位">
+                    <span className={styles.kpiPlaceholder}>待接入</span>
+                  </Tooltip>
+                ) : (
+                  <>{k.value}{k.suffix && <span className={styles.kpiSuffix}>{k.suffix}</span>}</>
+                )}
               </div>
               <div className={styles.kpiLabel}>
                 {k.title}
-                {(k as any).demo && <span className={styles.demoTag} style={{ marginLeft: 6 }}>演示数据</span>}
+                {k.demo && <span className={styles.demoTag} style={{ marginLeft: 6 }}>演示数据</span>}
               </div>
             </div>
           </div>
@@ -307,13 +312,13 @@ export default function DashboardScreen() {
           </div>
         </div>
 
-        {/* 中央地图 */}
+        {/* 中央：地图(55%) + 区域态势矩阵(45%) */}
         <div className={styles.centerCol}>
-          <div className={styles.mapWrap}>
+          <div className={styles.mapWrap} style={{ flex: "0 0 55%" }}>
             <SiteMap sites={mapSites} onMarkerClick={(s) => s.id && nav(`/sites/${s.id}`)} />
             {topAlerts.length > 0 && (
               <div className={styles.mapOverlay}>
-                <div className={styles.mapOverlayLabel}>地图概览</div>
+                <div className={styles.mapOverlayLabel}>全国场地分布总览</div>
                 <div className={styles.mapOverlaySite}>
                   共 {sites.length} 个场地，覆盖 {provinces} 个省份
                 </div>
@@ -323,9 +328,42 @@ export default function DashboardScreen() {
               </div>
             )}
           </div>
+          {/* 地图下方：区域污染态势 + 风险等级矩阵 */}
+          <div style={{ display: "flex", gap: 8, flex: "0 0 45%", marginTop: 8 }}>
+            <div className={styles.panel} style={{ flex: 1, overflow: "auto" }}>
+              <div className={styles.panelTitle}><span className={styles.panelTitleBar} />区域污染态势</div>
+              {provData.length ? provData.map(([prov, count]) => (
+                <div key={prov} style={{ display: "flex", alignItems: "center", gap: 6, padding: "3px 0", fontSize: 12, borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+                  <span style={{ flex: 1, color: "#c8d6e5" }}>{prov}</span>
+                  <span style={{ color: "#6b8db5", fontSize: 11 }}>{count} 场地</span>
+                  <div style={{ width: 60, height: 4, background: "rgba(255,255,255,0.06)", borderRadius: 2, overflow: "hidden" }}>
+                    <div style={{ width: `${Math.min(100, count*8)}%`, height: "100%", background: "linear-gradient(90deg, #1e90ff, #00d4ff)", borderRadius: 2 }} />
+                  </div>
+                </div>
+              )) : <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description={<span style={{color:"#6b8db5"}}>暂无数据</span>} />}
+            </div>
+            <div className={styles.panel} style={{ flex: 1 }}>
+              <div className={styles.panelTitle}><span className={styles.panelTitleBar} />风险等级矩阵</div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 6, fontSize: 11 }}>
+                {[
+                  { label: "重金属", count: heavy, color: POLLUTION_TYPE.heavy_metal, bg: "rgba(215,48,39,0.15)" },
+                  { label: "有机污染", count: organic, color: POLLUTION_TYPE.organic, bg: "rgba(27,120,55,0.15)" },
+                  { label: "复合污染", count: composite, color: POLLUTION_TYPE.composite, bg: "rgba(224,130,20,0.15)" },
+                  { label: "高风险", count: highRisk, color: "#ff6b6b", bg: "rgba(255,107,107,0.15)" },
+                  { label: "超标记录", count: totalExceed, color: "#f0b429", bg: "rgba(240,180,41,0.15)" },
+                  { label: "覆盖省份", count: provinces, color: "#1e90ff", bg: "rgba(30,144,255,0.15)" },
+                ].map(m => (
+                  <div key={m.label} style={{ background: m.bg, borderRadius: 4, padding: "8px 10px", textAlign: "center", border: "1px solid rgba(255,255,255,0.05)" }}>
+                    <div style={{ fontSize: 18, fontWeight: 700, color: m.color }}>{m.count}</div>
+                    <div style={{ color: "#8899bb", fontSize: 10, marginTop: 2 }}>{m.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* 右栏 */}
+        {/* 右栏 — 扩展为 320px */}
         <div className={styles.rightCol}>
           {/* 预警 TOP10 */}
           <div className={styles.panel} style={{ flex: 1, overflow: "hidden", display: "flex", flexDirection: "column" }}>

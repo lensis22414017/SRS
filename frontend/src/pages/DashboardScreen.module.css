@@ -284,7 +284,7 @@
 
 /* ── 右栏 ──────────────────────────────────────────────────── */
 .rightCol {
-  width: 290px;
+  width: 320px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -389,12 +389,25 @@
 
 /* ── 演示数据标记 ──────────────────────────────────────────── */
 .demoTag {
-  font-size: 10px;
+  font-size: 11px;
+  font-weight: 600;
   color: #f59e0b;
-  background: rgba(245, 158, 11, 0.1);
-  border: 1px solid rgba(245, 158, 11, 0.2);
-  padding: 1px 6px;
+  background: rgba(245, 158, 11, 0.18);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  padding: 2px 8px;
   border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+/* ── KPI 占位值 (待接入) ──────────────────────────────────── */
+.kpiPlaceholder {
+  font-size: 13px;
+  font-weight: 500;
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.12);
+  padding: 2px 8px;
+  border-radius: 3px;
+  vertical-align: middle;
 }
 
 /* ── 空态 ──────────────────────────────────────────────────── */

@@ -318,8 +318,11 @@ export default function SiteMap({
     }
 
     if (pts.length) {
-      map.fitBounds(L.latLngBounds(pts).pad(0.3), { maxZoom: 13 });
-      setTimeout(() => map.invalidateSize(), 100);
+      // v1.0 P0: requestAnimationFrame 确保 fitBounds 在容器已完成渲染后执行, 避免点位挤在边缘
+      requestAnimationFrame(() => {
+        map.invalidateSize();
+        map.fitBounds(L.latLngBounds(pts).pad(0.3), { maxZoom: 13, animate: false });
+      });
     }
     return () => { layer.remove(); };
   }, [sites, layerData]);
@@ -394,21 +397,46 @@ export default function SiteMap({
         {curLevel === "province" ? "省级" : curLevel === "prefecture" ? "地市级" : "县级"}
       </div>
 
-      {/* 图例 — 左下角 */}
+      {/* 图例 — 左下角, 双列: 污染类型 + 超标倍数色阶 */}
       {hasCoords && layerData?.legend?.length ? (
         <Legend items={layerData.legend} />
       ) : hasCoords ? (
-        <Legend items={[
-          { risk_level: "heavy_metal", label: "重金属污染", color: POLLUTION_TYPE.heavy_metal },
-          { risk_level: "organic", label: "有机污染", color: POLLUTION_TYPE.organic },
-          { risk_level: "composite", label: "复合污染", color: POLLUTION_TYPE.composite },
-        ]} />
+        <Legend items={[]}>
+          <div style={{ display: "flex", gap: 16 }}>
+            <div>
+              <div style={{ fontSize: 10, color: "#888", marginBottom: 4, fontWeight: 600 }}>污染类型</div>
+              <LegendRow color={POLLUTION_TYPE.heavy_metal} label="重金属" />
+              <LegendRow color={POLLUTION_TYPE.organic} label="有机污染" />
+              <LegendRow color={POLLUTION_TYPE.composite} label="复合污染" />
+            </div>
+            <div style={{ borderLeft: "1px solid #e2e8f0", paddingLeft: 8 }}>
+              <div style={{ fontSize: 10, color: "#888", marginBottom: 4, fontWeight: 600 }}>超标倍数</div>
+              <LegendRow color="#16a34a" label="未超标" />
+              <LegendRow color="#facc15" label="1-3× 轻度" />
+              <LegendRow color="#f59e0b" label="3-10× 中度" />
+              <LegendRow color="#ea580c" label="10-30× 偏重" />
+              <LegendRow color="#dc2626" label="30-80× 重度" />
+              <LegendRow color="#9f1239" label="80-200× 极重" />
+              <LegendRow color="#6b0f1a" label="≥200× 超极重" />
+              <LegendRow color="#64748b" label="无阈值/无数据" />
+            </div>
+          </div>
+        </Legend>
       ) : null}
     </div>
   );
 }
 
-function Legend({ items }: { items: { risk_level: string; label: string; color: string }[] }) {
+function LegendRow({ color, label }: { color: string; label: string }) {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 4, margin: "1px 0", fontSize: 11 }}>
+      <span style={{ width: 10, height: 10, borderRadius: 999, background: color, display: "inline-block", flexShrink: 0 }} />
+      <span style={{ whiteSpace: "nowrap" }}>{label}</span>
+    </div>
+  );
+}
+
+function Legend({ items, children }: { items?: { risk_level: string; label: string; color: string }[]; children?: React.ReactNode }) {
   return (
     <div style={{
       position: "absolute", left: 12, bottom: 12, zIndex: 450,
@@ -416,7 +444,8 @@ function Legend({ items }: { items: { risk_level: string; label: string; color: 
       borderRadius: 6, padding: "8px 10px", fontSize: 12,
       boxShadow: "0 2px 8px rgba(15,61,110,.15)",
     }}>
-      {items.map((i) => (
+      {children}
+      {items && items.map((i) => (
         <div key={i.risk_level} style={{ display: "flex", alignItems: "center", gap: 6, margin: "3px 0" }}>
           <span style={{ width: 10, height: 10, borderRadius: 999, background: i.color, display: "inline-block" }} />
           <span>{i.label}</span>

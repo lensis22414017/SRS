@@ -27,7 +27,19 @@ export default function SiteList() {
         columns={[
           seqCol(64),
           textCol("场地编号", "site_code"),
-          textCol("名称", "name"),
+          { title: "场地名称", dataIndex: "name", render: (v: string, r: any) => {
+            // 优化展示: site_北京_OP_200点 → 北京 · 有机污染 · 200点
+            if (!v) return "—";
+            const parts = v.replace(/^site_/, "").split("_");
+            if (parts.length >= 2) {
+              const prov = parts[0];
+              const typeCode = parts.slice(1, -1).join("_");
+              const count = parts[parts.length - 1];
+              const typeLabel = POLLUTION_LABEL[typeCode === "OP" ? "organic" : typeCode === "HM" ? "heavy_metal" : typeCode === "HM+OP" ? "composite" : ""] || typeCode;
+              return <span>{prov} · <Tag color={POLLUTION_TYPE[typeCode === "OP" ? "organic" : typeCode === "HM" ? "heavy_metal" : "composite"] || "#888"}>{typeLabel}</Tag> · {count}</span>;
+            }
+            return v;
+          }},
           { title: "污染类型", dataIndex: "pollution_type", align: "center",
             render: (v: string) => v ? <Tag color={POLLUTION_TYPE[v] || "#888"}>{POLLUTION_LABEL[v] || v}</Tag> : "—" },
           textCol("用地类型", "land_use_type"),

@@ -229,9 +229,11 @@ export default function ObstacleAnalysis() {
                 <Tooltip title={<pre style={{ fontSize: 11, margin: 0, whiteSpace: "pre-line" }}>{AUC_GUIDE + "\n\n" + F1_GUIDE}</pre>}>
                   <InfoCircleOutlined style={{ marginLeft: 6, color: "#888", cursor: "help" }} />
                 </Tooltip>
+                <Tag style={{ marginLeft: 6, fontSize: 10 }} color="processing">开发验证指标</Tag>
               </Descriptions.Item>
               <Descriptions.Item label="结论摘要" span={2}>
-                <Paragraph style={{ marginBottom: 4, whiteSpace: "pre-wrap" }}>{diag.summary || "—"}</Paragraph>
+                <Paragraph ellipsis={{ rows: 3, expandable: true, symbol: "展开全部" }}
+                  style={{ marginBottom: 4, whiteSpace: "pre-wrap" }}>{diag.summary || "—"}</Paragraph>
                 {diag.polish_model && (
                   <Text type="secondary" style={{ fontSize: 11 }}>
                     ⓘ 此结论由 AI 辅助生成（{diag.polish_model}），仅供参考，以原始数据为准。

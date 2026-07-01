@@ -96,6 +96,8 @@ export default function SSUIAnalysis() {
             source="《污染场地土壤生态-生产功能重构监管系统》评价方法文件第三章 §3.2（表3.49-3.50）"
             note="其中 f(t) = 1 + 0.03·t 为时间修正函数，M 为管理调节因子（表3.49），等级边界见下方说明"
           >
+            <Alert type="info" showIcon style={{ marginBottom: 12 }}
+              message="当前评价路径为 MVP 路径，因数据覆盖不足仅启用部分指标。完整评价体系包含安全性、经济性、社会性三个维度共 18 项指标，需在后续版本中逐步接入全部数据。" />
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 4 }}>
               {[
                 { range: "≥ 0.80", label: "高可持续性", color: "#16a34a" },
