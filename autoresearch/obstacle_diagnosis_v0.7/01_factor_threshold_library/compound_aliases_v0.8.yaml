@@ -1,0 +1,114 @@
+萘:
+- Nap_ngg
+- Nap_mgkg
+苊:
+- Ace_ngg
+- Ace_mgkg
+苊烯:
+- Acy_ngg
+- Acy_mgkg
+芴:
+- Flu_ngg
+- Flu_mgkg
+菲:
+- Phe_ngg
+- Phe_mgkg
+蒽:
+- Ant_ngg
+- Ant_mgkg
+荧蒽:
+- Flt_ngg
+- Flt_mgkg
+芘:
+- Pyr_ngg
+- Pyr_mgkg
+苯并[a]蒽:
+- BaA_ngg
+- BaA_mgkg
+䓛:
+- Chr_ngg
+- Chr_mgkg
+苯并[b]荧蒽:
+- BbF_ngg
+- BbF_mgkg
+苯并[k]荧蒽:
+- BkF_ngg
+- BkF_mgkg
+苯并[a]芘:
+- BaP_ngg
+- BaP_mgkg
+二苯并[a,h]蒽:
+- DahA_ngg
+- DahA_mgkg
+二苯并[ah]蒽:
+- DahA_ngg
+- DahA_mgkg
+茚并[1,2,3-cd]芘:
+- Ind_ngg
+- Ind_mgkg
+- ICP_ngg
+- IcdP_ngg
+茚并[123-cd]芘:
+- Ind_ngg
+- Ind_mgkg
+- ICP_ngg
+苯并[g,h,i]苝:
+- BghiP_ngg
+- BghiP_mgkg
+p,p'-滴滴滴:
+- p_p_DDD_ngg
+p,p'-滴滴伊:
+- p_p_DDE_ngg
+p,p'-滴滴涕:
+- p_p_DDT_ngg
+o,p'-滴滴涕:
+- o_p_DDT_ngg
+α-六六六:
+- A_HCH_ngg
+β-六六六:
+- B_HCH_ngg
+γ-六六六:
+- G_HCH_ngg
+δ-六六六:
+- D_HCH_ngg
+PCB28:
+- PCB28_ngg
+PCB52:
+- PCB52_ngg
+PCB101:
+- PCB101_ngg
+PCB118:
+- PCB118_ngg
+PCB153:
+- PCB153_ngg
+PCB138:
+- PCB138_ngg
+PCB180:
+- PCB180_ngg
+BDE28:
+- BDE28_ngg
+BDE47:
+- BDE47_ngg
+BDE99:
+- BDE99_ngg
+BDE209:
+- BDE209_ngg
+PFOA:
+- PFOA_ngg
+PFOS:
+- PFOS_ngg
+DMP:
+- DMP_ugkg
+- DMP_mgkg
+DEP:
+- DEP_ugkg
+DBP:
+- DBP_ugkg
+BBP:
+- BBP_ugkg
+DEHP:
+- DEHP_ugkg
+DNOP:
+- DNOP_ugkg
+- DnOP_ugkg
+- DOP_ugkg

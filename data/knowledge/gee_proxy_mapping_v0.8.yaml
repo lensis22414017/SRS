@@ -1,0 +1,42 @@
+gee_ndvi:
+  proxy_for: 植被恢复潜力
+  type: ecology_covariate
+gee_precip_annual_mm:
+  proxy_for: 气候水分条件
+  type: environment_covariate
+gee_temp_mean_c:
+  proxy_for: 光温条件
+  type: environment_covariate
+gee_elevation_m:
+  proxy_for: 海拔/DEM
+  type: proxy_covariate
+gee_slope_deg:
+  proxy_for: 坡度
+  type: proxy_covariate
+gee_aspect_deg:
+  proxy_for: 坡向
+  type: covariate
+gee_soil_pH:
+  proxy_for: pH
+  type: proxy_covariate
+gee_soc_g_kg:
+  proxy_for: SOC/有机质
+  type: proxy_covariate
+gee_cec_cmol_kg:
+  proxy_for: CEC
+  type: proxy_covariate
+gee_clay_pct:
+  proxy_for: 黏粒
+  type: proxy_covariate
+gee_sand_pct:
+  proxy_for: 砂粒
+  type: proxy_covariate
+gee_silt_pct:
+  proxy_for: 粉粒
+  type: proxy_covariate
+gee_bulk_density_g_cm3:
+  proxy_for: 容重/压实
+  type: proxy_covariate
+gee_nitrogen_g_kg:
+  proxy_for: 全氮
+  type: proxy_covariate

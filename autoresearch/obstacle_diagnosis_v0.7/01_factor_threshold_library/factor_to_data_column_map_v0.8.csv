@@ -1,0 +1,323 @@
+﻿factor_id,factor_name_norm,factor_name_cn,track,diagnosis_layer,threshold_role,threshold_available,data_column_matched,match_type,coverage_pct,coalesce_rule,is_measured,is_proxy,usable_for_formal_diagnosis,usable_for_supplementary_screening,usable_for_recommended_test,evidence_level,notes
+1,SoilBD_gcm3,土壤容重,production,formal,direct_standard,1,SoilBD_gcm3,exact,2.31,,True,False,1,1,0,B,
+,1112-四氯乙烷,1112-四氯乙烷,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,112-三氯乙烷,112-三氯乙烷,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,1122-四氯乙烷,1122-四氯乙烷,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,12-二氯丙烷,12-二氯丙烷,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,12-二氯乙烷,12-二氯乙烷,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,123-三氯丙烷,123-三氯丙烷,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,12-二溴乙烷,12-二溴乙烷,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,111-三氯乙烷,111-三氯乙烷,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,12-二氯苯,12-二氯苯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+68,钴,钴,production,formal,direct_standard,1,Co_mgkg,alias,1.65,Co_mgkg,True,False,1,1,0,A,
+70,钒,钒,production,formal,direct_standard,1,V_mgkg,alias,0.72,V_mgkg,True,False,0,1,0,A,
+44,Cr6_mgkg,铬(六价),production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+42,Cr_mgkg,铬,production,formal,direct_standard,1,Cr_mgkg,exact,46.3,,True,False,1,1,0,A,
+66,铍,铍,production,formal,direct_standard,1,Be_mgkg,alias,0.02,Be_mgkg,True,False,0,0,0,A,
+,11-二氯乙烷,11-二氯乙烷,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,11-二氯乙烯,11-二氯乙烯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+64,锑,锑,production,formal,direct_standard,1,Sb_mgkg,alias,0.34,Sb_mgkg,True,False,0,1,0,A,
+,14-二氯苯,14-二氯苯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+92,二氯甲烷,二氯甲烷,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+120,乙苯,乙苯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+106,三氯乙烯,三氯乙烯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+196,七氯,七氯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+152,一溴二氯甲烷,一溴二氯甲烷,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+156,二溴氯甲烷,二溴氯甲烷,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+160,六氯环戊二烯,六氯环戊二烯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+170,五氯酚,五氯酚,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,二苯并[ah]蒽,二苯并[ah]蒽,production,formal,direct_standard,1,DahA_ngg,compound_alias,0.5,,True,False,0,1,0,A,
+,33'445-五氯联苯(PCB126),33'445-五氯联苯(PCB126),production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,24-二硝基酚,24-二硝基酚,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,24-二硝基甲苯,24-二硝基甲苯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,24-二氯酚,24-二氯酚,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+134,2-氯酚,2-氯酚,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,246-三氯酚,246-三氯酚,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,33'44'55-六氯联苯(PCB169),33'44'55-六氯联苯(PCB169),production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,33'-二氯联苯胺,33'-二氯联苯胺,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+52,Pb_mgkg,铅,production,formal,direct_standard,1,Pb_mgkg,exact,55.91,,True,False,1,1,0,A,
+36,As_mgkg,砷,production,formal,direct_standard,1,As_mgkg,exact,40.32,,True,False,1,1,0,A,
+40,Cd_mgkg,镉,production,formal,direct_standard,1,Cd_mgkg,exact,55.02,,True,False,1,1,0,B,
+72,甲基汞,甲基汞,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+56,Hg_mgkg,汞,production,formal,direct_standard,1,Hg_mgkg,exact,25.28,,True,False,1,1,0,A,
+60,Ni_mgkg,镍,production,formal,direct_standard,1,Ni_mgkg,exact,29.11,,True,False,1,1,0,A,
+62,Zn_mgkg,锌,production,formal,direct_standard,1,Zn_mgkg,exact,48.27,,True,False,1,1,0,A,
+48,Cu_mgkg,铜,production,formal,direct_standard,1,Cu_mgkg,exact,48.6,,True,False,1,1,0,A,
+28,有效铜,有效铜,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+29,有效锌,有效锌,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+204,六氯苯,六氯苯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+21,OC_pct,有机质,production,formal,direct_standard,1,OC_pct,exact,34.69,,True,False,1,1,0,B,
+31,有效镁,有效镁,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+30,有效锰,有效锰,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+27,有效铁,有效铁,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+26,有效钼,有效钼,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+25,有效钙,有效钙,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+,有效耕作层厚度,有效耕作层厚度,production,recommended_test,proxy_indicator,1,,missing,0.0,,True,False,0,0,1,A,
+24,有效磷,有效磷,production,recommended_test,proxy_indicator,1,P_mgkg,alias,0.14,P_mgkg,True,False,0,0,0,B,
+,TN_gkg,全氮,production,recommended_test,proxy_indicator,1,TN_gkg,exact,3.66,,True,False,0,0,0,B,
+74,氰化物,氰化物,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+190,敌敌畏,敌敌畏,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+214,二噁英类(总毒性当量),二噁英类(总毒性当量),production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+192,乐果,乐果,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+181,SumHCHs_ngg,六六六总量,production,supplementary_screening,screening_reference,1,SumHCHs_ngg,exact,2.22,,True,False,0,1,0,A,
+23,有效硫,有效硫,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+188,SumDDTs_ngg,滴滴涕,production,supplementary_screening,screening_reference,1,SumDDTs_ngg,exact,2.42,,True,False,0,1,0,A,
+180,阿特拉津,阿特拉津,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+194,硫丹,硫丹,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+206,灭蚁灵,灭蚁灵,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+"注：
+区域定义（含核心管控导向）：
+普通绿化区：以基础生态覆盖为核心的绿地，包括道路绿化带、工厂附属绿地、社区外围绿地等，管控重点为土壤基础理化指标（如 pH、有效土层、入渗率），满足植物存活基本需求（依据 CJ/T 340-2016 “普通绿化区” 阈值）；
+耐盐碱种植区：受盐碱化影响的特殊绿地，包括滨海绿地、厂区次生盐碱绿地、盐碱地修复绿地等，管控重点为含盐量、交换性钠、钠吸附比等盐害指标（依据 CJ/T 340-2016 耐盐碱相关要求）；
+高景观绿化区：兼具景观展示与生态功能的绿地，包括植物园、城市核心花坛、生物滞留池、公园主景观区等，管控重点为肥力指标（如阳离子交换量、有机质、水解性氮等）与景观适配性（如石砾粒径），需满足 CJ/T 340-2016 “高景观绿化区” 必测 / 选测要求；
+设施绿化区：非常规场地绿化，包括屋顶绿化、地下顶面绿化、垂直绿化（构筑物壁面）等，管控重点为有效土层厚度（按植物类型区分：乔木≥80cm、灌木≥45cm、草坪≥15cm）、土壤密度（防荷载超限），依据 CJJ 82-2012 设施绿化相关要求；
+自然保育区：以生态保护为首要目标的绿地，包括水源涵养林、自然保护区绿地、生态修复核心区等，管控重点为重金属低限值（CJ/T 340-2016 I 级）与原生土壤结构保护，避免人为干预破坏生态平衡；
+一类用地绿地：人群高频接触的敏感绿地，包括住宅区内绿地、学校操场绿地、儿童公园、养老院附属绿地等，管控重点为污染物安全阈值（GB 36600-2018 “一类用地筛选值”），防范重金属、挥发性有机物通过接触 / 扬尘影响人体健康；
+二类用地绿地：人群低接触或功能性绿地，包括商业街区绿地、工业厂区绿地、仓储区周边绿地等，管控重点为基础生态功能（如滞尘、降噪），污染物指标可按 GB 36600-2018 “二类用地筛选值” 放宽，优先保障植物存活；
+污染管控区：潜在 / 历史污染绿地，包括废弃矿地、工业遗留场地修复绿地、污染土壤改良绿地等，管控重点为毒害重金属（砷、镉、铬、铅、汞）与特征污染物（如挥发性卤代烃），需符合 CJ/T 340-2016 IV 级或 GB 36600-2018 对应污染修复限值。
+公园绿地指标选取规则：
+应用场景中未单独列明的公园绿地，需按功能分区选取阈值：公园内花坛、专类园、生物滞留池等 “高景观功能区”，按 “高景观绿化区” 阈值执行；公园内普通游步道两侧、非景观核心区等 “基础绿化区”，按 “一般绿地” 阈值执行；儿童活动区、老人休憩区等 “人群高频接触区”，需额外符合 “一类用地绿地” 污染物限值。
+一般绿地指标取舍规则：
+应用场景中明确不含 “一般绿地”（核心场景为基础生态绿化，如道路基础绿化带、社区非景观绿地）的障碍因子时，仅针对非绿化主导功能区域（如绿地内纯硬化配套区、临时堆土区）可不予考虑；若场景涉及植物种植（即使非核心景观），仍需优先保障一般绿地的主控指标（pH、有效土层、入渗率、有机质）达标，避免因指标缺失导致植物生长异常。",发芽指数,发芽指数,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+32,速效钾,速效钾,production,recommended_test,proxy_indicator,1,K_mgkg,alias,1.83,K_mgkg,True,False,0,0,0,B,
+22,水解性氮,水解性氮,production,formal,direct_standard,1,TN_gkg,alias,3.66,TN_gkg,True,False,1,1,0,B,
+144,䓛,䓛,production,formal,direct_standard,1,Chr_ngg,compound_alias,0.75,,True,False,0,1,0,A,
+218,TPH_ngg,石油烃(C10-C40),production,supplementary_screening,screening_reference,1,TPH_ngg,exact,0.07,,True,False,0,0,0,A,
+124,甲苯,甲苯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+154,溴仿,溴仿,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+114,氯苯,氯苯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+80,氯甲烷,氯甲烷,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+130,硝基苯,硝基苯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+138,BaP_ngg,苯并[a]芘,production,supplementary_screening,screening_reference,1,BaP_ngg,exact,3.71,,True,False,0,1,0,A,
+122,苯乙烯,苯乙烯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+112,苯,苯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+78,氯仿,氯仿,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+208,多氯联苯(总量),多氯联苯(总量),production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+76,四氯化碳,四氯化碳,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+100,四氯乙烯,四氯乙烯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,反-12-二氯乙烯,反-12-二氯乙烯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+216,多溴联苯(总量),多溴联苯(总量),production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+110,氯乙烯,氯乙烯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+182,氯丹,氯丹,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+136,苯并[a]蒽,苯并[a]蒽,production,formal,direct_standard,1,BaA_ngg,compound_alias,0.61,,True,False,0,1,0,A,
+,pp'-滴滴伊,pp'-滴滴伊,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,顺-12-二氯乙烯,顺-12-二氯乙烯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,pp'-滴滴滴,pp'-滴滴滴,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+126,间-二甲苯+对-二甲苯,间-二甲苯+对-二甲苯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+176,邻苯二甲酸二正辛酯,邻苯二甲酸二正辛酯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+172,邻苯二甲酸二(2-乙基己基)酯,邻苯二甲酸二(2-乙基己基)酯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+132,苯胺,苯胺,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+142,苯并[k]荧蒽,苯并[k]荧蒽,production,formal,direct_standard,1,BkF_ngg,compound_alias,0.61,,True,False,0,1,0,A,
+,茚并[123-cd]芘,茚并[123-cd]芘,production,formal,direct_standard,1,Ind_ngg,compound_alias,0.45,,True,False,0,1,0,A,
+140,苯并[b]荧蒽,苯并[b]荧蒽,production,formal,direct_standard,1,BbF_ngg,compound_alias,0.65,,True,False,0,1,0,A,
+174,邻苯二甲酸丁基苄酯,邻苯二甲酸丁基苄酯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+128,邻-二甲苯,邻-二甲苯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+150,萘,萘,production,formal,direct_standard,1,Nap_ngg,compound_alias,2.73,,True,False,1,1,0,A,
+6,坡度,坡度,production,formal,direct_standard,1,Slope_pct,alias,0.0,Slope_pct,True,False,0,0,0,B,
+4,有效土层,有效土层,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+32,土壤质地,土壤质地,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+11,pH,pH,production,formal,direct_standard,1,pH_merged,coalesced,29.52,pH_merged|SoilpH|pH,True,False,1,1,0,B,
+13,EC_mScm,含盐量,production,formal,direct_standard,1,EC_mScm,exact,2.7,,True,False,1,1,0,B,
+17,可溶性硼,可溶性硼,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+16,可溶性氯,可溶性氯,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+14,交换性钠,交换性钠,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+18,钠吸附比,钠吸附比,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+19,CEC_cmolkg,阳离子交换量,production,formal,direct_standard,1,CEC_cmolkg,exact,28.33,,True,False,1,1,0,B,
+79,砾石含量,砾石含量,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+10,最大湿密度,最大湿密度,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+7,密度,密度,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+9,孔隙度,孔隙度,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+2,土壤粒径,土壤粒径,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+5,土壤入渗率,土壤入渗率,production,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+1,SoilBD_gcm3,土壤容重,ecology,formal,direct_standard,1,SoilBD_gcm3,exact,2.31,,True,False,1,1,0,B,
+,1112-四氯乙烷,1112-四氯乙烷,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,112-三氯乙烷,112-三氯乙烷,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,1122-四氯乙烷,1122-四氯乙烷,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,12-二氯丙烷,12-二氯丙烷,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,12-二氯乙烷,12-二氯乙烷,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,123-三氯丙烷,123-三氯丙烷,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,12-二溴乙烷,12-二溴乙烷,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,111-三氯乙烷,111-三氯乙烷,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,12-二氯苯,12-二氯苯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+68,钴,钴,ecology,formal,direct_standard,1,Co_mgkg,alias,1.65,Co_mgkg,True,False,1,1,0,A,
+70,钒,钒,ecology,formal,direct_standard,1,V_mgkg,alias,0.72,V_mgkg,True,False,0,1,0,A,
+44,Cr6_mgkg,铬(六价),ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+42,Cr_mgkg,铬,ecology,formal,direct_standard,1,Cr_mgkg,exact,46.3,,True,False,1,1,0,A,
+66,铍,铍,ecology,formal,direct_standard,1,Be_mgkg,alias,0.02,Be_mgkg,True,False,0,0,0,A,
+,11-二氯乙烷,11-二氯乙烷,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,11-二氯乙烯,11-二氯乙烯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+64,锑,锑,ecology,formal,direct_standard,1,Sb_mgkg,alias,0.34,Sb_mgkg,True,False,0,1,0,A,
+,14-二氯苯,14-二氯苯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+92,二氯甲烷,二氯甲烷,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+120,乙苯,乙苯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+106,三氯乙烯,三氯乙烯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+196,七氯,七氯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+152,一溴二氯甲烷,一溴二氯甲烷,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+156,二溴氯甲烷,二溴氯甲烷,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+160,六氯环戊二烯,六氯环戊二烯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+170,五氯酚,五氯酚,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,二苯并[ah]蒽,二苯并[ah]蒽,ecology,formal,direct_standard,1,DahA_ngg,compound_alias,0.5,,True,False,0,1,0,A,
+,33'445-五氯联苯(PCB126),33'445-五氯联苯(PCB126),ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,24-二硝基酚,24-二硝基酚,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,24-二硝基甲苯,24-二硝基甲苯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,24-二氯酚,24-二氯酚,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+134,2-氯酚,2-氯酚,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,246-三氯酚,246-三氯酚,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,33'44'55-六氯联苯(PCB169),33'44'55-六氯联苯(PCB169),ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,33'-二氯联苯胺,33'-二氯联苯胺,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+52,Pb_mgkg,铅,ecology,formal,direct_standard,1,Pb_mgkg,exact,55.91,,True,False,1,1,0,A,
+36,As_mgkg,砷,ecology,formal,direct_standard,1,As_mgkg,exact,40.32,,True,False,1,1,0,A,
+40,Cd_mgkg,镉,ecology,formal,direct_standard,1,Cd_mgkg,exact,55.02,,True,False,1,1,0,B,
+72,甲基汞,甲基汞,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+56,Hg_mgkg,汞,ecology,formal,direct_standard,1,Hg_mgkg,exact,25.28,,True,False,1,1,0,A,
+60,Ni_mgkg,镍,ecology,formal,direct_standard,1,Ni_mgkg,exact,29.11,,True,False,1,1,0,A,
+62,Zn_mgkg,锌,ecology,formal,direct_standard,1,Zn_mgkg,exact,48.27,,True,False,1,1,0,A,
+48,Cu_mgkg,铜,ecology,formal,direct_standard,1,Cu_mgkg,exact,48.6,,True,False,1,1,0,A,
+28,有效铜,有效铜,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+29,有效锌,有效锌,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+204,六氯苯,六氯苯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+21,OC_pct,有机质,ecology,formal,direct_standard,1,OC_pct,exact,34.69,,True,False,1,1,0,B,
+31,有效镁,有效镁,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+30,有效锰,有效锰,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+27,有效铁,有效铁,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+26,有效钼,有效钼,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+25,有效钙,有效钙,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+,有效耕作层厚度,有效耕作层厚度,ecology,recommended_test,proxy_indicator,1,,missing,0.0,,True,False,0,0,1,A,
+24,有效磷,有效磷,ecology,recommended_test,proxy_indicator,1,P_mgkg,alias,0.14,P_mgkg,True,False,0,0,0,B,
+,TN_gkg,全氮,ecology,recommended_test,proxy_indicator,1,TN_gkg,exact,3.66,,True,False,0,0,0,B,
+74,氰化物,氰化物,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+190,敌敌畏,敌敌畏,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+214,二噁英类(总毒性当量),二噁英类(总毒性当量),ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+192,乐果,乐果,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+181,SumHCHs_ngg,六六六总量,ecology,formal,direct_standard,1,SumHCHs_ngg,exact,2.22,,True,False,1,1,0,A,
+23,有效硫,有效硫,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+188,SumDDTs_ngg,滴滴涕,ecology,formal,direct_standard,1,SumDDTs_ngg,exact,2.42,,True,False,1,1,0,A,
+180,阿特拉津,阿特拉津,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+194,硫丹,硫丹,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+206,灭蚁灵,灭蚁灵,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+"注：
+区域定义（含核心管控导向）：
+普通绿化区：以基础生态覆盖为核心的绿地，包括道路绿化带、工厂附属绿地、社区外围绿地等，管控重点为土壤基础理化指标（如 pH、有效土层、入渗率），满足植物存活基本需求（依据 CJ/T 340-2016 “普通绿化区” 阈值）；
+耐盐碱种植区：受盐碱化影响的特殊绿地，包括滨海绿地、厂区次生盐碱绿地、盐碱地修复绿地等，管控重点为含盐量、交换性钠、钠吸附比等盐害指标（依据 CJ/T 340-2016 耐盐碱相关要求）；
+高景观绿化区：兼具景观展示与生态功能的绿地，包括植物园、城市核心花坛、生物滞留池、公园主景观区等，管控重点为肥力指标（如阳离子交换量、有机质、水解性氮等）与景观适配性（如石砾粒径），需满足 CJ/T 340-2016 “高景观绿化区” 必测 / 选测要求；
+设施绿化区：非常规场地绿化，包括屋顶绿化、地下顶面绿化、垂直绿化（构筑物壁面）等，管控重点为有效土层厚度（按植物类型区分：乔木≥80cm、灌木≥45cm、草坪≥15cm）、土壤密度（防荷载超限），依据 CJJ 82-2012 设施绿化相关要求；
+自然保育区：以生态保护为首要目标的绿地，包括水源涵养林、自然保护区绿地、生态修复核心区等，管控重点为重金属低限值（CJ/T 340-2016 I 级）与原生土壤结构保护，避免人为干预破坏生态平衡；
+一类用地绿地：人群高频接触的敏感绿地，包括住宅区内绿地、学校操场绿地、儿童公园、养老院附属绿地等，管控重点为污染物安全阈值（GB 36600-2018 “一类用地筛选值”），防范重金属、挥发性有机物通过接触 / 扬尘影响人体健康；
+二类用地绿地：人群低接触或功能性绿地，包括商业街区绿地、工业厂区绿地、仓储区周边绿地等，管控重点为基础生态功能（如滞尘、降噪），污染物指标可按 GB 36600-2018 “二类用地筛选值” 放宽，优先保障植物存活；
+污染管控区：潜在 / 历史污染绿地，包括废弃矿地、工业遗留场地修复绿地、污染土壤改良绿地等，管控重点为毒害重金属（砷、镉、铬、铅、汞）与特征污染物（如挥发性卤代烃），需符合 CJ/T 340-2016 IV 级或 GB 36600-2018 对应污染修复限值。
+公园绿地指标选取规则：
+应用场景中未单独列明的公园绿地，需按功能分区选取阈值：公园内花坛、专类园、生物滞留池等 “高景观功能区”，按 “高景观绿化区” 阈值执行；公园内普通游步道两侧、非景观核心区等 “基础绿化区”，按 “一般绿地” 阈值执行；儿童活动区、老人休憩区等 “人群高频接触区”，需额外符合 “一类用地绿地” 污染物限值。
+一般绿地指标取舍规则：
+应用场景中明确不含 “一般绿地”（核心场景为基础生态绿化，如道路基础绿化带、社区非景观绿地）的障碍因子时，仅针对非绿化主导功能区域（如绿地内纯硬化配套区、临时堆土区）可不予考虑；若场景涉及植物种植（即使非核心景观），仍需优先保障一般绿地的主控指标（pH、有效土层、入渗率、有机质）达标，避免因指标缺失导致植物生长异常。",发芽指数,发芽指数,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+32,速效钾,速效钾,ecology,recommended_test,proxy_indicator,1,K_mgkg,alias,1.83,K_mgkg,True,False,0,0,0,B,
+22,水解性氮,水解性氮,ecology,formal,direct_standard,1,TN_gkg,alias,3.66,TN_gkg,True,False,1,1,0,B,
+144,䓛,䓛,ecology,formal,direct_standard,1,Chr_ngg,compound_alias,0.75,,True,False,0,1,0,A,
+218,TPH_ngg,石油烃(C10-C40),ecology,formal,direct_standard,1,TPH_ngg,exact,0.07,,True,False,0,0,0,A,
+124,甲苯,甲苯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+154,溴仿,溴仿,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+114,氯苯,氯苯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+80,氯甲烷,氯甲烷,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+130,硝基苯,硝基苯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+138,BaP_ngg,苯并[a]芘,ecology,formal,direct_standard,1,BaP_ngg,exact,3.71,,True,False,1,1,0,A,
+122,苯乙烯,苯乙烯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+112,苯,苯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+78,氯仿,氯仿,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+208,多氯联苯(总量),多氯联苯(总量),ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+76,四氯化碳,四氯化碳,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+100,四氯乙烯,四氯乙烯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,反-12-二氯乙烯,反-12-二氯乙烯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+216,多溴联苯(总量),多溴联苯(总量),ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+110,氯乙烯,氯乙烯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+182,氯丹,氯丹,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+136,苯并[a]蒽,苯并[a]蒽,ecology,formal,direct_standard,1,BaA_ngg,compound_alias,0.61,,True,False,0,1,0,A,
+,pp'-滴滴伊,pp'-滴滴伊,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,顺-12-二氯乙烯,顺-12-二氯乙烯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+,pp'-滴滴滴,pp'-滴滴滴,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+126,间-二甲苯+对-二甲苯,间-二甲苯+对-二甲苯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+176,邻苯二甲酸二正辛酯,邻苯二甲酸二正辛酯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+172,邻苯二甲酸二(2-乙基己基)酯,邻苯二甲酸二(2-乙基己基)酯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+132,苯胺,苯胺,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+142,苯并[k]荧蒽,苯并[k]荧蒽,ecology,formal,direct_standard,1,BkF_ngg,compound_alias,0.61,,True,False,0,1,0,A,
+,茚并[123-cd]芘,茚并[123-cd]芘,ecology,formal,direct_standard,1,Ind_ngg,compound_alias,0.45,,True,False,0,1,0,A,
+140,苯并[b]荧蒽,苯并[b]荧蒽,ecology,formal,direct_standard,1,BbF_ngg,compound_alias,0.65,,True,False,0,1,0,A,
+174,邻苯二甲酸丁基苄酯,邻苯二甲酸丁基苄酯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+128,邻-二甲苯,邻-二甲苯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,A,"数据无对应列, 建议补测"
+150,萘,萘,ecology,formal,direct_standard,1,Nap_ngg,compound_alias,2.73,,True,False,1,1,0,A,
+6,坡度,坡度,ecology,formal,direct_standard,1,Slope_pct,alias,0.0,Slope_pct,True,False,0,0,0,B,
+4,有效土层,有效土层,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+32,土壤质地,土壤质地,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+11,pH,pH,ecology,formal,direct_standard,1,pH_merged,coalesced,29.52,pH_merged|SoilpH|pH,True,False,1,1,0,B,
+13,EC_mScm,含盐量,ecology,formal,direct_standard,1,EC_mScm,exact,2.7,,True,False,1,1,0,B,
+17,可溶性硼,可溶性硼,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+16,可溶性氯,可溶性氯,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+14,交换性钠,交换性钠,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+18,钠吸附比,钠吸附比,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+19,CEC_cmolkg,阳离子交换量,ecology,formal,direct_standard,1,CEC_cmolkg,exact,28.33,,True,False,1,1,0,B,
+79,砾石含量,砾石含量,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+10,最大湿密度,最大湿密度,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+7,密度,密度,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+9,孔隙度,孔隙度,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+2,土壤粒径,土壤粒径,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+5,土壤入渗率,土壤入渗率,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,B,"数据无对应列, 建议补测"
+146,"二苯并[a,h]蒽","二苯并[a,h]蒽",ecology,formal,direct_standard,1,DahA_ngg,compound_alias,0.5,,True,False,0,1,0,C,
+148,"茚并[1,2,3-cd]芘","茚并[1,2,3-cd]芘",ecology,formal,direct_standard,1,Ind_ngg,compound_alias,0.45,,True,False,0,1,0,C,
+158,"1,2-二溴乙烷","1,2-二溴乙烷",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+162,"2,4-二硝基甲苯","2,4-二硝基甲苯",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+164,"2,4-二氯酚","2,4-二氯酚",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+168,"2,4-二硝基酚","2,4-二硝基酚",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+178,"3,3'-二氯联苯胺","3,3'-二氯联苯胺",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+118,"1,4-二氯苯","1,4-二氯苯",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+166,"2,4,6-三氯酚","2,4,6-三氯酚",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+116,"1,2-二氯苯","1,2-二氯苯",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+88,"顺-1,2-二氯乙烯","顺-1,2-二氯乙烯",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+104,"1,1,2-三氯乙烷","1,1,2-三氯乙烷",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+102,"1,1,1-三氯乙烷","1,1,1-三氯乙烷",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+98,"1,1,2,2-四氯乙烷","1,1,2,2-四氯乙烷",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+96,"1,1,1,2-四氯乙烷","1,1,1,2-四氯乙烷",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+94,"1,2-二氯丙烷","1,2-二氯丙烷",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+90,"反-1,2-二氯乙烯","反-1,2-二氯乙烯",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+86,"1,1-二氯乙烯","1,1-二氯乙烯",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+84,"1,2-二氯乙烷","1,2-二氯乙烷",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+82,"1,1-二氯乙烷","1,1-二氯乙烷",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+,,,ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+210,"3,3'4,4',5-五氯联苯(PCB126)","3,3'4,4',5-五氯联苯(PCB126)",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+108,"1,2,3-三氯丙烷","1,2,3-三氯丙烷",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+212,"3,3'4,4'5,5'-六氯联苯(PCB169)","3,3'4,4'5,5'-六氯联苯(PCB169)",ecology,formal,direct_standard,1,,missing,0.0,,True,False,0,0,1,C,"数据无对应列, 建议补测"
+PAHs_total,PAHs_total,PAHs总量,production,supplementary_screening,screening_reference,1,Sum_PAH_ngg,family_aggregate,10.26,,True,False,0,1,0,B,族群总量列
+PAHs_total,PAHs_total,PAHs总量,ecology,supplementary_screening,screening_reference,1,Sum_PAH_ngg,family_aggregate,10.26,,True,False,0,1,0,B,族群总量列
+PCBs_total,PCBs_total,多氯联苯总量,production,supplementary_screening,screening_reference,1,SumPCB_ngg,family_aggregate,0.81,,True,False,0,1,0,B,族群总量列
+PCBs_total,PCBs_total,多氯联苯总量,ecology,supplementary_screening,screening_reference,1,SumPCB_ngg,family_aggregate,0.81,,True,False,0,1,0,B,族群总量列
+PBDEs_total,PBDEs_total,多溴二苯醚总量,production,supplementary_screening,screening_reference,1,SumPBDE_ngg,family_aggregate,0.66,,True,False,0,1,0,B,族群总量列
+PBDEs_total,PBDEs_total,多溴二苯醚总量,ecology,supplementary_screening,screening_reference,1,SumPBDE_ngg,family_aggregate,0.66,,True,False,0,1,0,B,族群总量列
+PFAS_total,PFAS_total,PFAS总量,production,supplementary_screening,screening_reference,1,SumPFAS_ngg,family_aggregate,0.26,,True,False,0,1,0,B,族群总量列
+PFAS_total,PFAS_total,PFAS总量,ecology,supplementary_screening,screening_reference,1,SumPFAS_ngg,family_aggregate,0.26,,True,False,0,1,0,B,族群总量列
+PAEs_total,PAEs_total,邻苯二甲酸酯总量,production,supplementary_screening,screening_reference,1,SumPAE_ugkg,family_aggregate,0.42,,True,False,0,1,0,B,族群总量列
+PAEs_total,PAEs_total,邻苯二甲酸酯总量,ecology,supplementary_screening,screening_reference,1,SumPAE_ugkg,family_aggregate,0.42,,True,False,0,1,0,B,族群总量列
+gee_ndvi,gee_ndvi,植被恢复潜力,production,background_only,proxy_indicator,0,gee_ndvi,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_ndvi,gee_ndvi,植被恢复潜力,ecology,background_only,proxy_indicator,0,gee_ndvi,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_precip_annual_mm,gee_precip_annual_mm,气候水分条件,production,background_only,proxy_indicator,0,gee_precip_annual_mm,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_precip_annual_mm,gee_precip_annual_mm,气候水分条件,ecology,background_only,proxy_indicator,0,gee_precip_annual_mm,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_temp_mean_c,gee_temp_mean_c,光温条件,production,background_only,proxy_indicator,0,gee_temp_mean_c,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_temp_mean_c,gee_temp_mean_c,光温条件,ecology,background_only,proxy_indicator,0,gee_temp_mean_c,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_elevation_m,gee_elevation_m,海拔,production,background_only,proxy_indicator,0,gee_elevation_m,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_elevation_m,gee_elevation_m,海拔,ecology,background_only,proxy_indicator,0,gee_elevation_m,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_slope_deg,gee_slope_deg,坡度,production,background_only,proxy_indicator,0,gee_slope_deg,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_slope_deg,gee_slope_deg,坡度,ecology,background_only,proxy_indicator,0,gee_slope_deg,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_aspect_deg,gee_aspect_deg,坡向,production,background_only,proxy_indicator,0,gee_aspect_deg,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_aspect_deg,gee_aspect_deg,坡向,ecology,background_only,proxy_indicator,0,gee_aspect_deg,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_soil_pH,gee_soil_pH,pH代理,production,background_only,proxy_indicator,0,gee_soil_pH,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_soil_pH,gee_soil_pH,pH代理,ecology,background_only,proxy_indicator,0,gee_soil_pH,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_soc_g_kg,gee_soc_g_kg,有机碳代理,production,background_only,proxy_indicator,0,gee_soc_g_kg,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_soc_g_kg,gee_soc_g_kg,有机碳代理,ecology,background_only,proxy_indicator,0,gee_soc_g_kg,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_cec_cmol_kg,gee_cec_cmol_kg,CEC代理,production,background_only,proxy_indicator,0,gee_cec_cmol_kg,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_cec_cmol_kg,gee_cec_cmol_kg,CEC代理,ecology,background_only,proxy_indicator,0,gee_cec_cmol_kg,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_clay_pct,gee_clay_pct,黏粒代理,production,background_only,proxy_indicator,0,gee_clay_pct,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_clay_pct,gee_clay_pct,黏粒代理,ecology,background_only,proxy_indicator,0,gee_clay_pct,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_sand_pct,gee_sand_pct,砂粒代理,production,background_only,proxy_indicator,0,gee_sand_pct,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_sand_pct,gee_sand_pct,砂粒代理,ecology,background_only,proxy_indicator,0,gee_sand_pct,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_silt_pct,gee_silt_pct,粉粒代理,production,background_only,proxy_indicator,0,gee_silt_pct,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_silt_pct,gee_silt_pct,粉粒代理,ecology,background_only,proxy_indicator,0,gee_silt_pct,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_bulk_density_g_cm3,gee_bulk_density_g_cm3,容重代理,production,background_only,proxy_indicator,0,gee_bulk_density_g_cm3,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_bulk_density_g_cm3,gee_bulk_density_g_cm3,容重代理,ecology,background_only,proxy_indicator,0,gee_bulk_density_g_cm3,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_nitrogen_g_kg,gee_nitrogen_g_kg,全氮代理,production,background_only,proxy_indicator,0,gee_nitrogen_g_kg,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
+gee_nitrogen_g_kg,gee_nitrogen_g_kg,全氮代理,ecology,background_only,proxy_indicator,0,gee_nitrogen_g_kg,proxy_covariate,0.0,,False,True,0,0,0,C,"GEE栅格代理, 非实测"
