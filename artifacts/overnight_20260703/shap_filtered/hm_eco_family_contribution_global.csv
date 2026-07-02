@@ -1,0 +1,6 @@
+group,mean_abs_shap,mean_signed,n_features,members,direction,contribution_share,category
+PAEs_total(族群),1.5e-05,1.4894132253704233e-05,1,['x_family_PAEs_total'],positive,4e-05,family_contribution
+PFAS_total(族群),5e-06,3.926749881811235e-06,1,['x_family_PFAS_total'],positive,1.2e-05,family_contribution
+PAHs_total(族群),2e-06,-2.2916707350835478e-06,1,['x_family_PAHs_total'],negative,6e-06,family_contribution
+PBDEs_total(族群),2e-06,-1.8415766633107764e-06,1,['x_family_PBDEs_total'],negative,5e-06,family_contribution
+PCBs_total(族群),1e-06,-4.705260904997754e-07,1,['x_family_PCBs_total'],negative,2e-06,family_contribution

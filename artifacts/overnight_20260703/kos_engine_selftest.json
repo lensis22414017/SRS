@@ -1,0 +1,52 @@
+{
+  "key_obstacles": [
+    {
+      "factor": "Cd_mgkg",
+      "value": 0.8,
+      "threshold": {
+        "type": "upper",
+        "limit": 0.6
+      },
+      "B": 1,
+      "R": 0.3534,
+      "W": 0.9,
+      "M": 0.3141,
+      "S": 0.8,
+      "E": "A",
+      "E_score": 1.0,
+      "is_measured": true,
+      "KOS": 0.6381,
+      "layer": "formal"
+    }
+  ],
+  "recommended_tests": [
+    {
+      "factor": "Hg_mgkg",
+      "value": null,
+      "threshold": {
+        "type": "upper",
+        "limit": 1.3
+      },
+      "B": 0,
+      "R": 0.0,
+      "W": 0.6,
+      "M": 0.0326,
+      "S": 0.8,
+      "E": "C",
+      "E_score": 0.5,
+      "is_measured": false,
+      "KOS": 0.0,
+      "layer": "recommended_test"
+    }
+  ],
+  "data_quality_flags": [],
+  "n_formal": 1,
+  "n_recommended": 1,
+  "kos_weights": {
+    "R": 0.3,
+    "W": 0.25,
+    "M": 0.15,
+    "S": 0.2,
+    "E": 0.1
+  }
+}

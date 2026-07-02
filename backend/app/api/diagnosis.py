@@ -147,3 +147,48 @@ def latest_diagnosis(site_id: int, user: User = Depends(get_current_user),
         "shap_global": diag.shap_global,
         "created_at": str(diag.created_at),
     }
+
+
+# ──────────────────────────────────────────────────────────────
+# P4 KOS 诊断端点(基于 P3-Alpha 模型 + KOS 引擎)
+# ──────────────────────────────────────────────────────────────
+@router.post("/sites/{site_id}/kos-diagnosis")
+def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(prod|eco)$"),
+                          subset: str = Query("all", pattern="^(all|hm|op)$"),
+                          top_n: int = Query(10, ge=3, le=30),
+                          user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    """运行 KOS 诊断(三层输出:明确障碍 + 关键障碍 KOS + 补测建议)。"""
+    site = _require_site(db, user, site_id)
+    from app.services.kos_service import run_kos_diagnosis
+    points = db.query(SamplingPoint).filter(SamplingPoint.site_id == site_id).all()
+    site_values = {}
+    for p in points:
+        for m in (p.measurements or []):
+            fn = m.factor.factor_name if m.factor else None
+            if fn and m.value is not None:
+                if fn not in site_values or m.value > site_values[fn]:
+                    site_values[fn] = float(m.value)
+    if not site_values:
+        raise HTTPException(400, "场地无检测数据,无法诊断")
+    result = run_kos_diagnosis(site_values, track=track, subset=subset, top_n=top_n)
+    result["site_id"] = site_id
+    result["site_name"] = site.name
+    return result
+
+
+@router.get("/models/registry")
+def get_model_registry(user: User = Depends(get_current_user)):
+    """获取模型注册表(前端用于显示模型版本/状态)。"""
+    import json, os
+    _f = os.path.abspath(__file__)  # backend/app/api/diagnosis.py
+    _root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(_f))))
+    candidates = [
+        os.path.join(_root, "ml", "artifacts", "p3_alpha", "model_registry_v0.8.json"),
+        os.path.join(os.getcwd(), "ml", "artifacts", "p3_alpha", "model_registry_v0.8.json"),
+        os.path.join(os.getcwd(), "..", "ml", "artifacts", "p3_alpha", "model_registry_v0.8.json"),
+    ]
+    reg_path = next((p for p in candidates if os.path.exists(p)), None)
+    if not reg_path:
+        raise HTTPException(404, f"模型注册表未生成 (searched: {candidates})")
+    with open(reg_path, encoding="utf-8") as f:
+        return json.load(f)

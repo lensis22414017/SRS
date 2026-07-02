@@ -1,0 +1,15 @@
+group,mean_abs_shap,mean_signed,n_features,members,direction,contribution_share,category
+GEE_gee_elevation_m,3.3e-05,3.27741259972172e-05,1,['x_proxy_gee_gee_elevation_m'],positive,0.000133,proxy_signal
+GEE_gee_temp_mean_c,3e-05,2.9139781455619405e-05,1,['x_proxy_gee_gee_temp_mean_c'],positive,0.000121,proxy_signal
+GEE_gee_sand_pct,2e-05,-1.5201480836911295e-05,1,['x_proxy_gee_gee_sand_pct'],negative,8.2e-05,proxy_signal
+GEE_gee_aspect_deg,1.8e-05,1.822568547823182e-05,1,['x_proxy_gee_gee_aspect_deg'],positive,7.5e-05,proxy_signal
+GEE_gee_clay_pct,1.6e-05,-2.4667402804225937e-06,1,['x_proxy_gee_gee_clay_pct'],negative,6.3e-05,proxy_signal
+GEE_gee_precip_annual_mm,1.3e-05,1.3400650843551281e-05,1,['x_proxy_gee_gee_precip_annual_mm'],positive,5.4e-05,proxy_signal
+GEE_gee_cec_cmol_kg,1.3e-05,1.4012809787975953e-06,1,['x_proxy_gee_gee_cec_cmol_kg'],positive,5.4e-05,proxy_signal
+GEE_gee_ndvi,1.2e-05,8.905518006731578e-06,1,['x_proxy_gee_gee_ndvi'],positive,5e-05,proxy_signal
+GEE_gee_slope_deg,1.2e-05,1.1221416947481623e-05,1,['x_proxy_gee_gee_slope_deg'],positive,4.7e-05,proxy_signal
+GEE_gee_silt_pct,9e-06,8.929143728012534e-06,1,['x_proxy_gee_gee_silt_pct'],positive,3.7e-05,proxy_signal
+GEE_gee_soil_pH,8e-06,6.468947452198361e-06,1,['x_proxy_gee_gee_soil_pH'],positive,3.1e-05,proxy_signal
+GEE_gee_bulk_density_g_cm3,4e-06,-2.92314527312677e-06,1,['x_proxy_gee_gee_bulk_density_g_cm3'],negative,1.5e-05,proxy_signal
+GEE_gee_nitrogen_g_kg,3e-06,-6.41016045629229e-07,1,['x_proxy_gee_gee_nitrogen_g_kg'],negative,1.2e-05,proxy_signal
+GEE_gee_soc_g_kg,2e-06,1.409237010851701e-07,1,['x_proxy_gee_gee_soc_g_kg'],positive,8e-06,proxy_signal

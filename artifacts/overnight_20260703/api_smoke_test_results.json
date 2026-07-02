@@ -1,0 +1,14 @@
+{
+  "passed": 6,
+  "failed": 1,
+  "total": 7,
+  "items": [
+    "✅ 登录 200",
+    "✅ 模型注册表 models=6",
+    "✅ all_prod approved ",
+    "✅ op_prod exploratory ",
+    "✅ all_prod frontend ",
+    "❌ 场地列表 n=0",
+    "✅ 未授权401 "
+  ]
+}

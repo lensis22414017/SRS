@@ -1,0 +1,234 @@
+{
+  "track": "prod",
+  "model_id": "all_prod_Full_RandomForest",
+  "data_version": "Gold Dataset v0.8",
+  "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+  "model_status": "approved_alpha",
+  "explicit_obstacles": [
+    {
+      "factor": "As_mgkg",
+      "value": 80.0,
+      "threshold": {
+        "type": "upper",
+        "limit": 40
+      },
+      "severity_R": 0.4582,
+      "source": "规则判障碍"
+    },
+    {
+      "factor": "Pb_mgkg",
+      "value": 300.0,
+      "threshold": {
+        "type": "upper",
+        "limit": 170
+      },
+      "severity_R": 0.4241,
+      "source": "规则判障碍"
+    },
+    {
+      "factor": "Cu_mgkg",
+      "value": 150.0,
+      "threshold": {
+        "type": "upper",
+        "limit": 100
+      },
+      "severity_R": 0.3821,
+      "source": "规则判障碍"
+    },
+    {
+      "factor": "Zn_mgkg",
+      "value": 400.0,
+      "threshold": {
+        "type": "upper",
+        "limit": 300
+      },
+      "severity_R": 0.3534,
+      "source": "规则判障碍"
+    },
+    {
+      "factor": "pH",
+      "value": 4.5,
+      "threshold": {
+        "type": "interval",
+        "min": 5.5,
+        "max": 8.5
+      },
+      "severity_R": 0.3333,
+      "source": "规则判障碍"
+    }
+  ],
+  "key_obstacles": [
+    {
+      "rank": 1,
+      "factor": "As_mgkg",
+      "KOS": 0.6442,
+      "components": {
+        "R": 0.4582,
+        "W": 0.85,
+        "M": 0.228,
+        "S": 0.8,
+        "E": "A"
+      },
+      "value": 80.0,
+      "evidence": "A"
+    },
+    {
+      "rank": 2,
+      "factor": "Pb_mgkg",
+      "KOS": 0.6039,
+      "components": {
+        "R": 0.4241,
+        "W": 0.8,
+        "M": 0.1113,
+        "S": 0.8,
+        "E": "A"
+      },
+      "value": 300.0,
+      "evidence": "A"
+    },
+    {
+      "rank": 3,
+      "factor": "Cu_mgkg",
+      "KOS": 0.574,
+      "components": {
+        "R": 0.3821,
+        "W": 0.75,
+        "M": 0.079,
+        "S": 0.8,
+        "E": "A"
+      },
+      "value": 150.0,
+      "evidence": "A"
+    },
+    {
+      "rank": 4,
+      "factor": "Zn_mgkg",
+      "KOS": 0.5613,
+      "components": {
+        "R": 0.3534,
+        "W": 0.7,
+        "M": 0.1354,
+        "S": 0.8,
+        "E": "A"
+      },
+      "value": 400.0,
+      "evidence": "A"
+    },
+    {
+      "rank": 5,
+      "factor": "pH",
+      "KOS": 0.5602,
+      "components": {
+        "R": 0.3333,
+        "W": 0.8,
+        "M": 0.0013,
+        "S": 0.8,
+        "E": "A"
+      },
+      "value": 4.5,
+      "evidence": "A"
+    }
+  ],
+  "recommended_tests": [
+    {
+      "factor": "Ni_mgkg",
+      "reason": "未实测,证据等级C",
+      "evidence": "C"
+    },
+    {
+      "factor": "BaP_ngg",
+      "reason": "未实测,证据等级C",
+      "evidence": "C"
+    },
+    {
+      "factor": "SumHCHs_ngg",
+      "reason": "未实测,证据等级C",
+      "evidence": "C"
+    },
+    {
+      "factor": "SumDDTs_ngg",
+      "reason": "未实测,证据等级C",
+      "evidence": "C"
+    },
+    {
+      "factor": "Hg_mgkg",
+      "reason": "未实测,证据等级C",
+      "evidence": "C"
+    },
+    {
+      "factor": "Cr_mgkg",
+      "reason": "未实测,证据等级C",
+      "evidence": "C"
+    }
+  ],
+  "model_contribution": [
+    {
+      "factor": "Cd_mgkg",
+      "contribution": 0.3149286137245872,
+      "direction": "negative"
+    },
+    {
+      "factor": "As_mgkg",
+      "contribution": 0.2280413185077966,
+      "direction": "positive"
+    },
+    {
+      "factor": "Zn_mgkg",
+      "contribution": 0.1353510099348641,
+      "direction": "positive"
+    },
+    {
+      "factor": "Pb_mgkg",
+      "contribution": 0.1113099546022764,
+      "direction": "positive"
+    },
+    {
+      "factor": "Cu_mgkg",
+      "contribution": 0.0790183564708204,
+      "direction": "negative"
+    },
+    {
+      "factor": "OC_pct",
+      "contribution": 0.0730574379893414,
+      "direction": "negative"
+    },
+    {
+      "factor": "Hg_mgkg",
+      "contribution": 0.0327258372261333,
+      "direction": "positive"
+    },
+    {
+      "factor": "Cr_mgkg",
+      "contribution": 0.0112375814198302,
+      "direction": "negative"
+    },
+    {
+      "factor": "ph",
+      "contribution": 0.0052898216987959,
+      "direction": "positive"
+    },
+    {
+      "factor": "Ni_mgkg",
+      "contribution": 0.0052503454174616,
+      "direction": "negative"
+    }
+  ],
+  "data_quality_flags": [],
+  "review_required": false,
+  "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+  "organic_guardrails": {
+    "n_formal": 6,
+    "n_family_warning": 0,
+    "n_tef": 0,
+    "n_unknown": 0,
+    "has_unknown_risk": false
+  },
+  "kos_weights": {
+    "R": 0.3,
+    "W": 0.25,
+    "M": 0.15,
+    "S": 0.2,
+    "E": 0.1
+  },
+  "interpretation_note": "模型贡献度, 非因果, 非障碍高度"
+}
