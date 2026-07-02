@@ -1,0 +1,13 @@
+{
+  "base_value": 0.016212,
+  "n_explained": 500,
+  "n_features": 110,
+  "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+  "top5_global": [
+    "GEE_gee_soc_g_kg",
+    "PAHs_total(族群)",
+    "缺失指示_gee_soc_g_kg",
+    "缺失指示_TN_gkg",
+    "缺失指示_Cu_mgkg"
+  ]
+}

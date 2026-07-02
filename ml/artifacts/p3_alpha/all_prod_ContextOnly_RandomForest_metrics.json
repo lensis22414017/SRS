@@ -1,0 +1,45 @@
+{
+  "subset": "all",
+  "track": "prod",
+  "model_name": "RandomForest",
+  "ablation": "ContextOnly",
+  "n_features": 69,
+  "n_train": 21624,
+  "n_valid": 0,
+  "n_test": 5407,
+  "test_spearman": 0.3109867650293919,
+  "test_mae": 0.15325698649181863,
+  "test_r2": -0.03491393656728703,
+  "test_spearman_ci_low": 0.28525141320705144,
+  "test_spearman_ci_high": 0.33601712680903784,
+  "grouped_stability_std": 0.4878910219617856,
+  "top5_stability": 0.9700000000000002,
+  "cv_spearman_mean": 0.4713467383847924,
+  "cv_spearman_std": 0.08983960364352839,
+  "target_zero_rate_test": 0.39855742555945994,
+  "metadata": {
+    "all_cv_scores": {
+      "RandomForest": [
+        0.4713467383847924,
+        0.08983960364352839
+      ],
+      "ExtraTrees": [
+        0.4579549669186383,
+        0.016969380601180712
+      ],
+      "HGB": [
+        0.4170615587968718,
+        0.057071526006036766
+      ]
+    },
+    "target_col": "OI_prod_formal",
+    "leakage_check": {
+      "passed": true,
+      "forbidden_hits": []
+    },
+    "ablation_prefixes": [
+      "x_proxy_gee_",
+      "x_missing_"
+    ]
+  }
+}

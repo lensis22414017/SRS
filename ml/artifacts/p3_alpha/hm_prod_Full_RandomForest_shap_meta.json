@@ -1,0 +1,13 @@
+{
+  "base_value": 0.080546,
+  "n_explained": 500,
+  "n_features": 110,
+  "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+  "top5_global": [
+    "缺失指示_gee_soil_pH",
+    "缺失指示_苯并[b]荧蒽",
+    "缺失指示_As_mgkg",
+    "Cu_mgkg",
+    "Pb_mgkg"
+  ]
+}

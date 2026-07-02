@@ -1,0 +1,45 @@
+{
+  "subset": "all",
+  "track": "prod",
+  "model_name": "RandomForest",
+  "ablation": "MeasuredOnly",
+  "n_features": 91,
+  "n_train": 21624,
+  "n_valid": 0,
+  "n_test": 5407,
+  "test_spearman": 0.967610352341157,
+  "test_mae": 0.04609003591524778,
+  "test_r2": 0.8346280381639792,
+  "test_spearman_ci_low": 0.9650127280409244,
+  "test_spearman_ci_high": 0.970010555720788,
+  "grouped_stability_std": 0.22681469572845847,
+  "top5_stability": 1.0,
+  "cv_spearman_mean": 0.938088381250117,
+  "cv_spearman_std": 0.035713754170274836,
+  "target_zero_rate_test": 0.39855742555945994,
+  "metadata": {
+    "all_cv_scores": {
+      "RandomForest": [
+        0.938088381250117,
+        0.035713754170274836
+      ],
+      "ExtraTrees": [
+        0.7853598601626537,
+        0.055105695087498276
+      ],
+      "HGB": [
+        0.8092170712189066,
+        0.07618434279707
+      ]
+    },
+    "target_col": "OI_prod_formal",
+    "leakage_check": {
+      "passed": true,
+      "forbidden_hits": []
+    },
+    "ablation_prefixes": [
+      "x_measured_",
+      "x_missing_"
+    ]
+  }
+}

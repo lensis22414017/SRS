@@ -1,0 +1,45 @@
+{
+  "subset": "all",
+  "track": "eco",
+  "model_name": "RandomForest",
+  "ablation": "MeasuredOnly",
+  "n_features": 91,
+  "n_train": 21624,
+  "n_valid": 0,
+  "n_test": 5407,
+  "test_spearman": 0.9695415415723233,
+  "test_mae": 0.037616467219403274,
+  "test_r2": 0.8149368381264632,
+  "test_spearman_ci_low": 0.9667781670345725,
+  "test_spearman_ci_high": 0.971974266840086,
+  "grouped_stability_std": 0.2589123768729655,
+  "top5_stability": 0.9640000000000001,
+  "cv_spearman_mean": 0.8912420102305397,
+  "cv_spearman_std": 0.06097745254614227,
+  "target_zero_rate_test": 0.4192713149620862,
+  "metadata": {
+    "all_cv_scores": {
+      "RandomForest": [
+        0.8912420102305397,
+        0.06097745254614227
+      ],
+      "ExtraTrees": [
+        0.7869098688249458,
+        0.07502018852336197
+      ],
+      "HGB": [
+        0.7873592690579015,
+        0.0795215847123098
+      ]
+    },
+    "target_col": "OI_eco_formal",
+    "leakage_check": {
+      "passed": true,
+      "forbidden_hits": []
+    },
+    "ablation_prefixes": [
+      "x_measured_",
+      "x_missing_"
+    ]
+  }
+}
