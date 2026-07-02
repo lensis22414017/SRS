@@ -42,8 +42,6 @@ explain_regression = _shap_svc.explain_regression
 ART = os.path.join(ROOT, "ml", "artifacts", "p3_alpha")
 _OUT_BASE = os.path.join(ROOT, "artifacts", "overnight_20260703")
 
-ART = "ml/artifacts/p3_alpha"
-
 # 生产轨阈值(GB15618 简化,mg/kg)
 PROD_THRESHOLDS = {
     "Cd_mgkg": {"type": "upper", "limit": 0.6}, "Pb_mgkg": {"type": "upper", "limit": 170},

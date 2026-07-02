@@ -109,6 +109,10 @@ export const api = {
   runDiagnosis: (id: number) => client.post(`/sites/${id}/diagnosis`).then((r) => r.data),
   diagnosisHistory: (siteId: number) => client.get(`/sites/${siteId}/diagnoses`).then((r) => r.data),
   diagnosisDetail: (diagnosisId: number) => client.get(`/diagnoses/${diagnosisId}`).then((r) => r.data),
+  // P4 KOS 诊断(三层输出: 明确障碍 + 关键障碍 + 补测建议)
+  kosDiagnosis: (id: number, track: "prod" | "eco" = "prod", subset: "all" | "hm" | "op" = "all") =>
+    client.post(`/sites/${id}/kos-diagnosis?track=${track}&subset=${subset}`).then((r) => r.data),
+  modelRegistry: () => client.get(`/models/registry`).then((r) => r.data),
   evaluation: (id: number) => client.get(`/sites/${id}/evaluation`).then((r) => r.data),
   runEvaluation: (id: number) => client.post(`/sites/${id}/evaluation`).then((r) => r.data),
   recommendation: (id: number) => client.get(`/sites/${id}/recommendation`).then((r) => r.data),

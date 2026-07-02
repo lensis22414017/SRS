@@ -158,16 +158,24 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
                           top_n: int = Query(10, ge=3, le=30),
                           user: User = Depends(get_current_user), db: Session = Depends(get_db)):
     """运行 KOS 诊断(三层输出:明确障碍 + 关键障碍 KOS + 补测建议)。"""
+    from app.models import Measurement
     site = _require_site(db, user, site_id)
     from app.services.kos_service import run_kos_diagnosis
-    points = db.query(SamplingPoint).filter(SamplingPoint.site_id == site_id).all()
+    # 直接查 Measurement 长表 + join FactorDictionary 取因子名,取每因子最大值(最不利点)
+    rows = (db.query(Measurement.value, FactorDictionary.factor_name, FactorDictionary.factor_code)
+            .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id, isouter=True)
+            .filter(Measurement.site_id == site_id, Measurement.value.isnot(None))
+            .all())
     site_values = {}
-    for p in points:
-        for m in (p.measurements or []):
-            fn = m.factor.factor_name if m.factor else None
-            if fn and m.value is not None:
-                if fn not in site_values or m.value > site_values[fn]:
-                    site_values[fn] = float(m.value)
+    for value, fname, fcode in rows:
+        fn = fname or fcode
+        if fn and value is not None:
+            try:
+                v = float(value)
+                if fn not in site_values or v > site_values[fn]:
+                    site_values[fn] = v
+            except (TypeError, ValueError):
+                continue
     if not site_values:
         raise HTTPException(400, "场地无检测数据,无法诊断")
     result = run_kos_diagnosis(site_values, track=track, subset=subset, top_n=top_n)

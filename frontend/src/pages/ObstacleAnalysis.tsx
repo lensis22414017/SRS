@@ -37,6 +37,10 @@ export default function ObstacleAnalysis() {
   const [historyList, setHistoryList] = useState<any[]>([]);
   const [historyId, setHistoryId] = useState<number | null>(null);
   const [flowOpen, setFlowOpen] = useState(false);
+  // P4 KOS 三层输出
+  const [kosData, setKosData] = useState<any>(null);
+  const [kosBusy, setKosBusy] = useState(false);
+  const [kosTrack, setKosTrack] = useState<"prod" | "eco">("prod");
 
   const load = (id?: number, diagnosisId?: number | null) => {
     const s = id ?? sid; if (!s) return;
@@ -53,7 +57,7 @@ export default function ObstacleAnalysis() {
       api.diagnosisHistory(s).then(setHistoryList).catch(() => setHistoryList([]));
     }
   };
-  useEffect(() => { if (sid) { load(sid); setHistoryId(null); } }, [sid]);
+  useEffect(() => { if (sid) { load(sid); setHistoryId(null); setKosData(null); } }, [sid]);
 
   const switchLandUse = async (v: string) => {
     if (!sid) return;
@@ -70,6 +74,26 @@ export default function ObstacleAnalysis() {
     try { await api.runDiagnosis(sid); message.success("诊断完成"); load(sid); }
     catch (e: any) { message.error(e?.response?.data?.detail || "诊断失败"); }
     finally { setBusy(false); }
+  };
+
+  // P4 KOS 诊断(三层输出: 明确障碍 + 关键障碍 + 补测建议)
+  const runKos = async (track?: "prod" | "eco") => {
+    if (!sid) return;
+    const t = track || kosTrack;
+    setKosBusy(true);
+    try {
+      const r = await api.kosDiagnosis(sid, t);
+      setKosData(r);
+      setKosTrack(t);
+      if (r.review_required) {
+        message.warning("诊断完成,但部分结果需人工复核(见数据质量提示)");
+      } else {
+        message.success(`KOS ${t === "prod" ? "生产" : "生态"}诊断完成`);
+      }
+    } catch (e: any) {
+      message.error(e?.response?.data?.detail || "KOS 诊断失败");
+      setKosData(null);
+    } finally { setKosBusy(false); }
   };
 
   // 按 land_use_type 过滤显示对应轨的因子
@@ -179,6 +203,10 @@ export default function ObstacleAnalysis() {
             )}
             <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
             <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行障碍因子诊断</Button>
+            <Button loading={kosBusy} onClick={() => runKos("prod")} disabled={!sid}
+              style={{ background: "#722ed1", borderColor: "#722ed1", color: "#fff" }}>运行生产用途诊断(KOS)</Button>
+            <Button loading={kosBusy} onClick={() => runKos("eco")} disabled={!sid}
+              style={{ background: "#52c41a", borderColor: "#52c41a", color: "#fff" }}>运行生态用途诊断(KOS)</Button>
           </Space>
         </Space>
         <div style={{ marginTop: 8, color: "#666", fontSize: 12 }}>
@@ -299,6 +327,123 @@ export default function ObstacleAnalysis() {
                   numCol("SHAP值", "shap_value"),
                   { title: "方向", dataIndex: "direction", align: "center" }]} />
             </Card>
+          )}
+
+          {/* ───── P4 KOS 三层诊断输出 ───── */}
+          {kosData && (
+            <>
+              {/* 数据质量 + 复核标记 */}
+              {(kosData.review_required || kosData.data_quality_flags?.length > 0) && (
+                <Alert
+                  type={kosData.model_status === "exploratory" ? "warning" : "info"}
+                  showIcon
+                  style={{ marginBottom: 0 }}
+                  message={kosData.model_status === "exploratory"
+                    ? "当前为探索性诊断,建议结合规则筛查和人工复核"
+                    : "诊断已完成,请注意以下数据质量提示"}
+                  description={kosData.data_quality_flags?.length > 0 ? (
+                    <ul style={{ margin: 0, paddingLeft: 18 }}>
+                      {kosData.data_quality_flags.map((f: string, i: number) => <li key={i} style={{ fontSize: 12 }}>{f}</li>)}
+                    </ul>
+                  ) : undefined}
+                />
+              )}
+
+              {/* 第一层: 关键障碍因子 Top-N (KOS 排序) */}
+              <Card title={
+                <Space>
+                  <span>关键障碍因子 Top-N（KOS 综合评分排序）</span>
+                  <Tag color={kosTrack === "prod" ? "purple" : "green"}>
+                    {kosTrack === "prod" ? "生产用途" : "生态用途"}
+                  </Tag>
+                  <Tag color="blue">{kosData.model_id}</Tag>
+                  {kosData.model_status === "exploratory" && <Tag color="orange">探索性</Tag>}
+                </Space>
+              }>
+                {kosData.key_obstacles?.length > 0 ? (
+                  <>
+                    <Table rowKey="rank" size="small" pagination={false}
+                      dataSource={kosData.key_obstacles}
+                      columns={[
+                        { title: "排名", dataIndex: "rank", width: 60, align: "center",
+                          render: (v: number) => <strong style={{ color: v <= 3 ? "#fa541c" : "#666" }}>#{v}</strong> },
+                        { title: "关键障碍因子", dataIndex: "factor", width: 140,
+                          render: (v: string) => <span style={{ fontWeight: 600 }}>{v}</span> },
+                        { title: "KOS 评分", dataIndex: "KOS", width: 110, align: "center",
+                          render: (v: number, r: any) => {
+                            const c = r.components || {};
+                            return (
+                            <Tooltip title={`R严重度=${c.R ?? "—"}  W权重=${c.W ?? "—"}  M模型贡献=${c.M ?? "—"}  S稳定性=${c.S ?? "—"}  E证据=${c.E ?? "—"}`}>
+                              <div style={{ width: 70, display: "inline-block" }}>
+                                <div style={{ background: "#f0f0f0", borderRadius: 3, height: 16, overflow: "hidden" }}>
+                                  <div style={{ width: `${(v * 100).toFixed(0)}%`, background: v > 0.6 ? "#fa541c" : v > 0.4 ? "#faad14" : "#52c41a", height: "100%", borderRadius: 3 }} />
+                                </div>
+                                <span style={{ fontSize: 11 }}>{v.toFixed(3)}</span>
+                              </div>
+                            </Tooltip>
+                            );
+                          } },
+                        { title: "实测值", dataIndex: "value", width: 100, align: "right",
+                          render: (v: number) => v != null ? v.toFixed(3) : "—" },
+                        { title: "证据等级", dataIndex: "evidence", width: 80, align: "center",
+                          render: (v: string) => <Tag color={v === "A" ? "green" : v === "B" ? "blue" : v === "C" ? "orange" : "red"}>{v}</Tag> },
+                      ]} />
+                    <Paragraph type="secondary" style={{ fontSize: 11, marginTop: 8, marginBottom: 0 }}>
+                      KOS = B × (0.30×R严重度 + 0.25×W用途权重 + 0.15×M模型贡献度 + 0.20×S稳定性 + 0.10×E证据等级)。
+                      只有规则判定超标(B=1)且实测的因子进入排名。
+                    </Paragraph>
+                  </>
+                ) : (
+                  <EmptyState description="无超标因子(B 全为 0),未生成关键障碍排名" />
+                )}
+              </Card>
+
+              {/* 第二层: 模型贡献度(不写SHAP) */}
+              {kosData.model_contribution?.length > 0 && (
+                <Card title="模型贡献度（因子对障碍指数的解释贡献）">
+                  <ReactECharts option={{
+                    tooltip: { trigger: "axis" },
+                    grid: { left: 120, right: 40, top: 10, bottom: 30 },
+                    xAxis: { type: "value", name: "贡献份额", max: 1 },
+                    yAxis: { type: "category", inverse: true, data: kosData.model_contribution.slice(0, 10).map((m: any) => m.factor) },
+                    series: [{ type: "bar",
+                      data: kosData.model_contribution.slice(0, 10).map((m: any) => ({
+                        value: m.contribution,
+                        itemStyle: { color: m.direction === "negative" ? "#4DBBD5" : "#722ed1", borderRadius: [0, 4, 4, 0] },
+                      })),
+                      label: { show: true, position: "right", formatter: (p: any) => p.value.toFixed(3) } }],
+                  }} theme="srs-light" opts={SVG_OPTS} style={{ height: 300 }} />
+                  <Paragraph type="secondary" style={{ fontSize: 11, margin: "8px 0 0 0" }}>
+                    ⓘ 模型贡献度表示该因子对当前用途障碍指数的模型解释贡献,非因果,非障碍高度。
+                  </Paragraph>
+                </Card>
+              )}
+
+              {/* 第三层: 建议补测 */}
+              {kosData.recommended_tests?.length > 0 && (
+                <Card title={<Space><span>建议补测因子</span><Tag color="orange">{kosData.recommended_tests.length} 项</Tag></Space>}>
+                  <Table rowKey="factor" size="small" pagination={false}
+                    dataSource={kosData.recommended_tests}
+                    columns={[
+                      seqCol(50),
+                      { title: "建议补测因子", dataIndex: "factor" },
+                      { title: "原因", dataIndex: "reason" },
+                      { title: "证据等级", dataIndex: "evidence", width: 80, align: "center",
+                        render: (v: string) => <Tag color={v === "C" ? "orange" : "red"}>{v}</Tag> },
+                    ]} />
+                  <Paragraph type="secondary" style={{ fontSize: 11, marginTop: 8, marginBottom: 0 }}>
+                    未检测但重要的因子不会被系统伪装成结论,而是列为补测建议。
+                  </Paragraph>
+                </Card>
+              )}
+
+              {/* 未知有机物防线(如有) */}
+              {kosData.organic_guardrails && (kosData.organic_guardrails.n_family_warning > 0 || kosData.organic_guardrails.n_unknown > 0) && (
+                <Alert type="warning" showIcon style={{ marginTop: 0 }}
+                  message={`检测到 ${kosData.organic_guardrails.n_family_warning} 个族群未收录物质,${kosData.organic_guardrails.n_unknown} 个完全未知物质`}
+                  description={`这些物质无法自动判定障碍风险,已归入族群预警/送检建议。系统不会假装识别未知物质。请参考「建议补测」或安排深度检测。`} />
+              )}
+            </>
           )}
         </>
       ) : <EmptyState description="请选择场地并运行障碍因子识别" />}

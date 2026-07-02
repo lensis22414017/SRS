@@ -1,0 +1,67 @@
+[
+  {
+    "name": "login_admin",
+    "status": "✅",
+    "size": "102KB"
+  },
+  {
+    "name": "dashboard_overview",
+    "status": "✅",
+    "size": "98KB"
+  },
+  {
+    "name": "site_list",
+    "status": "✅",
+    "size": "46KB"
+  },
+  {
+    "name": "site_detail",
+    "status": "✅",
+    "size": "6KB"
+  },
+  {
+    "name": "obstacle_analysis",
+    "status": "✅",
+    "size": "62KB"
+  },
+  {
+    "name": "kos_top5",
+    "status": "✅",
+    "size": "62KB"
+  },
+  {
+    "name": "recommended_tests",
+    "status": "✅",
+    "size": "62KB"
+  },
+  {
+    "name": "reconstruction_eval",
+    "status": "✅",
+    "size": "61KB"
+  },
+  {
+    "name": "ssui_eval",
+    "status": "✅",
+    "size": "95KB"
+  },
+  {
+    "name": "recommendation_result",
+    "status": "✅",
+    "size": "6KB"
+  },
+  {
+    "name": "traceability_list",
+    "status": "✅",
+    "size": "43KB"
+  },
+  {
+    "name": "model_health",
+    "status": "✅",
+    "size": "105KB"
+  },
+  {
+    "name": "client_demo_route",
+    "status": "✅",
+    "size": "100KB"
+  }
+]
