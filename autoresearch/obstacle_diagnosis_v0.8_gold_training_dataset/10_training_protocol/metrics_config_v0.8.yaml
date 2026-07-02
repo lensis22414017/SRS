@@ -1,0 +1,23 @@
+# metrics_config_v0.8.yaml
+# 由 seal_pack_repair_v0.8.py 生成
+primary_metrics:
+  regression:
+    - spearman_rho
+    - mae
+    - r2
+  note: 本任务为回归,不报 AUC/Accuracy 作为主指标
+
+secondary_metrics:
+  - grouped_stability_cv   # 跨 source 组指标方差
+  - bootstrap_ci_1000      # 1000 次 bootstrap 置信区间
+  - has_obstacle_auc       # 仅辅助任务参考
+
+shap:
+  method: tree     # TreeExplainer for RF/ET/HGB
+  aggregation: factor_group
+  positive_only: true
+  keep_concentration: true
+
+report:
+  output_version: v0.8_gold
+  include: [input_version, model_version, top_factors, score, explanation, conclusion]

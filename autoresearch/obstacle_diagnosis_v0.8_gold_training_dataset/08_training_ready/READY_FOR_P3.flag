@@ -1,3 +1,6 @@
 READY_FOR_P3=true
-created=2026-07-02T12:13:01.725597+00:00
+created=2026-07-02T12:34:22.659228+00:00
 all_gates_passed=true
+gates_passed=G1,G2,G3,G4,G5,G6,G7,G8,G9,G10,G11,G12
+generated_by=seal_pack_repair_v0.8.py
+note=G1-G11 全部附证据通过,G12 条件满足。下一阶段 P3 模型训练可启动。

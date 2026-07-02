@@ -1,14 +1,16 @@
 {
   "raw_main": {
-    "path": "C:\\Users\\曾鸿\\Desktop\\SRS\\data\\covariates\\merged_std33_geocoded.csv",
-    "sha256": "d05d5bf335fe541979db303fb08a7fdc",
+    "path": "data/covariates/merged_std33_geocoded.csv",
+    "abs_path_at_build": "C:\\Users\\曾鸿\\Desktop\\SRS\\data\\covariates\\merged_std33_geocoded.csv",
+    "sha256": "d05d5bf335fe541979db303fb08a7fdc752570947eaa102382f23aec7add6f03",
     "n_rows": 27031,
     "n_cols": 720,
     "readonly": true,
     "version": "merged_std33_geocoded"
   },
   "gee_covariates": {
-    "path": "C:\\Users\\曾鸿\\Desktop\\SRS\\data\\covariates\\merged_std33_gee_covariates.csv",
+    "path": "data/covariates/merged_std33_gee_covariates.csv",
+    "abs_path_at_build": "C:\\Users\\曾鸿\\Desktop\\SRS\\data\\covariates\\merged_std33_gee_covariates.csv",
     "n_rows": 26522,
     "n_cols": 15,
     "merged_cols": [
@@ -28,6 +30,7 @@
       "gee_nitrogen_g_kg"
     ]
   },
-  "snapshot_time": "2026-07-02T12:12:58.395111+00:00",
-  "processing_version": "v0.8_gold"
+  "snapshot_time": "2026-07-02T12:34:22.659228+00:00",
+  "processing_version": "v0.8_gold",
+  "note": "path 字段为仓库相对路径;abs_path_at_build 仅供本机复现,不作为交付路径"
 }

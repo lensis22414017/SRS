@@ -1,3 +1,80 @@
-﻿factor_id,factor_name_cn,factor_name_norm,diagnosis_layer,threshold_role,data_role,selected_column,coverage_pct,match_type,evidence_level,track,usable_for_formal_diagnosis,usable_for_extended_screening,usable_as_model_covariate,usable_for_recommended_test,coalesce_rule,unit_standardized,review_status
-auto_有效耕作层厚度,有效耕作层厚度,有效耕作层厚度,recommended_test,proxy_indicator,exclude,,0.0,missing,A,production,0,0,0,0,,,frozen
-auto_有效耕作层厚度,有效耕作层厚度,有效耕作层厚度,recommended_test,proxy_indicator,exclude,,0.0,missing,A,ecology,0,0,0,0,,,frozen
+column,exclusion_type,reason,coverage_pct
+,factor_excluded,"factor_id=auto_有效耕作层厚度, data_role=exclude, 不可用",0.0
+,factor_excluded,"factor_id=auto_有效耕作层厚度, data_role=exclude, 不可用",0.0
+Year,metadata,非诊断因子(年份/海拔等元数据),45.23
+pH,coalesced_duplicate,已被 pH_merged 合并吸收,12.32
+Sand_pct,coalesced_duplicate,已被 Sand_pct(已用) 合并吸收,15.79
+Silt_pct,coalesced_duplicate,已被 Silt_pct(已用) 合并吸收,15.3
+Clay_pct,coalesced_duplicate,已被 Clay_pct(已用) 合并吸收,14.94
+A_HCH_ngg,family_absorbed,"HCH 单体,已被 SumHCHs 族群吸收",0.21
+Ace_mgkg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",0.34
+Ace_ngg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",2.6
+Acy_mgkg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",0.25
+Acy_ngg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",0.51
+Al_mgkg,context_unmapped,"高覆盖但未进入本轮 formal/extended 映射,作为背景候选待 v0.9 评估",1.1
+Altitude_m,metadata,非诊断因子(年份/海拔等元数据),1.76
+Ant_mgkg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",0.41
+Ant_ngg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",0.75
+BDE209_ngg,low_priority_unmapped,"高覆盖但本轮未归类,记入 excluded 待后续版本处理",0.3
+B_HCH_ngg,family_absorbed,"HCH 单体,已被 SumHCHs 族群吸收",0.19
+BaA_mgkg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",0.39
+BaP_mgkg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",0.44
+BaPeq_ngg,family_absorbed,"PAH 族群列,已被 PAHs_total family aggregate 吸收",0.31
+Ba_mgkg,context_unmapped,"高覆盖但未进入本轮 formal/extended 映射,作为背景候选待 v0.9 评估",0.4
+BbF_mgkg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",0.36
+BghiP_mgkg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",0.39
+BghiP_ngg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",0.48
+BkF_mgkg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",0.36
+Ca_mgkg,context_unmapped,"高覆盖但未进入本轮 formal/extended 映射,作为背景候选待 v0.9 评估",1.19
+Chr_mgkg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",0.39
+D_HCH_ngg,family_absorbed,"HCH 单体,已被 SumHCHs 族群吸收",0.17
+DahA_mgkg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",0.33
+Elevation_m,metadata,非诊断因子(年份/海拔等元数据),19.6
+Fe_mgkg,context_unmapped,"高覆盖但未进入本轮 formal/extended 映射,作为背景候选待 v0.9 评估",4.45
+Flt_mgkg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",0.41
+Flt_ngg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",0.7
+Flu_mgkg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",0.37
+Flu_ngg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",2.68
+G_HCH_ngg,family_absorbed,"HCH 单体,已被 SumHCHs 族群吸收",0.22
+HMWPAH_ngg,family_absorbed,"PAH 族群列,已被 PAHs_total family aggregate 吸收",0.2
+Ind_mgkg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",0.36
+LMWPAH_ngg,family_absorbed,"PAH 族群列,已被 PAHs_total family aggregate 吸收",0.2
+Mg_mgkg,context_unmapped,"高覆盖但未进入本轮 formal/extended 映射,作为背景候选待 v0.9 评估",0.97
+Mn_mgkg,context_unmapped,"高覆盖但未进入本轮 formal/extended 映射,作为背景候选待 v0.9 评估",4.09
+Nap_mgkg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",0.29
+Phe_mgkg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",0.54
+Phe_ngg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",2.93
+Pyr_mgkg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",0.51
+Pyr_ngg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",2.85
+Se_mgkg,context_unmapped,"高覆盖但未进入本轮 formal/extended 映射,作为背景候选待 v0.9 评估",0.32
+SiltClay_ratio,low_priority_unmapped,"高覆盖但本轮未归类,记入 excluded 待后续版本处理",0.41
+Sr_mgkg,context_unmapped,"高覆盖但未进入本轮 formal/extended 映射,作为背景候选待 v0.9 评估",0.28
+SumAntibiotics_ugkg,low_priority_unmapped,"高覆盖但本轮未归类,记入 excluded 待后续版本处理",0.17
+SumOCP_ngg,low_priority_unmapped,"高覆盖但本轮未归类,记入 excluded 待后续版本处理",0.62
+Sum_PAH_mgkg,family_absorbed,"PAH 族群列,已被 PAHs_total family aggregate 吸收",0.87
+TP_gkg,low_priority_unmapped,"高覆盖但本轮未归类,记入 excluded 待后续版本处理",1.37
+TotalPCB_ugg,low_priority_unmapped,"高覆盖但本轮未归类,记入 excluded 待后续版本处理",0.44
+TotalPHC_mgkg,context_unmapped,"高覆盖但未进入本轮 formal/extended 映射,作为背景候选待 v0.9 评估",1.21
+WaterSolubleSalt_gkg,low_priority_unmapped,"高覆盖但本轮未归类,记入 excluded 待后续版本处理",0.15
+o_p_DDT_ngg,family_absorbed,"DDT 代谢物,已被 SumDDTs 族群吸收",0.21
+p_p_DDD_ngg,family_absorbed,"DDT 代谢物,已被 SumDDTs 族群吸收",0.25
+p_p_DDE_ngg,family_absorbed,"DDT 代谢物,已被 SumDDTs 族群吸收",0.26
+p_p_DDT_ngg,family_absorbed,"DDT 代谢物,已被 SumDDTs 族群吸收",0.28
+BC_ugg,low_priority_unmapped,"高覆盖但本轮未归类,记入 excluded 待后续版本处理",0.61
+ICP_ngg,family_absorbed,"PAH 单体,已被 PAHs_total family aggregate 吸收",1.93
+Mo_mgkg,context_unmapped,"高覆盖但未进入本轮 formal/extended 映射,作为背景候选待 v0.9 评估",0.11
+PCN24,low_priority_unmapped,"高覆盖但本轮未归类,记入 excluded 待后续版本处理",0.26
+Sum16PAH_ngg,family_absorbed,"PAH 族群列,已被 PAHs_total family aggregate 吸收",0.84
+Sum7PAH_ngg,family_absorbed,"PAH 族群列,已被 PAHs_total family aggregate 吸收",0.12
+DMP_ugkg,low_priority_unmapped,"高覆盖但本轮未归类,记入 excluded 待后续版本处理",0.33
+DEP_ugkg,low_priority_unmapped,"高覆盖但本轮未归类,记入 excluded 待后续版本处理",0.34
+DBP_ugkg,low_priority_unmapped,"高覆盖但本轮未归类,记入 excluded 待后续版本处理",0.37
+BBP_ugkg,low_priority_unmapped,"高覆盖但本轮未归类,记入 excluded 待后续版本处理",0.28
+DEHP_ugkg,low_priority_unmapped,"高覆盖但本轮未归类,记入 excluded 待后续版本处理",0.41
+DNOP_ugkg,low_priority_unmapped,"高覆盖但本轮未归类,记入 excluded 待后续版本处理",0.31
+Ti_mgkg,context_unmapped,"高覆盖但未进入本轮 formal/extended 映射,作为背景候选待 v0.9 评估",0.12
+Is_China,low_priority_unmapped,"高覆盖但本轮未归类,记入 excluded 待后续版本处理",78.79
+PFOA_ngg,low_priority_unmapped,"高覆盖但本轮未归类,记入 excluded 待后续版本处理",0.13
+Latitude,metadata,非诊断因子(年份/海拔等元数据),100.0
+Longitude,metadata,非诊断因子(年份/海拔等元数据),100.0
+site_id,low_priority_unmapped,"高覆盖但本轮未归类,记入 excluded 待后续版本处理",100.0

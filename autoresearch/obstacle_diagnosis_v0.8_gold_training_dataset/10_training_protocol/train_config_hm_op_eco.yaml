@@ -1,0 +1,42 @@
+# train_config_hm_op_eco.yaml
+# 由 seal_pack_repair_v0.8.py 生成
+subset: hm_op
+track: eco
+ready_for_training: False
+target_col: OI_eco_formal
+aux_target_col: has_obstacle_eco_formal
+
+data:
+  X_train: 08_training_ready/hm_op/X_train.parquet
+  X_valid: 08_training_ready/hm_op/X_valid.parquet
+  X_test:  08_training_ready/hm_op/X_test.parquet
+  y_train: 08_training_ready/hm_op/y_train.parquet
+  y_valid: 08_training_ready/hm_op/y_valid.parquet
+  y_test:  08_training_ready/hm_op/y_test.parquet
+  train_n: 0
+  source_groups: 0
+
+cross_validation:
+  strategy: GroupKFold
+  group_col: source_id
+  outer_folds: 5
+  inner_folds: 3
+  random_split: false
+  region_holdout: skipped   # province 过多(652),本版不强制
+
+models: ['RandomForestRegressor', 'ExtraTreesRegressor', 'HistGradientBoostingRegressor']
+
+hurdle:
+  enabled: false   # zero_rate < 80%, 默认单阶段; 若尾部差再启
+  zero_rate_observed: 0.598   # prod_formal
+
+ablation:
+  - Full
+  - MeasuredOnly
+  - ContextOnly
+
+shap:
+  keep_pollutant_concentration: true
+  interpretation: model_contribution   # 非因果/非障碍高度
+
+seed: 42
