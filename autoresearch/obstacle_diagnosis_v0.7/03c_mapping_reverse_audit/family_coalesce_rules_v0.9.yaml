@@ -1,0 +1,96 @@
+PAHs_total:
+  label: PAHs总量
+  selected_column: Sum_PAH_ngg
+  candidates:
+  - column: Sum_PAH_ngg
+    coverage_pct: 10.26
+  - column: Sum16PAH_ngg
+    coverage_pct: 0.84
+  - column: Sum_PAH_mgkg
+    coverage_pct: 0.87
+  - column: Sum7PAH_ngg
+    coverage_pct: 0.12
+  - column: PAHs_mgkg
+    coverage_pct: 0.03
+  final_unit: ng/g
+  reliability_weight: 0.8
+OCPs_total:
+  label: 有机氯农药总量
+  selected_column: SumOCP_ngg
+  candidates:
+  - column: SumOCP_ngg
+    coverage_pct: 0.62
+  - column: SumHCHs_ngg
+    coverage_pct: 2.22
+  - column: SumDDTs_ngg
+    coverage_pct: 2.42
+  final_unit: ng/g
+  reliability_weight: 0.7
+DDTs_total:
+  label: 滴滴涕总量
+  selected_column: SumDDTs_ngg
+  candidates:
+  - column: SumDDTs_ngg
+    coverage_pct: 2.42
+  final_unit: ng/g
+  reliability_weight: 0.9
+HCHs_total:
+  label: 六六六总量
+  selected_column: SumHCHs_ngg
+  candidates:
+  - column: SumHCHs_ngg
+    coverage_pct: 2.22
+  final_unit: ng/g
+  reliability_weight: 0.9
+PCBs_total:
+  label: 多氯联苯总量
+  selected_column: SumPCB_ngg
+  candidates:
+  - column: SumPCB_ngg
+    coverage_pct: 0.81
+  - column: TotalPCB_ugg
+    coverage_pct: 0.44
+  final_unit: ng/g
+  reliability_weight: 0.8
+PBDEs_total:
+  label: 多溴二苯醚总量
+  selected_column: SumPBDE_ngg
+  candidates:
+  - column: SumPBDE_ngg
+    coverage_pct: 0.66
+  final_unit: ng/g
+  reliability_weight: 0.8
+PFAS_total:
+  label: PFAS总量
+  selected_column: SumPFAS_ngg
+  candidates:
+  - column: SumPFAS_ngg
+    coverage_pct: 0.26
+  - column: SumPFAAs_ngg
+    coverage_pct: 0.0
+  final_unit: ng/g
+  reliability_weight: 0.7
+PAEs_total:
+  label: 邻苯二甲酸酯总量
+  selected_column: SumPAE_ugkg
+  candidates:
+  - column: SumPAE_ugkg
+    coverage_pct: 0.42
+  - column: Sum6PAE_ugkg
+    coverage_pct: 0.01
+  final_unit: μg/kg
+  reliability_weight: 0.7
+TPH_total:
+  label: 石油烃总量
+  selected_column: TotalPHC_mgkg
+  candidates:
+  - column: TotalPHC_mgkg
+    coverage_pct: 1.21
+  - column: TPH_mgkg
+    coverage_pct: 0.0
+  - column: Tph_mgkg
+    coverage_pct: 0.0
+  - column: TPH_ngg
+    coverage_pct: 0.07
+  final_unit: mg/kg
+  reliability_weight: 0.7

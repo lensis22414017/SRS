@@ -1,0 +1,15 @@
+﻿column,coverage_pct,n_non_null
+gee_ndvi,98.12,26522
+gee_precip_annual_mm,98.12,26522
+gee_temp_mean_c,98.12,26522
+gee_elevation_m,98.12,26522
+gee_slope_deg,98.12,26522
+gee_aspect_deg,98.12,26522
+gee_soil_pH,70.52,19061
+gee_soc_g_kg,70.52,19061
+gee_cec_cmol_kg,70.52,19061
+gee_clay_pct,70.52,19061
+gee_sand_pct,70.52,19061
+gee_silt_pct,70.52,19061
+gee_bulk_density_g_cm3,70.52,19061
+gee_nitrogen_g_kg,70.52,19061

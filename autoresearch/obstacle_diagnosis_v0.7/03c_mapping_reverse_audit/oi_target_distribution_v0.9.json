@@ -1,0 +1,27 @@
+{
+  "OI_pro_formal": {
+    "mean": 0.0267,
+    "std": 0.0932,
+    "zero_rate": 0.8677,
+    "trainable": true
+  },
+  "OI_pro_extended": {
+    "mean": 0.0259,
+    "std": 0.0901,
+    "zero_rate": 0.8677,
+    "trainable": true
+  },
+  "OI_eco_formal": {
+    "mean": 0.0271,
+    "std": 0.0906,
+    "zero_rate": 0.8638,
+    "trainable": true
+  },
+  "OI_eco_extended": {
+    "mean": 0.0265,
+    "std": 0.0889,
+    "zero_rate": 0.8638,
+    "trainable": true
+  },
+  "prod_formal_vs_eco_formal_identical": false
+}
