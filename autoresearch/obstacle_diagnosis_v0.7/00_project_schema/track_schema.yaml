@@ -1,0 +1,30 @@
+production:
+  name: 生产用途
+  target: OI_prod
+  functional_layers:
+  - 污染安全限制
+  - 生产适宜性限制
+  - 肥力限制
+  - 根系结构限制
+  - 水盐酸碱限制
+  - 地形土层限制
+  threshold_source: GB15618 + TD/T1036 + V1.6生产
+  diagnosis_layers:
+  - formal
+  - supplementary_screening
+  - recommended_test
+ecology:
+  name: 生态用途
+  target: OI_eco
+  functional_layers:
+  - 污染生态毒性限制
+  - 植被恢复限制
+  - 结构水文限制
+  - 化学环境限制
+  - 生物活性限制
+  - 生态服务潜力限制
+  threshold_source: GB36600 + CJ/T340 + V1.7生态
+  diagnosis_layers:
+  - formal
+  - supplementary_screening
+  - recommended_test

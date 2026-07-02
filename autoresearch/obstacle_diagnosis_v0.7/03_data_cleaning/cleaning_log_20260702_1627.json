@@ -1,0 +1,12 @@
+{
+  "Pb_mgkg_unit_fix": 53,
+  "As_mgkg_unit_fix": 12,
+  "Cr_mgkg_unit_fix": 9,
+  "Cu_mgkg_unit_fix": 9,
+  "Zn_mgkg_unit_fix": 39,
+  "Ni_mgkg_unit_fix": 3,
+  "Cd_mgkg_winsorize": 5,
+  "Hg_mgkg_winsorize": 12,
+  "country_unified": true,
+  "total_fixed": 143
+}

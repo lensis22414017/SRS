@@ -1,0 +1,12 @@
+{
+  "GATE_1_threshold": true,
+  "GATE_2_colmap": true,
+  "GATE_3_gee_audit": true,
+  "GATE_4_model_ready": true,
+  "GATE_5_leakage": true,
+  "GATE_6_oi_nonconstant": true,
+  "GATE_7_split": true,
+  "GATE_8_groups": true,
+  "GATE_9_track_diff": true,
+  "GATE_10_report_fixed": true
+}

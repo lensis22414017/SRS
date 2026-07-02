@@ -1,0 +1,38 @@
+project_name: obstacle_diagnosis_v0.7
+version: '0.7'
+created_at: '2026-07-02T08:23:28.082210+00:00'
+raw_data_path: data/covariates/merged_std33_geocoded.csv
+gee_covariate_path: data/covariates/merged_std33_gee_covariates.csv
+factor_source_paths:
+  master: 20251015_生产生态障碍因子集V1.6.xlsx
+  production_supplement: 20251028_生产障碍因子集V1.6.xlsx
+  ecology_supplement: 3.生态障碍因子集-终版V1.7.xlsx
+  reference: 1.生产障碍因子集-终版V1.7.xlsx
+  knowledge_base: 统一障碍因子知识库_V1.0.csv
+threshold_library_version: v0.7
+weight_library_version: v0.7
+tracks:
+- production
+- ecology
+model_task: regression
+target_names:
+- OI_prod
+- OI_eco
+forbidden_feature_prefixes:
+- 标签
+- B_
+- R_
+- KOS
+- OI_
+- threshold
+- exceedance
+- severity
+- rule_
+allowed_feature_groups:
+- measured
+- covariate
+- gee_covariate
+- missing_indicator
+- censored_indicator
+random_seed: 42
+environment: Windows/python3.13

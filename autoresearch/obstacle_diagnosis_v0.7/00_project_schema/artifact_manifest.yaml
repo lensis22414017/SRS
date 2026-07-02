@@ -1,0 +1,3 @@
+version: v0.7
+timestamp_field: created_at
+naming_convention: YYYYMMDD_HHMM_filename.ext

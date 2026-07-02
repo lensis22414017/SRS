@@ -1,0 +1,28 @@
+OI_prod:
+  description: 生产轨连续障碍指数(回归目标)
+  type: continuous
+  range: 0-1
+  source: rule_engine
+  note: 非二分类标签
+OI_eco:
+  description: 生态轨连续障碍指数(回归目标)
+  type: continuous
+  range: 0-1
+  source: rule_engine
+  note: 非二分类标签
+B_i_t:
+  description: 规则层障碍存在性(0/1)
+  type: binary
+  forbidden_in_model: true
+R_i_t:
+  description: 规则严重度(0-1)
+  type: continuous
+  forbidden_in_model: true
+W_i_t:
+  description: 用途权重
+  type: continuous
+  forbidden_in_model: true
+D_i:
+  description: 是否已检测(0/1)
+  type: binary
+  forbidden_in_model: true

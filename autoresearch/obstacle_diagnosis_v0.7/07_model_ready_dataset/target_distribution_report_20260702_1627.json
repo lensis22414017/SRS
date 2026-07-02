@@ -1,0 +1,11 @@
+{
+  "OI_prod_mean": 0.1233,
+  "OI_prod_std": 0.2451,
+  "OI_prod_zero_rate": 0.6601,
+  "OI_eco_mean": 0.0625,
+  "OI_eco_std": 0.1811,
+  "OI_eco_zero_rate": 0.8271,
+  "two_track_identical": false,
+  "OI_prod_trainable": true,
+  "OI_eco_trainable": true
+}

@@ -1,0 +1,21 @@
+strategies:
+- GroupKFold_site_id
+- GroupKFold_source
+- LeaveOneRegionOut
+forbidden:
+- random_split
+manifest_fields:
+- sample_id
+- site_id
+- source_id
+- province
+- region
+- pollution_type
+- track
+- split
+- split_strategy
+- split_version
+scenario_stratification:
+- HM
+- OP
+- HM+OP

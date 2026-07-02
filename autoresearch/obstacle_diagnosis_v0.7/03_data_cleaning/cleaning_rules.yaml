@@ -1,0 +1,11 @@
+country_unification: true
+unit_fix_rules:
+  As_mgkg: 5000
+  Cr_mgkg: 5000
+  Cu_mgkg: 10000
+  Ni_mgkg: 2000
+  Pb_mgkg: 10000
+  Zn_mgkg: 10000
+winsorize_rules:
+  Cd_mgkg: 1000
+  Hg_mgkg: 500

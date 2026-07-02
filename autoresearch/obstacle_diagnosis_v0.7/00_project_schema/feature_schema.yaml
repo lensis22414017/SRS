@@ -1,0 +1,18 @@
+measured:
+  description: 场地或文献实测值(浓度+理化), 可入模
+covariate:
+  description: 非GEE背景协变量(地形/气候原始字段), 可入模
+gee_covariate:
+  description: GEE/遥感/土壤栅格协变量, 可入模需审计
+missing_indicator:
+  description: 缺失指示(__missing), 可入模
+censored_indicator:
+  description: 检出限/未检出指示, 可入模
+imputed:
+  description: 插补值, 仅敏感性分析需标记
+rule_derived_forbidden:
+  description: B/R/W/threshold/exceedance规则派生, 禁止入模
+target_forbidden:
+  description: OI_prod/OI_eco目标, 禁止入模
+posthoc_forbidden:
+  description: KOS/SHAP/排名后验字段, 禁止入模

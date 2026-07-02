@@ -1,0 +1,24 @@
+﻿column,type,source,missing_pct,can_enter_model,note
+Climate,covariate,原始气候,100.0,True,"非GEE, 原始实测/文献"
+Temperature_C,covariate,原始气候,100.0,True,"非GEE, 原始实测/文献"
+MeanAnnualTemperature_C,covariate,原始气候,99.99,True,"非GEE, 原始实测/文献"
+AnnualTemp_C,covariate,原始气候,99.98,True,"非GEE, 原始实测/文献"
+Altitude_m,covariate,原始地形,98.24,True,"非GEE, 原始实测"
+Elevation_m,covariate,原始地形,80.4,True,"非GEE, 原始实测"
+Elevation_m_max,covariate,原始地形,100.0,True,"非GEE, 原始实测"
+Elevation_m_min,covariate,原始地形,100.0,True,"非GEE, 原始实测"
+Slope_pct,covariate,原始地形,100.0,True,"非GEE, 原始实测"
+gee_ndvi,gee_covariate,GEE栅格(merged),1.88,True,从merged_std33_gee_covariates.csv merge
+gee_precip_annual_mm,gee_covariate,GEE栅格(merged),1.88,True,从merged_std33_gee_covariates.csv merge
+gee_temp_mean_c,gee_covariate,GEE栅格(merged),1.88,True,从merged_std33_gee_covariates.csv merge
+gee_elevation_m,gee_covariate,GEE栅格(merged),1.88,True,从merged_std33_gee_covariates.csv merge
+gee_slope_deg,gee_covariate,GEE栅格(merged),1.88,True,从merged_std33_gee_covariates.csv merge
+gee_aspect_deg,gee_covariate,GEE栅格(merged),1.88,True,从merged_std33_gee_covariates.csv merge
+gee_soil_pH,gee_covariate,GEE栅格(merged),29.48,True,从merged_std33_gee_covariates.csv merge
+gee_soc_g_kg,gee_covariate,GEE栅格(merged),29.48,True,从merged_std33_gee_covariates.csv merge
+gee_cec_cmol_kg,gee_covariate,GEE栅格(merged),29.48,True,从merged_std33_gee_covariates.csv merge
+gee_clay_pct,gee_covariate,GEE栅格(merged),29.48,True,从merged_std33_gee_covariates.csv merge
+gee_sand_pct,gee_covariate,GEE栅格(merged),29.48,True,从merged_std33_gee_covariates.csv merge
+gee_silt_pct,gee_covariate,GEE栅格(merged),29.48,True,从merged_std33_gee_covariates.csv merge
+gee_bulk_density_g_cm3,gee_covariate,GEE栅格(merged),29.48,True,从merged_std33_gee_covariates.csv merge
+gee_nitrogen_g_kg,gee_covariate,GEE栅格(merged),29.48,True,从merged_std33_gee_covariates.csv merge

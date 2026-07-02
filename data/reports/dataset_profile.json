@@ -1,0 +1,24 @@
+{
+  "n_rows": 27031,
+  "n_cols": 720,
+  "n_sites": 27031,
+  "n_dois": 1158,
+  "n_sources": 1258,
+  "n_provinces": 651,
+  "pollution_type_dist": {
+    "HM": 17886,
+    "OP": 1884,
+    "PAH": 1229,
+    "HM+OP": 1029,
+    "OCP": 414,
+    "PCN": 71,
+    "PAH+OCP": 59,
+    "PAH+PCB": 59,
+    "PFAS": 45,
+    "PBDE": 40,
+    "Antibiotics": 40,
+    "PAH+OCP+PCB": 15,
+    "none": 4,
+    "PAHs": 1
+  }
+}

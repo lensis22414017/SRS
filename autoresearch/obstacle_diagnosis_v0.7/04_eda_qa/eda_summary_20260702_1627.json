@@ -1,0 +1,20 @@
+{
+  "n_rows": 27031,
+  "n_cols": 720,
+  "n_fully_empty_cols": 406,
+  "n_provinces": 651,
+  "n_dois": 1158,
+  "matched_factors": 18,
+  "cleaning_log": {
+    "Pb_mgkg_unit_fix": 53,
+    "As_mgkg_unit_fix": 12,
+    "Cr_mgkg_unit_fix": 9,
+    "Cu_mgkg_unit_fix": 9,
+    "Zn_mgkg_unit_fix": 39,
+    "Ni_mgkg_unit_fix": 3,
+    "Cd_mgkg_winsorize": 5,
+    "Hg_mgkg_winsorize": 12,
+    "country_unified": true,
+    "total_fixed": 143
+  }
+}

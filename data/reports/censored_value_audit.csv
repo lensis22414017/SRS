@@ -1,0 +1,3 @@
+﻿column,n_non_numeric,note
+Cr_mgkg,2,"存在非数值文本(可能是检出限语义), 需保留原文"
+Sum_PAH_ngg,4,"存在非数值文本(可能是检出限语义), 需保留原文"
