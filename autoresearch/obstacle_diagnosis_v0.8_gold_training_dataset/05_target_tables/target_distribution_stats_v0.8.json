@@ -1,0 +1,35 @@
+{
+  "OI_prod_formal": {
+    "mean": 0.0846,
+    "std": 0.165,
+    "zero_rate": 0.5982,
+    "nonzero_count": 10862,
+    "trainable": true,
+    "zero_inflated": false
+  },
+  "OI_eco_formal": {
+    "mean": 0.0765,
+    "std": 0.1488,
+    "zero_rate": 0.6091,
+    "nonzero_count": 10567,
+    "trainable": true,
+    "zero_inflated": false
+  },
+  "OI_prod_extended": {
+    "mean": 0.083,
+    "std": 0.1626,
+    "zero_rate": 0.5962,
+    "nonzero_count": 10914,
+    "trainable": true,
+    "zero_inflated": false
+  },
+  "OI_eco_extended": {
+    "mean": 0.0757,
+    "std": 0.1477,
+    "zero_rate": 0.6091,
+    "nonzero_count": 10567,
+    "trainable": true,
+    "zero_inflated": false
+  },
+  "prod_eco_formal_identical": false
+}

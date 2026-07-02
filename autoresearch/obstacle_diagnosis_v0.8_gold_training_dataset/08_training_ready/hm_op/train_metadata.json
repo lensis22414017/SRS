@@ -1,0 +1,36 @@
+{
+  "subset": "hm_op",
+  "n_features": 110,
+  "n_targets": 4,
+  "feature_cols": [
+    "x_measured_SoilBD_gcm3",
+    "x_missing_SoilBD_gcm3",
+    "x_measured_钴",
+    "x_missing_钴",
+    "x_measured_钒",
+    "x_missing_钒",
+    "x_measured_Cr_mgkg",
+    "x_missing_Cr_mgkg",
+    "x_measured_铍",
+    "x_missing_铍",
+    "x_measured_锑",
+    "x_missing_锑",
+    "x_measured_二苯并[ah]蒽",
+    "x_missing_二苯并[ah]蒽",
+    "x_measured_Pb_mgkg",
+    "x_missing_Pb_mgkg",
+    "x_measured_As_mgkg",
+    "x_missing_As_mgkg",
+    "x_measured_Cd_mgkg",
+    "x_missing_Cd_mgkg"
+  ],
+  "target_cols": [
+    "OI_prod_formal",
+    "OI_prod_extended",
+    "OI_eco_formal",
+    "OI_eco_extended"
+  ],
+  "n_train": 244,
+  "n_valid": 82,
+  "n_test": 82
+}

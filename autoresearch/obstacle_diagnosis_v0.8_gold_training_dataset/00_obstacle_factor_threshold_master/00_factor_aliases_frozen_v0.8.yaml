@@ -1,0 +1,220 @@
+pH:
+  canonical: pH
+  coalesce:
+  - pH_merged
+  - SoilpH
+  - pH
+  aliases:
+  - pH值
+  - 酸碱度
+  - SoilpH
+  - pH_merged
+OC_pct:
+  canonical: OC_pct
+  coalesce:
+  - OC_pct
+  aliases:
+  - 有机质
+  - 有机碳
+  - SOC
+  - SOM
+  - 有机质(g/kg)
+  - 有机碳含量
+CEC_cmolkg:
+  canonical: CEC_cmolkg
+  coalesce:
+  - CEC_cmolkg
+  aliases:
+  - 阳离子交换量
+  - CEC
+  - 阳离子交换量(cmol/kg)
+  proxy:
+  - gee_cec_cmol_kg
+SoilBD_gcm3:
+  canonical: SoilBD_gcm3
+  coalesce:
+  - SoilBD_gcm3
+  aliases:
+  - 土壤容重
+  - 容重
+  - BD
+  proxy:
+  - gee_bulk_density_g_cm3
+EC_mScm:
+  canonical: EC_mScm
+  coalesce:
+  - EC_mScm
+  aliases:
+  - 电导率
+  - EC
+  - 含盐量
+  - 盐渍化程度
+  note: EC与含盐量不严格等价, 仅作related
+Cd_mgkg:
+  canonical: Cd_mgkg
+  aliases:
+  - 镉
+  - Cd
+  - 镉(mg/kg)
+Pb_mgkg:
+  canonical: Pb_mgkg
+  aliases:
+  - 铅
+  - Pb
+  - 铅(mg/kg)
+As_mgkg:
+  canonical: As_mgkg
+  aliases:
+  - 砷
+  - As
+  - 砷(mg/kg)
+Cr_mgkg:
+  canonical: Cr_mgkg
+  aliases:
+  - 铬
+  - Cr
+  - 总铬
+  - 铬(mg/kg)
+Hg_mgkg:
+  canonical: Hg_mgkg
+  aliases:
+  - 汞
+  - Hg
+  - 汞(mg/kg)
+Cu_mgkg:
+  canonical: Cu_mgkg
+  aliases:
+  - 铜
+  - Cu
+  - 铜(mg/kg)
+Zn_mgkg:
+  canonical: Zn_mgkg
+  aliases:
+  - 锌
+  - Zn
+  - 锌(mg/kg)
+Ni_mgkg:
+  canonical: Ni_mgkg
+  aliases:
+  - 镍
+  - Ni
+  - 镍(mg/kg)
+Co_mgkg:
+  canonical: Co_mgkg
+  aliases:
+  - 钴
+  - Co
+  - 钴(mg/kg)
+V_mgkg:
+  canonical: V_mgkg
+  aliases:
+  - 钒
+  - V
+  - 钒(mg/kg)
+Sb_mgkg:
+  canonical: Sb_mgkg
+  aliases:
+  - 锑
+  - Sb
+  - 锑(mg/kg)
+Be_mgkg:
+  canonical: Be_mgkg
+  aliases:
+  - 铍
+  - Be
+  - 铍(mg/kg)
+Ba_mgkg:
+  canonical: Ba_mgkg
+  aliases:
+  - 钡
+  - Ba
+  - 钡(mg/kg)
+Mn_mgkg:
+  canonical: Mn_mgkg
+  aliases:
+  - 锰
+  - Mn
+  - 锰(mg/kg)
+Fe_mgkg:
+  canonical: Fe_mgkg
+  aliases:
+  - 铁
+  - Fe
+  - 铁(mg/kg)
+Cr6_mgkg:
+  canonical: Cr6_mgkg
+  aliases:
+  - 六价铬
+  - 铬(六价)
+  - Cr(VI)
+  - Cr6+
+TN_gkg:
+  canonical: TN_gkg
+  aliases:
+  - 全氮
+  - 总氮
+  - TN
+  - 水解性氮
+  proxy:
+  - gee_nitrogen_g_kg
+P_mgkg:
+  canonical: P_mgkg
+  aliases:
+  - 有效磷
+  - 速效磷
+  - Olsen_P
+  - Available_P
+K_mgkg:
+  canonical: K_mgkg
+  aliases:
+  - 速效钾
+  - 有效钾
+  - Available_K
+  - AK
+Sand_pct:
+  canonical: Sand_pct
+  aliases:
+  - 砂粒
+  - 砂粒含量
+  proxy:
+  - gee_sand_pct
+Silt_pct:
+  canonical: Silt_pct
+  aliases:
+  - 粉粒
+  - 粉粒含量
+  proxy:
+  - gee_silt_pct
+Clay_pct:
+  canonical: Clay_pct
+  aliases:
+  - 黏粒
+  - 粘粒
+  - 黏粒含量
+  proxy:
+  - gee_clay_pct
+Elevation_m:
+  canonical: Elevation_m
+  coalesce:
+  - Elevation_m
+  - Altitude_m
+  aliases:
+  - 海拔
+  - 高程
+  - DEM
+  proxy:
+  - gee_elevation_m
+MAP_mm:
+  canonical: MAP_mm
+  aliases:
+  - 年均降水量
+  - 降水
+  proxy:
+  - gee_precip_annual_mm
+Slope_pct:
+  canonical: Slope_pct
+  aliases:
+  - 坡度
+  - 地形坡度
+  proxy:
+  - gee_slope_deg

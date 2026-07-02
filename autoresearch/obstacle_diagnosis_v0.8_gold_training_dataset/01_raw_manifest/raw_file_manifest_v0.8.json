@@ -1,0 +1,33 @@
+{
+  "raw_main": {
+    "path": "C:\\Users\\曾鸿\\Desktop\\SRS\\data\\covariates\\merged_std33_geocoded.csv",
+    "sha256": "d05d5bf335fe541979db303fb08a7fdc",
+    "n_rows": 27031,
+    "n_cols": 720,
+    "readonly": true,
+    "version": "merged_std33_geocoded"
+  },
+  "gee_covariates": {
+    "path": "C:\\Users\\曾鸿\\Desktop\\SRS\\data\\covariates\\merged_std33_gee_covariates.csv",
+    "n_rows": 26522,
+    "n_cols": 15,
+    "merged_cols": [
+      "gee_ndvi",
+      "gee_precip_annual_mm",
+      "gee_temp_mean_c",
+      "gee_elevation_m",
+      "gee_slope_deg",
+      "gee_aspect_deg",
+      "gee_soil_pH",
+      "gee_soc_g_kg",
+      "gee_cec_cmol_kg",
+      "gee_clay_pct",
+      "gee_sand_pct",
+      "gee_silt_pct",
+      "gee_bulk_density_g_cm3",
+      "gee_nitrogen_g_kg"
+    ]
+  },
+  "snapshot_time": "2026-07-02T12:12:58.395111+00:00",
+  "processing_version": "v0.8_gold"
+}

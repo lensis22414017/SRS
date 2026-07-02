@@ -1,0 +1,15 @@
+ngg_to_mgkg:
+  factor: 0.001
+  note: ng/g → mg/kg
+ugkg_to_mgkg:
+  factor: 0.001
+  note: μg/kg → mg/kg
+mgkg_to_ngg:
+  factor: 1000
+  note: mg/kg → ng/g
+gkg_to_pct:
+  factor: 0.1
+  note: g/kg → %
+pct_to_gkg:
+  factor: 10
+  note: '% → g/kg'

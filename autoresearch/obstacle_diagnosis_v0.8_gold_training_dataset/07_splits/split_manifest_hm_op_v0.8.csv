@@ -1,0 +1,409 @@
+﻿sample_id,site_id,source_id,province,split,split_strategy,split_version
+15801,15802,10.1007/s12403-023-00534-3,贵州,test,GroupKFold_source,v0.8
+20444,20445,10.1007/s11356-014-2995-4,广东,train,GroupKFold_source,v0.8
+20445,20446,10.1007/s11356-014-2995-4,广东,train,GroupKFold_source,v0.8
+20452,20453,10.1007/s11270-010-0645-0,unknown,train,GroupKFold_source,v0.8
+20453,20454,10.1007/s11270-010-0645-0,unknown,train,GroupKFold_source,v0.8
+20454,20455,10.1007/s11270-010-0645-0,unknown,train,GroupKFold_source,v0.8
+20455,20456,10.1007/s11270-010-0645-0,unknown,train,GroupKFold_source,v0.8
+20456,20457,10.1007/s11270-010-0645-0,unknown,train,GroupKFold_source,v0.8
+20457,20458,10.1007/s11270-010-0645-0,unknown,train,GroupKFold_source,v0.8
+20458,20459,10.1007/s11270-010-0645-0,unknown,train,GroupKFold_source,v0.8
+20459,20460,10.1007/s11270-010-0645-0,unknown,train,GroupKFold_source,v0.8
+20460,20461,10.1007/s11270-010-0645-0,unknown,train,GroupKFold_source,v0.8
+20461,20462,10.1007/s11270-010-0645-0,unknown,train,GroupKFold_source,v0.8
+20462,20463,10.1007/s11270-010-0645-0,unknown,train,GroupKFold_source,v0.8
+20463,20464,10.1016/j.ecoenv.2024.116965,贵州,test,GroupKFold_source,v0.8
+20464,20465,10.1016/j.jhazmat.2021.128096,山东,train,GroupKFold_source,v0.8
+20465,20466,10.1016/j.jhazmat.2021.128096,山东,train,GroupKFold_source,v0.8
+20470,20471,10.13671/j.hjkxxb.2020.0218,河北,train,GroupKFold_source,v0.8
+20471,20472,10.13671/j.hjkxxb.2020.0218,河北,train,GroupKFold_source,v0.8
+20472,20473,10.13671/j.hjkxxb.2020.0218,河北,train,GroupKFold_source,v0.8
+20473,20474,10.13671/j.hjkxxb.2020.0218,河北,train,GroupKFold_source,v0.8
+20474,20475,10.13671/j.hjkxxb.2020.0218,河北,train,GroupKFold_source,v0.8
+20475,20476,10.16258/j.cnki.1674-5906.2024.12.011,广东,train,GroupKFold_source,v0.8
+20491,20492,10.1007/s10646-020-02320-2,江苏,train,GroupKFold_source,v0.8
+20492,20493,10.1007/s10646-020-02320-2,江苏,train,GroupKFold_source,v0.8
+20493,20494,10.1007/s10646-020-02320-2,江苏,train,GroupKFold_source,v0.8
+20494,20495,10.1007/s10646-020-02320-2,江苏,train,GroupKFold_source,v0.8
+20495,20496,10.1007/s10646-020-02320-2,江苏,train,GroupKFold_source,v0.8
+20496,20497,10.1007/s10646-020-02320-2,江苏,train,GroupKFold_source,v0.8
+20497,20498,10.1007/s10646-020-02320-2,江苏,train,GroupKFold_source,v0.8
+20498,20499,10.1007/s10646-020-02320-2,江苏,train,GroupKFold_source,v0.8
+20499,20500,10.1007/s10646-020-02320-2,江苏,train,GroupKFold_source,v0.8
+20500,20501,10.1007/s10646-020-02320-2,江苏,train,GroupKFold_source,v0.8
+20501,20502,10.3390/toxics13010011,浙江,test,GroupKFold_source,v0.8
+20502,20503,10.3390/toxics13010011,浙江,test,GroupKFold_source,v0.8
+20503,20504,10.3390/toxics13010011,浙江,test,GroupKFold_source,v0.8
+20504,20505,10.1016/j.envpol.2021.117191,北京,train,GroupKFold_source,v0.8
+21034,21035,10.1080/09593330.2010.528045,unknown,train,GroupKFold_source,v0.8
+21048,21049,10.1016/j.scitotenv.2018.07.223,Liaoning,valid,GroupKFold_source,v0.8
+21049,21050,10.1016/j.scitotenv.2018.07.223,Liaoning,valid,GroupKFold_source,v0.8
+21050,21051,10.1016/j.scitotenv.2018.07.223,Liaoning,valid,GroupKFold_source,v0.8
+21051,21052,10.1016/j.scitotenv.2018.07.223,Liaoning,valid,GroupKFold_source,v0.8
+21052,21053,10.1016/j.scitotenv.2018.07.223,Liaoning,valid,GroupKFold_source,v0.8
+21053,21054,10.1016/j.scitotenv.2018.07.223,Liaoning,valid,GroupKFold_source,v0.8
+21054,21055,10.1016/j.scitotenv.2018.07.223,Liaoning,valid,GroupKFold_source,v0.8
+21055,21056,10.1016/j.scitotenv.2018.07.223,Liaoning,valid,GroupKFold_source,v0.8
+21124,21125,10.1007/s10661-026-15284-3,unknown,train,GroupKFold_source,v0.8
+21125,21126,10.1007/s10661-026-15284-3,unknown,train,GroupKFold_source,v0.8
+21126,21127,10.1007/s10661-026-15284-3,unknown,train,GroupKFold_source,v0.8
+21127,21128,10.1007/s10661-026-15284-3,unknown,train,GroupKFold_source,v0.8
+21176,21177,10.1016/j.jhazmat.2019.121168,unknown,valid,GroupKFold_source,v0.8
+21185,21186,10.1007/s10661-014-4037-6,Rivers State,train,GroupKFold_source,v0.8
+21186,21187,10.1007/s10661-014-4037-6,Abia State,train,GroupKFold_source,v0.8
+21191,21192,10.1007/s11356-015-5249-1,Zhejiang,test,GroupKFold_source,v0.8
+21194,21195,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+21195,21196,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+21196,21197,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+21201,21202,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+21202,21203,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+21203,21204,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+21204,21205,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+21205,21206,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+21206,21207,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+21207,21208,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+21208,21209,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+21209,21210,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+21210,21211,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+21211,21212,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+21212,21213,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+21213,21214,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+21214,21215,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+21215,21216,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+21216,21217,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+21217,21218,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+21218,21219,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+21219,21220,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+21229,21230,10.1007/s11270-018-3857-3,Lesser Poland Voivodeship,valid,GroupKFold_source,v0.8
+21230,21231,10.1007/s11270-018-3857-3,Lesser Poland Voivodeship,valid,GroupKFold_source,v0.8
+21231,21232,10.1007/s11270-019-4201-2,Norrbotten,train,GroupKFold_source,v0.8
+21232,21233,10.1007/s11270-019-4201-2,Västerbotten,train,GroupKFold_source,v0.8
+21233,21234,10.1007/s11356-021-17937-x,Kermanshah,train,GroupKFold_source,v0.8
+21234,21235,10.1007/s11356-021-17937-x,Kermanshah,train,GroupKFold_source,v0.8
+21243,21244,10.1007/s11356-023-31256-3,Puglia,train,GroupKFold_source,v0.8
+21254,21255,10.1016/j.envpol.2017.08.033,Alberta,train,GroupKFold_source,v0.8
+21255,21256,10.1016/j.envpol.2017.08.033,Alberta,train,GroupKFold_source,v0.8
+21256,21257,10.1016/j.envpol.2017.08.033,Alberta,train,GroupKFold_source,v0.8
+21257,21258,10.1016/j.envpol.2017.08.033,Alberta,train,GroupKFold_source,v0.8
+21263,21264,10.1016/j.envpol.2017.08.033,Alberta,train,GroupKFold_source,v0.8
+21264,21265,10.1016/j.envpol.2017.08.033,Alberta,train,GroupKFold_source,v0.8
+21265,21266,10.1016/j.envpol.2018.08.040,Western Australia,train,GroupKFold_source,v0.8
+21276,21277,10.1038/s41598-022-22757-1,unknown,valid,GroupKFold_source,v0.8
+21282,21283,10.3390/agriculture10020047,Tibet,valid,GroupKFold_source,v0.8
+21284,21285,10.3390/agriculture10020047,Fujian,valid,GroupKFold_source,v0.8
+21285,21286,10.3390/agriculture10020047,Fujian,valid,GroupKFold_source,v0.8
+21286,21287,10.3390/agriculture10020047,Fujian,valid,GroupKFold_source,v0.8
+21287,21288,10.3390/agriculture10020047,Taiwan,valid,GroupKFold_source,v0.8
+21449,21450,10.1016/j.envint.2020.106162,Sichuan,train,GroupKFold_source,v0.8
+21487,21488,10.1007/s11356-023-31256-3,Taranto,train,GroupKFold_source,v0.8
+21520,21521,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+21521,21522,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+21522,21523,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+21529,21530,10.3390/agriculture10020047,Tibet,valid,GroupKFold_source,v0.8
+21533,21534,10.3390/agriculture10020047,Fujian,valid,GroupKFold_source,v0.8
+21569,21570,10.1016/j.scitotenv.2022.155561,New York,train,GroupKFold_source,v0.8
+21570,21571,10.1016/j.scitotenv.2022.155561,New York,train,GroupKFold_source,v0.8
+21571,21572,10.1016/j.scitotenv.2022.155561,New York,train,GroupKFold_source,v0.8
+21572,21573,10.1016/j.scitotenv.2022.155561,New York,train,GroupKFold_source,v0.8
+21573,21574,10.1016/j.scitotenv.2022.155561,New York,train,GroupKFold_source,v0.8
+21574,21575,10.1016/j.scitotenv.2022.155561,New York,train,GroupKFold_source,v0.8
+21636,21637,10.7454/mss.v26i1.1250,Ebonyi,valid,GroupKFold_source,v0.8
+21691,21692,10.3390/agriculture10020047,Tibet,valid,GroupKFold_source,v0.8
+21692,21693,10.3390/agriculture10020047,Guangdong,valid,GroupKFold_source,v0.8
+21693,21694,10.3390/agriculture10020047,Fujian,valid,GroupKFold_source,v0.8
+21694,21695,10.3390/agriculture10020047,Fujian,valid,GroupKFold_source,v0.8
+21695,21696,10.3390/agriculture10020047,Fujian,valid,GroupKFold_source,v0.8
+21697,21698,10.1039/d4ra06060a,unknown,train,GroupKFold_source,v0.8
+21698,21699,10.1039/d4ra06060a,Sichuan,train,GroupKFold_source,v0.8
+21719,21720,10.1007/s10661-014-4037-6,Rivers State,train,GroupKFold_source,v0.8
+21720,21721,10.1007/s10661-014-4037-6,Abia State,train,GroupKFold_source,v0.8
+21721,21722,10.1007/s10661-014-4037-6,Rivers State,train,GroupKFold_source,v0.8
+21722,21723,10.1007/s10661-014-4037-6,Rivers State,train,GroupKFold_source,v0.8
+21734,21735,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+21735,21736,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+21736,21737,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+21737,21738,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+21738,21739,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+21739,21740,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+21740,21741,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+21741,21742,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+21742,21743,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+21743,21744,10.1038/s41598-021-94299-x,Małopolskie,valid,GroupKFold_source,v0.8
+21744,21745,10.1038/s41598-021-94299-x,Małopolskie,valid,GroupKFold_source,v0.8
+21745,21746,10.1038/s41598-021-94299-x,Małopolskie,valid,GroupKFold_source,v0.8
+21761,21762,10.1016/0048-9697(93)90377-F,North Rhine-Westphalia,train,GroupKFold_source,v0.8
+21762,21763,10.1016/0048-9697(93)90377-F,North Rhine-Westphalia,train,GroupKFold_source,v0.8
+22095,22096,10.1016/j.scitotenv.2021.148880,Hovedstaden,test,GroupKFold_source,v0.8
+22663,22664,10.1002/9781119670186.ch8,unknown,train,GroupKFold_source,v0.8
+23207,23208,10.1007/s11356-024-33606-1,Tehran,train,GroupKFold_source,v0.8
+23208,23209,10.1007/s11356-024-33606-1,Tehran,train,GroupKFold_source,v0.8
+23229,23230,10.1007/s12223-023-01077-5,Kwara State,valid,GroupKFold_source,v0.8
+23283,23284,10.1007/s13762-014-0626-8,Puducherry,train,GroupKFold_source,v0.8
+23284,23285,10.1007/s13762-014-0626-8,Puducherry,train,GroupKFold_source,v0.8
+23285,23286,10.1007/s13762-014-0626-8,Puducherry,train,GroupKFold_source,v0.8
+23286,23287,10.1007/s13762-014-0626-8,Puducherry,train,GroupKFold_source,v0.8
+23287,23288,10.1007/s13762-014-0626-8,Puducherry,train,GroupKFold_source,v0.8
+23288,23289,10.1007/s13762-014-0626-8,Puducherry,train,GroupKFold_source,v0.8
+23289,23290,10.1007/s13762-014-0626-8,Puducherry,train,GroupKFold_source,v0.8
+23290,23291,10.1007/s13762-014-0626-8,Puducherry,train,GroupKFold_source,v0.8
+23291,23292,10.1007/s13762-014-0626-8,Puducherry,train,GroupKFold_source,v0.8
+23292,23293,10.1007/s13762-014-0626-8,Puducherry,train,GroupKFold_source,v0.8
+23293,23294,10.1007/s13762-014-0626-8,Tamil Nadu,train,GroupKFold_source,v0.8
+23294,23295,10.1007/s13762-014-0626-8,Tamil Nadu,train,GroupKFold_source,v0.8
+23295,23296,10.1007/s13762-014-0626-8,Tamil Nadu,train,GroupKFold_source,v0.8
+23296,23297,10.1007/s13762-014-0626-8,Tamil Nadu,train,GroupKFold_source,v0.8
+23297,23298,10.1007/s13762-014-0626-8,Tamil Nadu,train,GroupKFold_source,v0.8
+23298,23299,10.1007/s13762-014-0626-8,Tamil Nadu,train,GroupKFold_source,v0.8
+23473,23474,10.1016/j.ecoenv.2025.118527,Hebei,valid,GroupKFold_source,v0.8
+23475,23476,10.1016/j.ejpe.2019.12.004,Delta State,valid,GroupKFold_source,v0.8
+23476,23477,10.1016/j.ejpe.2019.12.004,Delta State,valid,GroupKFold_source,v0.8
+23477,23478,10.1016/j.ejpe.2019.12.004,Delta State,valid,GroupKFold_source,v0.8
+23684,23685,10.1038/s41598-024-78961-8/PublisherDirect,Aksaray,train,GroupKFold_source,v0.8
+23685,23686,10.1038/s41598-024-78961-8/PublisherDirect,Aksaray,train,GroupKFold_source,v0.8
+23686,23687,10.1038/s41598-024-78961-8/PublisherDirect,Aksaray,train,GroupKFold_source,v0.8
+23687,23688,10.1038/s41598-024-78961-8/PublisherDirect,Aksaray,train,GroupKFold_source,v0.8
+23688,23689,10.1038/s41598-024-78961-8/PublisherDirect,Aksaray,train,GroupKFold_source,v0.8
+23689,23690,10.1038/s41598-024-78961-8/PublisherDirect,Aksaray,train,GroupKFold_source,v0.8
+23690,23691,10.1038/s41598-024-78961-8/PublisherDirect,Aksaray,train,GroupKFold_source,v0.8
+23691,23692,10.1038/s41598-024-78961-8/PublisherDirect,Aksaray,train,GroupKFold_source,v0.8
+23692,23693,10.1038/s41598-024-78961-8/PublisherDirect,Aksaray,train,GroupKFold_source,v0.8
+23694,23695,10.1039/c3em00618b,Shandong,train,GroupKFold_source,v0.8
+23855,23856,10.1080/15226514.2013.773280,Texas,train,GroupKFold_source,v0.8
+23958,23959,10.1080/15320383.2011.560984,Uttar Pradesh,train,GroupKFold_source,v0.8
+23959,23960,10.1080/15320383.2011.560984,Uttar Pradesh,train,GroupKFold_source,v0.8
+24354,24355,10.21203/rs.2.20924/v1,Rivers,train,GroupKFold_source,v0.8
+24356,24357,10.21203/rs.2.20924/v1,Rivers,train,GroupKFold_source,v0.8
+24417,24418,10.21203/rs.3.rs-26142/v1/OpenAlexOA,Rivers State,train,GroupKFold_source,v0.8
+24419,24420,10.21203/rs.3.rs-26142/v1/OpenAlexOA,Rivers State,train,GroupKFold_source,v0.8
+24427,24428,10.21203/rs.3.rs-3077559/v1,Tehran,valid,GroupKFold_source,v0.8
+24428,24429,10.21203/rs.3.rs-3077559/v1,Tehran,valid,GroupKFold_source,v0.8
+24678,24679,10.1515/popore-2017-0020,Yamal-Nenets Autonomous Okrug,test,GroupKFold_source,v0.8
+24679,24680,10.1515/popore-2017-0020,Yamal-Nenets Autonomous Okrug,test,GroupKFold_source,v0.8
+24680,24681,10.1515/popore-2017-0020,Yamal-Nenets Autonomous Okrug,test,GroupKFold_source,v0.8
+24681,24682,10.1515/popore-2017-0020,Yamal-Nenets Autonomous Okrug,test,GroupKFold_source,v0.8
+24682,24683,10.1515/popore-2017-0020,Yamal-Nenets Autonomous Okrug,test,GroupKFold_source,v0.8
+24683,24684,10.1515/popore-2017-0020,Yamal-Nenets Autonomous Okrug,test,GroupKFold_source,v0.8
+24684,24685,10.1515/popore-2017-0020,Yamal-Nenets Autonomous Okrug,test,GroupKFold_source,v0.8
+24685,24686,10.1515/popore-2017-0020,Yamal-Nenets Autonomous Okrug,test,GroupKFold_source,v0.8
+24686,24687,10.1515/popore-2017-0020,Yamal-Nenets Autonomous Okrug,test,GroupKFold_source,v0.8
+25037,25038,10.3390/app11072979,Quebec,valid,GroupKFold_source,v0.8
+25038,25039,10.3390/app11072979,Quebec,valid,GroupKFold_source,v0.8
+25039,25040,10.3390/app11072979,Quebec,valid,GroupKFold_source,v0.8
+25040,25041,10.3390/app11072979,Quebec,valid,GroupKFold_source,v0.8
+25155,25156,10.1007/s10661-012-2766-y,Sfax,train,GroupKFold_source,v0.8
+25156,25157,10.1007/s10661-012-2766-y,Sfax,train,GroupKFold_source,v0.8
+25157,25158,10.1007/s10661-012-2766-y,Sfax,train,GroupKFold_source,v0.8
+25158,25159,10.1007/s10661-012-2766-y,Sfax,train,GroupKFold_source,v0.8
+25159,25160,10.1007/s10661-012-2766-y,Sfax,train,GroupKFold_source,v0.8
+25246,25247,10.5897/JENE2016.0593,Delta State,train,GroupKFold_source,v0.8
+25247,25248,10.5897/JENE2016.0593,Delta State,train,GroupKFold_source,v0.8
+25293,25294,10.1016/j.scitotenv.2018.09.339,Kent,test,GroupKFold_source,v0.8
+25294,25295,10.1016/j.scitotenv.2018.09.339,Northamptonshire,test,GroupKFold_source,v0.8
+25298,25299,10.1016/j.chemosphere.2019.124651,Livorno,train,GroupKFold_source,v0.8
+25299,25300,10.1016/j.chemosphere.2019.124651,Livorno,train,GroupKFold_source,v0.8
+25300,25301,10.1016/j.chemosphere.2019.124651,Livorno,train,GroupKFold_source,v0.8
+25415,25416,10.1016/j.chemosphere.2023.141009,Sicily,train,GroupKFold_source,v0.8
+25416,25417,10.1016/j.chemosphere.2023.141009,Sicily,train,GroupKFold_source,v0.8
+25417,25418,10.1016/j.chemosphere.2023.141009,Campania,train,GroupKFold_source,v0.8
+25540,25541,10.1007/s10661-014-4037-6,Rivers State,train,GroupKFold_source,v0.8
+25541,25542,10.1007/s11270-018-3857-3,Silesian,valid,GroupKFold_source,v0.8
+25542,25543,10.1007/s11270-018-3857-3,Silesian,valid,GroupKFold_source,v0.8
+25545,25546,10.1007/s11356-023-31256-3,Taranto,train,GroupKFold_source,v0.8
+25546,25547,10.1007/s12403-021-00431-7,Lesser Poland,train,GroupKFold_source,v0.8
+25547,25548,10.1007/s12403-021-00431-7,Lesser Poland,train,GroupKFold_source,v0.8
+25548,25549,10.1007/s12403-021-00431-7,Lesser Poland,train,GroupKFold_source,v0.8
+25549,25550,10.1007/s12403-021-00431-7,Lesser Poland,train,GroupKFold_source,v0.8
+25918,25919,10.1038/s41598-021-94299-x//Łyszczarz,Małopolska,test,GroupKFold_source,v0.8
+25919,25920,10.1038/s41598-021-94299-x//Łyszczarz,Małopolska,test,GroupKFold_source,v0.8
+25920,25921,10.1038/s41598-021-94299-x//Łyszczarz,Małopolska,test,GroupKFold_source,v0.8
+25921,25922,10.3390/agriculture10020047//He,Fujian,test,GroupKFold_source,v0.8
+25922,25923,10.1016/j.envpol.2021.118614/mmc1,Hainan,train,GroupKFold_source,v0.8
+25923,25924,10.1016/j.envpol.2021.118614/mmc1,Hainan,train,GroupKFold_source,v0.8
+25924,25925,10.1016/j.envpol.2021.118614/mmc1,Hainan,train,GroupKFold_source,v0.8
+25925,25926,10.1016/j.envpol.2021.118614/mmc1,Hainan,train,GroupKFold_source,v0.8
+25926,25927,10.1016/j.envpol.2021.118614/mmc1,Hainan,train,GroupKFold_source,v0.8
+25927,25928,10.1016/j.envpol.2021.118614/mmc1,Hainan,train,GroupKFold_source,v0.8
+25928,25929,10.1016/j.envpol.2021.118614/mmc1,Hainan,train,GroupKFold_source,v0.8
+25929,25930,10.1016/j.envpol.2021.118614/mmc1,Hainan,train,GroupKFold_source,v0.8
+25930,25931,10.1016/j.envpol.2021.118614/mmc1,Hainan,train,GroupKFold_source,v0.8
+25931,25932,10.1016/j.envpol.2021.118614/mmc1,Hainan,train,GroupKFold_source,v0.8
+25932,25933,10.1016/j.envpol.2021.118614/mmc1,Hainan,train,GroupKFold_source,v0.8
+25933,25934,10.1016/j.envpol.2021.118614/mmc1,Hainan,train,GroupKFold_source,v0.8
+25934,25935,10.1016/j.envpol.2021.118614/mmc1,Hainan,train,GroupKFold_source,v0.8
+25935,25936,10.1016/j.envpol.2021.118614/mmc1,Hainan,train,GroupKFold_source,v0.8
+25936,25937,10.1016/j.envpol.2021.118614/mmc1,Hainan,train,GroupKFold_source,v0.8
+25937,25938,10.1016/j.envpol.2021.118614/mmc1,Hainan,train,GroupKFold_source,v0.8
+25938,25939,10.1016/j.envpol.2021.118614/mmc1,Hainan,train,GroupKFold_source,v0.8
+25939,25940,10.1016/j.envpol.2021.118614/mmc1,Hainan,train,GroupKFold_source,v0.8
+25940,25941,10.1016/j.envpol.2021.118614/mmc1,Hainan,train,GroupKFold_source,v0.8
+25941,25942,10.1016/j.envpol.2021.118614/mmc1,Hainan,train,GroupKFold_source,v0.8
+25942,25943,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+25943,25944,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+25944,25945,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+25945,25946,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+25946,25947,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+25947,25948,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+25948,25949,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+25949,25950,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+25950,25951,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+25951,25952,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+25952,25953,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+25953,25954,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+25954,25955,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+25955,25956,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+25956,25957,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+25957,25958,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+25958,25959,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+25959,25960,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+25960,25961,10.1016/j.envpol.2021.118614,Hainan,test,GroupKFold_source,v0.8
+25965,25966,10.1016/j.jhazmat.2019.121168,Kuyavian-Pomeranian,valid,GroupKFold_source,v0.8
+25966,25967,10.1007/s12403-023-00534-3,Guizhou,test,GroupKFold_source,v0.8
+25968,25969,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+25969,25970,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+25970,25971,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+25974,25975,10.1016/j.scitotenv.2022.155561,New York,train,GroupKFold_source,v0.8
+25975,25976,10.1016/j.scitotenv.2022.155561,New York,train,GroupKFold_source,v0.8
+25976,25977,10.1016/j.scitotenv.2022.155561,New York,train,GroupKFold_source,v0.8
+25977,25978,10.1016/j.scitotenv.2022.155561,New York,train,GroupKFold_source,v0.8
+25978,25979,10.1016/j.scitotenv.2022.155561,New York,train,GroupKFold_source,v0.8
+25979,25980,10.1016/j.scitotenv.2022.155561,New York,train,GroupKFold_source,v0.8
+25984,25985,10.1007/s10661-014-4037-6,Rivers,train,GroupKFold_source,v0.8
+25987,25988,10.1007/s11356-021-17937-x,Kermanshah,train,GroupKFold_source,v0.8
+25988,25989,10.1007/s11356-021-17937-x,Kermanshah,train,GroupKFold_source,v0.8
+25989,25990,10.1007/s11356-021-17937-x,Kermanshah,train,GroupKFold_source,v0.8
+26020,26021,10.1016/j.envpol.2018.12.051,Guangdong,train,GroupKFold_source,v0.8
+26021,26022,10.1016/j.envpol.2018.12.051,Guangdong,train,GroupKFold_source,v0.8
+26022,26023,10.1016/j.envpol.2018.12.051,Guangdong,train,GroupKFold_source,v0.8
+26110,26111,10.1038/s41598-017-12437-w,Inner Mongolia,train,GroupKFold_source,v0.8
+26111,26112,10.1038/s41598-017-12437-w,Inner Mongolia,train,GroupKFold_source,v0.8
+26112,26113,10.1038/s41598-017-12437-w,Inner Mongolia,train,GroupKFold_source,v0.8
+26113,26114,10.1038/s41598-017-12437-w,Inner Mongolia,train,GroupKFold_source,v0.8
+26114,26115,10.1038/s41598-017-12437-w,Inner Mongolia,train,GroupKFold_source,v0.8
+26115,26116,10.1038/s41598-017-12437-w,Inner Mongolia,train,GroupKFold_source,v0.8
+26116,26117,10.1038/s41598-017-12437-w,Inner Mongolia,train,GroupKFold_source,v0.8
+26117,26118,10.1038/s41598-017-12437-w,Inner Mongolia,train,GroupKFold_source,v0.8
+26118,26119,10.1038/s41598-017-12437-w,Inner Mongolia,train,GroupKFold_source,v0.8
+26119,26120,10.1038/s41598-017-12437-w,Inner Mongolia,train,GroupKFold_source,v0.8
+26120,26121,10.1038/s41598-017-12437-w,Inner Mongolia,train,GroupKFold_source,v0.8
+26121,26122,10.1038/s41598-017-12437-w,Inner Mongolia,train,GroupKFold_source,v0.8
+26122,26123,10.1038/s41598-017-12437-w,Inner Mongolia,train,GroupKFold_source,v0.8
+26123,26124,10.1038/s41598-017-12437-w,Inner Mongolia,train,GroupKFold_source,v0.8
+26124,26125,10.1038/s41598-017-12437-w,Inner Mongolia,train,GroupKFold_source,v0.8
+26149,26150,10.3390/app11041479,Attica,train,GroupKFold_source,v0.8
+26152,26153,10.1007/s11356-021-15491-0,Val-de-Marne,test,GroupKFold_source,v0.8
+26153,26154,10.1007/s11356-021-15491-0,Val-de-Marne,test,GroupKFold_source,v0.8
+26157,26158,10.1007/s11356-014-2995-4,Guangdong,train,GroupKFold_source,v0.8
+26158,26159,10.1007/s11356-014-2995-4,Guangdong,train,GroupKFold_source,v0.8
+26163,26164,10.1016/j.envpol.2022.118925,Shanxi,test,GroupKFold_source,v0.8
+26172,26173,10.1038/s41598-021-94299-x,Małopolska Voivodeship,valid,GroupKFold_source,v0.8
+26173,26174,10.1038/s41598-021-94299-x,Małopolska Voivodeship,valid,GroupKFold_source,v0.8
+26174,26175,10.1038/s41598-021-94299-x,Małopolska Voivodeship,valid,GroupKFold_source,v0.8
+26195,26196,10.1080/02757540.2013.844798,Zhejiang,valid,GroupKFold_source,v0.8
+26196,26197,10.1080/02757540.2013.844798,Zhejiang,valid,GroupKFold_source,v0.8
+26198,26199,10.1007/s11356-015-5249-1,Zhejiang,test,GroupKFold_source,v0.8
+26200,26201,10.1016/j.envpol.2017.08.003,Guangdong,train,GroupKFold_source,v0.8
+26201,26202,10.1016/j.envpol.2017.08.003,Guangdong,train,GroupKFold_source,v0.8
+26202,26203,10.1016/j.envpol.2017.08.003,Guangdong,train,GroupKFold_source,v0.8
+26203,26204,10.1016/j.envpol.2017.08.003,Zhejiang,train,GroupKFold_source,v0.8
+26204,26205,10.1016/j.envpol.2017.08.003,Zhejiang,train,GroupKFold_source,v0.8
+26205,26206,10.1016/j.envpol.2017.08.003,Sindh,train,GroupKFold_source,v0.8
+26206,26207,10.1016/j.envpol.2017.08.003,Punjab,train,GroupKFold_source,v0.8
+26207,26208,10.1016/j.envpol.2017.08.003,Punjab,train,GroupKFold_source,v0.8
+26221,26222,10.4236/jep.2016.710120,Delta State,train,GroupKFold_source,v0.8
+26222,26223,10.4236/jep.2016.710120,Delta State,train,GroupKFold_source,v0.8
+26223,26224,10.4236/jep.2016.710120,Delta State,train,GroupKFold_source,v0.8
+26233,26234,10.16258/j.cnki.1674-5906.2024.12.011,Guangdong,train,GroupKFold_source,v0.8
+26234,26235,10.16258/j.cnki.1674-5906.2024.12.011,Guangdong,train,GroupKFold_source,v0.8
+26256,26257,10.1007/s10661-014-4037-6,Rivers State,train,GroupKFold_source,v0.8
+26257,26258,10.1007/s10661-014-4037-6,Abia State,train,GroupKFold_source,v0.8
+26259,26260,10.1007/s11356-021-15491-0,Île-de-France,test,GroupKFold_source,v0.8
+26260,26261,10.1007/s11356-021-15491-0,Île-de-France,test,GroupKFold_source,v0.8
+26261,26262,10.1007/s11356-021-17937-x,Kermanshah,train,GroupKFold_source,v0.8
+26262,26263,10.1007/s11356-023-31256-3,Taranto,train,GroupKFold_source,v0.8
+26320,26321,10.1016/j.envpol.2022.118925,Shanxi,test,GroupKFold_source,v0.8
+26336,26337,10.1007/s10646-020-02320-2,Jiangsu,train,GroupKFold_source,v0.8
+26337,26338,10.1007/s10646-020-02320-2,Jiangsu,train,GroupKFold_source,v0.8
+26338,26339,10.1007/s10646-020-02320-2,Jiangsu,train,GroupKFold_source,v0.8
+26339,26340,10.1007/s10646-020-02320-2,Jiangsu,train,GroupKFold_source,v0.8
+26340,26341,10.1007/s10646-020-02320-2,Jiangsu,train,GroupKFold_source,v0.8
+26341,26342,10.1007/s10646-020-02320-2,Jiangsu,train,GroupKFold_source,v0.8
+26342,26343,10.1007/s10646-020-02320-2,Jiangsu,train,GroupKFold_source,v0.8
+26343,26344,10.1007/s10646-020-02320-2,Jiangsu,train,GroupKFold_source,v0.8
+26344,26345,10.1007/s10646-020-02320-2,Jiangsu,train,GroupKFold_source,v0.8
+26345,26346,10.1007/s10646-020-02320-2,Jiangsu,train,GroupKFold_source,v0.8
+26346,26347,10.1016/j.scitotenv.2021.146282,Guangdong,test,GroupKFold_source,v0.8
+26347,26348,10.1016/j.scitotenv.2021.146282,Guangdong,test,GroupKFold_source,v0.8
+26348,26349,10.1016/j.scitotenv.2021.146282,Guangdong,test,GroupKFold_source,v0.8
+26349,26350,10.1016/j.scitotenv.2021.146282,Guangdong,test,GroupKFold_source,v0.8
+26350,26351,10.1016/j.scitotenv.2021.146282,Guangdong,test,GroupKFold_source,v0.8
+26351,26352,10.3390/environments13030125,Gauteng,train,GroupKFold_source,v0.8
+26352,26353,10.1007/s10646-020-02320-2,Jiangsu,train,GroupKFold_source,v0.8
+26353,26354,10.1007/s10646-020-02320-2,Jiangsu,train,GroupKFold_source,v0.8
+26354,26355,10.1007/s10646-020-02320-2,Jiangsu,train,GroupKFold_source,v0.8
+26355,26356,10.1007/s10646-020-02320-2,Jiangsu,train,GroupKFold_source,v0.8
+26356,26357,10.1007/s10646-020-02320-2,Jiangsu,train,GroupKFold_source,v0.8
+26357,26358,10.1007/s10646-020-02320-2,Jiangsu,train,GroupKFold_source,v0.8
+26358,26359,10.1007/s10646-020-02320-2,Jiangsu,train,GroupKFold_source,v0.8
+26359,26360,10.1007/s10646-020-02320-2,Jiangsu,train,GroupKFold_source,v0.8
+26360,26361,10.1007/s10646-020-02320-2,Jiangsu,train,GroupKFold_source,v0.8
+26361,26362,10.1007/s10646-020-02320-2,Jiangsu,train,GroupKFold_source,v0.8
+26362,26363,10.1016/j.envpol.2017.08.003,Guangdong,train,GroupKFold_source,v0.8
+26363,26364,10.1016/j.envpol.2017.08.003,Guangdong,train,GroupKFold_source,v0.8
+26364,26365,10.1016/j.envpol.2017.08.003,Guangdong,train,GroupKFold_source,v0.8
+26365,26366,10.1016/j.envpol.2017.08.003,Zhejiang,train,GroupKFold_source,v0.8
+26366,26367,10.1016/j.envpol.2017.08.003,Zhejiang,train,GroupKFold_source,v0.8
+26367,26368,10.1016/j.envpol.2017.08.003,Sindh,train,GroupKFold_source,v0.8
+26368,26369,10.1016/j.envpol.2017.08.003,Punjab,train,GroupKFold_source,v0.8
+26369,26370,10.1016/j.envpol.2017.08.003,Punjab,train,GroupKFold_source,v0.8
+26371,26372,10.1016/j.scitotenv.2017.11.159,Guangdong,train,GroupKFold_source,v0.8
+26373,26374,10.1016/j.jhazmat.2019.121168,unknown,valid,GroupKFold_source,v0.8
+26381,26382,10.1007/s10661-014-4037-6,Rivers State,train,GroupKFold_source,v0.8
+26411,26412,10.1016/j.envpol.2022.118925,Shanxi,test,GroupKFold_source,v0.8
+26412,26413,10.1016/j.envpol.2022.118925,Shanxi,test,GroupKFold_source,v0.8
+26418,26419,10.1016/j.jhazmat.2023.132408,Guangdong,train,GroupKFold_source,v0.8
+26429,26430,10.1016/j.scitotenv.2021.146282,Guangdong,test,GroupKFold_source,v0.8
+26430,26431,10.1016/j.scitotenv.2021.146282,Guangdong,test,GroupKFold_source,v0.8
+26431,26432,10.1016/j.scitotenv.2021.146282,Guangdong,test,GroupKFold_source,v0.8
+26432,26433,10.1016/j.scitotenv.2021.146282,Guangdong,test,GroupKFold_source,v0.8
+26433,26434,10.1016/j.scitotenv.2021.146282,Guangdong,test,GroupKFold_source,v0.8
+26437,26438,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+26438,26439,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+26439,26440,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+26444,26445,10.7454/mss.v26i1.1250,Ebonyi State,valid,GroupKFold_source,v0.8
+26461,26462,10.1039/d4ra06060a,Sichuan,train,GroupKFold_source,v0.8
+26505,26506,10.1007/s10661-014-4037-6,Rivers State,train,GroupKFold_source,v0.8
+26506,26507,10.1007/s10661-014-4037-6,Rivers State,train,GroupKFold_source,v0.8
+26507,26508,10.1007/s10661-014-4037-6,Rivers State,train,GroupKFold_source,v0.8
+26508,26509,10.1007/s10661-014-4037-6,Rivers State,train,GroupKFold_source,v0.8
+26509,26510,10.1007/s10661-014-4037-6,Abia State,train,GroupKFold_source,v0.8
+26510,26511,10.1007/s10661-014-4037-6,Abia State,train,GroupKFold_source,v0.8
+26511,26512,10.1007/s10661-014-4037-6,Abia State,train,GroupKFold_source,v0.8
+26512,26513,10.1007/s10661-014-4037-6,Abia State,train,GroupKFold_source,v0.8
+26513,26514,10.1007/s10661-014-4037-6,Abia State,train,GroupKFold_source,v0.8
+26514,26515,10.1007/s10661-014-4037-6,Abia State,train,GroupKFold_source,v0.8
+26515,26516,10.1007/s11270-019-4201-2,Norrbotten County,train,GroupKFold_source,v0.8
+26516,26517,10.1007/s11270-019-4201-2,Västerbotten County,train,GroupKFold_source,v0.8
+26517,26518,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+26518,26519,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+26519,26520,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+26520,26521,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+26521,26522,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+26522,26523,10.1038/s41598-021-94299-x,Małopolska,valid,GroupKFold_source,v0.8
+26526,26527,10.1038/s41598-021-94299-x,Małopolska Voivodeship,valid,GroupKFold_source,v0.8
+26527,26528,10.1038/s41598-021-94299-x,Małopolska Voivodeship,valid,GroupKFold_source,v0.8
+26528,26529,10.1038/s41598-021-94299-x,Małopolska Voivodeship,valid,GroupKFold_source,v0.8
+26534,26535,10.3390/su12135284,Lesser Poland Voivodship,train,GroupKFold_source,v0.8
+26535,26536,10.3390/su12135284,Lesser Poland Voivodeship,train,GroupKFold_source,v0.8
+26538,26539,10.3390/toxics10010032,Shandong,test,GroupKFold_source,v0.8
+26539,26540,10.3390/toxics10010032,Shandong,test,GroupKFold_source,v0.8
+26611,26612,10.1155/2018-9264259,Shandong,valid,GroupKFold_source,v0.8
+26612,26613,10.1155/2018-9264259,Shandong,valid,GroupKFold_source,v0.8
+26613,26614,10.1155/2018-9264259,Shandong,valid,GroupKFold_source,v0.8
+26792,26793,https://scholar.google.com/scholar?q=Int.+J.+Biol.+Chem.+Sci.+2009+Biosurfactant-enhanced+remediation+of+hydrocarbon+contaminat,Delta State,train,GroupKFold_source,v0.8
+26793,26794,https://scholar.google.com/scholar?q=Int.+J.+Biol.+Chem.+Sci.+2009+Biosurfactant-enhanced+remediation+of+hydrocarbon+contaminat,Delta State,train,GroupKFold_source,v0.8
+26794,26795,https://scholar.google.com/scholar?q=Int.+J.+Biol.+Chem.+Sci.+2009+Biosurfactant-enhanced+remediation+of+hydrocarbon+contaminat,Delta State,train,GroupKFold_source,v0.8
+26795,26796,https://scholar.google.com/scholar?q=Int.+J.+Biol.+Chem.+Sci.+2009+Biosurfactant-enhanced+remediation+of+hydrocarbon+contaminat,Delta State,train,GroupKFold_source,v0.8
+26796,26797,https://scholar.google.com/scholar?q=Int.+J.+Biol.+Chem.+Sci.+2009+Biosurfactant-enhanced+remediation+of+hydrocarbon+contaminat,Delta State,train,GroupKFold_source,v0.8
+26797,26798,https://scholar.google.com/scholar?q=Int.+J.+Biol.+Chem.+Sci.+2009+Biosurfactant-enhanced+remediation+of+hydrocarbon+contaminat,Delta State,train,GroupKFold_source,v0.8
+27015,27016,10.1016/j.scitotenv.2018.02.013,Catalonia,train,GroupKFold_source,v0.8

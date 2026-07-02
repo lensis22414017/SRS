@@ -1,0 +1,3 @@
+﻿factor_id,factor_name_cn,factor_name_norm,diagnosis_layer,threshold_role,data_role,selected_column,coverage_pct,match_type,evidence_level,track,usable_for_formal_diagnosis,usable_for_extended_screening,usable_as_model_covariate,usable_for_recommended_test,coalesce_rule,unit_standardized,review_status
+auto_有效耕作层厚度,有效耕作层厚度,有效耕作层厚度,recommended_test,proxy_indicator,exclude,,0.0,missing,A,production,0,0,0,0,,,frozen
+auto_有效耕作层厚度,有效耕作层厚度,有效耕作层厚度,recommended_test,proxy_indicator,exclude,,0.0,missing,A,ecology,0,0,0,0,,,frozen
