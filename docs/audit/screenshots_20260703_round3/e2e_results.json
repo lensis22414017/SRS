@@ -1,0 +1,52 @@
+[
+  {
+    "name": "login_admin",
+    "ok": true,
+    "size": "112KB"
+  },
+  {
+    "name": "site_list",
+    "ok": true,
+    "size": "63KB"
+  },
+  {
+    "name": "site_detail_nonblank",
+    "ok": true,
+    "size": "69KB"
+  },
+  {
+    "name": "diagnosis_prod_result_top5",
+    "ok": true,
+    "size": "67KB"
+  },
+  {
+    "name": "kos_top5_detail",
+    "ok": true,
+    "size": "62KB"
+  },
+  {
+    "name": "diagnosis_eco_result_top5",
+    "ok": true,
+    "size": "67KB"
+  },
+  {
+    "name": "reconstruction_reads_kos",
+    "ok": true,
+    "size": "74KB"
+  },
+  {
+    "name": "recommendation_reads_kos",
+    "ok": false,
+    "size": "6KB"
+  },
+  {
+    "name": "traceability_archive",
+    "ok": true,
+    "size": "41KB"
+  },
+  {
+    "name": "unauthorized_403",
+    "ok": true,
+    "size": "69KB"
+  }
+]

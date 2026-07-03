@@ -1,14 +1,15 @@
 {
-  "passed": 6,
-  "failed": 1,
-  "total": 7,
+  "passed": 8,
+  "failed": 0,
+  "total": 8,
   "items": [
     "✅ 登录 200",
     "✅ 模型注册表 models=6",
     "✅ all_prod approved ",
     "✅ op_prod exploratory ",
-    "✅ all_prod frontend ",
-    "❌ 场地列表 n=0",
-    "✅ 未授权401 "
+    "✅ 场地列表 n=3",
+    "✅ KOS诊断 key=4 att=6",
+    "✅ 四层完整 ",
+    "✅ 未授权401 401"
   ]
 }

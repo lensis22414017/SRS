@@ -46,34 +46,36 @@ def sample_internal_sites(n=15):
     feat = pd.read_parquet(f"{GOLD}/04_feature_tables/model_features_wide_all_v0.8.parquet")
     # 按 source_id 分组,每组取代表样本(首行)
     by_src = feat.groupby("source_id").first().reset_index()
-    # 随机采样 n 个,覆盖不同特征模式
-    rng = np.random.RandomState(42)
-    sampled = by_src.sample(n=min(n, len(by_src)), random_state=42)
+    # 多次采样凑齐 n 个有足够因子的场地(放宽到 >=2 因子)
     sites = []
-    for i, row in sampled.iterrows():
-        # 提取 x_measured_ 因子值(非缺失)
-        factors = {}
-        for c in feat.columns:
-            if c.startswith("x_measured_") and pd.notna(row.get(c)):
-                fname = c.replace("x_measured_", "")
-                factors[fname] = float(row[c])
-        if len(factors) >= 3:
-            # 判断污染类型
-            hm_any = any(k in factors for k in ["Cd_mgkg", "Pb_mgkg", "As_mgkg", "Cu_mgkg", "Zn_mgkg"])
-            op_any = any("PAH" in k or "BaP" in k or "DDT" in k or "HCH" in k for k in factors)
-            if hm_any and op_any:
-                ptype = "composite"
-            elif op_any:
-                ptype = "organic"
-            else:
-                ptype = "heavy_metal"
-            sites.append({
-                "source_id": str(row["source_id"]),
-                "factors": factors,
-                "province": row.get("province", "未知"),
-                "pollution_type": ptype,
-                "n_factors": len(factors),
-            })
+    seen_src = set()
+    seed = 42
+    while len(sites) < n and len(seen_src) < len(by_src):
+        rng = np.random.RandomState(seed)
+        remaining = by_src[~by_src["source_id"].isin(seen_src)]
+        if len(remaining) == 0:
+            break
+        sampled = remaining.sample(n=min(n - len(sites), len(remaining)), random_state=seed)
+        seed += 1
+        for _, row in sampled.iterrows():
+            sid = str(row["source_id"])
+            if sid in seen_src:
+                continue
+            factors = {}
+            for c in feat.columns:
+                if c.startswith("x_measured_") and pd.notna(row.get(c)):
+                    fname = c.replace("x_measured_", "")
+                    factors[fname] = float(row[c])
+            if len(factors) >= 2:
+                seen_src.add(sid)
+                hm_any = any(k in factors for k in ["Cd_mgkg", "Pb_mgkg", "As_mgkg", "Cu_mgkg", "Zn_mgkg"])
+                op_any = any("PAH" in k or "BaP" in k or "DDT" in k or "HCH" in k for k in factors)
+                ptype = "composite" if (hm_any and op_any) else ("organic" if op_any else "heavy_metal")
+                sites.append({"source_id": sid, "factors": factors,
+                              "province": row.get("province", "未知"),
+                              "pollution_type": ptype, "n_factors": len(factors)})
+                if len(sites) >= n:
+                    break
     return sites
 
 
@@ -135,7 +137,7 @@ def main():
             else:
                 print(f"  {s['name']} {track}: ❌ {r['error'][:60]}")
 
-    # ── 15 个内部场地(service 直调)──
+    # ── 15 个内部场地(service 直调,同样收集四层)──
     print("\n" + "=" * 60)
     print("15 内部场地双轨验证(service)")
     print("=" * 60)
@@ -143,8 +145,9 @@ def main():
     print(f"采样到 {len(internal)} 个内部场地")
     for i, s in enumerate(internal):
         name = f"内部#{i+1}({s['source_id'][:12]})"
+        subset = {"heavy_metal": "hm", "organic": "op"}.get(s["pollution_type"], "all")
         for track in ["prod", "eco"]:
-            r = run_internal_kos(s["factors"], track, s["pollution_type"].replace("heavy_metal","hm").replace("organic","op") if s["pollution_type"]!="composite" else "all")
+            r = run_internal_kos(s["factors"], track, subset)
             r["site_name"] = name
             r["pollution_type"] = s["pollution_type"]
             r["province"] = s["province"]
@@ -153,12 +156,23 @@ def main():
             if "error" not in r:
                 top5 = [k["factor"] for k in r.get("key_obstacles", [])[:5]]
                 review = r.get("review_required", False)
+                n_ma = len(r.get("model_attention_factors", []))
+                n_fw = len(r.get("family_warnings", []))
+                n_ua = len(r.get("unknown_alerts", []))
+                print(f"  {name:25s} {track}: Top5={top5[:3]} 关注={n_ma} 族群={n_fw} 未知={n_ua} 复核={review}")
                 rankings.append({"site": name, "track": track, "top5": top5, "source": "internal"})
                 review_flags.append({"site": name, "track": track, "review_required": review,
                                      "n_formal": len(r.get("key_obstacles", [])),
-                                     "n_attention": len(r.get("model_attention_factors", [])),
-                                     "n_family": len(r.get("family_warnings", [])),
-                                     "n_unknown": len(r.get("unknown_alerts", []))})
+                                     "n_attention": n_ma, "n_family": n_fw, "n_unknown": n_ua})
+                # 内部场地也收集四层(裴总要求证据文件非空)
+                for ma in r.get("model_attention_factors", [])[:5]:
+                    model_attentions.append({"site": name, "track": track, **ma})
+                for fw in r.get("family_warnings", [])[:5]:
+                    family_warns.append({"site": name, "track": track, **fw})
+                for ua in r.get("unknown_alerts", [])[:5]:
+                    unknown_alerts.append({"site": name, "track": track, **ua})
+                for rt in r.get("recommended_tests", [])[:3]:
+                    recommended.append({"site": name, "track": track, **rt})
 
     # ── 汇总输出 ──
     pd.DataFrame(rankings).to_csv(f"{OUT}/kos_rankings.csv", index=False, encoding="utf-8-sig")
@@ -170,21 +184,25 @@ def main():
     with open(f"{OUT}/diagnosis_outputs.json", "w", encoding="utf-8") as f:
         json.dump(all_results, f, ensure_ascii=False, indent=2, default=str)
 
-    # manifest
+    # manifest(裴总要求字段: site_id/site_name/source/type/track/n_key/n_attention/n_family/n_unknown/review_required/status)
     manifest = pd.DataFrame([{
-        "site": r.get("site_name"), "source": r.get("source"),
+        "site_name": r.get("site_name"), "source": r.get("source"),
         "type": r.get("pollution_type"), "track": r.get("track"),
         "n_key": len(r.get("key_obstacles", [])) if "error" not in r else 0,
         "n_attention": len(r.get("model_attention_factors", [])) if "error" not in r else 0,
+        "n_family": len(r.get("family_warnings", [])) if "error" not in r else 0,
+        "n_unknown": len(r.get("unknown_alerts", [])) if "error" not in r else 0,
         "review_required": r.get("review_required", False) if "error" not in r else None,
-        "error": r.get("error", ""),
+        "status": "ok" if "error" not in r else "error",
     } for r in all_results])
     manifest.to_csv(f"{OUT}/validation_manifest.csv", index=False, encoding="utf-8-sig")
 
     n_ok = len([r for r in all_results if "error" not in r])
     n_review = len([r for r in all_results if r.get("review_required")])
+    n_unique = manifest["site_name"].nunique()
     print(f"\n{'='*60}")
-    print(f"15+3 验证完成: {n_ok}/{len(all_results)} 成功, {n_review} 个需复核")
+    print(f"验证完成: {n_ok}/{len(all_results)} 行成功, {n_unique} 个唯一场地, {n_review} 个需复核")
+    print(f"四层证据: attention={len(model_attentions)} family={len(family_warns)} unknown={len(unknown_alerts)}")
     print(f"输出: {OUT}/")
 
 

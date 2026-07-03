@@ -17,13 +17,21 @@
 内部#5(10.1007/s113),eco,[],internal
 内部#6(10.17221/462),prod,[],internal
 内部#6(10.17221/462),eco,[],internal
-内部#7(10.3184/0954),prod,[],internal
-内部#7(10.3184/0954),eco,[],internal
-内部#8(10.1038/s415),prod,[],internal
-内部#8(10.1038/s415),eco,[],internal
-内部#9(10.1016/j.en),prod,"['Cu_mgkg', 'Cd_mgkg']",internal
-内部#9(10.1016/j.en),eco,['Cu_mgkg'],internal
-内部#10(10.1016/j.ec),prod,[],internal
-内部#10(10.1016/j.ec),eco,[],internal
-内部#11(10.1007/s112),prod,[],internal
-内部#11(10.1007/s112),eco,[],internal
+内部#7(10.1021/acs.),prod,[],internal
+内部#7(10.1021/acs.),eco,[],internal
+内部#8(10.3184/0954),prod,[],internal
+内部#8(10.3184/0954),eco,[],internal
+内部#9(10.1038/s415),prod,[],internal
+内部#9(10.1038/s415),eco,[],internal
+内部#10(10.1016/j.en),prod,"['Cu_mgkg', 'Cd_mgkg']",internal
+内部#10(10.1016/j.en),eco,['Cu_mgkg'],internal
+内部#11(10.1016/j.ec),prod,[],internal
+内部#11(10.1016/j.ec),eco,[],internal
+内部#12(10.1007/s112),prod,[],internal
+内部#12(10.1007/s112),eco,[],internal
+内部#13(10.21203/rs.),prod,['Cu_mgkg'],internal
+内部#13(10.21203/rs.),eco,[],internal
+内部#14(10.1007/s112),prod,[],internal
+内部#14(10.1007/s112),eco,[],internal
+内部#15(10.1038/s415),prod,[],internal
+内部#15(10.1038/s415),eco,[],internal
