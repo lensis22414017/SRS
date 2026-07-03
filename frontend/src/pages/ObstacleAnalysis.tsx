@@ -271,7 +271,8 @@ export default function ObstacleAnalysis() {
             </Descriptions>
           </Card>
 
-          {/* 关键障碍因子 */}
+          {/* 关键障碍因子(旧 SHAP 表 — KOS 诊断跑过后隐藏, 避免甲方困惑) */}
+          {!kosData && (
           <Card title="关键障碍因子（影响程度排序）">
             {opt && <ReactECharts option={opt} theme="srs-light" opts={SVG_OPTS} style={{ height: 340 }} />}
             <Table rowKey="rank" size="small" pagination={false} dataSource={trackFactors}
@@ -293,6 +294,7 @@ export default function ObstacleAnalysis() {
                   render: (v: string) => <Tag color={v === "positive" ? POLLUTION_TYPE["heavy_metal"] : "#4DBBD5"} style={{ color: "#fff" }}>{v === "positive" ? "正向(加重)" : "负向(缓解)"}</Tag> },
               ]} />
           </Card>
+          )}
 
           {(localOption || directionOption) && (
             <Row gutter={16}>

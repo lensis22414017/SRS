@@ -1,0 +1,47 @@
+[
+  {
+    "name": "01_dashboard",
+    "size": "112KB",
+    "ok": true
+  },
+  {
+    "name": "02_site_list",
+    "size": "63KB",
+    "ok": true
+  },
+  {
+    "name": "03_site_detail",
+    "size": "69KB",
+    "ok": true
+  },
+  {
+    "name": "04_kos_prod_top5",
+    "size": "172KB",
+    "ok": true
+  },
+  {
+    "name": "05_kos_eco_top5",
+    "size": "164KB",
+    "ok": true
+  },
+  {
+    "name": "06_reconstruction",
+    "size": "308KB",
+    "ok": true
+  },
+  {
+    "name": "07_recommendation",
+    "size": "236KB",
+    "ok": true
+  },
+  {
+    "name": "08_traceability",
+    "size": "42KB",
+    "ok": true
+  },
+  {
+    "name": "09_permission_403",
+    "size": "68KB",
+    "ok": true
+  }
+]
