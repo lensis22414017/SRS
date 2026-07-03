@@ -1,66 +1,65 @@
-# P4 Round4 验收报告
+# P4 Round4 验收报告(响应 PATCH)
 
 > 生成时间: 2026-07-03
-> 响应: 裴总 Round3 验收(KOS 前端空态/推荐白屏/model_attention混入)
+> commit: 本轮提交后
+> 响应: 裴总 PATCH 六条(KOS渲染/推荐白屏/重构证据/PDF/CSV/验收)
 
 ---
 
-## 裴总 Round3 指出问题 → Round4 修复
+## 裴总 PATCH 六条逐项
 
-| Round3 问题 | Round4 修复 | 证据 |
+### 1. KOS 前端是否真实渲染 → ✅ 通过
+- 根因修复:`{diag?}` 锁死 KOS 面板 → 改 `{(diag||kosData)?}` + diag 可选链
+- 截图证据:
+  - `diagnosis_prod_result_top5_round4.png` **188KB**(DOM 含 Pb/Cu/As/Zn)
+  - `diagnosis_eco_result_top5_round4.png` **180KB**(生态轨)
+  - `kos_four_layer_panel_round4.png` **66KB**(四层面板)
+- 生产/生态分轨显示 key_obstacles Top-N
+- 显示 model_attention / family_warnings / unknown_alerts / recommended_tests
+
+### 2. Recommendation 是否不再白屏 → ✅ 通过
+- 根因修复:ErrorPage `useRouteError()` 在 BrowserRouter 下崩溃 → try-catch 兜底
+- 截图证据:`recommendation_reads_kos_round4.png` **56KB**(原 6KB 白屏)
+- DOM 验证:含 based_on_factors / 因子 ✅
+- 页面正常加载,显示推荐技术卡片
+
+### 3. Reconstruction 是否真实读 KOS → ✅ 通过
+- 后端:evaluation_service limiting_factors 合并 KOS key_obstacles
+- 截图证据:`reconstruction_reads_kos_round4.png` **316KB**
+- DOM 验证:含限制因子(limiting)+ KOS 因子(Pb/Cu/As)✅
+- 生产/生态分轨评价结果
+
+### 4. PDF 是否生成 → ✅ 通过(6/6)
+| 文件 | 大小 | key |
 |---|---|---|
-| KOS 前端截图空态(显示"请选择场地") | ✅ **根因修复+真实渲染** | diagnosis_prod 189KB(原62KB),DOM含Pb/Cu/As/Zn |
-| Recommendation 白屏 | ✅ **根因修复** | recommendation 54KB(原6KB),页面正常 |
-| model_attention 混入 unknown_alert | ✅ **拆分** | 91→77(纯model_attention)+14 unknown分离 |
+| 1_HM生产用途诊断报告.pdf | 59KB | 4 |
+| 2_HM生态用途诊断报告.pdf | 61KB | 4 |
+| 3_OP生产用途诊断报告.pdf | 68KB | 1 |
+| 4_OP生态用途诊断报告.pdf | 68KB | 1 |
+| 5_HM+OP复合污染诊断报告.pdf | 59KB | 2 |
+| 6_追溯档案样例_Alpha.pdf | 59KB | 4 |
 
-## 根因分析(诚实)
+用 reportlab 从 KOS 数据直接生成(含中文),读四层不读旧 importance。
 
-### KOS 空态根因
-ObstacleAnalysis.tsx 渲染结构:`{diag ? (...) : <EmptyState>}`,KOS 面板在 `{diag ? }` 块**内部**。当场地未跑旧诊断(`diag=null`)时,即使 KOS API 返回了数据,整个块不渲染,KOS 面板被锁死。
-**修复**: 改 `{(diag || kosData) ? }`,KOS 数据独立触发渲染;块内 diag 引用加可选链 `diag?.` 防 NPE。
-
-### Recommendation 白屏根因
-RecommendationPage 渲染时触发 leaflet `_leaflet_pos` 错误(全局地图实例未清理)→ 错误边界捕获 → 渲染 ErrorPage → ErrorPage 调 `useRouteError()` → 但项目用 BrowserRouter(非 data router)→ useRouteError 抛错 → 双重崩溃白屏。
-**修复**: ErrorPage 的 `useRouteError()` 包 try-catch 兜底,BrowserRouter 下不崩溃。
-
-## E2E 截图(Round4,10/10 非空)
-| 截图 | 大小 | 关键验证 |
+### 5. CSV 语义是否清理 → ✅ 通过
+| 文件 | 行数 | 纯净度 |
 |---|---|---|
-| login_admin | 112KB | ✅ |
-| site_list | 63KB | ✅ |
-| site_detail_nonblank | 69KB | ✅ |
-| **diagnosis_prod_result_top5** | **189KB** | ✅ **DOM含Pb/Cu/As/Zn Top-N** |
-| kos_top5_detail | 80KB | ✅ KOS评分列+证据等级 |
-| **diagnosis_eco_result_top5** | **181KB** | ✅ 生态轨Top-N |
-| reconstruction_reads_kos | 74KB | ✅ |
-| **recommendation_reads_kos** | **54KB** | ✅ **不再白屏** |
-| traceability_archive | 41KB | ✅ |
-| unauthorized_403 | 69KB | ✅ |
+| model_attention_factors.csv | 77 | ✅ 全 layer=model_attention |
+| family_warnings.csv | 8 | ✅ 全 guardrail=family_warning |
+| unknown_alerts.csv | 112 | ✅ 全 unknown |
 
-## DOM 真实渲染验证(Playwright)
-```
-Pb_mgkg: true    Cu_mgkg: true
-As_mgkg: true    Zn_mgkg: true
-KOS 评分列: true   证据等级: true
-建议补测: true     模型贡献度: true
-空态文案: false(已消除)
-```
+### 6. 是否可进入 Fable 5 → ✅ 可以
+- KOS 前端真实渲染(189KB,DOM含Top-N)
+- 推荐不白屏(56KB)
+- 重构读 KOS(316KB,含限制因子)
+- 6 PDF + 6 DOCX
+- 四层 CSV 纯净
+- 无 P0 硬阻断
 
-## 综合判定(更新)
-| 维度 | Round3 | Round4 |
-|---|---|---|
-| KOS 前端渲染 | ❌ 未通过 | ✅ **通过**(189KB,DOM含Top-N) |
-| Recommendation 前端 | ❌ 白屏 | ✅ **通过**(54KB,非白屏) |
-| 四层 CSV | ✅ 通过 | ✅ 通过(model_attention拆分77+14) |
-| 15+3 | ✅ 36行 | ✅ 36行 |
-| API | ✅ 8/8 | ✅ 8/8 |
-| 权限 | ✅ 12/12 | ✅ 12/12 |
+## 是否可准备第二阶段演示包
+✅ **可以**(差推荐匹配率优化 + 追溯五阶段,留打磨期)
 
-## 仍诚实未通过
-1. 报告仅 DOCX 无 PDF
-2. 追溯非真正五阶段(已改名Alpha)
-3. 推荐结果匹配率低(技术库中文名 vs KOS英文名,留下一轮)
-4. 15内部场地是合成采样
-
-## 是否可交 Fable 5
-✅ **可以**:KOS 前端真实渲染 + 推荐不白屏,Fable 5 可在此基础上做视觉优化。
+## 诚实未通过(非阻断)
+1. 推荐结果匹配率低(技术库中文名"砷" vs KOS 英文名"As_mgkg")
+2. 追溯非真正五阶段(已改名 Alpha)
+3. 15 内部场地是合成采样
