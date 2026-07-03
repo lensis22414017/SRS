@@ -34,7 +34,9 @@ interface ErrorPageProps {
  */
 export default function ErrorPage({ status, message: customMsg }: ErrorPageProps) {
   const nav = useNavigate();
-  const routeError = useRouteError() as any;
+  // BrowserRouter(非 data router)下 useRouteError 会抛错, 安全兜底
+  let routeError: any = null;
+  try { routeError = useRouteError() as any; } catch { routeError = null; }
 
   // 推断状态码：优先使用 prop，其次从路由错误对象推断
   let code: StatusCode = status ?? 404;

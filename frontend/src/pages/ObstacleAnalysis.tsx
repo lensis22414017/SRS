@@ -214,7 +214,7 @@ export default function ObstacleAnalysis() {
         </div>
       </Card>
 
-      {diag ? (
+      {(diag || kosData) ? (
         <>
           {/* 场地背景信息 */}
           {siteBg}
@@ -251,7 +251,7 @@ export default function ObstacleAnalysis() {
                 style={{ marginBottom: 12 }} />
             )}
             <Descriptions size="small" column={2}>
-              <Descriptions.Item label="诊断模型">{diag.model?.name || "RF+SHAP 综合诊断"}</Descriptions.Item>
+              <Descriptions.Item label="诊断模型">{diag?.model?.name || "RF+SHAP 综合诊断"}</Descriptions.Item>
               <Descriptions.Item label="模型可信度">
                 AUC={aucVal ?? "—"}，F1={f1Val ?? "—"}
                 <Tooltip title={<pre style={{ fontSize: 11, margin: 0, whiteSpace: "pre-line" }}>{AUC_GUIDE + "\n\n" + F1_GUIDE}</pre>}>
@@ -261,10 +261,10 @@ export default function ObstacleAnalysis() {
               </Descriptions.Item>
               <Descriptions.Item label="结论摘要" span={2}>
                 <Paragraph ellipsis={{ rows: 3, expandable: true, symbol: "展开全部" }}
-                  style={{ marginBottom: 4, whiteSpace: "pre-wrap" }}>{diag.summary || "—"}</Paragraph>
-                {diag.polish_model && (
+                  style={{ marginBottom: 4, whiteSpace: "pre-wrap" }}>{diag?.summary || "—"}</Paragraph>
+                {diag?.polish_model && (
                   <Text type="secondary" style={{ fontSize: 11 }}>
-                    ⓘ 此结论由 AI 辅助生成（{diag.polish_model}），仅供参考，以原始数据为准。
+                    ⓘ 此结论由 AI 辅助生成（{diag?.polish_model}），仅供参考，以原始数据为准。
                   </Text>
                 )}
               </Descriptions.Item>
@@ -313,16 +313,16 @@ export default function ObstacleAnalysis() {
             </Row>
           )}
 
-          {diag.shap_global?.calculation_trace?.length > 0 && (
+          {diag?.shap_global?.calculation_trace?.length > 0 && (
             <Card title="计算过程追溯">
-              <Timeline items={diag.shap_global.calculation_trace.map((s: string) => ({ children: s }))} />
+              <Timeline items={diag?.shap_global.calculation_trace.map((s: string) => ({ children: s }))} />
             </Card>
           )}
 
-          {diag.local_explanation?.length > 0 && (
+          {diag?.local_explanation?.length > 0 && (
             <Card title="局部解释（最高风险采样点）">
               <Table rowKey={(r: any) => r.factor + r.point_code} size="small" pagination={false}
-                dataSource={diag.local_explanation}
+                dataSource={diag?.local_explanation}
                 columns={[seqCol(64), textCol("采样点", "point_code"), textCol("因子", "factor"),
                   numCol("SHAP值", "shap_value"),
                   { title: "方向", dataIndex: "direction", align: "center" }]} />

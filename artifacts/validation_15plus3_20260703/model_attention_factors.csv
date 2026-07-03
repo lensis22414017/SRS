@@ -1,22 +1,8 @@
 ﻿site,track,factor,value,threshold,M,E,is_measured,in_model,layer,review_required,reason,W,B,R,S,E_score,KOS
-云南个旧(HM),prod,有机质,44.71,,0.0,A,True,False,unknown_alert,True,"实测但模型未见过且无阈值,无法标准化障碍判定,建议送检/专家复核",,,,,,
-云南个旧(HM),prod,铁(全量),613850.574712644,,0.0,A,True,False,unknown_alert,True,"实测但模型未见过且无阈值,无法标准化障碍判定,建议送检/专家复核",,,,,,
-云南个旧(HM),prod,全氮,2.18,,0.0,A,True,False,unknown_alert,True,"实测但模型未见过且无阈值,无法标准化障碍判定,建议送检/专家复核",,,,,,
 云南个旧(HM),eco,速效钾,182.756,,0.0114,A,True,True,model_attention,True,"实测且模型见过但无阈值,无法判B,进模型关注因子(需专家复核)",0.5,,,,,
-云南个旧(HM),eco,有机质,44.71,,0.0,A,True,False,unknown_alert,True,"实测但模型未见过且无阈值,无法标准化障碍判定,建议送检/专家复核",,,,,,
-云南个旧(HM),eco,铁(全量),613850.574712644,,0.0,A,True,False,unknown_alert,True,"实测但模型未见过且无阈值,无法标准化障碍判定,建议送检/专家复核",,,,,,
 南京栖霞(OP),prod,苯并[k]荧蒽,0.707,,0.0115,A,True,True,model_attention,True,"实测且模型见过但无阈值,无法判B,进模型关注因子(需专家复核)",0.5,,,,,
-南京栖霞(OP),prod,二氯甲烷,1.78,,0.0,A,True,False,unknown_alert,True,"实测但模型未见过且无阈值,无法标准化障碍判定,建议送检/专家复核",,,,,,
-南京栖霞(OP),prod,荧蒽,0.724,,0.0,A,True,False,unknown_alert,True,"实测但模型未见过且无阈值,无法标准化障碍判定,建议送检/专家复核",,,,,,
 南京栖霞(OP),eco,苯并[a]蒽,0.519,,0.0211,A,True,True,model_attention,True,"实测且模型见过但无阈值,无法判B,进模型关注因子(需专家复核)",0.5,,,,,
 南京栖霞(OP),eco,苯并[k]荧蒽,0.707,,0.0121,A,True,True,model_attention,True,"实测且模型见过但无阈值,无法判B,进模型关注因子(需专家复核)",0.5,,,,,
-南京栖霞(OP),eco,二氯甲烷,1.78,,0.0,A,True,False,unknown_alert,True,"实测但模型未见过且无阈值,无法标准化障碍判定,建议送检/专家复核",,,,,,
-乡村复合(HM+OP),prod,水分,2.0,,0.0,A,True,False,unknown_alert,True,"实测但模型未见过且无阈值,无法标准化障碍判定,建议送检/专家复核",,,,,,
-乡村复合(HM+OP),prod,有机质,20.4,,0.0,A,True,False,unknown_alert,True,"实测但模型未见过且无阈值,无法标准化障碍判定,建议送检/专家复核",,,,,,
-乡村复合(HM+OP),prod,石油烃(C10-C40),290.64,,0.0,A,True,False,unknown_alert,True,"实测但模型未见过且无阈值,无法标准化障碍判定,建议送检/专家复核",,,,,,
-乡村复合(HM+OP),eco,水分,2.0,,0.0,A,True,False,unknown_alert,True,"实测但模型未见过且无阈值,无法标准化障碍判定,建议送检/专家复核",,,,,,
-乡村复合(HM+OP),eco,有机质,20.4,,0.0,A,True,False,unknown_alert,True,"实测但模型未见过且无阈值,无法标准化障碍判定,建议送检/专家复核",,,,,,
-乡村复合(HM+OP),eco,石油烃(C10-C40),290.64,,0.0,A,True,False,unknown_alert,True,"实测但模型未见过且无阈值,无法标准化障碍判定,建议送检/专家复核",,,,,,
 内部#1(10.30955/gnj),prod,Cu_mgkg,31.0,"{'type': 'upper', 'limit': 100}",0.2957,A,True,,model_attention,True,"实测未超标但模型贡献度高,关注潜在风险",0.75,0.0,0.0,0.8,1.0,0.0
 内部#1(10.30955/gnj),prod,Pb_mgkg,7.02,"{'type': 'upper', 'limit': 170}",0.2671,A,True,,model_attention,True,"实测未超标但模型贡献度高,关注潜在风险",0.8,0.0,0.0,0.8,1.0,0.0
 内部#1(10.30955/gnj),eco,Cu_mgkg,31.0,"{'type': 'upper', 'limit': 200}",0.4352,A,True,,model_attention,True,"实测未超标但模型贡献度高,关注潜在风险",0.7,0.0,0.0,0.8,1.0,0.0
