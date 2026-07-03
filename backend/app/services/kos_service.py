@@ -165,26 +165,30 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
                 "direction": r.get("direction", "positive"),
             })
 
-    # 三层输出
+    # 四层输出(裴总 P0 规则)
     output = {
         "track": track,
         "model_id": model_id,
         "data_version": "Gold Dataset v0.8",
         "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
         "model_status": model_info["status"],
-        "explicit_obstacles": [
-            {"factor": k["factor"], "value": k["value"], "threshold": k["threshold"],
-             "severity_R": k["R"], "source": "规则判障碍"}
-            for k in kos_result["key_obstacles"]
-        ],
+        # 第一层: 明确障碍(实测+有阈值+B=1)
+        "explicit_obstacles": kos_result["explicit_obstacles"],
+        # 第二层: 关键障碍 Top-N(KOS 排序)
         "key_obstacles": [
-            {"rank": i + 1, "factor": k["factor"], "KOS": k["KOS"],
+            {"rank": k["rank"], "factor": k["factor"], "KOS": k["KOS"],
              "components": {"R": k["R"], "W": k["W"], "M": k["M"], "S": k["S"], "E": k["E"]},
              "value": k["value"], "evidence": k["E"]}
-            for i, k in enumerate(kos_result["key_obstacles"])
+            for k in kos_result["key_obstacles"]
         ],
+        # 第三层: 模型关注因子(实测+模型见过+无阈值或未超标,需专家复核)
+        "model_attention_factors": kos_result["model_attention_factors"],
+        # 第四层: 族群预警 + 未知物(来自三道防线)
+        "family_warnings": organic_result["family_warnings"],
+        "unknown_alerts": organic_result["unknown_substances"],
+        # 补测建议
         "recommended_tests": [
-            {"factor": r["factor"], "reason": f"未实测,证据等级{r['E']}", "evidence": r["E"]}
+            {"factor": r["factor"], "reason": r.get("reason", f"未实测,证据等级{r['E']}"), "evidence": r["E"]}
             for r in kos_result["recommended_tests"]
         ],
         "model_contribution": model_contribution,
@@ -194,7 +198,7 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
             [f"检测到 {organic_result['summary']['n_family_warning']} 个族群未收录物质,"
              f"{organic_result['summary']['n_unknown']} 个完全未知物质"] if organic_result["summary"]["has_unknown_risk"] else []
         ),
-        "review_required": is_exploratory or organic_result["summary"]["has_unknown_risk"],
+        "review_required": kos_result["review_required"] or is_exploratory or organic_result["summary"]["has_unknown_risk"],
         "limitations": model_info["limitations"],
         "organic_guardrails": organic_result["summary"],
         "kos_weights": KOS_W,

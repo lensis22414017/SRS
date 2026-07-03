@@ -1,0 +1,45 @@
+[
+  {
+    "name": "login_admin",
+    "ok": true
+  },
+  {
+    "name": "dashboard_overview",
+    "ok": true
+  },
+  {
+    "name": "site_list",
+    "ok": true,
+    "size": 64801
+  },
+  {
+    "name": "site_detail_nonblank",
+    "ok": true,
+    "size": 70781
+  },
+  {
+    "name": "diagnosis_prod_result_top5",
+    "ok": true,
+    "size": 63037
+  },
+  {
+    "name": "diagnosis_eco_result_top5",
+    "ok": true
+  },
+  {
+    "name": "reconstruction_reads_kos",
+    "ok": true
+  },
+  {
+    "name": "recommendation_reads_kos",
+    "ok": true
+  },
+  {
+    "name": "traceability_archive",
+    "ok": true
+  },
+  {
+    "name": "unauthorized_403",
+    "ok": true
+  }
+]

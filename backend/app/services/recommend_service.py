@@ -45,9 +45,41 @@ def run_recommendation(db: Session, site_id: int, top_k: int = 5) -> dict:
     diag = (db.query(DiagnosisResult).filter_by(site_id=site_id)
             .order_by(DiagnosisResult.id.desc()).first())
 
+    # P4: 优先读 KOS key_obstacles 作为障碍因子输入(裴总要求方案推荐读 KOS Top)
+    kos_factor_names = []
+    kos_review_required = False
+    try:
+        from app.services.kos_service import run_kos_diagnosis
+        track = "eco" if (site.land_use_type or "").startswith("生态") else "prod"
+        subset = {"heavy_metal": "hm", "organic": "op"}.get(site.pollution_type or "", "all")
+        # 从 DB 读场地因子值
+        from app.models import Measurement
+        rows = (db.query(Measurement.value, FactorDictionary.factor_name, FactorDictionary.factor_code)
+                .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id, isouter=True)
+                .filter(Measurement.site_id == site_id, Measurement.value.isnot(None)).all())
+        sv = {}
+        for v, fn, fc in rows:
+            n = fn or fc
+            if n:
+                try:
+                    vv = float(v)
+                    if n not in sv or vv > sv[n]:
+                        sv[n] = vv
+                except (TypeError, ValueError):
+                    pass
+        if sv:
+            kos_r = run_kos_diagnosis(sv, track=track, subset=subset)
+            kos_factor_names = [k["factor"] for k in kos_r.get("key_obstacles", [])][:5]
+            kos_review_required = kos_r.get("review_required", False)
+    except Exception:
+        pass  # KOS 失败则 fallback 到原 SHAP 路径
+
     organic_fallback = False
     factor_detail_id: dict = {}
-    if diag is None:
+    if kos_factor_names:
+        # KOS 因子优先
+        factor_names = kos_factor_names
+    elif diag is None:
         # 有机场地无 SHAP 诊断 → 走 OP 技术候选降级, 不抛错
         if site.pollution_type == "organic":
             organic_fallback = True

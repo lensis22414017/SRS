@@ -1,0 +1,18 @@
+{
+  "passed": 12,
+  "failed": 0,
+  "items": [
+    "✅ admin登录 ",
+    "✅ enterprise登录 ",
+    "✅ agency登录 ",
+    "✅ regulator登录 ",
+    "✅ admin看全部场地 (3)",
+    "✅ enterprise数据隔离 (ent=0 admin=3)",
+    "✅ enterprise越权访问被拒 (site1 status=403)",
+    "✅ 普通用户禁访系统管理 (status=403)",
+    "✅ 导出权限控制 (status=403)",
+    "✅ 无token返回401 ",
+    "✅ 审计日志存在 (20条)",
+    "✅ KOS诊断可触发 "
+  ]
+}

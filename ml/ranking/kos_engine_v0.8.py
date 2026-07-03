@@ -127,54 +127,84 @@ def compute_kos(
     else:
         m_map = {}
 
-    results = []
-    recommended = []
+    results = []              # formal: 实测+有阈值+B=1+E(A/B)
+    model_attention = []      # candidate: 实测+模型见过+无阈值或B不可判 → 需专家复核
+    recommended = []          # 未实测的重要因子 → 补测建议
     all_factors = set(factor_thresholds.keys()) | set(factor_values.keys())
+
+    # 模型见过的特征集合(来自 SHAP measured 的 group)
+    model_known_factors = set(m_map.keys()) if m_map else set()
 
     for fac in all_factors:
         val = factor_values.get(fac)
         thr = factor_thresholds.get(fac)
-        if thr is None:
-            continue
-        # 计算 B, R
-        r, b = compute_severity(val, thr)
-        w = factor_weights.get(fac, 0.5)
+        is_measured = val is not None and not (isinstance(val, float) and math.isnan(val))
+        in_model = fac in model_known_factors
         m = float(m_map.get(fac, 0.0))
-        # 稳定性 S: 用 SHAP 入榜稳定性代理(若有);默认 0.8
-        s = 0.8
+        w = factor_weights.get(fac, 0.5)
         e_str = factor_evidence.get(fac, "C")
         e = EVIDENCE_SCORE.get(e_str, 0.5)
+        s = 0.8
 
-        is_measured = val is not None and not (isinstance(val, float) and math.isnan(val))
+        # 无阈值但实测+模型见过 → model_attention(裴总 P0 四层规则)
+        if thr is None:
+            if is_measured and in_model and m > 0.01:
+                model_attention.append({
+                    "factor": fac, "value": val, "threshold": None,
+                    "M": round(m, 4), "W": round(w, 4),
+                    "E": e_str, "is_measured": True, "in_model": True,
+                    "layer": "model_attention",
+                    "review_required": True,
+                    "reason": "实测且模型见过但无阈值,无法判B,进模型关注因子(需专家复核)",
+                })
+            elif is_measured and not in_model:
+                # 实测但模型没见过 → unknown_alert(交由调用方做族群归类)
+                model_attention.append({
+                    "factor": fac, "value": val, "threshold": None,
+                    "M": 0.0, "E": e_str, "is_measured": True, "in_model": False,
+                    "layer": "unknown_alert",
+                    "review_required": True,
+                    "reason": "实测但模型未见过且无阈值,无法标准化障碍判定,建议送检/专家复核",
+                })
+            elif not is_measured:
+                recommended.append({
+                    "factor": fac, "value": None, "threshold": None,
+                    "E": e_str, "is_measured": False,
+                    "layer": "recommended_test",
+                    "reason": f"未实测,证据等级{e_str}",
+                })
+            continue
 
+        # 有阈值: 计算 B, R
+        r, b = compute_severity(val, thr)
         entry = {
-            "factor": fac,
-            "value": val,
-            "threshold": thr,
-            "B": b,
-            "R": round(r, 4),
-            "W": round(w, 4),
-            "M": round(m, 4),
-            "S": round(s, 4),
-            "E": e_str,
-            "E_score": e,
-            "is_measured": is_measured,
+            "factor": fac, "value": val, "threshold": thr,
+            "B": b, "R": round(r, 4), "W": round(w, 4),
+            "M": round(m, 4), "S": round(s, 4), "E": e_str,
+            "E_score": e, "is_measured": is_measured,
         }
 
         if b == 1 and is_measured and e_str in ("A", "B"):
-            # 正式 Top-N 候选
+            # 第一层+第二层: 明确障碍 + 正式 KOS Top-N
             kos = 1.0 * (KOS_W["R"] * r + KOS_W["W"] * w + KOS_W["M"] * m + KOS_W["S"] * s + KOS_W["E"] * e)
             entry["KOS"] = round(kos, 4)
             entry["layer"] = "formal"
             results.append(entry)
-        elif not is_measured and b == 0:
-            # 未实测,进补测建议
+        elif is_measured and b == 0 and in_model and m > 0.01:
+            # 有阈值但未超标 + 模型关注 → model_attention
+            entry["KOS"] = 0.0
+            entry["layer"] = "model_attention"
+            entry["review_required"] = True
+            entry["reason"] = "实测未超标但模型贡献度高,关注潜在风险"
+            model_attention.append(entry)
+        elif not is_measured:
             entry["KOS"] = 0.0
             entry["layer"] = "recommended_test"
             recommended.append(entry)
 
     # 排序
     results.sort(key=lambda x: x["KOS"], reverse=True)
+    model_attention.sort(key=lambda x: x.get("M", 0), reverse=True)
     key_obstacles = results[:top_n]
 
     data_quality_flags = []
@@ -182,11 +212,17 @@ def compute_kos(
         data_quality_flags.append("OP 模型为探索性,建议结合规则筛查和人工复核")
 
     return {
-        "key_obstacles": key_obstacles,
+        "explicit_obstacles": [{"factor": k["factor"], "value": k["value"],
+                                "threshold": k["threshold"], "severity_R": k["R"],
+                                "source": "规则判障碍"} for k in key_obstacles],
+        "key_obstacles": [{"rank": i + 1, **k} for i, k in enumerate(key_obstacles)],
+        "model_attention_factors": model_attention[:15],
         "recommended_tests": recommended[:10],
         "data_quality_flags": data_quality_flags,
         "n_formal": len(results),
+        "n_model_attention": len(model_attention),
         "n_recommended": len(recommended),
+        "review_required": len(model_attention) > 0 or op_model,
         "kos_weights": KOS_W,
     }
 

@@ -1,0 +1,6074 @@
+[
+  {
+    "track": "prod",
+    "model_id": "hm_prod_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [
+      {
+        "factor": "Pb_mgkg",
+        "value": 15101.6806722689,
+        "threshold": {
+          "type": "upper",
+          "limit": 170
+        },
+        "severity_R": 1.0,
+        "source": "规则判障碍"
+      },
+      {
+        "factor": "Cu_mgkg",
+        "value": 1279.4425087108,
+        "threshold": {
+          "type": "upper",
+          "limit": 100
+        },
+        "severity_R": 1.0,
+        "source": "规则判障碍"
+      },
+      {
+        "factor": "As_mgkg",
+        "value": 12420.0,
+        "threshold": {
+          "type": "upper",
+          "limit": 40
+        },
+        "severity_R": 1.0,
+        "source": "规则判障碍"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "value": 5098.94212818917,
+        "threshold": {
+          "type": "upper",
+          "limit": 300
+        },
+        "severity_R": 1.0,
+        "source": "规则判障碍"
+      }
+    ],
+    "key_obstacles": [
+      {
+        "rank": 1,
+        "factor": "Pb_mgkg",
+        "KOS": 0.8001,
+        "components": {
+          "R": 1.0,
+          "W": 0.8,
+          "M": 0.2671,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 15101.6806722689,
+        "evidence": "A"
+      },
+      {
+        "rank": 2,
+        "factor": "Cu_mgkg",
+        "KOS": 0.7919,
+        "components": {
+          "R": 1.0,
+          "W": 0.75,
+          "M": 0.2957,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 1279.4425087108,
+        "evidence": "A"
+      },
+      {
+        "rank": 3,
+        "factor": "As_mgkg",
+        "KOS": 0.7758,
+        "components": {
+          "R": 1.0,
+          "W": 0.85,
+          "M": 0.0218,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 12420.0,
+        "evidence": "A"
+      },
+      {
+        "rank": 4,
+        "factor": "Zn_mgkg",
+        "KOS": 0.7743,
+        "components": {
+          "R": 1.0,
+          "W": 0.7,
+          "M": 0.2619,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 5098.94212818917,
+        "evidence": "A"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumHCHs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumDDTs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "BaP_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.295728214108135,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.2670839008150117,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.2619063060725944,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1037140324707611,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0218021056272564,
+        "direction": "positive"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "contribution": 0.0090580885055234,
+        "direction": "positive"
+      },
+      {
+        "factor": "OC_pct",
+        "contribution": 0.0088743325334543,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0082690187431091,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.00750156733035,
+        "direction": "negative"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0041615323086235,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,9 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 5,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 9,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_id": 1,
+    "site_name": "云南个旧(HM)",
+    "pollution_type": "heavy_metal",
+    "province": "云南",
+    "source": "real"
+  },
+  {
+    "track": "eco",
+    "model_id": "hm_eco_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [
+      {
+        "factor": "Pb_mgkg",
+        "value": 15101.6806722689,
+        "threshold": {
+          "type": "upper",
+          "limit": 400
+        },
+        "severity_R": 1.0,
+        "source": "规则判障碍"
+      },
+      {
+        "factor": "As_mgkg",
+        "value": 12420.0,
+        "threshold": {
+          "type": "upper",
+          "limit": 60
+        },
+        "severity_R": 1.0,
+        "source": "规则判障碍"
+      },
+      {
+        "factor": "Cu_mgkg",
+        "value": 1279.4425087108,
+        "threshold": {
+          "type": "upper",
+          "limit": 200
+        },
+        "severity_R": 0.8345,
+        "source": "规则判障碍"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "value": 5098.94212818917,
+        "threshold": {
+          "type": "upper",
+          "limit": 300
+        },
+        "severity_R": 1.0,
+        "source": "规则判障碍"
+      }
+    ],
+    "key_obstacles": [
+      {
+        "rank": 1,
+        "factor": "Pb_mgkg",
+        "KOS": 0.7965,
+        "components": {
+          "R": 1.0,
+          "W": 0.85,
+          "M": 0.1601,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 15101.6806722689,
+        "evidence": "A"
+      },
+      {
+        "rank": 2,
+        "factor": "As_mgkg",
+        "KOS": 0.7915,
+        "components": {
+          "R": 1.0,
+          "W": 0.9,
+          "M": 0.0432,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 12420.0,
+        "evidence": "A"
+      },
+      {
+        "rank": 3,
+        "factor": "Cu_mgkg",
+        "KOS": 0.7506,
+        "components": {
+          "R": 0.8345,
+          "W": 0.7,
+          "M": 0.4352,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 1279.4425087108,
+        "evidence": "A"
+      },
+      {
+        "rank": 4,
+        "factor": "Zn_mgkg",
+        "KOS": 0.7351,
+        "components": {
+          "R": 1.0,
+          "W": 0.65,
+          "M": 0.0837,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 5098.94212818917,
+        "evidence": "A"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.4351559315124337,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.1600591112922951,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1131522625356705,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.0836985324092947,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0432378719934773,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0430849979616795,
+        "direction": "negative"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "contribution": 0.0411995515695067,
+        "direction": "negative"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.0163065633917651,
+        "direction": "negative"
+      },
+      {
+        "factor": "TN_gkg",
+        "contribution": 0.0116948634325315,
+        "direction": "positive"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0114400733795352,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,9 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 5,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 9,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_id": 1,
+    "site_name": "云南个旧(HM)",
+    "pollution_type": "heavy_metal",
+    "province": "云南",
+    "source": "real"
+  },
+  {
+    "track": "prod",
+    "model_id": "op_prod_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "exploratory",
+    "explicit_obstacles": [
+      {
+        "factor": "pH",
+        "value": 10.18,
+        "threshold": {
+          "type": "interval",
+          "min": 5.5,
+          "max": 8.5
+        },
+        "severity_R": 0.56,
+        "source": "规则判障碍"
+      }
+    ],
+    "key_obstacles": [
+      {
+        "rank": 1,
+        "factor": "pH",
+        "KOS": 0.628,
+        "components": {
+          "R": 0.56,
+          "W": 0.8,
+          "M": 0.0001,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 10.18,
+        "evidence": "A"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "Pb_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "As_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumHCHs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cu_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumDDTs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.9262524489224742,
+        "direction": "negative"
+      },
+      {
+        "factor": "BaP_ngg",
+        "contribution": 0.038762944304506,
+        "direction": "positive"
+      },
+      {
+        "factor": "苯并[k]荧蒽",
+        "contribution": 0.0114749510215505,
+        "direction": "negative"
+      },
+      {
+        "factor": "茚并[1,2,3-cd]芘",
+        "contribution": 0.0068569829275118,
+        "direction": "negative"
+      },
+      {
+        "factor": "二苯并[a,h]蒽",
+        "contribution": 0.0054575986565911,
+        "direction": "negative"
+      },
+      {
+        "factor": "苯并[a]蒽",
+        "contribution": 0.0040582143856703,
+        "direction": "negative"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.0026588301147495,
+        "direction": "positive"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "contribution": 0.0020990764063811,
+        "direction": "positive"
+      },
+      {
+        "factor": "坡度",
+        "contribution": 0.0006996921354603,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0005597537083683,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "OP 模型为探索性,建议结合规则筛查和人工复核",
+      "OP 模型为探索性,建议结合规则筛查和人工复核",
+      "检测到 8 个族群未收录物质,9 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "OP 信号稀疏;SHAP 由 GEE 背景主导非污染物;test 非零样本少;不建议作正式 OP 诊断依据",
+    "organic_guardrails": {
+      "n_formal": 1,
+      "n_family_warning": 8,
+      "n_tef": 6,
+      "n_unknown": 9,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_id": 2,
+    "site_name": "南京栖霞(OP)",
+    "pollution_type": "organic",
+    "province": "江苏",
+    "source": "real"
+  },
+  {
+    "track": "eco",
+    "model_id": "op_eco_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "exploratory",
+    "explicit_obstacles": [
+      {
+        "factor": "pH",
+        "value": 10.18,
+        "threshold": {
+          "type": "interval",
+          "min": 5.0,
+          "max": 8.3
+        },
+        "severity_R": 0.5697,
+        "source": "规则判障碍"
+      }
+    ],
+    "key_obstacles": [
+      {
+        "rank": 1,
+        "factor": "pH",
+        "KOS": 0.6185,
+        "components": {
+          "R": 0.5697,
+          "W": 0.75,
+          "M": 0.0005,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 10.18,
+        "evidence": "A"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "Pb_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "As_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cu_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "二苯并[a,h]蒽",
+        "contribution": 0.3410082404265632,
+        "direction": "negative"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.3354338342220068,
+        "direction": "negative"
+      },
+      {
+        "factor": "BaP_ngg",
+        "contribution": 0.1223945710130877,
+        "direction": "positive"
+      },
+      {
+        "factor": "TPH_ngg",
+        "contribution": 0.0378090159961221,
+        "direction": "positive"
+      },
+      {
+        "factor": "OC_pct",
+        "contribution": 0.0281143965099369,
+        "direction": "negative"
+      },
+      {
+        "factor": "茚并[123-cd]芘",
+        "contribution": 0.0244789142026175,
+        "direction": "negative"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0230247212796897,
+        "direction": "positive"
+      },
+      {
+        "factor": "苯并[a]蒽",
+        "contribution": 0.0210857973824527,
+        "direction": "negative"
+      },
+      {
+        "factor": "坡度",
+        "contribution": 0.0191468734852157,
+        "direction": "negative"
+      },
+      {
+        "factor": "苯并[k]荧蒽",
+        "contribution": 0.0121182743577314,
+        "direction": "negative"
+      }
+    ],
+    "data_quality_flags": [
+      "OP 模型为探索性,建议结合规则筛查和人工复核",
+      "OP 模型为探索性,建议结合规则筛查和人工复核",
+      "检测到 8 个族群未收录物质,9 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "OP 信号稀疏;SHAP 由 GEE 背景主导非污染物;test 非零样本少;不建议作正式 OP 诊断依据",
+    "organic_guardrails": {
+      "n_formal": 1,
+      "n_family_warning": 8,
+      "n_tef": 6,
+      "n_unknown": 9,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_id": 2,
+    "site_name": "南京栖霞(OP)",
+    "pollution_type": "organic",
+    "province": "江苏",
+    "source": "real"
+  },
+  {
+    "track": "prod",
+    "model_id": "all_prod_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [
+      {
+        "factor": "Cd_mgkg",
+        "value": 1.72,
+        "threshold": {
+          "type": "upper",
+          "limit": 0.6
+        },
+        "severity_R": 0.564,
+        "source": "规则判障碍"
+      },
+      {
+        "factor": "pH",
+        "value": 8.53,
+        "threshold": {
+          "type": "interval",
+          "min": 5.5,
+          "max": 8.5
+        },
+        "severity_R": 0.01,
+        "source": "规则判障碍"
+      }
+    ],
+    "key_obstacles": [
+      {
+        "rank": 1,
+        "factor": "Cd_mgkg",
+        "KOS": 0.7014,
+        "components": {
+          "R": 0.564,
+          "W": 0.9,
+          "M": 0.3149,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 1.72,
+        "evidence": "A"
+      },
+      {
+        "rank": 2,
+        "factor": "pH",
+        "KOS": 0.4632,
+        "components": {
+          "R": 0.01,
+          "W": 0.8,
+          "M": 0.0013,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 8.53,
+        "evidence": "A"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "Pb_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "As_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumHCHs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cu_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumDDTs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "BaP_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.3149286137245872,
+        "direction": "negative"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.2280413185077966,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.1353510099348641,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.1113099546022764,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.0790183564708204,
+        "direction": "negative"
+      },
+      {
+        "factor": "OC_pct",
+        "contribution": 0.0730574379893414,
+        "direction": "negative"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "contribution": 0.0327258372261333,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.0112375814198302,
+        "direction": "negative"
+      },
+      {
+        "factor": "ph",
+        "contribution": 0.0052898216987959,
+        "direction": "positive"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "contribution": 0.0052503454174616,
+        "direction": "negative"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 1 个族群未收录物质,11 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 2,
+      "n_family_warning": 1,
+      "n_tef": 0,
+      "n_unknown": 11,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_id": 3,
+    "site_name": "乡村复合(HM+OP)",
+    "pollution_type": "composite",
+    "province": "未知",
+    "source": "real"
+  },
+  {
+    "track": "eco",
+    "model_id": "all_eco_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [
+      {
+        "factor": "Cd_mgkg",
+        "value": 1.72,
+        "threshold": {
+          "type": "upper",
+          "limit": 1.5
+        },
+        "severity_R": 0.3186,
+        "source": "规则判障碍"
+      },
+      {
+        "factor": "pH",
+        "value": 8.53,
+        "threshold": {
+          "type": "interval",
+          "min": 5.0,
+          "max": 8.3
+        },
+        "severity_R": 0.0697,
+        "source": "规则判障碍"
+      }
+    ],
+    "key_obstacles": [
+      {
+        "rank": 1,
+        "factor": "Cd_mgkg",
+        "KOS": 0.6217,
+        "components": {
+          "R": 0.3186,
+          "W": 0.85,
+          "M": 0.3573,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 1.72,
+        "evidence": "A"
+      },
+      {
+        "rank": 2,
+        "factor": "pH",
+        "KOS": 0.4701,
+        "components": {
+          "R": 0.0697,
+          "W": 0.75,
+          "M": 0.011,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 8.53,
+        "evidence": "A"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "Pb_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "As_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cu_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.357269949328898,
+        "direction": "negative"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.3034850887711291,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.0976482419835222,
+        "direction": "positive"
+      },
+      {
+        "factor": "CEC_cmolkg",
+        "contribution": 0.0508064828066375,
+        "direction": "negative"
+      },
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.043592619812014,
+        "direction": "negative"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.0402854601013422,
+        "direction": "negative"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "contribution": 0.0249294085792751,
+        "direction": "negative"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.0213901674853982,
+        "direction": "negative"
+      },
+      {
+        "factor": "OC_pct",
+        "contribution": 0.0119908714655939,
+        "direction": "negative"
+      },
+      {
+        "factor": "pH",
+        "contribution": 0.0110045255869724,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 1 个族群未收录物质,11 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 2,
+      "n_family_warning": 1,
+      "n_tef": 0,
+      "n_unknown": 11,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_id": 3,
+    "site_name": "乡村复合(HM+OP)",
+    "pollution_type": "composite",
+    "province": "未知",
+    "source": "real"
+  },
+  {
+    "track": "prod",
+    "model_id": "hm_prod_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [
+      {
+        "factor": "Ni_mgkg",
+        "value": 337.2,
+        "threshold": {
+          "type": "upper",
+          "limit": 100
+        },
+        "severity_R": 0.6152,
+        "source": "规则判障碍"
+      }
+    ],
+    "key_obstacles": [
+      {
+        "rank": 1,
+        "factor": "Ni_mgkg",
+        "KOS": 0.6084,
+        "components": {
+          "R": 0.6152,
+          "W": 0.65,
+          "M": 0.0091,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 337.2,
+        "evidence": "A"
+      }
+    ],
+    "model_attention_factors": [
+      {
+        "factor": "Cu_mgkg",
+        "value": 31.0,
+        "threshold": {
+          "type": "upper",
+          "limit": 100
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.75,
+        "M": 0.2957,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "value": 7.02,
+        "threshold": {
+          "type": "upper",
+          "limit": 170
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.8,
+        "M": 0.2671,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      }
+    ],
+    "family_warnings": [],
+    "unknown_alerts": [
+      {
+        "name": "TN_gkg",
+        "value": 1.04,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "水解性氮",
+        "value": 1.04,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "EC_mScm",
+        "value": 0.524,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "ph",
+        "value": 8.55,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "BaP_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "As_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumDDTs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumHCHs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.295728214108135,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.2670839008150117,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.2619063060725944,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1037140324707611,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0218021056272564,
+        "direction": "positive"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "contribution": 0.0090580885055234,
+        "direction": "positive"
+      },
+      {
+        "factor": "OC_pct",
+        "contribution": 0.0088743325334543,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0082690187431091,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.00750156733035,
+        "direction": "negative"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0041615323086235,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,4 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 4,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 4,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#1(10.30955/gnj)",
+    "pollution_type": "heavy_metal",
+    "province": "Central Greece",
+    "source": "internal"
+  },
+  {
+    "track": "eco",
+    "model_id": "hm_eco_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [
+      {
+        "factor": "Ni_mgkg",
+        "value": 337.2,
+        "threshold": {
+          "type": "upper",
+          "limit": 100
+        },
+        "severity_R": 0.6152,
+        "source": "规则判障碍"
+      }
+    ],
+    "key_obstacles": [
+      {
+        "rank": 1,
+        "factor": "Ni_mgkg",
+        "KOS": 0.6211,
+        "components": {
+          "R": 0.6152,
+          "W": 0.7,
+          "M": 0.0101,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 337.2,
+        "evidence": "A"
+      }
+    ],
+    "model_attention_factors": [
+      {
+        "factor": "Cu_mgkg",
+        "value": 31.0,
+        "threshold": {
+          "type": "upper",
+          "limit": 200
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.7,
+        "M": 0.4352,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "value": 7.02,
+        "threshold": {
+          "type": "upper",
+          "limit": 400
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.85,
+        "M": 0.1601,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "value": 246.7,
+        "threshold": {
+          "type": "upper",
+          "limit": 250
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.8,
+        "M": 0.0163,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "TN_gkg",
+        "value": 1.04,
+        "threshold": null,
+        "M": 0.0117,
+        "W": 0.5,
+        "E": "A",
+        "is_measured": true,
+        "in_model": true,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测且模型见过但无阈值,无法判B,进模型关注因子(需专家复核)"
+      }
+    ],
+    "family_warnings": [],
+    "unknown_alerts": [
+      {
+        "name": "TN_gkg",
+        "value": 1.04,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "水解性氮",
+        "value": 1.04,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "EC_mScm",
+        "value": 0.524,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "ph",
+        "value": 8.55,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "As_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.4351559315124337,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.1600591112922951,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1131522625356705,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.0836985324092947,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0432378719934773,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0430849979616795,
+        "direction": "negative"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "contribution": 0.0411995515695067,
+        "direction": "negative"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.0163065633917651,
+        "direction": "negative"
+      },
+      {
+        "factor": "TN_gkg",
+        "contribution": 0.0116948634325315,
+        "direction": "positive"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0114400733795352,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,4 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 4,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 4,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#1(10.30955/gnj)",
+    "pollution_type": "heavy_metal",
+    "province": "Central Greece",
+    "source": "internal"
+  },
+  {
+    "track": "prod",
+    "model_id": "hm_prod_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [
+      {
+        "factor": "As_mgkg",
+        "value": 730.0,
+        "threshold": {
+          "type": "upper",
+          "limit": 40
+        },
+        "severity_R": 1.0,
+        "source": "规则判障碍"
+      }
+    ],
+    "key_obstacles": [
+      {
+        "rank": 1,
+        "factor": "As_mgkg",
+        "KOS": 0.7758,
+        "components": {
+          "R": 1.0,
+          "W": 0.85,
+          "M": 0.0218,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 730.0,
+        "evidence": "A"
+      }
+    ],
+    "model_attention_factors": [],
+    "family_warnings": [],
+    "unknown_alerts": [
+      {
+        "name": "锑",
+        "value": 19610.0,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "OC_pct",
+        "value": 0.193,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "TN_gkg",
+        "value": 0.65,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "水解性氮",
+        "value": 0.65,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "ph",
+        "value": 6.92,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "Pb_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cu_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "BaP_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumHCHs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.295728214108135,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.2670839008150117,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.2619063060725944,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1037140324707611,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0218021056272564,
+        "direction": "positive"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "contribution": 0.0090580885055234,
+        "direction": "positive"
+      },
+      {
+        "factor": "OC_pct",
+        "contribution": 0.0088743325334543,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0082690187431091,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.00750156733035,
+        "direction": "negative"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0041615323086235,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,5 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 1,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 5,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#2(10.1016/j.ap)",
+    "pollution_type": "heavy_metal",
+    "province": "Guizhou",
+    "source": "internal"
+  },
+  {
+    "track": "eco",
+    "model_id": "hm_eco_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [
+      {
+        "factor": "As_mgkg",
+        "value": 730.0,
+        "threshold": {
+          "type": "upper",
+          "limit": 60
+        },
+        "severity_R": 1.0,
+        "source": "规则判障碍"
+      }
+    ],
+    "key_obstacles": [
+      {
+        "rank": 1,
+        "factor": "As_mgkg",
+        "KOS": 0.7915,
+        "components": {
+          "R": 1.0,
+          "W": 0.9,
+          "M": 0.0432,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 730.0,
+        "evidence": "A"
+      }
+    ],
+    "model_attention_factors": [
+      {
+        "factor": "TN_gkg",
+        "value": 0.65,
+        "threshold": null,
+        "M": 0.0117,
+        "W": 0.5,
+        "E": "A",
+        "is_measured": true,
+        "in_model": true,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测且模型见过但无阈值,无法判B,进模型关注因子(需专家复核)"
+      }
+    ],
+    "family_warnings": [],
+    "unknown_alerts": [
+      {
+        "name": "锑",
+        "value": 19610.0,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "OC_pct",
+        "value": 0.193,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "TN_gkg",
+        "value": 0.65,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "水解性氮",
+        "value": 0.65,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "ph",
+        "value": 6.92,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "Pb_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cu_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.4351559315124337,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.1600591112922951,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1131522625356705,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.0836985324092947,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0432378719934773,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0430849979616795,
+        "direction": "negative"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "contribution": 0.0411995515695067,
+        "direction": "negative"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.0163065633917651,
+        "direction": "negative"
+      },
+      {
+        "factor": "TN_gkg",
+        "contribution": 0.0116948634325315,
+        "direction": "positive"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0114400733795352,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,5 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 1,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 5,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#2(10.1016/j.ap)",
+    "pollution_type": "heavy_metal",
+    "province": "Guizhou",
+    "source": "internal"
+  },
+  {
+    "track": "prod",
+    "model_id": "hm_prod_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [],
+    "key_obstacles": [],
+    "model_attention_factors": [
+      {
+        "factor": "Cu_mgkg",
+        "value": 0.38,
+        "threshold": {
+          "type": "upper",
+          "limit": 100
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.75,
+        "M": 0.2957,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "value": 36.0,
+        "threshold": {
+          "type": "upper",
+          "limit": 300
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.7,
+        "M": 0.2619,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "value": 0.27,
+        "threshold": {
+          "type": "upper",
+          "limit": 0.6
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.9,
+        "M": 0.1037,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      }
+    ],
+    "family_warnings": [],
+    "unknown_alerts": [
+      {
+        "name": "OC_pct",
+        "value": 43.0,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "TN_gkg",
+        "value": 16.0,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "速效钾",
+        "value": 648.0,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "水解性氮",
+        "value": 16.0,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "CEC_cmolkg",
+        "value": 35.3,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "ph",
+        "value": 3.3,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "BaP_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "As_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumDDTs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumHCHs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.295728214108135,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.2670839008150117,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.2619063060725944,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1037140324707611,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0218021056272564,
+        "direction": "positive"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "contribution": 0.0090580885055234,
+        "direction": "positive"
+      },
+      {
+        "factor": "OC_pct",
+        "contribution": 0.0088743325334543,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0082690187431091,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.00750156733035,
+        "direction": "negative"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0041615323086235,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,6 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 4,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 6,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#3(10.1007/s112)",
+    "pollution_type": "heavy_metal",
+    "province": "unknown",
+    "source": "internal"
+  },
+  {
+    "track": "eco",
+    "model_id": "hm_eco_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [],
+    "key_obstacles": [],
+    "model_attention_factors": [
+      {
+        "factor": "Cu_mgkg",
+        "value": 0.38,
+        "threshold": {
+          "type": "upper",
+          "limit": 200
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.7,
+        "M": 0.4352,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "value": 0.27,
+        "threshold": {
+          "type": "upper",
+          "limit": 1.5
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.85,
+        "M": 0.1132,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "value": 36.0,
+        "threshold": {
+          "type": "upper",
+          "limit": 300
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.65,
+        "M": 0.0837,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "TN_gkg",
+        "value": 16.0,
+        "threshold": null,
+        "M": 0.0117,
+        "W": 0.5,
+        "E": "A",
+        "is_measured": true,
+        "in_model": true,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测且模型见过但无阈值,无法判B,进模型关注因子(需专家复核)"
+      },
+      {
+        "factor": "速效钾",
+        "value": 648.0,
+        "threshold": null,
+        "M": 0.0114,
+        "W": 0.5,
+        "E": "A",
+        "is_measured": true,
+        "in_model": true,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测且模型见过但无阈值,无法判B,进模型关注因子(需专家复核)"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "value": 6.14,
+        "threshold": {
+          "type": "upper",
+          "limit": 100
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.7,
+        "M": 0.0101,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      }
+    ],
+    "family_warnings": [],
+    "unknown_alerts": [
+      {
+        "name": "OC_pct",
+        "value": 43.0,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "TN_gkg",
+        "value": 16.0,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "速效钾",
+        "value": 648.0,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "水解性氮",
+        "value": 16.0,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "CEC_cmolkg",
+        "value": 35.3,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "ph",
+        "value": 3.3,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "As_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.4351559315124337,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.1600591112922951,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1131522625356705,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.0836985324092947,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0432378719934773,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0430849979616795,
+        "direction": "negative"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "contribution": 0.0411995515695067,
+        "direction": "negative"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.0163065633917651,
+        "direction": "negative"
+      },
+      {
+        "factor": "TN_gkg",
+        "contribution": 0.0116948634325315,
+        "direction": "positive"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0114400733795352,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,6 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 4,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 6,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#3(10.1007/s112)",
+    "pollution_type": "heavy_metal",
+    "province": "unknown",
+    "source": "internal"
+  },
+  {
+    "track": "prod",
+    "model_id": "hm_prod_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [
+      {
+        "factor": "Cd_mgkg",
+        "value": 14.98,
+        "threshold": {
+          "type": "upper",
+          "limit": 0.6
+        },
+        "severity_R": 1.0,
+        "source": "规则判障碍"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "value": 34.71,
+        "threshold": {
+          "type": "upper",
+          "limit": 1.3
+        },
+        "severity_R": 1.0,
+        "source": "规则判障碍"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "value": 634.11,
+        "threshold": {
+          "type": "upper",
+          "limit": 170
+        },
+        "severity_R": 0.648,
+        "source": "规则判障碍"
+      },
+      {
+        "factor": "As_mgkg",
+        "value": 78.56,
+        "threshold": {
+          "type": "upper",
+          "limit": 40
+        },
+        "severity_R": 0.4531,
+        "source": "规则判障碍"
+      }
+    ],
+    "key_obstacles": [
+      {
+        "rank": 1,
+        "factor": "Cd_mgkg",
+        "KOS": 0.8006,
+        "components": {
+          "R": 1.0,
+          "W": 0.9,
+          "M": 0.1037,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 14.98,
+        "evidence": "A"
+      },
+      {
+        "rank": 2,
+        "factor": "Hg_mgkg",
+        "KOS": 0.773,
+        "components": {
+          "R": 1.0,
+          "W": 0.85,
+          "M": 0.0037,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 34.71,
+        "evidence": "A"
+      },
+      {
+        "rank": 3,
+        "factor": "Pb_mgkg",
+        "KOS": 0.6945,
+        "components": {
+          "R": 0.648,
+          "W": 0.8,
+          "M": 0.2671,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 634.11,
+        "evidence": "A"
+      },
+      {
+        "rank": 4,
+        "factor": "As_mgkg",
+        "KOS": 0.6117,
+        "components": {
+          "R": 0.4531,
+          "W": 0.85,
+          "M": 0.0218,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 78.56,
+        "evidence": "A"
+      }
+    ],
+    "model_attention_factors": [],
+    "family_warnings": [],
+    "unknown_alerts": [
+      {
+        "name": "OC_pct",
+        "value": 16.54,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "EC_mScm",
+        "value": 0.0422,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "ph",
+        "value": 7.45,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "Ni_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cu_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "BaP_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumDDTs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumHCHs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.295728214108135,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.2670839008150117,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.2619063060725944,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1037140324707611,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0218021056272564,
+        "direction": "positive"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "contribution": 0.0090580885055234,
+        "direction": "positive"
+      },
+      {
+        "factor": "OC_pct",
+        "contribution": 0.0088743325334543,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0082690187431091,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.00750156733035,
+        "direction": "negative"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0041615323086235,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,3 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 4,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 3,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#4(10.1080/1532)",
+    "pollution_type": "heavy_metal",
+    "province": "Asante",
+    "source": "internal"
+  },
+  {
+    "track": "eco",
+    "model_id": "hm_eco_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [
+      {
+        "factor": "Hg_mgkg",
+        "value": 34.71,
+        "threshold": {
+          "type": "upper",
+          "limit": 1.5
+        },
+        "severity_R": 1.0,
+        "source": "规则判障碍"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "value": 14.98,
+        "threshold": {
+          "type": "upper",
+          "limit": 1.5
+        },
+        "severity_R": 0.9995,
+        "source": "规则判障碍"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "value": 634.11,
+        "threshold": {
+          "type": "upper",
+          "limit": 400
+        },
+        "severity_R": 0.3961,
+        "source": "规则判障碍"
+      },
+      {
+        "factor": "As_mgkg",
+        "value": 78.56,
+        "threshold": {
+          "type": "upper",
+          "limit": 60
+        },
+        "severity_R": 0.349,
+        "source": "规则判障碍"
+      }
+    ],
+    "key_obstacles": [
+      {
+        "rank": 1,
+        "factor": "Hg_mgkg",
+        "KOS": 0.7912,
+        "components": {
+          "R": 1.0,
+          "W": 0.9,
+          "M": 0.0412,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 34.71,
+        "evidence": "A"
+      },
+      {
+        "rank": 2,
+        "factor": "Cd_mgkg",
+        "KOS": 0.7893,
+        "components": {
+          "R": 0.9995,
+          "W": 0.85,
+          "M": 0.1132,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 14.98,
+        "evidence": "A"
+      },
+      {
+        "rank": 3,
+        "factor": "Pb_mgkg",
+        "KOS": 0.6153,
+        "components": {
+          "R": 0.3961,
+          "W": 0.85,
+          "M": 0.1601,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 634.11,
+        "evidence": "A"
+      },
+      {
+        "rank": 4,
+        "factor": "As_mgkg",
+        "KOS": 0.5962,
+        "components": {
+          "R": 0.349,
+          "W": 0.9,
+          "M": 0.0432,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 78.56,
+        "evidence": "A"
+      }
+    ],
+    "model_attention_factors": [],
+    "family_warnings": [],
+    "unknown_alerts": [
+      {
+        "name": "OC_pct",
+        "value": 16.54,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "EC_mScm",
+        "value": 0.0422,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "ph",
+        "value": 7.45,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "Ni_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cu_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.4351559315124337,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.1600591112922951,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1131522625356705,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.0836985324092947,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0432378719934773,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0430849979616795,
+        "direction": "negative"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "contribution": 0.0411995515695067,
+        "direction": "negative"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.0163065633917651,
+        "direction": "negative"
+      },
+      {
+        "factor": "TN_gkg",
+        "contribution": 0.0116948634325315,
+        "direction": "positive"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0114400733795352,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,3 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 4,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 3,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#4(10.1080/1532)",
+    "pollution_type": "heavy_metal",
+    "province": "Asante",
+    "source": "internal"
+  },
+  {
+    "track": "prod",
+    "model_id": "hm_prod_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [
+      {
+        "factor": "Cd_mgkg",
+        "value": 0.74,
+        "threshold": {
+          "type": "upper",
+          "limit": 0.6
+        },
+        "severity_R": 0.3351,
+        "source": "规则判障碍"
+      }
+    ],
+    "key_obstacles": [
+      {
+        "rank": 1,
+        "factor": "Cd_mgkg",
+        "KOS": 0.6011,
+        "components": {
+          "R": 0.3351,
+          "W": 0.9,
+          "M": 0.1037,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 0.74,
+        "evidence": "A"
+      }
+    ],
+    "model_attention_factors": [
+      {
+        "factor": "Cu_mgkg",
+        "value": 37.09,
+        "threshold": {
+          "type": "upper",
+          "limit": 100
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.75,
+        "M": 0.2957,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "value": 50.14,
+        "threshold": {
+          "type": "upper",
+          "limit": 170
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.8,
+        "M": 0.2671,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "value": 111.28,
+        "threshold": {
+          "type": "upper",
+          "limit": 300
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.7,
+        "M": 0.2619,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "As_mgkg",
+        "value": 20.61,
+        "threshold": {
+          "type": "upper",
+          "limit": 40
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.85,
+        "M": 0.0218,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      }
+    ],
+    "family_warnings": [],
+    "unknown_alerts": [
+      {
+        "name": "钴",
+        "value": 11.65,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "BaP_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumDDTs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumHCHs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.295728214108135,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.2670839008150117,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.2619063060725944,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1037140324707611,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0218021056272564,
+        "direction": "positive"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "contribution": 0.0090580885055234,
+        "direction": "positive"
+      },
+      {
+        "factor": "OC_pct",
+        "contribution": 0.0088743325334543,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0082690187431091,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.00750156733035,
+        "direction": "negative"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0041615323086235,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,1 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 6,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 1,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#5(10.1007/s113)",
+    "pollution_type": "heavy_metal",
+    "province": "湖南",
+    "source": "internal"
+  },
+  {
+    "track": "eco",
+    "model_id": "hm_eco_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [],
+    "key_obstacles": [],
+    "model_attention_factors": [
+      {
+        "factor": "Cu_mgkg",
+        "value": 37.09,
+        "threshold": {
+          "type": "upper",
+          "limit": 200
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.7,
+        "M": 0.4352,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "value": 50.14,
+        "threshold": {
+          "type": "upper",
+          "limit": 400
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.85,
+        "M": 0.1601,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "value": 0.74,
+        "threshold": {
+          "type": "upper",
+          "limit": 1.5
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.85,
+        "M": 0.1132,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "value": 111.28,
+        "threshold": {
+          "type": "upper",
+          "limit": 300
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.65,
+        "M": 0.0837,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "As_mgkg",
+        "value": 20.61,
+        "threshold": {
+          "type": "upper",
+          "limit": 60
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.9,
+        "M": 0.0432,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "value": 20.23,
+        "threshold": {
+          "type": "upper",
+          "limit": 100
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.7,
+        "M": 0.0101,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      }
+    ],
+    "family_warnings": [],
+    "unknown_alerts": [
+      {
+        "name": "钴",
+        "value": 11.65,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.4351559315124337,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.1600591112922951,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1131522625356705,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.0836985324092947,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0432378719934773,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0430849979616795,
+        "direction": "negative"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "contribution": 0.0411995515695067,
+        "direction": "negative"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.0163065633917651,
+        "direction": "negative"
+      },
+      {
+        "factor": "TN_gkg",
+        "contribution": 0.0116948634325315,
+        "direction": "positive"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0114400733795352,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,1 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 6,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 1,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#5(10.1007/s113)",
+    "pollution_type": "heavy_metal",
+    "province": "湖南",
+    "source": "internal"
+  },
+  {
+    "track": "prod",
+    "model_id": "hm_prod_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [],
+    "key_obstacles": [],
+    "model_attention_factors": [
+      {
+        "factor": "Cd_mgkg",
+        "value": 0.04,
+        "threshold": {
+          "type": "upper",
+          "limit": 0.6
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.9,
+        "M": 0.1037,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      }
+    ],
+    "family_warnings": [],
+    "unknown_alerts": [
+      {
+        "name": "OC_pct",
+        "value": 0.69,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "速效钾",
+        "value": 105.33,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "ph",
+        "value": 7.6,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "Pb_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cu_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "BaP_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "As_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumHCHs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.295728214108135,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.2670839008150117,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.2619063060725944,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1037140324707611,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0218021056272564,
+        "direction": "positive"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "contribution": 0.0090580885055234,
+        "direction": "positive"
+      },
+      {
+        "factor": "OC_pct",
+        "contribution": 0.0088743325334543,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0082690187431091,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.00750156733035,
+        "direction": "negative"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0041615323086235,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,3 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 1,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 3,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#6(10.17221/462)",
+    "pollution_type": "heavy_metal",
+    "province": "Henan",
+    "source": "internal"
+  },
+  {
+    "track": "eco",
+    "model_id": "hm_eco_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [],
+    "key_obstacles": [],
+    "model_attention_factors": [
+      {
+        "factor": "Cd_mgkg",
+        "value": 0.04,
+        "threshold": {
+          "type": "upper",
+          "limit": 1.5
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.85,
+        "M": 0.1132,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "速效钾",
+        "value": 105.33,
+        "threshold": null,
+        "M": 0.0114,
+        "W": 0.5,
+        "E": "A",
+        "is_measured": true,
+        "in_model": true,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测且模型见过但无阈值,无法判B,进模型关注因子(需专家复核)"
+      }
+    ],
+    "family_warnings": [],
+    "unknown_alerts": [
+      {
+        "name": "OC_pct",
+        "value": 0.69,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "速效钾",
+        "value": 105.33,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "ph",
+        "value": 7.6,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "Pb_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cu_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "As_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.4351559315124337,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.1600591112922951,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1131522625356705,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.0836985324092947,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0432378719934773,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0430849979616795,
+        "direction": "negative"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "contribution": 0.0411995515695067,
+        "direction": "negative"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.0163065633917651,
+        "direction": "negative"
+      },
+      {
+        "factor": "TN_gkg",
+        "contribution": 0.0116948634325315,
+        "direction": "positive"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0114400733795352,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,3 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 1,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 3,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#6(10.17221/462)",
+    "pollution_type": "heavy_metal",
+    "province": "Henan",
+    "source": "internal"
+  },
+  {
+    "track": "prod",
+    "model_id": "hm_prod_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [],
+    "key_obstacles": [],
+    "model_attention_factors": [
+      {
+        "factor": "Cu_mgkg",
+        "value": 10.08,
+        "threshold": {
+          "type": "upper",
+          "limit": 100
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.75,
+        "M": 0.2957,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "value": 10.73,
+        "threshold": {
+          "type": "upper",
+          "limit": 170
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.8,
+        "M": 0.2671,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "value": 28.48,
+        "threshold": {
+          "type": "upper",
+          "limit": 300
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.7,
+        "M": 0.2619,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      }
+    ],
+    "family_warnings": [],
+    "unknown_alerts": [
+      {
+        "name": "OC_pct",
+        "value": 0.91,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "TN_gkg",
+        "value": 0.2,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "水解性氮",
+        "value": 0.2,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "CEC_cmolkg",
+        "value": 0.85,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "ph",
+        "value": 9.04,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "BaP_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "As_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumDDTs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumHCHs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.295728214108135,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.2670839008150117,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.2619063060725944,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1037140324707611,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0218021056272564,
+        "direction": "positive"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "contribution": 0.0090580885055234,
+        "direction": "positive"
+      },
+      {
+        "factor": "OC_pct",
+        "contribution": 0.0088743325334543,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0082690187431091,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.00750156733035,
+        "direction": "negative"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0041615323086235,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,5 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 5,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 5,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#7(10.3184/0954)",
+    "pollution_type": "heavy_metal",
+    "province": "Belgrade",
+    "source": "internal"
+  },
+  {
+    "track": "eco",
+    "model_id": "hm_eco_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [],
+    "key_obstacles": [],
+    "model_attention_factors": [
+      {
+        "factor": "Cu_mgkg",
+        "value": 10.08,
+        "threshold": {
+          "type": "upper",
+          "limit": 200
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.7,
+        "M": 0.4352,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "value": 10.73,
+        "threshold": {
+          "type": "upper",
+          "limit": 400
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.85,
+        "M": 0.1601,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "value": 28.48,
+        "threshold": {
+          "type": "upper",
+          "limit": 300
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.65,
+        "M": 0.0837,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "value": 33.17,
+        "threshold": {
+          "type": "upper",
+          "limit": 250
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.8,
+        "M": 0.0163,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "TN_gkg",
+        "value": 0.2,
+        "threshold": null,
+        "M": 0.0117,
+        "W": 0.5,
+        "E": "A",
+        "is_measured": true,
+        "in_model": true,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测且模型见过但无阈值,无法判B,进模型关注因子(需专家复核)"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "value": 48.34,
+        "threshold": {
+          "type": "upper",
+          "limit": 100
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.7,
+        "M": 0.0101,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      }
+    ],
+    "family_warnings": [],
+    "unknown_alerts": [
+      {
+        "name": "OC_pct",
+        "value": 0.91,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "TN_gkg",
+        "value": 0.2,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "水解性氮",
+        "value": 0.2,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "CEC_cmolkg",
+        "value": 0.85,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "ph",
+        "value": 9.04,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "As_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.4351559315124337,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.1600591112922951,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1131522625356705,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.0836985324092947,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0432378719934773,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0430849979616795,
+        "direction": "negative"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "contribution": 0.0411995515695067,
+        "direction": "negative"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.0163065633917651,
+        "direction": "negative"
+      },
+      {
+        "factor": "TN_gkg",
+        "contribution": 0.0116948634325315,
+        "direction": "positive"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0114400733795352,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,5 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 5,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 5,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#7(10.3184/0954)",
+    "pollution_type": "heavy_metal",
+    "province": "Belgrade",
+    "source": "internal"
+  },
+  {
+    "track": "prod",
+    "model_id": "hm_prod_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [],
+    "key_obstacles": [],
+    "model_attention_factors": [
+      {
+        "factor": "Cu_mgkg",
+        "value": 22.7,
+        "threshold": {
+          "type": "upper",
+          "limit": 100
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.75,
+        "M": 0.2957,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "value": 19.46,
+        "threshold": {
+          "type": "upper",
+          "limit": 170
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.8,
+        "M": 0.2671,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "value": 0.14,
+        "threshold": {
+          "type": "upper",
+          "limit": 0.6
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.9,
+        "M": 0.1037,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "As_mgkg",
+        "value": 11.51,
+        "threshold": {
+          "type": "upper",
+          "limit": 40
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.85,
+        "M": 0.0218,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      }
+    ],
+    "family_warnings": [],
+    "unknown_alerts": [],
+    "recommended_tests": [
+      {
+        "factor": "BaP_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumHCHs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumDDTs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.295728214108135,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.2670839008150117,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.2619063060725944,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1037140324707611,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0218021056272564,
+        "direction": "positive"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "contribution": 0.0090580885055234,
+        "direction": "positive"
+      },
+      {
+        "factor": "OC_pct",
+        "contribution": 0.0088743325334543,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0082690187431091,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.00750156733035,
+        "direction": "negative"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0041615323086235,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 5,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 0,
+      "has_unknown_risk": false
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#8(10.1038/s415)",
+    "pollution_type": "heavy_metal",
+    "province": "新疆",
+    "source": "internal"
+  },
+  {
+    "track": "eco",
+    "model_id": "hm_eco_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [],
+    "key_obstacles": [],
+    "model_attention_factors": [
+      {
+        "factor": "Cu_mgkg",
+        "value": 22.7,
+        "threshold": {
+          "type": "upper",
+          "limit": 200
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.7,
+        "M": 0.4352,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "value": 19.46,
+        "threshold": {
+          "type": "upper",
+          "limit": 400
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.85,
+        "M": 0.1601,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "value": 0.14,
+        "threshold": {
+          "type": "upper",
+          "limit": 1.5
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.85,
+        "M": 0.1132,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "As_mgkg",
+        "value": 11.51,
+        "threshold": {
+          "type": "upper",
+          "limit": 60
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.9,
+        "M": 0.0432,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "value": 25.07,
+        "threshold": {
+          "type": "upper",
+          "limit": 100
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.7,
+        "M": 0.0101,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      }
+    ],
+    "family_warnings": [],
+    "unknown_alerts": [],
+    "recommended_tests": [
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.4351559315124337,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.1600591112922951,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1131522625356705,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.0836985324092947,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0432378719934773,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0430849979616795,
+        "direction": "negative"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "contribution": 0.0411995515695067,
+        "direction": "negative"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.0163065633917651,
+        "direction": "negative"
+      },
+      {
+        "factor": "TN_gkg",
+        "contribution": 0.0116948634325315,
+        "direction": "positive"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0114400733795352,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 5,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 0,
+      "has_unknown_risk": false
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#8(10.1038/s415)",
+    "pollution_type": "heavy_metal",
+    "province": "新疆",
+    "source": "internal"
+  },
+  {
+    "track": "prod",
+    "model_id": "hm_prod_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [
+      {
+        "factor": "Cu_mgkg",
+        "value": 361.6,
+        "threshold": {
+          "type": "upper",
+          "limit": 100
+        },
+        "severity_R": 0.6379,
+        "source": "规则判障碍"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "value": 0.8,
+        "threshold": {
+          "type": "upper",
+          "limit": 0.6
+        },
+        "severity_R": 0.3534,
+        "source": "规则判障碍"
+      }
+    ],
+    "key_obstacles": [
+      {
+        "rank": 1,
+        "factor": "Cu_mgkg",
+        "KOS": 0.6832,
+        "components": {
+          "R": 0.6379,
+          "W": 0.75,
+          "M": 0.2957,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 361.6,
+        "evidence": "A"
+      },
+      {
+        "rank": 2,
+        "factor": "Cd_mgkg",
+        "KOS": 0.6066,
+        "components": {
+          "R": 0.3534,
+          "W": 0.9,
+          "M": 0.1037,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 0.8,
+        "evidence": "A"
+      }
+    ],
+    "model_attention_factors": [
+      {
+        "factor": "Pb_mgkg",
+        "value": 79.9,
+        "threshold": {
+          "type": "upper",
+          "limit": 170
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.8,
+        "M": 0.2671,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "value": 157.8,
+        "threshold": {
+          "type": "upper",
+          "limit": 300
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.7,
+        "M": 0.2619,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      }
+    ],
+    "family_warnings": [],
+    "unknown_alerts": [
+      {
+        "name": "TN_gkg",
+        "value": 0.6452,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "水解性氮",
+        "value": 0.6452,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "ph",
+        "value": 4.8,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "Ni_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "BaP_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "As_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumDDTs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumHCHs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.295728214108135,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.2670839008150117,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.2619063060725944,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1037140324707611,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0218021056272564,
+        "direction": "positive"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "contribution": 0.0090580885055234,
+        "direction": "positive"
+      },
+      {
+        "factor": "OC_pct",
+        "contribution": 0.0088743325334543,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0082690187431091,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.00750156733035,
+        "direction": "negative"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0041615323086235,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,3 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 4,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 3,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#9(10.1016/j.en)",
+    "pollution_type": "heavy_metal",
+    "province": "Valparaíso",
+    "source": "internal"
+  },
+  {
+    "track": "eco",
+    "model_id": "hm_eco_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [
+      {
+        "factor": "Cu_mgkg",
+        "value": 361.6,
+        "threshold": {
+          "type": "upper",
+          "limit": 200
+        },
+        "severity_R": 0.4306,
+        "source": "规则判障碍"
+      }
+    ],
+    "key_obstacles": [
+      {
+        "rank": 1,
+        "factor": "Cu_mgkg",
+        "KOS": 0.6294,
+        "components": {
+          "R": 0.4306,
+          "W": 0.7,
+          "M": 0.4352,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 361.6,
+        "evidence": "A"
+      }
+    ],
+    "model_attention_factors": [
+      {
+        "factor": "Pb_mgkg",
+        "value": 79.9,
+        "threshold": {
+          "type": "upper",
+          "limit": 400
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.85,
+        "M": 0.1601,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "value": 0.8,
+        "threshold": {
+          "type": "upper",
+          "limit": 1.5
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.85,
+        "M": 0.1132,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "value": 157.8,
+        "threshold": {
+          "type": "upper",
+          "limit": 300
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.65,
+        "M": 0.0837,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "TN_gkg",
+        "value": 0.6452,
+        "threshold": null,
+        "M": 0.0117,
+        "W": 0.5,
+        "E": "A",
+        "is_measured": true,
+        "in_model": true,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测且模型见过但无阈值,无法判B,进模型关注因子(需专家复核)"
+      }
+    ],
+    "family_warnings": [],
+    "unknown_alerts": [
+      {
+        "name": "TN_gkg",
+        "value": 0.6452,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "水解性氮",
+        "value": 0.6452,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "ph",
+        "value": 4.8,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "Ni_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "As_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.4351559315124337,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.1600591112922951,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1131522625356705,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.0836985324092947,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0432378719934773,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0430849979616795,
+        "direction": "negative"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "contribution": 0.0411995515695067,
+        "direction": "negative"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.0163065633917651,
+        "direction": "negative"
+      },
+      {
+        "factor": "TN_gkg",
+        "contribution": 0.0116948634325315,
+        "direction": "positive"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0114400733795352,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,3 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 4,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 3,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#9(10.1016/j.en)",
+    "pollution_type": "heavy_metal",
+    "province": "Valparaíso",
+    "source": "internal"
+  },
+  {
+    "track": "prod",
+    "model_id": "hm_prod_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [],
+    "key_obstacles": [],
+    "model_attention_factors": [],
+    "family_warnings": [],
+    "unknown_alerts": [
+      {
+        "name": "OC_pct",
+        "value": 4.67,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "TN_gkg",
+        "value": 0.00389,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "水解性氮",
+        "value": 0.00389,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "EC_mScm",
+        "value": 0.3,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "ph",
+        "value": 6.6,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "Pb_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cu_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "BaP_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "As_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumHCHs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.295728214108135,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.2670839008150117,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.2619063060725944,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1037140324707611,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0218021056272564,
+        "direction": "positive"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "contribution": 0.0090580885055234,
+        "direction": "positive"
+      },
+      {
+        "factor": "OC_pct",
+        "contribution": 0.0088743325334543,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0082690187431091,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.00750156733035,
+        "direction": "negative"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0041615323086235,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,5 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 0,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 5,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#10(10.1016/j.ec)",
+    "pollution_type": "heavy_metal",
+    "province": "Buenos Aires",
+    "source": "internal"
+  },
+  {
+    "track": "eco",
+    "model_id": "hm_eco_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [],
+    "key_obstacles": [],
+    "model_attention_factors": [
+      {
+        "factor": "TN_gkg",
+        "value": 0.00389,
+        "threshold": null,
+        "M": 0.0117,
+        "W": 0.5,
+        "E": "A",
+        "is_measured": true,
+        "in_model": true,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测且模型见过但无阈值,无法判B,进模型关注因子(需专家复核)"
+      }
+    ],
+    "family_warnings": [],
+    "unknown_alerts": [
+      {
+        "name": "OC_pct",
+        "value": 4.67,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "TN_gkg",
+        "value": 0.00389,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "水解性氮",
+        "value": 0.00389,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "EC_mScm",
+        "value": 0.3,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "ph",
+        "value": 6.6,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "Pb_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cu_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "As_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.4351559315124337,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.1600591112922951,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1131522625356705,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.0836985324092947,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0432378719934773,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0430849979616795,
+        "direction": "negative"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "contribution": 0.0411995515695067,
+        "direction": "negative"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.0163065633917651,
+        "direction": "negative"
+      },
+      {
+        "factor": "TN_gkg",
+        "contribution": 0.0116948634325315,
+        "direction": "positive"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0114400733795352,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,5 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 0,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 5,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#10(10.1016/j.ec)",
+    "pollution_type": "heavy_metal",
+    "province": "Buenos Aires",
+    "source": "internal"
+  },
+  {
+    "track": "prod",
+    "model_id": "hm_prod_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [],
+    "key_obstacles": [],
+    "model_attention_factors": [
+      {
+        "factor": "Cu_mgkg",
+        "value": 6.85,
+        "threshold": {
+          "type": "upper",
+          "limit": 100
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.75,
+        "M": 0.2957,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "value": 0.234,
+        "threshold": {
+          "type": "upper",
+          "limit": 170
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.8,
+        "M": 0.2671,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "value": 4.9,
+        "threshold": {
+          "type": "upper",
+          "limit": 300
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.7,
+        "M": 0.2619,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "value": 0.15,
+        "threshold": {
+          "type": "upper",
+          "limit": 0.6
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.9,
+        "M": 0.1037,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      }
+    ],
+    "family_warnings": [],
+    "unknown_alerts": [
+      {
+        "name": "OC_pct",
+        "value": 0.406,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "TN_gkg",
+        "value": 0.5,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "水解性氮",
+        "value": 0.5,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "EC_mScm",
+        "value": 0.11,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "ph",
+        "value": 8.1,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "BaP_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "As_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumDDTs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "SumHCHs_ngg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.295728214108135,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.2670839008150117,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.2619063060725944,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1037140324707611,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0218021056272564,
+        "direction": "positive"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "contribution": 0.0090580885055234,
+        "direction": "positive"
+      },
+      {
+        "factor": "OC_pct",
+        "contribution": 0.0088743325334543,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0082690187431091,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.00750156733035,
+        "direction": "negative"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0041615323086235,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,5 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 7,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 5,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#11(10.1007/s112)",
+    "pollution_type": "heavy_metal",
+    "province": "Zonguldak",
+    "source": "internal"
+  },
+  {
+    "track": "eco",
+    "model_id": "hm_eco_Full_RandomForest",
+    "data_version": "Gold Dataset v0.8",
+    "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+    "model_status": "approved_alpha",
+    "explicit_obstacles": [],
+    "key_obstacles": [],
+    "model_attention_factors": [
+      {
+        "factor": "Cu_mgkg",
+        "value": 6.85,
+        "threshold": {
+          "type": "upper",
+          "limit": 200
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.7,
+        "M": 0.4352,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "value": 0.234,
+        "threshold": {
+          "type": "upper",
+          "limit": 400
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.85,
+        "M": 0.1601,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "value": 0.15,
+        "threshold": {
+          "type": "upper",
+          "limit": 1.5
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.85,
+        "M": 0.1132,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "value": 4.9,
+        "threshold": {
+          "type": "upper",
+          "limit": 300
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.65,
+        "M": 0.0837,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "value": 0.07,
+        "threshold": {
+          "type": "upper",
+          "limit": 1.5
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.9,
+        "M": 0.0412,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "value": 0.81,
+        "threshold": {
+          "type": "upper",
+          "limit": 250
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.8,
+        "M": 0.0163,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      },
+      {
+        "factor": "TN_gkg",
+        "value": 0.5,
+        "threshold": null,
+        "M": 0.0117,
+        "W": 0.5,
+        "E": "A",
+        "is_measured": true,
+        "in_model": true,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测且模型见过但无阈值,无法判B,进模型关注因子(需专家复核)"
+      },
+      {
+        "factor": "Ni_mgkg",
+        "value": 0.136,
+        "threshold": {
+          "type": "upper",
+          "limit": 100
+        },
+        "B": 0,
+        "R": 0.0,
+        "W": 0.7,
+        "M": 0.0101,
+        "S": 0.8,
+        "E": "A",
+        "E_score": 1.0,
+        "is_measured": true,
+        "KOS": 0.0,
+        "layer": "model_attention",
+        "review_required": true,
+        "reason": "实测未超标但模型贡献度高,关注潜在风险"
+      }
+    ],
+    "family_warnings": [],
+    "unknown_alerts": [
+      {
+        "name": "OC_pct",
+        "value": 0.406,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "TN_gkg",
+        "value": 0.5,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "水解性氮",
+        "value": 0.5,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "EC_mScm",
+        "value": 0.11,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      },
+      {
+        "name": "ph",
+        "value": 8.1,
+        "family": "未知",
+        "guardrail": "unknown",
+        "note": "因子库/族群库/TEF 库均无收录,无法评估障碍风险,强烈建议送检毒性鉴定"
+      }
+    ],
+    "recommended_tests": [
+      {
+        "factor": "As_mgkg",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      },
+      {
+        "factor": "pH",
+        "reason": "未实测,证据等级C",
+        "evidence": "C"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cu_mgkg",
+        "contribution": 0.4351559315124337,
+        "direction": "positive"
+      },
+      {
+        "factor": "Pb_mgkg",
+        "contribution": 0.1600591112922951,
+        "direction": "positive"
+      },
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.1131522625356705,
+        "direction": "positive"
+      },
+      {
+        "factor": "Zn_mgkg",
+        "contribution": 0.0836985324092947,
+        "direction": "positive"
+      },
+      {
+        "factor": "As_mgkg",
+        "contribution": 0.0432378719934773,
+        "direction": "positive"
+      },
+      {
+        "factor": "萘",
+        "contribution": 0.0430849979616795,
+        "direction": "negative"
+      },
+      {
+        "factor": "Hg_mgkg",
+        "contribution": 0.0411995515695067,
+        "direction": "negative"
+      },
+      {
+        "factor": "Cr_mgkg",
+        "contribution": 0.0163065633917651,
+        "direction": "negative"
+      },
+      {
+        "factor": "TN_gkg",
+        "contribution": 0.0116948634325315,
+        "direction": "positive"
+      },
+      {
+        "factor": "速效钾",
+        "contribution": 0.0114400733795352,
+        "direction": "positive"
+      }
+    ],
+    "data_quality_flags": [
+      "检测到 0 个族群未收录物质,5 个完全未知物质"
+    ],
+    "review_required": true,
+    "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+    "organic_guardrails": {
+      "n_formal": 7,
+      "n_family_warning": 0,
+      "n_tef": 0,
+      "n_unknown": 5,
+      "has_unknown_risk": true
+    },
+    "kos_weights": {
+      "R": 0.3,
+      "W": 0.25,
+      "M": 0.15,
+      "S": 0.2,
+      "E": 0.1
+    },
+    "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+    "site_name": "内部#11(10.1007/s112)",
+    "pollution_type": "heavy_metal",
+    "province": "Zonguldak",
+    "source": "internal"
+  }
+]

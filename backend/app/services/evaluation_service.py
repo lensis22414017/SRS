@@ -261,11 +261,36 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
                   for f in ("砷", "铅", "铜", "锌", "镉", "铬", "汞", "镍")}
         r = R.evaluate(means, scope, ph=ph, screen_limits=screen)
         et = "reconstruction_prod" if scope == "production" else "reconstruction_eco"
+        # P4: 合并 KOS key_obstacles 到 limiting_factors(裴总要求功能重构读 KOS Top)
+        kos_limiting = list(r.get("limiting_factors") or [])
+        try:
+            from app.services.kos_service import run_kos_diagnosis
+            from app.models import Measurement
+            track = "prod" if scope == "production" else "eco"
+            mrows = (db.query(Measurement.value, FactorDictionary.factor_name)
+                     .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id, isouter=True)
+                     .filter(Measurement.site_id == site_id, Measurement.value.isnot(None)).all())
+            sv = {}
+            for v, fn in mrows:
+                if fn:
+                    try:
+                        vv = float(v)
+                        if fn not in sv or vv > sv[fn]: sv[fn] = vv
+                    except (TypeError, ValueError): pass
+            if sv:
+                kos_r = run_kos_diagnosis(sv, track=track, subset="all")
+                kos_factors = [k["factor"] for k in kos_r.get("key_obstacles", [])][:5]
+                # KOS 因子优先,合并去重
+                for kf in kos_factors:
+                    if kf not in kos_limiting:
+                        kos_limiting.insert(0, kf)
+        except Exception:
+            pass  # KOS 失败则保留原 limiting
         _save(db, site_id, et, data_version, r.get("score"), r.get("grade"),
               dimensions={"dimensions": r["dimensions"],
                           "missing_indicators": r.get("missing_indicators", []),
                           "calculation_trace": r.get("calculation_trace", [])},
-              weights=r.get("weights"), limiting=r.get("limiting_factors"),
+              weights=r.get("weights"), limiting=kos_limiting,
               explanation=r.get("explanation"))
         results[et] = r
 
