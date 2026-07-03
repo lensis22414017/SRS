@@ -86,7 +86,7 @@ def generate_docx(kos, site_name, track_label, filename):
         doc.add_paragraph("无明确超标因子。")
 
     # 3. 关键障碍 Top-N(第二层)
-    doc.add_heading("三、关键障碍因子 Top-N(KOS 综合评分排序)", level=1)
+    doc.add_heading("三、污染场地关键障碍因子 Top-N", level=1)
     ko = kos.get("key_obstacles", [])
     if ko:
         add_table(doc, ["排名","因子","KOS","实测值","证据"], [[k["rank"], k["factor"], round(k["KOS"],4), round(k.get("value",0),3), k.get("evidence","")] for k in ko])

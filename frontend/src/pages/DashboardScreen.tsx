@@ -43,6 +43,9 @@ export default function DashboardScreen() {
   const [stats, setStats] = useState<any>({});
   const [pendingCount, setPendingCount] = useState(0);
   const [logs, setLogs] = useState<any[]>([]);
+  const [topObstacles, setTopObstacles] = useState<any[]>([]);
+  const [trend, setTrend] = useState<any>(null);
+  const [wfStages, setWfStages] = useState<any[]>([]);
   const [now, setNow] = useState(dayjs());
   const [screenTier, setScreenTier] = useState<"small" | "compact" | "full">("full");
 
@@ -65,16 +68,22 @@ export default function DashboardScreen() {
 
   const load = useCallback(async () => {
     try {
-      const [st, d, p, l] = await Promise.all([
+      const [st, d, p, l, to, tr, wf] = await Promise.all([
         api.siteStatistics().catch(() => null),
         api.sites({ size: 200 }),
         api.pendingApprovals().catch(() => []),
         api.auditLogs({ page: 1, size: 10 }).catch(() => ({ items: [] })),
+        api.topObstacles(10).catch(() => ({ items: [] })),
+        api.monthlyTrend().catch(() => null),
+        api.workflowStages().catch(() => ({ items: [] })),
       ]);
       setStats(st || {});
       setSites((d as any).items || []);
       setPendingCount(Array.isArray(p) ? p.length : 0);
       setLogs((l as any).items || []);
+      setTopObstacles((to as any)?.items || []);
+      setTrend(tr);
+      setWfStages((wf as any)?.items || []);
     } catch (e: any) {
       message.error("数据加载失败");
     } finally {
@@ -156,30 +165,35 @@ export default function DashboardScreen() {
     }],
   }), [provData]);
 
-  const top10BarOption = useMemo(() => ({
-    tooltip: { ...DARK_TOOLTIP, trigger: "axis" as const },
-    grid: darkGrid(),
-    xAxis: { type: "value" as const, name: "提及次数", nameTextStyle: { color: DARK_TEXT, fontSize: 10 },
-      axisLine: { lineStyle: { color: DARK_AXIS_LINE } }, axisLabel: { color: DARK_TEXT, fontSize: 10 },
-      splitLine: { lineStyle: { color: DARK_SPLIT } } },
-    yAxis: { type: "category" as const, inverse: true,
-      data: ["Cd镉","Pb铅","As砷","pH","Cu铜","Zn锌","Ni镍","Cr铬","Hg汞","CEC"],
-      axisLabel: { color: DARK_TEXT, fontSize: 10 } },
-    series: [{
-      type: "bar", data: [14, 12, 11, 9, 8, 7, 6, 5, 4, 3],
-      itemStyle: { color: { type: "linear" as const, x: 0, y: 0, x2: 1, y2: 0,
-        colorStops: [{offset:0,color:"#b9770e"},{offset:1,color:"#f0b429"}] },
-        borderRadius: [0, 3, 3, 0] },
-      barMaxWidth: 16,
-    }],
-  }), []);
+  const top10BarOption = useMemo(() => {
+    const items = topObstacles.length ? topObstacles : [];
+    return {
+      tooltip: { ...DARK_TOOLTIP, trigger: "axis" as const,
+        formatter: (p: any) => `<b>${p[0].name}</b><br/>出现场地: <b>${items[p[0].dataIndex]?.freq || 0} 个</b><br/>平均贡献: ${items[p[0].dataIndex]?.avg_importance?.toFixed(3) || "—"}` },
+      grid: darkGrid(),
+      xAxis: { type: "value" as const, name: "出现场地数", nameTextStyle: { color: DARK_TEXT, fontSize: 10 },
+        axisLine: { lineStyle: { color: DARK_AXIS_LINE } }, axisLabel: { color: DARK_TEXT, fontSize: 10 },
+        splitLine: { lineStyle: { color: DARK_SPLIT } } },
+      yAxis: { type: "category" as const, inverse: true,
+        data: items.length ? items.map((d: any) => d.factor) : ["暂无诊断数据"],
+        axisLabel: { color: DARK_TEXT, fontSize: 10 } },
+      series: [{
+        type: "bar", data: items.length ? items.map((d: any) => d.freq) : [0],
+        itemStyle: { color: { type: "linear" as const, x: 0, y: 0, x2: 1, y2: 0,
+          colorStops: [{offset:0,color:"#b9770e"},{offset:1,color:"#f0b429"}] },
+          borderRadius: [0, 3, 3, 0] },
+        barMaxWidth: 16,
+      }],
+    };
+  }, [topObstacles]);
 
   // ── 底部趋势 ──────────────────────────────────────────────
+  const trendMonths = trend?.months?.length ? trend.months : PLACEHOLDER_TREND_MONTHS;
   const trendOption = (title: string, data: number[], color: [string,string]) => ({
     tooltip: { ...DARK_TOOLTIP, trigger: "axis" as const },
     grid: { top: 30, right: 16, bottom: 20, left: 40 },
     title: { text: title, textStyle: { color: "#a0b8d8", fontSize: 12, fontWeight: 400 }, left: 8, top: 4 },
-    xAxis: { type: "category" as const, data: PLACEHOLDER_TREND_MONTHS,
+    xAxis: { type: "category" as const, data: trendMonths,
       axisLine: { lineStyle: { color: DARK_AXIS_LINE } }, axisLabel: { color: DARK_TEXT, fontSize: 9 } },
     yAxis: { type: "value" as const, splitLine: { lineStyle: { color: DARK_SPLIT } },
       axisLabel: { color: DARK_TEXT, fontSize: 9 } },
@@ -317,12 +331,14 @@ export default function DashboardScreen() {
           <div className={styles.panel}>
             <div className={styles.panelTitle}>
               <span className={styles.panelTitleBar} />障碍因子 TOP10
-              <span className={styles.demoTag} style={{ marginLeft: "auto" }}>示例数据</span>
+              {!topObstacles.length && <span className={styles.demoTag} style={{ marginLeft: "auto" }}>待接入</span>}
             </div>
             <ReactECharts option={top10BarOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 200 }} />
-            <Text style={{ color: "#4a6785", fontSize: 10, display: "block", textAlign: "center", marginTop: 4 }}>
-              跨场地聚合接口 (P1) 完成后接入真实数据
-            </Text>
+            {!topObstacles.length && (
+              <Text style={{ color: "#4a6785", fontSize: 10, display: "block", textAlign: "center", marginTop: 4 }}>
+                各场地诊断结果聚合后显示(需先运行诊断)
+              </Text>
+            )}
           </div>
         </div>
 
@@ -408,25 +424,33 @@ export default function DashboardScreen() {
             <div className={styles.panelTitle}>
               <span className={styles.panelTitleBar} style={{ background: "linear-gradient(180deg, #00b894, #55efc4)" }} />
               追溯任务摘要
-              <span className={styles.demoTag} style={{ marginLeft: "auto" }}>示例数据</span>
+              {!wfStages.length && <span className={styles.demoTag} style={{ marginLeft: "auto" }}>待接入</span>}
             </div>
-            {["调查评估","方案审批","施工监理","效果评估","后期管护"].map(stage => (
-              <div key={stage} className={styles.traceItem}>
-                <span className={styles.traceStage}>{stage}</span>
+            {(wfStages.length ? wfStages : [
+              { code: "survey", name: "调查评估", n_in_progress: 0, n_completed: 0 },
+              { code: "approval", name: "方案审批", n_in_progress: 0, n_completed: 0 },
+              { code: "construction", name: "施工监理", n_in_progress: 0, n_completed: 0 },
+              { code: "effect", name: "效果评估", n_in_progress: 0, n_completed: 0 },
+              { code: "maintenance", name: "后期管护", n_in_progress: 0, n_completed: 0 },
+            ]).map((s: any) => (
+              <div key={s.code} className={styles.traceItem}>
+                <span className={styles.traceStage}>{s.name}</span>
                 <span className={styles.traceSite}>
-                  {stage === "调查评估" ? "3 个场地进行中" : stage === "方案审批" ? "1 个场地待审批" : "暂无"}
+                  {s.n_in_progress > 0 ? `${s.n_in_progress} 个场地进行中` : s.n_completed > 0 ? `${s.n_completed} 个已完成` : "暂无"}
                 </span>
                 <span className={styles.traceStatus} style={{
-                  background: stage === "调查评估" ? "rgba(30,144,255,0.15)" : "rgba(107,141,181,0.1)",
-                  color: stage === "调查评估" ? "#4da3ff" : "#6b8db5",
+                  background: s.n_in_progress > 0 ? "rgba(30,144,255,0.15)" : "rgba(107,141,181,0.1)",
+                  color: s.n_in_progress > 0 ? "#4da3ff" : "#6b8db5",
                 }}>
-                  {stage === "调查评估" ? "进行中" : stage === "方案审批" ? "待审批" : "—"}
+                  {s.n_in_progress > 0 ? "进行中" : s.n_completed > 0 ? "已完成" : "—"}
                 </span>
               </div>
             ))}
-            <Text style={{ color: "#4a6785", fontSize: 10, display: "block", textAlign: "center", marginTop: 6 }}>
-              工作流聚合接口 (P1) 完成后接入真实数据
-            </Text>
+            {!wfStages.length && (
+              <Text style={{ color: "#4a6785", fontSize: 10, display: "block", textAlign: "center", marginTop: 6 }}>
+                工作流记录接入后显示真实数据
+              </Text>
+            )}
           </div>
 
           {/* 最近操作 */}
@@ -453,21 +477,21 @@ export default function DashboardScreen() {
       {/* ── 底部趋势 ──────────────────────────────────────── */}
       <div className={styles.bottomRow} data-testid="screen-trend-row">
         <div className={styles.trendCard}>
-          <span className={styles.demoTag} style={{ position: "absolute", top: 6, right: 8, zIndex: 1 }}>示例数据</span>
+          {trend ? null : <span className={styles.demoTag} style={{ position: "absolute", top: 6, right: 8, zIndex: 1 }}>待接入</span>}
           <ReactECharts option={trendOption("场地累计趋势",
-            [3,5,8,10,12,14,15,16,17,18,18,19],
+            trend?.sites_cumulative || new Array(12).fill(0),
             ["#1e90ff","#1e90ff"])} theme="srs-light" opts={SVG_OPTS} style={{ height: "100%" }} />
         </div>
         <div className={styles.trendCard}>
-          <span className={styles.demoTag} style={{ position: "absolute", top: 6, right: 8, zIndex: 1 }}>示例数据</span>
+          {trend ? null : <span className={styles.demoTag} style={{ position: "absolute", top: 6, right: 8, zIndex: 1 }}>待接入</span>}
           <ReactECharts option={trendOption("检测记录累计趋势",
-            [320,680,1050,1480,1920,2410,2950,3520,4100,4720,5380,6080],
+            trend?.measurements_cumulative || new Array(12).fill(0),
             ["#00d4ff","#00d4ff"])} theme="srs-light" opts={SVG_OPTS} style={{ height: "100%" }} />
         </div>
         <div className={styles.trendCard}>
-          <span className={styles.demoTag} style={{ position: "absolute", top: 6, right: 8, zIndex: 1 }}>示例数据</span>
+          {trend ? null : <span className={styles.demoTag} style={{ position: "absolute", top: 6, right: 8, zIndex: 1 }}>待接入</span>}
           <ReactECharts option={trendOption("报告生成累计趋势",
-            [1,3,5,8,12,16,21,27,33,40,47,55],
+            trend?.reports_cumulative || new Array(12).fill(0),
             ["#7b68ee","#7b68ee"])} theme="srs-light" opts={SVG_OPTS} style={{ height: "100%" }} />
         </div>
       </div>

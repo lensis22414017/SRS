@@ -4,6 +4,7 @@ import { Card, Descriptions, Tabs, Table, Button, Spin, Space, App, Select, Tag 
 import { api } from "../api/client";
 import SiteMap from "../components/SiteMap";
 import EdaPanel from "../components/EdaPanel";
+import SiteConclusion from "../components/SiteConclusion";
 import { seqCol, numCol, textCol } from "../utils/table";
 import { POLLUTION_TYPE, POLLUTION_LABEL } from "../theme/palette";
 
@@ -139,6 +140,10 @@ export default function SiteDetail() {
               seqCol(64), textCol("版本", "version"), textCol("生成时间", "generated_at"),
               { title: "下载", align: "center", render: (_: any, r: any) => <a onClick={() => api.downloadReport(r.report_id, `追溯报告_${site.site_code}_${r.version}.pdf`)}>下载</a> },
             ]} /> : <Space direction="vertical"><span>暂无报告</span><Button onClick={() => nav(`/trace/${sid}`)}>前往追溯页生成报告</Button></Space>,
+        },
+        {
+          key: "conclusion", label: "场地综合结论",
+          children: <SiteConclusion siteId={sid} />,
         },
       ]} />
     </Space>

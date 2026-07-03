@@ -47,6 +47,9 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
   const compareOption = useMemo(() => buildCompare(factors), [factors]);
   const groupedOption = useMemo(() => buildGrouped(data?.grouped, sel), [data, sel]);
   const pieOption = useMemo(() => buildPie(factors), [factors]);
+  const htOption = useMemo(() => buildHypothesisTest(data?.hypothesis_test), [data]);
+  const esOption = useMemo(() => buildEffectSize(data?.effect_size), [data]);
+  const pcaOption = useMemo(() => buildPCA(data?.pca), [data]);
 
   if (loading) return <Spin style={{ marginTop: 40 }} />;
   if (!data?.factors?.length) return <Empty description="暂无可分析数据" />;
@@ -174,6 +177,77 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
             <Card title="因子类别分布（环形图）" size="small">
               <Text type="secondary">各因子类别（环境指标/化学性质/肥力指标等）数量占比环形图，快速识别场地主导污染物类型。</Text>
               <div style={{ marginTop: 8 }}>{pieOption ? <ReactECharts option={pieOption} style={{ height: 380 }} theme="srs-light" opts={SVG_OPTS} /> : <Empty />}</div>
+            </Card>
+          ),
+        },
+        {
+          key: "htest", label: "假设检验",
+          children: (
+            <Card title="Mann-Whitney U / Kruskal-Wallis 检验（不同区位因子浓度差异）" size="small">
+              <Text type="secondary">{data?.hypothesis_test?.note || "按采样区位分组，检验同一因子在两组/多组间的浓度分布是否有显著差异。p&lt;0.05 表示差异显著。"}<br/>
+              <b>看什么</b>：p 值是否小于 0.05。<b>发现了什么</b>：显著差异提示污染存在空间分异（局部热点）。<b>对诊断的影响</b>：需分区治理而非全场统一。<b>下一步</b>：对显著因子做分区精查。</Text>
+              <div style={{ marginTop: 8 }}>
+                {htOption ? (
+                  <>
+                    <ReactECharts option={htOption} style={{ height: 380 }} theme="srs-light" opts={SVG_OPTS} />
+                    {data?.hypothesis_test?.kruskal_wallis?.length > 0 && (
+                      <Table rowKey="factor" size="small" pagination={{ pageSize: 6 }} style={{ marginTop: 12 }}
+                        dataSource={data.hypothesis_test.kruskal_wallis}
+                        columns={[
+                          textCol("因子", "factor"), numCol("组数", "n_groups"),
+                          numCol("Kruskal H", "kruskal_h"), numCol("p 值", "kruskal_p"),
+                          { title: "显著", dataIndex: "kruskal_p", align: "center", width: 70,
+                            render: (v: number) => <Tag color={v < 0.05 ? "red" : "default"}>{v < 0.05 ? "是" : "否"}</Tag> },
+                        ]} />
+                    )}
+                  </>
+                ) : <Empty description="区位分组不足（需至少 2 个区位且每组≥3 样本）" />}
+              </div>
+            </Card>
+          ),
+        },
+        {
+          key: "effect", label: "效应量",
+          children: (
+            <Card title="效应量 Cohen's d / Cliff's delta（区位间差异程度）" size="small">
+              <Text type="secondary">{data?.effect_size?.note || "p 值只说'有没有差异'，效应量说'差异有多大'。"}<br/>
+              <b>看什么</b>：Cohen's d 绝对值。<b>发现了什么</b>：大效应(|d|&gt;0.8)表示区位间浓度差异巨大。<b>对诊断的影响</b>：大效应因子是分区治理的重点。<b>下一步</b>：优先处理大效应+高浓度的因子。</Text>
+              <div style={{ marginTop: 8 }}>
+                {esOption ? <ReactECharts option={esOption} style={{ height: 400 }} theme="srs-light" opts={SVG_OPTS} /> : <Empty description="区位分组不足" />}
+              </div>
+            </Card>
+          ),
+        },
+        {
+          key: "pca", label: "PCA降维",
+          children: (
+            <Card title="主成分分析 PCA（因子共变关系与污染源识别）" size="small">
+              <Text type="secondary">{data?.pca ? `前 ${data.pca.n_components} 主成分累计解释方差: ${(data.pca.cumulative_variance * 100).toFixed(1)}%` : ""}<br/>
+              <b>看什么</b>：PC1/PC2 载荷散点（右上=因子聚集=同源污染）。<b>发现了什么</b>：聚集的因子(如 Cd/Pb/As 同向)提示同一污染源。<b>对诊断的影响</b>：同源因子可合并治理。<b>下一步</b>：对聚集因子组溯源。</Text>
+              <div style={{ marginTop: 8 }}>
+                {pcaOption ? <ReactECharts option={pcaOption} style={{ height: 450 }} theme="srs-light" opts={SVG_OPTS} /> : <Empty description="样本/因子数不足（需≥3 采样点且≥2 因子）" />}
+              </div>
+            </Card>
+          ),
+        },
+        {
+          key: "outlier", label: "异常值明细",
+          children: (
+            <Card title="异常值检测明细（IQR + Z-score 双法）" size="small">
+              <Text type="secondary">{data?.outlier_detail?.note || "IQR 法 + Z-score 双法命中更可信。"}<br/>
+              <b>看什么</b>：哪些采样点×因子被标记为异常。<b>发现了什么</b>：单点极高值可能是局部污染热点或检测异常。<b>对诊断的影响</b>：异常点需现场复核，区分真污染与检测误差。<b>下一步</b>：对异常点位复测。</Text>
+              <div style={{ marginTop: 8 }}>
+                {data?.outlier_detail?.items?.length ? (
+                  <Table rowKey={(r: any) => `${r.factor}-${r.point_id}-${r.value}`} size="small"
+                    pagination={{ pageSize: 10 }}
+                    dataSource={data.outlier_detail.items}
+                    columns={[
+                      seqCol(50), textCol("因子", "factor"), numCol("采样点", "point_id"),
+                      numCol("实测值", "value"), numCol("Z分", "z_score"),
+                      textCol("检测法", "method"), textCol("阈值", "threshold"),
+                    ]} />
+                ) : <Empty description="未检测到异常值（IQR 与 Z>3 均未命中）" />}
+              </div>
             </Card>
           ),
         },
@@ -417,4 +491,82 @@ function corr(x: number[], y: number[]) {
   let num = 0, dx = 0, dy = 0;
   for (let i = 0; i < x.length; i++) { num += (x[i] - mx) * (y[i] - my); dx += (x[i] - mx) ** 2; dy += (y[i] - my) ** 2; }
   return dx && dy ? num / Math.sqrt(dx * dy) : 0;
+}
+
+/** 节五: Mann-Whitney U 检验结果可视化(p 值条形图, 红线=0.05 显著阈值)。 */
+function buildHypothesisTest(ht: any) {
+  const items = ht?.mann_whitney;
+  if (!items?.length) return null;
+  const sorted = [...items].sort((a: any, b: any) => (a.mann_whitney_p ?? 1) - (b.mann_whitney_p ?? 1));
+  return {
+    tooltip: { trigger: "axis", formatter: (p: any) => `<b>${p[0].name}</b><br/>p = ${p[0].value?.toFixed(5)}<br/>${p[0].value < 0.05 ? "🔴 显著差异" : "⚪ 无显著差异"}` },
+    grid: { left: 100, right: 40, top: 30, bottom: 30 },
+    xAxis: { type: "value", name: "p 值", max: 1 },
+    yAxis: { type: "category", inverse: true, data: sorted.map((i: any) => i.factor) },
+    series: [{
+      type: "bar",
+      data: sorted.map((i: any) => ({
+        value: i.mann_whitney_p,
+        itemStyle: { color: i.mann_whitney_p < 0.05 ? "#E64B35" : "#91D1C2", borderRadius: [0, 3, 3, 0] },
+      })),
+      markLine: { silent: true, symbol: "none", lineStyle: { color: "#fa541c", type: "dashed", width: 2 },
+        data: [{ xAxis: 0.05, label: { formatter: "p=0.05", color: "#fa541c", fontSize: 10 } }] },
+      label: { show: true, position: "right", fontSize: 9, formatter: (p: any) => p.value?.toFixed(4) },
+    }],
+  };
+}
+
+/** 节五: Cohen's d 效应量条形图(正向/负向 + 量级色阶)。 */
+function buildEffectSize(es: any) {
+  const items = es?.items;
+  if (!items?.length) return null;
+  const sorted = [...items].sort((a: any, b: any) => Math.abs(b.cohens_d) - Math.abs(a.cohens_d));
+  return {
+    tooltip: { trigger: "axis", formatter: (p: any) => {
+      const it = sorted[p[0].dataIndex];
+      return `<b>${it.factor}</b><br/>Cohen's d = ${it.cohens_d} (${it.magnitude}效应)<br/>Cliff's δ = ${it.cliffs_delta}`;
+    } },
+    grid: { left: 100, right: 50, top: 30, bottom: 30 },
+    legend: { data: ["Cohen's d", "Cliff's delta"], top: 0 },
+    xAxis: { type: "value", name: "效应量" },
+    yAxis: { type: "category", inverse: true, data: sorted.map((i: any) => i.factor) },
+    series: [
+      { name: "Cohen's d", type: "bar",
+        data: sorted.map((i: any) => ({
+          value: i.cohens_d,
+          itemStyle: {
+            color: Math.abs(i.cohens_d) >= 0.8 ? "#E64B35" : Math.abs(i.cohens_d) >= 0.5 ? "#F39B7F" : Math.abs(i.cohens_d) >= 0.2 ? "#F0E442" : "#91D1C2",
+            borderRadius: i.cohens_d >= 0 ? [0, 3, 3, 0] : [3, 0, 0, 3],
+          },
+        })), barGap: "10%" },
+      { name: "Cliff's delta", type: "bar",
+        data: sorted.map((i: any) => i.cliffs_delta),
+        itemStyle: { color: "#3C5488", opacity: 0.5, borderRadius: [3, 3, 3, 3] } },
+    ],
+  };
+}
+
+/** 节五: PCA 载荷散点图(PC1 vs PC2, 因子点 + 原点参考线)。 */
+function buildPCA(pca: any) {
+  if (!pca?.loadings?.length) return null;
+  const evr = pca.explained_variance_ratio || [];
+  const loadings = pca.loadings.filter((l: any) => l.pc1 != null && l.pc2 != null);
+  // 合并 scores 采样点(灰点)与 loadings 因子(彩色标签)
+  const scoreData = (pca.scores_sample || []).map((s: any) => [s.pc1, s.pc2]);
+  return {
+    tooltip: { trigger: "item" },
+    grid: { left: 60, right: 30, top: 40, bottom: 50 },
+    legend: { data: ["采样点", "因子载荷"], top: 0 },
+    xAxis: { type: "value", name: `PC1 (${(evr[0] * 100).toFixed(1)}%)`, nameLocation: "middle", nameGap: 28 },
+    yAxis: { type: "value", name: `PC2 (${(evr[1] * 100).toFixed(1)}%)`, nameLocation: "middle", nameGap: 40 },
+    series: [
+      { name: "采样点", type: "scatter", data: scoreData, symbolSize: 5,
+        itemStyle: { color: "#94a3b8", opacity: 0.4 } },
+      { name: "因子载荷", type: "scatter", data: loadings.map((l: any) => ({
+        value: [l.pc1, l.pc2], name: l.factor,
+      })), symbolSize: 12,
+        itemStyle: { color: "#E64B35" },
+        label: { show: true, formatter: (p: any) => p.data.name, fontSize: 10, color: "#0f3d6e", position: "top" } },
+    ],
+  };
 }

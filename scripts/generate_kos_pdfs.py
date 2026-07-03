@@ -63,7 +63,7 @@ def gen_pdf(kos, site_name, track_label, filename):
         elems.append(Paragraph("无明确超标因子。", body))
 
     # 关键障碍 Top-N
-    elems.append(Paragraph("二、关键障碍因子 Top-N(KOS 排序)", h2))
+    elems.append(Paragraph("二、污染场地关键障碍因子 Top-N", h2))
     ko = kos.get("key_obstacles", [])
     if ko:
         rows = [["排名","因子","KOS","实测值","证据"]]

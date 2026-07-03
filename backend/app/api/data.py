@@ -15,6 +15,7 @@ from app.core.deps import (
 )
 from app.db.session import get_db
 from app.models import (
+    AuditLog, DiagnosisFactorDetail, DiagnosisResult, EvaluationResult,
     FactorDictionary, ImportBatch, Measurement, ReportRecord, SamplingPoint, Site,
     StandardThreshold, ThresholdRule, User, WorkflowRecord,
 )
@@ -370,6 +371,141 @@ def site_statistics(user: User = Depends(get_current_user),
     }
 
 
+@router.get("/sites/aggregations/top-obstacles")
+def top_obstacles_aggregation(
+    limit: int = Query(10, ge=1, le=50),
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """跨场地障碍因子 TOP-N 聚合: 扫所有可见场地最新诊断的 Top 因子,
+    按频次 + 平均 importance 排序。仅统计 rank <= 5 的因子(每场地贡献其最重要因子)。
+
+    数据来源真实: DiagnosisResult + DiagnosisFactorDetail(全局因子级 SHAP 解释)。
+    无诊断结果的场地不参与聚合(不伪造)。
+    """
+    site_ids = [s.id for s in scope_sites_query(db, user, db.query(Site.id)).all()]
+    if not site_ids:
+        return {"items": [], "n_sites_with_diagnosis": 0, "note": "无可见场地"}
+
+    # 每场地最新诊断 id
+    latest_diag_subq = (db.query(DiagnosisResult.id, DiagnosisResult.site_id)
+                        .filter(DiagnosisResult.site_id.in_(site_ids),
+                                DiagnosisResult.status == "done")
+                        .order_by(DiagnosisResult.site_id, DiagnosisResult.id.desc())
+                        .distinct(DiagnosisResult.site_id).subquery())
+
+    rows = (db.query(DiagnosisFactorDetail.rank,
+                     FactorDictionary.factor_name,
+                     FactorDictionary.level1_category,
+                     func.avg(DiagnosisFactorDetail.importance).label("avg_importance"),
+                     func.count().label("freq"))
+            .join(latest_diag_subq, DiagnosisFactorDetail.diagnosis_id == latest_diag_subq.c.id)
+            .join(FactorDictionary, DiagnosisFactorDetail.factor_id == FactorDictionary.id)
+            .filter(DiagnosisFactorDetail.sampling_point_id.is_(None),
+                    DiagnosisFactorDetail.rank != None,
+                    DiagnosisFactorDetail.rank <= 5)
+            .group_by(FactorDictionary.factor_name, FactorDictionary.level1_category, DiagnosisFactorDetail.rank)
+            .order_by(func.count().desc(), func.avg(DiagnosisFactorDetail.importance).desc())
+            .limit(limit).all())
+
+    items = [{"factor": r.factor_name or "—", "category": r.level1_category or "",
+              "freq": int(r.freq), "avg_importance": round(float(r.avg_importance or 0), 4)}
+             for r in rows]
+    return {"items": items, "n_sites_with_diagnosis": len(latest_diag_subq.c.id),
+            "note": "基于各场地最新诊断 Top-5 因子聚合; 无诊断结果的场地不参与"}
+
+
+@router.get("/sites/aggregations/monthly-trend")
+def monthly_trend_aggregation(
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """按月聚合: 场地累计数 / 检测记录累计数 / 报告生成累计数。
+    数据来源: Site.created_at / Measurement.created_at / ReportRecord.generated_at。
+    覆盖最近 12 个月。无数据月份为零(不伪造增长)。
+    """
+    from collections import OrderedDict
+    from datetime import datetime, timedelta
+
+    now = datetime.now()
+    months: list[str] = []
+    for i in range(11, -1, -1):
+        d = now.replace(day=1) - timedelta(days=i * 30)
+        months.append(d.strftime("%Y-%m"))
+
+    site_ids = [s.id for s in scope_sites_query(db, user, db.query(Site.id)).all()]
+
+    def _cumulative_by_month(model, date_field, label, extra_filter=None):
+        q = db.query(model)
+        if extra_filter:
+            q = q.filter(*extra_filter)
+        if hasattr(model, "site_id") and site_ids and model.__tablename__ in ("sites",):
+            pass  # sites 不限 site_id
+        elif hasattr(model, "site_id") and site_ids and model.__tablename__ != "sites":
+            q = q.filter(model.site_id.in_(site_ids))
+        rows = q.with_entities(date_field).all()
+        cum = 0
+        result = {}
+        bucket: dict[str, int] = {}
+        for (dt,) in rows:
+            if dt is None:
+                continue
+            key = dt.strftime("%Y-%m") if hasattr(dt, "strftime") else str(dt)[:7]
+            bucket[key] = bucket.get(key, 0) + 1
+        for m in months:
+            cum += bucket.get(m, 0)
+            result[m] = cum
+        return result, sum(bucket.values())
+
+    site_cum, n_sites = _cumulative_by_month(Site, Site.created_at, "sites")
+    meas_cum, n_meas = _cumulative_by_month(Measurement, Measurement.created_at, "measurements")
+    report_cum, n_reports = _cumulative_by_month(ReportRecord, ReportRecord.generated_at, "reports")
+
+    return {
+        "months": months,
+        "sites_cumulative": [site_cum.get(m, 0) for m in months],
+        "measurements_cumulative": [meas_cum.get(m, 0) for m in months],
+        "reports_cumulative": [report_cum.get(m, 0) for m in months],
+        "totals": {"sites": n_sites, "measurements": n_meas, "reports": n_reports},
+        "note": "累计值; 无数据月份维持上一月水平(累计不回退)",
+    }
+
+
+@router.get("/sites/aggregations/workflow-stages")
+def workflow_stages_aggregation(
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """五阶段监管工作流场地数统计。
+    阶段: survey(调查评估)/approval(方案审批)/construction(施工监理)/
+          effect(效果评估)/maintenance(后期管护)。
+    数据来源真实: WorkflowRecord。无记录的阶段计数为零。
+    """
+    site_ids = [s.id for s in scope_sites_query(db, user, db.query(Site.id)).all()]
+    stages = [
+        ("survey", "调查评估"),
+        ("approval", "方案审批"),
+        ("construction", "施工监理"),
+        ("effect", "效果评估"),
+        ("maintenance", "后期管护"),
+    ]
+    items = []
+    for code, name in stages:
+        q = (db.query(WorkflowRecord.site_id, WorkflowRecord.status)
+             .filter(WorkflowRecord.stage == code))
+        if site_ids:
+            q = q.filter(WorkflowRecord.site_id.in_(site_ids))
+        rows = q.all()
+        n_total = len({r.site_id for r in rows})
+        n_in_progress = len({r.site_id for r in rows if r.status not in ("completed", "archived", "not_started")})
+        n_completed = len({r.site_id for r in rows if r.status == "completed"})
+        items.append({
+            "code": code, "name": name,
+            "n_sites": n_total, "n_in_progress": n_in_progress, "n_completed": n_completed,
+        })
+    return {"items": items, "note": "基于 WorkflowRecord 真实记录; 无记录阶段为零"}
+
+
 @router.get("/sites/{site_id}")
 def site_detail(site_id: int, user: User = Depends(get_current_user),
                 db: Session = Depends(get_db)):
@@ -603,7 +739,8 @@ def site_eda(site_id: int,
 
     # 解析 include 参数(默认全返回, 兼容前端旧调用)
     inc = {x.strip() for x in include.split(",") if x.strip()} if include else {
-        "distribution", "correlation", "qq", "boxplot", "grouped"}
+        "distribution", "correlation", "qq", "boxplot", "grouped",
+        "hypothesis_test", "effect_size", "pca", "outlier_detail"}
 
     factors = []
     for fc, sub in df.groupby("factor"):
@@ -659,6 +796,139 @@ def site_eda(site_id: int,
                            "degraded_reason": degraded_reason,
                            "overall": grouped_stats(df, "value", gcol),
                            "per_factor": per_factor}
+
+    # ── 节五新增: 假设检验 / 效应量 / PCA / 异常值明细 ──
+    # 分组依据: 用 region(或 depth_band) 把采样点分两组, 检验"不同区位同一因子浓度是否有显著差异"。
+    import numpy as np
+    try:
+        from scipy import stats as scistats
+    except Exception:
+        scistats = None
+
+    # 准备分组键(每组 >= 3 样本才参与检验, 防小样本噪声)
+    _fallback_grp = df["_depth_band"] if "_depth_band" in df.columns else "未知"
+    df["_grp"] = df["region"].fillna(_fallback_grp)
+    grp_values = df["_grp"].dropna().astype(str)
+    grp_values = grp_values[grp_values.str.strip() != ""]
+    valid_groups = [g for g in grp_values.unique() if (df["_grp"].astype(str) == g).sum() >= 3]
+
+    if "hypothesis_test" in inc and scistats and len(valid_groups) >= 2 and len(factors) > 0:
+        ht_items = []
+        g1_name, g2_name = valid_groups[0], valid_groups[1]
+        for fc, sub in df.groupby("factor"):
+            v1 = sub.loc[sub["_grp"].astype(str) == g1_name, "value"].dropna().tolist()
+            v2 = sub.loc[sub["_grp"].astype(str) == g2_name, "value"].dropna().tolist()
+            if len(v1) < 3 or len(v2) < 3:
+                continue
+            try:
+                u_stat, u_p = scistats.mannwhitneyu(v1, v2, alternative="two-sided")
+            except Exception:
+                u_stat, u_p = None, None
+            ht_items.append({"factor": fc, "group_a": g1_name, "group_b": g2_name,
+                             "n_a": len(v1), "n_b": len(v2),
+                             "mann_whitney_u": round(float(u_stat), 3) if u_stat is not None else None,
+                             "mann_whitney_p": round(float(u_p), 5) if u_p is not None else None,
+                             "significant": bool(u_p is not None and u_p < 0.05)})
+        # Kruskal-Wallis: 多组(若 >=3 组)
+        kw_items = []
+        if len(valid_groups) >= 3:
+            for fc, sub in df.groupby("factor"):
+                samples = [sub.loc[sub["_grp"].astype(str) == g, "value"].dropna().tolist()
+                           for g in valid_groups]
+                samples = [s for s in samples if len(s) >= 3]
+                if len(samples) < 3:
+                    continue
+                try:
+                    h_stat, h_p = scistats.kruskal(*samples)
+                except Exception:
+                    h_stat, h_p = None, None
+                kw_items.append({"factor": fc, "n_groups": len(samples),
+                                 "kruskal_h": round(float(h_stat), 3) if h_stat is not None else None,
+                                 "kruskal_p": round(float(h_p), 5) if h_p is not None else None})
+        resp["hypothesis_test"] = {"mann_whitney": ht_items, "kruskal_wallis": kw_items,
+                                   "note": f"Mann-Whitney U 检验 {g1_name} vs {g2_name}; p<0.05 表示两组浓度分布有显著差异"}
+
+    if "effect_size" in inc and scistats and len(valid_groups) >= 2 and len(factors) > 0:
+        es_items = []
+        g1_name, g2_name = valid_groups[0], valid_groups[1]
+        for fc, sub in df.groupby("factor"):
+            v1 = sub.loc[sub["_grp"].astype(str) == g1_name, "value"].dropna().astype(float).values
+            v2 = sub.loc[sub["_grp"].astype(str) == g2_name, "value"].dropna().astype(float).values
+            if len(v1) < 2 or len(v2) < 2:
+                continue
+            # Cohen's d
+            m1, m2, s1, s2 = np.mean(v1), np.mean(v2), np.std(v1, ddof=1), np.std(v2, ddof=1)
+            pooled_sd = np.sqrt((s1**2 + s2**2) / 2) if (s1 + s2) > 0 else 0
+            d = (m1 - m2) / pooled_sd if pooled_sd > 0 else 0
+            # Cliff's delta (非参, 更稳健)
+            delta = 0.0
+            n = 0
+            for a in v1:
+                for b in v2:
+                    n += 1
+                    if a > b: delta += 1
+                    elif a < b: delta -= 1
+            cliff = delta / n if n > 0 else 0
+            mag = "可忽略" if abs(d) < 0.2 else "小" if abs(d) < 0.5 else "中" if abs(d) < 0.8 else "大"
+            es_items.append({"factor": fc, "group_a": g1_name, "group_b": g2_name,
+                             "cohens_d": round(float(d), 3), "cliffs_delta": round(float(cliff), 3),
+                             "magnitude": mag})
+        resp["effect_size"] = {"items": es_items,
+                               "note": "Cohen's d: |d|<0.2可忽略/0.2-0.5小/0.5-0.8中/>0.8大; Cliff's delta 非参更稳健"}
+
+    if "pca" in inc and len(factors) >= 2:
+        try:
+            from sklearn.decomposition import PCA as SKPCA
+            from sklearn.preprocessing import StandardScaler
+            pivot = df.pivot_table(index="point_id", columns="factor", values="value", aggfunc="mean").dropna()
+            if pivot.shape[0] >= 3 and pivot.shape[1] >= 2:
+                X = StandardScaler().fit_transform(pivot.values)
+                n_comp = min(3, pivot.shape[1], pivot.shape[0])
+                pca = SKPCA(n_components=n_comp)
+                scores = pca.fit_transform(X)
+                resp["pca"] = {
+                    "factors": pivot.columns.tolist(),
+                    "n_samples": int(pivot.shape[0]),
+                    "n_components": n_comp,
+                    "explained_variance_ratio": [round(float(v), 4) for v in pca.explained_variance_ratio_],
+                    "cumulative_variance": round(float(np.cumsum(pca.explained_variance_ratio_)[-1]), 4),
+                    "loadings": [{"factor": pivot.columns[i],
+                                  "pc1": round(float(pca.components_[0][i]), 3),
+                                  "pc2": round(float(pca.components_[1][i]), 3) if n_comp >= 2 else None}
+                                 for i in range(pivot.shape[1])],
+                    "scores_sample": [{"pc1": round(float(scores[j][0]), 3),
+                                       "pc2": round(float(scores[j][1]), 3) if n_comp >= 2 else None}
+                                      for j in range(min(len(scores), 200))],
+                    "note": "PCA 基于标准化后采样点宽表; PC1/PC2 载荷反映各因子对主成分的贡献方向",
+                }
+        except Exception:
+            pass
+
+    if "outlier_detail" in inc and len(factors) > 0:
+        od_items = []
+        for fc, sub in df.groupby("factor"):
+            vals = sub["value"].dropna().astype(float)
+            if len(vals) < 4:
+                continue
+            q1, q3 = vals.quantile(0.25), vals.quantile(0.75)
+            iqr = q3 - q1
+            lo, hi = q1 - 1.5 * iqr, q3 + 1.5 * iqr
+            mean, std = vals.mean(), vals.std(ddof=0)
+            for _, r in sub.iterrows():
+                v = r["value"]
+                if pd.isna(v):
+                    continue
+                v = float(v)
+                z = (v - mean) / std if std > 0 else 0
+                is_iqr = v < lo or v > hi
+                is_z = abs(z) > 3
+                if is_iqr or is_z:
+                    od_items.append({"factor": fc, "point_id": int(r["point_id"]) if pd.notna(r["point_id"]) else None,
+                                     "value": round(v, 4), "z_score": round(float(z), 3),
+                                     "method": ("IQR" if is_iqr else "") + ("+Z" if is_z else "").lstrip("+"),
+                                     "threshold": f"IQR({round(lo,3)}~{round(hi,3)}) / |Z|>3"})
+        resp["outlier_detail"] = {"items": od_items[:200], "total": len(od_items),
+                                  "note": "IQR 法(Q1-1.5×IQR ~ Q3+1.5×IQR) + Z-score(|Z|>3); 双法命中更可信"}
 
     return resp
 

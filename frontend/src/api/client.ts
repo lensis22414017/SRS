@@ -179,6 +179,11 @@ export const api = {
   // 场地统计
   siteStatistics: () => client.get("/sites/statistics").then((r) => r.data),
 
+  // 大屏聚合(节四: 真实 API, 替代写死占位)
+  topObstacles: (limit = 10) => client.get("/sites/aggregations/top-obstacles", { params: { limit } }).then((r) => r.data),
+  monthlyTrend: () => client.get("/sites/aggregations/monthly-trend").then((r) => r.data),
+  workflowStages: () => client.get("/sites/aggregations/workflow-stages").then((r) => r.data),
+
   // 技术库管理(brief 4.6)
   technologies: (params?: any) => client.get("/system/technologies", { params }).then((r) => r.data),
   createTechnology: (body: any) => client.post("/system/technologies", body).then((r) => r.data),

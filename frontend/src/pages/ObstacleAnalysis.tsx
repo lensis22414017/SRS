@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Card, Button, Row, Col, Space, Alert, Typography, App, Descriptions, Table, Tag, Timeline, Segmented, Tooltip, Select } from "antd";
-import { InfoCircleOutlined, ExportOutlined, GlobalOutlined, HistoryOutlined, ApartmentOutlined } from "@ant-design/icons";
+import { InfoCircleOutlined, ExportOutlined, HistoryOutlined, ApartmentOutlined } from "@ant-design/icons";
 import MethodFlowDrawer from "../components/MethodFlowDrawer";
+import MethodExplainCard from "../components/MethodExplainCard";
 import { getFlowConfig } from "../config/methodFlows";
 import ReactECharts from "echarts-for-react";
 import dayjs from "dayjs";
@@ -99,34 +100,17 @@ export default function ObstacleAnalysis() {
   // 按 land_use_type 过滤显示对应轨的因子
   const trackKey = landUse === "生态用地" ? "eco" : "prod";
   const trackFactors = (diag?.shap_global?.dual_track?.[trackKey + "_top_factors"]) || diag?.top_factors || [];
-  const probaMean = diag?.shap_global?.dual_track?.[trackKey + "_proba_mean"];
-
-  const opt = trackFactors.length ? {
-    tooltip: { trigger: "axis" }, grid: { left: 100, right: 30, top: 10, bottom: 30 },
-    xAxis: { type: "value", name: "影响程度 |SHAP|" },
-    yAxis: { type: "category", inverse: true, data: trackFactors.map((t: any) => t.factor) },
-    series: [{ type: "bar",
-      data: trackFactors.map((t: any) => ({
-        value: t.importance,
-        itemStyle: {
-          color: t.direction === "negative" ? "#4DBBD5" : POLLUTION_TYPE["heavy_metal"],
-          borderRadius: [0, 4, 4, 0],
-          shadowBlur: 4,
-          shadowColor: "rgba(0,0,0,0.15)",
-        },
-      })),
-      emphasis: { focus: "series", blurScope: "coordinateSystem" },
-      label: { show: true, position: "right" } }],
-  } : null;
+  // 旧「影响程度 |SHAP|」主图(opt)随关键障碍因子表一并下线, 改由 KOS Top-N 承载;
+  // trackFactors 仍供方向分布饼图(directionOption)使用。
 
   const localRows = (diag?.local_explanation || []).slice(0, 12);
   const localOption = localRows.length ? {
     tooltip: { trigger: "axis", formatter: (p: any) => {
       const r = localRows[p[0].dataIndex];
-      return `${r.factor}<br/>采样点: ${r.point_code}<br/>SHAP: ${r.shap_value?.toFixed?.(4)}<br/>方向: ${r.direction}`;
+      return `${r.factor}<br/>采样点: ${r.point_code}<br/>模型贡献值: ${r.shap_value?.toFixed?.(4)}<br/>方向: ${r.direction}`;
     } },
     grid: { left: 130, right: 50, top: 16, bottom: 24 },
-    xAxis: { type: "value", name: "SHAP 值" },
+    xAxis: { type: "value", name: "模型贡献值" },
     yAxis: { type: "category", inverse: true,
       data: localRows.map((r: any) => `${r.factor}@${r.point_code}`),
       axisLabel: { fontSize: 10 } },
@@ -271,30 +255,8 @@ export default function ObstacleAnalysis() {
             </Descriptions>
           </Card>
 
-          {/* 关键障碍因子(旧 SHAP 表 — KOS 诊断跑过后隐藏, 避免甲方困惑) */}
-          {!kosData && (
-          <Card title="关键障碍因子（影响程度排序）">
-            {opt && <ReactECharts option={opt} theme="srs-light" opts={SVG_OPTS} style={{ height: 340 }} />}
-            <Table rowKey="rank" size="small" pagination={false} dataSource={trackFactors}
-              columns={[
-                seqCol(64),
-                { title: "障碍因子", dataIndex: "factor", render: (v: string, r: any) => (
-                  <Space size={4}>
-                    <span>{v}</span>
-                    {(r.feature && r.feature.startsWith("gee_")) && (
-                      <Tooltip title="该指标来源于卫星遥感/地理空间数据">
-                        <GlobalOutlined style={{ color: "#52c41a", fontSize: 12 }} />
-                      </Tooltip>
-                    )}
-                  </Space>
-                )},
-                textCol("类别", "category"),
-                numCol("影响程度 |SHAP|", "importance"),
-                { title: "影响方向", dataIndex: "direction", align: "center",
-                  render: (v: string) => <Tag color={v === "positive" ? POLLUTION_TYPE["heavy_metal"] : "#4DBBD5"} style={{ color: "#fff" }}>{v === "positive" ? "正向(加重)" : "负向(缓解)"}</Tag> },
-              ]} />
-          </Card>
-          )}
+          {/* 旧 SHAP 关键障碍因子表已下线(避免"模型贡献度"与"规则障碍"两套口径混淆甲方)。
+              现统一由下方 KOS「污染场地关键障碍因子 Top-N」承载(规则层 B=1 + 实测 + 综合评分)。 */}
 
           {(localOption || directionOption) && (
             <Row gutter={16}>
@@ -326,7 +288,7 @@ export default function ObstacleAnalysis() {
               <Table rowKey={(r: any) => r.factor + r.point_code} size="small" pagination={false}
                 dataSource={diag?.local_explanation}
                 columns={[seqCol(64), textCol("采样点", "point_code"), textCol("因子", "factor"),
-                  numCol("SHAP值", "shap_value"),
+                  numCol("模型贡献值", "shap_value"),
                   { title: "方向", dataIndex: "direction", align: "center" }]} />
             </Card>
           )}
@@ -351,10 +313,13 @@ export default function ObstacleAnalysis() {
                 />
               )}
 
-              {/* 第一层: 关键障碍因子 Top-N (KOS 排序) */}
+              {/* 诊断方法说明卡片(普通中文 + KaTeX 公式 + 模型贡献度免责声明) */}
+              <MethodExplainCard track={kosTrack} />
+
+              {/* 第一层: 污染场地关键障碍因子 Top-N (规则层 B=1 + 实测 + 综合评分排序) */}
               <Card title={
                 <Space>
-                  <span>关键障碍因子 Top-N（KOS 综合评分排序）</span>
+                  <span>污染场地关键障碍因子 Top-N</span>
                   <Tag color={kosTrack === "prod" ? "purple" : "green"}>
                     {kosTrack === "prod" ? "生产用途" : "生态用途"}
                   </Tag>
