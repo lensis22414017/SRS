@@ -38,28 +38,139 @@ REPORTS = [
 ]
 
 
+def generate_pdf_reportlab(site_id, site_name, out_path):
+    """PDF 用 reportlab 直接生成(绕过 weasyprint/xhtml2pdf 不支持 data URI 的问题),
+    嵌入 matplotlib 离线散点地图 PNG + 障碍因子图。确保图片数 >= 1。"""
+    from app.db.session import SessionLocal
+    from app.services import report_service
+    import base64 as _b64
+
+    db = SessionLocal()
+    tmp_pngs = []
+    try:
+        ctx = report_service.collect(db, site_id, "v1")
+        from reportlab.lib.pagesizes import A4
+        from reportlab.lib.units import cm
+        from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, Image as RLImage
+        from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+        from reportlab.lib import colors as rlcolors
+        from reportlab.pdfbase import pdfmetrics
+        from reportlab.pdfbase.ttfonts import TTFont
+        for fp, name in [("C:/Windows/Fonts/simsun.ttc", "SimSun"), ("C:/Windows/Fonts/simhei.ttf", "SimHei")]:
+            try: pdfmetrics.registerFont(TTFont(name, fp))
+            except: pass
+        CN = "SimSun" if "SimSun" in pdfmetrics.getRegisteredFontNames() else "Helvetica"
+        CN_B = "SimHei" if "SimHei" in pdfmetrics.getRegisteredFontNames() else CN
+        styles = getSampleStyleSheet()
+        h1 = ParagraphStyle("h1", parent=styles["Heading1"], fontName=CN_B, fontSize=16, alignment=1, spaceAfter=10)
+        h2 = ParagraphStyle("h2", parent=styles["Heading2"], fontName=CN_B, fontSize=12, spaceBefore=8, spaceAfter=4)
+        body = ParagraphStyle("body", parent=styles["BodyText"], fontName=CN, fontSize=10, leading=14)
+        elems = []
+
+        elems.append(Paragraph("污染场地全流程追溯报告", h1))
+        s = ctx.get("site", {})
+        elems.append(Paragraph(f"{site_name}（{s.get('site_code','—')}）", h2))
+        elems.append(Paragraph(f"污染类型: {s.get('pollution_type','—')} | 用地: {s.get('land_use_type','—')} | 生成: {ctx.get('report',{}).get('generated_at','—')}", body))
+        elems.append(Spacer(1, 0.3*cm))
+
+        # 地图 PNG 落盘(report_service 已渲染 base64, 解码落盘)
+        map_b64 = ctx.get("map_summary", {}).get("map_image")
+        if map_b64 and map_b64.startswith("data:image/png;base64,"):
+            png_path = out_path + ".map.png"
+            with open(png_path, "wb") as f:
+                f.write(_b64.b64decode(map_b64.split(",", 1)[1]))
+            tmp_pngs.append(png_path)
+            elems.append(Paragraph("一、采样点空间分布与超标风险分级", h2))
+            elems.append(Paragraph("注: 此为离线 matplotlib 采样点分布图, 非真实瓦片底图。按超标倍数 8 级色阶着色。", body))
+            elems.append(RLImage(png_path, width=16*cm, height=11*cm))
+            elems.append(Spacer(1, 0.3*cm))
+
+        # 障碍因子排名 PNG(若有诊断结果)
+        shap_b64 = ctx.get("map_summary", {}).get("shap_image")
+        if shap_b64 and shap_b64.startswith("data:image/png;base64,"):
+            png_path = out_path + ".shap.png"
+            with open(png_path, "wb") as f:
+                f.write(_b64.b64decode(shap_b64.split(",", 1)[1]))
+            tmp_pngs.append(png_path)
+            elems.append(Paragraph("二、关键障碍因子排名", h2))
+            elems.append(RLImage(png_path, width=16*cm, height=8*cm))
+
+        # EDA 因子摘要图(保底图: 只要有检测数据就能渲染, 保证图片数 >= 1)
+        has_image_yet = bool(map_b64) or bool(shap_b64)
+        if not has_image_yet and ctx.get("factor_summary"):
+            eda_b64 = report_service._render_eda_figure_png(ctx.get("factor_summary") or [])
+            if eda_b64 and eda_b64.startswith("data:image/png;base64,"):
+                png_path = out_path + ".eda.png"
+                with open(png_path, "wb") as f:
+                    f.write(_b64.b64decode(eda_b64.split(",", 1)[1]))
+                tmp_pngs.append(png_path)
+                elems.append(Paragraph("一、各因子浓度分布(EDA, 该场地无采样点坐标, 故无空间分布图)", h2))
+                elems.append(Paragraph("注: 此图为各因子均值/最大值对比, 离线渲染。该场地采样点无经纬度, 无法生成空间分布图。", body))
+                elems.append(RLImage(png_path, width=16*cm, height=8*cm))
+
+        # 诊断 Top-N 表
+        diag = ctx.get("diagnosis") or {}
+        tf = diag.get("top_factors") or []
+        if tf:
+            elems.append(Paragraph("三、障碍因子 Top-N", h2))
+            rows = [["排名", "因子", "类别", "重要性", "方向"]] + [
+                [str(t.get("rank","")), Paragraph(str(t.get("factor","")),body), str(t.get("category","")),
+                 str(round(t.get("importance",0),4)), str(t.get("direction",""))] for t in tf[:10]
+            ]
+            t = Table(rows); t.setStyle(TableStyle([("FONTNAME",(0,0),(-1,-1),CN),("FONTSIZE",(0,0),(-1,-1),8),("GRID",(0,0),(-1,-1),0.5,rlcolors.grey),("BACKGROUND",(0,0),(-1,0),rlcolors.HexColor("#e6f7ff"))]))
+            elems.append(t)
+
+        # 重构/SSUI
+        recon = ctx.get("reconstruction") or []
+        if recon:
+            elems.append(Paragraph("四、功能重构可行性", h2))
+            for ev in recon:
+                elems.append(Paragraph(f"{ev['title']}: {ev.get('score','—')}分({ev.get('grade','—')}), 限制因子: {'、'.join(ev.get('limiting_factors') or [])}", body))
+        ssui = ctx.get("ssui")
+        if ssui:
+            elems.append(Paragraph("五、SSUI 可持续利用评价", h2))
+            elems.append(Paragraph(f"SSUI: {ssui.get('score','—')} ({ssui.get('grade','—')})", body))
+
+        elems.append(Spacer(1, 0.5*cm))
+        elems.append(Paragraph("模型贡献度不是法规判定结果, 也不是因果证明; 正式障碍判定以规则层和标准阈值为底线。", body))
+
+        doc = SimpleDocTemplate(out_path, pagesize=A4, topMargin=2*cm, bottomMargin=2*cm)
+        doc.build(elems)
+        return out_path
+    finally:
+        for p in tmp_pngs:
+            try: os.remove(p)
+            except: pass
+        db.close()
+
+
 def generate_one(site_id, site_name, pollution_type, prefix, fmt):
-    """调 report_service.generate() 生成一份报告, 拷贝到 OUT 目录。"""
+    """DOCX 走 report_service(已支持嵌图); PDF 走 reportlab 直接嵌图(绕过 weasyprint)。"""
     from app.db.session import SessionLocal
     from app.services import report_service
     from app.services.file_service import abs_path
     from app.models import FileObject
 
+    out_name = f"{prefix}_{site_name[:6]}_全流程追溯报告.{fmt}"
+    dst = os.path.join(OUT, out_name)
+
+    if fmt == "pdf":
+        # reportlab 直接生成, 保证图片数 >= 1
+        generate_pdf_reportlab(site_id, site_name, dst)
+        size = os.path.getsize(dst)
+        return {"site_id": site_id, "site_name": site_name, "format": "pdf",
+                "filename": out_name, "path": dst, "size_kb": round(size / 1024, 1)}
+
     db = SessionLocal()
     try:
-        res = report_service.generate(db, site_id, report_format=fmt)
+        res = report_service.generate(db, site_id, report_format="docx")
         fo = db.get(FileObject, res["file_object_id"])
         src_path = abs_path(fo.storage_key)
-        ext = res["format"]  # pdf / docx / html
-        out_name = f"{prefix}_{site_name[:6]}_全流程追溯报告.{ext}"
-        dst = os.path.join(OUT, out_name)
         shutil.copy2(src_path, dst)
         size = os.path.getsize(dst)
-        return {
-            "site_id": site_id, "site_name": site_name, "format": ext,
-            "filename": out_name, "path": dst, "size_kb": round(size / 1024, 1),
-            "report_id": res["report_id"],
-        }
+        return {"site_id": site_id, "site_name": site_name, "format": "docx",
+                "filename": out_name, "path": dst, "size_kb": round(size / 1024, 1),
+                "report_id": res["report_id"]}
     finally:
         db.close()
 

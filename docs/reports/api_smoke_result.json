@@ -1,0 +1,139 @@
+{
+  "/sites/aggregations/top-obstacles?limit=5": {
+    "status": 200,
+    "sample": {
+      "items": [
+        {
+          "factor": "镉",
+          "category": "环境指标",
+          "freq": 3,
+          "avg_importance": 5.0
+        },
+        {
+          "factor": "铅",
+          "category": "环境指标",
+          "freq": 3,
+          "avg_importance": 0.4667
+        },
+        {
+          "factor": "pH",
+          "category": "化学性质",
+          "freq": 3,
+          "avg_importance": 0.0365
+        }
+      ],
+      "n_sites_with_diagnosis": 3,
+      "note": "基于各场地最新诊断 Top-5 因子聚合(按因子合并); 无诊断结果的场地不参与"
+    }
+  },
+  "/sites/aggregations/monthly-trend": {
+    "status": 200,
+    "sample": {
+      "months": [
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12",
+        "2026-01",
+        "2026-02",
+        "2026-03",
+        "2026-04",
+        "2026-05",
+        "2026-06",
+        "2026-07"
+      ],
+      "sites_cumulative": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        19
+      ],
+      "measurements_cumulative": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        14095
+      ],
+      "reports_cumulative": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "totals": {
+        "sites": 19,
+        "measurements": 14095,
+        "reports": 2
+      },
+      "note": "累计值; 无数据月份维持上一月水平(累计不回退); 受 RBAC scope 限制"
+    }
+  },
+  "/sites/aggregations/workflow-stages": {
+    "status": 200,
+    "sample": {
+      "items": [
+        {
+          "code": "survey",
+          "name": "调查评估",
+          "n_sites": 1,
+          "n_in_progress": 0,
+          "n_completed": 0
+        },
+        {
+          "code": "approval",
+          "name": "方案审批",
+          "n_sites": 1,
+          "n_in_progress": 0,
+          "n_completed": 0
+        },
+        {
+          "code": "construction",
+          "name": "施工监理",
+          "n_sites": 1,
+          "n_in_progress": 0,
+          "n_completed": 0
+        },
+        {
+          "code": "effect",
+          "name": "效果评估",
+          "n_sites": 1,
+          "n_in_progress": 0,
+          "n_completed": 0
+        },
+        {
+          "code": "maintenance",
+          "name": "后期管护",
+          "n_sites": 1,
+          "n_in_progress": 0,
+          "n_completed": 0
+        }
+      ],
+      "note": "基于 WorkflowRecord 真实记录; 无记录阶段为零"
+    }
+  }
+}

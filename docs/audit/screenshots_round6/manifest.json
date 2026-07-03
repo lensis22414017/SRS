@@ -1,0 +1,122 @@
+[
+  {
+    "name": "01_dashboard",
+    "size_kb": 408,
+    "dom_ok": true,
+    "size_ok": true,
+    "ok": true,
+    "proves": "数据概览工作台(KPI/场地分布/地图)"
+  },
+  {
+    "name": "02_digital_screen",
+    "size_kb": 600,
+    "dom_ok": true,
+    "size_ok": true,
+    "ok": true,
+    "proves": "数字大屏(真实 API 聚合: TOP10/趋势/追溯)"
+  },
+  {
+    "name": "03_site_list",
+    "size_kb": 111,
+    "dom_ok": true,
+    "size_ok": true,
+    "ok": true,
+    "proves": "场地列表(分页/筛选/污染类型标签)"
+  },
+  {
+    "name": "04_site_detail_map",
+    "size_kb": 83,
+    "dom_ok": true,
+    "size_ok": true,
+    "ok": true,
+    "proves": "场地详情地图(采样点 8 级色阶散点)"
+  },
+  {
+    "name": "05_kos_prod",
+    "size_kb": 283,
+    "dom_ok": true,
+    "size_ok": true,
+    "ok": true,
+    "proves": "生产轨污染场地关键障碍因子 Top-N(规则层 B=1 + KOS 排序)"
+  },
+  {
+    "name": "06_kos_eco",
+    "size_kb": 275,
+    "dom_ok": true,
+    "size_ok": true,
+    "ok": true,
+    "proves": "生态轨污染场地关键障碍因子 Top-N"
+  },
+  {
+    "name": "07_method_card",
+    "size_kb": 275,
+    "dom_ok": true,
+    "size_ok": true,
+    "ok": true,
+    "proves": "诊断方法说明卡片(KaTeX 公式 + 五要素 + 免责声明)"
+  },
+  {
+    "name": "08_eda",
+    "size_kb": 95,
+    "dom_ok": true,
+    "size_ok": true,
+    "ok": true,
+    "proves": "EDA 数据分析(13 图件含假设检验/效应量/PCA/异常值)"
+  },
+  {
+    "name": "09_reconstruction",
+    "size_kb": 257,
+    "dom_ok": true,
+    "size_ok": true,
+    "ok": true,
+    "proves": "功能重构可行性评价(生产/生态双轨得分+限制因子)"
+  },
+  {
+    "name": "10_ssui",
+    "size_kb": 220,
+    "dom_ok": true,
+    "size_ok": true,
+    "ok": true,
+    "proves": "SSUI 可持续利用评价(指数+等级+经济安全)"
+  },
+  {
+    "name": "11_recommendation",
+    "size_kb": 430,
+    "dom_ok": true,
+    "size_ok": true,
+    "ok": true,
+    "proves": "方案推荐(技术矩阵+匹配度+禁用条件)"
+  },
+  {
+    "name": "12_traceability",
+    "size_kb": 132,
+    "dom_ok": true,
+    "size_ok": true,
+    "ok": true,
+    "proves": "追溯五阶段(调查→审批→施工→效果→管护)"
+  },
+  {
+    "name": "13_conclusion",
+    "size_kb": 146,
+    "dom_ok": true,
+    "size_ok": true,
+    "ok": true,
+    "proves": "场地综合结论闭环页(四问+双轨障碍+下载)"
+  },
+  {
+    "name": "14_permission_403",
+    "size_kb": 105,
+    "dom_ok": true,
+    "size_ok": true,
+    "ok": true,
+    "proves": "权限隔离(enterprise 用户访问非授权场地 → 403)"
+  },
+  {
+    "name": "15_map_fallback",
+    "size_kb": 112,
+    "dom_ok": true,
+    "size_ok": true,
+    "ok": true,
+    "proves": "地图 fallback(无坐标场地降级为空态提示)"
+  }
+]

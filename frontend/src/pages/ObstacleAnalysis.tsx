@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, Button, Row, Col, Space, Alert, Typography, App, Descriptions, Table, Tag, Timeline, Segmented, Tooltip, Select } from "antd";
+import { Card, Button, Row, Col, Space, Alert, Typography, App, Descriptions, Table, Tag, Timeline, Segmented, Tooltip, Select, Collapse } from "antd";
 import { InfoCircleOutlined, ExportOutlined, HistoryOutlined, ApartmentOutlined } from "@ant-design/icons";
 import MethodFlowDrawer from "../components/MethodFlowDrawer";
 import MethodExplainCard from "../components/MethodExplainCard";
@@ -163,7 +163,7 @@ export default function ObstacleAnalysis() {
         <Descriptions.Item label="检测记录">{site.n_measurements ?? "—"} 条</Descriptions.Item>
       </Descriptions>
       <Paragraph type="secondary" style={{ fontSize: 12, margin: "8px 0 0 0" }}>
-        诊断模型：RF+SHAP 综合诊断。当前为「{landUse}」轨专属诊断结果。
+        诊断方法：规则诊断 + 模型贡献度解释。当前为「{landUse}」轨专属诊断结果。
       </Paragraph>
     </Card>
   ) : null;
@@ -195,9 +195,9 @@ export default function ObstacleAnalysis() {
             <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
             <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行障碍因子诊断</Button>
             <Button loading={kosBusy} onClick={() => runKos("prod")} disabled={!sid}
-              style={{ background: "#722ed1", borderColor: "#722ed1", color: "#fff" }}>运行生产用途诊断(KOS)</Button>
+              style={{ background: "#722ed1", borderColor: "#722ed1", color: "#fff" }}>运行生产用途诊断</Button>
             <Button loading={kosBusy} onClick={() => runKos("eco")} disabled={!sid}
-              style={{ background: "#52c41a", borderColor: "#52c41a", color: "#fff" }}>运行生态用途诊断(KOS)</Button>
+              style={{ background: "#52c41a", borderColor: "#52c41a", color: "#fff" }}>运行生态用途诊断</Button>
           </Space>
         </Space>
         <div style={{ marginTop: 8, color: "#666", fontSize: 12 }}>
@@ -242,13 +242,13 @@ export default function ObstacleAnalysis() {
                 style={{ marginBottom: 12 }} />
             )}
             <Descriptions size="small" column={2}>
-              <Descriptions.Item label="诊断模型">{diag?.model?.name || "RF+SHAP 综合诊断"}</Descriptions.Item>
-              <Descriptions.Item label="模型可信度">
-                AUC={aucVal ?? "—"}，F1={f1Val ?? "—"}
-                <Tooltip title={<pre style={{ fontSize: 11, margin: 0, whiteSpace: "pre-line" }}>{AUC_GUIDE + "\n\n" + F1_GUIDE}</pre>}>
-                  <InfoCircleOutlined style={{ marginLeft: 6, color: "#888", cursor: "help" }} />
-                </Tooltip>
-                <Tag style={{ marginLeft: 6, fontSize: 10 }} color="processing">开发验证指标</Tag>
+              <Descriptions.Item label="诊断方法">规则诊断 + 模型贡献度解释</Descriptions.Item>
+              <Descriptions.Item label="结论可信度">
+                {lowConfidence
+                  ? <Tag color="orange">建议人工复核</Tag>
+                  : veryLowConfidence
+                    ? <Tag color="red">结果不可靠</Tag>
+                    : <Tag color="green">正常</Tag>}
               </Descriptions.Item>
               <Descriptions.Item label="结论摘要" span={2}>
                 <Paragraph ellipsis={{ rows: 3, expandable: true, symbol: "展开全部" }}
@@ -260,6 +260,22 @@ export default function ObstacleAnalysis() {
                 )}
               </Descriptions.Item>
             </Descriptions>
+            {/* AUC/F1 等开发验证指标默认折叠, 避免甲方误读为法规结论 */}
+            <Collapse size="small" style={{ marginTop: 8 }} items={[{
+              key: "tech", label: "技术详情（开发验证指标 AUC/F1，点击展开）",
+              children: (
+                <Descriptions size="small" column={1}>
+                  <Descriptions.Item label="诊断模型">{diag?.model?.name || "—"}</Descriptions.Item>
+                  <Descriptions.Item label="AUC / F1">
+                    AUC={aucVal ?? "—"}，F1={f1Val ?? "—"}
+                    <Tooltip title={<pre style={{ fontSize: 11, margin: 0, whiteSpace: "pre-line" }}>{AUC_GUIDE + "\n\n" + F1_GUIDE}</pre>}>
+                      <InfoCircleOutlined style={{ marginLeft: 6, color: "#888", cursor: "help" }} />
+                    </Tooltip>
+                    <Tag style={{ marginLeft: 6, fontSize: 10 }} color="processing">开发验证指标，非法规判定</Tag>
+                  </Descriptions.Item>
+                </Descriptions>
+              ),
+            }]} />
           </Card>
 
           {/* 旧 SHAP 关键障碍因子表已下线(避免"模型贡献度"与"规则障碍"两套口径混淆甲方)。

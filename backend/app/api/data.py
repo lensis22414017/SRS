@@ -378,7 +378,8 @@ def top_obstacles_aggregation(
     db: Session = Depends(get_db),
 ):
     """跨场地障碍因子 TOP-N 聚合: 扫所有可见场地最新诊断的 Top 因子,
-    按频次 + 平均 importance 排序。仅统计 rank <= 5 的因子(每场地贡献其最重要因子)。
+    按"因子"聚合频次 + 平均 importance(不按 rank 拆分同一因子)。
+    仅统计 rank <= 5 的因子(每场地贡献其最重要因子)。
 
     数据来源真实: DiagnosisResult + DiagnosisFactorDetail(全局因子级 SHAP 解释)。
     无诊断结果的场地不参与聚合(不伪造)。
@@ -387,32 +388,35 @@ def top_obstacles_aggregation(
     if not site_ids:
         return {"items": [], "n_sites_with_diagnosis": 0, "note": "无可见场地"}
 
-    # 每场地最新诊断 id
-    latest_diag_subq = (db.query(DiagnosisResult.id, DiagnosisResult.site_id)
-                        .filter(DiagnosisResult.site_id.in_(site_ids),
-                                DiagnosisResult.status == "done")
-                        .order_by(DiagnosisResult.site_id, DiagnosisResult.id.desc())
-                        .distinct(DiagnosisResult.site_id).subquery())
+    # 每场地最新诊断 id(用 DISTINCT ON 取每 site_id 的最大 id)
+    latest_diag_ids = (db.query(DiagnosisResult.id)
+                       .filter(DiagnosisResult.site_id.in_(site_ids),
+                               DiagnosisResult.status == "done")
+                       .order_by(DiagnosisResult.site_id, DiagnosisResult.id.desc())
+                       .distinct(DiagnosisResult.site_id).all())
+    diag_id_list = [r[0] for r in latest_diag_ids]
+    if not diag_id_list:
+        return {"items": [], "n_sites_with_diagnosis": 0, "note": "无诊断结果"}
 
-    rows = (db.query(DiagnosisFactorDetail.rank,
-                     FactorDictionary.factor_name,
+    # 按 factor_name 聚合(不按 rank 拆分, 避免同一因子多行)
+    rows = (db.query(FactorDictionary.factor_name,
                      FactorDictionary.level1_category,
                      func.avg(DiagnosisFactorDetail.importance).label("avg_importance"),
                      func.count().label("freq"))
-            .join(latest_diag_subq, DiagnosisFactorDetail.diagnosis_id == latest_diag_subq.c.id)
-            .join(FactorDictionary, DiagnosisFactorDetail.factor_id == FactorDictionary.id)
-            .filter(DiagnosisFactorDetail.sampling_point_id.is_(None),
+            .join(DiagnosisFactorDetail, DiagnosisFactorDetail.factor_id == FactorDictionary.id)
+            .filter(DiagnosisFactorDetail.diagnosis_id.in_(diag_id_list),
+                    DiagnosisFactorDetail.sampling_point_id.is_(None),
                     DiagnosisFactorDetail.rank != None,
                     DiagnosisFactorDetail.rank <= 5)
-            .group_by(FactorDictionary.factor_name, FactorDictionary.level1_category, DiagnosisFactorDetail.rank)
+            .group_by(FactorDictionary.factor_name, FactorDictionary.level1_category)
             .order_by(func.count().desc(), func.avg(DiagnosisFactorDetail.importance).desc())
             .limit(limit).all())
 
     items = [{"factor": r.factor_name or "—", "category": r.level1_category or "",
               "freq": int(r.freq), "avg_importance": round(float(r.avg_importance or 0), 4)}
              for r in rows]
-    return {"items": items, "n_sites_with_diagnosis": len(latest_diag_subq.c.id),
-            "note": "基于各场地最新诊断 Top-5 因子聚合; 无诊断结果的场地不参与"}
+    return {"items": items, "n_sites_with_diagnosis": len(diag_id_list),
+            "note": "基于各场地最新诊断 Top-5 因子聚合(按因子合并); 无诊断结果的场地不参与"}
 
 
 @router.get("/sites/aggregations/monthly-trend")
@@ -423,27 +427,45 @@ def monthly_trend_aggregation(
     """按月聚合: 场地累计数 / 检测记录累计数 / 报告生成累计数。
     数据来源: Site.created_at / Measurement.created_at / ReportRecord.generated_at。
     覆盖最近 12 个月。无数据月份为零(不伪造增长)。
+    所有查询受 RBAC scope 限制, site_ids 为空时返回空数组(不泄露全局统计)。
     """
-    from collections import OrderedDict
-    from datetime import datetime, timedelta
+    from datetime import datetime
+    try:
+        from dateutil.relativedelta import relativedelta
+    except ImportError:
+        # 无 dateutil 时降级为 calendar 精确计算
+        import calendar
+        def relativedelta(months=0):
+            class _R:
+                def __init__(self, m): self.m = m
+                def __rsub__(self, other):
+                    y = other.year - (other.month - m - 1) // 12 if m >= other.month else other.year
+                    mm = other.month - m
+                    if mm <= 0:
+                        mm += 12
+                        y = other.year - 1
+                    return other.replace(year=y, month=mm, day=1)
+            return _R(months)
 
     now = datetime.now()
     months: list[str] = []
     for i in range(11, -1, -1):
-        d = now.replace(day=1) - timedelta(days=i * 30)
+        d = now.replace(day=1) - relativedelta(months=i)
         months.append(d.strftime("%Y-%m"))
 
     site_ids = [s.id for s in scope_sites_query(db, user, db.query(Site.id)).all()]
 
-    def _cumulative_by_month(model, date_field, label, extra_filter=None):
-        q = db.query(model)
-        if extra_filter:
-            q = q.filter(*extra_filter)
-        if hasattr(model, "site_id") and site_ids and model.__tablename__ in ("sites",):
-            pass  # sites 不限 site_id
-        elif hasattr(model, "site_id") and site_ids and model.__tablename__ != "sites":
+    def _cumulative_by_month(model, date_field, is_site_table=False):
+        # site_ids 为空时不得返回全库统计(权限隔离)
+        if not site_ids:
+            return {}, 0
+        q = db.query(date_field)
+        if not is_site_table and hasattr(model, "site_id"):
             q = q.filter(model.site_id.in_(site_ids))
-        rows = q.with_entities(date_field).all()
+        elif is_site_table:
+            # Site 表用 id 过滤(scope 限定)
+            q = q.filter(model.id.in_(site_ids))
+        rows = q.all()
         cum = 0
         result = {}
         bucket: dict[str, int] = {}
@@ -457,9 +479,9 @@ def monthly_trend_aggregation(
             result[m] = cum
         return result, sum(bucket.values())
 
-    site_cum, n_sites = _cumulative_by_month(Site, Site.created_at, "sites")
-    meas_cum, n_meas = _cumulative_by_month(Measurement, Measurement.created_at, "measurements")
-    report_cum, n_reports = _cumulative_by_month(ReportRecord, ReportRecord.generated_at, "reports")
+    site_cum, n_sites = _cumulative_by_month(Site, Site.created_at, is_site_table=True)
+    meas_cum, n_meas = _cumulative_by_month(Measurement, Measurement.created_at)
+    report_cum, n_reports = _cumulative_by_month(ReportRecord, ReportRecord.generated_at)
 
     return {
         "months": months,
@@ -467,7 +489,7 @@ def monthly_trend_aggregation(
         "measurements_cumulative": [meas_cum.get(m, 0) for m in months],
         "reports_cumulative": [report_cum.get(m, 0) for m in months],
         "totals": {"sites": n_sites, "measurements": n_meas, "reports": n_reports},
-        "note": "累计值; 无数据月份维持上一月水平(累计不回退)",
+        "note": "累计值; 无数据月份维持上一月水平(累计不回退); 受 RBAC scope 限制",
     }
 
 

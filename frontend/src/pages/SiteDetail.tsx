@@ -92,8 +92,8 @@ export default function SiteDetail() {
         </Descriptions>
         <Space style={{ marginTop: 12 }} wrap>
           <Button onClick={() => nav("/obstacle")}>障碍因子分析</Button>
-          <Button onClick={() => nav("/obstacle")} style={{ background: "#722ed1", borderColor: "#722ed1", color: "#fff" }}>运行生产用途诊断(KOS)</Button>
-          <Button onClick={() => nav("/obstacle")} style={{ background: "#52c41a", borderColor: "#52c41a", color: "#fff" }}>运行生态用途诊断(KOS)</Button>
+          <Button onClick={() => nav("/obstacle")} style={{ background: "#722ed1", borderColor: "#722ed1", color: "#fff" }}>运行生产用途诊断</Button>
+          <Button onClick={() => nav("/obstacle")} style={{ background: "#52c41a", borderColor: "#52c41a", color: "#fff" }}>运行生态用途诊断</Button>
           <Button onClick={() => nav("/reconstruction")}>功能重构分析</Button>
           <Button onClick={() => nav("/ssui")}>SSUI 评价</Button>
           <Button onClick={() => nav(`/trace/${sid}`)}>全流程追溯</Button>

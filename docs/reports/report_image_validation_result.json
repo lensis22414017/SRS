@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "file": "artifacts\\demo_reports_v2_20260703\\1_HM_云南个旧重金_全流程追溯报告.pdf",
+      "image_count_hint": 7,
+      "passed": true
+    },
+    {
+      "file": "artifacts\\demo_reports_v2_20260703\\2_OP_南京栖霞有机_全流程追溯报告.pdf",
+      "image_count_hint": 7,
+      "passed": true
+    },
+    {
+      "file": "artifacts\\demo_reports_v2_20260703\\3_HM_OP_乡村建设用地_全流程追溯报告.pdf",
+      "image_count_hint": 7,
+      "passed": true
+    },
+    {
+      "file": "artifacts\\demo_reports_v2_20260703\\1_HM_云南个旧重金_全流程追溯报告.docx",
+      "image_count_hint": 2,
+      "passed": true
+    },
+    {
+      "file": "artifacts\\demo_reports_v2_20260703\\2_OP_南京栖霞有机_全流程追溯报告.docx",
+      "image_count_hint": 1,
+      "passed": true
+    },
+    {
+      "file": "artifacts\\demo_reports_v2_20260703\\3_HM_OP_乡村建设用地_全流程追溯报告.docx",
+      "image_count_hint": 1,
+      "passed": true
+    }
+  ]
+}

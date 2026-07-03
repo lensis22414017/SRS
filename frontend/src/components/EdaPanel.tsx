@@ -187,6 +187,14 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
             <Card title="Mann-Whitney U / Kruskal-Wallis 检验（不同区位因子浓度差异）" size="small">
               <Text type="secondary">{data?.hypothesis_test?.note || "按采样区位分组，检验同一因子在两组/多组间的浓度分布是否有显著差异。p&lt;0.05 表示差异显著。"}<br/>
               <b>看什么</b>：p 值是否小于 0.05。<b>发现了什么</b>：显著差异提示污染存在空间分异（局部热点）。<b>对诊断的影响</b>：需分区治理而非全场统一。<b>下一步</b>：对显著因子做分区精查。</Text>
+              <Alert type="info" showIcon style={{ marginTop: 8 }} message="统计检验说明（重要）" description={
+                <ul style={{ margin: 0, paddingLeft: 18, fontSize: 12 }}>
+                  <li><b>p 值含义</b>：表示组间浓度差异的证据强弱，p 越小证据越强，但 <b>不代表污染成因</b>。</li>
+                  <li><b>多重比较</b>：同时对多个因子做检验会增加假阳性风险，严格场景需做 Bonferroni 等校正（本图未校正，按原始 p 值展示）。</li>
+                  <li><b>小样本</b>：每组样本 &lt; 5 时结果仅供探索性参考，不作为正式判定。</li>
+                  <li><b>非因果</b>：显著性只说明"有差异"，不证明"该因子导致障碍"——障碍判定以规则阈值为准。</li>
+                </ul>
+              } />
               <div style={{ marginTop: 8 }}>
                 {htOption ? (
                   <>
@@ -220,6 +228,9 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
             <Card title="效应量 Cohen's d / Cliff's delta（区位间差异程度）" size="small">
               <Text type="secondary">{data?.effect_size?.note || "p 值只说'有没有差异'，效应量说'差异有多大'。"}<br/>
               <b>看什么</b>：Cohen's d 绝对值。<b>发现了什么</b>：大效应(|d|&gt;0.8)表示区位间浓度差异巨大。<b>对诊断的影响</b>：大效应因子是分区治理的重点。<b>下一步</b>：优先处理大效应+高浓度的因子。</Text>
+              <Text type="secondary" style={{ fontSize: 11, display: "block", marginTop: 6 }}>
+                ⓘ 效应量衡量差异大小，与 p 值互补。但效应量同样<b>不代表因果</b>——它只描述统计差异程度，污染成因仍需结合超标阈值与专业判断。
+              </Text>
               <div style={{ marginTop: 8 }}>
                 {esOption ? <ReactECharts option={esOption} style={{ height: 400 }} theme="srs-light" opts={SVG_OPTS} /> : <Empty description="区位分组不足" />}
               </div>

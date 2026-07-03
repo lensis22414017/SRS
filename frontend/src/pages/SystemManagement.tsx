@@ -41,7 +41,7 @@ const permLabel = (code: string) => PERM_LABEL[code] || code;
 function SystemOverview() {
   const features = [
     { module: "场地数据管理", desc: "多源数据导入/校验/存储/可视化", key: "1" },
-    { module: "障碍因子诊断", desc: "RF+SHAP 双轨模型识别关键限制因子", key: "2" },
+    { module: "障碍因子诊断", desc: "规则诊断 + 模型贡献度解释识别关键障碍因子", key: "2" },
     { module: "功能重构评价", desc: "生态/生产功能重构可行性量化评估", key: "3" },
     { module: "SSUI 可持续评价", desc: "修复后中长期持续利用潜力评价", key: "4" },
     { module: "方案推荐", desc: "基于诊断结果的技术库匹配推荐", key: "5" },

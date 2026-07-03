@@ -192,7 +192,7 @@ const PROVES = {
   const readme = [
     "# Round6 演示路线截图说明",
     "",
-    f"> 生成时间: {new Date().toISOString().slice(0, 19)} | 通过: {passed}/{results.length}",
+    `> 生成时间: ${new Date().toISOString().slice(0, 19)} | 通过: ${passed}/${results.length}`,
     "> 每张含 DOM 校验(含预期关键词) + 大小阈值 gate(>10KB)",
     "",
     "| # | 截图 | 大小 | DOM校验 | 证明什么 | 状态 |",
