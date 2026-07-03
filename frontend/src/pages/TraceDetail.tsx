@@ -8,6 +8,8 @@ import { api } from "../api/client";
 import MethodFlowDrawer from "../components/MethodFlowDrawer";
 import { getFlowConfig } from "../config/methodFlows";
 import { seqCol, textCol } from "../utils/table";
+import ReactECharts from "echarts-for-react";
+import { SVG_OPTS } from "../theme/echarts";
 
 const STATUS: Record<string, { c: string; t: string; step: any }> = {
   completed: { c: "green", t: "已完成", step: "finish" },
@@ -153,6 +155,50 @@ export default function TraceDetail() {
             }))} />
         )}
       </Card>
+
+      {/* Round7 追加: 证据链完整度环图 + 阶段材料缺口表(保留上方 Steps 时间线) */}
+      {stages.length > 0 && (
+        <Card title="证据链完整度与材料缺口（Round7 追加）" size="small">
+          {(() => {
+            const totalAttach = stages.reduce((s, st) => s + (st.n_attachments || 0), 0);
+            const totalExpected = Object.values(FILE_ROLES).reduce((s, roles) => s + roles.length, 0);
+            const completeness = totalExpected > 0 ? Math.min(100, Math.round(totalAttach / totalExpected * 100)) : 0;
+            const gapRows: any[] = [];
+            stages.forEach((st) => {
+              const expected = FILE_ROLES[st.stage] || [];
+              const have = new Set((st.attachments || []).map((a: any) => a.file_role));
+              expected.forEach((role) => {
+                if (!have.has(role)) gapRows.push({ stage: st.stage_name, role, status: "缺失", _key: st.stage + role });
+              });
+            });
+            return (
+              <>
+                <ReactECharts option={{
+                  series: [{ type: "gauge", startAngle: 90, endAngle: -270, min: 0, max: 100,
+                    radius: "70%", center: ["22%", "50%"],
+                    progress: { show: true, overlap: false, roundCap: true, clip: false,
+                      itemStyle: { color: completeness >= 60 ? "#16a34a" : completeness >= 30 ? "#f59e0b" : "#dc2626" } },
+                    axisLine: { lineStyle: { width: 18, color: [[1, "#f0f0f0"]] } },
+                    splitLine: { show: false }, axisTick: { show: false }, axisLabel: { show: false },
+                    pointer: { show: false },
+                    detail: { valueAnimation: true, fontSize: 28, offsetCenter: [0, 0],
+                      formatter: "{value}%", color: "#333" },
+                    title: { offsetCenter: [0, "30%"], fontSize: 11 },
+                    data: [{ value: completeness, name: "证据链完整度" }] }],
+                  graphic: [{ type: "text", left: "52%", top: "18%", style: { text: "材料缺口明细", fill: "#666", fontSize: 14 } }],
+                }} theme="srs-light" opts={SVG_OPTS} style={{ height: 220 }} />
+                {gapRows.length > 0 ? (
+                  <Table rowKey="_key" size="small" pagination={{ pageSize: 6 }} style={{ marginTop: 8 }}
+                    dataSource={gapRows}
+                    columns={[textCol("阶段", "stage"), textCol("缺失材料角色", "role"),
+                      { title: "状态", dataIndex: "status", width: 80, align: "center",
+                        render: () => <Tag color="orange">缺失</Tag> }]} />
+                ) : <div style={{ marginTop: 8, color: "#16a34a", fontSize: 13 }}>✓ 所有阶段材料齐全，无缺口</div>}
+              </>
+            );
+          })()}
+        </Card>
+      )}
 
       {/* 网盘 · 跨阶段已上传文件库汇总(存放已上传数据) */}
       {(() => {

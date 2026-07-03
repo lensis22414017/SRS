@@ -48,6 +48,7 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
   const groupedOption = useMemo(() => buildGrouped(data?.grouped, sel), [data, sel]);
   const pieOption = useMemo(() => buildPie(factors), [factors]);
   const htOption = useMemo(() => buildHypothesisTest(data?.hypothesis_test), [data]);
+  const kwHeatOption = useMemo(() => buildKwHeatmap(data?.hypothesis_test), [data]);
   const esOption = useMemo(() => buildEffectSize(data?.effect_size), [data]);
   const pcaOption = useMemo(() => buildPCA(data?.pca), [data]);
 
@@ -199,6 +200,13 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
                           { title: "显著", dataIndex: "kruskal_p", align: "center", width: 70,
                             render: (v: number) => <Tag color={v < 0.05 ? "red" : "default"}>{v < 0.05 ? "是" : "否"}</Tag> },
                         ]} />
+                    )}
+                    {/* Round7 追加: Kruskal-Wallis p 值显著性热图(因子×检验统计量) */}
+                    {kwHeatOption && (
+                      <div style={{ marginTop: 12 }}>
+                        <Text type="secondary" style={{ fontSize: 12 }}>Kruskal-Wallis 检验显著性矩阵热图（颜色越红 p 值越小=越显著）：</Text>
+                        <ReactECharts option={kwHeatOption} style={{ height: 300 }} theme="srs-light" opts={SVG_OPTS} />
+                      </div>
                     )}
                   </>
                 ) : <Empty description="区位分组不足（需至少 2 个区位且每组≥3 样本）" />}
@@ -517,6 +525,30 @@ function buildHypothesisTest(ht: any) {
 }
 
 /** 节五: Cohen's d 效应量条形图(正向/负向 + 量级色阶)。 */
+/** Round7: Kruskal-Wallis p 值显著性热图(因子行 × [H统计量/p值] 列, 越红越显著)。 */
+function buildKwHeatmap(ht: any) {
+  const items = ht?.kruskal_wallis;
+  if (!items?.length) return null;
+  const factors = items.map((i: any) => i.factor);
+  // p 值取负对数 -log10(p) 放大显著性差异(越大越显著); H 统计量归一化
+  const pHm = items.map((i: any, idx: number) => [0, idx, i.kruskal_p]);
+  const hHm = items.map((i: any, idx: number) => [1, idx, i.kruskal_h]);
+  return {
+    tooltip: { position: "top", formatter: (p: any) => {
+      const it = items[p.data[1]];
+      const label = p.data[0] === 0 ? "p 值" : "H 统计量";
+      return "<b>" + it.factor + "</b><br/>" + label + ": " + (p.data[0] === 0 ? it.kruskal_p : it.kruskal_h);
+    } },
+    grid: { left: 100, right: 30, top: 30, bottom: 60 },
+    xAxis: { type: "category", data: ["p 值", "H 统计量"], splitArea: { show: true } },
+    yAxis: { type: "category", data: factors, axisLabel: { fontSize: 10 }, splitArea: { show: true } },
+    visualMap: { min: 0, max: 1, calculable: true, orient: "horizontal", left: "center", bottom: 0,
+      inRange: { color: ["#dc2626", "#f59e0b", "#facc15", "#91d1c2"] } },
+    series: [{ name: "KW 检验", type: "heatmap", data: pHm,
+      label: { show: factors.length <= 12, fontSize: 8, formatter: (p: any) => p.data[2].toFixed(3) } }],
+  };
+}
+
 function buildEffectSize(es: any) {
   const items = es?.items;
   if (!items?.length) return null;

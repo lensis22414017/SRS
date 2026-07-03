@@ -103,6 +103,13 @@ export default function ObstacleAnalysis() {
   // 旧「影响程度 |SHAP|」主图(opt)随关键障碍因子表一并下线, 改由 KOS Top-N 承载;
   // trackFactors 仍供方向分布饼图(directionOption)使用。
 
+  // Round7 追加: 五分量证据堆叠条(R+W+M+S+E), 数据来自 kosData.key_obstacles[].components
+  const barrierStackData = (kosData?.key_obstacles || []).map((k: any) => {
+    const c = k.components || {};
+    return { factor: k.factor, R: Number(c.R || 0), W: Number(c.W || 0),
+      M: Number(c.M || 0), S: Number(c.S || 0), E: Number(c.E || 0) };
+  });
+
   const localRows = (diag?.local_explanation || []).slice(0, 12);
   const localOption = localRows.length ? {
     tooltip: { trigger: "axis", formatter: (p: any) => {
@@ -364,6 +371,34 @@ export default function ObstacleAnalysis() {
                   <EmptyState description="无超标因子(B 全为 0),未生成关键障碍排名" />
                 )}
               </Card>
+
+              {/* Round7 追加: 五分量证据堆叠条(R+W+M+S+E), 保留上方 Top-N 进度条表, 此处追加堆叠可视化 */}
+              {barrierStackData.length > 0 && (
+                <Card title={<Space><span>五分量证据堆叠条（R规则严重度 + W用途权重 + M模型贡献度 + S稳定性 + E证据等级）</span></Space>} size="small">
+                  <ReactECharts option={{
+                    tooltip: { trigger: "axis", axisPointer: { type: "shadow" },
+                      formatter: (params: any) => {
+                        const d = barrierStackData[params[0].dataIndex];
+                        return "<b>" + d.factor + "</b><br/>" +
+                          params.map((p: any) => p.marker + p.seriesName + ": " + p.value.toFixed(3)).join("<br/>");
+                      } },
+                    legend: { top: 0, data: ["R规则严重度", "W用途权重", "M模型贡献度", "S稳定性", "E证据等级"] },
+                    grid: { left: 90, right: 24, top: 40, bottom: 30 },
+                    xAxis: { type: "value", name: "分量贡献(加权和前)", max: 1 },
+                    yAxis: { type: "category", inverse: true, data: barrierStackData.map((d: any) => d.factor) },
+                    series: [
+                      { name: "R规则严重度", type: "bar", stack: "kos", color: "#E64B35", data: barrierStackData.map((d: any) => d.R * 0.30) },
+                      { name: "W用途权重", type: "bar", stack: "kos", color: "#4DBBD5", data: barrierStackData.map((d: any) => d.W * 0.25) },
+                      { name: "M模型贡献度", type: "bar", stack: "kos", color: "#00A087", data: barrierStackData.map((d: any) => d.M * 0.15) },
+                      { name: "S稳定性", type: "bar", stack: "kos", color: "#3C5488", data: barrierStackData.map((d: any) => d.S * 0.20) },
+                      { name: "E证据等级", type: "bar", stack: "kos", color: "#F39B7F", data: barrierStackData.map((d: any) => d.E * 0.10) },
+                    ],
+                  }} theme="srs-light" opts={SVG_OPTS} style={{ height: 320 }} />
+                  <Paragraph type="secondary" style={{ fontSize: 11, marginTop: 8, marginBottom: 0 }}>
+                    ⓘ 每条堆叠总长 = KOS 综合评分(B=1 时的加权和)。红色(R规则严重度)越长, 说明该因子超标越严重; 蓝色(W用途权重)反映双轨差异; 绿色(M模型贡献度)仅辅助参考, 非因果。
+                  </Paragraph>
+                </Card>
+              )}
 
               {/* 第二层: 模型贡献度(不写SHAP) */}
               {kosData.model_contribution?.length > 0 && (

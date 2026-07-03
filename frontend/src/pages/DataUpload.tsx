@@ -5,6 +5,8 @@ import MethodFlowDrawer from "../components/MethodFlowDrawer";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/client";
 import { getFlowConfig } from "../config/methodFlows";
+import ReactECharts from "echarts-for-react";
+import { SVG_OPTS } from "../theme/echarts";
 
 const { Text } = Typography;
 
@@ -146,6 +148,44 @@ export default function DataUpload() {
               <Button onClick={() => nav("/sites")}>返回场地列表</Button>
             </Space>
           )}
+
+          {/* Round7 追加: 导入质量概览(错误/超标 Pareto + 超标因子分布), 保留上方结果 Table */}
+          {(() => {
+            const okRows = resultRows.filter((r: any) => r.ok);
+            const totalErr = okRows.reduce((s: number, r: any) => s + (r.n_errors || 0), 0);
+            const totalExceed = okRows.reduce((s: number, r: any) => s + (r.n_exceed || 0), 0);
+            const factorCount: Record<string, number> = {};
+            okRows.forEach((r: any) => (r.exceed_factors || []).forEach((f: string) => { factorCount[f] = (factorCount[f] || 0) + 1; }));
+            const factorSorted = Object.entries(factorCount).sort((a, b) => b[1] - a[1]).slice(0, 10);
+            if (totalErr === 0 && totalExceed === 0 && factorSorted.length === 0) return null;
+            return (
+              <Card size="small" title="导入质量概览（错误 Pareto + 超标因子分布 · Round7 追加）" style={{ marginTop: 16 }}>
+                <Space size="large" wrap>
+                  <span>校验错误总数: <b style={{ color: totalErr > 0 ? "#dc2626" : "#16a34a" }}>{totalErr}</b></span>
+                  <span>超标记录总数: <b style={{ color: totalExceed > 0 ? "#f59e0b" : "#16a34a" }}>{totalExceed}</b></span>
+                  <span>涉及超标因子: <b>{Object.keys(factorCount).length}</b> 种</span>
+                </Space>
+                {factorSorted.length > 0 && (
+                  <div style={{ marginTop: 12 }}>
+                    <Text type="secondary" style={{ fontSize: 12 }}>超标因子频次分布（Top10，覆盖场地数）：</Text>
+                    <ReactECharts option={{
+                      tooltip: { trigger: "axis" },
+                      grid: { left: 80, right: 30, top: 16, bottom: 24 },
+                      xAxis: { type: "value", name: "覆盖场地数" },
+                      yAxis: { type: "category", inverse: true, data: factorSorted.map((f) => f[0]),
+                        axisLabel: { fontSize: 11 } },
+                      series: [{ type: "bar", barMaxWidth: 18,
+                        data: factorSorted.map((f) => ({ value: f[1], itemStyle: { color: "#E64B35", borderRadius: [0, 4, 4, 0] } })),
+                        label: { show: true, position: "right", fontSize: 10 } }],
+                    }} theme="srs-light" opts={SVG_OPTS} style={{ height: Math.max(160, factorSorted.length * 32) }} />
+                  </div>
+                )}
+                <Text type="secondary" style={{ fontSize: 11, display: "block", marginTop: 8 }}>
+                  ⓘ 字段缺失率热图/因子覆盖率需进入场地详情「数据分析(EDA)」Tab 查看（按场地级展示更准确）。
+                </Text>
+              </Card>
+            );
+          })()}
         </div>
       )}
     </Card>

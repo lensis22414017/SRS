@@ -94,9 +94,9 @@ export default function Dashboard() {
     }],
   };
 
-  // 超标排行改横向条形图 + 短标签(省份+场地, 同省多场地加序号), 不截断
+  // 超标排行改横向条形图 + 短标签(省份+场地, 同省多场地加序号), 不截断; Round7 扩展 Top8→Top10
   const topExceed = [...sites].filter((s) => (s.n_exceed || 0) > 0)
-    .sort((a, b) => (b.n_exceed || 0) - (a.n_exceed || 0)).slice(0, 8);
+    .sort((a, b) => (b.n_exceed || 0) - (a.n_exceed || 0)).slice(0, 10);
   const _provCount: Record<string, number> = {};
   const shortName = (s: any) => {
     let prov = s.province || "";
@@ -137,6 +137,28 @@ export default function Dashboard() {
     pollution_type: s.pollution_type,
     color: POLLUTION_TYPE[s.pollution_type] || "#dc2626",  // 地图点位用语义色
   }));
+
+  // Round7 追加: 区域分布横向条形图(按省份统计场地数, 与超标排行并列展示)
+  const regionCount: Record<string, number> = {};
+  sites.forEach((s) => { const p = s.province || "未知"; regionCount[p] = (regionCount[p] || 0) + 1; });
+  const regionSorted = Object.entries(regionCount).sort((a, b) => b[1] - a[1]).slice(0, 10);
+  const regionBarOption = {
+    tooltip: { trigger: "axis", formatter: (p: any) => `<b>${p[0].name}</b><br/>场地数: <b>${p[0].value} 个</b>` },
+    grid: { left: 12, right: 40, top: 16, bottom: 24, containLabel: true },
+    xAxis: { type: "value", name: "场地数", nameLocation: "middle", nameGap: 24 },
+    yAxis: { type: "category", data: regionSorted.map((r) => r[0]).reverse(),
+      axisLabel: { fontSize: 11, color: "#374151" } },
+    series: [{
+      type: "bar",
+      data: regionSorted.map((r) => r[1]).reverse(),
+      itemStyle: {
+        color: { type: "linear" as const, x: 0, y: 0, x2: 1, y2: 0,
+          colorStops: [{ offset: 0, color: "#1a5276" }, { offset: 1, color: "#2e86c1" }] },
+        borderRadius: [0, 4, 4, 0],
+      },
+      label: { show: true, position: "right", fontSize: 10, color: "#374151" },
+    }],
+  };
 
   return (
     <Space direction="vertical" style={{ width: "100%" }} size={16}>
@@ -244,7 +266,7 @@ export default function Dashboard() {
         <Col span={14}>
           <Card
             className={styles.chartCard}
-            title="各场地超标记录排行（前8名）"
+            title="各场地超标记录排行（前10名）"
             extra={
               <Space size={4}>
                 <Badge color="#dc2626" text="≥10" />
@@ -261,6 +283,19 @@ export default function Dashboard() {
           </Card>
         </Col>
       </Row>
+
+      {/* ── Round7 追加: 区域分布条形图 ──────────────────────── */}
+      <Card
+        title="区域分布（场地数 Top10 省份）"
+        extra={<Text type="secondary" style={{ fontSize: 12 }}>展示场地在全国各省份的分布情况</Text>}
+        style={{ borderRadius: 8 }}
+        data-testid="dashboard-region-bar"
+      >
+        {regionSorted.length
+          ? <ReactECharts option={regionBarOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 260 }} />
+          : <div style={{ height: 260, display: "flex", alignItems: "center", justifyContent: "center", color: "#ccc" }}>暂无数据</div>
+        }
+      </Card>
 
       {/* ── 快捷操作 + 最近活动 ───────────────────────────────── */}
       <Row gutter={16}>

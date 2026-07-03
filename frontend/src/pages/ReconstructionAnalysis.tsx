@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, Button, Empty, App, Row, Col, Statistic, Tag, Space, Table, Divider, Timeline, Progress, Alert } from "antd";
+import { Card, Button, Empty, App, Row, Col, Statistic, Tag, Space, Table, Divider, Timeline, Progress, Alert, Collapse } from "antd";
 import { ExportOutlined, ApartmentOutlined } from "@ant-design/icons";
 import { api } from "../api/client";
 import SitePicker from "../components/SitePicker";
@@ -46,6 +46,31 @@ function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRi
       data: sortedDims.map((d: any, i: number) => ({ value: d.contribution ?? 0,
         itemStyle: { color: i < 2 ? "#E64B35" : i < 4 ? "#4DBBD5" : "#3C5488", borderRadius: [0, 3, 3, 0] } })),
       label: { show: true, position: "right", fontSize: 10 } }],
+  } : null;
+  // Round7 追加: 指标贡献瀑布图(累计贡献叠加) + 短板仪表盘(最低维度得分)
+  const waterfallOption = sortedDims.length >= 2 ? {
+    tooltip: { trigger: "axis", formatter: (p: any) => {
+      const d = sortedDims[p[0].dataIndex];
+      return d.indicator + "<br/>贡献分: " + (d.contribution ?? 0);
+    } },
+    grid: { left: 110, right: 30, top: 16, bottom: 24 },
+    xAxis: { type: "category", data: sortedDims.map((d: any) => d.indicator), axisLabel: { rotate: 35, fontSize: 10 } },
+    yAxis: { type: "value", name: "累计贡献" },
+    series: [{ type: "bar", barMaxWidth: 28,
+      data: sortedDims.map((d: any, i: number) => {
+        const cum = sortedDims.slice(0, i + 1).reduce((s: number, x: any) => s + (x.contribution ?? 0), 0);
+        return { value: cum, itemStyle: { color: i < 2 ? "#E64B35" : "#4DBBD5" } };
+      }),
+      label: { show: true, position: "top", fontSize: 9 } }],
+  } : null;
+  const minDim = sortedDims.length ? [...sortedDims].sort((a: any, b: any) => (a.F ?? 100) - (b.F ?? 100))[0] : null;
+  const gaugeOption = minDim ? {
+    series: [{ type: "gauge", min: 0, max: 100, startAngle: 200, endAngle: -20,
+      progress: { show: true, width: 14 },
+      axisTick: { show: false }, splitLine: { length: 8 },
+      pointer: { width: 4 },
+      detail: { valueAnimation: true, formatter: "{value}", fontSize: 20, offsetCenter: [0, "30%"] },
+      data: [{ value: minDim.F ?? 0, name: minDim.indicator ?? "短板" }] }],
   } : null;
   return (
     <Card type="inner" title={title} style={{ marginBottom: 16 }}>
@@ -94,6 +119,30 @@ function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRi
             </Col>
           )}
         </Row>
+      )}
+      {/* Round7 追加: 瀑布图(累计贡献) + 短板仪表盘(最低维度), 保留上方雷达+条形图; 默认折叠避免双轨×4图过载 */}
+      {(waterfallOption || gaugeOption) && (
+        <Collapse size="small" style={{ marginTop: 12 }} items={[{
+          key: "advanced", label: "高级可视化（指标贡献瀑布图 + 短板仪表盘 · 点击展开）",
+          children: (
+            <Row gutter={16}>
+              {waterfallOption && (
+                <Col span={14}>
+                  <Card size="small" title="指标贡献瀑布图（累计叠加 · 识别主导因子）">
+                    <ReactECharts option={waterfallOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 240 }} />
+                  </Card>
+                </Col>
+              )}
+              {gaugeOption && (
+                <Col span={10}>
+                  <Card size="small" title="短板仪表盘（最低得分维度 · 木桶效应）">
+                    <ReactECharts option={gaugeOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 240 }} />
+                  </Card>
+                </Col>
+              )}
+            </Row>
+          ),
+        }]} />
       )}
       {trace.length > 0 && (
         <>
@@ -181,6 +230,33 @@ export default function ReconstructionAnalysis() {
       {hasRun && (prod || eco) ? (
         <Card title="功能重构可行性评价"
           extra={<span style={{ fontSize: 12, color: "#888" }}>本次运行 ｜ 数据版本 {prod?.data_version ?? eco?.data_version} ｜ {prod?.created_at ?? eco?.created_at}</span>}>
+          {/* Round7 追加: 生产×生态四象限结论(双轨得分定位) */}
+          {prod?.score != null && eco?.score != null && (
+            <Row style={{ marginBottom: 16 }}>
+              <Col span={24}>
+                <Card size="small" title="生产×生态功能重构四象限（场地定位）">
+                  <ReactECharts option={{
+                    tooltip: { trigger: "item", formatter: (p: any) => "生产得分: " + p.data[0] + "<br/>生态得分: " + p.data[1] },
+                    grid: { left: 50, right: 30, top: 30, bottom: 40 },
+                    xAxis: { name: "生产功能重构得分", min: 0, max: 100, splitLine: { show: true, lineStyle: { color: "#eee" } } },
+                    yAxis: { name: "生态功能重构得分", min: 0, max: 100, splitLine: { show: true, lineStyle: { color: "#eee" } } },
+                    series: [
+                      { type: "scatter", symbolSize: 28,
+                        data: [[prod.score, eco.score]],
+                        itemStyle: { color: prod.score >= 50 && eco.score >= 50 ? "#15803d" : prod.score >= 50 ? "#722ed1" : eco.score >= 50 ? "#52c41a" : "#dc2626" },
+                        label: { show: true, formatter: "本场地", position: "right", fontSize: 11 } },
+                    ],
+                    graphic: [
+                      { type: "text", right: "8%", top: "12%", style: { text: "双轨可行\n(理想区)", fill: "#15803d", fontSize: 10 } },
+                      { type: "text", right: "8%", bottom: "12%", style: { text: "仅生产可行\n(需生态修复)", fill: "#722ed1", fontSize: 10 } },
+                      { type: "text", left: "8%", top: "12%", style: { text: "仅生态可行\n(需生产修复)", fill: "#52c41a", fontSize: 10 } },
+                      { type: "text", left: "8%", bottom: "12%", style: { text: "双轨受限\n(深度修复)", fill: "#dc2626", fontSize: 10 } },
+                    ],
+                  }} theme="srs-light" opts={SVG_OPTS} style={{ height: 280 }} />
+                </Card>
+              </Col>
+            </Row>
+          )}
           <EvalBlock title="生产功能重构可行性" e={prod} organicRisk={data?.results?.organic_risk?.dimensions} />
           <EvalBlock title="生态功能重构可行性" e={eco} organicRisk={data?.results?.organic_risk?.dimensions} />
         </Card>

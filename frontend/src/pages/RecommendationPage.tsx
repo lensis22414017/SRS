@@ -11,6 +11,8 @@ import { api } from "../api/client";
 import SitePicker from "../components/SitePicker";
 import MethodFlowDrawer from "../components/MethodFlowDrawer";
 import { getFlowConfig } from "../config/methodFlows";
+import ReactECharts from "echarts-for-react";
+import { SVG_OPTS } from "../theme/echarts";
 
 const { Text, Paragraph } = Typography;
 
@@ -259,6 +261,82 @@ export default function RecommendationPage() {
       {loading ? (
         <div style={{ textAlign: "center", padding: 40 }}><Spin /></div>
       ) : items.length ? (
+        <>
+        {/* Round7 追加: 匹配分横向条形对比卡(保留下方 RecommendCard 文本卡) */}
+        <Card size="small" title="方案匹配分对比（横向条形 · 一眼看出最优方案）" style={{ marginBottom: 16 }}>
+          <ReactECharts option={{
+            tooltip: { trigger: "axis", formatter: (p: any) => {
+              const it = items[p[0].dataIndex];
+              return "<b>" + (it.technology || it.tech_name) + "</b><br/>匹配分: " + p[0].value + "<br/>覆盖率: " + ((it.reason_struct?.score_breakdown?.coverage) ?? 0).toFixed(2);
+            } },
+            grid: { left: 120, right: 60, top: 16, bottom: 24 },
+            xAxis: { type: "value", name: "综合匹配分", max: 1 },
+            yAxis: { type: "category", inverse: true, data: items.map((it) => it.technology || it.tech_name),
+              axisLabel: { fontSize: 11 } },
+            series: [{ type: "bar", barMaxWidth: 22,
+              data: items.map((it, i) => ({ value: it.match_score ?? 0,
+                itemStyle: { color: i === 0 ? "#E64B35" : "#4DBBD5", borderRadius: [0, 4, 4, 0] } })),
+              label: { show: true, position: "right", fontSize: 10, formatter: (p: any) => p.value?.toFixed(3) } }],
+          }} theme="srs-light" opts={SVG_OPTS} style={{ height: Math.max(160, items.length * 50) }} />
+        </Card>
+
+        {/* Round7 追加: 障碍因子→修复技术桑基图 */}
+        {(() => {
+          const sankeyNodes: any[] = []; const sankeyLinks: any[] = [];
+          const nodeSet = new Set<string>();
+          const addNode = (n: string, cat: string) => { if (!nodeSet.has(n)) { nodeSet.add(n); sankeyNodes.push({ name: n, category: cat }); } };
+          items.forEach((it) => {
+            const tech = it.technology || it.tech_name;
+            addNode(tech, "tech");
+            const facts = (it.reason_struct?.obstacle_binding || []).map((f: any) => f.factor)
+              .concat(it.matched_factors || []);
+            facts.forEach((f: string) => { addNode(f, "factor"); sankeyLinks.push({ source: f, target: tech, value: (it.match_score ?? 0.1) }); });
+          });
+          if (sankeyLinks.length === 0) return null;
+          return (
+            <Card size="small" title="障碍因子 → 修复技术 桑基图（因子流向技术匹配关系）" style={{ marginBottom: 16 }}>
+              <ReactECharts option={{
+                tooltip: { trigger: "item", formatter: (p: any) => p.dataType === "edge" ? p.data.source + " → " + p.data.target + "<br/>匹配: " + p.data.value.toFixed(3) : p.data.name },
+                series: [{ type: "sankey", layout: "none", emphasis: { focus: "adjacency" },
+                  nodeAlign: "left", nodeWidth: 16, nodeGap: 6,
+                  data: sankeyNodes, links: sankeyLinks,
+                  lineStyle: { color: "gradient", opacity: 0.4 },
+                  label: { fontSize: 10 },
+                  itemStyle: { borderWidth: 0 } }],
+              }} theme="srs-light" opts={SVG_OPTS} style={{ height: 320 }} />
+            </Card>
+          );
+        })()}
+
+        {/* Round7 追加: 技术优缺点矩阵(汇总对比) */}
+        <Card size="small" title="技术优缺点对比矩阵" style={{ marginBottom: 16 }}>
+          <div style={{ overflowX: "auto" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
+              <thead>
+                <tr style={{ background: "#f5f5f5" }}>
+                  <th style={{ padding: "6px 8px", textAlign: "left", borderBottom: "2px solid #e8e8e8" }}>技术</th>
+                  <th style={{ padding: "6px 8px", textAlign: "left", borderBottom: "2px solid #e8e8e8" }}>✅ 优点</th>
+                  <th style={{ padding: "6px 8px", textAlign: "left", borderBottom: "2px solid #e8e8e8" }}>⚠ 局限</th>
+                  <th style={{ padding: "6px 8px", textAlign: "left", borderBottom: "2px solid #e8e8e8" }}>成本/工期</th>
+                </tr>
+              </thead>
+              <tbody>
+                {items.map((it) => {
+                  const rs = it.reason_struct || {}; const cd = rs.cost_duration || {};
+                  return (
+                    <tr key={it.rank}>
+                      <td style={{ padding: "6px 8px", borderBottom: "1px solid #f0f0f0", fontWeight: 600 }}>{it.technology || it.tech_name}</td>
+                      <td style={{ padding: "6px 8px", borderBottom: "1px solid #f0f0f0", color: "#15803d" }}>{rs.advantages || "—"}</td>
+                      <td style={{ padding: "6px 8px", borderBottom: "1px solid #f0f0f0", color: "#92400e" }}>{rs.limitations || "—"}</td>
+                      <td style={{ padding: "6px 8px", borderBottom: "1px solid #f0f0f0" }}>{cd.cost_level || "—"}/{cd.duration_level || "—"}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </Card>
+
         <Row gutter={[16, 16]}>
           {items.map((r) => (
             <Col span={24} key={r.rank || r.tech_name}>
@@ -266,6 +344,7 @@ export default function RecommendationPage() {
             </Col>
           ))}
         </Row>
+        </>
       ) : (
         <Empty
           description={

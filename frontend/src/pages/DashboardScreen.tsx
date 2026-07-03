@@ -187,6 +187,33 @@ export default function DashboardScreen() {
     };
   }, [topObstacles]);
 
+  // Round7 追加: 追溯阶段漏斗
+  const funnelOption = useMemo(() => {
+    const stages = wfStages.length ? wfStages : [];
+    const data = stages.map((s: any) => ({ name: s.name, value: s.n_sites || s.n_in_progress || 0 }));
+    return {
+      tooltip: { trigger: "item" as const },
+      series: [{
+        type: "funnel", left: "10%", right: "10%", top: 4, bottom: 4,
+        width: "80%", minSize: "30%", maxSize: "100%", sort: "descending", gap: 2,
+        label: { color: DARK_TEXT, fontSize: 10, formatter: "{b} {c}" },
+        labelLine: { length: 8, lineStyle: { color: DARK_AXIS_LINE } },
+        itemStyle: { borderColor: "rgba(10,16,36,0.6)", borderWidth: 1 },
+        data: data.length ? data : [{ name: "暂无工作流数据", value: 0 }],
+        color: ["#00b894", "#55efc4", "#4da3ff", "#7b68ee", "#f0b429"],
+      }],
+    };
+  }, [wfStages]);
+
+  // Round7 追加: 用地类型分布
+  const landUseDist = useMemo(() => {
+    const p = sites.filter((s) => (s.land_use_type || "").includes("生产")).length;
+    const e = sites.filter((s) => (s.land_use_type || "").includes("生态")).length;
+    const o = sites.length - p - e;
+    const t = sites.length || 1;
+    return { p, e, o, pp: p / t * 100, ep: e / t * 100, op: o / t * 100 };
+  }, [sites]);
+
   // ── 底部趋势 ──────────────────────────────────────────────
   const trendMonths = trend?.months?.length ? trend.months : PLACEHOLDER_TREND_MONTHS;
   const trendOption = (title: string, data: number[], color: [string,string]) => ({
@@ -389,6 +416,15 @@ export default function DashboardScreen() {
                   </div>
                 ))}
               </div>
+              {/* Round7 追加: 用地类型分布(生产/生态) */}
+              <div data-testid="screen-land-use-dist" style={{ marginTop: 8, borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 6 }}>
+                <div style={{ color: DARK_TEXT, fontSize: 10, marginBottom: 4 }}>修复后用地类型分布</div>
+                <div style={{ display: "flex", height: 14, borderRadius: 3, overflow: "hidden", fontSize: 9 }}>
+                  <div style={{ width: landUseDist.pp + "%", background: "#722ed1", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff" }} title={"生产用地 " + landUseDist.p + " 个"}>生产{landUseDist.p}</div>
+                  <div style={{ width: landUseDist.ep + "%", background: "#52c41a", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff" }} title={"生态用地 " + landUseDist.e + " 个"}>生态{landUseDist.e}</div>
+                  {landUseDist.o > 0 && <div style={{ width: landUseDist.op + "%", background: "#6b8db5", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff" }} title={"未指定 " + landUseDist.o + " 个"}>未定{landUseDist.o}</div>}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -451,6 +487,11 @@ export default function DashboardScreen() {
                 工作流记录接入后显示真实数据
               </Text>
             )}
+            {/* Round7 追加: 阶段流转漏斗 */}
+            <div data-testid="screen-trace-funnel" style={{ marginTop: 8, borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 6 }}>
+              <div style={{ color: DARK_TEXT, fontSize: 10, marginBottom: 2 }}>阶段场地流转漏斗</div>
+              <ReactECharts option={funnelOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 130 }} />
+            </div>
           </div>
 
           {/* 最近操作 */}
