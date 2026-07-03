@@ -74,6 +74,14 @@ def run_recommendation(db: Session, site_id: int, top_k: int = 5) -> dict:
     except Exception:
         pass  # KOS 失败则 fallback 到原 SHAP 路径
 
+    # KOS 因子英文名 → 中文名(推荐引擎用中文 METAL 集合匹配)
+    _EN2CN = {"Cd_mgkg": "镉", "Pb_mgkg": "铅", "As_mgkg": "砷", "Cr_mgkg": "铬",
+              "Hg_mgkg": "汞", "Cu_mgkg": "铜", "Zn_mgkg": "锌", "Ni_mgkg": "镍",
+              "BaP_ngg": "苯并芘", "SumHCHs_ngg": "有机氯", "SumDDTs_ngg": "有机氯",
+              "pH": "pH"}
+    if kos_factor_names:
+        kos_factor_names = [_EN2CN.get(f, f) for f in kos_factor_names]
+
     organic_fallback = False
     factor_detail_id: dict = {}
     if kos_factor_names:
