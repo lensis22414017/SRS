@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00086,,,,,,,,,"skip: 论文仅提供统计汇总(Table2 Max/Min/Mean/SD across n=40)和风险指数TEQ(Table3 BaPeq)及暴露评估(Table5 ng/kg bw/day daily intake); 无采样点级PAH浓度数据, 40采样点浓度未以sample-level表格呈现"

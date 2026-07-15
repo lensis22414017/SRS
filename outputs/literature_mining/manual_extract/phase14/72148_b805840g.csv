@@ -1,0 +1,63 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+72148_b805840g,72148_b805840g_$f___{_\mathrm_{_{_S_}_}_}_/_f___{_\mathrm_{_{_A_}_}_}$,$f _ { \mathrm { { S } } } / f _ { \mathrm { { A } } }$,Acy_ngg,7.1,Unknown,,high,table_p3_ri9_ci3,"Table 1The method detection limit (MDL),logarithmof octanol-air partition coefficient (log $K _ { \mathrm { O A } } )$ , and fugacity quotients $( f _ { \mathrm { { S } } } / f _ { \mathrm { { A } } }"
+72148_b805840g,72148_b805840g_log__$K___{_\mathrm_{_O_A_}_}$,log  $K _ { \mathrm { O A } }$,Ace_ngg,6.52,Unknown,,high,table_p3_ri10_ci2,"Table 1The method detection limit (MDL),logarithmof octanol-air partition coefficient (log $K _ { \mathrm { O A } } )$ , and fugacity quotients $( f _ { \mathrm { { S } } } / f _ { \mathrm { { A } } }"
+72148_b805840g,72148_b805840g_$f___{_\mathrm_{_{_S_}_}_}_/_f___{_\mathrm_{_{_A_}_}_}$,$f _ { \mathrm { { S } } } / f _ { \mathrm { { A } } }$,Ace_ngg,7.31,Unknown,,high,table_p3_ri10_ci3,"Table 1The method detection limit (MDL),logarithmof octanol-air partition coefficient (log $K _ { \mathrm { O A } } )$ , and fugacity quotients $( f _ { \mathrm { { S } } } / f _ { \mathrm { { A } } }"
+72148_b805840g,72148_b805840g_$f___{_\mathrm_{_{_S_}_}_}_/_f___{_\mathrm_{_{_A_}_}_}$,$f _ { \mathrm { { S } } } / f _ { \mathrm { { A } } }$,Flu_ngg,7.77,Unknown,,high,table_p3_ri11_ci3,"Table 1The method detection limit (MDL),logarithmof octanol-air partition coefficient (log $K _ { \mathrm { O A } } )$ , and fugacity quotients $( f _ { \mathrm { { S } } } / f _ { \mathrm { { A } } }"
+72148_b805840g,72148_b805840g_log__$K___{_\mathrm_{_O_A_}_}$,log  $K _ { \mathrm { O A } }$,Phe_ngg,7.68,Unknown,,high,table_p3_ri13_ci2,"Table 1The method detection limit (MDL),logarithmof octanol-air partition coefficient (log $K _ { \mathrm { O A } } )$ , and fugacity quotients $( f _ { \mathrm { { S } } } / f _ { \mathrm { { A } } }"
+72148_b805840g,72148_b805840g_$f___{_\mathrm_{_{_S_}_}_}_/_f___{_\mathrm_{_{_A_}_}_}$,$f _ { \mathrm { { S } } } / f _ { \mathrm { { A } } }$,Phe_ngg,8.69,Unknown,,high,table_p3_ri13_ci3,"Table 1The method detection limit (MDL),logarithmof octanol-air partition coefficient (log $K _ { \mathrm { O A } } )$ , and fugacity quotients $( f _ { \mathrm { { S } } } / f _ { \mathrm { { A } } }"
+72148_b805840g,72148_b805840g_log__$K___{_\mathrm_{_O_A_}_}$,log  $K _ { \mathrm { O A } }$,Ant_ngg,7.71,Unknown,,high,table_p3_ri14_ci2,"Table 1The method detection limit (MDL),logarithmof octanol-air partition coefficient (log $K _ { \mathrm { O A } } )$ , and fugacity quotients $( f _ { \mathrm { { S } } } / f _ { \mathrm { { A } } }"
+72148_b805840g,72148_b805840g_log__$K___{_\mathrm_{_O_A_}_}$,log  $K _ { \mathrm { O A } }$,Flt_ngg,8.76,Unknown,,high,table_p3_ri15_ci2,"Table 1The method detection limit (MDL),logarithmof octanol-air partition coefficient (log $K _ { \mathrm { O A } } )$ , and fugacity quotients $( f _ { \mathrm { { S } } } / f _ { \mathrm { { A } } }"
+72148_b805840g,72148_b805840g_Soil_(winter),Soil (winter),Nap_ngg,34.8,Unknown,,high,table_p4_ri4_ci1,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(summer),Soil (summer),Nap_ngg,2.0,Unknown,,high,table_p4_ri4_ci2,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(winter),Air (winter),Nap_ngg,109.8,Unknown,,high,table_p4_ri4_ci3,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(summer),Air (summer),Nap_ngg,69.5,Unknown,,high,table_p4_ri4_ci4,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(winter),Soil (winter),Acy_ngg,68.6,Unknown,,high,table_p4_ri8_ci1,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(summer),Soil (summer),Acy_ngg,0.8,Unknown,,high,table_p4_ri8_ci2,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(winter),Air (winter),Acy_ngg,679.1,Unknown,,high,table_p4_ri8_ci3,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(summer),Air (summer),Acy_ngg,128.1,Unknown,,high,table_p4_ri8_ci4,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(winter),Soil (winter),Ace_ngg,16.8,Unknown,,high,table_p4_ri9_ci1,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(summer),Soil (summer),Ace_ngg,0.2,Unknown,,high,table_p4_ri9_ci2,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(winter),Air (winter),Ace_ngg,126.9,Unknown,,high,table_p4_ri9_ci3,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(summer),Air (summer),Ace_ngg,36.3,Unknown,,high,table_p4_ri9_ci4,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(winter),Soil (winter),Flu_ngg,37.8,Unknown,,high,table_p4_ri10_ci1,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(summer),Soil (summer),Flu_ngg,1.1,Unknown,,high,table_p4_ri10_ci2,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(winter),Air (winter),Flu_ngg,271.8,Unknown,,high,table_p4_ri10_ci3,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(summer),Air (summer),Flu_ngg,95.7,Unknown,,high,table_p4_ri10_ci4,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(winter),Soil (winter),Phe_ngg,301.5,Unknown,,high,table_p4_ri12_ci1,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(summer),Soil (summer),Phe_ngg,6.0,Unknown,,high,table_p4_ri12_ci2,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(winter),Air (winter),Phe_ngg,1722.7,Unknown,,high,table_p4_ri12_ci3,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(summer),Air (summer),Phe_ngg,518.7,Unknown,,high,table_p4_ri12_ci4,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(winter),Soil (winter),Ant_ngg,97.7,Unknown,,high,table_p4_ri13_ci1,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(summer),Soil (summer),Ant_ngg,1.2,Unknown,,high,table_p4_ri13_ci2,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(winter),Air (winter),Ant_ngg,787.9,Unknown,,high,table_p4_ri13_ci3,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(summer),Air (summer),Ant_ngg,228.4,Unknown,,high,table_p4_ri13_ci4,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(winter),Soil (winter),Flt_ngg,497.4,Unknown,,high,table_p4_ri14_ci1,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(summer),Soil (summer),Flt_ngg,8.1,Unknown,,high,table_p4_ri14_ci2,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(winter),Air (winter),Flt_ngg,3094.4,Unknown,,high,table_p4_ri14_ci3,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(summer),Air (summer),Flt_ngg,786.1,Unknown,,high,table_p4_ri14_ci4,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(winter),Soil (winter),Pyr_ngg,504.1,Unknown,,high,table_p4_ri15_ci1,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(summer),Soil (summer),Pyr_ngg,7.4,Unknown,,high,table_p4_ri15_ci2,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(winter),Air (winter),Pyr_ngg,3248.9,Unknown,,high,table_p4_ri15_ci3,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(summer),Air (summer),Pyr_ngg,520.3,Unknown,,high,table_p4_ri15_ci4,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(winter),Soil (winter),Ant_ngg,258.2,Unknown,,high,table_p4_ri17_ci1,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(summer),Soil (summer),Ant_ngg,4.5,Unknown,,high,table_p4_ri17_ci2,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(winter),Air (winter),Ant_ngg,1596.1,Unknown,,high,table_p4_ri17_ci3,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(summer),Air (summer),Ant_ngg,397.5,Unknown,,high,table_p4_ri17_ci4,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(winter),Soil (winter),Chr_ngg,341.9,Unknown,,high,table_p4_ri18_ci1,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(summer),Soil (summer),Chr_ngg,6.6,Unknown,,high,table_p4_ri18_ci2,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(winter),Air (winter),Chr_ngg,2609.6,Unknown,,high,table_p4_ri18_ci3,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(summer),Air (summer),Chr_ngg,492.6,Unknown,,high,table_p4_ri18_ci4,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(winter),Soil (winter),Flt_ngg,439.4,Unknown,,high,table_p4_ri19_ci1,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(summer),Soil (summer),Flt_ngg,12.7,Unknown,,high,table_p4_ri19_ci2,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(winter),Air (winter),Flt_ngg,2907.2,Unknown,,high,table_p4_ri19_ci3,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(summer),Air (summer),Flt_ngg,447.5,Unknown,,high,table_p4_ri19_ci4,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(winter),Soil (winter),Pyr_ngg,267.1,Unknown,,high,table_p4_ri21_ci1,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(summer),Soil (summer),Pyr_ngg,7.0,Unknown,,high,table_p4_ri21_ci2,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(winter),Air (winter),Pyr_ngg,1791.5,Unknown,,high,table_p4_ri21_ci3,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(summer),Air (summer),Pyr_ngg,252.0,Unknown,,high,table_p4_ri21_ci4,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(winter),Soil (winter),Pyr_ngg,351.7,Unknown,,high,table_p4_ri22_ci1,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Soil_(summer),Soil (summer),Pyr_ngg,4.6,Unknown,,high,table_p4_ri22_ci2,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(winter),Air (winter),Pyr_ngg,2330.5,Unknown,,high,table_p4_ri22_ci3,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(summer),Air (summer),Pyr_ngg,317.9,Unknown,,high,table_p4_ri22_ci4,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(winter),Air (winter),Ant_ngg,485.1,Unknown,,high,table_p4_ri25_ci3,ä The 2-6 represents the number of the PAH ring.
+72148_b805840g,72148_b805840g_Air_(summer),Air (summer),Ant_ngg,49.0,Unknown,,high,table_p4_ri25_ci4,ä The 2-6 represents the number of the PAH ring.

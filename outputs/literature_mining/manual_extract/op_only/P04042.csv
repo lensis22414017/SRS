@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04042,,,,,,,,"skip: 社会科学问卷调查论文(农药使用行为与风险感知)，无任何土壤/沉积物采样点级OP浓度数据。Tables 1-5均为调查统计汇总(人口社会学特征、Likert感知量表、信息来源、风险感知分布、logistic回归结果)，无PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAE/OCP环境实测浓度值。"

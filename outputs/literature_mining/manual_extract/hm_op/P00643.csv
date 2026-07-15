@@ -1,0 +1,6 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00643,Beijing-Daxing,DEP_ngg,1,ng/g,正文PAEs concentrations section,soil,agricultural,Beijing,仅1样本检出PAEs(Beijing Daxing); 单体正文直接读取; 原文0.001 mg/kg×1000→ng/g; HM无采样点级数据(Table4描述统计+Table5按CY/SS分组Mean±SD均已剔除)
+P00643,Beijing-Daxing,DiBP_ngg,141,ng/g,正文PAEs concentrations section,soil,agricultural,Beijing,仅1样本检出PAEs(Beijing Daxing); 单体正文直接读取; 原文0.141 mg/kg×1000→ng/g; HM无采样点级数据(Table4描述统计+Table5按CY/SS分组Mean±SD均已剔除)
+P00643,Beijing-Daxing,DBP_ngg,165,ng/g,正文PAEs concentrations section,soil,agricultural,Beijing,仅1样本检出PAEs(Beijing Daxing); 单体正文直接读取; 原文0.165 mg/kg×1000→ng/g; HM无采样点级数据(Table4描述统计+Table5按CY/SS分组Mean±SD均已剔除)
+P00643,Beijing-Daxing,DEHP_ngg,46,ng/g,正文PAEs concentrations section,soil,agricultural,Beijing,仅1样本检出PAEs(Beijing Daxing); 单体正文直接读取; 原文0.046 mg/kg×1000→ng/g; HM无采样点级数据(Table4描述统计+Table5按CY/SS分组Mean±SD均已剔除)
+P00643,Beijing-Daxing,SumPAE_ngg,353,ng/g,正文PAEs concentrations section,soil,agricultural,Beijing,4单体求和(DEP+DiBP+DBP+DEHP=1+141+165+46=353 ng/g); 130样本中仅此1样本(北京大兴)检出PAEs; HM无采样点级数据

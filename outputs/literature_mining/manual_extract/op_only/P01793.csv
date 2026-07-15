@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01793,SKIP,SKIP,0,SKIP,SKIP,SKIP,SKIP,Macau,"skip: MinerU解析仅摘要2页无表格数据;无法获取31个采样点原始浓度值(仅统计汇总Mean/Range不可用);需要重新解析PDF或人工提取"

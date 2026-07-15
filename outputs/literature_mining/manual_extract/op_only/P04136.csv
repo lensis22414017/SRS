@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04136,,,,,,,,"skip: 污染物为NP(nonylphenol)和BPA(bisphenol A)属酚类内分泌干扰物，不在目标OP类别(PAH/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAEs/OCPs)中；且Table 2仅提供每个沉积物岩芯的range+mean汇总(如S1 NP 12.71-48.52 mean 24.02)，无采样点级数据；基质为河口沉积物岩芯非土壤"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01685,,,,,,,,"skip: 综述/Meta分析无原始数据。论文标题'The status of soil contamination by semivolatile organic chemicals (SVOCs) in China: A review'，摘要明确声明'This paper summarizes the published scientific data'，所有数据为文献汇总二手数据非原始采样点级实测"

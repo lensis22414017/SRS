@@ -1,0 +1,9 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P00250,DQ,TotalPHC_mgkg,44940,mg/kg,Table 1,soil,oilfield,Heilongjiang,Daqing oil field near pumping well surface 0-10cm TPH by ultrasonic-Soxhlet extraction gravimetric method pooled from 4 subsamples,46.52,124.9
+P00250,DQ(BLK),TotalPHC_mgkg,0,mg/kg,Table 1,soil,oilfield,Heilongjiang,Daqing uncontaminated background soil 100km from wells TPH=0 confirmed uncontaminated,46.84,124.33
+P00250,HB,TotalPHC_mgkg,183760,mg/kg,Table 1,soil,oilfield,Hebei,Huabei oil field near pumping well surface 0-10cm TPH highest contamination level pooled from 4 subsamples,39.13,116.31
+P00250,HB(BLK),TotalPHC_mgkg,0,mg/kg,Table 1,soil,oilfield,Hebei,Huabei uncontaminated background soil 100km from wells TPH=0 confirmed uncontaminated,39.1,116.03
+P00250,SL,TotalPHC_mgkg,25560,mg/kg,Table 1,soil,oilfield,Shandong,Shengli oil field near pumping well surface 0-10cm TPH pooled from 4 subsamples,37.95,118.83
+P00250,SL(BLK),TotalPHC_mgkg,0,mg/kg,Table 1,soil,oilfield,Shandong,Shengli uncontaminated background soil 100km from wells TPH=0 confirmed uncontaminated,37.73,118.56
+P00250,XJ,TotalPHC_mgkg,43350,mg/kg,Table 1,soil,oilfield,Xinjiang,Karamay oil field near pumping well surface 0-10cm TPH pooled from 4 subsamples,45.58,84.86
+P00250,XJ(BLK),TotalPHC_mgkg,0,mg/kg,Table 1,soil,oilfield,Xinjiang,Karamay uncontaminated background soil 100km from wells TPH=0 confirmed uncontaminated,46.02,86.66

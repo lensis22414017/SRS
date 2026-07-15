@@ -1,0 +1,75 @@
+{
+  "generated": [
+    {
+      "site_id": 1,
+      "site_name": "云南个旧重金属场地",
+      "format": "pdf",
+      "filename": "1_HM_云南个旧重金_全流程追溯报告.pdf",
+      "path": "artifacts/demo_reports_v2_20260703\\1_HM_云南个旧重金_全流程追溯报告.pdf",
+      "size_kb": 116.0,
+      "n_images": 1,
+      "no_fail_text": true,
+      "size_ok": true
+    },
+    {
+      "site_id": 1,
+      "site_name": "云南个旧重金属场地",
+      "format": "docx",
+      "filename": "1_HM_云南个旧重金_全流程追溯报告.docx",
+      "path": "artifacts/demo_reports_v2_20260703\\1_HM_云南个旧重金_全流程追溯报告.docx",
+      "size_kb": 119.6,
+      "report_id": 10,
+      "n_images": 2,
+      "no_fail_text": true,
+      "size_ok": true
+    },
+    {
+      "site_id": 2,
+      "site_name": "南京栖霞有机污染场地",
+      "format": "pdf",
+      "filename": "2_OP_南京栖霞有机_全流程追溯报告.pdf",
+      "path": "artifacts/demo_reports_v2_20260703\\2_OP_南京栖霞有机_全流程追溯报告.pdf",
+      "size_kb": 81.9,
+      "n_images": 1,
+      "no_fail_text": true,
+      "size_ok": true
+    },
+    {
+      "site_id": 2,
+      "site_name": "南京栖霞有机污染场地",
+      "format": "docx",
+      "filename": "2_OP_南京栖霞有机_全流程追溯报告.docx",
+      "path": "artifacts/demo_reports_v2_20260703\\2_OP_南京栖霞有机_全流程追溯报告.docx",
+      "size_kb": 64.3,
+      "report_id": 11,
+      "n_images": 1,
+      "no_fail_text": true,
+      "size_ok": true
+    },
+    {
+      "site_id": 3,
+      "site_name": "乡村建设用地复合污染场地",
+      "format": "pdf",
+      "filename": "3_HM_OP_乡村建设用地_全流程追溯报告.pdf",
+      "path": "artifacts/demo_reports_v2_20260703\\3_HM_OP_乡村建设用地_全流程追溯报告.pdf",
+      "size_kb": 79.5,
+      "n_images": 1,
+      "no_fail_text": true,
+      "size_ok": true
+    },
+    {
+      "site_id": 3,
+      "site_name": "乡村建设用地复合污染场地",
+      "format": "docx",
+      "filename": "3_HM_OP_乡村建设用地_全流程追溯报告.docx",
+      "path": "artifacts/demo_reports_v2_20260703\\3_HM_OP_乡村建设用地_全流程追溯报告.docx",
+      "size_kb": 62.9,
+      "report_id": 12,
+      "n_images": 1,
+      "no_fail_text": true,
+      "size_ok": true
+    }
+  ],
+  "time": "2026-07-04 00:14",
+  "map_source": "report_service (matplotlib 离线散点)"
+}

@@ -1,0 +1,25 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+s11356-022-20623-1,s11356-022-20623-1_Aboveground_part,Aboveground part,Sum_PAH_ngg,2189.0,Unknown,,high,table_p3_ri2_ci2,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Aboveground_part,Aboveground part,Sum_PAH_ngg,1980.71,Unknown,,high,table_p3_ri2_ci3,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Aboveground_part,Aboveground part,Sum_PAH_ngg,906.95,Unknown,,high,table_p3_ri2_ci4,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Carrot,Carrot,Sum_PAH_ngg,2669.48,Unknown,,high,table_p3_ri3_ci2,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Carrot,Carrot,Sum_PAH_ngg,1249.98,Unknown,,high,table_p3_ri3_ci3,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Carrot,Carrot,Sum_PAH_ngg,2949.18,Unknown,,high,table_p3_ri3_ci4,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Pea,Pea,Sum_PAH_ngg,1890.66,Unknown,,high,table_p3_ri4_ci2,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Pea,Pea,Sum_PAH_ngg,1230.55,Unknown,,high,table_p3_ri4_ci3,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Pea,Pea,Sum_PAH_ngg,2178.17,Unknown,,high,table_p3_ri4_ci4,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Rice,Rice,Sum_PAH_ngg,1533.9,Unknown,,high,table_p3_ri5_ci2,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Rice,Rice,Sum_PAH_ngg,821.54,Unknown,,high,table_p3_ri5_ci3,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Rice,Rice,Sum_PAH_ngg,2930.87,Unknown,,high,table_p3_ri5_ci4,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Underground_part,Underground part,Sum_PAH_ngg,1355.7,Unknown,,high,table_p3_ri6_ci2,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Underground_part,Underground part,Sum_PAH_ngg,1269.47,Unknown,,high,table_p3_ri6_ci3,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Underground_part,Underground part,Sum_PAH_ngg,729.02,Unknown,,high,table_p3_ri6_ci4,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Carrot,Carrot,Sum_PAH_ngg,1411.66,Unknown,,high,table_p3_ri7_ci2,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Carrot,Carrot,Sum_PAH_ngg,744.47,Unknown,,high,table_p3_ri7_ci3,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Carrot,Carrot,Sum_PAH_ngg,2301.33,Unknown,,high,table_p3_ri7_ci4,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Pea,Pea,Sum_PAH_ngg,1079.22,Unknown,,high,table_p3_ri8_ci2,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Pea,Pea,Sum_PAH_ngg,860.94,Unknown,,high,table_p3_ri8_ci3,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Pea,Pea,Sum_PAH_ngg,1579.85,Unknown,,high,table_p3_ri8_ci4,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Rice,Rice,Sum_PAH_ngg,1232.65,Unknown,,high,table_p3_ri9_ci2,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Rice,Rice,Sum_PAH_ngg,672.78,Unknown,,high,table_p3_ri9_ci3,Table 1 Concentration of PAHs in diferent crops
+s11356-022-20623-1,s11356-022-20623-1_Rice,Rice,Sum_PAH_ngg,1750.01,Unknown,,high,table_p3_ri9_ci4,Table 1 Concentration of PAHs in diferent crops

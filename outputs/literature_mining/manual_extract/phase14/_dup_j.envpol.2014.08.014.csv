@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+_dup_j.envpol.2014.08.014,_dup_j.envpol.2014.08.014_CV_(%),CV (%),SumPAE_ngg,72.9,Unknown,,high,table_p2_ri16_ci6,Descriptive statistical summary of individual concentrations of PAEs (mg/kg) and soil properties in agricultural soils across China.
+_dup_j.envpol.2014.08.014,_dup_j.envpol.2014.08.014_DF_(%),DF (%),SumPAE_ngg,100.0,Unknown,,high,table_p2_ri16_ci7,Descriptive statistical summary of individual concentrations of PAEs (mg/kg) and soil properties in agricultural soils across China.
+_dup_j.envpol.2014.08.014,_dup_j.envpol.2014.08.014_CV_(%),CV (%),OM_pct,5.48,Unknown,,high,table_p2_ri17_ci6,Descriptive statistical summary of individual concentrations of PAEs (mg/kg) and soil properties in agricultural soils across China.
+_dup_j.envpol.2014.08.014,_dup_j.envpol.2014.08.014_CV_(%),CV (%),pH,14.1,Unknown,,high,table_p2_ri18_ci6,Descriptive statistical summary of individual concentrations of PAEs (mg/kg) and soil properties in agricultural soils across China.

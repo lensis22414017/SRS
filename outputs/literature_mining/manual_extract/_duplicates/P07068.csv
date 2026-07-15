@@ -1,0 +1,22 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07068,burnt_site,Cd_mgkg,6.82,mg/kg,Table 1,soil,e_waste,广东,前电子垃圾焚烧场地 site mean n=5子样
+P07068,burnt_site,Cr_mgkg,318,mg/kg,Table 1,soil,e_waste,广东,前电子垃圾焚烧场地 site mean n=5子样
+P07068,burnt_site,Cu_mgkg,1568,mg/kg,Table 1,soil,e_waste,广东,前电子垃圾焚烧场地 site mean n=5子样
+P07068,burnt_site,Ni_mgkg,362,mg/kg,Table 1,soil,e_waste,广东,前电子垃圾焚烧场地 site mean n=5子样
+P07068,burnt_site,Pb_mgkg,1423,mg/kg,Table 1,soil,e_waste,广东,前电子垃圾焚烧场地 site mean n=5子样
+P07068,burnt_site,Zn_mgkg,2978,mg/kg,Table 1,soil,e_waste,广东,前电子垃圾焚烧场地 site mean n=5子样
+P07068,burnt_site,SumPBDE_ngg,17930,ng/g,Table 1,soil,e_waste,广东,直接读论文∑PBDEs(15同系物BDE28+47+66+99+100+138+153+154+196+197+203+206+207+208+209求和验证吻合) site mean n=5子样 原单位μg/kg=ng/g
+P07068,paddy_field,Cd_mgkg,3.15,mg/kg,Table 1,soil,e_waste,广东,水稻田距焚烧点~50m site mean n=5子样
+P07068,paddy_field,Cr_mgkg,66.5,mg/kg,Table 1,soil,e_waste,广东,水稻田距焚烧点~50m site mean n=5子样
+P07068,paddy_field,Cu_mgkg,154,mg/kg,Table 1,soil,e_waste,广东,水稻田距焚烧点~50m site mean n=5子样
+P07068,paddy_field,Ni_mgkg,25.4,mg/kg,Table 1,soil,e_waste,广东,水稻田距焚烧点~50m site mean n=5子样
+P07068,paddy_field,Pb_mgkg,490,mg/kg,Table 1,soil,e_waste,广东,水稻田距焚烧点~50m site mean n=5子样
+P07068,paddy_field,Zn_mgkg,3126,mg/kg,Table 1,soil,e_waste,广东,水稻田距焚烧点~50m site mean n=5子样
+P07068,paddy_field,SumPBDE_ngg,4735,ng/g,Table 1,soil,e_waste,广东,直接读论文∑PBDEs(15同系物求和验证吻合) site mean n=5子样 原单位μg/kg=ng/g
+P07068,stream,Cd_mgkg,1.54,mg/kg,Table 1,sediment,e_waste,广东,溪流沉积物距焚烧点~50m site mean n=5子样
+P07068,stream,Cr_mgkg,48.5,mg/kg,Table 1,sediment,e_waste,广东,溪流沉积物距焚烧点~50m site mean n=5子样
+P07068,stream,Cu_mgkg,167,mg/kg,Table 1,sediment,e_waste,广东,溪流沉积物距焚烧点~50m site mean n=5子样
+P07068,stream,Ni_mgkg,48.2,mg/kg,Table 1,sediment,e_waste,广东,溪流沉积物距焚烧点~50m site mean n=5子样
+P07068,stream,Pb_mgkg,121,mg/kg,Table 1,sediment,e_waste,广东,溪流沉积物距焚烧点~50m site mean n=5子样
+P07068,stream,Zn_mgkg,215,mg/kg,Table 1,sediment,e_waste,广东,溪流沉积物距焚烧点~50m site mean n=5子样
+P07068,stream,SumPBDE_ngg,93476,ng/g,Table 1,sediment,e_waste,广东,直接读论文∑PBDEs(15同系物求和验证吻合) site mean n=5子样 原单位μg/kg=ng/g

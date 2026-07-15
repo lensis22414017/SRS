@@ -1,0 +1,28 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+00032719.2014.999273,00032719.2014.999273_Industrial_area,Industrial area,Pb_mgkg,1416.0,Unknown,,high,table_p29_ri2_ci5,Table 1. Concentrations of metals in Huainan soils (milligram per kilogram)
+00032719.2014.999273,00032719.2014.999273_Huainan_Soil,Huainan Soil,As_mgkg,10.5,Unknown,,high,table_p29_ri5_ci1,Table 1. Concentrations of metals in Huainan soils (milligram per kilogram)
+00032719.2014.999273,00032719.2014.999273_Huainan_Soil,Huainan Soil,Cd_mgkg,0.06,Unknown,,high,table_p29_ri5_ci2,Table 1. Concentrations of metals in Huainan soils (milligram per kilogram)
+00032719.2014.999273,00032719.2014.999273_Huainan_Soil,Huainan Soil,Pb_mgkg,23.5,Unknown,,high,table_p29_ri5_ci5,Table 1. Concentrations of metals in Huainan soils (milligram per kilogram)
+00032719.2014.999273,00032719.2014.999273_Chinese_Soil,Chinese Soil,As_mgkg,11.2,Unknown,,high,table_p29_ri6_ci1,Table 1. Concentrations of metals in Huainan soils (milligram per kilogram)
+00032719.2014.999273,00032719.2014.999273_Chinese_Soil,Chinese Soil,Pb_mgkg,26.0,Unknown,,high,table_p29_ri6_ci5,Table 1. Concentrations of metals in Huainan soils (milligram per kilogram)
+00032719.2014.999273,00032719.2014.999273_Mining_area,Mining area,As_mgkg,0.84,Unknown,,high,table_p30_ri1_ci1,Table 2. Geoaccumulation indices of metals in soil
+00032719.2014.999273,00032719.2014.999273_Mining_area,Mining area,Cd_mgkg,0.37,Unknown,,high,table_p30_ri1_ci2,Table 2. Geoaccumulation indices of metals in soil
+00032719.2014.999273,00032719.2014.999273_Mining_area,Mining area,Cr_mgkg,-1.62,Unknown,,high,table_p30_ri1_ci3,Table 2. Geoaccumulation indices of metals in soil
+00032719.2014.999273,00032719.2014.999273_Mining_area,Mining area,Cu_mgkg,-1.09,Unknown,,high,table_p30_ri1_ci4,Table 2. Geoaccumulation indices of metals in soil
+00032719.2014.999273,00032719.2014.999273_Mining_area,Mining area,Pb_mgkg,-1.53,Unknown,,high,table_p30_ri1_ci5,Table 2. Geoaccumulation indices of metals in soil
+00032719.2014.999273,00032719.2014.999273_Mining_area,Mining area,Zn_mgkg,-1.18,Unknown,,high,table_p30_ri1_ci6,Table 2. Geoaccumulation indices of metals in soil
+00032719.2014.999273,00032719.2014.999273_Industrial_area,Industrial area,As_mgkg,1.99,Unknown,,high,table_p30_ri2_ci1,Table 2. Geoaccumulation indices of metals in soil
+00032719.2014.999273,00032719.2014.999273_Industrial_area,Industrial area,Cd_mgkg,0.22,Unknown,,high,table_p30_ri2_ci2,Table 2. Geoaccumulation indices of metals in soil
+00032719.2014.999273,00032719.2014.999273_Industrial_area,Industrial area,Cr_mgkg,-1.58,Unknown,,high,table_p30_ri2_ci3,Table 2. Geoaccumulation indices of metals in soil
+00032719.2014.999273,00032719.2014.999273_Industrial_area,Industrial area,Cu_mgkg,-1.23,Unknown,,high,table_p30_ri2_ci4,Table 2. Geoaccumulation indices of metals in soil
+00032719.2014.999273,00032719.2014.999273_Industrial_area,Industrial area,Pb_mgkg,-1.62,Unknown,,high,table_p30_ri2_ci5,Table 2. Geoaccumulation indices of metals in soil
+00032719.2014.999273,00032719.2014.999273_Agricultural_area,Agricultural area,As_mgkg,0.5,Unknown,,high,table_p30_ri3_ci1,Table 2. Geoaccumulation indices of metals in soil
+00032719.2014.999273,00032719.2014.999273_Agricultural_area,Agricultural area,Cd_mgkg,0.0,Unknown,,high,table_p30_ri3_ci2,Table 2. Geoaccumulation indices of metals in soil
+00032719.2014.999273,00032719.2014.999273_Agricultural_area,Agricultural area,Cr_mgkg,-1.8,Unknown,,high,table_p30_ri3_ci3,Table 2. Geoaccumulation indices of metals in soil
+00032719.2014.999273,00032719.2014.999273_Agricultural_area,Agricultural area,Cu_mgkg,-1.36,Unknown,,high,table_p30_ri3_ci4,Table 2. Geoaccumulation indices of metals in soil
+00032719.2014.999273,00032719.2014.999273_Agricultural_area,Agricultural area,Zn_mgkg,-1.26,Unknown,,high,table_p30_ri3_ci6,Table 2. Geoaccumulation indices of metals in soil
+00032719.2014.999273,00032719.2014.999273_Residential_area,Residential area,As_mgkg,0.27,Unknown,,high,table_p30_ri4_ci1,Table 2. Geoaccumulation indices of metals in soil
+00032719.2014.999273,00032719.2014.999273_Residential_area,Residential area,Cd_mgkg,0.7,Unknown,,high,table_p30_ri4_ci2,Table 2. Geoaccumulation indices of metals in soil
+00032719.2014.999273,00032719.2014.999273_Residential_area,Residential area,Cr_mgkg,-1.67,Unknown,,high,table_p30_ri4_ci3,Table 2. Geoaccumulation indices of metals in soil
+00032719.2014.999273,00032719.2014.999273_Residential_area,Residential area,Pb_mgkg,-0.77,Unknown,,high,table_p30_ri4_ci5,Table 2. Geoaccumulation indices of metals in soil
+00032719.2014.999273,00032719.2014.999273_Residential_area,Residential area,Zn_mgkg,-1.19,Unknown,,high,table_p30_ri4_ci6,Table 2. Geoaccumulation indices of metals in soil

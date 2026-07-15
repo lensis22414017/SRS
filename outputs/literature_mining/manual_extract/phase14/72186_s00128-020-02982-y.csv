@@ -1,0 +1,24 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_Overpass(n=_10),Overpass(n= 10),Phe_ngg,601.84,Unknown,range_mean,high,table_p3_ri6_ci2,
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_Park_(n=_12),Park (n= 12),Phe_ngg,108.875,Unknown,range_mean,high,table_p3_ri6_ci4,
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_Park_(n=_12),Park (n= 12),Ant_ngg,12.325,Unknown,range_mean,high,table_p3_ri7_ci4,
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_Overpass(n=_10),Overpass(n= 10),Pyr_ngg,735.81,Unknown,range_mean,high,table_p3_ri9_ci2,
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_Park_(n=_12),Park (n= 12),Pyr_ngg,95.91499999999999,Unknown,range_mean,high,table_p3_ri9_ci4,
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_Overpass(n=_10),Overpass(n= 10),BaA_ngg,436.325,Unknown,range_mean,high,table_p3_ri10_ci2,
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_Park_(n=_12),Park (n= 12),BaA_ngg,64.175,Unknown,range_mean,high,table_p3_ri10_ci4,
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_Overpass(n=_10),Overpass(n= 10),Chr_ngg,651.33,Unknown,range_mean,high,table_p3_ri11_ci2,
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_Park_(n=_12),Park (n= 12),Chr_ngg,103.405,Unknown,range_mean,high,table_p3_ri11_ci4,
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_Overpass(n=_10),Overpass(n= 10),BbF_ngg,670.915,Unknown,range_mean,high,table_p3_ri12_ci2,
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_Park_(n=_12),Park (n= 12),BbF_ngg,109.24499999999999,Unknown,range_mean,high,table_p3_ri12_ci4,
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_Overpass(n=_10),Overpass(n= 10),BaP_ngg,463.38,Unknown,range_mean,high,table_p3_ri14_ci2,
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_Park_(n=_12),Park (n= 12),BaP_ngg,60.395,Unknown,range_mean,high,table_p3_ri14_ci4,
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_Overpass(n=_10),Overpass(n= 10),BghiP_ngg,873.65,Unknown,range_mean,high,table_p3_ri16_ci2,
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_Park_(n=_12),Park (n= 12),BghiP_ngg,108.36,Unknown,range_mean,high,table_p3_ri16_ci4,
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_Overpass(n=_10),Overpass(n= 10),Sum_PAH_ngg,2905.115,Unknown,range_mean,high,table_p3_ri20_ci2,
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_Park_(n=_12),Park (n= 12),Sum_PAH_ngg,421.515,Unknown,range_mean,high,table_p3_ri20_ci4,
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_Childhood,Childhood,Sum_PAH_ngg,2.45e-06,Unknown,,medium,table_p5_ri2_ci2,Table 2 Potential health risks (total ILCR) for urban soils of different land use types
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_Adolescence,Adolescence,Sum_PAH_ngg,2.52e-06,Unknown,,medium,table_p5_ri2_ci3,Table 2 Potential health risks (total ILCR) for urban soils of different land use types
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_Adulthood,Adulthood,Sum_PAH_ngg,1.53e-06,Unknown,,medium,table_p5_ri2_ci4,Table 2 Potential health risks (total ILCR) for urban soils of different land use types
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_col5,col5,Sum_PAH_ngg,1.59e-06,Unknown,,medium,table_p5_ri2_ci5,Table 2 Potential health risks (total ILCR) for urban soils of different land use types
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_col6,col6,Sum_PAH_ngg,6.03e-06,Unknown,,medium,table_p5_ri2_ci6,Table 2 Potential health risks (total ILCR) for urban soils of different land use types
+72186_s00128-020-02982-y,72186_s00128-020-02982-y_col7,col7,Sum_PAH_ngg,6.6e-06,Unknown,,medium,table_p5_ri2_ci7,Table 2 Potential health risks (total ILCR) for urban soils of different land use types

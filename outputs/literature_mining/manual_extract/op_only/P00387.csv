@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00387,,,,,,,"Shanghai","skip: 论文仅有统计汇总(Table 1 Mean/SD/Range/BaP_eq/TV为Dutch阈值)和柱状图Fig.2(各采样点ΣPAHs/Σ16PAHs以柱状图呈现无可读数值表)；36个采样点(CM1-4/JD1-3/BS1-3/QP1-3/SJ1-6/JS1-5/FX1-5/NH1-4/MH1-3)的采样点级浓度数据未以表格形式提供；正文仅给出定性描述(如>1000 μg/kg的点位)和Nemerow P值(QP2=15.6/JS3=12.4/QP1=11.3/FX2=10.5为风险指数非浓度)"

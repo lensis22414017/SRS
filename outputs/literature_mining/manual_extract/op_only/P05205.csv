@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05205,,,,,,,,"skip: critical review (203 papers compiled) - tables contain only province-level Min/Max/Mean summaries cited from other studies, no original sampling-point data, no sample_id labels"

@@ -1,0 +1,5 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02163,S4,TotalPHC_mgkg,52800,mg/kg,"正文 Concentration of TPHs段",soil,petrochemical,Shandong,胜利油田废弃油井旁;正文直接读取S4的TPH=5.28×10^4mg/kg;47个采样点中仅4个有个点精确TPH值
+P02163,S8,TotalPHC_mgkg,66600,mg/kg,"正文 Concentration of TPHs段",soil,petrochemical,Shandong,胜利油田运行油井旁含油污泥;正文直接读取S8的TPH=6.66×10^4mg/kg
+P02163,Y1,TotalPHC_mgkg,5390,mg/kg,"正文 Concentration of TPHs段",soil,petrochemical,Shaanxi,延长油田废弃油井旁;正文直接读取Y1的TPH=5.39×10^3mg/kg
+P02163,N8,TotalPHC_mgkg,7420,mg/kg,"正文 Concentration of TPHs段",soil,petrochemical,Henan,南阳油田废弃油井旁;正文直接读取N8的TPH=7.42×10^3mg/kg

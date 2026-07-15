@@ -1,0 +1,58 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_mean_standard_deviation,mean standard deviation,SumHCH_ngg,2.47,Unknown,,high,table_p2_ri2_ci1,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_minimum,minimum,SumHCH_ngg,0.15,Unknown,,high,table_p2_ri2_ci4,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_maximum,maximum,SumHCH_ngg,9.95,Unknown,,high,table_p2_ri2_ci5,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_detection_rate/%,detection rate/%,SumHCH_ngg,100.0,Unknown,,high,table_p2_ri2_ci6,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_mean_standard_deviation,mean standard deviation,SumHCH_ngg,2.94,Unknown,,high,table_p2_ri3_ci1,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_maximum,maximum,SumHCH_ngg,24.96,Unknown,,high,table_p2_ri3_ci5,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_detection_rate/%,detection rate/%,SumHCH_ngg,62.5,Unknown,,high,table_p2_ri3_ci6,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_mean_standard_deviation,mean standard deviation,SumHCH_ngg,1.68,Unknown,,high,table_p2_ri4_ci1,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_minimum,minimum,SumHCH_ngg,0.14,Unknown,,high,table_p2_ri4_ci4,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_maximum,maximum,SumHCH_ngg,4.51,Unknown,,high,table_p2_ri4_ci5,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_detection_rate/%,detection rate/%,SumHCH_ngg,100.0,Unknown,,high,table_p2_ri4_ci6,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_mean_standard_deviation,mean standard deviation,SumHCH_ngg,2.42,Unknown,,high,table_p2_ri5_ci1,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_minimum,minimum,SumHCH_ngg,0.06,Unknown,,high,table_p2_ri5_ci4,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_maximum,maximum,SumHCH_ngg,30.62,Unknown,,high,table_p2_ri5_ci5,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_detection_rate/%,detection rate/%,SumHCH_ngg,100.0,Unknown,,high,table_p2_ri5_ci6,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_mean_standard_deviation,mean standard deviation,SumHCH_ngg,9.51,Unknown,,high,table_p2_ri6_ci1,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_minimum,minimum,SumHCH_ngg,0.38,Unknown,,high,table_p2_ri6_ci4,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_maximum,maximum,SumHCH_ngg,39.52,Unknown,,high,table_p2_ri6_ci5,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_detection_rate/%,detection rate/%,SumHCH_ngg,100.0,Unknown,,high,table_p2_ri6_ci6,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_target_values,target values,SumHCH_ngg,50.0,Unknown,,high,table_p2_ri6_ci7,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_mean_standard_deviation,mean standard deviation,SumDDT_ngg,49.82,Unknown,,high,table_p2_ri9_ci1,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_minimum,minimum,SumDDT_ngg,0.28,Unknown,,high,table_p2_ri9_ci4,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_maximum,maximum,SumDDT_ngg,523.82,Unknown,,high,table_p2_ri9_ci5,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_detection_rate/%,detection rate/%,SumDDT_ngg,100.0,Unknown,,high,table_p2_ri9_ci6,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_mean_standard_deviation,mean standard deviation,SumDDT_ngg,3.42,Unknown,,high,table_p2_ri10_ci1,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_maximum,maximum,SumDDT_ngg,29.5,Unknown,,high,table_p2_ri10_ci5,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_detection_rate/%,detection rate/%,SumDDT_ngg,54.2,Unknown,,high,table_p2_ri10_ci6,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_mean_standard_deviation,mean standard deviation,SumDDT_ngg,71.17,Unknown,,high,table_p2_ri11_ci1,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_minimum,minimum,SumDDT_ngg,0.94,Unknown,,high,table_p2_ri11_ci4,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_maximum,maximum,SumDDT_ngg,700.99,Unknown,,high,table_p2_ri11_ci5,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_detection_rate/%,detection rate/%,SumDDT_ngg,100.0,Unknown,,high,table_p2_ri11_ci6,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_target_values,target values,SumDDT_ngg,50.0,Unknown,,high,table_p2_ri11_ci7,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_mean_standard_deviation,mean standard deviation,OC_pct,1.4,Unknown,,high,table_p2_ri12_ci1,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_minimum,minimum,OC_pct,0.22,Unknown,,high,table_p2_ri12_ci4,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_maximum,maximum,OC_pct,3.66,Unknown,,high,table_p2_ri12_ci5,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_mean_standard_deviation,mean standard deviation,SumHCH_ngg,1.55,Unknown,,high,table_p2_ri13_ci1,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_minimum,minimum,SumHCH_ngg,0.58,Unknown,,high,table_p2_ri13_ci4,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_maximum,maximum,SumHCH_ngg,5.29,Unknown,,high,table_p2_ri13_ci5,,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_α-HCH,α-HCH,SumHCH_ngg,1.0,Unknown,,high,table_p4_ri1_ci1,Table 2Correlations between OCPs and TOC in soil samples,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_α-HCH,α-HCH,SumHCH_ngg,0.354,Unknown,,high,table_p4_ri2_ci1,Table 2Correlations between OCPs and TOC in soil samples,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_β-HCH,β-HCH,SumHCH_ngg,1.0,Unknown,,high,table_p4_ri2_ci2,Table 2Correlations between OCPs and TOC in soil samples,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_β-HCH,β-HCH,SumHCH_ngg,0.323,Unknown,,high,table_p4_ri3_ci2,Table 2Correlations between OCPs and TOC in soil samples,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_y-HCH,y-HCH,SumHCH_ngg,1.0,Unknown,,high,table_p4_ri3_ci3,Table 2Correlations between OCPs and TOC in soil samples,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_8-HCH,8-HCH,SumHCH_ngg,1.0,Unknown,,high,table_p4_ri4_ci4,Table 2Correlations between OCPs and TOC in soil samples,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_β-HCH,β-HCH,SumHCH_ngg,0.442,Unknown,,high,table_p4_ri5_ci2,Table 2Correlations between OCPs and TOC in soil samples,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_HCHs,HCHs,SumHCH_ngg,1.0,Unknown,,high,table_p4_ri5_ci5,Table 2Correlations between OCPs and TOC in soil samples,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_β-HCH,β-HCH,SumDDT_ngg,0.109,Unknown,,high,table_p4_ri8_ci2,Table 2Correlations between OCPs and TOC in soil samples,,,,,,phase14
+72217_s11783-011-0354-y,"72217_s11783-011-0354-y_p,p&#x27;-DDD","p,p&#x27;-DDD",SumDDT_ngg,0.138,Unknown,,high,table_p4_ri8_ci7,Table 2Correlations between OCPs and TOC in soil samples,,,,,,phase14
+72217_s11783-011-0354-y,"72217_s11783-011-0354-y_p,p&#x27;-DDT","p,p&#x27;-DDT",SumDDT_ngg,1.0,Unknown,,high,table_p4_ri8_ci8,Table 2Correlations between OCPs and TOC in soil samples,,,,,,phase14
+72217_s11783-011-0354-y,"72217_s11783-011-0354-y_0,p&#x27;-DDT","0,p&#x27;-DDT",SumDDT_ngg,1.0,Unknown,,high,table_p4_ri9_ci9,Table 2Correlations between OCPs and TOC in soil samples,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_β-HCH,β-HCH,SumDDT_ngg,0.169,Unknown,,high,table_p4_ri10_ci2,Table 2Correlations between OCPs and TOC in soil samples,,,,,,phase14
+72217_s11783-011-0354-y,"72217_s11783-011-0354-y_p,p&#x27;-DDD","p,p&#x27;-DDD",SumDDT_ngg,0.146,Unknown,,high,table_p4_ri10_ci7,Table 2Correlations between OCPs and TOC in soil samples,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_DDTs,DDTs,SumDDT_ngg,1.0,Unknown,,high,table_p4_ri10_ci10,Table 2Correlations between OCPs and TOC in soil samples,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_β-HCH,β-HCH,OC_pct,0.196,Unknown,,high,table_p4_ri11_ci2,Table 2Correlations between OCPs and TOC in soil samples,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_8-HCH,8-HCH,OC_pct,0.077,Unknown,,high,table_p4_ri11_ci4,Table 2Correlations between OCPs and TOC in soil samples,,,,,,phase14
+72217_s11783-011-0354-y,72217_s11783-011-0354-y_HCHs,HCHs,OC_pct,0.101,Unknown,,high,table_p4_ri11_ci5,Table 2Correlations between OCPs and TOC in soil samples,,,,,,phase14
+72217_s11783-011-0354-y,"72217_s11783-011-0354-y_0,p&#x27;-DDT","0,p&#x27;-DDT",OC_pct,0.146,Unknown,,high,table_p4_ri11_ci9,Table 2Correlations between OCPs and TOC in soil samples,,,,,,phase14

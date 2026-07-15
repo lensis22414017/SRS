@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08862,,,,,,,soil,agricultural,Guangdong,"skip: 论文研究对象为有机磷农药(OPPs: Dichlorvos/Demeton/Dimethoate/Malathion/Parathion/Methyl parathion)和拟除虫菊酯(PYs: Cypermethrin/Fenpropathrin/Cyhalothrin/Deltamethrin)，均不在目标OP类别(PAHs/PCBs/DDT/HCH/PBDE/PHC/antibiotics/PAEs/OCPs)范围内。且Table 1仅有区域汇总统计(Mean/Min/Max/Median/CV, 240个样点汇总)，无采样点级数据；城市均值在正文；空间分布和垂直剖面仅在Fig 3/4/5图中，无采样点级表格可提取"

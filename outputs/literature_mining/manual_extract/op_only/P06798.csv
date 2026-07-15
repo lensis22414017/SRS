@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06798,9.3m,Sum_PAH_ngg,890,ng/g,Table 1,sediment,landfill,Henan,"5 EPA PAHs summed (Nap60+Flu40+Phe110+Ant140+BbF540 ng/g); original units ng/mg x1000=ng/g; aquifer sediment core beneath landfill center at 9.3m depth"
+P06798,10.1-10.3m,Sum_PAH_ngg,30,ng/g,Table 1,sediment,landfill,Henan,"only Nap detected among EPA PAHs; ng/mg x1000=ng/g; aquifer sediment beneath landfill"
+P06798,10.5-10.7m,Sum_PAH_ngg,40,ng/g,Table 1,sediment,landfill,Henan,"only Nap detected among EPA PAHs; ng/mg x1000=ng/g; aquifer sediment beneath landfill"
+P06798,11.3-11.5m,Sum_PAH_ngg,40,ng/g,Table 1,sediment,landfill,Henan,"only Nap detected among EPA PAHs; ng/mg x1000=ng/g; aquifer sediment beneath landfill"
+P06798,9.3m,DEHP_ngg,1420,ng/g,Table 1,sediment,landfill,Henan,"compound name in paper: 1 2-Benzenedi acid disooctyl ester; ng/mg x1000=ng/g; aquifer sediment beneath landfill center"
+P06798,10.5-10.7m,DBP_ngg,160,ng/g,Table 1,sediment,landfill,Henan,"Dibutyl phthalate; ng/mg x1000=ng/g; aquifer sediment beneath landfill"

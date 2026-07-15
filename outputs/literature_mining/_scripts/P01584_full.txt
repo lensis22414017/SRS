@@ -1,0 +1,64 @@
+                                                                           Journal of Hazardous Materials 430 (2022) 128301
+
+                                                                        Contents lists available at ScienceDirect
+
+                                   Journal of Hazardous Materials
+
+                                                             journal homepage: www.elsevier.com/locate/jhazmat
+
+Research Paper
+
+Remarkable enrichment of heavy metals in baghouse filter dust during
+direct-fired thermal desorption of contaminated soil
+
+Panpan Wang a,b, Yunzhe Cao c,*, Huilong Luo a,b, Ting Li d, Bin Yang c, Huiying Li c,
+Tian Liang a,b, Jingjing Yu a,b, Lina Wang a,e, Fujun Ma a, Qingbao Gu a, Aizhong Ding b,
+Fasheng Li a,b,**
+
+a State Key Laboratory of Environmental Criteria and Risk Assessment, Chinese Research Academy of Environmental Sciences, Beijing 100012, China
+b College of Water Sciences, Beijing Normal University, Beijing 100875, China
+c Technical Centre for Soil, Agriculture and Rural Ecology and Environment, Ministry of Ecology and Environment, Beijing 100012, China
+d Beijing Research Institute of Uranium Geology, CNNC, Beijing 100029, China
+e School of Chemical and Environmental Engineering, China University of Mining and Technology, Beijing 100083, China
+
+HIGHLIGHTS                                 GRAPHICAL ABSTRACT
+
+· Baghouse filter dust is obviously
+  enriched in heavy metals.
+
+· The speciation of seven heavy metals
+  changed significantly.
+
+· Cr and Ni aggregation was observed
+  during thermal desorption.
+
+· Appropriate disposal of baghouse filter
+  dust is discussed.
+
+ARTICLE INFO                               ABSTRACT
+
+Editor: Dr. B. Lee                         This study focuses on the widely applied technology of direct-fired thermal desorption, taking a site contami
+                                           nated by polycyclic aromatic hydrocarbons (PAHs) as a typical test case. The entire thermal desorption process of
+Keywords:                                  contaminated soil is considered in the analysis. The concentration levels and occurrence characteristics of heavy
+Heavy metal                                metals in dust traditionally considered to be clean are evaluated, and possible secondary pollution and envi
+Polycyclic aromatic hydrocarbon (PAH)      ronmental impacts are explored. The results indicate that, compared with the thermal desorption soil, the dust
+contaminated site                          samples generated in the baghouse filter during the ex situ direct-fired thermal desorption process have higher
+Thermal desorption                         amounts of heavy metal accumulation as well as altered speciation. In addition, the enrichment characteristics
+Safe soil reuse                            and origins of the heavy metals are analyzed according to the process flow and particle size composition as well
+                                           as the results of X-ray diffraction (XRD), scanning electron microscopy (SEM), energy dispersive spectroscopy
+                                           (EDS), electron probe microanalysis (EPMA), and other microscopic research methods. Phenomenon further
+                                           reveals enrichment of arsenic (As), nickel (Ni), and chromium (Cr). The findings of this study can provide a
+                                           scientific basis for the proper disposal and risk management of the dust collected after direct-fired thermal
+                                           desorption treatment of contaminated soil.
+
+  * Corresponding author.
+ ** Corresponding author at: State Key Laboratory of Environmental Criteria and Risk Assessment, Chinese Research Academy of Environmental Sciences, Beijing
+100012, China.
+
+     E-mail addresses: caoyunzhe@tcare-mee.cn (Y. Cao), lifs@craes.org.cn (F. Li).
+
+https://doi.org/10.1016/j.jhazmat.2022.128301
+Received 7 November 2021; Received in revised form 31 December 2021; Accepted 16 January 2022
+Available online 22 January 2022
+0304-3894/© 2022 Elsevier B.V. All rights reserved.
+

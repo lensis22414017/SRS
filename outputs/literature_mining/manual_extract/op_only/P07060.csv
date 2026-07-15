@@ -1,0 +1,41 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P07060,MZGK,Sum_PAH_ngg,67.6,ng/g,Table SI-6,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-6,,
+P07060,Rawu,Sum_PAH_ngg,28.0,ng/g,Table SI-6,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-6,29.371483,96.912417
+P07060,Nyingchi,Sum_PAH_ngg,389.0,ng/g,Table SI-6,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-6,29.777333,93.99105
+P07060,Bomi,Sum_PAH_ngg,25.0,ng/g,Table SI-6,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-6,29.858083,95.76945
+P07060,Langxian,Sum_PAH_ngg,93.1,ng/g,Table SI-6,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-6,29.1658,93.578683
+P07060,Ridang,Sum_PAH_ngg,31.9,ng/g,Table SI-6,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-6,28.831933,92.046233
+P07060,GBJD,Sum_PAH_ngg,32.8,ng/g,Table SI-6,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-6,29.885367,93.2413
+P07060,Qamdo,Sum_PAH_ngg,136.0,ng/g,Table SI-6,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-6,31.150233,97.143733
+P07060,Lunang,Sum_PAH_ngg,33.5,ng/g,Table SI-6,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-6,29.765133,94.737433
+P07060,Jiacha,Sum_PAH_ngg,16.3,ng/g,Table SI-6,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-6,29.020717,91.8715
+P07060,Zogang,Sum_PAH_ngg,315.0,ng/g,Table SI-6,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-6,29.6792,97.833
+P07060,Zatu,Sum_PAH_ngg,91.8,ng/g,Table SI-6,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-6,28.463717,98.461683
+P07060,Guyu,Sum_PAH_ngg,190.0,ng/g,Table SI-6,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-6,29.925483,99.067033
+P07060,Milin,Sum_PAH_ngg,13.7,ng/g,Table SI-6,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-6,29.249667,94.27975
+P07060,Riwoge,Sum_PAH_ngg,30.9,ng/g,Table SI-7,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-7,31.150233,96.574083
+P07060,Nangqen,Sum_PAH_ngg,91.2,ng/g,Table SI-7,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-7,32.51435,96.484633
+P07060,Baqen,Sum_PAH_ngg,46.1,ng/g,Table SI-7,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-7,31.461667,95.465317
+P07060,Dengqen,Sum_PAH_ngg,36.2,ng/g,Table SI-7,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-7,31.225583,96.602283
+P07060,Son Xian,Sum_PAH_ngg,31.2,ng/g,Table SI-7,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-7,31.930833,93.978267
+P07060,Qiaze,Sum_PAH_ngg,42.3,ng/g,Table SI-7,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-7,31.92565,93.1954
+P07060,Naqu,Sum_PAH_ngg,60.2,ng/g,Table SI-7,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-7,32.368717,91.898583
+P07060,Xigaze,Sum_PAH_ngg,30.4,ng/g,Table SI-8,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-8,29.250233,88.88865
+P07060,Nyemo,Sum_PAH_ngg,37.4,ng/g,Table SI-8,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-8,29.335083,90.225333
+P07060,Lhaze,Sum_PAH_ngg,56.9,ng/g,Table SI-8,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-8,29.090083,87.6349
+P07060,Lhasa,Sum_PAH_ngg,83.5,ng/g,Table SI-8,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-8,29.645467,91.0326
+P07060,Qurong,Sum_PAH_ngg,48.3,ng/g,Table SI-8,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-8,31.276283,81.86875
+P07060,Mt.Everest,Sum_PAH_ngg,62.2,ng/g,Table SI-8,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-8,28.36055,86.949133
+P07060,Saga,Sum_PAH_ngg,46.3,ng/g,Table SI-8,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-8,29.4979,86.2936
+P07060,Zhongba,Sum_PAH_ngg,44.1,ng/g,Table SI-8,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-8,29.331483,85.232517
+P07060,Wure,Sum_PAH_ngg,16.0,ng/g,Table SI-8,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-8,30.296333,81.139533
+P07060,Nam co,Sum_PAH_ngg,5.5,ng/g,Table SI-8,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-8,30.772917,90.963333
+P07060,Linge co,Sum_PAH_ngg,16.91,ng/g,Table SI-9,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-9,33.8179,88.6269
+P07060,Gaerze,Sum_PAH_ngg,29.02,ng/g,Table SI-9,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-9,32.3058,84.062333
+P07060,Gar,Sum_PAH_ngg,40.58,ng/g,Table SI-9,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-9,32.501933,80.094233
+P07060,Hol Xil1,Sum_PAH_ngg,13.9,ng/g,Table SI-9,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-9,,
+P07060,Hol Xil2,Sum_PAH_ngg,9.23,ng/g,Table SI-9,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-9,,
+P07060,Hol Xil3,Sum_PAH_ngg,14.9,ng/g,Table SI-9,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-9,,
+P07060,Hol Xil4,Sum_PAH_ngg,8.1,ng/g,Table SI-9,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-9,,
+P07060,Hol Xil5,Sum_PAH_ngg,10.89,ng/g,Table SI-9,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-9,,
+P07060,Hol Xil6,Sum_PAH_ngg,18.31,ng/g,Table SI-9,soil,other,Tibet,15 EPA PAH monomer sum from Table SI-9,,

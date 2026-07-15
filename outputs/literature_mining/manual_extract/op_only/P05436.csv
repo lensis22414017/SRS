@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+"P05436","","","","","","","","","skip: Springer订阅付费墙,parsed/paper.md仅含摘要与参考文献,无完整PDF数据表格; Supplementary文件为DOCX参考附件,无浓度数据表; 论文主题为广东铜锌轧制工业场地HM+PAHs/TPH,但数值数据不在可解析范围内"

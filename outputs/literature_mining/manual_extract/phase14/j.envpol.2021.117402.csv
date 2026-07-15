@@ -1,0 +1,10 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+j.envpol.2021.117402,j.envpol.2021.117402_AG,AG,OC_pct,1.0,Unknown,,medium,table_p7_ri5_ci1,Table 2 The 16 antibiotic families derived from the ARG subtypes as reported from the five continents.<sup>a</sup>
+j.envpol.2021.117402,j.envpol.2021.117402_BL,BL,OC_pct,8.0,Unknown,,medium,table_p7_ri5_ci3,Table 2 The 16 antibiotic families derived from the ARG subtypes as reported from the five continents.<sup>a</sup>
+j.envpol.2021.117402,j.envpol.2021.117402_GP,GP,OC_pct,2.0,Unknown,,medium,table_p7_ri5_ci5,Table 2 The 16 antibiotic families derived from the ARG subtypes as reported from the five continents.<sup>a</sup>
+j.envpol.2021.117402,j.envpol.2021.117402_MC,MC,OC_pct,2.0,Unknown,,medium,table_p7_ri5_ci7,Table 2 The 16 antibiotic families derived from the ARG subtypes as reported from the five continents.<sup>a</sup>
+j.envpol.2021.117402,j.envpol.2021.117402_PP,PP,OC_pct,2.0,Unknown,,medium,table_p7_ri5_ci9,Table 2 The 16 antibiotic families derived from the ARG subtypes as reported from the five continents.<sup>a</sup>
+j.envpol.2021.117402,j.envpol.2021.117402_SF,SF,OC_pct,8.0,Unknown,,medium,table_p7_ri5_ci12,Table 2 The 16 antibiotic families derived from the ARG subtypes as reported from the five continents.<sup>a</sup>
+j.envpol.2021.117402,j.envpol.2021.117402_TET,TET,OC_pct,21.0,Unknown,,medium,table_p7_ri5_ci13,Table 2 The 16 antibiotic families derived from the ARG subtypes as reported from the five continents.<sup>a</sup>
+j.envpol.2021.117402,j.envpol.2021.117402_TMP,TMP,OC_pct,1.0,Unknown,,medium,table_p7_ri5_ci14,Table 2 The 16 antibiotic families derived from the ARG subtypes as reported from the five continents.<sup>a</sup>
+j.envpol.2021.117402,j.envpol.2021.117402_MDR,MDR,OC_pct,7.0,Unknown,,medium,table_p7_ri5_ci15,Table 2 The 16 antibiotic families derived from the ARG subtypes as reported from the five continents.<sup>a</sup>

@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10347,,,,,,,soil,industrial,Shanxi,skip: 仅区域汇总无采样点级数据。Table 2提供AS/RS/VS三类功能区的均值浓度(μg/kg)和Bapeq均值，76个点位(RS1-36/AS1-30/VS1-10)个体浓度仅以Fig 2/9箱线图展示，无单点表格可提取。无HM数据。

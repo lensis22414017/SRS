@@ -1,0 +1,28 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05945,IS1,SumHCH_ngg,0.13,ng/g,Table 1,soil,other,Guangxi,鐩存帴璇诲彇total HCH琛?伪+尾+纬+未-HCH)
+P05945,IS2,SumHCH_ngg,0.12,ng/g,Table 1,soil,other,Guangxi,鐩存帴璇诲彇total HCH琛?伪+尾+纬+未-HCH)
+P05945,IS3,SumHCH_ngg,0.11,ng/g,Table 1,soil,other,Guangxi,鐩存帴璇诲彇total HCH琛?伪+尾+纬+未-HCH)
+P05945,IS4,SumHCH_ngg,0.19,ng/g,Table 1,soil,other,Guangxi,鐩存帴璇诲彇total HCH琛?伪+尾+纬+未-HCH)
+P05945,IS5,SumHCH_ngg,0.18,ng/g,Table 1,soil,other,Guangxi,鐩存帴璇诲彇total HCH琛?伪+尾+纬+未-HCH)
+P05945,IS6,SumHCH_ngg,0.18,ng/g,Table 1,soil,other,Guangxi,鐩存帴璇诲彇total HCH琛?伪+尾+纬+未-HCH)
+P05945,OS1,SumHCH_ngg,0.31,ng/g,Table 1,soil,other,Guangxi,鐩存帴璇诲彇total HCH琛?伪+尾+纬+未-HCH)
+P05945,OS2,SumHCH_ngg,0.33,ng/g,Table 1,soil,other,Guangxi,鐩存帴璇诲彇total HCH琛?伪+尾+纬+未-HCH)
+P05945,OS3,SumHCH_ngg,0.48,ng/g,Table 1,soil,other,Guangxi,鐩存帴璇诲彇total HCH琛?伪+尾+纬+未-HCH)
+P05945,IS1,SumDDT_ngg,0.24,ng/g,Table 1,soil,other,Guangxi,鐩存帴璇诲彇total DDT琛?p,p'-DDD+p,p'-DDE+o,p'-DDT+p,p'-DDT)
+P05945,IS2,SumDDT_ngg,0.09,ng/g,Table 1,soil,other,Guangxi,鐩存帴璇诲彇total DDT琛?p,p'-DDD+p,p'-DDE+o,p'-DDT+p,p'-DDT)
+P05945,IS3,SumDDT_ngg,0.09,ng/g,Table 1,soil,other,Guangxi,鐩存帴璇诲彇total DDT琛?p,p'-DDD+p,p'-DDE+o,p'-DDT+p,p'-DDT)
+P05945,IS4,SumDDT_ngg,0.14,ng/g,Table 1,soil,other,Guangxi,鐩存帴璇诲彇total DDT琛?p,p'-DDD+p,p'-DDE+o,p'-DDT+p,p'-DDT)
+P05945,IS5,SumDDT_ngg,0.16,ng/g,Table 1,soil,other,Guangxi,鐩存帴璇诲彇total DDT琛?p,p'-DDD+p,p'-DDE+o,p'-DDT+p,p'-DDT)
+P05945,IS6,SumDDT_ngg,0.24,ng/g,Table 1,soil,other,Guangxi,鐩存帴璇诲彇total DDT琛?p,p'-DDD+p,p'-DDE+o,p'-DDT+p,p'-DDT)
+P05945,OS1,SumDDT_ngg,0.56,ng/g,Table 1,soil,other,Guangxi,鐩存帴璇诲彇total DDT琛?p,p'-DDD+p,p'-DDE+o,p'-DDT+p,p'-DDT)
+P05945,OS2,SumDDT_ngg,0.80,ng/g,Table 1,soil,other,Guangxi,鐩存帴璇诲彇total DDT琛?p,p'-DDD+p,p'-DDE+o,p'-DDT+p,p'-DDT)
+P05945,OS3,SumDDT_ngg,0.88,ng/g,Table 1,soil,other,Guangxi,鐩存帴璇诲彇total DDT琛?p,p'-DDD+p,p'-DDE+o,p'-DDT+p,p'-DDT)
+P05945,IS1,Endosulfan_ngg,0.02,ng/g,Table 1,soil,other,Guangxi,"伪-endosulfan(0.01)+尾-endosulfan(0.01)姹傚拰"
+P05945,IS2,Endosulfan_ngg,0.04,ng/g,Table 1,soil,other,Guangxi,"伪-endosulfan(0.02)+尾-endosulfan(0.02)姹傚拰"
+P05945,IS3,Endosulfan_ngg,0.02,ng/g,Table 1,soil,other,Guangxi,"伪-endosulfan(0.01)+尾-endosulfan(0.01)姹傚拰"
+P05945,IS4,Endosulfan_ngg,0.03,ng/g,Table 1,soil,other,Guangxi,"伪-endosulfan(0.02)+尾-endosulfan(0.01)姹傚拰"
+P05945,IS5,Endosulfan_ngg,0.04,ng/g,Table 1,soil,other,Guangxi,"伪-endosulfan(0.03)+尾-endosulfan(0.01)姹傚拰"
+P05945,IS6,Endosulfan_ngg,0.08,ng/g,Table 1,soil,other,Guangxi,"伪-endosulfan(0.02)+尾-endosulfan(0.06)姹傚拰"
+P05945,OS1,Endosulfan_ngg,0.26,ng/g,Table 1,soil,other,Guangxi,"伪-endosulfan(0.10)+尾-endosulfan(0.16)姹傚拰"
+P05945,OS2,Endosulfan_ngg,0.25,ng/g,Table 1,soil,other,Guangxi,"伪-endosulfan(0.13)+尾-endosulfan(0.12)姹傚拰"
+P05945,OS3,Endosulfan_ngg,0.32,ng/g,Table 1,soil,other,Guangxi,"伪-endosulfan(0.22)+尾-endosulfan(0.10)姹傚拰"

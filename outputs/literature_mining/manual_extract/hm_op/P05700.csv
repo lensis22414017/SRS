@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05700,,,,,,soil,agricultural,Jiangsu,"skip: 仅6研究区域site-level统计汇总(Mean/Range/STD/CV%), 每区域56样品均值(Table 2), 无采样点级数据; HM含Cd/Cr/Cu/Pb/Zn/Hg/As(缺Ni)+OP含HCH/DDT为真复合但仅区域均值"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01504,,,,,,soil,agricultural,Zhejiang,"仅统计汇总(Mean±SD/箱线图Fig2)，无采样点级抗生素浓度；31样点CTC/OTC/ENR等9种抗生素仅以季节性箱线图和Mean±SD呈现，原文引用Appendix A Table S6含明细但SI未含于paper.md"

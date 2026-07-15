@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07287,,,,,,,,"skip: 大气PM2.5研究(not soil/sediment); target analytes=azaarenes(QUI/BQI/ACR)不在OP清单; units=pg/m3 air concentration非ng/g土壤浓度; 无任何土壤采样点级数据"

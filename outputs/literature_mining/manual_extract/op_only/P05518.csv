@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05518,S2,BaP_ngg,1.73,ng/g,Table 5,soil,mining,Guangdong,直接读取Table 5土壤PAHs;单位μg/kg=ng/g;16EPA PAH列表不完整缺失Flt/Pyr/BaA/IcdP/BghiP无法计算Sum_PAH;无土壤HM定量数据
+P05518,S3,BaP_ngg,4.31,ng/g,Table 5,soil,mining,Guangdong,直接读取Table 5土壤PAHs;单位μg/kg=ng/g;S2非饱和带S3饱和带;无土壤HM定量数据

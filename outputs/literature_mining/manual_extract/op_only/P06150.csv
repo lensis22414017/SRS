@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06150,,,,,,,,"仅区域汇总，无采样点级数据——Table 1仅提供227样本的Range/Mean/Median/S.E./>DL(%)统计量，无单个采样点标识及浓度值；Table 2为PCA因子载荷表非浓度数据。论文为黄淮平原大范围农田PAH调查(约10万km²,n=227)，所有数据以区域统计量呈现","无单点浓度数据可提取"

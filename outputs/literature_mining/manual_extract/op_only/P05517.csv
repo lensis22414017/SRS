@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05517,,,,,,,,"skip: 论文测量PCDD/Fs+dl-PCBs+PCNs（pg/g dw），不在OP清单(PAH/BaP/PBDE/DDT/HCH/PHC/抗生素/PAEs/OCPs)也不在HM清单内；无采样点级OP或HM数据可提取。5个土壤采样点(DS/BMP/95km/TF/YK)海拔2086-4487m，四川卧龙。Table 2为PCN单体数据(pg/g)，不属目标污染物范围。"

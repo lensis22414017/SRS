@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06288,,,,,,soil,agricultural,Guangdong,"skip: 温室盆栽spiked实验(phytoremediation by maize CT38)。供试土壤采自广州增城县农田(0-20cm)本底Cd=0.13 mg/kg+pyrene原本free/ND(不构成HM+OP真复合场地)。实验人为添加Cd(0/2.0/4.5 mg/kg)+pyrene(0/10/50/100 mg/kg)做60天盆栽。Table1/Table2均为spiked处理组数据非真实采样点级浓度。无真实场地HM+OP采样点级数据可提取。"

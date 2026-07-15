@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11292,,,,,,,soil,agricultural,Jiangsu,"skip: 无采样点级原始数据。论文真实场地(南京周岗农田, 29表层点0-20cm+4剖面x8层=61样品)但全部表格仅呈现统计汇总(Min/Max/Median/Mean/SD/检出率), 未列出任何单一采样点的具体浓度。表3-1=29表层点描述统计; 表4-1=4剖面PAHs含量范围(Min~Max); 表5-1=TEQ_BaP均值/范围(且属风险指数非原始浓度)。无法还原为S1/S2/...或菜地-0~10cm等单点值。铁律2: 不把统计汇总当采样点 -> 0行"

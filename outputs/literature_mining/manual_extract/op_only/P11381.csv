@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11381,,,,,,,,"skip: 论文仅提供统计汇总(mean/range/detection frequency)无采样点级数据; 89个表层土壤样本的抗生素浓度数据仅在Supplementary Table S4/S5中(未包含于paper.md正文); 正文给出的均为均值(如OTC mean=31.28 CTC mean=32.33)和县级范围(如BN 60.52-3145.72); Fig2为图片不可解析"

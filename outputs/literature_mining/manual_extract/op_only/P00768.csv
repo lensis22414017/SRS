@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00768,M6,SumPAE_ngg,25219,ng/g,正文3.4段,soil,urban,Zhejiang,"M6位于Cixi County公园受城镇影响; 正文明确采样点级浓度"
+P00768,H15,SumPAE_ngg,18654,ng/g,正文3.4段,soil,industrial,Zhejiang,"H15位于Jinyun County农田邻近化工厂; 正文明确采样点级浓度"
+P00768,J7,Sum_PAH_ngg,33932,ng/g,正文3.4段,soil,industrial,Zhejiang,"J7位于Shaoxing工业区低容量锅炉集群; 正文明确采样点级浓度,76倍高于均值"
+P00768,G18,Sum_PAH_ngg,2.66,ng/g,正文3.4段,soil,background,Zhejiang,"G18位于Lishui偏远山区; 正文明确采样点级浓度"

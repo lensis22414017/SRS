@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11486,,,,,,,,"skip: 实验室淋溶实验(leaching/undisturbed soil core leaching test)，所有数据为淋出液effluent浓度(ng/L水相非土壤)，Table1为Mean±SD/Range统计汇总，无采样点级土壤OP浓度数据；土壤PBDE数据仅在Supplementary Table S1未在正文呈现"

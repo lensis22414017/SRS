@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00245,NOT_APPLICABLE,NOT_APPLICABLE,,,Table 1,soil,urban,Zhejiang,"skip: 论文测定OPFRs(有机磷阻燃剂: TEP/TPP/TNBP/TCEP/TDCIPP/TPHP/TEHP/TPPO) 不属于目标OP类别(PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAEs/OCPs); 且Table 1仅有统计汇总(Min/Max/Median/Mean/SD)无采样点级数据"

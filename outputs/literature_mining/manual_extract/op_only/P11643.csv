@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11643,,,,,,,,"skip: microplastics study (MPs in urban drainage pipe sediments); no extractable sample-level PAH table data (sediment PAH concentrations only in Fig 6A bar chart); Table 3 is TEQ risk indices (rejected); only district-level mean stat rows in text (Jintan 36.96/Yongchuan 2.12/Tongji 5.38 ng/g); single text value JS2=62.09 contradicts stated range max 60.09"

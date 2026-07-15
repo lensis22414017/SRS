@@ -1,0 +1,54 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06883,R01,SumHCH_ngg,8.7,ng/g,Table 1,sediment,other,Liaoning,"Table 1 direct read; α-HCH=1.1 β-HCH=4.7 γ-HCH=2.9 δ-HCH=0.11"
+P06883,R01,SumDDT_ngg,25,ng/g,Table 1,sediment,other,Liaoning,"Table 1 direct read; o,p'-DDT=15 p,p'-DDT=3.5 p,p'-DDE=2.0 o,p'-DDD=0.85 p,p'-DDD=3.0"
+P06883,R02,SumHCH_ngg,8.0,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,R02,SumDDT_ngg,17,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,R03,SumHCH_ngg,12,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,R03,SumDDT_ngg,45,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,R04,SumHCH_ngg,17,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,R04,SumDDT_ngg,25,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,R05,SumHCH_ngg,18,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,R05,SumDDT_ngg,20,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,R06,SumHCH_ngg,12,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,R06,SumDDT_ngg,15,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,E01,SumHCH_ngg,7.2,ng/g,Table 1,sediment,other,Liaoning,"Table 1 direct read; original table combines E01/E02 in one row"
+P06883,E01,SumDDT_ngg,21,ng/g,Table 1,sediment,other,Liaoning,"Table 1 direct read; original table combines E01/E02 in one row"
+P06883,E03,SumHCH_ngg,6.3,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,E03,SumDDT_ngg,15,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,E04,SumHCH_ngg,7.0,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,E04,SumDDT_ngg,11,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,S01,SumHCH_ngg,5.5,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,S01,SumDDT_ngg,9.2,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,S02,SumHCH_ngg,6.2,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,S02,SumDDT_ngg,6.7,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,S03,SumHCH_ngg,6.8,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,S03,SumDDT_ngg,4.1,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,S04,SumHCH_ngg,5.8,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,S04,SumDDT_ngg,2.9,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,S05,SumHCH_ngg,4.5,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,S05,SumDDT_ngg,3.4,ng/g,Table 1,sediment,other,Liaoning,"calc from isomers (sum column empty); o,p'-DDT=1.4 p,p'-DDT=0.46 p,p'-DDE=0.60 p,p'-DDD=0.89"
+P06883,S06,SumHCH_ngg,1.1,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,S06,SumDDT_ngg,3.4,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,S07,SumHCH_ngg,4.8,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,S07,SumDDT_ngg,2.2,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,S08,SumHCH_ngg,3.1,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,S08,SumDDT_ngg,2.6,ng/g,Table 1,sediment,other,Liaoning,"calc from isomers (cell shows 3.9 2.7 ambiguous); o,p'-DDT=0.95 p,p'-DDT=0.73 o,p'-DDE=0.54 p,p'-DDD=0.36"
+P06883,S09,SumHCH_ngg,5.4,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,S09,SumDDT_ngg,2.6,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,W01,SumHCH_ngg,20,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,W01,SumDDT_ngg,4.2,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,W02,SumHCH_ngg,22,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,W02,SumDDT_ngg,5.2,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,W03,SumHCH_ngg,30,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,W03,SumDDT_ngg,4.7,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,W04,SumHCH_ngg,22,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,W04,SumDDT_ngg,5.4,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,W05,SumHCH_ngg,25,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,W05,SumDDT_ngg,4.2,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,B01,SumHCH_ngg,24,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,B01,SumDDT_ngg,10.2,ng/g,Table 1,sediment,other,Liaoning,"calc from isomers (sum column empty); o,p'-DDT=6.0 p,p'-DDT=2.6 p,p'-DDE=0.56 o,p'-DDD=0.47 p,p'-DDD=0.54"
+P06883,B02,SumHCH_ngg,11,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,B02,SumDDT_ngg,10,ng/g,Table 1,sediment,other,Liaoning,"Table 1 direct read; cell shows 10 4.8 (ambiguous); calc from isomers=10.8"
+P06883,B03,SumDDT_ngg,5.8,ng/g,Table 1,sediment,other,Liaoning,"Table 1 direct read; SumHCH skipped due to colspan parsing ambiguity"
+P06883,B04,SumHCH_ngg,7.0,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read
+P06883,B04,SumDDT_ngg,4.6,ng/g,Table 1,sediment,other,Liaoning,Table 1 direct read

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02156,,,,,,,,"skip: 实验室人工配制土壤淋洗实验(biosurfactant-enhanced soil washing/BESW)。沙子(山东大学海滩)+购买的高岭土在实验室人工投加(spike)PHE和Cd(目标浓度0/40/200 mg/kg)，非真实场地土壤。论文仅报告去除率(%)、NMR化学位移、吸附等温模型参数、ANOVA结果，无采样点级真实浓度。仅单PAH单体(phenanthrene非16种EPA PAHs总和)+单HM(Cd非8元素)，且为去除率/修复效果数据(铁律7剔除)。无修复前真实场地本底值可提取。"

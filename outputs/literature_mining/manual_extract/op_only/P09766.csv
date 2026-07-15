@@ -1,0 +1,99 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09766,MC1,SumDDT_ngg,967.2,ng/g,Table S2,sediment,other,Macau,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,MC1,SumHCH_ngg,6.3,ng/g,Table S2,sediment,other,Macau,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,MC2,SumDDT_ngg,5814.1,ng/g,Table S2,sediment,other,Macau,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,MC2,SumHCH_ngg,3.57,ng/g,Table S2,sediment,other,Macau,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,MC3,SumDDT_ngg,1125.5,ng/g,Table S2,sediment,other,Macau,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,MC3,SumHCH_ngg,9.72,ng/g,Table S2,sediment,other,Macau,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,MC4,SumDDT_ngg,1071.8,ng/g,Table S2,sediment,other,Macau,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,MC4,SumHCH_ngg,7.65,ng/g,Table S2,sediment,other,Macau,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,MC5,SumDDT_ngg,3072.7,ng/g,Table S2,sediment,other,Macau,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,MC5,SumHCH_ngg,3.57,ng/g,Table S2,sediment,other,Macau,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,MM1,SumDDT_ngg,871.3,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,MM2,SumDDT_ngg,361.3,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,MM2,SumHCH_ngg,0.93,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,MM3,SumDDT_ngg,1248.0,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,MM3,SumHCH_ngg,1.01,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,SZ1,SumDDT_ngg,1457.5,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,SZ1,SumHCH_ngg,5.55,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,SZ2,SumDDT_ngg,798.1,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,SZ2,SumHCH_ngg,12.23,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,SZ3,SumDDT_ngg,789.4,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,SZ3,SumHCH_ngg,7.63,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,SZ4,SumDDT_ngg,59.5,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,SZ4,SumHCH_ngg,5.94,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,SZ5,SumDDT_ngg,46.64,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,SZ6,SumDDT_ngg,54.24,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,SZ6,SumHCH_ngg,2.84,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,SZ7,SumDDT_ngg,18.13,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2; ND treated as 0
+P09766,SZ8,SumDDT_ngg,169.57,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,SZ8,SumHCH_ngg,0.99,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,SZ9,SumDDT_ngg,24.62,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2; ND treated as 0
+P09766,SZ9,SumHCH_ngg,1.16,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,SZ10,SumDDT_ngg,17.64,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,SZ10,SumHCH_ngg,6.96,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,ZH1,SumDDT_ngg,185.71,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,ZH2,SumDDT_ngg,378.27,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,ZH2,SumHCH_ngg,2.24,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,ZH3,SumDDT_ngg,274.25,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,ZH3,SumHCH_ngg,1.08,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,ZH4,SumDDT_ngg,55.31,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,ZH4,SumHCH_ngg,1.4,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,ZH5,SumDDT_ngg,174.07,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,ZH6,SumDDT_ngg,1502.6,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,ZH6,SumHCH_ngg,1.29,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,ZH7,SumDDT_ngg,2372.5,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,ZH7,SumHCH_ngg,1.2,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,ZH8,SumDDT_ngg,3041.7,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,ZH8,SumHCH_ngg,1.41,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,ZH9,SumDDT_ngg,71.15,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,ZH9,SumHCH_ngg,1.31,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,ZH10,SumDDT_ngg,87.91,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,ZH10,SumHCH_ngg,1.05,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,SY1,SumDDT_ngg,108.13,ng/g,Table S2,sediment,other,Hainan,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,SY2,SumDDT_ngg,561.0,ng/g,Table S2,sediment,other,Hainan,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,SY3,SumDDT_ngg,149.85,ng/g,Table S2,sediment,other,Hainan,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,SY4,SumDDT_ngg,222.98,ng/g,Table S2,sediment,other,Hainan,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,ZS1,SumDDT_ngg,273.34,ng/g,Table S2,sediment,other,Zhejiang,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,ZS1,SumHCH_ngg,2.13,ng/g,Table S2,sediment,other,Zhejiang,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,ZS2,SumDDT_ngg,56.38,ng/g,Table S2,sediment,other,Zhejiang,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2; ND treated as 0
+P09766,ZS2,SumHCH_ngg,0.69,ng/g,Table S2,sediment,other,Zhejiang,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,ZS3,SumDDT_ngg,61.64,ng/g,Table S2,sediment,other,Zhejiang,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,ZS3,SumHCH_ngg,1.35,ng/g,Table S2,sediment,other,Zhejiang,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,ZS4,SumDDT_ngg,563.36,ng/g,Table S2,sediment,other,Zhejiang,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,ZS5,SumDDT_ngg,48.95,ng/g,Table S2,sediment,other,Zhejiang,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2; ND treated as 0
+P09766,ZS5,SumHCH_ngg,0.9,ng/g,Table S2,sediment,other,Zhejiang,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,ZS6,SumDDT_ngg,9.39,ng/g,Table S2,sediment,other,Zhejiang,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2; ND treated as 0
+P09766,ZS7,SumDDT_ngg,39.3,ng/g,Table S2,sediment,other,Zhejiang,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2; ND treated as 0
+P09766,ZS7,SumHCH_ngg,0.86,ng/g,Table S2,sediment,other,Zhejiang,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,ZS8,SumDDT_ngg,408.26,ng/g,Table S2,sediment,other,Zhejiang,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,ZS9,SumDDT_ngg,44.3,ng/g,Table S2,sediment,other,Zhejiang,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2; ND treated as 0
+P09766,ZS9,SumHCH_ngg,0.82,ng/g,Table S2,sediment,other,Zhejiang,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,ZS10,SumDDT_ngg,20.24,ng/g,Table S2,sediment,other,Zhejiang,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,QD1,SumDDT_ngg,839.49,ng/g,Table S2,sediment,other,Shandong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,QD2,SumDDT_ngg,155.94,ng/g,Table S2,sediment,other,Shandong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,QD2,SumHCH_ngg,4.01,ng/g,Table S2,sediment,other,Shandong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,QD3,SumDDT_ngg,14.47,ng/g,Table S2,sediment,other,Shandong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2; ND treated as 0
+P09766,QD4,SumDDT_ngg,113.8,ng/g,Table S2,sediment,other,Shandong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,QD5,SumDDT_ngg,40.2,ng/g,Table S2,sediment,other,Shandong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2; ND treated as 0
+P09766,QD6,SumDDT_ngg,8.75,ng/g,Table S2,sediment,other,Shandong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2; ND treated as 0
+P09766,GZ1,SumDDT_ngg,37.6,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2; ND treated as 0
+P09766,GZ1,SumHCH_ngg,1.43,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,GZ2,SumDDT_ngg,21.8,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2; ND treated as 0
+P09766,GZ2,SumHCH_ngg,1.96,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,GZ3,SumDDT_ngg,37.5,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2; ND treated as 0
+P09766,GZ3,SumHCH_ngg,2.12,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,GZ4,SumDDT_ngg,52.12,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,GZ4,SumHCH_ngg,2.54,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,GZ5,SumDDT_ngg,68.83,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,GZ5,SumHCH_ngg,1.04,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,GZ6,SumDDT_ngg,30.3,ng/g,Table S2,sediment,other,Guangdong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2; ND treated as 0
+P09766,GZ6,SumHCH_ngg,3.07,ng/g,Table S2,sediment,other,Guangdong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,HK1,SumDDT_ngg,76.6,ng/g,Table S2,sediment,other,HongKong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,HK1,SumHCH_ngg,1.78,ng/g,Table S2,sediment,other,HongKong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,HK2,SumDDT_ngg,7353.0,ng/g,Table S2,sediment,other,HongKong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,HK2,SumHCH_ngg,2.5,ng/g,Table S2,sediment,other,HongKong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,HK3,SumDDT_ngg,2566.6,ng/g,Table S2,sediment,other,HongKong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,HK3,SumHCH_ngg,1.71,ng/g,Table S2,sediment,other,HongKong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2
+P09766,HK4,SumDDT_ngg,340.36,ng/g,Table S2,sediment,other,HongKong,6 DDT isomers summed (opDDE+ppDDE+opDDD+ppDDD+opDDT+ppDDT) from Table S2
+P09766,HK4,SumHCH_ngg,1.83,ng/g,Table S2,sediment,other,HongKong,4 HCH isomers summed (alpha+beta+gamma+delta) from Table S2

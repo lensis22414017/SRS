@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00661,,,,,,,,,"skip: no sample-level concentration data; 302 soil samples analyzed for 16 PAHs but all results presented as figures (Fig.2-6 contour maps/bar charts) and summary statistics only (total PAH range 71.7-2505.7 ng/g; contamination category percentages 52.7%/18.7%/15.4%); no tables with individual sample-point PAH concentrations or sample identifiers"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05444,,,,,,,,,"skip: 实验室氯消毒实验(纯菌液E.coli HB101/NK5449+次氯酸钠体外处理)，研究消毒副产物MCAN对抗性基因接合转移的影响；无土壤/沉积物采样点，无PAH/PCB/DDT/HCH/PBDE/PHC/PAE/OCP/抗生素环境浓度数据，全部数据为实验室体外培养(in vitro)指标(CFU/mL/MDA/IC50/接合转移频率)；剔除场景=实验室实验+水体+非目标OP"

@@ -1,0 +1,15 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+70622_02757540.2013.844798,70622_02757540.2013.844798_S1,S1,SumPBDE_ngg,1195.1,Unknown,,medium,table_p4_ri9_ci1,"Table 1.Concentrations of PBDEs in soil collected from Taizhou, China (μg/kg dry wt).",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_S2,S2,SumPBDE_ngg,27.9,Unknown,,medium,table_p4_ri9_ci2,"Table 1.Concentrations of PBDEs in soil collected from Taizhou, China (μg/kg dry wt).",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_S3,S3,SumPBDE_ngg,131.1,Unknown,,medium,table_p4_ri9_ci3,"Table 1.Concentrations of PBDEs in soil collected from Taizhou, China (μg/kg dry wt).",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_S4,S4,SumPBDE_ngg,1889.1,Unknown,,medium,table_p4_ri9_ci4,"Table 1.Concentrations of PBDEs in soil collected from Taizhou, China (μg/kg dry wt).",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_S5,S5,SumPBDE_ngg,3128.4,Unknown,,medium,table_p4_ri9_ci5,"Table 1.Concentrations of PBDEs in soil collected from Taizhou, China (μg/kg dry wt).",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_M,M,SumPBDE_ngg,64.4,Unknown,,medium,table_p4_ri9_ci6,"Table 1.Concentrations of PBDEs in soil collected from Taizhou, China (μg/kg dry wt).",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_M,M,OC_pct,24.4,Unknown,,high,table_p5_ri7_ci6,"Table 2．Concentrations of PCDD/Fs in soil collcted from Taizhou,China (pg/g dry wt).",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_S1,S1,OC_pct,45.3,Unknown,,high,table_p5_ri18_ci1,"Table 2．Concentrations of PCDD/Fs in soil collcted from Taizhou,China (pg/g dry wt).",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_S2,S2,OC_pct,20.0,Unknown,,high,table_p5_ri18_ci2,"Table 2．Concentrations of PCDD/Fs in soil collcted from Taizhou,China (pg/g dry wt).",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_S3,S3,OC_pct,12.0,Unknown,,high,table_p5_ri18_ci3,"Table 2．Concentrations of PCDD/Fs in soil collcted from Taizhou,China (pg/g dry wt).",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_M,M,OC_pct,0.0,Unknown,,high,table_p5_ri18_ci6,"Table 2．Concentrations of PCDD/Fs in soil collcted from Taizhou,China (pg/g dry wt).",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_PAHs,PAHs,Sum_PAH_ngg,1.0,Unknown,,high,table_p6_ri11_ci11,"Table 3．Pearson correlation matrix among pH, SOM, inorganic and organic compounds.",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_PCBs,PCBs,SumPCB_ngg,1.0,Unknown,,high,table_p6_ri12_ci12,"Table 3．Pearson correlation matrix among pH, SOM, inorganic and organic compounds.",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_PCBs,PCBs,SumPBDE_ngg,1.0,Unknown,,high,table_p6_ri12_ci12,"Table 3．Pearson correlation matrix among pH, SOM, inorganic and organic compounds.",,,,,,phase14

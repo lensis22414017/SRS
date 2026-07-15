@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05175,,,,,,,,"skip: Paper measures Chlorinated Paraffins (SCCPs C10-13 / MCCPs C14-17), not among target OP pollutant groups (PAH/BaP/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAEs/OCPs). Additionally no sample-level data in paper text - only national summary statistics (ranges and means, n=121 surface + 24 core)"

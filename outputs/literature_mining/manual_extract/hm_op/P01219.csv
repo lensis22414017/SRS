@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01219,,,,,,,soil,e_waste,广东,"skip: 论文确为HM+OP真复合研究(贵屿e-waste区OCPs+HM同场地同篇)，但正文Table 1(DDTs/HCHs文献对比)和Table 2(Cu/Pb文献对比)中Present study行均为聚合统计(n=26/27 mean±SD)，不是采样点级数据；违反铁律第2条(统计汇总当采样点)+第4条(区域均值当场地样本)。13个采样点(MD/MP/AOB/AOR/OB/OP/DZ/DP/CA1/CA2/CP/AW)仅Fig.1地理标识，Fig.2/3分布图为图片不可解析；正文3.1/3.2段仅给区域间聚合均值对比(agricultural 24.1 vs e-waste 8.4 ng/g; Cu 414 vs 59.4 μg/g)。原始采样点级数据在supplementary data(Table S1)中，不在paper.md解析范围内。无采样点级HM+OP浓度可提取"

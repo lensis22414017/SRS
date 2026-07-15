@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06120,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"skip: paper.md truncated at 32 lines (4556 bytes) - only title/abstract/partial intro parsed; no data tables with sample-level PCB/PBDE concentrations available; abstract only reports average (stat summary) values: P25PCBs avg=163 pg/g and P13PBDEs avg=26 pg/g which are Mean rows and must be rejected per rules"

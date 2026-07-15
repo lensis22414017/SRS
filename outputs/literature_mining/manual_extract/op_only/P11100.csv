@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11100,,SKIP,,,,,,"仅区域汇总统计(Min/Max/Average/group mean)，无采样点级数据; Table S2(重金属和PBDEs各采样点浓度)未由MinerU解析至paper.md; 伴生论文Table 1为n=42的Min/Max/Average统计汇总"

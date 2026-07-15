@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07175,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"skip: 论文主题为PFOS/PFOA(PFAS)污染途径释放估算建模，非目标OP污染物(PAH/PCB/DDT/HCH/PBDE/石油烃/抗生素/PAEs/OCPs)；无采样点级土壤实测数据，仅有模型估算和其他文献引用的水体浓度"

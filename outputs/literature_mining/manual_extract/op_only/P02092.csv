@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02092,,,,,,,,"skip: 纯模型模拟研究(ChnGIPERM)，无真实采样点级实测OP浓度数据。全文所有PCB28浓度为模型网格化输出(Fig.1-8空间分布图，非实测)。G1-G4为模型网格单元仅给出EF排放因子比值(式2，二次排放/二次残留)，非土壤实测浓度。监测对比仅引用其他研究(Jaward 2004/IJRC-PTS 2005/Hogarh 2008)的Pearson R相关系数，非本文采样数据。无任何表格列出采样点级PAH/PCB/DDT/HCH/PBDE实测数值"

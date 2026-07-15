@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_RA,Sum_PAH_ngg,481.83,Unknown,table_p7_ri17_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_RA,Phe_ngg,0.14,Unknown,table_p7_ri19_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_RA,Ant_ngg,0.14,Unknown,table_p7_ri19_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,

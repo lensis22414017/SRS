@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01189,,,,,,,,"skip: 水体分析方法开发论文(MSPE-HPLC for heterocyclic pesticides in environmental water samples); 分析对象为水库水和黄河水(Qianhan Reservoir/Nuocheng Reservoir/Yellow River)全部为水体非土壤; 目标农药(carbendazim/triadimefon/chlorfenapyr/fenpyroximate)不在OP目标污染物清单(PAH/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAEs/OCPs); Table3中所有实际水样未检出(ND)目标农药仅spike回收率数据; 无采样点级土壤浓度数据"

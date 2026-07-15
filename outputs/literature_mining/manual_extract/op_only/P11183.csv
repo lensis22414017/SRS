@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11183,,,,,,,,Liaoning,skip: 表3-3只给出5个采样点(G05/G30/G38/G51/G15)各10深度层的PAHs范围值(min~max)非单层精确浓度属统计汇总剔除; 无HM数据; 地下水PAHs矩阵为water非soil; 无采样点级土壤浓度数据可提取

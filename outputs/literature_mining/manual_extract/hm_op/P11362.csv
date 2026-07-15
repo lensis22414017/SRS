@@ -1,0 +1,32 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P11362,1,Sum_PAH_ngg,247520,ng/g,Table 2.5,soil,coking,Beijing,TPAHs×1000; 16 USEPA PAHs求和; 0m surf 0-20cm,39.8544,116.5286
+P11362,2,Sum_PAH_ngg,4545880,ng/g,Table 2.5,soil,coking,Beijing,TPAHs×1000; 16 USEPA PAHs求和; 0m 40-70cm,39.8544,116.5286
+P11362,3,Sum_PAH_ngg,327590,ng/g,Table 2.5,soil,coking,Beijing,TPAHs×1000; 16 USEPA PAHs求和; 0m 70-100cm,39.8544,116.5286
+P11362,4,Sum_PAH_ngg,394860,ng/g,Table 2.5,soil,coking,Beijing,TPAHs×1000; 16 USEPA PAHs求和; 0m 100-120cm,39.8544,116.5286
+P11362,5,Sum_PAH_ngg,190220,ng/g,Table 2.5,soil,coking,Beijing,TPAHs×1000; 16 USEPA PAHs求和; 50m surf 0-20cm,39.8544,116.5286
+P11362,6,Sum_PAH_ngg,2062320,ng/g,Table 2.5,soil,coking,Beijing,TPAHs×1000; 16 USEPA PAHs求和; 50m 40-70cm,39.8544,116.5286
+P11362,7,Sum_PAH_ngg,96570,ng/g,Table 2.5,soil,coking,Beijing,TPAHs×1000; 16 USEPA PAHs求和; 50m 70-100cm,39.8544,116.5286
+P11362,8,Sum_PAH_ngg,47170,ng/g,Table 2.5,soil,coking,Beijing,TPAHs×1000; 16 USEPA PAHs求和; 50m 100-120cm,39.8544,116.5286
+P11362,9,Sum_PAH_ngg,1207000,ng/g,Table 2.5,soil,coking,Beijing,TPAHs×1000; 16 USEPA PAHs求和; 100m surf 0-20cm,39.8544,116.5286
+P11362,10,Sum_PAH_ngg,634850,ng/g,Table 2.5,soil,coking,Beijing,TPAHs×1000; 16 USEPA PAHs求和; 100m 40-70cm,39.8544,116.5286
+P11362,11,Sum_PAH_ngg,799410,ng/g,Table 2.5,soil,coking,Beijing,TPAHs×1000; 16 USEPA PAHs求和; 100m 70-100cm,39.8544,116.5286
+P11362,12,Sum_PAH_ngg,1053900,ng/g,Table 2.5,soil,coking,Beijing,TPAHs×1000; 16 USEPA PAHs求和; 100m 100-120cm,39.8544,116.5286
+P11362,13,Sum_PAH_ngg,492620,ng/g,Table 2.5,soil,coking,Beijing,TPAHs×1000; 16 USEPA PAHs求和; 150m surf 0-20cm; HTML表格错位修正,39.8544,116.5286
+P11362,14,Sum_PAH_ngg,139890,ng/g,Table 2.5,soil,coking,Beijing,TPAHs×1000; 16 USEPA PAHs求和; 150m 40-70cm; HTML表格错位修正,39.8544,116.5286
+P11362,15,Sum_PAH_ngg,132400,ng/g,Table 2.5,soil,coking,Beijing,TPAHs×1000; 16 USEPA PAHs求和; 150m 70-100cm; HTML表格错位修正,39.8544,116.5286
+P11362,16,Sum_PAH_ngg,51520,ng/g,Table 2.5,soil,coking,Beijing,TPAHs×1000; 16 USEPA PAHs求和; 150m 100-120cm; HTML表格错位修正,39.8544,116.5286
+P11362,17,Sum_PAH_ngg,357630,ng/g,Table 2.5,soil,coking,Beijing,TPAHs×1000; 16 USEPA PAHs求和; 200m surf 0-20cm,39.8544,116.5286
+P11362,18,Sum_PAH_ngg,175580,ng/g,Table 2.5,soil,coking,Beijing,TPAHs×1000; 16 USEPA PAHs求和; 200m 40-70cm,39.8544,116.5286
+P11362,19,Sum_PAH_ngg,114300,ng/g,Table 2.5,soil,coking,Beijing,TPAHs×1000; 16 USEPA PAHs求和; 200m 70-100cm,39.8544,116.5286
+P11362,20,Sum_PAH_ngg,11690,ng/g,Table 2.5,soil,coking,Beijing,TPAHs×1000; 16 USEPA PAHs求和; 200m 100-120cm,39.8544,116.5286
+P11362,1,Pb_mgkg,245.83,mg/kg,正文§2.3.2,soil,coking,Beijing,表层0m边界点实测; 0-20cm,39.8544,116.5286
+P11362,1,Cr_mgkg,169.60,mg/kg,正文§2.3.2,soil,coking,Beijing,表层0m边界点实测; 0-20cm,39.8544,116.5286
+P11362,1,As_mgkg,19.65,mg/kg,正文§2.3.2,soil,coking,Beijing,表层0m边界点实测; 0-20cm,39.8544,116.5286
+P11362,1,Cd_mgkg,0.43,mg/kg,正文§2.3.2,soil,coking,Beijing,表层0m边界点实测; 0-20cm,39.8544,116.5286
+P11362,1,Hg_mgkg,0.18,mg/kg,正文§2.3.2,soil,coking,Beijing,表层0m边界点实测; 0-20cm,39.8544,116.5286
+P11362,17,Pb_mgkg,129.40,mg/kg,正文§2.3.2,soil,coking,Beijing,表层200m边界点实测; 0-20cm,39.8544,116.5286
+P11362,17,Cr_mgkg,82.47,mg/kg,正文§2.3.2,soil,coking,Beijing,表层200m边界点实测; 0-20cm,39.8544,116.5286
+P11362,17,As_mgkg,10.74,mg/kg,正文§2.3.2,soil,coking,Beijing,表层200m边界点实测; 0-20cm,39.8544,116.5286
+P11362,17,Cd_mgkg,0.31,mg/kg,正文§2.3.2,soil,coking,Beijing,表层200m边界点实测; 0-20cm,39.8544,116.5286
+P11362,17,Hg_mgkg,0.15,mg/kg,正文§2.3.2,soil,coking,Beijing,表层200m边界点实测; 0-20cm,39.8544,116.5286
+P11362,2,BaP_ngg,271040,ng/g,正文§2.3.1,soil,coking,Beijing,BaP单体实测; 0m 40-70cm; mg/kg×1000,39.8544,116.5286

@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P05771,Site A,Sum_PAH_ngg,1083,ng/g,Table 2,soil,agricultural,Tianjin,16 EPA PAH单体求和(Nap+Any+Ane+Fle+Phe+Ant+Fla+Pyr+Baa+Chr+Bbf+Bkf+Bap)，I1p/Daa/Bpe为N.d.计0，与Table2 PAH16列一致。Site A=西青区Dangchen，无污水灌溉，4子样混合composite bulk soil 0-20cm,39.1343,116.9484
+P05771,Site A,BaP_ngg,41.0,ng/g,Table 2,soil,agricultural,Tianjin,Table2直接读取Bap列,39.1343,116.9484
+P05771,Site B,Sum_PAH_ngg,6248,ng/g,Table 2,soil,agricultural,Tianjin,16 EPA PAH全部检出求和(Nap+Any+Ane+Fle+Phe+Ant+Fla+Pyr+Baa+Chr+Bbf+Bkf+Bap+I1p+Daa+Bpe)，与Table2 PAH16列一致。Site B=西青区Dengdian，紧邻城区污水灌溉40+年,39.1338,117.1348
+P05771,Site B,BaP_ngg,331.7,ng/g,Table 2,soil,agricultural,Tianjin,Table2直接读取Bap列,39.1338,117.1348

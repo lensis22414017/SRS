@@ -1,0 +1,348 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,Nap_ngg,243.1,Unknown,,high,table_p25_ri1_ci1,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Nap_ngg,322.5,Unknown,,high,table_p25_ri1_ci2,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Nap_ngg,609.1,Unknown,,high,table_p25_ri1_ci3,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_s105,s105,Nap_ngg,301.1,Unknown,,high,table_p25_ri1_ci4,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Nap_ngg,673.8,Unknown,,high,table_p25_ri1_ci5,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Nap_ngg,414.7,Unknown,,high,table_p25_ri1_ci6,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Nap_ngg,579.3,Unknown,,high,table_p25_ri1_ci7,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_c.v_$\%_^_{_\mathrm_{_a_}_}$,c.v $\% ^ { \mathrm { a } }$,Nap_ngg,38.0,Unknown,,high,table_p25_ri1_ci9,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_$\overline_{_{_\mathrm_{_C_G_}_^_{_\mathrm_{_b_}_}_}_}$,$\overline { { \mathrm { C G } ^ { \mathrm { b } } } }$,Nap_ngg,97.3,Unknown,,high,table_p25_ri1_ci10,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,Ace_ngg,14.1,Unknown,,high,table_p25_ri2_ci1,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Ace_ngg,17.2,Unknown,,high,table_p25_ri2_ci2,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Ace_ngg,35.2,Unknown,,high,table_p25_ri2_ci3,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_s105,s105,Ace_ngg,16.3,Unknown,,high,table_p25_ri2_ci4,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Ace_ngg,38.3,Unknown,,high,table_p25_ri2_ci5,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Ace_ngg,26.7,Unknown,,high,table_p25_ri2_ci6,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Ace_ngg,28.3,Unknown,,high,table_p25_ri2_ci7,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_c.v_$\%_^_{_\mathrm_{_a_}_}$,c.v $\% ^ { \mathrm { a } }$,Ace_ngg,38.0,Unknown,,high,table_p25_ri2_ci9,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_$\overline_{_{_\mathrm_{_C_G_}_^_{_\mathrm_{_b_}_}_}_}$,$\overline { { \mathrm { C G } ^ { \mathrm { b } } } }$,Ace_ngg,6.4,Unknown,,high,table_p25_ri2_ci10,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,Acy_ngg,135.7,Unknown,,high,table_p25_ri3_ci1,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Acy_ngg,637.2,Unknown,,high,table_p25_ri3_ci2,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Acy_ngg,367.0,Unknown,,high,table_p25_ri3_ci3,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_s105,s105,Acy_ngg,672.2,Unknown,,high,table_p25_ri3_ci4,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Acy_ngg,337.1,Unknown,,high,table_p25_ri3_ci5,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Acy_ngg,542.1,Unknown,,high,table_p25_ri3_ci6,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Acy_ngg,563.7,Unknown,,high,table_p25_ri3_ci7,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_c.v_$\%_^_{_\mathrm_{_a_}_}$,c.v $\% ^ { \mathrm { a } }$,Acy_ngg,41.0,Unknown,,high,table_p25_ri3_ci9,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_$\overline_{_{_\mathrm_{_C_G_}_^_{_\mathrm_{_b_}_}_}_}$,$\overline { { \mathrm { C G } ^ { \mathrm { b } } } }$,Acy_ngg,108.1,Unknown,,high,table_p25_ri3_ci10,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,Phe_ngg,179.6,Unknown,,high,table_p25_ri5_ci1,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Phe_ngg,191.3,Unknown,,high,table_p25_ri5_ci2,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Phe_ngg,203.0,Unknown,,high,table_p25_ri5_ci3,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_s105,s105,Phe_ngg,217.3,Unknown,,high,table_p25_ri5_ci4,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Phe_ngg,239.7,Unknown,,high,table_p25_ri5_ci5,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Phe_ngg,372.9,Unknown,,high,table_p25_ri5_ci6,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Phe_ngg,338.9,Unknown,,high,table_p25_ri5_ci7,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_c.v_$\%_^_{_\mathrm_{_a_}_}$,c.v $\% ^ { \mathrm { a } }$,Phe_ngg,30.0,Unknown,,high,table_p25_ri5_ci9,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_$\overline_{_{_\mathrm_{_C_G_}_^_{_\mathrm_{_b_}_}_}_}$,$\overline { { \mathrm { C G } ^ { \mathrm { b } } } }$,Phe_ngg,33.5,Unknown,,high,table_p25_ri5_ci10,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,Ant_ngg,196.7,Unknown,,high,table_p25_ri6_ci1,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Ant_ngg,239.9,Unknown,,high,table_p25_ri6_ci2,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Ant_ngg,508.1,Unknown,,high,table_p25_ri6_ci3,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_s105,s105,Ant_ngg,201.7,Unknown,,high,table_p25_ri6_ci4,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Ant_ngg,588.4,Unknown,,high,table_p25_ri6_ci5,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Ant_ngg,331.2,Unknown,,high,table_p25_ri6_ci6,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Ant_ngg,471.1,Unknown,,high,table_p25_ri6_ci7,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_c.v_$\%_^_{_\mathrm_{_a_}_}$,c.v $\% ^ { \mathrm { a } }$,Ant_ngg,44.0,Unknown,,high,table_p25_ri6_ci9,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_$\overline_{_{_\mathrm_{_C_G_}_^_{_\mathrm_{_b_}_}_}_}$,$\overline { { \mathrm { C G } ^ { \mathrm { b } } } }$,Ant_ngg,66.2,Unknown,,high,table_p25_ri6_ci10,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,Pyr_ngg,89.3,Unknown,,high,table_p25_ri8_ci1,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Pyr_ngg,72.1,Unknown,,high,table_p25_ri8_ci2,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Pyr_ngg,407.1,Unknown,,high,table_p25_ri8_ci3,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_s105,s105,Pyr_ngg,101.1,Unknown,,high,table_p25_ri8_ci4,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Pyr_ngg,498.7,Unknown,,high,table_p25_ri8_ci5,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Pyr_ngg,283.3,Unknown,,high,table_p25_ri8_ci6,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Pyr_ngg,259.6,Unknown,,high,table_p25_ri8_ci7,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_c.v_$\%_^_{_\mathrm_{_a_}_}$,c.v $\% ^ { \mathrm { a } }$,Pyr_ngg,68.0,Unknown,,high,table_p25_ri8_ci9,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_$\overline_{_{_\mathrm_{_C_G_}_^_{_\mathrm_{_b_}_}_}_}$,$\overline { { \mathrm { C G } ^ { \mathrm { b } } } }$,Pyr_ngg,31.2,Unknown,,high,table_p25_ri8_ci10,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,BaA_ngg,72.1,Unknown,,high,table_p25_ri9_ci1,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,BaA_ngg,67.2,Unknown,,high,table_p25_ri9_ci2,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,BaA_ngg,317.4,Unknown,,high,table_p25_ri9_ci3,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_s105,s105,BaA_ngg,48.6,Unknown,,high,table_p25_ri9_ci4,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,BaA_ngg,354.4,Unknown,,high,table_p25_ri9_ci5,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,BaA_ngg,107.3,Unknown,,high,table_p25_ri9_ci6,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,BaA_ngg,288.7,Unknown,,high,table_p25_ri9_ci7,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_c.v_$\%_^_{_\mathrm_{_a_}_}$,c.v $\% ^ { \mathrm { a } }$,BaA_ngg,75.0,Unknown,,high,table_p25_ri9_ci9,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_$\overline_{_{_\mathrm_{_C_G_}_^_{_\mathrm_{_b_}_}_}_}$,$\overline { { \mathrm { C G } ^ { \mathrm { b } } } }$,BaA_ngg,32.0,Unknown,,high,table_p25_ri9_ci10,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,Chr_ngg,308.1,Unknown,,high,table_p25_ri10_ci1,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Chr_ngg,393.3,Unknown,,high,table_p25_ri10_ci2,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Chr_ngg,128.1,Unknown,,high,table_p25_ri10_ci3,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_s105,s105,Chr_ngg,165.5,Unknown,,high,table_p25_ri10_ci4,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Chr_ngg,185.1,Unknown,,high,table_p25_ri10_ci5,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Chr_ngg,116.7,Unknown,,high,table_p25_ri10_ci6,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Chr_ngg,140.1,Unknown,,high,table_p25_ri10_ci7,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_c.v_$\%_^_{_\mathrm_{_a_}_}$,c.v $\% ^ { \mathrm { a } }$,Chr_ngg,51.0,Unknown,,high,table_p25_ri10_ci9,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_$\overline_{_{_\mathrm_{_C_G_}_^_{_\mathrm_{_b_}_}_}_}$,$\overline { { \mathrm { C G } ^ { \mathrm { b } } } }$,Chr_ngg,65.7,Unknown,,high,table_p25_ri10_ci10,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,BbF_ngg,51.2,Unknown,,high,table_p25_ri11_ci1,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,BbF_ngg,52.7,Unknown,,high,table_p25_ri11_ci2,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,BbF_ngg,261.7,Unknown,,high,table_p25_ri11_ci3,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_s105,s105,BbF_ngg,51.3,Unknown,,high,table_p25_ri11_ci4,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,BbF_ngg,273.2,Unknown,,high,table_p25_ri11_ci5,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,BbF_ngg,176.8,Unknown,,high,table_p25_ri11_ci6,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,BbF_ngg,97.8,Unknown,,high,table_p25_ri11_ci7,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_c.v_$\%_^_{_\mathrm_{_a_}_}$,c.v $\% ^ { \mathrm { a } }$,BbF_ngg,72.0,Unknown,,high,table_p25_ri11_ci9,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_$\overline_{_{_\mathrm_{_C_G_}_^_{_\mathrm_{_b_}_}_}_}$,$\overline { { \mathrm { C G } ^ { \mathrm { b } } } }$,BbF_ngg,65.0,Unknown,,high,table_p25_ri11_ci10,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,BkF_ngg,77.1,Unknown,,high,table_p25_ri12_ci1,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,BkF_ngg,166.8,Unknown,,high,table_p25_ri12_ci2,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,BkF_ngg,303.9,Unknown,,high,table_p25_ri12_ci3,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_s105,s105,BkF_ngg,70.9,Unknown,,high,table_p25_ri12_ci4,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,BkF_ngg,339.1,Unknown,,high,table_p25_ri12_ci5,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,BkF_ngg,165.5,Unknown,,high,table_p25_ri12_ci6,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,BkF_ngg,102.7,Unknown,,high,table_p25_ri12_ci7,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_c.v_$\%_^_{_\mathrm_{_a_}_}$,c.v $\% ^ { \mathrm { a } }$,BkF_ngg,61.0,Unknown,,high,table_p25_ri12_ci9,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_$\overline_{_{_\mathrm_{_C_G_}_^_{_\mathrm_{_b_}_}_}_}$,$\overline { { \mathrm { C G } ^ { \mathrm { b } } } }$,BkF_ngg,67.0,Unknown,,high,table_p25_ri12_ci10,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,BaP_ngg,70.3,Unknown,,high,table_p25_ri13_ci1,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,BaP_ngg,54.2,Unknown,,high,table_p25_ri13_ci2,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,BaP_ngg,108.2,Unknown,,high,table_p25_ri13_ci3,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_s105,s105,BaP_ngg,49.2,Unknown,,high,table_p25_ri13_ci4,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,BaP_ngg,118.7,Unknown,,high,table_p25_ri13_ci5,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,BaP_ngg,84.6,Unknown,,high,table_p25_ri13_ci6,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,BaP_ngg,99.8,Unknown,,high,table_p25_ri13_ci7,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_c.v_$\%_^_{_\mathrm_{_a_}_}$,c.v $\% ^ { \mathrm { a } }$,BaP_ngg,32.0,Unknown,,high,table_p25_ri13_ci9,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_$\overline_{_{_\mathrm_{_C_G_}_^_{_\mathrm_{_b_}_}_}_}$,$\overline { { \mathrm { C G } ^ { \mathrm { b } } } }$,BaP_ngg,11.7,Unknown,,high,table_p25_ri13_ci10,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,DahA_ngg,50.7,Unknown,,high,table_p25_ri14_ci1,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,DahA_ngg,164.4,Unknown,,high,table_p25_ri14_ci2,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,DahA_ngg,247.8,Unknown,,high,table_p25_ri14_ci3,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_s105,s105,DahA_ngg,77.4,Unknown,,high,table_p25_ri14_ci4,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,DahA_ngg,293.7,Unknown,,high,table_p25_ri14_ci5,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,DahA_ngg,233.4,Unknown,,high,table_p25_ri14_ci6,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,DahA_ngg,171.3,Unknown,,high,table_p25_ri14_ci7,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_c.v_$\%_^_{_\mathrm_{_a_}_}$,c.v $\% ^ { \mathrm { a } }$,DahA_ngg,51.0,Unknown,,high,table_p25_ri14_ci9,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_$\overline_{_{_\mathrm_{_C_G_}_^_{_\mathrm_{_b_}_}_}_}$,$\overline { { \mathrm { C G } ^ { \mathrm { b } } } }$,DahA_ngg,32.1,Unknown,,high,table_p25_ri14_ci10,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Ind_ngg,214.4,Unknown,,high,table_p25_ri15_ci3,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Ind_ngg,247.8,Unknown,,high,table_p25_ri15_ci5,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Ind_ngg,109.7,Unknown,,high,table_p25_ri15_ci6,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_c.v_$\%_^_{_\mathrm_{_a_}_}$,c.v $\% ^ { \mathrm { a } }$,Ind_ngg,38.0,Unknown,,high,table_p25_ri15_ci9,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,BghiP_ngg,35.4,Unknown,,high,table_p25_ri16_ci1,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_s105,s105,BghiP_ngg,76.4,Unknown,,high,table_p25_ri16_ci4,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,BghiP_ngg,93.7,Unknown,,high,table_p25_ri16_ci5,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_c.v_$\%_^_{_\mathrm_{_a_}_}$,c.v $\% ^ { \mathrm { a } }$,BghiP_ngg,44.0,Unknown,,high,table_p25_ri16_ci9,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,Sum_PAH_ngg,1572.4,Unknown,,high,table_p25_ri17_ci1,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Sum_PAH_ngg,2499.6,Unknown,,high,table_p25_ri17_ci2,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Sum_PAH_ngg,3820.3,Unknown,,high,table_p25_ri17_ci3,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_s105,s105,Sum_PAH_ngg,2149.0,Unknown,,high,table_p25_ri17_ci4,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Sum_PAH_ngg,4390.2,Unknown,,high,table_p25_ri17_ci5,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Sum_PAH_ngg,3023.9,Unknown,,high,table_p25_ri17_ci6,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Sum_PAH_ngg,3229.1,Unknown,,high,table_p25_ri17_ci7,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_c.v_$\%_^_{_\mathrm_{_a_}_}$,c.v $\% ^ { \mathrm { a } }$,Sum_PAH_ngg,33.0,Unknown,,high,table_p25_ri17_ci9,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_$\overline_{_{_\mathrm_{_C_G_}_^_{_\mathrm_{_b_}_}_}_}$,$\overline { { \mathrm { C G } ^ { \mathrm { b } } } }$,Sum_PAH_ngg,630.3,Unknown,,high,table_p25_ri17_ci10,Table 1 Average PAH concentrations in soils from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,Nap_ngg,20.8,Unknown,,high,table_p26_ri1_ci1,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Nap_ngg,35.7,Unknown,,high,table_p26_ri1_ci2,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Nap_ngg,59.7,Unknown,,high,table_p26_ri1_ci3,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,Nap_ngg,37.8,Unknown,,high,table_p26_ri1_ci4,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Nap_ngg,70.4,Unknown,,high,table_p26_ri1_ci5,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Nap_ngg,47.4,Unknown,,high,table_p26_ri1_ci6,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Nap_ngg,63.2,Unknown,,high,table_p26_ri1_ci7,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_C.V%,C.V%,Nap_ngg,37.0,Unknown,,high,table_p26_ri1_ci9,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_CG,CG,Nap_ngg,4.3,Unknown,,high,table_p26_ri1_ci10,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,Ace_ngg,2.8,Unknown,,high,table_p26_ri2_ci1,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Ace_ngg,2.6,Unknown,,high,table_p26_ri2_ci2,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Ace_ngg,5.6,Unknown,,high,table_p26_ri2_ci3,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,Ace_ngg,2.4,Unknown,,high,table_p26_ri2_ci4,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Ace_ngg,5.7,Unknown,,high,table_p26_ri2_ci5,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Ace_ngg,3.7,Unknown,,high,table_p26_ri2_ci6,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Ace_ngg,4.5,Unknown,,high,table_p26_ri2_ci7,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_C.V%,C.V%,Ace_ngg,36.0,Unknown,,high,table_p26_ri2_ci9,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_CG,CG,Ace_ngg,0.9,Unknown,,high,table_p26_ri2_ci10,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,Acy_ngg,14.3,Unknown,,high,table_p26_ri3_ci1,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Acy_ngg,64.6,Unknown,,high,table_p26_ri3_ci2,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Acy_ngg,54.7,Unknown,,high,table_p26_ri3_ci3,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,Acy_ngg,69.5,Unknown,,high,table_p26_ri3_ci4,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Acy_ngg,37.5,Unknown,,high,table_p26_ri3_ci5,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Acy_ngg,59.6,Unknown,,high,table_p26_ri3_ci6,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Acy_ngg,58.7,Unknown,,high,table_p26_ri3_ci7,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_C.V%,C.V%,Acy_ngg,37.0,Unknown,,high,table_p26_ri3_ci9,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_CG,CG,Acy_ngg,8.9,Unknown,,high,table_p26_ri3_ci10,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,Phe_ngg,26.2,Unknown,,high,table_p26_ri5_ci1,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Phe_ngg,46.9,Unknown,,high,table_p26_ri5_ci2,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Phe_ngg,30.4,Unknown,,high,table_p26_ri5_ci3,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,Phe_ngg,32.6,Unknown,,high,table_p26_ri5_ci4,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Phe_ngg,39.6,Unknown,,high,table_p26_ri5_ci5,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Phe_ngg,58.5,Unknown,,high,table_p26_ri5_ci6,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Phe_ngg,50.7,Unknown,,high,table_p26_ri5_ci7,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_C.V%,C.V%,Phe_ngg,29.0,Unknown,,high,table_p26_ri5_ci9,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_CG,CG,Phe_ngg,1.1,Unknown,,high,table_p26_ri5_ci10,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,Ant_ngg,3.1,Unknown,,high,table_p26_ri6_ci1,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Ant_ngg,6.4,Unknown,,high,table_p26_ri6_ci2,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Ant_ngg,13.2,Unknown,,high,table_p26_ri6_ci3,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,Ant_ngg,7.3,Unknown,,high,table_p26_ri6_ci4,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Ant_ngg,15.3,Unknown,,high,table_p26_ri6_ci5,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Ant_ngg,8.6,Unknown,,high,table_p26_ri6_ci6,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Ant_ngg,12.3,Unknown,,high,table_p26_ri6_ci7,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_C.V%,C.V%,Ant_ngg,46.0,Unknown,,high,table_p26_ri6_ci9,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,Pyr_ngg,34.7,Unknown,,high,table_p26_ri8_ci1,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Pyr_ngg,27.7,Unknown,,high,table_p26_ri8_ci2,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Pyr_ngg,138.7,Unknown,,high,table_p26_ri8_ci3,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,Pyr_ngg,36.6,Unknown,,high,table_p26_ri8_ci4,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Pyr_ngg,189.3,Unknown,,high,table_p26_ri8_ci5,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Pyr_ngg,94.6,Unknown,,high,table_p26_ri8_ci6,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Pyr_ngg,80.3,Unknown,,high,table_p26_ri8_ci7,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_C.V%,C.V%,Pyr_ngg,70.0,Unknown,,high,table_p26_ri8_ci9,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_CG,CG,Pyr_ngg,3.1,Unknown,,high,table_p26_ri8_ci10,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_C.V%,C.V%,Chr_ngg,1.0,Unknown,,high,table_p26_ri10_ci9,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_C.V%,C.V%,BkF_ngg,1.0,Unknown,,high,table_p26_ri12_ci9,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,DahA_ngg,1.6,Unknown,,high,table_p26_ri14_ci1,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,DahA_ngg,2.9,Unknown,,high,table_p26_ri14_ci2,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,DahA_ngg,2.8,Unknown,,high,table_p26_ri14_ci3,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,DahA_ngg,1.8,Unknown,,high,table_p26_ri14_ci4,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,DahA_ngg,1.7,Unknown,,high,table_p26_ri14_ci5,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,DahA_ngg,1.0,Unknown,,high,table_p26_ri14_ci6,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,DahA_ngg,1.5,Unknown,,high,table_p26_ri14_ci7,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_C.V%,C.V%,DahA_ngg,37.0,Unknown,,high,table_p26_ri14_ci9,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Ind_ngg,47.1,Unknown,,high,table_p26_ri15_ci3,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Ind_ngg,39.4,Unknown,,high,table_p26_ri15_ci5,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Ind_ngg,36.7,Unknown,,high,table_p26_ri15_ci6,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_C.V%,C.V%,Ind_ngg,54.0,Unknown,,high,table_p26_ri15_ci9,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,BghiP_ngg,163.4,Unknown,,high,table_p26_ri16_ci1,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,BghiP_ngg,213.1,Unknown,,high,table_p26_ri16_ci4,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,BghiP_ngg,205.7,Unknown,,high,table_p26_ri16_ci5,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_C.V%,C.V%,BghiP_ngg,54.0,Unknown,,high,table_p26_ri16_ci9,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S102,S102,Sum_PAH_ngg,276.7,Unknown,,high,table_p26_ri17_ci1,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Sum_PAH_ngg,219.9,Unknown,,high,table_p26_ri17_ci2,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Sum_PAH_ngg,375.1,Unknown,,high,table_p26_ri17_ci3,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,Sum_PAH_ngg,420.2,Unknown,,high,table_p26_ri17_ci4,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Sum_PAH_ngg,627.0,Unknown,,high,table_p26_ri17_ci5,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Sum_PAH_ngg,324.1,Unknown,,high,table_p26_ri17_ci6,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Sum_PAH_ngg,291.1,Unknown,,high,table_p26_ri17_ci7,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_C.V%,C.V%,Sum_PAH_ngg,37.0,Unknown,,high,table_p26_ri17_ci9,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_CG,CG,Sum_PAH_ngg,19.5,Unknown,,high,table_p26_ri17_ci10,Table 2 Average PAH concentrations in corn from 7 main roadsides,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_soil_PAH,soil PAH,Nap_ngg,449.09,Unknown,,high,table_p27_ri1_ci1,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_corn_PAH,corn PAH,Nap_ngg,47.86,Unknown,,high,table_p27_ri1_ci2,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_PCF,PCF,Nap_ngg,0.11,Unknown,,high,table_p27_ri1_ci3,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_soil_PAH,soil PAH,Ace_ngg,25.16,Unknown,,high,table_p27_ri2_ci1,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_corn_PAH,corn PAH,Ace_ngg,3.9,Unknown,,high,table_p27_ri2_ci2,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_PCF,PCF,Ace_ngg,0.16,Unknown,,high,table_p27_ri2_ci3,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_soil_PAH,soil PAH,Acy_ngg,465.0,Unknown,,high,table_p27_ri3_ci1,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_corn_PAH,corn PAH,Acy_ngg,51.27,Unknown,,high,table_p27_ri3_ci2,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_PCF,PCF,Acy_ngg,0.11,Unknown,,high,table_p27_ri3_ci3,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_soil_PAH,soil PAH,Phe_ngg,248.96,Unknown,,high,table_p27_ri5_ci1,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_corn_PAH,corn PAH,Phe_ngg,40.71,Unknown,,high,table_p27_ri5_ci2,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_PCF,PCF,Phe_ngg,0.16,Unknown,,high,table_p27_ri5_ci3,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_soil_PAH,soil PAH,Ant_ngg,362.44,Unknown,,high,table_p27_ri6_ci1,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_corn_PAH,corn PAH,Ant_ngg,9.46,Unknown,,high,table_p27_ri6_ci2,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_PCF,PCF,Ant_ngg,0.03,Unknown,,high,table_p27_ri6_ci3,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_soil_PAH,soil PAH,Pyr_ngg,244.46,Unknown,,high,table_p27_ri8_ci1,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_corn_PAH,corn PAH,Pyr_ngg,85.99,Unknown,,high,table_p27_ri8_ci2,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_PCF,PCF,Pyr_ngg,0.35,Unknown,,high,table_p27_ri8_ci3,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_soil_PAH,soil PAH,BaA_ngg,179.39,Unknown,,high,table_p27_ri9_ci1,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_PCF,PCF,BaA_ngg,1.0,Unknown,,high,table_p27_ri9_ci3,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_soil_PAH,soil PAH,Chr_ngg,205.27,Unknown,,high,table_p27_ri10_ci1,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_soil_PAH,soil PAH,BbF_ngg,137.81,Unknown,,high,table_p27_ri11_ci1,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_corn_PAH,corn PAH,BbF_ngg,1.0,Unknown,,high,table_p27_ri11_ci2,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_soil_PAH,soil PAH,BkF_ngg,175.14,Unknown,,high,table_p27_ri12_ci1,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_corn_PAH,corn PAH,BkF_ngg,1.0,Unknown,,high,table_p27_ri12_ci2,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_soil_PAH,soil PAH,BaP_ngg,83.57,Unknown,,high,table_p27_ri13_ci1,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_soil_PAH,soil PAH,DahA_ngg,176.96,Unknown,,high,table_p27_ri14_ci1,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_corn_PAH,corn PAH,DahA_ngg,1.9,Unknown,,high,table_p27_ri14_ci2,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_PCF,PCF,DahA_ngg,0.01,Unknown,,high,table_p27_ri14_ci3,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_soil_PAH,soil PAH,Ind_ngg,190.63,Unknown,,high,table_p27_ri15_ci1,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_corn_PAH,corn PAH,Ind_ngg,41.07,Unknown,,high,table_p27_ri15_ci2,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_PCF,PCF,Ind_ngg,0.22,Unknown,,high,table_p27_ri15_ci3,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_soil_PAH,soil PAH,BghiP_ngg,68.5,Unknown,,high,table_p27_ri16_ci1,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_corn_PAH,corn PAH,BghiP_ngg,194.07,Unknown,,high,table_p27_ri16_ci2,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_PCF,PCF,BghiP_ngg,2.83,Unknown,,high,table_p27_ri16_ci3,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_soil_PAH,soil PAH,Sum_PAH_ngg,2954.9,Unknown,,high,table_p27_ri17_ci1,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_corn_PAH,corn PAH,Sum_PAH_ngg,362.01,Unknown,,high,table_p27_ri17_ci2,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_PCF,PCF,Sum_PAH_ngg,0.12,Unknown,,high,table_p27_ri17_ci3,Table 3 Values of PCF of PAHs in corn and soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Nap_ngg,2.81,Unknown,,high,table_p28_ri2_ci2,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Ace_ngg,10.4,Unknown,,high,table_p28_ri2_ci3,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Acy_ngg,6.15,Unknown,,high,table_p28_ri2_ci4,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Phe_ngg,7.84,Unknown,,high,table_p28_ri2_ci6,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Ant_ngg,23.4,Unknown,,high,table_p28_ri2_ci7,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Pyr_ngg,1.0,Unknown,,high,table_p28_ri2_ci9,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Nap_ngg,5.75,Unknown,,high,table_p28_ri3_ci2,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Ace_ngg,5.99,Unknown,,high,table_p28_ri3_ci3,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Acy_ngg,7.23,Unknown,,high,table_p28_ri3_ci4,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Phe_ngg,16.6,Unknown,,high,table_p28_ri3_ci6,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Ant_ngg,19.6,Unknown,,high,table_p28_ri3_ci7,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Pyr_ngg,1.0,Unknown,,high,table_p28_ri3_ci9,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,Nap_ngg,2.66,Unknown,,high,table_p28_ri4_ci2,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,Ace_ngg,11.0,Unknown,,high,table_p28_ri4_ci3,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,Acy_ngg,4.83,Unknown,,high,table_p28_ri4_ci4,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,Phe_ngg,6.59,Unknown,,high,table_p28_ri4_ci6,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,Ant_ngg,19.7,Unknown,,high,table_p28_ri4_ci7,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,Pyr_ngg,2.5,Unknown,,high,table_p28_ri4_ci9,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Nap_ngg,6.26,Unknown,,high,table_p28_ri5_ci2,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Ace_ngg,5.51,Unknown,,high,table_p28_ri5_ci3,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Acy_ngg,8.33,Unknown,,high,table_p28_ri5_ci4,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Phe_ngg,19.2,Unknown,,high,table_p28_ri5_ci6,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Ant_ngg,18.3,Unknown,,high,table_p28_ri5_ci7,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Pyr_ngg,3.06,Unknown,,high,table_p28_ri5_ci9,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Nap_ngg,4.36,Unknown,,high,table_p28_ri6_ci2,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Ace_ngg,8.85,Unknown,,high,table_p28_ri6_ci3,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Acy_ngg,4.83,Unknown,,high,table_p28_ri6_ci4,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Phe_ngg,10.8,Unknown,,high,table_p28_ri6_ci6,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Ant_ngg,9.63,Unknown,,high,table_p28_ri6_ci7,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Pyr_ngg,1.0,Unknown,,high,table_p28_ri6_ci9,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Nap_ngg,4.62,Unknown,,high,table_p28_ri7_ci2,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Ace_ngg,9.21,Unknown,,high,table_p28_ri7_ci3,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Acy_ngg,5.76,Unknown,,high,table_p28_ri7_ci4,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Phe_ngg,15.4,Unknown,,high,table_p28_ri7_ci6,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Ant_ngg,15.8,Unknown,,high,table_p28_ri7_ci7,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Pyr_ngg,1.0,Unknown,,high,table_p28_ri7_ci9,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_Dermal,Dermal,Nap_ngg,5.35,Unknown,,high,table_p28_ri8_ci2,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_Dermal,Dermal,Ace_ngg,2.07,Unknown,,high,table_p28_ri8_ci3,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_Dermal,Dermal,Acy_ngg,1.99,Unknown,,high,table_p28_ri8_ci4,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_Dermal,Dermal,Phe_ngg,5.27,Unknown,,high,table_p28_ri8_ci6,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_Dermal,Dermal,Ant_ngg,5.77,Unknown,,high,table_p28_ri8_ci7,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_Dermal,Dermal,Pyr_ngg,2.62,Unknown,,high,table_p28_ri8_ci9,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Nap_ngg,2.52,Unknown,,high,table_p28_ri9_ci2,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Ace_ngg,9.35,Unknown,,high,table_p28_ri9_ci3,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Acy_ngg,5.52,Unknown,,high,table_p28_ri9_ci4,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Phe_ngg,7.04,Unknown,,high,table_p28_ri9_ci6,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Ant_ngg,21.1,Unknown,,high,table_p28_ri9_ci7,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S104,S104,Pyr_ngg,1.0,Unknown,,high,table_p28_ri9_ci9,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Nap_ngg,5.16,Unknown,,high,table_p28_ri10_ci2,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Ace_ngg,5.38,Unknown,,high,table_p28_ri10_ci3,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Acy_ngg,6.49,Unknown,,high,table_p28_ri10_ci4,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Phe_ngg,14.9,Unknown,,high,table_p28_ri10_ci6,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Ant_ngg,17.6,Unknown,,high,table_p28_ri10_ci7,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S26,S26,Pyr_ngg,1.0,Unknown,,high,table_p28_ri10_ci9,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,Nap_ngg,2.39,Unknown,,high,table_p28_ri11_ci2,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,Ace_ngg,9.86,Unknown,,high,table_p28_ri11_ci3,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,Acy_ngg,4.33,Unknown,,high,table_p28_ri11_ci4,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,Phe_ngg,5.92,Unknown,,high,table_p28_ri11_ci6,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,Ant_ngg,17.7,Unknown,,high,table_p28_ri11_ci7,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S105,S105,Pyr_ngg,2.24,Unknown,,high,table_p28_ri11_ci9,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Nap_ngg,5.62,Unknown,,high,table_p28_ri12_ci2,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Ace_ngg,4.94,Unknown,,high,table_p28_ri12_ci3,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Acy_ngg,7.48,Unknown,,high,table_p28_ri12_ci4,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Phe_ngg,17.3,Unknown,,high,table_p28_ri12_ci6,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Ant_ngg,16.4,Unknown,,high,table_p28_ri12_ci7,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S106,S106,Pyr_ngg,2.75,Unknown,,high,table_p28_ri12_ci9,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Nap_ngg,3.92,Unknown,,high,table_p28_ri13_ci2,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Ace_ngg,7.95,Unknown,,high,table_p28_ri13_ci3,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Acy_ngg,4.33,Unknown,,high,table_p28_ri13_ci4,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Phe_ngg,9.72,Unknown,,high,table_p28_ri13_ci6,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_G12,G12,Ant_ngg,8.65,Unknown,,high,table_p28_ri13_ci7,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Nap_ngg,4.15,Unknown,,high,table_p28_ri14_ci2,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Ace_ngg,8.27,Unknown,,high,table_p28_ri14_ci3,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Acy_ngg,5.17,Unknown,,high,table_p28_ri14_ci4,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Phe_ngg,13.8,Unknown,,high,table_p28_ri14_ci6,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S101,S101,Ant_ngg,14.1,Unknown,,high,table_p28_ri14_ci7,Table 4 Non-carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S8,S8,BaA_ngg,1.52,Unknown,,high,table_p29_ri8_ci2,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S8,S8,BbF_ngg,1.08,Unknown,,high,table_p29_ri8_ci4,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S8,S8,BkF_ngg,1.62,Unknown,,high,table_p29_ri8_ci5,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S8,S8,BaP_ngg,1.48,Unknown,,high,table_p29_ri8_ci6,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S9,S9,BaA_ngg,1.41,Unknown,,high,table_p29_ri9_ci2,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S9,S9,BbF_ngg,1.11,Unknown,,high,table_p29_ri9_ci4,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S9,S9,BkF_ngg,3.51,Unknown,,high,table_p29_ri9_ci5,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S9,S9,BaP_ngg,1.14,Unknown,,high,table_p29_ri9_ci6,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_Dermal,Dermal,BaA_ngg,6.67,Unknown,,high,table_p29_ri10_ci2,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_Dermal,Dermal,BbF_ngg,5.5,Unknown,,high,table_p29_ri10_ci4,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_Dermal,Dermal,BkF_ngg,6.39,Unknown,,high,table_p29_ri10_ci5,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_Dermal,Dermal,BaP_ngg,2.27,Unknown,,high,table_p29_ri10_ci6,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S11,S11,BaA_ngg,1.02,Unknown,,high,table_p29_ri11_ci2,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S11,S11,BbF_ngg,1.08,Unknown,,high,table_p29_ri11_ci4,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S11,S11,BkF_ngg,1.49,Unknown,,high,table_p29_ri11_ci5,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S11,S11,BaP_ngg,1.03,Unknown,,high,table_p29_ri11_ci6,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S12,S12,BaA_ngg,7.45,Unknown,,high,table_p29_ri12_ci2,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S12,S12,BbF_ngg,5.74,Unknown,,high,table_p29_ri12_ci4,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S12,S12,BkF_ngg,7.13,Unknown,,high,table_p29_ri12_ci5,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S12,S12,BaP_ngg,2.5,Unknown,,high,table_p29_ri12_ci6,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S13,S13,BaA_ngg,2.26,Unknown,,high,table_p29_ri13_ci2,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S13,S13,BbF_ngg,3.72,Unknown,,high,table_p29_ri13_ci4,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S13,S13,BkF_ngg,3.48,Unknown,,high,table_p29_ri13_ci5,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S13,S13,BaP_ngg,1.78,Unknown,,high,table_p29_ri13_ci6,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S14,S14,BaA_ngg,6.07,Unknown,,high,table_p29_ri14_ci2,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S14,S14,BbF_ngg,2.06,Unknown,,high,table_p29_ri14_ci4,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S14,S14,BkF_ngg,2.16,Unknown,,high,table_p29_ri14_ci5,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14
+70637_10807039.2015.1104627,70637_10807039.2015.1104627_S14,S14,BaP_ngg,2.1,Unknown,,high,table_p29_ri14_ci6,Table 5 Carcinogenic risk of PAHs in soils,,,,,,phase14

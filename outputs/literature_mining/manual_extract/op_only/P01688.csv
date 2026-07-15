@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01688,,,,,,soil,agricultural,Heilongjiang/Hebei,"skip: 采样点级DBP/DEHP数据仅在Fig.2柱状图中(图号c6926212缺失于parsed/images目录), 正文Section 3.1仅提供range和average统计汇总(如Handan DBP 3.18-29.37 mg/kg avg 14.06; Harbin DBP 2.75-14.62 mg/kg avg 7.60), 无任何表格含个体采样点浓度值; Table1为土壤理化性质, Table2为lab spiked实验degradation kinetics(剔除); 需OCR Fig.2获取site×field-type级数值"

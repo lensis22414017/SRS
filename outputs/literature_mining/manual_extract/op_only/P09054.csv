@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09054,,,,"","Table 2/Table 3",soil,urban,Liaoning,"skip: 论文仅提供21个样本的统计汇总(Min/Max/Mean/SD)，Table 2为PAH单体及∑PAHs的Min/Max/Mean/SD，Table 3为PCB单体及∑PCBs的Min/Max/Mean/SD，无采样点级浓度数据；空间分布(Fig.2)为图片无法提取数值；Table 4/5为LADD/ILCR风险指数"

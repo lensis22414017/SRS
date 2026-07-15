@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09555,,,,,,,,,"skip: 实验室电芬顿水处理实验(MIL-101(Fe)/CNT过滤器降解四环素)，非土壤采样研究。论文全程水相降解实验(degradation×49/removal×15/tetracycline×14)，无任何土壤/沉积物采样点数据(soil=0/sediment=0/mg·kg=0/ng·g=0)。属于水体修复实验，不符合真实场地土壤实测数据提取标准。"

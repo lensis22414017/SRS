@@ -1,0 +1,21 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+72418_j.envpol.2014.08.024,72418_j.envpol.2014.08.024_GBW07412b,GBW07412b,OM_pct,10.0,Unknown,,high,table_p3_ri1_ci2,Chemical analysis and induction ratio of standard soil (GBW07412a) and soils from a Cr slag storage site in Liaoning.
+72418_j.envpol.2014.08.024,72418_j.envpol.2014.08.024_GBW07412b,GBW07412b,CEC_cmolkg,21.6,Unknown,,high,table_p3_ri1_ci3,Chemical analysis and induction ratio of standard soil (GBW07412a) and soils from a Cr slag storage site in Liaoning.
+72418_j.envpol.2014.08.024,72418_j.envpol.2014.08.024_GBW07412b,GBW07412b,pH,6.8,Unknown,,high,table_p3_ri1_ci4,Chemical analysis and induction ratio of standard soil (GBW07412a) and soils from a Cr slag storage site in Liaoning.
+72418_j.envpol.2014.08.024,72418_j.envpol.2014.08.024_SY01,SY01,OM_pct,18.8,Unknown,,high,table_p3_ri2_ci2,Chemical analysis and induction ratio of standard soil (GBW07412a) and soils from a Cr slag storage site in Liaoning.
+72418_j.envpol.2014.08.024,72418_j.envpol.2014.08.024_SY01,SY01,CEC_cmolkg,36.8,Unknown,,high,table_p3_ri2_ci3,Chemical analysis and induction ratio of standard soil (GBW07412a) and soils from a Cr slag storage site in Liaoning.
+72418_j.envpol.2014.08.024,72418_j.envpol.2014.08.024_SY01,SY01,pH,8.8,Unknown,,high,table_p3_ri2_ci4,Chemical analysis and induction ratio of standard soil (GBW07412a) and soils from a Cr slag storage site in Liaoning.
+72418_j.envpol.2014.08.024,72418_j.envpol.2014.08.024_SY01,SY01,Cr_mgkg,20.85,Unknown,,high,table_p3_ri2_ci5,Chemical analysis and induction ratio of standard soil (GBW07412a) and soils from a Cr slag storage site in Liaoning.
+72418_j.envpol.2014.08.024,72418_j.envpol.2014.08.024_SY02,SY02,OM_pct,24.9,Unknown,,high,table_p3_ri3_ci2,Chemical analysis and induction ratio of standard soil (GBW07412a) and soils from a Cr slag storage site in Liaoning.
+72418_j.envpol.2014.08.024,72418_j.envpol.2014.08.024_SY02,SY02,CEC_cmolkg,21.1,Unknown,,high,table_p3_ri3_ci3,Chemical analysis and induction ratio of standard soil (GBW07412a) and soils from a Cr slag storage site in Liaoning.
+72418_j.envpol.2014.08.024,72418_j.envpol.2014.08.024_SY02,SY02,pH,9.3,Unknown,,high,table_p3_ri3_ci4,Chemical analysis and induction ratio of standard soil (GBW07412a) and soils from a Cr slag storage site in Liaoning.
+72418_j.envpol.2014.08.024,72418_j.envpol.2014.08.024_SY02,SY02,Cr_mgkg,524.0,Unknown,,high,table_p3_ri3_ci5,Chemical analysis and induction ratio of standard soil (GBW07412a) and soils from a Cr slag storage site in Liaoning.
+72418_j.envpol.2014.08.024,72418_j.envpol.2014.08.024_SL02,SL02,BaP_ngg,0.04,Unknown,,high,table_p4_ri2_ci4,Chemical analysis and induction ratio of soil sample from Shengli Oil Field.
+72418_j.envpol.2014.08.024,72418_j.envpol.2014.08.024_SL02,SL02,Sum_PAH_ngg,0.151,Unknown,,high,table_p4_ri2_ci5,Chemical analysis and induction ratio of soil sample from Shengli Oil Field.
+72418_j.envpol.2014.08.024,72418_j.envpol.2014.08.024_SL02,SL02,TotalPHC_mgkg,490.0,Unknown,,high,table_p4_ri2_ci6,Chemical analysis and induction ratio of soil sample from Shengli Oil Field.
+72418_j.envpol.2014.08.024,72418_j.envpol.2014.08.024_SL03,SL03,BaP_ngg,0.05,Unknown,,high,table_p4_ri3_ci4,Chemical analysis and induction ratio of soil sample from Shengli Oil Field.
+72418_j.envpol.2014.08.024,72418_j.envpol.2014.08.024_SL03,SL03,Sum_PAH_ngg,4.169,Unknown,,high,table_p4_ri3_ci5,Chemical analysis and induction ratio of soil sample from Shengli Oil Field.
+72418_j.envpol.2014.08.024,72418_j.envpol.2014.08.024_SL03,SL03,TotalPHC_mgkg,8310.0,Unknown,,high,table_p4_ri3_ci6,Chemical analysis and induction ratio of soil sample from Shengli Oil Field.
+72418_j.envpol.2014.08.024,72418_j.envpol.2014.08.024_SL04,SL04,BaP_ngg,0.162,Unknown,,high,table_p4_ri4_ci4,Chemical analysis and induction ratio of soil sample from Shengli Oil Field.
+72418_j.envpol.2014.08.024,72418_j.envpol.2014.08.024_SL04,SL04,Sum_PAH_ngg,6.214,Unknown,,high,table_p4_ri4_ci5,Chemical analysis and induction ratio of soil sample from Shengli Oil Field.
+72418_j.envpol.2014.08.024,72418_j.envpol.2014.08.024_SL04,SL04,TotalPHC_mgkg,10696.0,Unknown,,high,table_p4_ri4_ci6,Chemical analysis and induction ratio of soil sample from Shengli Oil Field.

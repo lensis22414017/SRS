@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01999,,,,,,,sediment,fishing_harbor,"skip: Table 1仅提供各城市/渔港的浓度Range(min-max)统计汇总(如Sanya DDTs 108-561 ng/g)，非采样点级数据；正文也仅给range/mean/median统计量。58个样本的逐点位数据在Supporting Information Table S2中，paper.md不可用。被拒类别：Range统计行"

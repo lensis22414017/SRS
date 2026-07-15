@@ -1,0 +1,18 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10737,SP1_5-15cm,Nap_ngg,2963.0,ng/g,Table 1,soil,mining,Guangxi,Table1鐩存帴璇诲彇;閲囨牱鐐?琛ㄥ眰5-15cm;鐓ょ煾鐭冲爢鍛ㄨ竟鍦熷￥
+P10737,SP1_5-15cm,Any_ngg,23.1,ng/g,Table 1,soil,mining,Guangxi,Table1鐩存帴璇诲彇;Acenaphthylene
+P10737,SP1_5-15cm,Ane_ngg,97.6,ng/g,Table 1,soil,mining,Guangxi,Table1鐩存帴璇诲彇;Acenaphthene
+P10737,SP1_5-15cm,Fle_ngg,673.4,ng/g,Table 1,soil,mining,Guangxi,Table1鐩存帴璇诲彇;Fluorene
+P10737,SP1_5-15cm,Phe_ngg,2267.3,ng/g,Table 1,soil,mining,Guangxi,Table1鐩存帴璇诲彇;Phenanthrene
+P10737,SP1_5-15cm,Ant_ngg,101.4,ng/g,Table 1,soil,mining,Guangxi,Table1鐩存帴璇诲彇;Anthracene
+P10737,SP1_5-15cm,Fla_ngg,598.9,ng/g,Table 1,soil,mining,Guangxi,Table1鐩存帴璇诲彇;Fluoranthene
+P10737,SP1_5-15cm,Pyr_ngg,482.0,ng/g,Table 1,soil,mining,Guangxi,Table1鐩存帴璇诲彇;Pyrene
+P10737,SP1_5-15cm,Baa_ngg,379.7,ng/g,Table 1,soil,mining,Guangxi,Table1鐩存帴璇诲彇;Benz(a)anthracene
+P10737,SP1_5-15cm,Chr_ngg,755.2,ng/g,Table 1,soil,mining,Guangxi,Table1鐩存帴璇诲彇;Chrysene
+P10737,SP1_5-15cm,Bbf_ngg,1026.1,ng/g,Table 1,soil,mining,Guangxi,Table1鐩存帴璇诲彇;Benzo(b)fluoranthene
+P10737,SP1_5-15cm,Bkf_ngg,211.7,ng/g,Table 1,soil,mining,Guangxi,Table1鐩存帴璇诲彇;Benzo(k)fluoranthene
+P10737,SP1_5-15cm,BaP_ngg,544.7,ng/g,Table 1,soil,mining,Guangxi,Table1鐩存帴璇诲彇;Benzo(a)pyrene
+P10737,SP1_5-15cm,Daa_ngg,424.1,ng/g,Table 1,soil,mining,Guangxi,Table1鐩存帴璇诲彇;Dibenzo(a,h)anthracene
+P10737,SP1_5-15cm,Bgp_ngg,141.6,ng/g,Table 1,soil,mining,Guangxi,Table1鐩存帴璇诲彇;Benzo(ghi)perylene
+P10737,SP1_5-15cm,IcdP_ngg,456.7,ng/g,Table 1,soil,mining,Guangxi,Table1鐩存帴璇诲彇;Indeno(1,2,3-cd)pyrene(鍘熸枃鏍囨敞1p鍗矷lp)
+P10737,SP1_5-15cm,Sum_PAH_ngg,11146.5,ng/g,Table 1,soil,mining,Guangxi,16EPA PAH鍗曚綋姹傚拰(Nap+Any+Ane+Fle+Phe+Ant+Fla+Pyr+Baa+Chr+Bbf+Bkf+BaP+Daa+Bgp+IcdP);浠?閲囨牱鐐规湁鍗曚綋鏁版嵁;Fig2鍚?7鏍峰搧鎬婚噺浣嗕负鍥剧墖鏃犳硶璇诲彇鏁板€?

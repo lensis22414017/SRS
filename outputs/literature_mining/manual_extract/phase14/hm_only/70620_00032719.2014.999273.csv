@@ -1,0 +1,15 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+70620_00032719.2014.999273,70620_00032719.2014.999273_Industrial_area,Industrial area,Pb_mgkg,1416.0,Unknown,,high,table_p29_ri2_ci5,Table 1. Concentrations of metals in Huainan soils (milligram per kilogram),,,,,,phase14
+70620_00032719.2014.999273,70620_00032719.2014.999273_Huainan_Soil,Huainan Soil,As_mgkg,10.5,Unknown,,high,table_p29_ri5_ci1,Table 1. Concentrations of metals in Huainan soils (milligram per kilogram),,,,,,phase14
+70620_00032719.2014.999273,70620_00032719.2014.999273_Huainan_Soil,Huainan Soil,Cd_mgkg,0.06,Unknown,,high,table_p29_ri5_ci2,Table 1. Concentrations of metals in Huainan soils (milligram per kilogram),,,,,,phase14
+70620_00032719.2014.999273,70620_00032719.2014.999273_Huainan_Soil,Huainan Soil,Pb_mgkg,23.5,Unknown,,high,table_p29_ri5_ci5,Table 1. Concentrations of metals in Huainan soils (milligram per kilogram),,,,,,phase14
+70620_00032719.2014.999273,70620_00032719.2014.999273_Chinese_Soil,Chinese Soil,As_mgkg,11.2,Unknown,,high,table_p29_ri6_ci1,Table 1. Concentrations of metals in Huainan soils (milligram per kilogram),,,,,,phase14
+70620_00032719.2014.999273,70620_00032719.2014.999273_Chinese_Soil,Chinese Soil,Pb_mgkg,26.0,Unknown,,high,table_p29_ri6_ci5,Table 1. Concentrations of metals in Huainan soils (milligram per kilogram),,,,,,phase14
+70620_00032719.2014.999273,70620_00032719.2014.999273_Mining_area,Mining area,As_mgkg,0.84,Unknown,,high,table_p30_ri1_ci1,Table 2. Geoaccumulation indices of metals in soil,,,,,,phase14
+70620_00032719.2014.999273,70620_00032719.2014.999273_Mining_area,Mining area,Cd_mgkg,0.37,Unknown,,high,table_p30_ri1_ci2,Table 2. Geoaccumulation indices of metals in soil,,,,,,phase14
+70620_00032719.2014.999273,70620_00032719.2014.999273_Industrial_area,Industrial area,As_mgkg,1.99,Unknown,,high,table_p30_ri2_ci1,Table 2. Geoaccumulation indices of metals in soil,,,,,,phase14
+70620_00032719.2014.999273,70620_00032719.2014.999273_Industrial_area,Industrial area,Cd_mgkg,0.22,Unknown,,high,table_p30_ri2_ci2,Table 2. Geoaccumulation indices of metals in soil,,,,,,phase14
+70620_00032719.2014.999273,70620_00032719.2014.999273_Agricultural_area,Agricultural area,As_mgkg,0.5,Unknown,,high,table_p30_ri3_ci1,Table 2. Geoaccumulation indices of metals in soil,,,,,,phase14
+70620_00032719.2014.999273,70620_00032719.2014.999273_Agricultural_area,Agricultural area,Cd_mgkg,0.0,Unknown,,high,table_p30_ri3_ci2,Table 2. Geoaccumulation indices of metals in soil,,,,,,phase14
+70620_00032719.2014.999273,70620_00032719.2014.999273_Residential_area,Residential area,As_mgkg,0.27,Unknown,,high,table_p30_ri4_ci1,Table 2. Geoaccumulation indices of metals in soil,,,,,,phase14
+70620_00032719.2014.999273,70620_00032719.2014.999273_Residential_area,Residential area,Cd_mgkg,0.7,Unknown,,high,table_p30_ri4_ci2,Table 2. Geoaccumulation indices of metals in soil,,,,,,phase14

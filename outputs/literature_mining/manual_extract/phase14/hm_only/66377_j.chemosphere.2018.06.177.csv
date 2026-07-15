@@ -1,0 +1,55 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Concentration_(mg/kg),Concentration (mg/kg),As_mgkg,7.38,Unknown,,high,table_p35_ri2_ci1,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_S.D.a,S.D.a,As_mgkg,3.24,Unknown,,high,table_p35_ri2_ci2,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_C.V.b,C.V.b,As_mgkg,14.04,Unknown,,high,table_p35_ri2_ci3,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Skewness,Skewness,As_mgkg,7.38,Unknown,,high,table_p35_ri2_ci4,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Kurtosis,Kurtosis,As_mgkg,0.37,Unknown,,high,table_p35_ri2_ci5,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Concentration_(mg/kg),Concentration (mg/kg),Cd_mgkg,0.21,Unknown,,high,table_p35_ri4_ci1,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_S.D.a,S.D.a,Cd_mgkg,0.09,Unknown,,high,table_p35_ri4_ci2,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_C.V.b,C.V.b,Cd_mgkg,0.4,Unknown,,high,table_p35_ri4_ci3,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Skewness,Skewness,Cd_mgkg,0.21,Unknown,,high,table_p35_ri4_ci4,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Kurtosis,Kurtosis,Cd_mgkg,0.41,Unknown,,high,table_p35_ri4_ci5,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Concentration_(mg/kg),Concentration (mg/kg),Co_mgkg,5.75,Unknown,,high,table_p35_ri5_ci1,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_S.D.a,S.D.a,Co_mgkg,3.0,Unknown,,high,table_p35_ri5_ci2,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_C.V.b,C.V.b,Co_mgkg,11.27,Unknown,,high,table_p35_ri5_ci3,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Skewness,Skewness,Co_mgkg,5.75,Unknown,,high,table_p35_ri5_ci4,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Kurtosis,Kurtosis,Co_mgkg,0.39,Unknown,,high,table_p35_ri5_ci5,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Concentration_(mg/kg),Concentration (mg/kg),Cr_mgkg,51.56,Unknown,,high,table_p35_ri6_ci1,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_S.D.a,S.D.a,Cr_mgkg,18.77,Unknown,,high,table_p35_ri6_ci2,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_C.V.b,C.V.b,Cr_mgkg,112.66,Unknown,,high,table_p35_ri6_ci3,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Skewness,Skewness,Cr_mgkg,51.56,Unknown,,high,table_p35_ri6_ci4,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Kurtosis,Kurtosis,Cr_mgkg,0.5,Unknown,,high,table_p35_ri6_ci5,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Concentration_(mg/kg),Concentration (mg/kg),Cu_mgkg,20.75,Unknown,,high,table_p35_ri7_ci1,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_S.D.a,S.D.a,Cu_mgkg,7.17,Unknown,,high,table_p35_ri7_ci2,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_C.V.b,C.V.b,Cu_mgkg,76.08,Unknown,,high,table_p35_ri7_ci3,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Skewness,Skewness,Cu_mgkg,20.74,Unknown,,high,table_p35_ri7_ci4,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Kurtosis,Kurtosis,Cu_mgkg,0.66,Unknown,,high,table_p35_ri7_ci5,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Concentration_(mg/kg),Concentration (mg/kg),Ni_mgkg,12.09,Unknown,,high,table_p35_ri8_ci1,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_S.D.a,S.D.a,Ni_mgkg,6.08,Unknown,,high,table_p35_ri8_ci2,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_C.V.b,C.V.b,Ni_mgkg,18.77,Unknown,,high,table_p35_ri8_ci3,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Skewness,Skewness,Ni_mgkg,12.09,Unknown,,high,table_p35_ri8_ci4,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Kurtosis,Kurtosis,Ni_mgkg,0.31,Unknown,,high,table_p35_ri8_ci5,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Concentration_(mg/kg),Concentration (mg/kg),Pb_mgkg,25.85,Unknown,,high,table_p35_ri9_ci1,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_S.D.a,S.D.a,Pb_mgkg,12.77,Unknown,,high,table_p35_ri9_ci2,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_C.V.b,C.V.b,Pb_mgkg,40.24,Unknown,,high,table_p35_ri9_ci3,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Skewness,Skewness,Pb_mgkg,6.82,Unknown,,high,table_p35_ri9_ci4,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Kurtosis,Kurtosis,Pb_mgkg,0.26,Unknown,,high,table_p35_ri9_ci5,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Concentration_(mg/kg),Concentration (mg/kg),Zn_mgkg,57.21,Unknown,,high,table_p35_ri10_ci1,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_S.D.a,S.D.a,Zn_mgkg,33.25,Unknown,,high,table_p35_ri10_ci2,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_C.V.b,C.V.b,Zn_mgkg,98.26,Unknown,,high,table_p35_ri10_ci3,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Skewness,Skewness,Zn_mgkg,20.42,Unknown,,high,table_p35_ri10_ci4,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Kurtosis,Kurtosis,Zn_mgkg,0.36,Unknown,,high,table_p35_ri10_ci5,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Concentration_(mg/kg),Concentration (mg/kg),Mn_mgkg,374.19,Unknown,,high,table_p35_ri11_ci1,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_S.D.a,S.D.a,Mn_mgkg,207.17,Unknown,,high,table_p35_ri11_ci2,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Skewness,Skewness,Mn_mgkg,109.95,Unknown,,high,table_p35_ri11_ci4,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Kurtosis,Kurtosis,Mn_mgkg,0.29,Unknown,,high,table_p35_ri11_ci5,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Concentration_(mg/kg),Concentration (mg/kg),V_mgkg,42.03,Unknown,,high,table_p35_ri12_ci1,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_S.D.a,S.D.a,V_mgkg,20.76,Unknown,,high,table_p35_ri12_ci2,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_C.V.b,C.V.b,V_mgkg,66.48,Unknown,,high,table_p35_ri12_ci3,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Skewness,Skewness,V_mgkg,12.27,Unknown,,high,table_p35_ri12_ci4,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Kurtosis,Kurtosis,V_mgkg,0.29,Unknown,,high,table_p35_ri12_ci5,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Concentration_(mg/kg),Concentration (mg/kg),Hg_mgkg,0.19,Unknown,,high,table_p35_ri13_ci1,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_S.D.a,S.D.a,Hg_mgkg,0.04,Unknown,,high,table_p35_ri13_ci2,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_C.V.b,C.V.b,Hg_mgkg,0.47,Unknown,,high,table_p35_ri13_ci3,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Skewness,Skewness,Hg_mgkg,0.12,Unknown,,high,table_p35_ri13_ci4,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14
+66377_j.chemosphere.2018.06.177,66377_j.chemosphere.2018.06.177_Kurtosis,Kurtosis,Hg_mgkg,0.64,Unknown,,high,table_p35_ri13_ci5,Table 2 Heavy metal concentrations in sampling soils,,,,,,phase14

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01329,,,,,,,,,"skip: spiked/greenhouse incubation experiment. Soil from agricultural site around steel plant was spiked with phenanthrene/pyrene/BaP and incubated under greenhouse conditions for 100d. Only CK vs ST treatment means with SD for 3 PAH monomers (Phe 0.19±0.04 mg/kg, Pyr 2.8±0.64 mg/kg, BaP 1.1±0.68 mg/kg). No field sampling-point-level data, no sample IDs. Not a remediation paper so pre-remediation baseline exception does not apply."

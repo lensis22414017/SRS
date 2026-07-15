@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03662,,,,,,,,"skip: 中试SVE修复实验(remediation pilot); 唯一目标污染物为ortho-toluidine(邻甲苯胺)不在OP目标清单内(PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAE/OCP); 仅给浓度范围0.66-191 mg/kg无采样点级数据; 修复前后仅报去除率(%)"

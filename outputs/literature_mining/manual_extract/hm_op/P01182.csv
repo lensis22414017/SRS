@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01182,,,,,,,soil,Hunan,skip: Table 1仅区域组级汇总(Group=Ctrl/TPH/HM/Comb各mean±SD n=3，4区域共12采样点)，无单独采样点级数据(S1/S2/A/B等标识符及其单点实测浓度)。违反铁律第2条(统计汇总当采样点)+第4条(区域均值当场地样本)。论文本身确为TPH+HM真复合研究(长沙电镀/机械加工厂场地)，但仅Group级均值可追溯，Table S1未在解析文本中呈现采样点级数据，正文图1/2/3均为组级boxplot/PCoA

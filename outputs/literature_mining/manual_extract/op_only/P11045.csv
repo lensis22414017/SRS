@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11045,,,,,,,,,skip: 仅区域汇总无采样点级数据; Table 1只提供Range/Mean/Median/SD(n=129+150)无单个采样点浓度; Table 2为ILCR风险指数已剔除; HM数据在另一篇He et al. 2019论文中

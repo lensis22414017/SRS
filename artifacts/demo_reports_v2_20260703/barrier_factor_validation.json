@@ -1,0 +1,40 @@
+{
+  "validations": [
+    {
+      "site": "测试场地-个旧重金属",
+      "site_id": 1,
+      "subset": "hm",
+      "top5_factors": [
+        "cd_mgkg",
+        "cd_mgkg"
+      ],
+      "expected": [
+        "Cd",
+        "镉",
+        "Pb",
+        "铅",
+        "As",
+        "砷",
+        "Zn",
+        "锌",
+        "Cu",
+        "铜",
+        "pH"
+      ],
+      "hits": [
+        "cd",
+        "cd"
+      ],
+      "recall_at_3": 0.18,
+      "min_recall": 0.6,
+      "passed": false,
+      "model_status": "approved_alpha",
+      "review_required": true
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "total": 1,
+    "overall": "PARTIAL"
+  }
+}

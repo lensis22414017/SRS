@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02271,,,,,,,,"skip: 唯一数据表Table1仅含年度统计汇总(Min/Max/Mean/Median) for ∑PCBs/∑PBDEs/∑PCDD/Fs及TEQ值(2005/2007/2009/2011按年汇总), 无采样点级个体数据; 采样点明细在Table S1(ESI补充材料)未包含于paper.md; TEQ为风险指数已剔除; PCDD/Fs不在提取目标污染物列表中"

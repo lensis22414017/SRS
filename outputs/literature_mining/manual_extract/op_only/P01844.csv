@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01844,,,,,,,,"skip: 论文测定25种legacy pesticides+2种current-use pesticides(lufenuron/buprofezin/methoprene/pyridaben等)均为非目标OP(HM:无)。Table 1仅提供Median/Mean/Min/Max统计汇总，无采样点级个体数据。site=广东梅州柚子园，matrix=soil(soil+pulp+leaf混采分析)",

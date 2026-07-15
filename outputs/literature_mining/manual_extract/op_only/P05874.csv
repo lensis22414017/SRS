@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05874,NOTES,,,,"Table 1; Figs 2-4; Tables 2-4",soil,agricultural,Guangdong,"skip: 仅统计汇总(Min/Max/Mean/Median)无采样点级数据; 151个土壤样本的HCHs和DDTs浓度仅在Table 1以全样本统计量呈现(如DDTs Mean=8.8 Median=2.3 Max=110 ng/g), Figures 2-4以城市/土地利用/土壤质地分组的median+SD呈现; 无任何单样ID(S1/S2等)及其对应浓度值"

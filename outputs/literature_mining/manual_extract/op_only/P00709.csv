@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00709,,,,,,,,"skip: All concentration data (Table 1 PAHs; Table 3 n-alkanes) presented as Min/Max/Ave statistical summaries across 5 samples (A-E from a Beijing petrol station 0-5m depth profile) with no per-sample concentration columns; BaP=ND in all samples; Table 2 gives per-sample diagnostic ratios (Ant/(Ant+Phe), BaA/(BaA+Chr)) only which are source indices not concentrations; n-alkanes total reported but not TPH"

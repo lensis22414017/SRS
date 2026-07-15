@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04334,NOTES,,,,,,,"skip: 论文测量土壤气体(O2/CO2/CH4/VOCs)浓度剖面+NSZD速率(kg/m2/a)+mcrA基因丰度(ppm)，无任何采样点级OP土壤浓度数据(TPH/PAH/PCB/DDT/HCH/PBDE均无)。Table1为气体浓度梯度(kg/L/m)，Table2为NSZD质量通量速率(kg/m2/a)，均非土壤污染物浓度"

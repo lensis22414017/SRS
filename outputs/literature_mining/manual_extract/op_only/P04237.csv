@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04237,,,,,,,,"仅区域统计汇总(Min/Max/Mean/SD)，173个样本无采样点级浓度数据; Table 1为16种PAH的Min/Max/Mean/SD统计行(须剔除); Table S1为BaP_eq风险指数(须剔除); 所有浓度数据均为省级或地类均值汇总; 论文确实有173个真实场地土壤样本但未列出逐点浓度"

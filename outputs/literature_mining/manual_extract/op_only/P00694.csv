@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00694,,,,,,,,"skip: 论文仅提供区域级统计汇总(Mean/Geo mean/Median/Min/Max)。46个采样点(居住区A n=11/居住区B n=7/农业区 n=28)但Table1为全局汇总Table2为分区area-level汇总，无个体采样点级浓度数据亦无sample_id标识，无法提取采样点级PAE数据(DBP/DEHP/DEP/DiBP/SumPAE)"

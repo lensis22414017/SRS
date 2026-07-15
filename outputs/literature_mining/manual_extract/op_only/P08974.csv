@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08974,,,,,,,,"skip: 全国尺度汇总统计(109城市/326样本)仅提供Mean/SD/Median/Min/Max描述统计(Table 1)，无任何个体采样点级原始数据。Table S1-S5在补充材料中未解析但论文全文逻辑一致表明所有数据均为区域/分类聚合。文本提及采样点标识仅为城市名无独立点位ID。无HM数据(纯PAE研究)。",

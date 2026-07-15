@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10338,Suzhou-NW,Sum_PAH_ngg,1006,ng/g,Section 3.1 text,soil,agricultural,Jiangsu,"Total 15 PAHs (missing Acenaphthylene from 16 EPA list); text-reported site value; paper unit μg/kg=ng/g"
+P10338,Wuxi-east,Sum_PAH_ngg,3881,ng/g,Section 3.1 text,soil,agricultural,Jiangsu,"Total 15 PAHs (missing Acenaphthylene from 16 EPA list); text-reported site value; corresponds to Max=3881 in Table 3; paper unit μg/kg=ng/g"

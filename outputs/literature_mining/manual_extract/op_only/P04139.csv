@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04139,,,,,,,,,"skip: 实验室微生物降解实验(biodegradation of chlorpyrifos by Cupriavidus nantongensis X1T in MSM liquid culture)；无真实场地土壤采样点级数据；研究污染物为毒死蜱(chlorpyrifos)非目标OP(PAH/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAEs/OCPs)；全部为spiked浓度(20-500 mg/L)在培养基中的降解动力学"

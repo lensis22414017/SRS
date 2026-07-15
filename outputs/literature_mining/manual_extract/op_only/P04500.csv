@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04500,,,,,,,,"skip: lab adsorption/desorption spiked experiment (E1/E2/EE2/BPA spiked into glass vials). Target pollutants (E1/E2/EE2/BPA) not in OP list (no PAH/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAEs/OCPs). All table data are model parameters (Qe/K1/K2/KF/n/HI) not field concentrations. No sample-level OP concentration data."

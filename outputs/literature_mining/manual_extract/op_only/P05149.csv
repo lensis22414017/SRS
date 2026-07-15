@@ -1,0 +1,8 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05149,Outlier A,Sum_PAH_ngg,78476.1,ng/g,Table 2,soil,industrial,Beijing,"16 EPA PAHs total from Table 2; wood preservation plant in southwest Beijing; point source site"
+P05149,Outlier B,Sum_PAH_ngg,6981.4,ng/g,Table 2,soil,urban,Beijing,"16 EPA PAHs total from Table 2; private backyard/village living area; sludge application suspected"
+P05149,Rank 1,Sum_PAH_ngg,2571.9,ng/g,Table 2,soil,industrial,Beijing,"16 EPA PAHs total from Table 2; near Shougang wire plant northwest Beijing"
+P05149,Rank 2,Sum_PAH_ngg,2493.2,ng/g,Table 2,soil,industrial,Beijing,"16 EPA PAHs total from Table 2; inside/close to Shougang steel plant western Beijing"
+P05149,Rank 3,Sum_PAH_ngg,2099.3,ng/g,Table 2,soil,industrial,Beijing,"16 EPA PAHs total from Table 2; inside/close to Shougang steel plant western Beijing"
+P05149,Rank 4,Sum_PAH_ngg,2046,ng/g,Table 2,soil,urban,Beijing,"16 EPA PAHs total from Table 2; living area"
+P05149,Rank 5,Sum_PAH_ngg,1854.4,ng/g,Table 2,soil,industrial,Beijing,"16 EPA PAHs total from Table 2; inside/close to Shougang steel plant western Beijing"

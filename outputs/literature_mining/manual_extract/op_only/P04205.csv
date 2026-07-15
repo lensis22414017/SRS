@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04205,,,,,,,,,"skip: paper.pdf是错误文档(EPA METHOD 3546微波萃取方法手册 39KB 非淮北煤田PAH研究论文 下载失败); SI仅含区域级Mean/Range汇总(Table S3按功能区Mining/Industrial/Residential/Agricultural topsoil给16PAHs均值 如Mining=1095/Industrial=896/Residential=338/Agricultural=239 ug/kg)和TEQ风险指数(Table S5 需剔除); Table S1只有采样点坐标(TT-1-1~TT-8-8 ID-1-1~ID-2-36)无浓度值; 无任何采样点级PAH单体或Sum_PAH浓度数据可提取"

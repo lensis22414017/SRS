@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04177,,,,,,soil,agricultural,Guangdong,"skip: 论文测量OPP(organophosphate pesticides: dichlorvos/demeton/dimethoate/malathion/parathion/methyl-parathion)和PY(pyrethroids: cypermethrin/fenpropathrin/cyhalothrin/deltamethrin)，均不在目标OP类别(Sum_PAH/BaP/SumPCB/SumDDT/SumHCH/SumPBDE/TotalPHC/antibiotics/PAEs/OCPs)中；且Table 1仅含统计汇总(Mean/Min/Max/Median/CV/Detection Rate)，240个表层土壤样品无任何采样点级浓度数据，城市级均值见于正文及Fig 3A/3B(图片)"

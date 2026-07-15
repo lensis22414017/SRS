@@ -1,0 +1,26 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC1,PC1,Nap_ngg,0.047,Unknown,,high,table_p10_ri1_ci1,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC2,PC2,Nap_ngg,0.68,Unknown,,high,table_p10_ri1_ci2,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC1,PC1,Flu_ngg,0.336,Unknown,,high,table_p10_ri3_ci1,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC2,PC2,Flu_ngg,0.843,Unknown,,high,table_p10_ri3_ci2,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC1,PC1,Ant_ngg,0.963,Unknown,,high,table_p10_ri6_ci1,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC2,PC2,Ant_ngg,-0.003,Unknown,,high,table_p10_ri6_ci2,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC1,PC1,Pyr_ngg,0.963,Unknown,,high,table_p10_ri8_ci1,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC2,PC2,Pyr_ngg,-0.153,Unknown,,high,table_p10_ri8_ci2,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC1,PC1,BaA_ngg,0.977,Unknown,,high,table_p10_ri9_ci1,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC2,PC2,BaA_ngg,-0.169,Unknown,,high,table_p10_ri9_ci2,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC1,PC1,Chr_ngg,0.943,Unknown,,high,table_p10_ri10_ci1,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC2,PC2,Chr_ngg,-0.11,Unknown,,high,table_p10_ri10_ci2,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC1,PC1,BbF_ngg,0.987,Unknown,,high,table_p10_ri11_ci1,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC2,PC2,BbF_ngg,-0.061,Unknown,,high,table_p10_ri11_ci2,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC1,PC1,BkF_ngg,0.98,Unknown,,high,table_p10_ri12_ci1,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC2,PC2,BkF_ngg,-0.146,Unknown,,high,table_p10_ri12_ci2,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC1,PC1,BaP_ngg,0.975,Unknown,,high,table_p10_ri13_ci1,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC2,PC2,BaP_ngg,-0.145,Unknown,,high,table_p10_ri13_ci2,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC1,PC1,Ind_ngg,0.973,Unknown,,high,table_p10_ri14_ci1,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC2,PC2,Ind_ngg,-0.04,Unknown,,high,table_p10_ri14_ci2,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC1,PC1,BghiP_ngg,0.973,Unknown,,high,table_p10_ri16_ci1,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_PC2,PC2,BghiP_ngg,-0.045,Unknown,,high,table_p10_ri16_ci2,Table 2. Component loadings of PAHs in soil samples.
+70626_09603123.2011.634392,70626_09603123.2011.634392_Percentage_(%),Percentage (%),Pyr_ngg,100.0,Unknown,,high,table_p10_ri1_ci4,Table 3. Diagnostic ratios of PAHs.
+70626_09603123.2011.634392,70626_09603123.2011.634392_Percentage_(%),Percentage (%),BaA_ngg,65.5,Unknown,,high,table_p10_ri2_ci4,Table 3. Diagnostic ratios of PAHs.
+70626_09603123.2011.634392,70626_09603123.2011.634392_Percentage_(%),Percentage (%),Chr_ngg,65.5,Unknown,,high,table_p10_ri2_ci4,Table 3. Diagnostic ratios of PAHs.

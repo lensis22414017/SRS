@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02313,,,,,,,,,,"skip: 论文表格全部为HYDRUS-1D模型模拟预测值(PEC/RQ/HQ/CR)，无5个采样点(1#~5#)的实测采样点级OP/HM浓度数据；Table 2为模型预测PEC值非实测，Table 3为RQ风险商非浓度，Table 4为HQ/CR健康风险非浓度；Figure 2为时间-浓度模拟曲线非采样点实测。河北省王洋河流域典型污水灌溉区，soil，agricultural/sewage_irrigation"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01982,R51,Endosulfan_ngg,19,ng/g,"Results text (Soil Concentrations and Spatial Distribution)",soil,agricultural,Jiangsu,"R51 rural site Yancheng Jiangsu; total endosulfan (alpha+beta+sulfate) =19000 pg/g dw reported in text; converted 19000/1000=19 ng/g dw; per-site data for other 140 sites in unavailable SI Table SI-1"

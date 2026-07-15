@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11161,,,,,,,soil,agricultural,"skip: 论文研究有机磷农药(OPPs=o,o,o-triethylphosphorothioate/thionazin/sulfotep/phorate/disulfoton/methyl-parathion/parathion/famphur)，不属于目标OP列表(Sum_PAH/BaP/SumPCB/SumDDT/SumHCH/SumPBDE/TotalPHC); 论文无采样点级HM浓度表(Cd/Zn/Pb/Cu仅作为PLSPM潜在变量从Sun et al. 2018借用 见Table S7); OPPs浓度仅有区域级/总体统计(温室22.1-435均值96.2 露天9.93-303均值66.6 ng/g)无S1/S2等采样点标识; HM+OP无同场地配对; 不提取"

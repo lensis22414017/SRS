@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+_dup_fmicb.2016.00060,_dup_fmicb.2016.00060_BS-U,BS-U,OC_pct,-0.02,Unknown,,high,table_p9_ri1_ci3,TABLE 4 | Pearson correlations between gene degrees and environmental factors.
+_dup_fmicb.2016.00060,_dup_fmicb.2016.00060_BS-C,BS-C,OC_pct,-0.07,Unknown,,high,table_p9_ri2_ci3,TABLE 4 | Pearson correlations between gene degrees and environmental factors.

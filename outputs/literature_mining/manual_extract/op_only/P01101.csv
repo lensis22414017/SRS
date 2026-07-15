@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01101,,,,,,,,,"skip: 论文仅提供108个样品的统计汇总(Range/Mean/SD/DF)和4个区域均值(潍坊/威海/烟台/青岛)，无个体采样点级数据。Table 2为Σ16PAEs及各单体的全局统计量，Table 3为超标比率，正文区域均值(Weifang 9.786/Weihai 9.289/Yantai 3.211 mg/kg)均为区域汇总非场地样本"

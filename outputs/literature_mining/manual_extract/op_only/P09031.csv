@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09031,,,,,,,"skip: Meta-analysis/review compiling mean/median from 21 published studies (Table 1, Section 2.2); no original sampling-point-level data; all values are regional aggregates or max-of-means used for scoring comparison (Section 3.2 Table 3 Maximum = max of mean/median from collected literature); zero extractable site-level OP concentrations"

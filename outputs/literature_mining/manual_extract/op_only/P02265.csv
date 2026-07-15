@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02265,,,,,,soil,urban,Guangdong,"skip: 论文主文Table1为统计汇总(Mean/Median/Std/Min/Max)，Table2为各土地利用类型均值(Forest/Traffic/Industry等均为类别mean非采样点级)，Table3为质量库存(kg)非浓度，Table4为暴露评估；论文提到24个采样点但采样点级数据仅在Supplementary Table S1中(paper.md未包含)；无可用采样点级OP浓度数据"

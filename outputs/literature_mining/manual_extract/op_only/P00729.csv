@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00729,,,,,,,,"skip: 仅全国/省级统计汇总(Mean/SD/Range/Median/Geomean)，无采样点级数据。Table 1 为 11 个 OCP(α-HCH/β-HCH/γ-HCH/ΣHCHs/o,p'-DDE/p,p'-DDE/o,p'-DDD/p,p'-DDD/o,p'-DDT/p,p'-DDT/ΣDDTs/HCB/HCBD)的描述性统计行；正文仅给区域均值(urban/rural/background, 如 HCB 2012=5.85/11.8/0.02 ng/g dw)；论文 Materials and methods 明确声明 'only the national and the regional mean concentrations were used for analysis'。90 个采样点(48 urban+37 rural+5 background, 26 省)均无单点浓度公布"

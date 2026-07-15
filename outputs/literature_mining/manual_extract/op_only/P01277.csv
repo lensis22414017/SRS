@@ -1,0 +1,9 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P01277,PS,Sum_PAH_ngg,499.37,ng/g,Table 1,sediment,other,Guangdong,16 EPA PAH total = F1+F2+F3+F4 (229.98+15.54+133.28+120.57); PS=pond sediment from Baishigang; Pearl River Delta; collected 2000,,
+P01277,PS,BaP_ngg,7.92,ng/g,Table 1,sediment,other,Guangdong,BaP total = F1+F2+F3+F4 (5.21+0.00+1.51+1.20); PS=pond sediment from Baishigang,,
+P01277,SS,Sum_PAH_ngg,408.15,ng/g,Table 1,soil,other,Guangdong,16 EPA PAH total = F1+F2+F3+F4 (173.69+17.94+70.94+145.58); SS=brownish/yellowish sandy soil from paddy field; Pearl River Delta,,
+P01277,SS,BaP_ngg,1.47,ng/g,Table 1,soil,other,Guangdong,BaP total = F1+F2+F3+F4 (0.97+0.09+0.17+0.24); SS=sandy soil from paddy field,,
+P01277,MS,Sum_PAH_ngg,507.78,ng/g,Table 1,sediment,other,Guangdong,16 EPA PAH total = F1+F2+F3+F4 (270.37+13.45+171.94+52.02); MS=marine sediment from Wushan Archipelago Zhuhai; Pearl River Delta,22.3681,113.8222
+P01277,MS,BaP_ngg,7.54,ng/g,Table 1,sediment,other,Guangdong,BaP total = F1+F2+F3+F4 (5.49+0.00+1.47+0.58); MS=marine sediment from Wushan Archipelago,22.3681,113.8222
+P01277,RS,Sum_PAH_ngg,4216.99,ng/g,Table 1,sediment,other,Guangdong,16 EPA PAH total = F1+F2+F3+F4 (2792.41+22.21+782.16+620.21); RS=river sediment from Pearl River; collected 2000,,
+P01277,RS,BaP_ngg,83.14,ng/g,Table 1,sediment,other,Guangdong,BaP total = F1+F2+F3+F4 (41.86+0.11+32.20+8.97); RS=river sediment from Pearl River,,

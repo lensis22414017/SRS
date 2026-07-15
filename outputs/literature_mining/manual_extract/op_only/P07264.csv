@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07264,,,,,,,,"skip: 仅正文汇总统计量(mean/range)，采样点级数据在Supplementary Tables S2-S4中未被MinerU解析。has_hm=False。土壤采样点46个，但单个采样点浓度值无法从已解析的paper.md提取"

@@ -1,0 +1,127 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01524,A,Cu_mgkg,77.9,mg/kg,Table 2,soil,e_waste,Zhejiang,"表2'A b'行(原始PDF中A与B合并显示,值归A;B的HM无法独立提取)"
+P01524,A,Cr_mgkg,21.0,mg/kg,Table 2,soil,e_waste,Zhejiang,"表2'A b'行(原始PDF中A与B合并显示,值归A;B的HM无法独立提取)"
+P01524,A,Cd_mgkg,1.7,mg/kg,Table 2,soil,e_waste,Zhejiang,"表2'A b'行(原始PDF中A与B合并显示,值归A;B的HM无法独立提取)"
+P01524,A,Pb_mgkg,170.3,mg/kg,Table 2,soil,e_waste,Zhejiang,"表2'A b'行(原始PDF中A与B合并显示,值归A;B的HM无法独立提取)"
+P01524,A,Zn_mgkg,210.4,mg/kg,Table 2,soil,e_waste,Zhejiang,"表2'A b'行(原始PDF中A与B合并显示,值归A;B的HM无法独立提取)"
+P01524,A,Ni_mgkg,14.3,mg/kg,Table 2,soil,e_waste,Zhejiang,"表2'A b'行(原始PDF中A与B合并显示,值归A;B的HM无法独立提取)"
+P01524,A,Hg_mgkg,0.2,mg/kg,Table 2,soil,e_waste,Zhejiang,"表2'A b'行(原始PDF中A与B合并显示,值归A;B的HM无法独立提取)"
+P01524,C,Cu_mgkg,155.7,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,C,Cr_mgkg,16.4,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,C,Cd_mgkg,1.9,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,C,Pb_mgkg,173.7,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,C,Zn_mgkg,177.7,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,C,Ni_mgkg,11.7,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,C,Hg_mgkg,0.2,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,D,Cu_mgkg,205.2,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,D,Cr_mgkg,95.6,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,D,Cd_mgkg,2.4,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,D,Pb_mgkg,177.2,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,D,Zn_mgkg,399.9,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,D,Ni_mgkg,52.6,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,D,Hg_mgkg,0.9,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,E,Cu_mgkg,140.8,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,E,Cr_mgkg,112.7,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,E,Cd_mgkg,7.4,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,E,Pb_mgkg,81.3,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,E,Zn_mgkg,660.8,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,E,Ni_mgkg,66.3,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,E,Hg_mgkg,0.3,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,F,Cu_mgkg,227.3,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,F,Cr_mgkg,91.3,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,F,Cd_mgkg,1.7,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,F,Pb_mgkg,91.5,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,F,Zn_mgkg,283.5,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,F,Ni_mgkg,83.8,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,F,Hg_mgkg,0.4,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,G,Cu_mgkg,161.4,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,G,Cr_mgkg,102.9,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,G,Cd_mgkg,3.3,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,G,Pb_mgkg,115.2,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,G,Zn_mgkg,237.2,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,G,Ni_mgkg,66.1,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,G,Hg_mgkg,0.3,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,H,Cu_mgkg,576.7,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,H,Cr_mgkg,91.3,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,H,Cd_mgkg,9.6,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,H,Pb_mgkg,184.4,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,H,Zn_mgkg,263.0,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,H,Ni_mgkg,120.4,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,H,Hg_mgkg,3.2,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,I,Cu_mgkg,272.3,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,I,Cr_mgkg,88.6,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,I,Cd_mgkg,0.6,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,I,Pb_mgkg,102.8,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,I,Zn_mgkg,143.8,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,I,Ni_mgkg,107.4,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,I,Hg_mgkg,0.4,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,J,Cu_mgkg,222.5,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,J,Cr_mgkg,125.9,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,J,Cd_mgkg,2.8,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,J,Pb_mgkg,200.1,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,J,Zn_mgkg,221.2,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,J,Ni_mgkg,71.0,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,J,Hg_mgkg,1.7,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,K,Cu_mgkg,361.7,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,K,Cr_mgkg,65.9,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,K,Cd_mgkg,7.9,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,K,Pb_mgkg,295.2,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,K,Zn_mgkg,437.3,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,K,Ni_mgkg,53.3,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,K,Hg_mgkg,654.1,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,L,Cu_mgkg,1641.3,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,L,Cr_mgkg,40.5,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,L,Cd_mgkg,12.5,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,L,Pb_mgkg,2374.1,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,L,Zn_mgkg,518.7,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,L,Ni_mgkg,68.6,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,L,Hg_mgkg,9.3,mg/kg,Table 2,soil,e_waste,Zhejiang,表2直接读取
+P01524,M,Cu_mgkg,32.3,mg/kg,Table 2,soil,other,Zhejiang,"表2直接读取;M为reference site(JQ town,无e-waste)"
+P01524,M,Cr_mgkg,56.5,mg/kg,Table 2,soil,other,Zhejiang,"表2直接读取;M为reference site(JQ town,无e-waste)"
+P01524,M,Cd_mgkg,0.04,mg/kg,Table 2,soil,other,Zhejiang,"表2直接读取;M为reference site(JQ town,无e-waste)"
+P01524,M,Pb_mgkg,33.0,mg/kg,Table 2,soil,other,Zhejiang,"表2直接读取;M为reference site(JQ town,无e-waste)"
+P01524,M,Zn_mgkg,157.8,mg/kg,Table 2,soil,other,Zhejiang,"表2直接读取;M为reference site(JQ town,无e-waste)"
+P01524,A,Sum_PAH_ngg,719.4,ng/g,Table 3,soil,e_waste,Zhejiang,"Total PAHs行(16 EPA PAH单体Nap+Any+Ane+Fle+Phe+Ant+Fla+Pyr+BaA+Chr+BbF+BkF+BaP+IcdP+DahA+BghiP求和,验证A列=719.4一致)"
+P01524,A,BaP_ngg,5.1,ng/g,Table 3,soil,e_waste,Zhejiang,BaP行直接读取
+P01524,B,Sum_PAH_ngg,715.5,ng/g,Table 3,soil,e_waste,Zhejiang,"Total PAHs行(16 EPA PAH单体Nap+Any+Ane+Fle+Phe+Ant+Fla+Pyr+BaA+Chr+BbF+BkF+BaP+IcdP+DahA+BghiP求和,验证A列=719.4一致)"
+P01524,B,BaP_ngg,5.1,ng/g,Table 3,soil,e_waste,Zhejiang,BaP行直接读取
+P01524,C,Sum_PAH_ngg,607.2,ng/g,Table 3,soil,e_waste,Zhejiang,"Total PAHs行(16 EPA PAH单体Nap+Any+Ane+Fle+Phe+Ant+Fla+Pyr+BaA+Chr+BbF+BkF+BaP+IcdP+DahA+BghiP求和,验证A列=719.4一致)"
+P01524,C,BaP_ngg,1.1,ng/g,Table 3,soil,e_waste,Zhejiang,BaP行直接读取
+P01524,D,Sum_PAH_ngg,764.0,ng/g,Table 3,soil,e_waste,Zhejiang,"Total PAHs行(16 EPA PAH单体Nap+Any+Ane+Fle+Phe+Ant+Fla+Pyr+BaA+Chr+BbF+BkF+BaP+IcdP+DahA+BghiP求和,验证A列=719.4一致)"
+P01524,D,BaP_ngg,7.1,ng/g,Table 3,soil,e_waste,Zhejiang,BaP行直接读取
+P01524,E,Sum_PAH_ngg,672.2,ng/g,Table 3,soil,e_waste,Zhejiang,"Total PAHs行(16 EPA PAH单体Nap+Any+Ane+Fle+Phe+Ant+Fla+Pyr+BaA+Chr+BbF+BkF+BaP+IcdP+DahA+BghiP求和,验证A列=719.4一致)"
+P01524,E,BaP_ngg,1.1,ng/g,Table 3,soil,e_waste,Zhejiang,BaP行直接读取
+P01524,F,Sum_PAH_ngg,488.0,ng/g,Table 3,soil,e_waste,Zhejiang,"Total PAHs行(16 EPA PAH单体Nap+Any+Ane+Fle+Phe+Ant+Fla+Pyr+BaA+Chr+BbF+BkF+BaP+IcdP+DahA+BghiP求和,验证A列=719.4一致)"
+P01524,F,BaP_ngg,1.2,ng/g,Table 3,soil,e_waste,Zhejiang,BaP行直接读取
+P01524,G,Sum_PAH_ngg,684.6,ng/g,Table 3,soil,e_waste,Zhejiang,"Total PAHs行(16 EPA PAH单体Nap+Any+Ane+Fle+Phe+Ant+Fla+Pyr+BaA+Chr+BbF+BkF+BaP+IcdP+DahA+BghiP求和,验证A列=719.4一致)"
+P01524,G,BaP_ngg,3.1,ng/g,Table 3,soil,e_waste,Zhejiang,BaP行直接读取
+P01524,H,Sum_PAH_ngg,850.7,ng/g,Table 3,soil,e_waste,Zhejiang,"Total PAHs行(16 EPA PAH单体Nap+Any+Ane+Fle+Phe+Ant+Fla+Pyr+BaA+Chr+BbF+BkF+BaP+IcdP+DahA+BghiP求和,验证A列=719.4一致)"
+P01524,H,BaP_ngg,3.9,ng/g,Table 3,soil,e_waste,Zhejiang,BaP行直接读取
+P01524,I,Sum_PAH_ngg,371.8,ng/g,Table 3,soil,e_waste,Zhejiang,"Total PAHs行(16 EPA PAH单体Nap+Any+Ane+Fle+Phe+Ant+Fla+Pyr+BaA+Chr+BbF+BkF+BaP+IcdP+DahA+BghiP求和,验证A列=719.4一致)"
+P01524,I,BaP_ngg,3.3,ng/g,Table 3,soil,e_waste,Zhejiang,BaP行直接读取
+P01524,J,Sum_PAH_ngg,730.5,ng/g,Table 3,soil,e_waste,Zhejiang,"Total PAHs行(16 EPA PAH单体Nap+Any+Ane+Fle+Phe+Ant+Fla+Pyr+BaA+Chr+BbF+BkF+BaP+IcdP+DahA+BghiP求和,验证A列=719.4一致)"
+P01524,J,BaP_ngg,7.0,ng/g,Table 3,soil,e_waste,Zhejiang,BaP行直接读取
+P01524,K,Sum_PAH_ngg,1231.2,ng/g,Table 3,soil,e_waste,Zhejiang,"Total PAHs行(16 EPA PAH单体Nap+Any+Ane+Fle+Phe+Ant+Fla+Pyr+BaA+Chr+BbF+BkF+BaP+IcdP+DahA+BghiP求和,验证A列=719.4一致)"
+P01524,K,BaP_ngg,25.6,ng/g,Table 3,soil,e_waste,Zhejiang,BaP行直接读取
+P01524,L,Sum_PAH_ngg,787.3,ng/g,Table 3,soil,e_waste,Zhejiang,"Total PAHs行(16 EPA PAH单体Nap+Any+Ane+Fle+Phe+Ant+Fla+Pyr+BaA+Chr+BbF+BkF+BaP+IcdP+DahA+BghiP求和,验证A列=719.4一致)"
+P01524,L,BaP_ngg,6.7,ng/g,Table 3,soil,e_waste,Zhejiang,BaP行直接读取
+P01524,M,Sum_PAH_ngg,105.0,ng/g,Table 3,soil,other,Zhejiang,"Total PAHs行(16 EPA PAH单体Nap+Any+Ane+Fle+Phe+Ant+Fla+Pyr+BaA+Chr+BbF+BkF+BaP+IcdP+DahA+BghiP求和,验证A列=719.4一致)"
+P01524,M,BaP_ngg,5.1,ng/g,Table 3,soil,other,Zhejiang,BaP行直接读取
+P01524,A,SumPCB_ngg,364.3,ng/g,Table 4,soil,e_waste,Zhejiang,"Total 58 PCBs行(58同系物总和,含Tri/Tetra/Penta/Hexa/Hepta-PCB)"
+P01524,B,SumPCB_ngg,77.4,ng/g,Table 4,soil,e_waste,Zhejiang,"Total 58 PCBs行(58同系物总和,含Tri/Tetra/Penta/Hexa/Hepta-PCB)"
+P01524,C,SumPCB_ngg,123.0,ng/g,Table 4,soil,e_waste,Zhejiang,"Total 58 PCBs行(58同系物总和,含Tri/Tetra/Penta/Hexa/Hepta-PCB)"
+P01524,D,SumPCB_ngg,265.7,ng/g,Table 4,soil,e_waste,Zhejiang,"Total 58 PCBs行(58同系物总和,含Tri/Tetra/Penta/Hexa/Hepta-PCB)"
+P01524,E,SumPCB_ngg,73.8,ng/g,Table 4,soil,e_waste,Zhejiang,"Total 58 PCBs行(58同系物总和,含Tri/Tetra/Penta/Hexa/Hepta-PCB)"
+P01524,F,SumPCB_ngg,52.0,ng/g,Table 4,soil,e_waste,Zhejiang,"Total 58 PCBs行(58同系物总和,含Tri/Tetra/Penta/Hexa/Hepta-PCB)"
+P01524,G,SumPCB_ngg,96.5,ng/g,Table 4,soil,e_waste,Zhejiang,"Total 58 PCBs行(58同系物总和,含Tri/Tetra/Penta/Hexa/Hepta-PCB)"
+P01524,H,SumPCB_ngg,84.7,ng/g,Table 4,soil,e_waste,Zhejiang,"Total 58 PCBs行(58同系物总和,含Tri/Tetra/Penta/Hexa/Hepta-PCB)"
+P01524,I,SumPCB_ngg,102.2,ng/g,Table 4,soil,e_waste,Zhejiang,"Total 58 PCBs行(58同系物总和,含Tri/Tetra/Penta/Hexa/Hepta-PCB)"
+P01524,J,SumPCB_ngg,552.3,ng/g,Table 4,soil,e_waste,Zhejiang,"Total 58 PCBs行(58同系物总和,含Tri/Tetra/Penta/Hexa/Hepta-PCB)"
+P01524,K,SumPCB_ngg,5789.5,ng/g,Table 4,soil,e_waste,Zhejiang,"Total 58 PCBs行(58同系物总和,含Tri/Tetra/Penta/Hexa/Hepta-PCB)"
+P01524,L,SumPCB_ngg,826.0,ng/g,Table 4,soil,e_waste,Zhejiang,"Total 58 PCBs行(58同系物总和,含Tri/Tetra/Penta/Hexa/Hepta-PCB)"
+P01524,K1,SumPCB_ngg,7914.1,ng/g,Table 5,soil,e_waste,Zhejiang,"Total 58 PCBs行;K1为K(TS village)子样本(n=5),正文范围1664.4-484500验证一致"
+P01524,K2,SumPCB_ngg,1664.4,ng/g,Table 5,soil,e_waste,Zhejiang,"Total 58 PCBs行;K2为K(TS village)子样本(n=5),正文范围1664.4-484500验证一致"
+P01524,K3,SumPCB_ngg,6042.3,ng/g,Table 5,soil,e_waste,Zhejiang,"Total 58 PCBs行;K3为K(TS village)子样本(n=5),正文范围1664.4-484500验证一致"
+P01524,K4,SumPCB_ngg,7537.1,ng/g,Table 5,soil,e_waste,Zhejiang,"Total 58 PCBs行;K4为K(TS village)子样本(n=5),正文范围1664.4-484500验证一致"
+P01524,K5,SumPCB_ngg,484500.0,ng/g,Table 5,soil,e_waste,Zhejiang,"Total 58 PCBs行;K5为K(TS village)子样本(n=5),正文范围1664.4-484500验证一致"
+P01524,M,SumPCB_ngg,24.9,ng/g,Table 5,soil,other,Zhejiang,"Total 58 PCBs行;M为reference site,表4无M列故从表5读取"

@@ -1,0 +1,10 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+66001_s00244-019-00617-w,66001_s00244-019-00617-w_Surface_water,Sum_PAH_ngg,110.455,Unknown,table_p5_ri18_ci1,water,industrial,,phase14_auto; confidence=high; flag=range_mean,,
+66001_s00244-019-00617-w,66001_s00244-019-00617-w_Surface_water,Sum_PAH_ngg,51.595,Unknown,table_p5_ri21_ci1,water,industrial,,phase14_auto; confidence=high; flag=range_mean,,
+66001_s00244-019-00617-w,66001_s00244-019-00617-w_Pyrolytic,BaA_ngg,0.275,Unknown,table_p7_ri4_ci2,water,industrial,,phase14_auto; confidence=high; flag=range_mean,,
+66001_s00244-019-00617-w,66001_s00244-019-00617-w_Pyrolytic,BaA_ngg,0.275,Unknown,table_p7_ri5_ci2,water,industrial,,phase14_auto; confidence=high; flag=range_mean,,
+66001_s00244-019-00617-w,66001_s00244-019-00617-w_RfD,Nap_ngg,0.02,Unknown,table_p8_ri1_ci2,water,industrial,,phase14_auto; confidence=high; flag=,,
+66001_s00244-019-00617-w,66001_s00244-019-00617-w_RfD,Flu_ngg,0.04,Unknown,table_p8_ri2_ci2,water,industrial,,phase14_auto; confidence=high; flag=,,
+66001_s00244-019-00617-w,66001_s00244-019-00617-w_RfD,Ant_ngg,0.04,Unknown,table_p8_ri3_ci2,water,industrial,,phase14_auto; confidence=high; flag=,,
+66001_s00244-019-00617-w,66001_s00244-019-00617-w_RfD,Phe_ngg,0.04,Unknown,table_p8_ri4_ci2,water,industrial,,phase14_auto; confidence=high; flag=,,
+66001_s00244-019-00617-w,66001_s00244-019-00617-w_RfD,Flt_ngg,0.04,Unknown,table_p8_ri5_ci2,water,industrial,,phase14_auto; confidence=high; flag=,,

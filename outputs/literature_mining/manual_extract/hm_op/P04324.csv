@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04324,,,,,,,,,skip: 仅统计汇总(Min/Max/Mean/SD/CV范围+风险分级计数)，无采样点级数据。Table3 HM为7266样本的统计参数(Min/1.5%/Mean/Median/98.5%/Max/SD/CV)+Hainan/Chinese/Spanish/Usangu基线对比+GB15618-2018风险分级计数; Table4 PAHs为70样本的Concentration范围(min~max)+Mean+Proportion(%); Table1/2为DL检测限。所有HM和PAH数值均为聚合统计行(铁律2)或基线阈值(铁律3)，无可追溯采样点标识。

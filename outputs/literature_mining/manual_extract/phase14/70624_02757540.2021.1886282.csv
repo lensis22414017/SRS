@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+70624_02757540.2021.1886282,70624_02757540.2021.1886282_BCF,BCF,Cd_mgkg,-0.372,Unknown,,high,table_p8_ri2_ci1,"Table 2.Correlation coefficients between root-soil indexes, BCF and MF."
+70624_02757540.2021.1886282,70624_02757540.2021.1886282_MF,MF,Cd_mgkg,0.036,Unknown,,high,table_p8_ri3_ci1,"Table 2.Correlation coefficients between root-soil indexes, BCF and MF."

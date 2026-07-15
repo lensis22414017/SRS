@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04171,,,,,,soil,urban,Guangdong,"skip: 论文仅提供两组(高密度城区/绿地)的Min/Max/Mean/SD统计汇总(Table 4)，无任何采样点级(S1/S2等)PAH浓度数据；Table 5为风险指数(ILCR/CR)需剔除；61个土壤样本但全部以组级统计呈现"

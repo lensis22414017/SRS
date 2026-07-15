@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+d4em00102h,d4em00102h_MF-Raw,MF-Raw,V_mgkg,0.03,Unknown,,high,table_p5_ri1_ci6,"Table 1 The C.I., V.I., and H.H.I. values of MF samples calculated based on FTIR spectra",,,,,,phase14
+d4em00102h,d4em00102h_MF-Light,MF-Light,V_mgkg,0.35,Unknown,,high,table_p5_ri2_ci6,"Table 1 The C.I., V.I., and H.H.I. values of MF samples calculated based on FTIR spectra",,,,,,phase14
+d4em00102h,d4em00102h_MF-Soil,MF-Soil,V_mgkg,0.13,Unknown,,high,table_p5_ri3_ci6,"Table 1 The C.I., V.I., and H.H.I. values of MF samples calculated based on FTIR spectra",,,,,,phase14

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07087,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"skip: 采样点级PCB数据全部在SI Table S3中(159 samples/30 mountain sites)，SI未获取(原始PDF为ScienceDirect错误页仅3页无正文内容)；正文仅有统计汇总(O-horizon Mean=510 ng/kg Range 57-1320; A-horizon Mean=227 ng/kg Range 36-679)须剔除；Table 1为回归相关系数非浓度；Fig.1为柱状图无法精确读取数值"

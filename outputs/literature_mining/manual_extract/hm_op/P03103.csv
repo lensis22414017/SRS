@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03103,,,,,,soil,agricultural,Hebei,skip: 仅区域汇总无采样点级数据. 表1按耕地/林地/园地分类的统计汇总(最大值/最小值/均值)及总研究区(平均值/变异系数)全为统计行; 表2为相关性矩阵非浓度; 表3为单因子污染指数(风险指数)已剔除; 图1/2/3均为图片无表格数值; 正文无任何采样点编号(S1/A/B等)对应浓度列表. 论文虽布设多个采样点但仅呈现按地类汇总统计. HM(Cd/Hg/As/Pb/Cr/Cu/Ni/Zn)及BaP均有但仅统计值无点位级

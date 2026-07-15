@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10600,,,,,,,,,skip: 论文Table 1仅提供18种PCB同系物的Min/Max/Median/Mean/Std.Dev统计汇总（30表层+30剖面聚合），无采样点级原始数据。Table 2为全球文献对比表，Table 3为TEQ毒性当量（pg/g，风险指数范畴）。Figure 4/5为区域/土层聚合柱状图，非精确采样点数值。HM数据缺失（has_hm=False）。无法提取采样点级浓度。

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02755,,,,,,soil,campus,Jilin,"仅Table1统计汇总(Min/Max/Mean/Geometric/SD/LODs/DF)，45个样本但无逐采样点级浓度数据；skip: 无采样点级OP数据"

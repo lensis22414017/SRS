@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01264,,,,,,,,"skip: spiked/greenhouse phytoremediation experiment. PAHs (phenanthrene+pyrene) artificially spiked into sediment in ecological greenhouse constructed wetland mesocosms. No real site sampling-point data. Only 2 PAH monomers studied (not 16 EPA PAHs). Background sediment from Nanjing suburb river had Phe=0.056 mg/kg and Pyr=0.042 mg/kg but this is a single bulk pre-experiment value"

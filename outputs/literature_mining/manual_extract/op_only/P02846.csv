@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02846,,,,,,,,"skip: bioremediation/rhizoremediation experiment (Comamonas-alfalfa system for 4CNB degradation); spiked pollutant (4CNB added to soil at 50/100/200 ug/g); pot/greenhouse experiments (gnotobiotic glass chambers with sterilized vermiculite + outdoor pots with soil mixture); target pollutant 4-chloronitrobenzene not in extraction scope (no PAH/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAEs/OCPs); no real field sampling-point data"

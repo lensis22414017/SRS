@@ -1,0 +1,12 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+70622_02757540.2013.844798,70622_02757540.2013.844798_SOM,SOM,Cr_mgkg,0.117,Unknown,,high,table_p6_ri4_ci2,"Table 3．Pearson correlation matrix among pH, SOM, inorganic and organic compounds.",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_SOM,SOM,Cd_mgkg,0.766,Unknown,,high,table_p6_ri5_ci2,"Table 3．Pearson correlation matrix among pH, SOM, inorganic and organic compounds.",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_Cd,Cd,Cd_mgkg,1.0,Unknown,,high,table_p6_ri5_ci5,"Table 3．Pearson correlation matrix among pH, SOM, inorganic and organic compounds.",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_Cd,Cd,Pb_mgkg,0.444,Unknown,,high,table_p6_ri6_ci5,"Table 3．Pearson correlation matrix among pH, SOM, inorganic and organic compounds.",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_SOM,SOM,Zn_mgkg,0.532,Unknown,,high,table_p6_ri7_ci2,"Table 3．Pearson correlation matrix among pH, SOM, inorganic and organic compounds.",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_Zn,Zn,Zn_mgkg,1.0,Unknown,,high,table_p6_ri7_ci7,"Table 3．Pearson correlation matrix among pH, SOM, inorganic and organic compounds.",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_Zn,Zn,Ni_mgkg,0.466,Unknown,,high,table_p6_ri8_ci7,"Table 3．Pearson correlation matrix among pH, SOM, inorganic and organic compounds.",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_SOM,SOM,Hg_mgkg,0.449,Unknown,,high,table_p6_ri9_ci2,"Table 3．Pearson correlation matrix among pH, SOM, inorganic and organic compounds.",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_Cd,Cd,Hg_mgkg,0.793,Unknown,,high,table_p6_ri9_ci5,"Table 3．Pearson correlation matrix among pH, SOM, inorganic and organic compounds.",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_Hg,Hg,Hg_mgkg,1.0,Unknown,,high,table_p6_ri9_ci9,"Table 3．Pearson correlation matrix among pH, SOM, inorganic and organic compounds.",,,,,,phase14
+70622_02757540.2013.844798,70622_02757540.2013.844798_As,As,As_mgkg,1.0,Unknown,,high,table_p6_ri10_ci10,"Table 3．Pearson correlation matrix among pH, SOM, inorganic and organic compounds.",,,,,,phase14

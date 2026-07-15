@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07908,,,,,,,,,"skip: 农业经济学论文 非土壤污染研究; 使用DEA/SBM-VRS模型分析耕地绿色利用效率(GUECL); 数据为省级统计年鉴面板数据(2001-2016年30省); 无任何采样点级OP浓度实测数据; 无PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAE/OCP; 论文中的pollution emission为基于化肥/农药/农膜损失系数估算的综合指数 非实测浓度; 所有表格为效率值/冗余率/回归系数 均为统计汇总"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00896,,,,,,,,"skip: REVIEW PAPER(综述/政策分析)。仅含全国/省级区域汇总统计均值(如DDTs平均60 ug/kg、HCHs平均8.7 ug/kg)，无任何采样点级OP实测数据。Table 1为三大河流域N损失估算(国家级budget)，Fig 1-6为省级水质/化肥/农药统计图。所有数值均为文献二次引用的区域均值或全国总量，非原始场地采样点数据"

@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+_dup_j.jhazmat.2013.05.003,_dup_j.jhazmat.2013.05.003_Value,Value,pH,6.7,Unknown,,high,table_p1_ri1_ci1,Characteristics of the soil used for the experiments.,,,,,,phase14
+_dup_j.jhazmat.2013.05.003,_dup_j.jhazmat.2013.05.003_Value,Value,OC_pct,8.6,Unknown,,high,table_p1_ri10_ci1,Characteristics of the soil used for the experiments.,,,,,,phase14
+_dup_j.jhazmat.2013.05.003,_dup_j.jhazmat.2013.05.003_Value,Value,Cu_mgkg,6.0,Unknown,,high,table_p1_ri16_ci1,Characteristics of the soil used for the experiments.,,,,,,phase14
+_dup_j.jhazmat.2013.05.003,_dup_j.jhazmat.2013.05.003_Value,Value,Pb_mgkg,450.0,Unknown,,high,table_p1_ri17_ci1,Characteristics of the soil used for the experiments.,,,,,,phase14

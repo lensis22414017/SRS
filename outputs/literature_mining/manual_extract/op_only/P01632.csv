@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01632,NOT_EXTRACTED,,,,,,,,"skip: 论文研究对象为新烟碱类代谢物(neonicotinoid metabolites/mNEOs) 不属于目标OP类别(Sum_PAH/BaP/SumPCB/SumDDT/SumHCH/SumPBDE/TotalPHC); 该论文在rejected_literature_log.csv中被标记为无OP/HM家族信号; P01632不存在于screen_op_china_v2.csv中; paper.md仅36行(只有摘要和高亮)无数据表格"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06745,,,,,,,,"skip: 仅区域级统计汇总(Min/Max/Mean/Median across 247 samples in Table1; 区域均值Central/East/West及县级均值Dingxiang/Xinfu等在正文)，无采样点级数据; BaP_eq为TEQ风险指数已排除; Table2为文献对比非本场地数据"

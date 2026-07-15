@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09807,,,,,,,"skip: paper.md仅含补充材料(SI)—Table S1非参数相关性/Table S2线性回归/Table S3 Spearman相关系数/Fig S1同系物图谱，均为统计分析结果非浓度值；主文浓度表格(各采样点PCDD/Fs/PCBs/PBDEs含量)未出现在解析文档中，无法提取采样点级数据"

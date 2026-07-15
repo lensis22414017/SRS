@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01607,,,,,,,,"skip: 论文研究对象为邻苯二甲酸酯(PAEs)，非目标OP污染物(PAH/PCB/DDT/HCH/PBDE/PHC)。PAEs不在提取清单中，无目标OP数据可提取。论文为全国尺度农田土壤PAE调查。"

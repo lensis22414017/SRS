@@ -1,0 +1,29 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P02222,S1,TotalPHC_mgkg,37000,mg/kg,Table 1,soil,petrochemical,Tianjin,"Oil-producing zone, TPH mean of triplicate analysis (3.7±0.7)e4 mg/kg dm",38.68831,117.47284
+P02222,S1,Sum_PAH_ngg,1300,ng/g,Table 1,soil,petrochemical,Tianjin,"Oil-producing zone, 16 EPA PAHs sum directly reported (1.3±0.05)e3 ug/kg dm",38.68831,117.47284
+P02222,S2,TotalPHC_mgkg,33000,mg/kg,Table 1,soil,petrochemical,Tianjin,"Oil-producing zone, TPH mean of triplicate analysis (3.3±0.7)e4 mg/kg dm",38.70356,117.48921
+P02222,S2,Sum_PAH_ngg,400,ng/g,Table 1,soil,petrochemical,Tianjin,"Oil-producing zone, 16 EPA PAHs sum directly reported (4.0±0.3)e2 ug/kg dm",38.70356,117.48921
+P02222,S3,TotalPHC_mgkg,22000,mg/kg,Table 1,soil,petrochemical,Tianjin,"Oil-producing zone, TPH mean of triplicate analysis (2.2±0.6)e4 mg/kg dm",38.70353,117.48931
+P02222,S3,Sum_PAH_ngg,430,ng/g,Table 1,soil,petrochemical,Tianjin,"Oil-producing zone, 16 EPA PAHs sum directly reported (4.3±0.2)e2 ug/kg dm",38.70353,117.48931
+P02222,S4,TotalPHC_mgkg,20000,mg/kg,Table 1,soil,petrochemical,Tianjin,"Oil-producing zone, TPH mean of triplicate analysis (2.0±0.5)e4 mg/kg dm",38.70344,117.48955
+P02222,S4,Sum_PAH_ngg,400,ng/g,Table 1,soil,petrochemical,Tianjin,"Oil-producing zone, 16 EPA PAHs sum directly reported (4.0±0.7)e2 ug/kg dm",38.70344,117.48955
+P02222,S5,TotalPHC_mgkg,21000,mg/kg,Table 1,soil,petrochemical,Tianjin,"Oil-producing zone, TPH mean of triplicate analysis (2.1±0.2)e4 mg/kg dm",38.70348,117.48975
+P02222,S5,Sum_PAH_ngg,170,ng/g,Table 1,soil,petrochemical,Tianjin,"Oil-producing zone, 16 EPA PAHs sum directly reported (1.7±0.1)e2 ug/kg dm",38.70348,117.48975
+P02222,S6,TotalPHC_mgkg,13000,mg/kg,Table 1,soil,urban,Tianjin,"Residential zone (within oilfield), TPH mean of triplicate analysis (1.3±0.3)e4 mg/kg dm",38.70224,117.53175
+P02222,S6,Sum_PAH_ngg,460,ng/g,Table 1,soil,urban,Tianjin,"Residential zone (within oilfield), 16 EPA PAHs sum directly reported (4.6±0.4)e2 ug/kg dm",38.70224,117.53175
+P02222,S7,TotalPHC_mgkg,21000,mg/kg,Table 1,soil,urban,Tianjin,"Residential zone (within oilfield), TPH mean of triplicate analysis (2.1±0.5)e4 mg/kg dm",38.70216,117.44517
+P02222,S7,Sum_PAH_ngg,270,ng/g,Table 1,soil,urban,Tianjin,"Residential zone (within oilfield), 16 EPA PAHs sum directly reported (2.7±0.3)e2 ug/kg dm",38.70216,117.44517
+P02222,S8,TotalPHC_mgkg,34000,mg/kg,Table 1,soil,urban,Tianjin,"Residential zone (within oilfield), TPH mean of triplicate analysis (3.4±0.5)e4 mg/kg dm",38.74115,117.54481
+P02222,S8,Sum_PAH_ngg,190,ng/g,Table 1,soil,urban,Tianjin,"Residential zone (within oilfield), 16 EPA PAHs sum directly reported (1.9±0.2)e2 ug/kg dm",38.74115,117.54481
+P02222,S9,TotalPHC_mgkg,18000,mg/kg,Table 1,soil,urban,Tianjin,"Residential zone (within oilfield), TPH mean of triplicate analysis (1.8±0.2)e4 mg/kg dm",38.67133,117.4401
+P02222,S9,Sum_PAH_ngg,370,ng/g,Table 1,soil,urban,Tianjin,"Residential zone (within oilfield), 16 EPA PAHs sum directly reported (3.7±0.1)e2 ug/kg dm",38.67133,117.4401
+P02222,S10,TotalPHC_mgkg,23000,mg/kg,Table 1,soil,petrochemical,Tianjin,"Oil-refinery and transportation zone, TPH mean of triplicate analysis (2.3±0.4)e4 mg/kg dm",38.66317,117.33374
+P02222,S10,Sum_PAH_ngg,320,ng/g,Table 1,soil,petrochemical,Tianjin,"Oil-refinery and transportation zone, 16 EPA PAHs sum directly reported (3.2±0.3)e2 ug/kg dm",38.66317,117.33374
+P02222,S11,TotalPHC_mgkg,22000,mg/kg,Table 1,soil,petrochemical,Tianjin,"Oil-refinery and transportation zone, TPH mean of triplicate analysis (2.2±0.1)e4 mg/kg dm",38.69855,117.50472
+P02222,S11,Sum_PAH_ngg,2800,ng/g,Table 1,soil,petrochemical,Tianjin,"Oil-refinery zone, 16 EPA PAHs sum (2.8±0.3)e3 ug/kg dm; exponent verified via text zone range and 3-PAH mass balance",38.69855,117.50472
+P02222,S12,TotalPHC_mgkg,23000,mg/kg,Table 1,soil,petrochemical,Tianjin,"Oil-refinery and transportation zone, TPH mean of triplicate analysis (2.3±0.2)e4 mg/kg dm",38.71156,117.45957
+P02222,S12,Sum_PAH_ngg,180,ng/g,Table 1,soil,petrochemical,Tianjin,"Oil-refinery and transportation zone, 16 EPA PAHs sum directly reported (1.8±0.2)e2 ug/kg dm",38.71156,117.45957
+P02222,S13,TotalPHC_mgkg,22000,mg/kg,Table 1,soil,petrochemical,Tianjin,"Oil-refinery and transportation zone, TPH mean of triplicate analysis (2.2±0.3)e4 mg/kg dm",38.68235,117.40902
+P02222,S13,Sum_PAH_ngg,710,ng/g,Table 1,soil,petrochemical,Tianjin,"Oil-refinery and transportation zone, 16 EPA PAHs sum directly reported (7.1±0.5)e2 ug/kg dm",38.68235,117.40902
+P02222,S14,TotalPHC_mgkg,20000,mg/kg,Table 1,soil,petrochemical,Tianjin,"Oil-refinery and transportation zone, TPH mean of triplicate analysis (2.0±0.5)e4 mg/kg dm",38.7451,117.50449
+P02222,S14,Sum_PAH_ngg,280,ng/g,Table 1,soil,petrochemical,Tianjin,"Oil-refinery zone, 16 EPA PAHs sum (2.8±0.7)e2 ug/kg dm; exponent verified via 3-PAH mass balance (Nap+Phe+Pyr=156, ratio=55.7pct)",38.7451,117.50449

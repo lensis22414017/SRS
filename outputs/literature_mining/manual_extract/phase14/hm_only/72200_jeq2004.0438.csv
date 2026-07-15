@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+72200_jeq2004.0438,72200_jeq2004.0438_K,K,pH,7.3,Unknown,,high,table_p2_ri6_ci2,Table 1. Physical and chemical properties of soil samples.,,,,,,phase14
+72200_jeq2004.0438,72200_jeq2004.0438_K,K,V_mgkg,106.3,Unknown,,high,table_p2_ri10_ci2,Table 1. Physical and chemical properties of soil samples.,,,,,,phase14
+72200_jeq2004.0438,72200_jeq2004.0438_K,K,V_mgkg,15.7,Unknown,,high,table_p2_ri12_ci2,Table 1. Physical and chemical properties of soil samples.,,,,,,phase14
+72200_jeq2004.0438,72200_jeq2004.0438_K,K,V_mgkg,87.2,Unknown,,high,table_p2_ri14_ci2,Table 1. Physical and chemical properties of soil samples.,,,,,,phase14

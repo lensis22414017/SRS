@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03840,,,,,,soil,urban,National,"skip: 综述/Meta分析论文(汇总122篇文献+161研究区+9039采样点)。Table 3列20个城市群区域S16PAHs均值(2000-2010与2011-2020两时段),非采样点级实测。例: P1京津冀1310采样点均值841.4/750.2 ng/g, P2长三角2435采样点均值2506/2445 ng/g, P3珠三角1130采样点均值1889/405.6 ng/g。无BaP单体值,无任何单一采样点原始浓度。脚本将20个城市群行误判为20采样点。命中铁律4(区域均值非场地样本)+剔除场景(综述/Meta分析无原始数据)"

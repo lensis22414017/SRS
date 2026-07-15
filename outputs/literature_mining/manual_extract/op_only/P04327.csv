@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04327,,,,,,,"skip: 69个农用土壤样本仅有区域级汇总统计(Mean/Range/Detection rate)，无采样点级表格数据；单体浓度仅在图2a箱线图和图3空间插值图中以汇总形式呈现，未列出任何单点sample_id对应的浓度值；论文声明原始数据可向通讯作者索取。论文仅测HCHs(α/β/γ/δ)+DDTs(DDE/DDD/DDT)，无PAH/PCB/PBDE/石油烃"

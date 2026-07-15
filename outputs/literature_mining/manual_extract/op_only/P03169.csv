@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03169,S7,DEHP_ngg,225,ng/g,正文 PAE congener profiles段,soil,agricultural,Hebei,"site7 DEHP=0.225 ug/g dw text-stated highest concentration; ug/g=mg/kg x1000=225ng/g; 39 soil samples from 13 sites along Wangyang River"
+P03169,S10,DEHP_ngg,199,ng/g,正文 PAE congener profiles段,soil,agricultural,Hebei,"site10 DEHP=0.199 ug/g dw text-stated 2nd highest; ug/g=mg/kg x1000=199ng/g; only 2 individual site values in text; rest of data only in summary stats Table1 or Fig2 image"

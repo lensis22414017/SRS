@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02558,N/A,N/A,N/A,N/A,N/A,sediment,laboratory,Jiangsu,"skip: 实验室spiked添加实验(sediment spiked with p,p'-DDT at 100/200/400/600/1000 ng/g ww in glass beakers), 非真实场地采样; 论文为SPMD+底栖贝类28d生物累积实验, 无场地采样点级数据; 表1/3为congener proportions(%), 表2/4为correlation coefficients(r), 表5为BSAF/DAF累积因子, 均非浓度值; 沉积物采自太湖北部梅梁湾但仅作基质后人工添加DDT"

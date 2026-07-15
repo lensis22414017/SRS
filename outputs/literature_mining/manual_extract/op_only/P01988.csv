@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01988,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"skip: 论文测量HCBD/1,2,4-TCB/1,2,4,5-TeCB/HCB四种氯代化合物，均不在目标OP污染物列表(Sum_PAH/BaP/SumPCB/SumDDT/SumHCH/SumPBDE/TotalPHC/antibiotics/PAEs/Endosulfan/OCP_total)中；17个土壤采样点(B1-B17)数据仅在Figure 2(图片)和SI Table S2/S7/S8(未提供)中，正文无可提取的采样点级表格数据"

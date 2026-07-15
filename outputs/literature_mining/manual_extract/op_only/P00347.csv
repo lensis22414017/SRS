@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00347,,,,,,,,"skip: 论文仅提供区域级(Zone A/B/C/XD)汇总统计(Mean/Range/SD for Sum_PAH and 7-carcinogenic PAHs)，无单体采样点(A01-A41/B01-B18/C01-C24)级PAH浓度数据；Table1为cancer risk风险指数(CR_total等)须剔除；Fig2-4为箱线图无法提取个体值"

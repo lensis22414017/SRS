@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P10376,L11,SumHCH_ngg,349,ng/g,"正文Results段(α-HCH/β-HCH比值讨论),L11=Dagu Chemical附近",soil,agricultural,Tianjin,"正文零散提及仅3/302样本;SI含完整302样本个体数据但paper.md未包含;L11为α-HCH/β-HCH比值离群样本,ΣHCH=全表最大值",39.0,117.0
+P10376,J16,SumDDT_ngg,735,ng/g,正文Results段(DDT/DDE比值讨论),soil,agricultural,Haihe_Plain,"正文零散提及仅3/302样本;SI含完整302样本个体数据但paper.md未包含;J16为p,p'-DDT/p,p'-DDE=3.0离群样本",39.0,117.0
+P10376,D02,SumDDT_ngg,282,ng/g,正文Results段(DDT/DDE比值讨论),soil,agricultural,Haihe_Plain,"正文零散提及仅3/302样本;SI含完整302样本个体数据但paper.md未包含;D02为p,p'-DDT/p,p'-DDE=2.3离群样本",39.0,117.0

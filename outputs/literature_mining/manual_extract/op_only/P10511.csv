@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10511,,,,,,,soil,industrial,Beijing,"skip: 所有浓度数据仅在Fig.2深度剖面图中呈现(柱状图/折线图), 论文无任何采样点级数值表格; 正文仅有范围统计(0.174-4783 ng/g HCHs, 0.62-57849 ng/g DDTs)和百分比中位数等汇总值, 无法提取sample-level数据"

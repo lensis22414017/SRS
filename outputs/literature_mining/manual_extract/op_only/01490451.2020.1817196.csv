@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+01490451.2020.1817196,01490451.2020.1817196_S1,Ace_ngg,571.74,Unknown,table_p5_ri1_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+01490451.2020.1817196,01490451.2020.1817196_S2,Ace_ngg,361.04,Unknown,table_p5_ri2_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+01490451.2020.1817196,01490451.2020.1817196_S3,Ace_ngg,563.72,Unknown,table_p5_ri3_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+01490451.2020.1817196,01490451.2020.1817196_T1,Ace_ngg,631.83,Unknown,table_p5_ri4_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+01490451.2020.1817196,01490451.2020.1817196_T2,Ace_ngg,1098.53,Unknown,table_p5_ri5_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+01490451.2020.1817196,01490451.2020.1817196_T3,Ace_ngg,711.0,Unknown,table_p5_ri6_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,

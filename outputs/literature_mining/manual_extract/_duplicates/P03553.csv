@@ -1,0 +1,43 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03553,SOIL1,SumPCB_ngg,4910,ng/g,Table 1,soil,e_waste,Guangdong,6 marker PCB congeners直接读取(PCB28+52+101+153+138+180);μg/g×1000→ng/g
+P03553,SOIL1,SumDDT_ngg,18,ng/g,Table 1,soil,e_waste,Guangdong,"4,4'-DDE(0.006)+4,4'-DDD(0.002)+4,4'-DDT(0.01)单体求和;2,4'异构体论文声明nd;μg/g×1000→ng/g"
+P03553,SOIL1,SumHCH_ngg,1.2,ng/g,Table 1,soil,e_waste,Guangdong,α-HCH(0.0006)+β-HCH(0.0006)单体求和;γ-HCH和δ-HCH为nd;μg/g×1000→ng/g
+P03553,SOIL1,SumPBDE_ngg,3650,ng/g,Table 1,soil,e_waste,Guangdong,11 PBDE congeners直接读取MPBDEs行;μg/g×1000→ng/g
+P03553,SOIL1,Endosulfan_ngg,0,ng/g,Table 1,soil,e_waste,Guangdong,α-endosulfan(nd)+β-endosulfan(nd);所有单体nd;总和按0计
+P03553,SOIL1,OCP_total_ngg,60,ng/g,Table 1,soil,e_waste,Guangdong,Table1直接读取MOCPs行;μg/g×1000→ng/g
+P03553,SOIL2,SumPCB_ngg,30,ng/g,Table 1,soil,e_waste,Guangdong,6 marker PCB congeners直接读取MPCBs行;μg/g×1000→ng/g
+P03553,SOIL2,SumDDT_ngg,0,ng/g,Table 1,soil,e_waste,Guangdong,"4,4'-DDE(nd)+4,4'-DDD(nd)+4,4'-DDT(nd);所有单体nd;总和按0计"
+P03553,SOIL2,SumHCH_ngg,1.8,ng/g,Table 1,soil,e_waste,Guangdong,α-HCH(0.0009)+β-HCH(0.0009)单体求和;γ-HCH和δ-HCH为nd;μg/g×1000→ng/g
+P03553,SOIL2,SumPBDE_ngg,80,ng/g,Table 1,soil,e_waste,Guangdong,11 PBDE congeners直接读取MPBDEs行;μg/g×1000→ng/g
+P03553,SOIL2,Endosulfan_ngg,0,ng/g,Table 1,soil,e_waste,Guangdong,α-endosulfan(nd)+β-endosulfan(nd);所有单体nd;总和按0计
+P03553,SOIL2,OCP_total_ngg,20,ng/g,Table 1,soil,e_waste,Guangdong,Table1直接读取MOCPs行;μg/g×1000→ng/g
+P03553,SOIL3,SumPCB_ngg,75300,ng/g,Table 1,soil,e_waste,Guangdong,6 marker PCB congeners直接读取MPCBs行;μg/g×1000→ng/g;dredge土样
+P03553,SOIL3,SumDDT_ngg,0,ng/g,Table 1,soil,e_waste,Guangdong,"4,4'-DDE(nd)+4,4'-DDD(nd)+4,4'-DDT(nd);所有单体nd;总和按0计"
+P03553,SOIL3,SumHCH_ngg,0.1,ng/g,Table 1,soil,e_waste,Guangdong,β-HCH(0.0001)单体;α/γ/δ-HCH均为nd;μg/g×1000→ng/g
+P03553,SOIL3,SumPBDE_ngg,4370,ng/g,Table 1,soil,e_waste,Guangdong,11 PBDE congeners直接读取MPBDEs行;μg/g×1000→ng/g
+P03553,SOIL3,Endosulfan_ngg,167,ng/g,Table 1,soil,e_waste,Guangdong,α-endosulfan(0.007)+β-endosulfan(0.16)单体求和;μg/g×1000→ng/g
+P03553,SOIL3,OCP_total_ngg,430,ng/g,Table 1,soil,e_waste,Guangdong,Table1直接读取MOCPs行;μg/g×1000→ng/g
+P03553,SOIL4,SumPCB_ngg,40,ng/g,Table 1,soil,e_waste,Guangdong,6 marker PCB congeners直接读取MPCBs行;μg/g×1000→ng/g
+P03553,SOIL4,SumDDT_ngg,0,ng/g,Table 1,soil,e_waste,Guangdong,"4,4'-DDE(nd)+4,4'-DDD(nd)+4,4'-DDT(nd);所有单体nd;总和按0计"
+P03553,SOIL4,SumHCH_ngg,1.8,ng/g,Table 1,soil,e_waste,Guangdong,α-HCH(0.0007)+β-HCH(0.0007)+δ-HCH(0.0004)单体求和;γ-HCH为nd;μg/g×1000→ng/g
+P03553,SOIL4,SumPBDE_ngg,160,ng/g,Table 1,soil,e_waste,Guangdong,11 PBDE congeners直接读取MPBDEs行;μg/g×1000→ng/g
+P03553,SOIL4,Endosulfan_ngg,0,ng/g,Table 1,soil,e_waste,Guangdong,α-endosulfan(nd)+β-endosulfan(nd);所有单体nd;总和按0计
+P03553,SOIL4,OCP_total_ngg,3,ng/g,Table 1,soil,e_waste,Guangdong,Table1直接读取MOCPs行;μg/g×1000→ng/g
+P03553,SED1,SumPCB_ngg,20100,ng/g,Table 1,sediment,e_waste,Guangdong,6 marker PCB congeners直接读取MPCBs行;μg/g×1000→ng/g
+P03553,SED1,SumDDT_ngg,5,ng/g,Table 1,sediment,e_waste,Guangdong,"4,4'-DDE(0.005);4,4'-DDD(nd)+4,4'-DDT(nd);μg/g×1000→ng/g"
+P03553,SED1,SumHCH_ngg,0,ng/g,Table 1,sediment,e_waste,Guangdong,α/β/γ/δ-HCH均为nd;总和按0计
+P03553,SED1,SumPBDE_ngg,39100,ng/g,Table 1,sediment,e_waste,Guangdong,11 PBDE congeners直接读取MPBDEs行;μg/g×1000→ng/g
+P03553,SED1,Endosulfan_ngg,60,ng/g,Table 1,sediment,e_waste,Guangdong,β-endosulfan(0.06);α-endosulfan为nd;μg/g×1000→ng/g
+P03553,SED1,OCP_total_ngg,970,ng/g,Table 1,sediment,e_waste,Guangdong,Table1直接读取MOCPs行;μg/g×1000→ng/g
+P03553,SED2,SumPCB_ngg,1040,ng/g,Table 1,sediment,e_waste,Guangdong,6 marker PCB congeners直接读取MPCBs行;μg/g×1000→ng/g
+P03553,SED2,SumDDT_ngg,0.8,ng/g,Table 1,sediment,e_waste,Guangdong,"4,4'-DDD(0.0008);4,4'-DDE(nd)+4,4'-DDT(nd);μg/g×1000→ng/g"
+P03553,SED2,SumHCH_ngg,1.5,ng/g,Table 1,sediment,e_waste,Guangdong,α-HCH(0.0006)+β-HCH(0.0006)+δ-HCH(0.0003)单体求和;γ-HCH为nd;μg/g×1000→ng/g
+P03553,SED2,SumPBDE_ngg,18100,ng/g,Table 1,sediment,e_waste,Guangdong,11 PBDE congeners直接读取MPBDEs行;μg/g×1000→ng/g
+P03553,SED2,Endosulfan_ngg,0,ng/g,Table 1,sediment,e_waste,Guangdong,α-endosulfan(nd)+β-endosulfan(nd);所有单体nd;总和按0计
+P03553,SED2,OCP_total_ngg,10,ng/g,Table 1,sediment,e_waste,Guangdong,Table1直接读取MOCPs行;μg/g×1000→ng/g
+P03553,SED3,SumPCB_ngg,180,ng/g,Table 1,sediment,e_waste,Guangdong,6 marker PCB congeners直接读取MPCBs行;μg/g×1000→ng/g
+P03553,SED3,SumDDT_ngg,0,ng/g,Table 1,sediment,e_waste,Guangdong,"4,4'-DDE(nd)+4,4'-DDD(nd)+4,4'-DDT(nd);所有单体nd;总和按0计"
+P03553,SED3,SumHCH_ngg,2,ng/g,Table 1,sediment,e_waste,Guangdong,α-HCH(0.001)+β-HCH(0.001)单体求和;γ-HCH和δ-HCH为nd;μg/g×1000→ng/g
+P03553,SED3,SumPBDE_ngg,40,ng/g,Table 1,sediment,e_waste,Guangdong,11 PBDE congeners直接读取MPBDEs行;μg/g×1000→ng/g
+P03553,SED3,Endosulfan_ngg,0,ng/g,Table 1,sediment,e_waste,Guangdong,α-endosulfan(nd)+β-endosulfan(nd);所有单体nd;总和按0计
+P03553,SED3,OCP_total_ngg,70,ng/g,Table 1,sediment,e_waste,Guangdong,Table1直接读取MOCPs行;μg/g×1000→ng/g

@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_RA,RA,Sum_PAH_ngg,481.83,Unknown,,high,table_p7_ri17_ci1,Table 5 Average concentrations of PAHs in the rural soils collected from Tianjin district (μg kg<sup>−1</sup> dw).,,,,,,phase14
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_RA,RA,Phe_ngg,0.14,Unknown,,high,table_p7_ri19_ci1,Table 5 Average concentrations of PAHs in the rural soils collected from Tianjin district (μg kg<sup>−1</sup> dw).,,,,,,phase14
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_RA,RA,Ant_ngg,0.14,Unknown,,high,table_p7_ri19_ci1,Table 5 Average concentrations of PAHs in the rural soils collected from Tianjin district (μg kg<sup>−1</sup> dw).,,,,,,phase14

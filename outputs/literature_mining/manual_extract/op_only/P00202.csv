@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00202,,,,,,,,"skip: 544 samples collected from Zhangjiagang County YRD but paper only presents stat summaries (Mean/SD/Min/Max/CV/Detection rate in Table 1 and group means by soil type Anthrosols n=189 vs Cambosols n=355 in Table 2). No individual sample-level data with site labels. All rows are statistical aggregates not sampling points."

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04804,,,,,,,,"skip: street dust matrix (not soil); Table1 contains only statistical summaries (Max/Min/Ave/Std/Median) across 21 sites HG01-HG21 with no individual sample-level PAH concentrations; Fig.2 bar chart only"

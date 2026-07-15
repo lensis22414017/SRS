@@ -1,0 +1,138 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_0,0,Sum_PAH_ngg,0.0,Unknown,,high,table_p3_ri2_ci0,Table 1. Risk classification of individual PAHs and total PAHs.
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,Nap_ngg,12.0,Unknown,,high,table_p4_ri2_ci1, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG2_(n_=_12),UG2 (n = 12),Nap_ngg,12.6,Unknown,,high,table_p4_ri2_ci3, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_G2_(n_=_10),G2 (n = 10),Nap_ngg,0.1,Unknown,,high,table_p4_ri2_ci4, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_G1_(n_=_9),G1 (n = 9),Nap_ngg,13.4,Unknown,,high,table_p4_ri2_ci5, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S3_(n_=_10),S3 (n = 10),Nap_ngg,0.1,Unknown,,high,table_p4_ri2_ci6, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG1_(n_=_2),UG1 (n = 2),Nap_ngg,31.3,Unknown,,high,table_p4_ri2_ci7, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S2_(n_=_7),S2 (n = 7),Nap_ngg,0.3,Unknown,,high,table_p4_ri2_ci8, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S1_(n_=_2),S1 (n = 2),Nap_ngg,21.3,Unknown,,high,table_p4_ri2_ci9, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,Acy_ngg,0.7,Unknown,,high,table_p4_ri3_ci1, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_MPCs,MPCs,Acy_ngg,70.0,Unknown,,high,table_p4_ri3_ci2, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG2_(n_=_12),UG2 (n = 12),Acy_ngg,328.8,Unknown,,high,table_p4_ri3_ci3, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_G2_(n_=_10),G2 (n = 10),Acy_ngg,3.3,Unknown,,high,table_p4_ri3_ci4, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_G1_(n_=_9),G1 (n = 9),Acy_ngg,272.2,Unknown,,high,table_p4_ri3_ci5, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S3_(n_=_10),S3 (n = 10),Acy_ngg,2.7,Unknown,,high,table_p4_ri3_ci6, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG1_(n_=_2),UG1 (n = 2),Acy_ngg,340.0,Unknown,,high,table_p4_ri3_ci7, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S2_(n_=_7),S2 (n = 7),Acy_ngg,3.4,Unknown,,high,table_p4_ri3_ci8, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S1_(n_=_2),S1 (n = 2),Acy_ngg,228.7,Unknown,,high,table_p4_ri3_ci9, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,Ace_ngg,0.7,Unknown,,high,table_p4_ri4_ci1, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_MPCs,MPCs,Ace_ngg,70.0,Unknown,,high,table_p4_ri4_ci2, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG2_(n_=_12),UG2 (n = 12),Ace_ngg,97.7,Unknown,,high,table_p4_ri4_ci3, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_G2_(n_=_10),G2 (n = 10),Ace_ngg,1.0,Unknown,,high,table_p4_ri4_ci4, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_G1_(n_=_9),G1 (n = 9),Ace_ngg,38.1,Unknown,,high,table_p4_ri4_ci5, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S3_(n_=_10),S3 (n = 10),Ace_ngg,0.4,Unknown,,high,table_p4_ri4_ci6, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG1_(n_=_2),UG1 (n = 2),Ace_ngg,219.7,Unknown,,high,table_p4_ri4_ci7, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S2_(n_=_7),S2 (n = 7),Ace_ngg,2.2,Unknown,,high,table_p4_ri4_ci8, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S1_(n_=_2),S1 (n = 2),Ace_ngg,68.0,Unknown,,high,table_p4_ri4_ci9, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,Flu_ngg,0.7,Unknown,,high,table_p4_ri5_ci1, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_MPCs,MPCs,Flu_ngg,70.0,Unknown,,high,table_p4_ri5_ci2, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG2_(n_=_12),UG2 (n = 12),Flu_ngg,367.5,Unknown,,high,table_p4_ri5_ci3, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_G2_(n_=_10),G2 (n = 10),Flu_ngg,3.7,Unknown,,high,table_p4_ri5_ci4, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_G1_(n_=_9),G1 (n = 9),Flu_ngg,138.5,Unknown,,high,table_p4_ri5_ci5, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S3_(n_=_10),S3 (n = 10),Flu_ngg,1.4,Unknown,,high,table_p4_ri5_ci6, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG1_(n_=_2),UG1 (n = 2),Flu_ngg,678.2,Unknown,,high,table_p4_ri5_ci7, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S2_(n_=_7),S2 (n = 7),Flu_ngg,6.8,Unknown,,high,table_p4_ri5_ci8, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S1_(n_=_2),S1 (n = 2),Flu_ngg,229.6,Unknown,,high,table_p4_ri5_ci9, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,Phe_ngg,3.0,Unknown,,high,table_p4_ri6_ci1, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_MPCs,MPCs,Phe_ngg,300.0,Unknown,,high,table_p4_ri6_ci2, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG2_(n_=_12),UG2 (n = 12),Phe_ngg,146.8,Unknown,,high,table_p4_ri6_ci3, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_G2_(n_=_10),G2 (n = 10),Phe_ngg,1.5,Unknown,,high,table_p4_ri6_ci4, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_G1_(n_=_9),G1 (n = 9),Phe_ngg,40.6,Unknown,,high,table_p4_ri6_ci5, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S3_(n_=_10),S3 (n = 10),Phe_ngg,0.4,Unknown,,high,table_p4_ri6_ci6, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG1_(n_=_2),UG1 (n = 2),Phe_ngg,305.6,Unknown,,high,table_p4_ri6_ci7, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S2_(n_=_7),S2 (n = 7),Phe_ngg,3.1,Unknown,,high,table_p4_ri6_ci8, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S1_(n_=_2),S1 (n = 2),Phe_ngg,58.1,Unknown,,high,table_p4_ri6_ci9, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,Ant_ngg,0.7,Unknown,,high,table_p4_ri7_ci1, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_MPCs,MPCs,Ant_ngg,70.0,Unknown,,high,table_p4_ri7_ci2, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG2_(n_=_12),UG2 (n = 12),Ant_ngg,41.1,Unknown,,high,table_p4_ri7_ci3, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_G2_(n_=_10),G2 (n = 10),Ant_ngg,0.4,Unknown,,high,table_p4_ri7_ci4, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_G1_(n_=_9),G1 (n = 9),Ant_ngg,198.0,Unknown,,high,table_p4_ri7_ci5, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S3_(n_=_10),S3 (n = 10),Ant_ngg,2.0,Unknown,,high,table_p4_ri7_ci6, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG1_(n_=_2),UG1 (n = 2),Ant_ngg,79.0,Unknown,,high,table_p4_ri7_ci7, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S2_(n_=_7),S2 (n = 7),Ant_ngg,0.8,Unknown,,high,table_p4_ri7_ci8, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S1_(n_=_2),S1 (n = 2),Ant_ngg,15.2,Unknown,,high,table_p4_ri7_ci9, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,Pyr_ngg,0.7,Unknown,,high,table_p4_ri9_ci1, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_MPCs,MPCs,Pyr_ngg,70.0,Unknown,,high,table_p4_ri9_ci2, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG2_(n_=_12),UG2 (n = 12),Pyr_ngg,138.6,Unknown,,high,table_p4_ri9_ci3, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_G2_(n_=_10),G2 (n = 10),Pyr_ngg,1.4,Unknown,,high,table_p4_ri9_ci4, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_G1_(n_=_9),G1 (n = 9),Pyr_ngg,9.8,Unknown,,high,table_p4_ri9_ci5, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S3_(n_=_10),S3 (n = 10),Pyr_ngg,0.1,Unknown,,high,table_p4_ri9_ci6, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG1_(n_=_2),UG1 (n = 2),Pyr_ngg,219.5,Unknown,,high,table_p4_ri9_ci7, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S2_(n_=_7),S2 (n = 7),Pyr_ngg,2.2,Unknown,,high,table_p4_ri9_ci8, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S1_(n_=_2),S1 (n = 2),Pyr_ngg,46.8,Unknown,,high,table_p4_ri9_ci9, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,BaA_ngg,0.1,Unknown,,high,table_p4_ri10_ci1, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_MPCs,MPCs,BaA_ngg,10.0,Unknown,,high,table_p4_ri10_ci2, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,BbF_ngg,0.1,Unknown,,high,table_p4_ri12_ci1, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_MPCs,MPCs,BbF_ngg,10.0,Unknown,,high,table_p4_ri12_ci2, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,BkF_ngg,0.4,Unknown,,high,table_p4_ri13_ci1, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_MPCs,MPCs,BkF_ngg,40.0,Unknown,,high,table_p4_ri13_ci2, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S1_(n_=_2),S1 (n = 2),BkF_ngg,0.9,Unknown,,high,table_p4_ri13_ci9, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,BaP_ngg,0.5,Unknown,,high,table_p4_ri14_ci1, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_MPCs,MPCs,BaP_ngg,50.0,Unknown,,high,table_p4_ri14_ci2, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_G1_(n_=_9),G1 (n = 9),BaP_ngg,0.5,Unknown,,high,table_p4_ri14_ci5, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S3_(n_=_10),S3 (n = 10),BaP_ngg,0.0,Unknown,,high,table_p4_ri14_ci6, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,Sum_PAH_ngg,23.8,Unknown,,high,table_p4_ri18_ci1, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_G2_(n_=_10),G2 (n = 10),Sum_PAH_ngg,9.8,Unknown,,high,table_p4_ri18_ci4, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_G1_(n_=_9),G1 (n = 9),Sum_PAH_ngg,715.6,Unknown,,high,table_p4_ri18_ci5, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S3_(n_=_10),S3 (n = 10),Sum_PAH_ngg,6.1,Unknown,,high,table_p4_ri18_ci6, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S2_(n_=_7),S2 (n = 7),Sum_PAH_ngg,17.6,Unknown,,high,table_p4_ri18_ci8, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_S1_(n_=_2),S1 (n = 2),Sum_PAH_ngg,687.8,Unknown,,high,table_p4_ri18_ci9, <sub>ND</sub> <sup>means</sup> <sup>not</sup> <sup>detecte</sup>
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,Nap_ngg,1.4,Unknown,,high,table_p5_ri2_ci1,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_MPCs,MPCs,Nap_ngg,140.0,Unknown,,high,table_p5_ri2_ci2,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG2_(n_=_8),UG2 (n = 8),Nap_ngg,128.16,Unknown,range_mean,high,table_p5_ri2_ci3,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_Topsoil_(n_=_21),Topsoil (n = 21),Nap_ngg,67.7,Unknown,,high,table_p5_ri2_ci4,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG1_(n_=_3),UG1 (n = 3),Nap_ngg,1.2850000000000001,Unknown,range_mean,high,table_p5_ri2_ci5,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,Acy_ngg,1.2,Unknown,,high,table_p5_ri3_ci1,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_MPCs,MPCs,Acy_ngg,120.0,Unknown,,high,table_p5_ri3_ci2,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG2_(n_=_8),UG2 (n = 8),Acy_ngg,15.355,Unknown,range_mean,high,table_p5_ri3_ci3,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_Topsoil_(n_=_21),Topsoil (n = 21),Acy_ngg,8.67,Unknown,,high,table_p5_ri3_ci4,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG1_(n_=_3),UG1 (n = 3),Acy_ngg,0.155,Unknown,range_mean,high,table_p5_ri3_ci5,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,Ace_ngg,1.2,Unknown,,high,table_p5_ri4_ci1,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_MPCs,MPCs,Ace_ngg,120.0,Unknown,,high,table_p5_ri4_ci2,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG2_(n_=_8),UG2 (n = 8),Ace_ngg,8.495,Unknown,range_mean,high,table_p5_ri4_ci3,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_Topsoil_(n_=_21),Topsoil (n = 21),Ace_ngg,7.7,Unknown,,high,table_p5_ri4_ci4,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG1_(n_=_3),UG1 (n = 3),Ace_ngg,0.08499999999999999,Unknown,range_mean,high,table_p5_ri4_ci5,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,Flu_ngg,1.2,Unknown,,high,table_p5_ri5_ci1,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_MPCs,MPCs,Flu_ngg,120.0,Unknown,,high,table_p5_ri5_ci2,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG2_(n_=_8),UG2 (n = 8),Flu_ngg,33.085,Unknown,range_mean,high,table_p5_ri5_ci3,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_Topsoil_(n_=_21),Topsoil (n = 21),Flu_ngg,27.96,Unknown,,high,table_p5_ri5_ci4,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG1_(n_=_3),UG1 (n = 3),Flu_ngg,0.33,Unknown,range_mean,high,table_p5_ri5_ci5,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,Phe_ngg,5.1,Unknown,,high,table_p5_ri6_ci1,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_MPCs,MPCs,Phe_ngg,510.0,Unknown,,high,table_p5_ri6_ci2,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG2_(n_=_8),UG2 (n = 8),Phe_ngg,12.615,Unknown,range_mean,high,table_p5_ri6_ci3,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_Topsoil_(n_=_21),Topsoil (n = 21),Phe_ngg,9.61,Unknown,,high,table_p5_ri6_ci4,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG1_(n_=_3),UG1 (n = 3),Phe_ngg,0.125,Unknown,range_mean,high,table_p5_ri6_ci5,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,Ant_ngg,1.2,Unknown,,high,table_p5_ri7_ci1,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_MPCs,MPCs,Ant_ngg,120.0,Unknown,,high,table_p5_ri7_ci2,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG2_(n_=_8),UG2 (n = 8),Ant_ngg,3.32,Unknown,range_mean,high,table_p5_ri7_ci3,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_Topsoil_(n_=_21),Topsoil (n = 21),Ant_ngg,1.95,Unknown,,high,table_p5_ri7_ci4,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG1_(n_=_3),UG1 (n = 3),Ant_ngg,0.03,Unknown,range_mean,high,table_p5_ri7_ci5,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,Pyr_ngg,1.2,Unknown,,high,table_p5_ri9_ci1,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_MPCs,MPCs,Pyr_ngg,120.0,Unknown,,high,table_p5_ri9_ci2,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG2_(n_=_8),UG2 (n = 8),Pyr_ngg,20.075000000000003,Unknown,range_mean,high,table_p5_ri9_ci3,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_Topsoil_(n_=_21),Topsoil (n = 21),Pyr_ngg,12.2,Unknown,,high,table_p5_ri9_ci4,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG1_(n_=_3),UG1 (n = 3),Pyr_ngg,0.2,Unknown,range_mean,high,table_p5_ri9_ci5,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,BaA_ngg,2.5,Unknown,,high,table_p5_ri10_ci1,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_MPCs,MPCs,BaA_ngg,250.0,Unknown,,high,table_p5_ri10_ci2,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG2_(n_=_8),UG2 (n = 8),BaA_ngg,6.055000000000001,Unknown,range_mean,high,table_p5_ri10_ci3,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_Topsoil_(n_=_21),Topsoil (n = 21),BaA_ngg,3.67,Unknown,,high,table_p5_ri10_ci4,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG1_(n_=_3),UG1 (n = 3),BaA_ngg,0.06,Unknown,range_mean,high,table_p5_ri10_ci5,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,BbF_ngg,2.5,Unknown,,high,table_p5_ri12_ci1,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_MPCs,MPCs,BbF_ngg,250.0,Unknown,,high,table_p5_ri12_ci2,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG2_(n_=_8),UG2 (n = 8),BbF_ngg,19.119999999999997,Unknown,range_mean,high,table_p5_ri12_ci3,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_Topsoil_(n_=_21),Topsoil (n = 21),BbF_ngg,11.47,Unknown,,high,table_p5_ri12_ci4,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG1_(n_=_3),UG1 (n = 3),BbF_ngg,0.19,Unknown,range_mean,high,table_p5_ri12_ci5,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,BkF_ngg,24.0,Unknown,,high,table_p5_ri13_ci1,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG2_(n_=_8),UG2 (n = 8),BkF_ngg,0.77,Unknown,range_mean,high,table_p5_ri13_ci3,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_Topsoil_(n_=_21),Topsoil (n = 21),BkF_ngg,0.61,Unknown,,high,table_p5_ri13_ci4,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG1_(n_=_3),UG1 (n = 3),BkF_ngg,0.005,Unknown,range_mean,high,table_p5_ri13_ci5,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_NCs,NCs,BaP_ngg,2.6,Unknown,,high,table_p5_ri14_ci1,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_MPCs,MPCs,BaP_ngg,260.0,Unknown,,high,table_p5_ri14_ci2,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG2_(n_=_8),UG2 (n = 8),BaP_ngg,9.48,Unknown,range_mean,high,table_p5_ri14_ci3,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_Topsoil_(n_=_21),Topsoil (n = 21),BaP_ngg,5.36,Unknown,,high,table_p5_ri14_ci4,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG1_(n_=_3),UG1 (n = 3),BaP_ngg,0.095,Unknown,range_mean,high,table_p5_ri14_ci5,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG2_(n_=_8),UG2 (n = 8),Sum_PAH_ngg,257.95,Unknown,range_mean,high,table_p5_ri18_ci3,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_Topsoil_(n_=_21),Topsoil (n = 21),Sum_PAH_ngg,159.5,Unknown,,high,table_p5_ri18_ci4,
+Ecological-Risk-Assessmen,Ecological-Risk-Assessmen_UG1_(n_=_3),UG1 (n = 3),Sum_PAH_ngg,1.235,Unknown,range_mean,high,table_p5_ri18_ci5,

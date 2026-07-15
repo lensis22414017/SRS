@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00221,NOTES,,,,,,,"skip: 论文核心为大气PAH浓度(ng/m3 非土壤)。虽采集土壤样用于fugacity气土交换计算 但未展示采样点级土壤PAH浓度表格(ng/g)。Table2仅air samples(ng/m3)、Table3大气浓度跨城市比较、Table4 PAH特征比值(无量纲)、Fig5 fugacity fraction、Fig6组成百分比。无可追溯的采样点级土壤浓度数据"

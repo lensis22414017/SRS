@@ -1,0 +1,11 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+_dup_j.jhazmat.2016.05.033,_dup_j.jhazmat.2016.05.033_n,n,Nap_ngg,276.0,Unknown,,high,table_p3_ri1_ci1,Fitting distribution functions and parameters for PAHs in soil.,,,,,,phase14
+_dup_j.jhazmat.2016.05.033,_dup_j.jhazmat.2016.05.033_n,n,Flu_ngg,277.0,Unknown,,high,table_p3_ri4_ci1,Fitting distribution functions and parameters for PAHs in soil.,,,,,,phase14
+_dup_j.jhazmat.2016.05.033,_dup_j.jhazmat.2016.05.033_n,n,Phe_ngg,277.0,Unknown,,high,table_p3_ri5_ci1,Fitting distribution functions and parameters for PAHs in soil.,,,,,,phase14
+_dup_j.jhazmat.2016.05.033,_dup_j.jhazmat.2016.05.033_n,n,Ant_ngg,275.0,Unknown,,high,table_p3_ri6_ci1,Fitting distribution functions and parameters for PAHs in soil.,,,,,,phase14
+_dup_j.jhazmat.2016.05.033,_dup_j.jhazmat.2016.05.033_n,n,Pyr_ngg,277.0,Unknown,,high,table_p3_ri8_ci1,Fitting distribution functions and parameters for PAHs in soil.,,,,,,phase14
+_dup_j.jhazmat.2016.05.033,_dup_j.jhazmat.2016.05.033_n,n,BaA_ngg,275.0,Unknown,,high,table_p3_ri9_ci1,Fitting distribution functions and parameters for PAHs in soil.,,,,,,phase14
+_dup_j.jhazmat.2016.05.033,_dup_j.jhazmat.2016.05.033_n,n,Chr_ngg,275.0,Unknown,,high,table_p3_ri10_ci1,Fitting distribution functions and parameters for PAHs in soil.,,,,,,phase14
+_dup_j.jhazmat.2016.05.033,_dup_j.jhazmat.2016.05.033_n,n,BbF_ngg,189.0,Unknown,,high,table_p3_ri11_ci1,Fitting distribution functions and parameters for PAHs in soil.,,,,,,phase14
+_dup_j.jhazmat.2016.05.033,_dup_j.jhazmat.2016.05.033_n,n,BkF_ngg,217.0,Unknown,,high,table_p3_ri12_ci1,Fitting distribution functions and parameters for PAHs in soil.,,,,,,phase14
+_dup_j.jhazmat.2016.05.033,_dup_j.jhazmat.2016.05.033_n,n,BaP_ngg,255.0,Unknown,,high,table_p3_ri13_ci1,Fitting distribution functions and parameters for PAHs in soil.,,,,,,phase14

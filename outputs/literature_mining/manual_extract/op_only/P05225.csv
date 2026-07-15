@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05225,,,,,,,,"仅区域汇总，无采样点级数据；Table 1仅提供83样本的Range/Mean±SD/Median，无个体采样点标识与浓度值；supplementary Table 1按土地利用类型分组汇总(均值)，非采样点级；纯OP(OCPs)研究，无HM数据"

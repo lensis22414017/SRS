@@ -1,0 +1,71 @@
+=== Page 1 (4868 chars) ===
+Environmental Pollution 297 (2022) 118813
+Available online 7 January 2022
+0269-7491/© 2022 Elsevier Ltd. All rights reserved.
+Nitrogen input leads to the differential accumulation of polycyclic aromatic 
+hydrocarbons in the low- and high-density fractions in sewage-irrigated 
+farmland soil☆ 
+Kunlong Hui a,b, Yini Cui c, Wenbing Tan b,* 
+a School of Environmental and Chemical Engineering, Shanghai University, Shanghai, 200444, China 
+b State Environmental Protection Key Laboratory of Simulation and Control of Groundwater Pollution, Chinese Research Academy of Environmental Sciences, Beijing, 
+100012, China 
+c College of Resources and Environmental Sciences, China Agricultural University, Beijing, 100193, China   
+A R T I C L E  I N F O   
+Keywords: 
+Nitrogen fertilizer 
+Sewage irrigation area 
+Organic pollutants 
+Soil different density fractions 
+A B S T R A C T   
+Because of a shortage of water resources, sewage irrigation has become a popular management tool for farmland 
+soil in arid areas of China; however, this has led to the accumulation of polycyclic aromatic hydrocarbons (PAHs) 
+in soil. Soil is an important component of ecosystems, and nitrogen is an important nutrient required for plant 
+growth. Nitrogen input can alter the physical, chemical, and biological processes in soil and thus lead to changes 
+in soil organic matter and organic pollutants. However, whether these changes affect the accumulation of PAHs 
+and whether such accumulation differs in the low-density fraction (LF) and high-density fraction (HF) of soil 
+remains unclear. In this study, the response of PAHs in soil to nitrogen input (0, 100, 200, and 300 kg N ha−1 
+yr−1, respectively), including differences in LF and HF, were investigated through field experiments in a typical 
+sewage-irrigated area. The results showed that nitrogen input could increase the concentrations of PAHs in soil 
+from (7.6 ± 1.1) × 103 to (10.4 ± 0.6) × 103 μg kg−1 and lead to striking differences between the LF ((5.06 ±
+0.75) × 103 to (1.89 ± 0.18) × 103 μg kg−1) and HF ((2.54 ± 0.36) × 103 to (8.54 ± 0.44) × 103 μg kg−1). Given 
+the significant increase in global nitrogen input, our findings have implications for the optimization and man­
+agement of agricultural activities in sewage irrigation areas, such as soil investigation before fertilization, the use 
+of soil improvers, and the improvement of soil planting measures.   
+1. Introduction 
+Farmland soil is critically important for the physical, chemical, and 
+biological processes in terrestrial ecosystems (Wilson et al., 2019). Grain 
+crops such as wheat and maize are critically dependent on farmland soil, 
+and water and nitrogen are essential for ensuring their survival and 
+growth (Tan et al., 2016; Pan et al., 2017). However, the growing global 
+population, the increase in farmland area, and the increasing demand 
+for irrigation water place a continuous strain on freshwater resources. 
+To conserve scarce water resources, many countries have begun using 
+industrial and domestic sewage to irrigate farmland (Agnellos Barbosa 
+et al., 2017; Wu et al., 2017). In China, especially in arid areas in the 
+north, water resources are scarce. Consequently, sewage has been used 
+for irrigation in the farmland in the North China Plain for nearly 40 years 
+(Meng et al., 2016; Yan et al., 2020a). Most studies have suggested that 
+direct irrigation with sewage is one of the main sources of organic pol­
+lutants in farmland soil. After years of accumulation, many refractory 
+and persistent organic pollutants now pose a great threat to the soil 
+ecological environment and human health (Wang et al., 2002; Khan 
+et al., 2008). 
+Agricultural soil also requires fertilization (Pan et al., 2017). Previ­
+ous studies have shown that nitrogen input, especially the addition of 
+nitrogen fertilizers, plays a crucial role in soil ecosystems, including 
+maintaining soil nutrients levels and ensuring plant growth (Zhou et al., 
+2018; Lu et al., 2020). However, some studies have suggested that ni­
+trogen addition can even have negative effects, such as causing soil 
+acidification and decreasing the stability of the soil biological commu­
+nity (Janssens et al., 2010; Zhang et al., 2018). In addition, nitrogen 
+input could affect the composition and activity of soil microbial com­
+munity (Dai et al., 2018), and thus changes the bioavailability and 
+degradation efficiency of organic pollutants (such as PAHs) in soil 
+☆This paper has been recommended for acceptance by Dr. Yong Sik Ok. 
+* Corresponding author. 
+E-mail address: wenbingtan@126.com (W. Tan).  
+Contents lists available at ScienceDirect 
+Environmental Pollution 
+journal homepage: www.elsevier.com/locate/envpol 
+https://doi.org/10.1016/j.envpol.2022.118813 
+Received 29 August 2021; Received in revised form 27 November 2021; Accepted 6 January 2022   

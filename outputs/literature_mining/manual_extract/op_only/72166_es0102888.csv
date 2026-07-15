@@ -1,0 +1,8 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+72166_es0102888,72166_es0102888_ZJ-2,SumHCH_ngg,1965.0,Unknown,table_p3_ri2_ci1,sediment,industrial,,phase14_auto; confidence=high; flag=,,
+72166_es0102888,72166_es0102888_ZJ-3,SumHCH_ngg,1961.5,Unknown,table_p3_ri3_ci1,sediment,industrial,,phase14_auto; confidence=high; flag=range_mean,,
+72166_es0102888,72166_es0102888_ZJ-6,SumHCH_ngg,1964.0,Unknown,table_p3_ri4_ci1,sediment,industrial,,phase14_auto; confidence=high; flag=,,
+72166_es0102888,72166_es0102888_ZJ-D,SumHCH_ngg,1964.0,Unknown,table_p3_ri6_ci1,sediment,industrial,,phase14_auto; confidence=high; flag=,,
+72166_es0102888,72166_es0102888_ZJ-9,SumHCH_ngg,1963.0,Unknown,table_p3_ri7_ci1,sediment,industrial,,phase14_auto; confidence=high; flag=,,
+72166_es0102888,72166_es0102888_ZJ-10,SumHCH_ngg,1969.0,Unknown,table_p3_ri8_ci1,sediment,industrial,,phase14_auto; confidence=high; flag=range_mean,,
+72166_es0102888,72166_es0102888_ZJ-7,SumHCH_ngg,1962.5,Unknown,table_p3_ri9_ci1,sediment,industrial,,phase14_auto; confidence=high; flag=range_mean,,

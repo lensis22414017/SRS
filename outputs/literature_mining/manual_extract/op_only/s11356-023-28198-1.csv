@@ -1,0 +1,9 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+s11356-023-28198-1,s11356-023-28198-1_Geomean,SumHCH_ngg,0.054,Unknown,table_p2_ri1_ci5,soil,,,phase14_batch2; matrix=score=207:high; conf=high; flag=,,
+s11356-023-28198-1,s11356-023-28198-1_IDL,SumHCH_ngg,0.013,Unknown,table_p2_ri1_ci6,soil,,,phase14_batch2; matrix=score=207:high; conf=high; flag=,,
+s11356-023-28198-1,s11356-023-28198-1_Geomean,SumHCH_ngg,0.315,Unknown,table_p2_ri2_ci5,soil,,,phase14_batch2; matrix=score=207:high; conf=high; flag=,,
+s11356-023-28198-1,s11356-023-28198-1_IDL,SumHCH_ngg,0.037,Unknown,table_p2_ri2_ci6,soil,,,phase14_batch2; matrix=score=207:high; conf=high; flag=,,
+s11356-023-28198-1,s11356-023-28198-1_Geomean,SumHCH_ngg,0.079,Unknown,table_p2_ri3_ci5,soil,,,phase14_batch2; matrix=score=207:high; conf=high; flag=,,
+s11356-023-28198-1,s11356-023-28198-1_IDL,SumHCH_ngg,0.037,Unknown,table_p2_ri3_ci6,soil,,,phase14_batch2; matrix=score=207:high; conf=high; flag=,,
+s11356-023-28198-1,s11356-023-28198-1_Geomean,SumHCH_ngg,0.499,Unknown,table_p2_ri4_ci5,soil,,,phase14_batch2; matrix=score=207:high; conf=high; flag=,,
+s11356-023-28198-1,s11356-023-28198-1_Geomean,SumDDT_ngg,1.21,Unknown,table_p2_ri11_ci5,soil,,,phase14_batch2; matrix=score=207:high; conf=high; flag=,,

@@ -1,0 +1,50 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Hangzhou_Mean,Hangzhou Mean,Cd_mgkg,0.39,Unknown,,high,table_p2_ri1_ci1,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Hangzhou_Mean,Hangzhou Mean,Cr_mgkg,81.4,Unknown,,high,table_p2_ri1_ci2,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Hangzhou_Mean,Hangzhou Mean,Pb_mgkg,30.3,Unknown,,high,table_p2_ri1_ci3,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Hangzhou_Mean,Hangzhou Mean,As_mgkg,7.57,Unknown,,high,table_p2_ri1_ci4,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Hangzhou_Mean,Hangzhou Mean,Hg_mgkg,0.42,Unknown,,high,table_p2_ri1_ci5,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Hangzhou_Mean,Hangzhou Mean,pH,6.1,Unknown,,high,table_p2_ri1_ci6,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Jiaxing,Jiaxing,Cr_mgkg,0.785,Unknown,range_mean,high,table_p2_ri2_ci2,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Jiaxing,Jiaxing,Pb_mgkg,104.65,Unknown,range_mean,high,table_p2_ri2_ci3,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Jiaxing,Jiaxing,As_mgkg,44.0,Unknown,range_mean,high,table_p2_ri2_ci4,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Jiaxing,Jiaxing,Hg_mgkg,11.280000000000001,Unknown,range_mean,high,table_p2_ri2_ci5,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Jiaxing,Jiaxing,pH,0.48000000000000004,Unknown,range_mean,high,table_p2_ri2_ci6,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Ningbo,Ningbo,Cr_mgkg,0.34,Unknown,,high,table_p2_ri5_ci2,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Ningbo,Ningbo,Pb_mgkg,82.9,Unknown,,high,table_p2_ri5_ci3,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Ningbo,Ningbo,As_mgkg,30.1,Unknown,,high,table_p2_ri5_ci4,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Ningbo,Ningbo,Hg_mgkg,7.6,Unknown,,high,table_p2_ri5_ci5,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Ningbo,Ningbo,pH,0.42,Unknown,,high,table_p2_ri5_ci6,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Shaoxing,Shaoxing,Cr_mgkg,0.34,Unknown,,high,table_p2_ri7_ci2,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Shaoxing,Shaoxing,Pb_mgkg,82.6,Unknown,,high,table_p2_ri7_ci3,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Shaoxing,Shaoxing,As_mgkg,33.6,Unknown,,high,table_p2_ri7_ci4,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Shaoxing,Shaoxing,Hg_mgkg,7.36,Unknown,,high,table_p2_ri7_ci5,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Shaoxing,Shaoxing,pH,0.38,Unknown,,high,table_p2_ri7_ci6,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Taizhou,Taizhou,Cr_mgkg,0.21,Unknown,,high,table_p2_ri9_ci2,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Taizhou,Taizhou,Pb_mgkg,82.8,Unknown,,high,table_p2_ri9_ci3,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Taizhou,Taizhou,As_mgkg,27.4,Unknown,,high,table_p2_ri9_ci4,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Taizhou,Taizhou,Hg_mgkg,6.39,Unknown,,high,table_p2_ri9_ci5,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Taizhou,Taizhou,pH,0.3,Unknown,,high,table_p2_ri9_ci6,Table 1 Physio-chemical properties of the soils
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_First_level_Second_level,First level Second level,Cd_mgkg,0.2,Unknown,,high,table_p4_ri2_ci1,Table 2 Environmental quality standard for soils in China cited from GB 15618-1995 (mg kg<sup>−1</sup>)
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_First_level_Second_level,First level Second level,Hg_mgkg,0.15,Unknown,,high,table_p4_ri3_ci1,Table 2 Environmental quality standard for soils in China cited from GB 15618-1995 (mg kg<sup>−1</sup>)
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Third_level,Third level,As_mgkg,2030.0,Unknown,,high,table_p4_ri4_ci3,Table 2 Environmental quality standard for soils in China cited from GB 15618-1995 (mg kg<sup>−1</sup>)
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_First_level_Second_level,First level Second level,Pb_mgkg,35.0,Unknown,,high,table_p4_ri6_ci1,Table 2 Environmental quality standard for soils in China cited from GB 15618-1995 (mg kg<sup>−1</sup>)
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Third_level,Third level,Pb_mgkg,350500.0,Unknown,,high,table_p4_ri6_ci3,Table 2 Environmental quality standard for soils in China cited from GB 15618-1995 (mg kg<sup>−1</sup>)
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_First_level_Second_level,First level Second level,Cr_mgkg,90.0,Unknown,,high,table_p4_ri7_ci1,Table 2 Environmental quality standard for soils in China cited from GB 15618-1995 (mg kg<sup>−1</sup>)
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Third_level,Third level,Cr_mgkg,350400.0,Unknown,,high,table_p4_ri7_ci3,Table 2 Environmental quality standard for soils in China cited from GB 15618-1995 (mg kg<sup>−1</sup>)
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_As,As,Cr_mgkg,0.139,Unknown,,high,table_p5_ri4_ci1,"Table 3 Pearson partial correlations matrix for the heavy metals, pH, and OM in agricultural soils"
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Pb,Pb,Cr_mgkg,-0.145,Unknown,,high,table_p5_ri4_ci2,"Table 3 Pearson partial correlations matrix for the heavy metals, pH, and OM in agricultural soils"
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Cd,Cd,Cr_mgkg,0.089,Unknown,,high,table_p5_ri4_ci3,"Table 3 Pearson partial correlations matrix for the heavy metals, pH, and OM in agricultural soils"
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Hg,Hg,Cr_mgkg,0.039,Unknown,,high,table_p5_ri4_ci4,"Table 3 Pearson partial correlations matrix for the heavy metals, pH, and OM in agricultural soils"
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_As,As,pH,0.007,Unknown,,high,table_p5_ri5_ci1,"Table 3 Pearson partial correlations matrix for the heavy metals, pH, and OM in agricultural soils"
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Cd,Cd,pH,-0.07,Unknown,,high,table_p5_ri5_ci3,"Table 3 Pearson partial correlations matrix for the heavy metals, pH, and OM in agricultural soils"
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Cr,Cr,pH,0.11,Unknown,,high,table_p5_ri5_ci5,"Table 3 Pearson partial correlations matrix for the heavy metals, pH, and OM in agricultural soils"
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_As,As,OM_pct,0.104,Unknown,,high,table_p5_ri6_ci1,"Table 3 Pearson partial correlations matrix for the heavy metals, pH, and OM in agricultural soils"
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Cr,Cr,OM_pct,0.102,Unknown,,high,table_p5_ri6_ci5,"Table 3 Pearson partial correlations matrix for the heavy metals, pH, and OM in agricultural soils"
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Tomato,Tomato,Cr_mgkg,0.493,Unknown,,high,table_p6_ri4_ci3,Table 4 Correlation coefficients between soil metal concentrations and metal concentrations in edible parts of vegetables
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Cucumber,Cucumber,Cr_mgkg,0.394,Unknown,,high,table_p6_ri5_ci3,Table 4 Correlation coefficients between soil metal concentrations and metal concentrations in edible parts of vegetables
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Cowpea,Cowpea,Cr_mgkg,0.381,Unknown,,high,table_p6_ri6_ci3,Table 4 Correlation coefficients between soil metal concentrations and metal concentrations in edible parts of vegetables
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Pumpkin,Pumpkin,Pb_mgkg,0.471,Unknown,,high,table_p6_ri7_ci1,Table 4 Correlation coefficients between soil metal concentrations and metal concentrations in edible parts of vegetables
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Pumpkin,Pumpkin,Cr_mgkg,0.414,Unknown,,high,table_p6_ri7_ci3,Table 4 Correlation coefficients between soil metal concentrations and metal concentrations in edible parts of vegetables
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Eggplant,Eggplant,Pb_mgkg,0.484,Unknown,,high,table_p6_ri8_ci1,Table 4 Correlation coefficients between soil metal concentrations and metal concentrations in edible parts of vegetables
+_dup_s10661-015-4604-5,_dup_s10661-015-4604-5_Eggplant,Eggplant,Cr_mgkg,0.411,Unknown,,high,table_p6_ri8_ci3,Table 4 Correlation coefficients between soil metal concentrations and metal concentrations in edible parts of vegetables

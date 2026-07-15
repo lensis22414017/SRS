@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02264,,,,,,,soil,petrochemical,Guangdong,"skip: 论文实际研究广州石化综合体附近34个农业表层土壤(0-20cm)的BCR形态分析+植物可利用性，非HM+OP复合论文。Table2仅按金属(Cd/Pb/Cu/Zn)分组给出34个土壤样品的BCR四组分(HOAc/Reducible/Oxidizable/Residual)+Sum的Range和Mean±S.D.统计汇总，无采样点级(S1/S2/点位名)具体数值；正文提到测了Hg和As的total浓度但未给采样点级表格(仅Fig.3平均百分比/Fig.4植物浓度/Fig.5 TC/Fig.6 PCA)；论文全文无任何OP数据(无PAH/PCB/DDT/HCH/PBDE/PHC)，仅研究6种HM(Zn/Cu/Pb/Cd/Hg/As，无Cr/Ni)；Table1为BCR方法学步骤(非浓度)；植物组织数据(Fig.4)按铁律剔除(非土壤基质)；34个采样点仅有距离梯度(100/500/900/1300m)但论文未公开逐点原始浓度数据"

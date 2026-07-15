@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04668,,,,"","","","soil","agricultural","Jilin","skip: 仅统计汇总(Min/Max/Mean/Median/SD/Skewness/Kurtosis at Table1)"

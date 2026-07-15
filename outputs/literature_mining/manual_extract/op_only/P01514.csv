@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01514,,,,,,soil,e_waste,Tianjin,"skip: lab column transport experiment using soil colloids extracted from one composite field soil sample; no sampling-point-level OP data in bulk soil; only BDE-209 in colloid fraction (320 mg/kg, Abstract) from single composite sample; full PBDE profile cited from Duan et al. 2022 (separate paper)"

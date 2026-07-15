@@ -1,0 +1,9 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P00616,MW1,SumPBDE_ngg,74376,ng/g,Table 1,soil,industrial,Shandong,Deca-BDE制造工厂表层土(0-10cm) 8种BDE同系物总和(BDE-28+47+99+100+153+154+183+209) Table1 This study行直接读取,37.147194,119.025889
+P00616,AD1,SumPBDE_ngg,20543,ng/g,Table 1,soil,industrial,Shandong,Deca-BDE制造工厂表层土(0-10cm) 8种BDE同系物总和 Table1 This study行直接读取,37.147194,119.025889
+P00616,WH1,SumPBDE_ngg,16958,ng/g,Table 1,soil,industrial,Shandong,Deca-BDE制造工厂表层土(0-10cm) 8种BDE同系物总和 Table1 This study行直接读取 最低浓度点位,37.147194,119.025889
+P00616,LB1,SumPBDE_ngg,35950,ng/g,Table 1,soil,industrial,Shandong,Deca-BDE制造工厂表层土(0-10cm) 8种BDE同系物总和 Table1 This study行直接读取,37.147194,119.025889
+P00616,ST1,SumPBDE_ngg,145568,ng/g,Table 1,soil,industrial,Shandong,Deca-BDE制造工厂表层土(0-10cm) 8种BDE同系物总和 Table1 This study行直接读取 最高浓度点位,37.147194,119.025889
+P00616,AD_deepest,SumPBDE_ngg,25800,ng/g,正文(Fig.3描述段),soil,industrial,Shandong,AD区最深层样点 total PBDEs 原文25.8 ug/g x1000=25800 ng/g,37.147194,119.025889
+P00616,WH_deepest,SumPBDE_ngg,206000,ng/g,正文(Fig.3描述段),soil,industrial,Shandong,WH区最深层样点 total PBDEs 原文206 ug/g x1000=206000 ng/g,37.147194,119.025889
+P00616,LB_30-50cm,SumPBDE_ngg,49300,ng/g,正文(Fig.3描述段),soil,industrial,Shandong,LB区30-50cm深度 total PBDEs 原文49.3 ug/g x1000=49300 ng/g,37.147194,119.025889

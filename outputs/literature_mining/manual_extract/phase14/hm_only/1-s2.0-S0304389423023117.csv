@@ -1,0 +1,19 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+1-s2.0-S0304389423023117,1-s2.0-S0304389423023117_2_(30),2 (30),pH,6.2,Unknown,,high,table_p5_ri1_ci1, ,,,,,,phase14
+1-s2.0-S0304389423023117,1-s2.0-S0304389423023117_2_(30),2 (30),OC_pct,30.9,Unknown,,high,table_p5_ri1_ci2, ,,,,,,phase14
+1-s2.0-S0304389423023117,1-s2.0-S0304389423023117_2_(30),2 (30),Fe_mgkg,60.7,Unknown,,high,table_p5_ri1_ci7, ,,,,,,phase14
+1-s2.0-S0304389423023117,1-s2.0-S0304389423023117_2_(30),2 (30),Fe_mgkg,3.64,Unknown,,high,table_p5_ri1_ci8, ,,,,,,phase14
+1-s2.0-S0304389423023117,1-s2.0-S0304389423023117_2_(30),2 (30),Mn_mgkg,1.25,Unknown,,high,table_p5_ri1_ci9, ,,,,,,phase14
+1-s2.0-S0304389423023117,1-s2.0-S0304389423023117_2_(30),2 (30),Mn_mgkg,1.11,Unknown,,high,table_p5_ri1_ci10, ,,,,,,phase14
+1-s2.0-S0304389423023117,1-s2.0-S0304389423023117_S3,S3,pH,6.22,Unknown,,high,table_p5_ri3_ci1, ,,,,,,phase14
+1-s2.0-S0304389423023117,1-s2.0-S0304389423023117_S3,S3,OC_pct,21.5,Unknown,,high,table_p5_ri3_ci2, ,,,,,,phase14
+1-s2.0-S0304389423023117,1-s2.0-S0304389423023117_S3,S3,Fe_mgkg,41.6,Unknown,,high,table_p5_ri3_ci7, ,,,,,,phase14
+1-s2.0-S0304389423023117,1-s2.0-S0304389423023117_S3,S3,Fe_mgkg,2.94,Unknown,,high,table_p5_ri3_ci8, ,,,,,,phase14
+1-s2.0-S0304389423023117,1-s2.0-S0304389423023117_S3,S3,Mn_mgkg,0.74,Unknown,,high,table_p5_ri3_ci9, ,,,,,,phase14
+1-s2.0-S0304389423023117,1-s2.0-S0304389423023117_S3,S3,Mn_mgkg,0.58,Unknown,,high,table_p5_ri3_ci10, ,,,,,,phase14
+1-s2.0-S0304389423023117,1-s2.0-S0304389423023117_15_(21),15 (21),pH,5.82,Unknown,,high,table_p5_ri5_ci1, ,,,,,,phase14
+1-s2.0-S0304389423023117,1-s2.0-S0304389423023117_15_(21),15 (21),OC_pct,19.4,Unknown,,high,table_p5_ri5_ci2, ,,,,,,phase14
+1-s2.0-S0304389423023117,1-s2.0-S0304389423023117_15_(21),15 (21),Fe_mgkg,48.6,Unknown,,high,table_p5_ri5_ci7, ,,,,,,phase14
+1-s2.0-S0304389423023117,1-s2.0-S0304389423023117_15_(21),15 (21),Fe_mgkg,2.64,Unknown,,high,table_p5_ri5_ci8, ,,,,,,phase14
+1-s2.0-S0304389423023117,1-s2.0-S0304389423023117_15_(21),15 (21),Mn_mgkg,0.54,Unknown,,high,table_p5_ri5_ci9, ,,,,,,phase14
+1-s2.0-S0304389423023117,1-s2.0-S0304389423023117_15_(21),15 (21),Mn_mgkg,0.41,Unknown,,high,table_p5_ri5_ci10, ,,,,,,phase14

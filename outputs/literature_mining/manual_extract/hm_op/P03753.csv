@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03753,,,,,,,,,"skip: HM-only study (8 metals in soil-rice). Table 1 has only stat rows (Min/Max/Mean/SD/CV/Background/MAX_limit) for 25 soil+25 rice from 5 towns (Lihe/Longju/Longsha/Yanshan/Luotian Wanzhou Chongqing). No sample-level concentration data. No OP data despite op_groups=Pesticides label. Supplementary Tables S1-S6 not available in parsed files."

@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11198,北京某焦化厂,Sum_PAH_ngg,96170,ng/g,Table 2.4,soil,coking,Beijing,修复前场地本底值; 16单体求和(Nap1.25+Ace1.14+Acy1.63+Fle2.22+Phe5.34+Ant7.31+Fla11.94+Pyr9.04+BaA8.4+Chr8.77+BbF9.88+BkF8.54+BaP7.15+IcdP6.74+DahA0.63+BghiP6.19)=96.17mg/kg; 原始单位mg/kg×1000=ng/g; 采自北京某焦化厂原土(复合样)
+P11198,北京某焦化厂,BaP_ngg,7150,ng/g,Table 2.4,soil,coking,Beijing,修复前场地本底值; BaP单体直接读取7.15mg/kg; 原始单位mg/kg×1000=ng/g

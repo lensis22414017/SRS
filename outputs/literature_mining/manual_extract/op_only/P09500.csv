@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09500,NOTES,skip,"No sample-level data extractable; only range/mean summary statistics in text and image figures",,text+figures,soil,mining,Anhui,"skip: paper.md无采样点级数据表;62个采样点(Liuqiao煤矿区,Huaibei,Anhui)的逐样PAC浓度仅在Supplementary Table S3(未在parsed paper中);正文仅给range/mean汇总(ΣPAC 142.0-11400 mean 1440; Σ16PAHs 67.6-5020 mean 632.3; ΣaPAHs 70.1-6600 mean 712.7; ΣOPAHs mean 97.5 ng/g);Figs2-8均为图片非数据表;唯一HTML表为缩写表;仅测PAHs无PCB/DDT/HCH/PBDE/PHC"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05297,,,,,,,soil,e_waste,Jiangsu,"skip: 论文土壤OP数据仅以统计汇总(均值±SD/range/max)和图片(Fig2/Fig3)呈现，无采样点级表格数据；正文仅给Site1 Beian ΣPCBs mean=348.9±62.3、Anqiao ΣPCBs mean=94.6±38.2、Nanwan CB-153 mean=67.5、ΣPBDE range 21.2-9316.8、BDE-209 range 6.3-12194.6 ng/g dw，均为site-level summary；唯一Table1为Cplant/Csoil比值非浓度；Fig2/Fig3为图片无法解析per-sample值"

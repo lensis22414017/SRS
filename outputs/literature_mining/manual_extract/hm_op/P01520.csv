@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01520,,,,,,,,,skip: 实验室液体培养spiked实验(CdCl2加入MSM培养基 0/0.01/0.1/0.5 mM + 菲50 mg/L)；仅从沈阳抚顺污灌区土壤分离2株耐Cd菲降解菌(A.faecalis J08/Brevundimonas X08)；论文全程无场地土壤采样点级HM(mg/kg)或OP(ng/g)实测浓度；Table 2/4列首为Cd处理梯度(mM培养基浓度)非采样点；Table 1为菌种生化特征；Table 3为ANOVA显著性；菲为液相 spiked 非场地OP实测

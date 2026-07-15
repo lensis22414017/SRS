@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09092,,,,,,,,"skip: 无采样点级浓度表格。论文正文+SI(S1-S18)均无per-sample浓度表；浓度数据仅在图中(Fig3/Fig4为图片)及正文汇总统计(PAH 80.0-2860 ng/g mean 422; PFAS 7.30-20.3 ng/g)；SI仅含风险筛选值(S1)、毒性数据(S3-S4)、SSD参数(S5)、PAF/msPAF风险指数(S6)、PCA统计(S7-S13)、回归模型(S14-S17)、背景值(S18)，全部为须剔除类型"

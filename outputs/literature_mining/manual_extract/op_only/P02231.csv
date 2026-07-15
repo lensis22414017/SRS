@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02231,,,,,,,,"skip: 分子生物学/酶学论文(龙胆酸1,2-双加氧酶基因鉴定与表征)。仅SI(MOESM1)已解析含酶活实验与RT-qPCR基因表达;无主文paper.md;论文内容为嗜盐Martelella菌株的基因克隆/突变体蛋白/酶动力学;无场地采样点级OP浓度数据。PAHs标签可能因该菌株具有PAH降解能力(龙胆酸代谢途径)但非场地实测研究"

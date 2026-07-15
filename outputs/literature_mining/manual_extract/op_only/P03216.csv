@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03216,,,,,,,,"skip: 目标污染物为monochlorobenzene(氯苯)不在目标OP清单(PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAEs/OCPs)中; 且论文仅提供地统计插值3D可视化结果(Fig2-7)和场地汇总(Table1平均浓度4.124 mg/kg)无采样点级浓度表格"

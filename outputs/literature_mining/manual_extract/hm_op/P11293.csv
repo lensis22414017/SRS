@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11293,,,,,,,,"skip: 实验室spiked添加实验，非真实场地土壤。论文第3.1.2节明示土壤采自校园绿化带，洁净土壤中人工添加菲/荧蒽/芘(溶于丙酮)配制污染土壤(PHE=78.1/FLT=80.2/PYR=81.2 mg/kg)；第5.1.2节进一步添加硝酸镉配制PAH-Cd复合污染土壤(PHE=77.5/FLT=81.5/PYR=81.1/Cd=19.2 mg/kg)。全文均为超临界CO2萃取修复工艺实验，无真实场地采样点级HM+OP浓度。表2.1为文献综述引用[41]他人场地数据(湖南郴州/广东汕头/Serbia/India)，非本论文采样。按铁律#7剔除spiked实验组"

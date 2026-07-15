@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01761,,,,,,,,,"skip: 实验室batch sorption isotherm实验(OTC spiked 5-500 mg/L onto isolated POM)，非真实场地土壤抗生素实测浓度；Table 2/3/4均为sorption model fitting参数(Qe/Kd/Koc/Qmax/ΔG0/ΔH0/ΔS0)，非环境浓度；按铁律7剔除"

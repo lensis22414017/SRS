@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07154,,,,,,,,"skip: 盆栽spiked实验(bioremediation)。本底为Chengdu干净农用土,Cd以CdCl2人工添加(0/5/10/20 mg/kg)spike 3个月,Phe人工添加(0/200/500 mg/kg),温室pot experiment。Table1=蘑菇生物量,Table2=Phe残留(处理组Cd0-Cd20×Phe0-Phe500)。无真实场地采样点级HM/OP浓度。Heilongjiang coking plant仅为菌株FQ1分离来源非土壤采样点。"

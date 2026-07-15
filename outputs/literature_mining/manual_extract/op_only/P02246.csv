@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02246,,,,,,,soil,urban,Beijing,"skip: 论文仅提供组级统计汇总(median/SD)，无采样点级浓度数据。2004和2013各45个样品但仅报告downtown/suburban分组的∑16PAHs中位数(699.44/500.27/183.20/177.11 ng/g)。Figure1为各PAH单体的median+SD柱状图(统计汇总非个体值)，Table1为Mann-Whitney U检验趋势箭头(无浓度值)，BaP_eq为TEQ风险指数(须剔除)。无可提取的采样点级数据。"

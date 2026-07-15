@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01427,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"skip: 论文研究长江抗生素抗性基因(ARGs)的分布与健康风险排序，非有机污染物浓度研究。无PAH/PCB/DDT/HCH/PBDE/石油烃/抗生素浓度/PAE/OCP的采样点级数据。论文仅测量ARG丰度(copies per 16S rRNA gene)和环境变量(TC/TOC/NH4/NO3/TN/TP/AP/AFe/ACu/AZn/AMn)。op_groups=Antibiotics系误分类(抗生素抗性基因≠抗生素浓度)。"

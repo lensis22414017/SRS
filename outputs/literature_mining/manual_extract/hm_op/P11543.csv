@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11543,,,,,,,,"skip: 论文仅16采样点(陕西府谷县金骊JL/郭家湾KD/众鑫ZX/蓝天盛LTS场地)统计汇总(min/max/mean/SD/CV)，无采样点级HM或OP总量浓度表; 表4 HMs/表5 PAHs均为描述性统计(mg/kg, μg/kg) -> 铁律#2剔除统计行; 表6理化性质(SOM/pH/粒径)虽含16个具体采样点(JL-A1等)但无HM/OP浓度; 表7/表8为体外胃肠模拟(SBRC/PBET)生物可给性(%) -> 实验室研究+统计汇总,非场地总量浓度,铁律#7剔除; 图5-10为箱型图/散点图jpg无可解析数值; 表9相关矩阵/表10暴露量/表11 IEUBK参数/表12血铅风险值均非浓度. HM仅测6种(Cr/Cu/Ni/Pb/V/Zn)无Cd/As/Hg; PAHs仅15单体统计无PCB/DDT/HCH/PBDE/PHC"

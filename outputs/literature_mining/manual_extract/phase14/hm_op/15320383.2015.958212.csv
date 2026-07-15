@@ -1,0 +1,64 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+15320383.2015.958212,15320383.2015.958212_Min.,Min.,Nap_ngg,0.0,Unknown,,high,table_p14_ri1_ci2,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Max.,Max.,Nap_ngg,0.441,Unknown,,high,table_p14_ri1_ci3,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_STDEV,STDEV,Nap_ngg,0.069,Unknown,,high,table_p14_ri1_ci6,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Min.,Min.,Acy_ngg,0.0,Unknown,,high,table_p14_ri2_ci2,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Max.,Max.,Acy_ngg,0.697,Unknown,,high,table_p14_ri2_ci3,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_STDEV,STDEV,Acy_ngg,0.103,Unknown,,high,table_p14_ri2_ci6,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Min.,Min.,Ace_ngg,0.0,Unknown,,high,table_p14_ri3_ci2,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Max.,Max.,Ace_ngg,0.031,Unknown,,high,table_p14_ri3_ci3,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_STDEV,STDEV,Ace_ngg,0.006,Unknown,,high,table_p14_ri3_ci6,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Min.,Min.,Flu_ngg,0.0,Unknown,,high,table_p14_ri4_ci2,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Max.,Max.,Flu_ngg,0.078,Unknown,,high,table_p14_ri4_ci3,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_STDEV,STDEV,Flu_ngg,0.014,Unknown,,high,table_p14_ri4_ci6,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Min.,Min.,Phe_ngg,0.007,Unknown,,high,table_p14_ri5_ci2,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Max.,Max.,Phe_ngg,1.091,Unknown,,high,table_p14_ri5_ci3,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_STDEV,STDEV,Phe_ngg,0.19,Unknown,,high,table_p14_ri5_ci6,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Max.,Max.,Ant_ngg,0.107,Unknown,,high,table_p14_ri6_ci3,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_STDEV,STDEV,Ant_ngg,0.021,Unknown,,high,table_p14_ri6_ci6,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Min.,Min.,Flt_ngg,0.0,Unknown,,high,table_p14_ri7_ci2,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Max.,Max.,Flt_ngg,3.278,Unknown,,high,table_p14_ri7_ci3,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_STDEV,STDEV,Flt_ngg,0.563,Unknown,,high,table_p14_ri7_ci6,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Min.,Min.,Pyr_ngg,0.001,Unknown,,high,table_p14_ri8_ci2,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Max.,Max.,Pyr_ngg,1.977,Unknown,,high,table_p14_ri8_ci3,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_STDEV,STDEV,Pyr_ngg,0.359,Unknown,,high,table_p14_ri8_ci6,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Min.,Min.,Ant_ngg,0.0,Unknown,,high,table_p14_ri9_ci2,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Max.,Max.,Ant_ngg,0.841,Unknown,,high,table_p14_ri9_ci3,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_STDEV,STDEV,Ant_ngg,0.155,Unknown,,high,table_p14_ri9_ci6,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Min.,Min.,Chr_ngg,0.001,Unknown,,high,table_p14_ri10_ci2,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Max.,Max.,Chr_ngg,1.21,Unknown,,high,table_p14_ri10_ci3,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_STDEV,STDEV,Chr_ngg,0.209,Unknown,,high,table_p14_ri10_ci6,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Min.,Min.,Flt_ngg,0.001,Unknown,,high,table_p14_ri11_ci2,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Max.,Max.,Flt_ngg,1.362,Unknown,,high,table_p14_ri11_ci3,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_STDEV,STDEV,Flt_ngg,0.238,Unknown,,high,table_p14_ri11_ci6,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Min.,Min.,Flt_ngg,0.0,Unknown,,high,table_p14_ri12_ci2,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Max.,Max.,Flt_ngg,0.549,Unknown,,high,table_p14_ri12_ci3,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_STDEV,STDEV,Flt_ngg,0.097,Unknown,,high,table_p14_ri12_ci6,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Min.,Min.,Pyr_ngg,0.0,Unknown,,high,table_p14_ri13_ci2,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Max.,Max.,Pyr_ngg,1.118,Unknown,,high,table_p14_ri13_ci3,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_STDEV,STDEV,Pyr_ngg,0.198,Unknown,,high,table_p14_ri13_ci6,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Min.,Min.,Pyr_ngg,0.0,Unknown,,high,table_p14_ri14_ci2,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Min.,Min.,Cd_mgkg,0.0,Unknown,,high,table_p14_ri14_ci2,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Max.,Max.,Pyr_ngg,0.348,Unknown,,high,table_p14_ri14_ci3,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Max.,Max.,Cd_mgkg,0.348,Unknown,,high,table_p14_ri14_ci3,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_STDEV,STDEV,Pyr_ngg,0.064,Unknown,,high,table_p14_ri14_ci6,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_STDEV,STDEV,Cd_mgkg,0.064,Unknown,,high,table_p14_ri14_ci6,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Min.,Min.,Ant_ngg,0.001,Unknown,,high,table_p14_ri15_ci2,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Max.,Max.,Ant_ngg,0.775,Unknown,,high,table_p14_ri15_ci3,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_STDEV,STDEV,Ant_ngg,0.133,Unknown,,high,table_p14_ri15_ci6,Table 1 PAH concentrations $( \mathrm { u g / g } )$,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Component_1_(88.27%),Component 1 (88.27%),Nap_ngg,0.9,Unknown,,high,table_p16_ri1_ci1,,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Component_1_(88.27%),Component 1 (88.27%),Acy_ngg,0.287,Unknown,,high,table_p16_ri2_ci1,,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Component_1_(88.27%),Component 1 (88.27%),Ace_ngg,0.842,Unknown,,high,table_p16_ri3_ci1,,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Component_1_(88.27%),Component 1 (88.27%),Flu_ngg,0.968,Unknown,,high,table_p16_ri4_ci1,,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Component_1_(88.27%),Component 1 (88.27%),Phe_ngg,0.992,Unknown,,high,table_p16_ri5_ci1,,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Component_1_(88.27%),Component 1 (88.27%),Ant_ngg,0.923,Unknown,,high,table_p16_ri6_ci1,,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Component_1_(88.27%),Component 1 (88.27%),Flt_ngg,0.981,Unknown,,high,table_p16_ri7_ci1,,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Component_1_(88.27%),Component 1 (88.27%),Pyr_ngg,0.989,Unknown,,high,table_p16_ri8_ci1,,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Component_1_(88.27%),Component 1 (88.27%),Ant_ngg,0.99,Unknown,,high,table_p16_ri9_ci1,,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Component_1_(88.27%),Component 1 (88.27%),Chr_ngg,0.991,Unknown,,high,table_p16_ri10_ci1,,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Component_1_(88.27%),Component 1 (88.27%),Flt_ngg,0.994,Unknown,,high,table_p16_ri11_ci1,,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Component_1_(88.27%),Component 1 (88.27%),Flt_ngg,0.992,Unknown,,high,table_p16_ri12_ci1,,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Component_1_(88.27%),Component 1 (88.27%),Pyr_ngg,0.991,Unknown,,high,table_p16_ri13_ci1,,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Component_1_(88.27%),Component 1 (88.27%),Pyr_ngg,0.97,Unknown,,high,table_p16_ri14_ci1,,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Component_1_(88.27%),Component 1 (88.27%),Cd_mgkg,0.97,Unknown,,high,table_p16_ri14_ci1,,,,,,,phase14
+15320383.2015.958212,15320383.2015.958212_Component_1_(88.27%),Component 1 (88.27%),Ant_ngg,0.989,Unknown,,high,table_p16_ri15_ci1,,,,,,,phase14

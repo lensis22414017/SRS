@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+2008jd009900,2008jd009900_Daytime,Sum_PAH_ngg,14.6,Unknown,table_p16_ri20_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+2008jd009900,2008jd009900_Nighttime,Sum_PAH_ngg,15.2,Unknown,table_p16_ri20_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+2008jd009900,2008jd009900_Daytime,SumPAE_ngg,170.0,Unknown,table_p16_ri27_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+2008jd009900,2008jd009900_Nighttime,SumPAE_ngg,62.0,Unknown,table_p16_ri27_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,

@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P04815,H9,Zn_mgkg,108.5,mg/kg,Section 3.2 text,soil,agricultural,Inner Mongolia,正文3.2段明确提及H9 Zn=108.5 mg/kg,40.99,111.47
+P04815,H10,Zn_mgkg,106.7,mg/kg,Section 3.2 text,soil,agricultural,Inner Mongolia,正文3.2段明确提及H10 Zn=106.7 mg/kg,40.99,111.47
+P04815,H11,Zn_mgkg,110.5,mg/kg,Section 3.2 text,soil,agricultural,Inner Mongolia,正文3.2段明确提及H11 Zn=110.5 mg/kg,40.99,111.47
+P04815,H10,Pb_mgkg,245.36,mg/kg,Section 3.2 text,soil,agricultural,Inner Mongolia,"正文写245.36 ng/g, 但摘要及Table3标题单位均为mg/kg, 系笔误应为mg/kg",40.99,111.47
+P04815,H1,SumDDT_ngg,5.01,ng/g,Section 3.4 text,soil,agricultural,Inner Mongolia,正文3.4段明确H1为DDT最低值5.01 ng/g,40.99,111.47
+P04815,H10,SumDDT_ngg,105.08,ng/g,Section 3.4 text,soil,agricultural,Inner Mongolia,"正文3.4段写H10 DDT=105.8, 摘要及3.2段range均写max=105.08, 采用105.08并标注差异",40.99,111.47

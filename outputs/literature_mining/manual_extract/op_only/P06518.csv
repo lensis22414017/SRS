@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06518,,,,,,,,"skip: 河流水体抗生素研究，非土壤。Table 1仅水体平均浓度(ng/L, avg+SD统计行)，无采样点级数据。沉积物数据仅在SI Table S6(不可得)。目标抗生素SMZ/SD/OTC仅在Table 1水相统计汇总中出现；ENRO(ENR)全文未检出；CTC未涉及。"

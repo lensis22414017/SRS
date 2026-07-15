@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+72258_j.wasman.2021.03.015,72258_j.wasman.2021.03.015_Test2,SumDDT_ngg,0.32,Unknown,table_p3_ri1_ci3,soil,industrial,,phase14_auto; confidence=high; flag=,,
+72258_j.wasman.2021.03.015,72258_j.wasman.2021.03.015_Test2,Co_mgkg,306.0,Unknown,table_p4_ri5_ci3,soil,industrial,,phase14_auto; confidence=high; flag=,,
+72258_j.wasman.2021.03.015,72258_j.wasman.2021.03.015_Test2,OC_pct,2.61,Unknown,table_p4_ri6_ci3,soil,industrial,,phase14_auto; confidence=high; flag=,,

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04072,,,,,Table 3,soil,urban,Shaanxi,skip: 仅统计汇总(Min/Max/Mean/SD/CV)无采样点级数据。62个西安城市土壤样点仅以聚合统计量报告(Table 3)。Table 3的AC列为Dutch Target Values(阈值)。Table 5/7/8为风险指数(RQ/TEQ/ILCR)。Table 6为功能区风险分级(M/L/H)非浓度。全文无S1/S2等单样ID或单点浓度

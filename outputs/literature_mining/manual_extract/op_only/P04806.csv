@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04806,,,,,,air,urban,Hebei,"skip: 大气PM2.5-bound PAHs研究（非土壤）。采样器安装在教学楼楼顶约20m高处采集PM2.5大气样品，单位为ng m-3（空气体积浓度），非ng/g土壤浓度。全程无土壤采样。剔除场景：atmosphere/air"

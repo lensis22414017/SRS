@@ -1,0 +1,13 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+72409_j.chemosphere.2005.04.018,72409_j.chemosphere.2005.04.018_Shallow_subsurface_soil__$(_n_=_4_7_)$,OC_pct,0.66,Unknown,table_p3_ri2_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+72409_j.chemosphere.2005.04.018,72409_j.chemosphere.2005.04.018_Deep_layer_soil__$(_n_=_4_6_)$,OC_pct,3.25,Unknown,table_p3_ri2_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+72409_j.chemosphere.2005.04.018,72409_j.chemosphere.2005.04.018_Shallow_subsurface_soil__$(_n_=_4_7_)$,SumHCH_ngg,0.32,Unknown,table_p3_ri4_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+72409_j.chemosphere.2005.04.018,72409_j.chemosphere.2005.04.018_Deep_layer_soil__$(_n_=_4_6_)$,SumHCH_ngg,8.19,Unknown,table_p3_ri4_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+72409_j.chemosphere.2005.04.018,72409_j.chemosphere.2005.04.018_Shallow_subsurface_soil__$(_n_=_4_7_)$,SumHCH_ngg,0.37,Unknown,table_p3_ri5_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+72409_j.chemosphere.2005.04.018,72409_j.chemosphere.2005.04.018_Deep_layer_soil__$(_n_=_4_6_)$,SumHCH_ngg,45.11,Unknown,table_p3_ri5_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+72409_j.chemosphere.2005.04.018,72409_j.chemosphere.2005.04.018_Deep_layer_soil__$(_n_=_4_6_)$,SumHCH_ngg,12.86,Unknown,table_p3_ri6_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+72409_j.chemosphere.2005.04.018,72409_j.chemosphere.2005.04.018_Deep_layer_soil__$(_n_=_4_6_)$,SumHCH_ngg,5.85,Unknown,table_p3_ri7_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+72409_j.chemosphere.2005.04.018,72409_j.chemosphere.2005.04.018_Deep_layer_soil__$(_n_=_4_6_)$,SumDDT_ngg,533.23,Unknown,table_p3_ri12_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+72409_j.chemosphere.2005.04.018,72409_j.chemosphere.2005.04.018_Deep_layer_soil__$(_n_=_4_6_)$,SumDDT_ngg,1924.76,Unknown,table_p3_ri13_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+72409_j.chemosphere.2005.04.018,72409_j.chemosphere.2005.04.018_Shallow_subsurface_soil__$(_n_=_4_7_)$,SumDDT_ngg,0.006,Unknown,table_p3_ri15_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+72409_j.chemosphere.2005.04.018,72409_j.chemosphere.2005.04.018_Deep_layer_soil__$(_n_=_4_6_)$,SumDDT_ngg,63.9,Unknown,table_p3_ri15_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,

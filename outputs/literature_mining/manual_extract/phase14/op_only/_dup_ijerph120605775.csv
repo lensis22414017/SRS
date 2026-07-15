@@ -1,0 +1,67 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Nap_ngg,283.6,Unknown,,high,table_p4_ri2_ci1,"Table 1. Distributions of different PAHs in sample soils from three areas: Urban and residential areas (RD), around oil wells (OW), and in the arable desert soil area (AD) $( \mu \mathrm { g } \cdot \",,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),BkF_ngg,4.13,Unknown,,high,table_p4_ri4_ci1,"Table 1. Distributions of different PAHs in sample soils from three areas: Urban and residential areas (RD), around oil wells (OW), and in the arable desert soil area (AD) $( \mu \mathrm { g } \cdot \",,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),BaP_ngg,4.98,Unknown,,high,table_p4_ri5_ci1,"Table 1. Distributions of different PAHs in sample soils from three areas: Urban and residential areas (RD), around oil wells (OW), and in the arable desert soil area (AD) $( \mu \mathrm { g } \cdot \",,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Ind_ngg,15.13,Unknown,,high,table_p4_ri6_ci1,"Table 1. Distributions of different PAHs in sample soils from three areas: Urban and residential areas (RD), around oil wells (OW), and in the arable desert soil area (AD) $( \mu \mathrm { g } \cdot \",,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Flu_ngg,8.65,Unknown,,high,table_p4_ri8_ci1,"Table 1. Distributions of different PAHs in sample soils from three areas: Urban and residential areas (RD), around oil wells (OW), and in the arable desert soil area (AD) $( \mu \mathrm { g } \cdot \",,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Phe_ngg,22.82,Unknown,,high,table_p4_ri9_ci1,"Table 1. Distributions of different PAHs in sample soils from three areas: Urban and residential areas (RD), around oil wells (OW), and in the arable desert soil area (AD) $( \mu \mathrm { g } \cdot \",,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Ant_ngg,20.26,Unknown,,high,table_p4_ri10_ci1,"Table 1. Distributions of different PAHs in sample soils from three areas: Urban and residential areas (RD), around oil wells (OW), and in the arable desert soil area (AD) $( \mu \mathrm { g } \cdot \",,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Pyr_ngg,3.52,Unknown,,high,table_p5_ri2_ci1,Table 1.Cont.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),BghiP_ngg,0.3,Unknown,,high,table_p5_ri3_ci1,Table 1.Cont.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Sum_PAH_ngg,372.8,Unknown,,high,table_p5_ri4_ci1,Table 1.Cont.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Sum_PAH_ngg,307.8,Unknown,,high,table_p5_ri5_ci1,Table 1.Cont.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Nap_ngg,489.8,Unknown,,high,table_p5_ri8_ci1,Table 1.Cont.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Flu_ngg,9.97,Unknown,,high,table_p5_ri15_ci1,Table 1.Cont.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Ant_ngg,9.43,Unknown,,high,table_p5_ri17_ci1,Table 1.Cont.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Pyr_ngg,24.31,Unknown,,high,table_p5_ri19_ci1,Table 1.Cont.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),BghiP_ngg,7.7,Unknown,,high,table_p5_ri20_ci1,Table 1.Cont.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Sum_PAH_ngg,593.8,Unknown,,high,table_p5_ri21_ci1,Table 1.Cont.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Sum_PAH_ngg,489.8,Unknown,,high,table_p5_ri22_ci1,Table 1.Cont.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Nap_ngg,517.3,Unknown,,high,table_p5_ri25_ci1,Table 1.Cont.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Chr_ngg,517.3,Unknown,,high,table_p5_ri25_ci1,Table 1.Cont.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),BkF_ngg,4.1,Unknown,,high,table_p5_ri28_ci1,Table 1.Cont.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Ace_ngg,3.39,Unknown,,high,table_p5_ri31_ci1,Table 1.Cont.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Flu_ngg,28.03,Unknown,,high,table_p5_ri32_ci1,Table 1.Cont.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Ant_ngg,0.25,Unknown,,high,table_p5_ri34_ci1,Table 1.Cont.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Pyr_ngg,3.59,Unknown,,high,table_p5_ri36_ci1,Table 1.Cont.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),BghiP_ngg,1.2,Unknown,,high,table_p5_ri37_ci1,Table 1.Cont.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Arable_Desert_Soil_Area_(AD),Arable Desert Soil Area (AD),Sum_PAH_ngg,618.1,Unknown,,high,table_p5_ri38_ci1,Table 1.Cont.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_USEPA,USEPA,Nap_ngg,0.0,Unknown,,high,table_p12_ri1_ci1,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Nisbet_And_LaGoy,Nisbet And LaGoy,Nap_ngg,0.001,Unknown,,high,table_p12_ri1_ci2,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_This_Study,This Study,Nap_ngg,0.001,Unknown,,high,table_p12_ri1_ci3,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_USEPA,USEPA,Ace_ngg,0.0,Unknown,,high,table_p12_ri2_ci1,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Nisbet_And_LaGoy,Nisbet And LaGoy,Ace_ngg,0.001,Unknown,,high,table_p12_ri2_ci2,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_This_Study,This Study,Ace_ngg,0.001,Unknown,,high,table_p12_ri2_ci3,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_USEPA,USEPA,Flu_ngg,0.0,Unknown,,high,table_p12_ri4_ci1,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Nisbet_And_LaGoy,Nisbet And LaGoy,Flu_ngg,0.001,Unknown,,high,table_p12_ri4_ci2,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_This_Study,This Study,Flu_ngg,0.001,Unknown,,high,table_p12_ri4_ci3,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_USEPA,USEPA,Phe_ngg,0.0,Unknown,,high,table_p12_ri5_ci1,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Nisbet_And_LaGoy,Nisbet And LaGoy,Phe_ngg,0.001,Unknown,,high,table_p12_ri5_ci2,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_This_Study,This Study,Phe_ngg,0.001,Unknown,,high,table_p12_ri5_ci3,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_USEPA,USEPA,Ant_ngg,0.0,Unknown,,high,table_p12_ri6_ci1,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Nisbet_And_LaGoy,Nisbet And LaGoy,Ant_ngg,0.01,Unknown,,high,table_p12_ri6_ci2,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_This_Study,This Study,Ant_ngg,0.01,Unknown,,high,table_p12_ri6_ci3,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_USEPA,USEPA,Pyr_ngg,0.0,Unknown,,high,table_p12_ri8_ci1,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Nisbet_And_LaGoy,Nisbet And LaGoy,Pyr_ngg,0.001,Unknown,,high,table_p12_ri8_ci2,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_This_Study,This Study,Pyr_ngg,0.001,Unknown,,high,table_p12_ri8_ci3,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_USEPA,USEPA,BaA_ngg,1.0,Unknown,,high,table_p12_ri9_ci1,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Nisbet_And_LaGoy,Nisbet And LaGoy,BaA_ngg,0.1,Unknown,,high,table_p12_ri9_ci2,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_This_Study,This Study,BaA_ngg,1.0,Unknown,,high,table_p12_ri9_ci3,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_USEPA,USEPA,Chr_ngg,1.0,Unknown,,high,table_p12_ri10_ci1,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Nisbet_And_LaGoy,Nisbet And LaGoy,Chr_ngg,0.01,Unknown,,high,table_p12_ri10_ci2,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_This_Study,This Study,Chr_ngg,1.0,Unknown,,high,table_p12_ri10_ci3,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_USEPA,USEPA,BbF_ngg,1.0,Unknown,,high,table_p12_ri11_ci1,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Nisbet_And_LaGoy,Nisbet And LaGoy,BbF_ngg,0.1,Unknown,,high,table_p12_ri11_ci2,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_This_Study,This Study,BbF_ngg,0.1,Unknown,,high,table_p12_ri11_ci3,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_USEPA,USEPA,BkF_ngg,1.0,Unknown,,high,table_p12_ri12_ci1,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Nisbet_And_LaGoy,Nisbet And LaGoy,BkF_ngg,0.1,Unknown,,high,table_p12_ri12_ci2,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_This_Study,This Study,BkF_ngg,1.0,Unknown,,high,table_p12_ri12_ci3,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_USEPA,USEPA,BaP_ngg,1.0,Unknown,,high,table_p12_ri13_ci1,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Nisbet_And_LaGoy,Nisbet And LaGoy,BaP_ngg,1.0,Unknown,,high,table_p12_ri13_ci2,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_This_Study,This Study,BaP_ngg,1.0,Unknown,,high,table_p12_ri13_ci3,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_USEPA,USEPA,DahA_ngg,1.0,Unknown,,high,table_p12_ri14_ci1,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Nisbet_And_LaGoy,Nisbet And LaGoy,DahA_ngg,1.0,Unknown,,high,table_p12_ri14_ci2,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_This_Study,This Study,DahA_ngg,1.0,Unknown,,high,table_p12_ri14_ci3,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_USEPA,USEPA,BghiP_ngg,0.0,Unknown,,high,table_p12_ri15_ci1,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_Nisbet_And_LaGoy,Nisbet And LaGoy,BghiP_ngg,0.01,Unknown,,high,table_p12_ri15_ci2,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14
+_dup_ijerph120605775,_dup_ijerph120605775_This_Study,This Study,BghiP_ngg,0.01,Unknown,,high,table_p12_ri15_ci3,Table 2. Proposed TEFs for individual PAHs.,,,,,,phase14

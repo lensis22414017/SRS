@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01868,,,,,,,,,"skip: 仅区域汇总统计(Table1 HM Min/Max/Median/Mean/SD/CV/RSV + Table2 PAHs Min/Median/Max/Mean/SD/CV 基于161采样点), 无任何个体采样点级数据; 原始数据声明 confidential 无法追溯"

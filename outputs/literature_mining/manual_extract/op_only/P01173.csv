@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P01173,S49,Sum_PAH_ngg,67130,ng/g,Section 3.1,soil,petrochemical,Gansu,Peak PAHs at S49=67.13 mg/kg per text; converted x1000 to ng/g; paper categorizes PAHs by ring number (2-ring/3-4 ring/5-6 ring) via USEPA 8270D; treated as 16-EPA PAH sum; most per-sample data in Table S2 (supplementary) not available in paper.md,36.122923,103.602278

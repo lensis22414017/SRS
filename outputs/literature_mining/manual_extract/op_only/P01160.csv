@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01160,,,,,,,,,"skip: 仅统计汇总(Mean/Median/Min/Max/CV/DF)无采样点级数据; Table 1为79个样本的聚合统计无个体sample_id; 全文105个土壤样本均以区域/类型分组汇总呈现(按省份SD/TJ/HN/HB、温室vs露地、深度0-20/20-40/40-60cm、种植年限); 无任何采样点标识(S1/A/B等); Fig1/3/4/5为箱线图无标注个体值; 仅测抗生素(TCs/QNs/SAs/MLs)不含PAH/PCB/DDT/HCH/PBDE/PHC/PAE/OCP"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04884,NOTES,skip,,,,,,,"skip: 大气化学论文-测量124个空气样品(不锈钢罐采集)中16种卤代烃(CFC-11/12/113/114/HCFC-22/CH3CCl3/CCl4/CHCl3/CH2Cl2等)的大气混合比(pptv)和基于CO比值估算的区域排放量(Gg)。基质=大气(非土壤/沉积物)。污染物=卤代烃VOC(非目标OP清单:PAHs/PCBs/DDT/HCH/PBDE/PHC/antibiotics/PAEs/OCPs)。单位=pptv大气混合比及Gg排放量(非ng/g或mg/kg土壤浓度)。采样点=广州(GZ)和新垦(XK)大气监测站。符合剔除规则: atmosphere非土壤。无采样点级土壤OP数据可提取"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02279,,,,,,,,"skip: 论文研究对象为HBCDs/TBBPA/TBC三种溴系阻燃剂，不在目标OP污染物清单内(PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAEs/OCPs)；CSV标注PBDEs但原文仅在引言提及PBDEs作背景，未实测PBDE浓度；Table 2仅按土地利用类型给出Mean±SE和Range统计汇总，无采样点级原始数据；Table 1为Spearman相关矩阵"

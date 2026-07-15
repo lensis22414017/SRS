@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11541,,,,,,,,"skip: 论文研究有机磷酸酯(OPEs=flame retardants/plasticizers如TCPP/TCEP/TEHP/TNPP/AO168=O)，非目标OP污染物(PAH/PCB/DDT/HCH/PBDE/PHC)。论文无PAH/PCB/DDT/HCH/PBDE/石油烃任何数据。且数据仅按组(film-mulched greenhouse/non-film greenhouse/open field)给median+range统计汇总，无采样点级数值。"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09878,,,,,,,,"skip: 全部定量数据为地下水(mg/L)非土壤(mg/kg); Table 4标题明确标注groundwater; TPH/B/EB/NE等均为监测井地下水参数; 论文核心为SRB微生物群落PCR-DGGE分析非污染物浓度表征; 无任何土壤采样点级OP浓度数据"

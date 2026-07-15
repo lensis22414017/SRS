@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06840,NA,NA,NA,NA,NA,soil,urban,Beijing,"skip: 论文虽为HM+OP真复合研究(7HMs+16PAHs,233采样点+69 parterre),但全文仅提供统计汇总(Table1:Mean/Median/SD/Min/Max/C.V.)、相关分析(Table2/3)、回归方程(Table5)和风险评价(Table4:百分位统计),无任何采样点级(S1/A/B等)浓度表;233个采样点原始数据reported elsewhere(Peng 2011;Wang 2012b)未在本论文呈现"

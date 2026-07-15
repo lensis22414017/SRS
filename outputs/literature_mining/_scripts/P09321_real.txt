@@ -1,0 +1,62 @@
+
+===PAGE 1===
+Emissions, health risk, and policy impact on polycyclic aromatic 
+hydrocarbon release in Hangzhou, China: 2010–2050 future trends
+Lei Huang a,b,1, Mengjie Pu a,1, Bentuo Xu b,*
+, Jason T. Magnuson c
+, Xiangyong Zheng b,  
+Min Zhao b
+, Wenhui Qiu d,*
+a School of Environment, South China Normal University, Guangzhou 510006, China
+b National and Local Joint Engineering Research Center of Ecological Treatment Technology for Urban Water Pollution, School of Life and Environmental Science, 
+Wenzhou University, Wenzhou 325035, China
+c Department of Chemistry, Bioscience and Environmental Engineering, University of Stavanger, Stavanger 4036, Norway
+d Guangdong-Hong Kong Joint Laboratory for Soil and Groundwater Pollution Control, School of Environmental Science and Engineering, Southern University of Science 
+and Technology, Shenzhen 518055, China
+H I G H L I G H T S
+G R A P H I C A L  A B S T R A C T
+• Policy-driven energy transition leads to 
+the replacement of high-ring toxic PAHs 
+with low-ring non-toxic PAHs.
+• Dynamic 
+multi-medium 
+fugacity 
+modeling of annual urban environ­
+mental changes.
+• PAH concentrations and health risks are 
+expected to significantly decrease by 
+2050.
+• The reduction in emissions leads to 
+varying lag effects in concentration 
+changes in different media.
+A R T I C L E  I N F O
+Keywords:
+Emission inventory
+Fugacity model
+Hangzhou City
+PAHs
+Long-term prediction
+A B S T R A C T
+Polycyclic aromatic hydrocarbons (PAHs) are persistent organic pollutants that pose significant environmental 
+and health risks, especially in rapidly urbanizing cities such as Hangzhou, China. Understanding the spatio­
+temporal dynamics of PAH emissions, distribution, and health risks is essential for developing effective control 
+strategies. In this study, PAH emissions in Hangzhou from 2010 to 2022 were estimated and their multimedia 
+environmental distribution was simulated using a Level IV fugacity model. Python (with PyCharm 2022.3.3) was 
+used to perform modeling, data processing, and visualization. Annual PAH emissions (t/year) increased from 
+158.33 in 2010 to a peak of 205.53 in 2018, then declined to 193.96 by 2022. Simulated concentrations showed 
+that soil and sediment act as long-term sinks for PAHs, while aerosol-phase concentrations in the atmosphere 
+respond most rapidly to changes in emissions. Future projections suggest a compositional shift from high mo­
+lecular weight (HMW) to low molecular weight (LMW) PAHs. An Incremental Lifetime Cancer Risk (ILCR) model 
+was applied to evaluate human exposure risks, showing that sediment is the dominant exposure medium, 
+particularly via dermal contact and inhalation. This study provides a dynamic, long-term assessment of PAH 
+* Corresponding authors.
+E-mail addresses: bentuo.xu@wzu.edu.cn (B. Xu), qiuwh@sustech.edu.cn (W. Qiu). 
+1 These authors contributed equally.
+Contents lists available at ScienceDirect
+Journal of Hazardous Materials
+journal homepage: www.elsevier.com/locate/jhazmat
+https://doi.org/10.1016/j.jhazmat.2025.139531
+Received 29 April 2025; Received in revised form 6 August 2025; Accepted 10 August 2025  
+Journal of Hazardous Materials 496 (2025) 139531 
+Available online 11 August 2025 
+0304-3894/© 2025 Elsevier B.V. All rights are reserved, including those for text and data mining, AI training, and similar technologies. 

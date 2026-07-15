@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07085,,,,,,,,"skip: 论文仅Table 1(62采样点位置/坐标/土类描述表)，无Table 2等任何采样点级浓度表；正文仅给总量范围统计(2.30-24.71 μg/g)与超标率(100%/4.84%/12.9%)及NY州阈值(DMP=20/DBP=81/DEHP=4350 μg/kg、修复值8100 μg/kg，须剔除)；采样点级浓度仅以Fig.3(总量柱状图)和Fig.4(五单体分布柱状图)的栅格图像呈现，paper.md中无可读取数值，需OCR/数字化图方可提取"

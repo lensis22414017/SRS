@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P03762,CS9,Sum_PAH_ngg,1548,ng/g,正文Results PAHs concentrations段 (Line 172),soil,mining,Anhui,正文明确提及CS9为污染区最高值1548 ng/g（Σ16PAHs）；其余16个CS+10个US采样点的PAH单体数据在Supplementary Tables S1/S2中，主文paper.md未含,33.6468,116.6572

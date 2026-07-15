@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04081,,,,,,,,,"skip: 纯水体研究(饮用水资源)，非土壤。论文标题Drinking Water Resources of Southern China，2.1节明确Water was sampled from nine resources and reservoirs，surface water 0-15cm。所有数据为水体浓度(PAHs ng/L, HM μg/L)，Table 2/4仅统计汇总(Range/Mean/Median)无采样点级数据。9采样点(S1-S9)均为水库/水源地。不符合土壤采样点级提取条件。"

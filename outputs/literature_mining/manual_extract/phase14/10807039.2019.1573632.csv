@@ -1,0 +1,16 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+10807039.2019.1573632,10807039.2019.1573632_0m,0m,Cr_mgkg,10.0,Unknown,range_mean,high,table_p8_ri2_ci1,Table 4. Carcinogenic risk and hazard quotient of Cr(VI) in soil via different exposure pathways.
+10807039.2019.1573632,10807039.2019.1573632_20-35cm,20-35cm,Cr_mgkg,1.06e-05,Unknown,,high,table_p8_ri3_ci1,Table 4. Carcinogenic risk and hazard quotient of Cr(VI) in soil via different exposure pathways.
+10807039.2019.1573632,10807039.2019.1573632_35-50cm,35-50cm,Cr_mgkg,9.11e-06,Unknown,,high,table_p8_ri4_ci1,Table 4. Carcinogenic risk and hazard quotient of Cr(VI) in soil via different exposure pathways.
+10807039.2019.1573632,10807039.2019.1573632_0-20cm,0-20cm,Cr_mgkg,1.46e-05,Unknown,,high,table_p8_ri5_ci1,Table 4. Carcinogenic risk and hazard quotient of Cr(VI) in soil via different exposure pathways.
+10807039.2019.1573632,10807039.2019.1573632_50m,50m,Cr_mgkg,27.5,Unknown,range_mean,high,table_p8_ri6_ci1,Table 4. Carcinogenic risk and hazard quotient of Cr(VI) in soil via different exposure pathways.
+10807039.2019.1573632,10807039.2019.1573632_35-50cm,35-50cm,Cr_mgkg,9.7e-06,Unknown,,high,table_p8_ri7_ci1,Table 4. Carcinogenic risk and hazard quotient of Cr(VI) in soil via different exposure pathways.
+10807039.2019.1573632,10807039.2019.1573632_0-20cm,0-20cm,Cr_mgkg,9.79e-06,Unknown,,high,table_p8_ri8_ci1,Table 4. Carcinogenic risk and hazard quotient of Cr(VI) in soil via different exposure pathways.
+10807039.2019.1573632,10807039.2019.1573632_80m,80m,Cr_mgkg,27.5,Unknown,range_mean,high,table_p8_ri9_ci1,Table 4. Carcinogenic risk and hazard quotient of Cr(VI) in soil via different exposure pathways.
+10807039.2019.1573632,10807039.2019.1573632_35-50_cm,35-50 cm,Cr_mgkg,1.18e-05,Unknown,,high,table_p8_ri10_ci1,Table 4. Carcinogenic risk and hazard quotient of Cr(VI) in soil via different exposure pathways.
+10807039.2019.1573632,10807039.2019.1573632_0-20cm,0-20cm,Cr_mgkg,8.77e-06,Unknown,,high,table_p8_ri11_ci1,Table 4. Carcinogenic risk and hazard quotient of Cr(VI) in soil via different exposure pathways.
+10807039.2019.1573632,10807039.2019.1573632_150_m,150 m,Cr_mgkg,27.5,Unknown,range_mean,high,table_p8_ri12_ci1,Table 4. Carcinogenic risk and hazard quotient of Cr(VI) in soil via different exposure pathways.
+10807039.2019.1573632,10807039.2019.1573632_35-50_cm,35-50 cm,Cr_mgkg,1.14e-05,Unknown,,high,table_p8_ri13_ci1,Table 4. Carcinogenic risk and hazard quotient of Cr(VI) in soil via different exposure pathways.
+10807039.2019.1573632,10807039.2019.1573632_0-20cm,0-20cm,Cr_mgkg,9.22e-06,Unknown,,high,table_p8_ri14_ci1,Table 4. Carcinogenic risk and hazard quotient of Cr(VI) in soil via different exposure pathways.
+10807039.2019.1573632,10807039.2019.1573632_20-35cm,20-35cm,Cr_mgkg,9.66e-06,Unknown,,high,table_p8_ri15_ci1,Table 4. Carcinogenic risk and hazard quotient of Cr(VI) in soil via different exposure pathways.
+10807039.2019.1573632,10807039.2019.1573632_S16,S16,Cr_mgkg,42.5,Unknown,range_mean,high,table_p8_ri16_ci1,Table 4. Carcinogenic risk and hazard quotient of Cr(VI) in soil via different exposure pathways.

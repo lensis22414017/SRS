@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05180,,,,,,,,"skip: 目标污染物不匹配——论文仅测定SCCPs/MCCPs(氯化石蜡/卤代阻燃剂),不在OP目标清单(PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAEs/OCPs)中;HM未测定。采样点数据在Table S2(Supporting Information),非正文paper.md。398个天津表层土壤样点(6×6km网格),覆盖城镇/郊区/远郊/滨海新区,居民区/绿带/农业区三类用地",site_type:urban/agricultural/suburban,province:Tianjin

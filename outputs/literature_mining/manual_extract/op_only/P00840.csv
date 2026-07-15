@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00840,NOTES,NA,NA,NA,NA,soil,archaeological,Hubei,"skip: 论文仅报告PAH诊断比值(MPh/Ph, Fl/(Fl+Py), BaA/(BaA+Ch), Bflas/(Bflas+BeP))和GC/MS峰面积相对丰度，无任何采样点级绝对浓度数据(ng/g)。Table 1全为比值，Fig 3/4为相对丰度趋势图。正文明确声明用peak area measure relative abundance。无法提取Sum_PAH_ngg或BaP_ngg等浓度值"

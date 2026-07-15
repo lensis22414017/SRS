@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11294,,,,,,,,"skip: 微生物降解实验类硕士论文(菌群QY1+生物炭修复PAHs)。第二章/三章为液体培养基(MSM)加菲/芘标准品的降解实验; 第四章为模拟污染土壤(spiked soil)修复实验, 供试土壤采自华南理工大学大学城校区(清洁土), 人工添加50mg/kg菲+10mg/kg芘+1/10mg/kg Cd(NO3)2标准品, 老化2个月后做修复实验。清远市电子垃圾拆解场地仅作为菌群QY1来源被提及, 论文未提供该场地任何PAHs/HM本底浓度实测数据。无场地本底实测值, 全部为spiked实验数据, 按铁律剔除。"

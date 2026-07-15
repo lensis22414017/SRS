@@ -1,0 +1,9 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+s11356-023-28198-1,s11356-023-28198-1_Geomean,Geomean,SumHCH_ngg,0.054,Unknown,,high,table_p2_ri1_ci5,
+s11356-023-28198-1,s11356-023-28198-1_IDL,IDL,SumHCH_ngg,0.013,Unknown,,high,table_p2_ri1_ci6,
+s11356-023-28198-1,s11356-023-28198-1_Geomean,Geomean,SumHCH_ngg,0.315,Unknown,,high,table_p2_ri2_ci5,
+s11356-023-28198-1,s11356-023-28198-1_IDL,IDL,SumHCH_ngg,0.037,Unknown,,high,table_p2_ri2_ci6,
+s11356-023-28198-1,s11356-023-28198-1_Geomean,Geomean,SumHCH_ngg,0.079,Unknown,,high,table_p2_ri3_ci5,
+s11356-023-28198-1,s11356-023-28198-1_IDL,IDL,SumHCH_ngg,0.037,Unknown,,high,table_p2_ri3_ci6,
+s11356-023-28198-1,s11356-023-28198-1_Geomean,Geomean,SumHCH_ngg,0.499,Unknown,,high,table_p2_ri4_ci5,
+s11356-023-28198-1,s11356-023-28198-1_Geomean,Geomean,SumDDT_ngg,1.21,Unknown,,high,table_p2_ri11_ci5,

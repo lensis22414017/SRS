@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05378,,,,,,soil,oil field,Shandong,"skip: 论文仅提供分组统计汇总(Range/Mean/SE/Detect rate for Oil field n=25 vs Estuary n=12)，无采样点级浓度数据(O1-O25/E1-E12无单体逐点数值)；Figure5仅含诊断比值非浓度；Table6为normalized-to-153比值非绝对浓度"

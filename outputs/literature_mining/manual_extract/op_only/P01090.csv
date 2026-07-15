@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01090,,,,,,,,"skip: 仅区域汇总数据(urban/rural plain/rural mountainous三区的median/Mean±SD/Range)，无采样点级PAH浓度。Table 1仅BC和TOC的area-level统计；PAH仅报告area median(urban 502/rural plain 148/rural mountain 146 ng/g)；Table 3为相关系数非浓度；Fig.3为柱状图非数值表；Table S1/S2补充材料未在parsed paper.md中且SI目录不存在。94个采样点的单体PAH值未在论文中以表格形式呈现。"

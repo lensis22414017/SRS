@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01421,,,,,,,,,"skip: 无采样点级OP数据。论文COCs为Mn/Cd/As/Co/NH3-N/1,1,2-Trichloroethane/chlorobenzene/TPH，仅TPH属OP范畴。SI全部表格均为统计汇总(Table S4背景点Max/Min/Average/Median)、筛选阈值(Table S3)、风险指数(Table S7 CR/HQ)；327个样点仅在正文中以空间分布图和源解析呈现，全文(含SI)无任何采样点级浓度数据表。paper.pdf仅1页首页预览(Elsevier付费墙)，paper.md仅29行(标题+摘要+引言片段)"

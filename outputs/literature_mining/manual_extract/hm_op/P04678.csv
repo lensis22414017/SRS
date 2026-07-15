@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04678,,,,,,,,"skip: 综述论文(narrative systematic review)，PRISMA-informed synthesis of 324 studies；Data Availability Statement明确'No new data were created or analyzed'；Table 1仅地点+引用汇总(无浓度列)、Table 2趋势总结(无采样点)、Table 3风险指标综合(LC50/HQ/ILCR/BMF/TEQ均属剔除类)；正文浓度数值全部转引他人文献(如[42][43][77][92][93])，非P04678自有原始采样数据"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07698,,,,,,,,"skip: parsed paper.md truncated (29 lines/5KB - only abstract+intro start). No data tables with sampling-point level PAH concentrations available. PDF not found locally. Full text behind Elsevier paywall. Abstract only gives range summaries (May 491.65-1007.73, Aug 427.31-781.38, Nov 580.40-999.40 ng/g) - these are stat ranges not sample-level data"

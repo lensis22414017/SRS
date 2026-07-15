@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08678,,,,,,,,"skip: PDF仅1页(封面+摘要+引言)缺失全文表格和图,无法获取采样点级数据;摘要仅含Mean±SD统计汇总(如(7.6±1.1)×10³ μg/kg),非采样点级;无HM数据(仅PAH);建议下载完整PDF后重新提取"

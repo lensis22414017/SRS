@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10501,,,,,,soil,agricultural,Hubei,"skip: 仅统计汇总（range/mean/SD/CV），无采样点级浓度数据。Table1给出34样本各PAH单体的含量范围和均值，Table2仅按污染等级分组列点位编号(1-17)无实际浓度值，Table3为文献对比"

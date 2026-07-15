@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00196,,,,,,,,"skip: 所有采样点级PAE数据仅在Fig.1和Fig.2柱状图中呈现，论文无任何数值表格；正文仅给出跨采样点range(总PAEs 12.566~46.669 mg/kg, DnOP <LOD~6.080, DMP <LOD~2.278)为统计汇总非采样点值。图数据需OCR精确提取，目测读取违反铁律1(禁止估算)"

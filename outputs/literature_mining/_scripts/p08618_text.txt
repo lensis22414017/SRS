@@ -1,0 +1,478 @@
+=== PAGE 1 ===
+Tong Zhang, Feng Liu, Xiezhi Yu, Xiaofeng Jiang, Yibin Cui & Mei Li
+802 Accesses
+18 Citations
+1 Altmetric
+Explore all metrics 
+Abstract
+Soil pollution due to the activities of industrial parks, is becoming an increasingly serious
+issue, particularly throughout China. Therefore, it is essential to explore the soil pollution
+characteristics and its ecotoxicological effects on model species, such as higher plant
+species, in typical industrial areas. In this study, concentrations of heavy metals and
+polycyclic aromatic hydrocarbons (PAHs) were examined in the soil collected from 10
+Log in
+Menu
+Search
+Cart
+Home
+Ecotoxicology
+Article
+Risk assessment and ecotoxicological diagnosis
+of soil from a chemical industry park in Nanjing,
+China
+Published: 06 January 2021
+Volume 30, pages 1303–1314, (2021)
+Cite this article
+Save article
+View saved research
+Aims and scope
+Submit manuscript
+Ecotoxicology
+
+---END PAGE---
+=== PAGE 2 ===
+sampling sites at a chemical industry park in Nanjing, China. The pollution index was used
+to assess the heavy metal pollution level of soils, while the hazard index (HI) and
+carcinogenic risk index (RI) were calculated to assess the human health risk of soil PAHs. In
+addition, wheat (Triticum aestivum L.) was used as the model species to evaluate the
+ecotoxicological effects of polluted soil in pot experiments. Results showed that the content
+of heavy metals and PAHs varied greatly in soil samples, among which the heavy metal
+pollution at S1, S2 and S3 was the most serious. The health risk assessment of PAHs
+indicated that non-carcinogenic and carcinogenic values for all soil samples were below the
+threshold levels. Statistical analysis of the correlation between contaminated soil and toxic
+effects in wheat found that the significance values of regression equations were all less than
+0.05 for chlorophyll content, peroxidase (POD) and amylase (AMS) activity. This indicates
+that the chlorophyll content, POD and AMS activity in wheat leaves could be suitable
+biomarkers for evaluation of the combined toxicity of multiple pollutants. This study
+provides a reference for future research on the risk assessment of soil containing multiple
+pollutants from industrial chemical parks.
+ This is a preview of subscription content, log in via an institution
+ to check access.
+Access this article
+Subscribe and save
+Springer+
+from ¥17,985 /Month
+Log in via an institution
+Starting from 10 chapters or articles per month
+Access and download chapters and articles from more than 300k books and 2,500
+journals
+Cancel anytime
+
+---END PAGE---
+=== PAGE 3 ===
+Buy Now
+Price includes VAT (Japan)
+Instant access to the full article PDF.
+Institutional subscriptions 
+Similar content being viewed by others
+Explore related subjects
+Discover the latest articles, books and news in related subjects, suggested using machine learning.
+Crop waste
+Ecotoxicology
+Soil Chemistry
+Soil Microbiology
+Soil Science
+Terrestrial Pollution
+View plans 
+Buy article PDF ￥ 4,980
+Article
+12 January 2021
+Risk assessment and
+ecotoxicological effects
+of leachates extracted
+from industrial district…
+Article
+23 February 2024
+Source and risk
+assessment of heavy
+metals in mining-
+affected areas in Jiang…
+Article
+05 August 2021
+Probability risk
+assessment of soil PAH
+contamination premised
+on industrial brownfiel…
+
+---END PAGE---
+=== PAGE 4 ===
+Heavy Metal Contamination and Risk Assessment in Soil Environments
+Data availability
+The data and material used or analysed can be available from the corresponding author on
+reasonable request.
+References
+Abel S, Nehls T, Mekiffer B, Wessolek G (2015) Heavy metals and benzo[a]pyrene in soils
+from construction and demolition rubble. J Soil Sediment 15:1771–1780
+Article CAS Google Scholar
+Afkhami F, Karbassi A, Nasrabadi T, Vosoogh A (2013) Impact of oil excavation activities on
+soil metallic pollution, case study of an Iran southern oil field. Environ Earth Sci
+70(3):1219–1224
+Article CAS Google Scholar
+Allah EFA, Hashem A, Alam P, Ahmad P (2019) Silicon alleviates nickel-induced oxidative
+stress by regulating antioxidant defense and glyoxalase systems in mustard plants. J Plant
+Growth Regul 38:1260–1273
+Article CAS Google Scholar
+Alonso Blazquez N, Garcia Gomez C, Fernanadez M (2015) Influence of Zn-contaminated
+soils in the antioxidative defence system of wheat (Triticum aestivum) and maize (Zea mays)
+at different exposure times: potential use as biomarkers. Ecotoxicology 24:279–291
+
+---END PAGE---
+=== PAGE 5 ===
+Article CAS Google Scholar
+Alternatives NRCC (1994) Alternatives for ground water cleanup, National Research Council
+(USA). National Academies Press. https://doi.org/10.1002/(SICI)1099-
+1646(199701)13:13.0.CO;2-5
+Azmat R, Moin S (2017) The monitoring of Cu contaminated water through potato peel
+charcoal and impact on enzymatic functions of plants. J Environ Manag 203:98–105
+Article CAS Google Scholar
+Barnes J, Balaguer L, Manrique E, Elvira S, Davison A (1992) A reappraisal of the use of
+DMSO for the extraction and determination of chlorophylls a and b in lichens and higher
+plants. Environ Exp Bot 32:85–100
+Article CAS Google Scholar
+Bourgeault A, Gourlay France C, Vincent Hubert F, Palais F, Geffard A, Biagianti Risbourg S,
+Pain Devin S, Tusseau Vuillemin M (2010) Lessons from a transplantation of Zebra Mussels
+into a small urban river: an integrated ecotoxicological assessment. Environ Toxicol
+25:468–478
+Article CAS Google Scholar
+Burges A, Epelde L, Garbisu C (2015) Impact of repeated single-metal and multimetal
+pollution events on soil quality. Chemosphere 120:8–15
+Article CAS Google Scholar
+Cai L, Wang Q, Wen H, Luo J, Wang S (2019) Heavy metals in agricultural soils from a typical
+township in Guangdong Province, China: occurrences and spatial distribution. Ecotox
+
+---END PAGE---
+=== PAGE 6 ===
+Environ Safe 168:184–191
+Article CAS Google Scholar
+Chabukdhara M, Nema A (2013) Heavy metals assessment in urban soil around industrial
+clusters in Ghaziabad, India: probabilistic health risk approach. Ecotox Environ Safe 87:57–
+64
+Article CAS Google Scholar
+Chen Y, Jia J, Wang Y (2009) Weak microwave can enhance tolerance of wheat seedlings to
+salt stress. J Plant Growth Regul 28(4):381–385
+Article CAS Google Scholar
+Cheng H, Li M, Zhao C, Li K, Peng M, Qin A, Cheng X (2014) Overview of trace metals in the
+urban soil of 31 metropolises in China. J Geochem Explor 139:31–52
+Article CAS Google Scholar
+Corcoll N, Bonet B, Leira M, Guasch H (2011) Chl-a fluorescence parameters as biomarkers
+of metal toxicity in fluvial biofilms: an experimental study. Hydrobiologia 673:119–136
+Article CAS Google Scholar
+Dhir B, Sharmila P, Saradhi P, Nasim S (2009) Physiological and antioxidant responses of
+Salvinianatans exposed to chromium-rich wastewater. Ecotox Environ Safe 72:1790–1797
+Article CAS Google Scholar
+Egli CG, Kowalska E, Patla K, Kulbat K, Smolińska B, Leszczyńska J, Fotopoulos V (2018)
+Influence of Heavy Metals (Ni, Cu, and Zn) on Nitro-Oxidative Stress Responses, Proteome
+
+---END PAGE---
+=== PAGE 7 ===
+Regulation and Allergen Production in Basil (Ocimum basilicum L.) Plants. Front Plant Sci 9
+Feng J, Li X, Zhao J, Sun J (2017) Distribution, transfer, and health risks of polycyclic
+aromatic hydrocarbons (PAHs) in soil-wheat systems of Henan Province, a typical
+agriculture province of China. Environ Sci Pollut R 24:18195–18203
+Article CAS Google Scholar
+Guan Q, Song N, Wang F, Yang L, Liu Z (2018) Contamination levels and health risk
+assessments of heavy metals in an oasis-desert zone: a case study in northwest China.
+Environ Sci Pollut R 25:22606–22618
+Article CAS Google Scholar
+Hakanson L (1980) An ecological risk index for aquatic pollution control: a sediment-
+ecological approach. Water Res 14:975–1001
+Article Google Scholar
+Hamad S, Schauer J, Shafer M, AlRheem E, Skaar P, Heo J (2014) Risk assessment of total
+and bioavailable potentially toxic elements (PTEs) in urban soils of Baghdad-Iraq. Sci Total
+Environ 494–495:39–48
+Article CAS Google Scholar
+Heidari R, Mohammadi H, Ahmadi A, Ghanbarinejad V, Kasra F, Khosravi A (2018)
+Protective effect of glycine and tri-methyl glycine (Betaine) against heavy metals-induced
+oxidative stress in liver-derived post-nuclear supernatant. Trends Pharmacol Sci 4(2):113–
+124
+CAS Google Scholar
+
+---END PAGE---
+=== PAGE 8 ===
+Huang R (1987) Environmental Pedology. Higher Education Press, Beijing
+Google Scholar
+Iarc (International Agency for Research on Cancer) (2011) Monographs, Supplement.
+http://monographs.iarc.fr/ENG/Classification/index.php
+Idrees N, Sarah R, Tabassum B, Allah EFA (2020) Evaluation of some heavy metal’s toxicity
+in Channa punctatus and riverine water of Kosi in Rampur, Uttar Pradesh, India. Saudi J
+Biol Sci 27:1191–1194
+Article CAS Google Scholar
+Jiang Y, Chao S, Liu J, Yang Y, Chen Y, Zhang A, Cao H (2017) Source apportionment and
+health risk assessment of heavy metals in soil for a township in Jiangsu Province, China.
+Chemosphere 168:1658–1668
+Article CAS Google Scholar
+Jiao H, Wang Q, Zhao N, Jin B, Zhuang X, Bai Z (2017) Distributions and sources of
+polycyclic aromatic hydrocarbons (PAHs) in soils around a chemical Plant in Shanxi, China.
+Int J Envion Res Public Health 14(10):1198
+Article CAS Google Scholar
+Karbassi A, Nasrabadi T, Rezai M, Modabberi S (2014) Pollution with metals (As, Sb, Hg,
+Zn) in agricultural soil located close to Zarshuran gold mine, Iran. Environ Eng Manag J
+13(1):115–122.
+Article CAS Google Scholar
+
+---END PAGE---
+=== PAGE 9 ===
+Khan S, Cao Q (2012) Human health risk due to consumption of vegetables contaminated
+with carcinogenic polycyclic aromatic hydrocarbons. J Soil Sediment 12:178–184
+Article CAS Google Scholar
+Lee C, Li X, Shi W, Cheung S, Thornton I (2006) Metal contamination in urban, suburban,
+and country park soils of Hong Kong: a study based on GIS and multivariate statistics. Sci
+Total Environ 356:45–61
+Article CAS Google Scholar
+Li F, Bi J, Huang L, Qu C, Yang J, Bu Q (2010) Mapping human vulnerability to chemical
+accidents in the vicinity of chemical industry parks. J Hazardous Mat 179(1–3):500–506
+Article CAS Google Scholar
+Li H (2000a) Principle and technique of plant physiologic and biochemical experiments.
+Higher Education Press, Beijing, pp 169–172
+Li Z, Ma Z, Kuijp V, Yuan T,ZW, Huang L (2014) A review of soil heavy metal pollution from
+mines in China: pollution and health risk assessment. Sci Total Environ 468–469:843–853
+Article CAS Google Scholar
+Lin D, Tu Y, Zhu L (2005) Concentrations and health risk of polycyclic aromatic
+hydrocarbons in tea. Food Chem Toxicol 43:41–48
+Article CAS Google Scholar
+Liu N, Wu Z (2018) Growth and antioxidant response in Ceratophyllum demersum L. under
+sodium dodecyl sulfate (SDS), phenol and joint stress. Ecotox Environ Safe 163:188–195
+
+---END PAGE---
+=== PAGE 10 ===
+Article CAS Google Scholar
+Lu C, Li A, Wang X, Zhou S, Wu S (2013) The pollution evaluation and spatial distribution of
+soil heavy metals surrounding chemical industrial park. Fifth Conference on Measuring
+Technology and Mechatronics Automation. https://doi.org/10.1109/ICMTMA.2013.293
+Lu R (2000) Analysis method of soil agricultural chemistry. Chinese Agricultural Science
+and Technology Press, Beijing
+Google Scholar
+Maliszewska K (1996) Polycyclic aromatic hydrocarbons in agricultural soils in Poland:
+preliminary proposals for criteria to evaluate the level of soil contamination. Appl Geochem
+11(11):121–127
+Article Google Scholar
+Mohasseli V, Khoshgoftarmanesh H, Shariatmadari H (2017) Physiological characteristics
+of Plantago major under SO2 exposure as affected by foliar iron spray. Environ Sci Pollut Res
+24:17985–17992
+Article CAS Google Scholar
+Monaco D, Chianese E, Riccio A, Delgado-Sanchez A, Lacorte S (2017) Spatial distribution
+of heavy hydrocarbons, PAHs and metals in polluted areas. The case of “Galicia”, Spain. Mar
+Pollut Bull 121(1-2):230–237
+Article CAS Google Scholar
+Mumtaz M, George J, Gold K (1996) ATSDR evaluation of health effects of chemicals. IV.
+Polycyclic aromatic hydrocarbons (PAHs): understanding a complex problem. Toxicol Ind
+
+---END PAGE---
+=== PAGE 11 ===
+Health 12(6):742–971
+Article CAS Google Scholar
+Nakano Y, Asada K (1981) Hydrogen peroxide is scavenged by ascorbate specific peroxidase
+in spinash chloroplasts. Plant Cell Physiol 5:867–880
+Google Scholar
+Nasrabadi T, Ruegner H, Sirdari Z, Schwientek M, Grathwohl P (2016) Using total
+suspended solids (TSS) and turbidity as proxies for evaluation of metal transport in river
+water. Appl Geochem 68:1–9
+Article CAS Google Scholar
+Pan L, Xu R, Wen J, Guo R (2017) Assessing PAHs pollution in Shandong coastal area
+(China) by combination of chemical analysis and responses of reproductive toxicity in crab
+Portunus trituberculatus. Environ Sci Pollut Res 24:14291–14303
+Article CAS Google Scholar
+Parlak U (2016) Effect of nickel on growth and biochemical characteristics of wheat
+(Triticum aestivum L.) seedlings. Njas Wagening J Life Sci 76:1–5
+Article Google Scholar
+Pisarenko P, Samojlik M, Kolesnikova L, Plaksiyenko I (2018) The dynamics and diagnosis
+of the toxic effects of contaminated soil on the stability of seedlings wheat furious. Agrology
+1(3):240–246.
+Article Google Scholar
+
+---END PAGE---
+=== PAGE 12 ===
+Rusin M, Gospodarek J, Barczyk G, Nadgórska-Socha A (2018) Antioxidant responses of
+Triticum aestivum plants to petroleumderived substances. Ecotoxicology 27:1353–1367
+Article CAS Google Scholar
+Salmanighabeshi S, Palomo M, Bernalte E, Rueda-Holgado F, Miro Rodríguez C, Fadic Ruiz
+X, Vidal Cortez V, Cereceda Balic F, Pinilla Gil E (2015) Long-term assessment of ecological
+risk from deposition of elemental pollutants in the vicinity of the industrial area of
+Puchuncaví-Ventanas, central Chile. Sci Total Environ 527:335–343
+Article CAS Google Scholar
+Seneviratne M, Rajakaruna N, Rizwan M,HM, Madawala S, Sik Y, Vithanage M (2019)
+Heavy metal induced oxidative stress on seed germination and seedling development: a
+critical review. Environ Geochem Health 41:1813–1831
+Article CAS Google Scholar
+Song Y, Wang F, Bian Y, Kengara F, Jia M, Xie Z, Jiang X (2012) Bioavailability assessment of
+hexachlorobenzene in soil as affected by wheat straw biochar. J Hazard Mater 217-218:391–
+397
+Article CAS Google Scholar
+Sun R, Chen L (2016) Assessment of heavy metal pollution in topsoil around Beijing
+metropolis. PLoS ONE 11(5):e0155350
+Article CAS Google Scholar
+Tang J, Wang M, Wang F, Sun Q, Zhou Q (2011) Ecotoxicity of petroleum hydrocarbon
+contaminated soil. J Environ Sci 23(5):845–851
+
+---END PAGE---
+=== PAGE 13 ===
+Article CAS Google Scholar
+Vácha R, Skála J, Čechmánková J, Horváthová V, Hladík J (2015) Toxic elements and
+persistent organic pollutants derived from industrial emissions in agricultural soils of the
+Northern Czech Republic. J Soil Sediment 15:1813–1824
+Article CAS Google Scholar
+Wadnerwar N (2020) Chronic toxicity evaluation of ayurvedic arsenical formulation
+rasamanikya with special reference to heavy metal toxicity. Int J Pharm Res 12(1):889–898
+Google Scholar
+Wang D, Zhu S, Wang L, Zhen H, Han F, Zhang X (2020) Distribution, origins and
+hazardous effects of polycyclic aromatic hydrocarbons in topsoil surrounding oil fields: a
+case study on the Loess Plateau, China. Int J Environ Res Public Health 17(4):1390
+Article CAS Google Scholar
+Wang S, Nan Z, Prete D, Ma J, Liao Q, Zhang Q (2016) Accumulation, transfer, and potential
+sources of mercury in the soil-wheat system under field conditions over the Loess Plateau,
+northwest China. Sci Total Environ 568:245–252
+Article CAS Google Scholar
+Wang X, Zuo Q, Duan Y, Liu W, Cao J, Tao S (2012) Factors affecting spatial variation of
+polycyclic aromatic hydrocarbons in surface soils in North China Plain. Environ Toxicol
+Chem 31(10):2246–2252
+Article CAS Google Scholar
+
+---END PAGE---
+=== PAGE 14 ===
+Wang Y, Wang S, Nan Z, Ma J, Zang F, Chen Y, Li Y, Zhang Q (2015) Effects of Ni stress on
+the uptake and translocation of Ni and other mineral nutrition elements in mature wheat
+grown in sierozems from northwest of China. Environ Sci Pollut Res 22:19756–63
+Article CAS Google Scholar
+Wang Z, Chen L, Zhang H, Sun R (2014) Multivariate statistical analysis and risk
+assessment of heavy metals monitored in surface sediment of the Luan River and its
+tributaries, China. Hum Ecol Risk Assess 20(6):1521–1537
+Article CAS Google Scholar
+Wei X, Gao B, Wang P, Zhou H, Lu J (2015) Pollution characteristics and health risk
+assessment of heavy metals in street dusts from different functional areas in Beijing, China.
+Ecotox Environ Safe 112:186–192
+Article CAS Google Scholar
+Wu J, Lu J, Li L, Min X, Luo Y (2018) Pollution, ecological-health risks, and sources of heavy
+metals in soil of the northeastern Qinghai-Tibet Plateau. Chemosphere 201:234–242
+Article CAS Google Scholar
+Wu S, Peng S, Zhang X, Wu D, Luo W, Zhang T, Zhou S, Yang G, Wan H, Wu L (2015) Levels
+and health risk assessments of heavy metals in urban soils in Dongguan, China. J Geochem
+Explor 148:71–78
+Article CAS Google Scholar
+Xiao Q, Zong Y, Lu S (2015) Assessment of heavy metal pollution and human health risk in
+urban soils of steel industrial city (Anshan), Liaoning, Northeast China. Ecotox Environ
+Safe 120:377–385
+
+---END PAGE---
+=== PAGE 15 ===
+Article CAS Google Scholar
+Xing W, Zhang H, Scheckel K, Li L (2016) Heavy metal and metalloid concentrations in
+components of 25 wheat (Triticum aestivum L.) varieties in the vicinity of lead smelters in
+Henan province, China. Environ Monit Assess 188:23
+Article CAS Google Scholar
+Yang J, Fei Y, Yu Y, Zhang J, Wang R, Srinivasulu M, Vasenev V (2017) Characterization,
+source apportionment, and risk assessment of polycyclic aromatic hydrocarbons in urban
+soil of Nanjing, China. J Soil Sediment 17:1116–1125
+Article CAS Google Scholar
+Yu Y, Wu B, Jiang L, Zhang X-X, Ren H-Q, Li M (2019) Comparative analysis of toxicity
+reduction of wastewater in twelve industrial park wastewater treatment plants based on
+battery of toxicity assays. Sci Rep 9(1)
+Zeng X, Wang Z, Wang J, Guo J, Chen X, Zhuang J (2015) Health risk assessment of heavy
+metals via dietary intake of wheat grown in Tianjin sewage irrigation area. Ecotoxicology
+24:2115–2124
+Article CAS Google Scholar
+Zhang C, Shan B, Tang W, Wang C, Zhang L (2019) Identifying sediment-associated toxicity
+in rivers affected by multiple pollutants from the contaminant bioavailability. Ecotox
+Environ Safe 171:84–91
+Article CAS Google Scholar
+
+---END PAGE---
+=== PAGE 16 ===
+Zhang W, Wu Y, Simonnot M (2012) Soil contamination due to e-waste disposal and
+recycling activities: a review with special focus on China. Pedosphere 22:434–455
+Article CAS Google Scholar
+Zhang Y, Peng C, Guo Z, Xiao X, Xiao R (2019) Polycyclic aromatic hydrocarbons in urban
+soils of China: distribution, influencing factors, health risk and regression prediction.
+Environ Pollut 254:112930
+Article CAS Google Scholar
+Zhao L, Xu Y, Hou H, Shangguan Y, Li F (2014) Source identification and health risk
+assessment of metals in urban soils around the Tanggu chemical industrial district, Tianjin,
+China. Sci Total Environ 468–469:654–662
+Zhao S, Fan Z, Sun L, Zhou T, Xing Y, Liu L (2017) Interaction effects on uptake and toxicity
+of perfluoroalkyl substances and cadmium in wheat (Triticum aestivum L.) and rapeseed
+(Brassica campestris L.) from co-contaminated soil. Ecotox Environ Safe 137:194–201
+Article CAS Google Scholar
+Zheng T, Ran Y, Chen L (2014) Polycyclic aromatic hydrocarbons (PAHs) in rural soils of
+Dongjiang River Basin: occurrence, source apportionment, and potential human health
+risk. J Soil Sediment 14:110–120
+Article CAS Google Scholar
+Zhong Y, Zhu L (2013) Distribution, input pathway and soil-air exchange of polycyclic
+aromatic hydrocarbons in Banshan Industry Park, China. Sci Total Environ 444:177–182
+Article CAS Google Scholar
+
+---END PAGE---
+=== PAGE 17 ===
+Zhou L, Xia M, Wang L, Mao H (2016) Toxic effect of perfluorooctanoic acid (PFOA) on
+germination and seedling growth of wheat (Triticum aestivum L.). Chemosphere 159:420–
+425
+Article CAS Google Scholar
+Zhu L, Liu J, Xu S, Xie Z (2017) Deposition behavior, risk assessment and source
+identification of heavy metals in reservoir sediments of Northeast China. Ecotox Environ
+Safe 142:454–463
+Article CAS Google Scholar
+Zou J, Dai W, Gong S, Ma Z (2015) Analysis of spatial variations and sources of heavy metals
+in farmland soil of Beijing suburbs. PLoS ONE 10(2):e0118082
+Article CAS Google Scholar
+Funding
+This research was supported by National Natural Science Foundation of China (No. 41773115,
+41571468), Science and Technology Support Program of Jiangsu Province (No. BE2012737,
+BE2016736).
+Author contributions
+TZ: Investigation, Methodology, Resources, Software, Writing-original draft, Writing-
+review & editing. FL: Data curation, Formal analysis, Methodology, Resources, Software,
+Visualization. XY: Visualization, Methodology, Writing-review & editing. XJ: Visualization,
+Methodology, Writing-review & editing. YC: Methodology, Supervision. ML:
+Conceptualization, Data curation, Funding acquisition, Project administration, Supervision,
+Validation, Writing-review & editing.
+
+---END PAGE---
+=== PAGE 18 ===
+Author information
+Authors and Affiliations
+State Key Laboratory of Pollution Control and Resource Reuse, School of the Environment,
+Nanjing University, Nanjing, 210023, China
+Tong Zhang, Feng Liu, Xiezhi Yu, Xiaofeng Jiang & Mei Li
+College of Environmental Science and Engineering, Jilin Normal University, Siping,
+136000, China
+Feng Liu
+Nanjing Institute of Environmental Sciences, Ministry of Ecology and Environment,
+Nanjing, 210042, China
+Yibin Cui
+Corresponding author
+Correspondence to Mei Li.
+Ethics declarations
+Conflict of interest
+The authors declare that they have no conflict of interest.
+Informed consent
+Informed consent was obtained from all participants included in the study. The participants
+have consented to the submission of the case report to the journal.
+Additional information
+Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in
+published maps and institutional affiliations.
+
+---END PAGE---
+=== PAGE 19 ===
+Rights and permissions
+Reprints and permissions
+About this article
+Cite this article
+Zhang, T., Liu, F., Yu, X. et al. Risk assessment and ecotoxicological diagnosis of soil from a
+chemical industry park in Nanjing, China. Ecotoxicology 30, 1303–1314 (2021).
+https://doi.org/10.1007/s10646-020-02320-2
+Accepted
+17 November 2020
+Published
+06 January 2021
+Version of record
+06 January 2021
+Issue date
+September 2021
+DOI
+https://doi.org/10.1007/s10646-020-02320-2
+Keywords
+Soil pollution
+Heavy metal
+PAHs
+Wheat (Triticum aestivum L.)
+Ecotoxicology
+
+---END PAGE---

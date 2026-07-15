@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11547,,,,,,,,"skip: 微生物响应机制博士论文(周猛2024浙大); Chapter2有浙江焦化场地实土(A/P/C区×2时间×3深度=18样品)但浓度数据仅在图中(图2-1/2-4/2-6柱状图)无采样点级表格; 正文仅提供Range(如As 88.93~646.61 mg/kg; PAHs 0~29.61 mg/kg)按铁律#2剔除; Chapters3-4为实验室spike土柱模拟实验(铁律#7剔除); Chapter5为混合菌剂生物修复实验(铁律#7剔除); Table1-1为24篇文献汇总(铁律#4剔除); Tables5-4/5-5为降解率/氧化率非浓度(铁律#5剔除); HM仅测As未测8元素全量; 论文核心目的是微生物群落/种群/基因响应机制非污染物浓度调查"

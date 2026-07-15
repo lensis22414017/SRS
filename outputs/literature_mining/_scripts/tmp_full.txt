@@ -1,0 +1,150 @@
+pdf_info list of 11
+
+=== Page 0 ===
+Keys: ['preproc_blocks', 'page_idx', 'page_size', 'discarded_blocks', 'para_blocks']
+  preproc_blocks: list of 13
+    [0] type=title keys=['score', 'bbox', 'index', 'type', 'lines', 'level']
+    [1] type=image keys=['type', 'bbox', 'blocks', 'index', 'score']
+    [2] type=text keys=['score', 'bbox', 'index', 'type', 'lines']
+    [3] type=text keys=['score', 'bbox', 'index', 'type', 'lines']
+    [4] type=text keys=['score', 'bbox', 'index', 'type', 'lines']
+    ... truncated
+  page_size: list of 2
+  discarded_blocks: list of 13
+    [0] type=page_footnote keys=['score', 'bbox', 'index', 'type', 'lines']
+    [1] type=header keys=['score', 'bbox', 'index', 'type', 'lines']
+    [2] type=header keys=['score', 'bbox', 'index', 'type', 'lines']
+    [3] type=header keys=['score', 'bbox', 'index', 'type', 'lines']
+    [4] type=header keys=['score', 'bbox', 'index', 'type', 'lines']
+    ... truncated
+  para_blocks: list of 13
+    [0] type=title keys=['score', 'bbox', 'index', 'type', 'lines', 'level']
+    [1] type=image keys=['type', 'bbox', 'blocks', 'index', 'score']
+    [2] type=text keys=['score', 'bbox', 'index', 'type', 'lines', 'bbox_fs']
+    [3] type=text keys=['score', 'bbox', 'index', 'type', 'lines', 'bbox_fs']
+    [4] type=text keys=['score', 'bbox', 'index', 'type', 'lines', 'bbox_fs']
+    ... truncated
+
+=== Page 1 ===
+Keys: ['preproc_blocks', 'page_idx', 'page_size', 'discarded_blocks', 'para_blocks']
+  preproc_blocks: list of 13
+    [0] type=text keys=['score', 'bbox', 'index', 'type', 'lines']
+    [1] type=text keys=['score', 'bbox', 'index', 'type', 'lines']
+    [2] type=text keys=['score', 'bbox', 'index', 'type', 'lines']
+    [3] type=text keys=['score', 'bbox', 'index', 'type', 'lines']
+    [4] type=text keys=['score', 'bbox', 'index', 'type', 'lines']
+    ... truncated
+  page_size: list of 2
+  discarded_blocks: list of 3
+    [0] type=header keys=['score', 'bbox', 'index', 'type', 'lines']
+    [1] type=header keys=['score', 'bbox', 'index', 'type', 'lines']
+    [2] type=page_number keys=['score', 'bbox', 'index', 'type', 'lines']
+  para_blocks: list of 13
+    [0] type=text keys=['score', 'bbox', 'index', 'type', 'lines', 'bbox_fs', 'lines_deleted']
+    [1] type=text keys=['score', 'bbox', 'index', 'type', 'lines', 'bbox_fs']
+    [2] type=text keys=['score', 'bbox', 'index', 'type', 'lines', 'bbox_fs']
+    [3] type=text keys=['score', 'bbox', 'index', 'type', 'lines', 'bbox_fs']
+    [4] type=text keys=['score', 'bbox', 'index', 'type', 'lines', 'bbox_fs', 'lines_deleted']
+    ... truncated
+
+=== Page 2 ===
+Keys: ['preproc_blocks', 'page_idx', 'page_size', 'discarded_blocks', 'para_blocks']
+  preproc_blocks: list of 15
+    [0] type=text keys=['score', 'bbox', 'index', 'type', 'lines']
+    [1] type=interline_equation keys=['score', 'bbox', 'index', 'type', 'lines']
+    [2] type=text keys=['score', 'bbox', 'index', 'type', 'lines']
+    [3] type=text keys=['score', 'bbox', 'index', 'type', 'lines']
+    [4] type=title keys=['score', 'bbox', 'index', 'type', 'lines', 'level']
+    ... truncated
+  page_size: list of 2
+  discarded_blocks: list of 3
+    [0] type=header keys=['score', 'bbox', 'index', 'type', 'lines']
+    [1] type=header keys=['score', 'bbox', 'index', 'type', 'lines']
+    [2] type=page_number keys=['score', 'bbox', 'index', 'type', 'lines']
+  para_blocks: list of 15
+    [0] type=text keys=['score', 'bbox', 'index', 'type', 'lines', 'bbox_fs']
+    [1] type=interline_equation keys=['score', 'bbox', 'index', 'type', 'lines']
+    [2] type=text keys=['score', 'bbox', 'index', 'type', 'lines', 'bbox_fs']
+    [3] type=text keys=['score', 'bbox', 'index', 'type', 'lines', 'bbox_fs']
+    [4] type=title keys=['score', 'bbox', 'index', 'type', 'lines', 'level']
+    ... truncated
+
+=== Page 3 ===
+Keys: ['preproc_blocks', 'page_idx', 'page_size', 'discarded_blocks', 'para_blocks']
+  preproc_blocks: list of 1
+    [0] type=image keys=['type', 'bbox', 'blocks', 'index', 'score']
+  page_size: list of 2
+  discarded_blocks: list of 3
+    [0] type=header keys=['score', 'bbox', 'index', 'type', 'lines']
+    [1] type=header keys=['score', 'bbox', 'index', 'type', 'lines']
+    [2] type=page_number keys=['score', 'bbox', 'index', 'type', 'lines']
+  para_blocks: list of 1
+    [0] type=image keys=['type', 'bbox', 'blocks', 'index', 'score']
+
+=== Page 4 ===
+Keys: ['preproc_blocks', 'page_idx', 'page_size', 'discarded_blocks', 'para_blocks']
+  preproc_blocks: list of 8
+    [0] type=chart keys=['type', 'bbox', 'blocks', 'index', 'score']
+    [1] type=chart keys=['type', 'bbox', 'blocks', 'index', 'score']
+    [2] type=image keys=['type', 'bbox', 'blocks', 'index', 'score']
+    [3] type=text keys=['score', 'bbox', 'index', 'type', 'lines']
+    [4] type=text keys=['score', 'bbox', 'index', 'type', 'lines']
+    ... truncated
+  page_size: list of 2
+  discarded_blocks: list of 3
+    [0] type=header keys=['score', 'bbox', 'index', 'type', 'lines']
+    [1] type=header keys=['score', 'bbox', 'index', 'type', 'lines']
+    [2] type=page_number keys=['score', 'bbox', 'index', 'type', 'lines']
+  para_blocks: list of 8
+    [0] type=chart keys=['type', 'bbox', 'blocks', 'index', 'score']
+    [1] type=chart keys=['type', 'bbox', 'blocks', 'index', 'score']
+    [2] type=image keys=['type', 'bbox', 'blocks', 'index', 'score']
+    [3] type=text keys=['score', 'bbox', 'index', 'type', 'lines', 'bbox_fs']
+    [4] type=text keys=['score', 'bbox', 'index', 'type', 'lines', 'bbox_fs']
+    ... truncated
+
+=== Page 5 ===
+Keys: ['preproc_blocks', 'page_idx', 'page_size', 'discarded_blocks', 'para_blocks']
+  preproc_blocks: list of 12
+    [0] type=table keys=['type', 'bbox', 'blocks', 'index', 'score']
+    [1] type=text keys=['score', 'bbox', 'index', 'type', 'lines']
+    [2] type=title keys=['score', 'bbox', 'index', 'type', 'lines', 'level']
+    [3] type=text keys=['score', 'bbox', 'index', 'type', 'lines']
+    [4] type=title keys=['score', 'bbox', 'index', 'type', 'lines', 'level']
+    ... truncated
+  page_size: list of 2
+  discarded_blocks: list of 3
+    [0] type=header keys=['score', 'bbox', 'index', 'type', 'lines']
+    [1] type=header keys=['score', 'bbox', 'index', 'type', 'lines']
+    [2] type=page_number keys=['score', 'bbox', 'index', 'type', 'lines']
+  para_blocks: list of 12
+    [0] type=table keys=['type', 'bbox', 'blocks', 'index', 'score']
+    [1] type=text keys=['score', 'bbox', 'index', 'type', 'lines', 'bbox_fs', 'lines_deleted']
+    [2] type=title keys=['score', 'bbox', 'index', 'type', 'lines', 'level']
+    [3] type=text keys=['score', 'bbox', 'index', 'type', 'lines', 'bbox_fs']
+    [4] type=title keys=['score', 'bbox', 'index', 'type', 'lines', 'level']
+    ... truncated
+
+=== Page 6 ===
+Keys: ['preproc_blocks', 'page_idx', 'page_size', 'discarded_blocks', 'para_blocks']
+  preproc_blocks: list of 8
+    [0] type=text keys=['score', 'bbox', 'index', 'type', 'lines']
+    [1] type=text keys=['score', 'bbox', 'index', 'type', 'lines']
+    [2] type=image keys=['type', 'bbox', 'blocks', 'index', 'score']
+    [3] type=table keys=['type', 'bbox', 'blocks', 'index', 'score']
+    [4] type=text keys=['score', 'bbox', 'index', 'type', 'lines']
+    ... truncated
+  page_size: list of 2
+  discarded_blocks: list of 3
+    [0] type=header keys=['score', 'bbox', 'index', 'type', 'lines']
+    [1] type=header keys=['score', 'bbox', 'index', 'type', 'lines']
+    [2] type=page_number keys=['score', 'bbox', 'index', 'type', 'lines']
+  para_blocks: list of 8
+    [0] type=text keys=['score', 'bbox', 'index', 'type', 'lines', 'bbox_fs']
+    [1] type=text keys=['score', 'bbox', 'index', 'type', 'lines', 'bbox_fs']
+    [2] type=image keys=['type', 'bbox', 'blocks', 'index', 'score']
+    [3] type=table keys=['type', 'bbox', 'blocks', 'index', 'score']
+    [4] type=text keys=['score', 'bbox', 'index', 'type', 'lines', 'bbox_fs']
+    ... truncated
+
+... truncated pages

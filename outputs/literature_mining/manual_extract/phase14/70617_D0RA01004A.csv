@@ -1,0 +1,59 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+70617_D0RA01004A,70617_D0RA01004A_Mean_(SD),Mean (SD),pH,6.56,Unknown,,high,table_p7_ri27_ci3,Table 2 Physico-chemical properties and HMs concentrations in the shallow soil of Wanshan district $( n = 2 5 ) ^ { a }$
+70617_D0RA01004A,70617_D0RA01004A_Standard_deviation,Standard deviation,pH,1.05,Unknown,,high,table_p7_ri27_ci4,Table 2 Physico-chemical properties and HMs concentrations in the shallow soil of Wanshan district $( n = 2 5 ) ^ { a }$
+70617_D0RA01004A,70617_D0RA01004A_Variable_coefficient,Variable coefficient,pH,0.16,Unknown,,high,table_p7_ri27_ci5,Table 2 Physico-chemical properties and HMs concentrations in the shallow soil of Wanshan district $( n = 2 5 ) ^ { a }$
+70617_D0RA01004A,70617_D0RA01004A_Kurtosis,Kurtosis,pH,0.16,Unknown,,high,table_p7_ri27_ci6,Table 2 Physico-chemical properties and HMs concentrations in the shallow soil of Wanshan district $( n = 2 5 ) ^ { a }$
+70617_D0RA01004A,70617_D0RA01004A_Skewness,Skewness,pH,-1.1,Unknown,,high,table_p7_ri27_ci7,Table 2 Physico-chemical properties and HMs concentrations in the shallow soil of Wanshan district $( n = 2 5 ) ^ { a }$
+70617_D0RA01004A,70617_D0RA01004A_Mean_(SD),Mean (SD),OC_pct,2.16,Unknown,,high,table_p7_ri30_ci3,Table 2 Physico-chemical properties and HMs concentrations in the shallow soil of Wanshan district $( n = 2 5 ) ^ { a }$
+70617_D0RA01004A,70617_D0RA01004A_Standard_deviation,Standard deviation,OC_pct,1.28,Unknown,,high,table_p7_ri30_ci4,Table 2 Physico-chemical properties and HMs concentrations in the shallow soil of Wanshan district $( n = 2 5 ) ^ { a }$
+70617_D0RA01004A,70617_D0RA01004A_Variable_coefficient,Variable coefficient,OC_pct,0.59,Unknown,,high,table_p7_ri30_ci5,Table 2 Physico-chemical properties and HMs concentrations in the shallow soil of Wanshan district $( n = 2 5 ) ^ { a }$
+70617_D0RA01004A,70617_D0RA01004A_Kurtosis,Kurtosis,OC_pct,1.1,Unknown,,high,table_p7_ri30_ci6,Table 2 Physico-chemical properties and HMs concentrations in the shallow soil of Wanshan district $( n = 2 5 ) ^ { a }$
+70617_D0RA01004A,70617_D0RA01004A_Skewness,Skewness,OC_pct,1.32,Unknown,,high,table_p7_ri30_ci7,Table 2 Physico-chemical properties and HMs concentrations in the shallow soil of Wanshan district $( n = 2 5 ) ^ { a }$
+70617_D0RA01004A,70617_D0RA01004A_As,As,As_mgkg,1.0,Unknown,,high,table_p7_ri1_ci1,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Be,Be,Be_mgkg,1.0,Unknown,,high,table_p7_ri2_ci2,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_As,As,Cd_mgkg,-0.125,Unknown,,high,table_p7_ri3_ci1,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Be,Be,Cd_mgkg,-0.295,Unknown,,high,table_p7_ri3_ci2,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Cd,Cd,Cd_mgkg,1.0,Unknown,,high,table_p7_ri3_ci3,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_As,As,Cr_mgkg,-0.012,Unknown,,high,table_p7_ri4_ci1,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Be,Be,Cr_mgkg,0.053,Unknown,,high,table_p7_ri4_ci2,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Cd,Cd,Cr_mgkg,-0.02,Unknown,,high,table_p7_ri4_ci3,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Cr,Cr,Cr_mgkg,1.0,Unknown,,high,table_p7_ri4_ci4,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_As,As,Cu_mgkg,0.009,Unknown,,high,table_p7_ri5_ci1,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Be,Be,Cu_mgkg,0.116,Unknown,,high,table_p7_ri5_ci2,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Cd,Cd,Cu_mgkg,-0.034,Unknown,,high,table_p7_ri5_ci3,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Cr,Cr,Cu_mgkg,0.058,Unknown,,high,table_p7_ri5_ci4,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Cu,Cu,Cu_mgkg,1.0,Unknown,,high,table_p7_ri5_ci5,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_As,As,Hg_mgkg,0.121,Unknown,,high,table_p7_ri6_ci1,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Be,Be,Hg_mgkg,0.336,Unknown,,high,table_p7_ri6_ci2,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Cd,Cd,Hg_mgkg,-0.067,Unknown,,high,table_p7_ri6_ci3,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Cr,Cr,Hg_mgkg,0.032,Unknown,,high,table_p7_ri6_ci4,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Cu,Cu,Hg_mgkg,0.344,Unknown,,high,table_p7_ri6_ci5,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Hg,Hg,Hg_mgkg,1.0,Unknown,,high,table_p7_ri6_ci6,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_As,As,Ni_mgkg,-0.054,Unknown,,high,table_p7_ri7_ci1,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Be,Be,Ni_mgkg,0.027,Unknown,,high,table_p7_ri7_ci2,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Cd,Cd,Ni_mgkg,-0.211,Unknown,,high,table_p7_ri7_ci3,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Cr,Cr,Ni_mgkg,-0.006,Unknown,,high,table_p7_ri7_ci4,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Hg,Hg,Ni_mgkg,0.247,Unknown,,high,table_p7_ri7_ci6,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Ni,Ni,Ni_mgkg,1.0,Unknown,,high,table_p7_ri7_ci7,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_As,As,Pb_mgkg,-0.186,Unknown,,high,table_p7_ri8_ci1,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Be,Be,Pb_mgkg,0.095,Unknown,,high,table_p7_ri8_ci2,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Cd,Cd,Pb_mgkg,-0.108,Unknown,,high,table_p7_ri8_ci3,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Cr,Cr,Pb_mgkg,-0.001,Unknown,,high,table_p7_ri8_ci4,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Cu,Cu,Pb_mgkg,0.34,Unknown,,high,table_p7_ri8_ci5,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Hg,Hg,Pb_mgkg,0.3,Unknown,,high,table_p7_ri8_ci6,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Ni,Ni,Pb_mgkg,0.001,Unknown,,high,table_p7_ri8_ci7,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Pb,Pb,Pb_mgkg,1.0,Unknown,,high,table_p7_ri8_ci8,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_As,As,Sb_mgkg,-0.229,Unknown,,high,table_p7_ri9_ci1,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Be,Be,Sb_mgkg,-0.148,Unknown,,high,table_p7_ri9_ci2,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Cd,Cd,Sb_mgkg,-0.113,Unknown,,high,table_p7_ri9_ci3,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Cr,Cr,Sb_mgkg,0.028,Unknown,,high,table_p7_ri9_ci4,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Hg,Hg,Sb_mgkg,0.335,Unknown,,high,table_p7_ri9_ci6,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Pb,Pb,Sb_mgkg,0.02,Unknown,,high,table_p7_ri9_ci8,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Sb,Sb,Sb_mgkg,1.0,Unknown,,high,table_p7_ri9_ci9,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Be,Be,Zn_mgkg,0.249,Unknown,,high,table_p7_ri10_ci2,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Cd,Cd,Zn_mgkg,-0.183,Unknown,,high,table_p7_ri10_ci3,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Cr,Cr,Zn_mgkg,-0.079,Unknown,,high,table_p7_ri10_ci4,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Hg,Hg,Zn_mgkg,0.219,Unknown,,high,table_p7_ri10_ci6,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Pb,Pb,Zn_mgkg,-0.056,Unknown,,high,table_p7_ri10_ci8,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Sb,Sb,Zn_mgkg,0.285,Unknown,,high,table_p7_ri10_ci9,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila
+70617_D0RA01004A,70617_D0RA01004A_Zn,Zn,Zn_mgkg,1.0,Unknown,,high,table_p7_ri10_ci10,Table3Pearson correlation analysis of soil HMs concentrations in shallow soila

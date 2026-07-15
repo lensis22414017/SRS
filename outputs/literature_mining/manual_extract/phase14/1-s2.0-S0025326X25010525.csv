@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+1-s2.0-S0025326X25010525,1-s2.0-S0025326X25010525_Atrazine,Atrazine,OC_pct,1.56,Unknown,,medium,table_p2_ri2_ci1,Table 1 Physicochemical properties of the four representative pesticides.
+1-s2.0-S0025326X25010525,1-s2.0-S0025326X25010525_Nicosulfuron,Nicosulfuron,OC_pct,0.44,Unknown,,medium,table_p2_ri2_ci2,Table 1 Physicochemical properties of the four representative pesticides.
+1-s2.0-S0025326X25010525,1-s2.0-S0025326X25010525_Chlorpyrifos,Chlorpyrifos,OC_pct,4.77,Unknown,,medium,table_p2_ri2_ci3,Table 1 Physicochemical properties of the four representative pesticides.
+1-s2.0-S0025326X25010525,1-s2.0-S0025326X25010525_Imidacloprid,Imidacloprid,OC_pct,0.57,Unknown,,medium,table_p2_ri2_ci4,Table 1 Physicochemical properties of the four representative pesticides.

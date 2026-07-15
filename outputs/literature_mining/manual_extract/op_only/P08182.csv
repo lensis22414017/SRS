@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08182,,,,,,,,"skip: 微生物学论文，分离鉴定内生细菌Paenibacillus polymyxa SK1 from Lilium lancifolium鳞茎。全文无土壤OP浓度数据。Table1=真菌抑制率(%)、Table2=LC-MS次生代谢产物鉴定(培养物)、Table3=IAA/铁载体/ACC脱氨酶(培养基)、Table4-5=温室盆栽实验植物生长参数。CSV标签Pesticides/Antibiotics/PAEs因摘要提及替代化学农药，但论文无任何农药/抗生素/PAE实测浓度。属于剔除场景：盆栽实验+微生物分离+无采样点级OP数据"

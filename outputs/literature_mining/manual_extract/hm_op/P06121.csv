@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06121,,,,,,,soil,urban,Beijing,"skip: 论文仅有统计汇总表(Table1 Mean/Median/SD/Min/Max/CV)，无采样点级HM+OP浓度；Table2-3为Pearson相关性矩阵，Table4为Total risk carcinogenic/non-carcinogenic风险指数(铁律剔除)，Table5为多元回归方程；正文Sec2.1明确声明采样点级分布在别处发表(reported elsewhere: Peng 2011 Environ Pollut 159:802-808; Wang 2012b Environ Monit Assess)；研究233个北京五环内采样点+69 parterre样本，但本文只呈现统计描述与回归分析，无具体S1/S2/点位名浓度行；HM(Cr/Ni/Cu/Cd/Pb/Zn/As mg/kg)+PAH(∑16 EPA PAHs mg/kg)确为同论文同场地复合研究，但无可提取的采样点级原始数值"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03807,,,,,,,soil,Shandong,"skip: 盆栽实验+人工spiked土壤。论文为内生芽孢杆菌Bacillus safensis ZY16分离表征及植物修复phytoremediation研究。Pot trial(Section 2.9/3.5)土壤经人工添加原油和NaCl配制(TPH=10462 mg/kg/salt=0.51%)，非真实场地采样。PAH降解实验仅在MS液体培养基中进行(萘/菲/芘200mg/L)。植物采集地(胜利油田/黄河三角堤)仅给GPS坐标无土壤污染物浓度数据。无采样点级OP数据可提取。"

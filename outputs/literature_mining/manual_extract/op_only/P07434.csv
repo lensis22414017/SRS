@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07434,Site16_2009,Sum_PAH_ngg,30518.9,ng/g,正文3.2段,soil,urban,Jiangsu,"2009年采样 total PAH(Sum16PAHs) 正文直接读取 靠近工业区"
+P07434,Site29_2009,Sum_PAH_ngg,23494.2,ng/g,正文3.2段,soil,urban,Jiangsu,"2009年采样 total PAH(Sum16PAHs) 正文直接读取 靠近工业区"
+P07434,Site30_2009,Sum_PAH_ngg,12830.1,ng/g,正文3.2段,soil,urban,Jiangsu,"2009年采样 total PAH(Sum16PAHs) 正文直接读取 靠近工业区"
+P07434,Site18_2014,Sum_PAH_ngg,1820.8,ng/g,正文3.2段,soil,urban,Jiangsu,"2014年采样 total PAH(Sum16PAHs) 正文直接读取 路边靠近工厂和焚烧厂"

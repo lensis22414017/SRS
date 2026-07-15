@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01752,,,,,,,,,"skip: 污染物类型不匹配（pyrethroids deltamethrin/cyhalothrin/cypermethrin/fenpropathrin 和 atrazine 不属于目标OP类别 PAH/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAEs/OCPs）; Table 1 仅含温室(n=51)与露地(n=51)统计汇总(Mean/Median/Min/Max/Detection)无采样点级数据"

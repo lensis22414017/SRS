@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00862,,,,,,soil,agricultural,Hubei,"skip: 仅统计汇总无采样点级数据。Table1为16种OCP的Mean/Median/Range/Detection frequency跨80样本汇总(剔除)；Table2为跨区域对比(Range/Mean, 剔除)；Table3为癌症风险指数(剔除)；正文仅定性提及S11最高DDT/S9最低/S12最高HCH/S10最低但无数值；Figs2-5为分布图非表格。16 sites(S1-S16)各5个子样本但无逐站点浓度表"

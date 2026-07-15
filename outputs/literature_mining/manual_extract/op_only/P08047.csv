@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08047,,,,,,,,"skip: 纯微生物降解实验 (bioremediation/biodegradation)。论文从胜利油田 (东营) 石油污染土壤分离菌株 Bacillus subtilis BL-27，仅测试该菌株在不同温度/pH/盐度/表面活性剂下对原油的实验室降解能力。全文无任何采样点级土壤/沉积物 OP 浓度实测数据 (无 TotalPHC/PAHs/PCBs 等)，Tables 1-4 均为碳源利用/表面活性剂耐受/菌株特征对比，无场地本底污染物浓度。属微生物修复实验，且无修复前场地本底值，按规则剔除"

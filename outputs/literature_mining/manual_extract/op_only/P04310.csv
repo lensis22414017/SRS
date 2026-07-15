@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04310,,,,,,,,,"skip: 仅区域/用地类型级统计汇总(mean/range/min/max)，无采样点级PAHs浓度数据。Figure2为violin plot概率密度分布；Table2/3为文献对比表This study仅给range 142.1-3205.4；Table4为county-level比值(Phe/Ant/Flu/Pyr/Pyr/BaP)的min/max/mean；正文给topsoil range 45.1-3158.4 mean531.4及land-use means(industrial710.3/agri238.0/native672.6 μg/kg)。33个采样点(DCZX/DCXX/XZ1-3/YGD/F1/JSW/LJC/HK/HKSZ)无个体PAHs浓度值"

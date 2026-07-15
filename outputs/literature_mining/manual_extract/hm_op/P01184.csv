@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01184,,,,,,,,,"skip: 实验室吸附-解吸实验(sorption isotherm)。论文研究20种土壤中菲(phenanthrene)在Cu(II)共污染下的吸附-解吸行为，均为实验室添加/spiked实验，无采样点级HM/OP实测浓度数据。Cu为实验添加的Cu(II)而非场地实测，Phe为模型PAH单体而非场地16PAHs总量。符合剔除场景：吸附实验(leaching/extraction/sorption isotherm)"

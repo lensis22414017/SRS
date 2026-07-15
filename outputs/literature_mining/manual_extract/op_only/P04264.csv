@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04264,,,,,,soil,agricultural,Fujian,"skip: 仅有统计汇总(Range/Mean/Detection Rate)和区域分组均值(海沧/集美/同安/翔安区)与深度分组均值; Table 1为n=30的统计描述非S1-S10采样点级; 单体HCH/DDT及ΣHCHs/ΣDDTs均只给Range/Mean无采样点值; SI文件未提供; 无可提取采样点级数据"

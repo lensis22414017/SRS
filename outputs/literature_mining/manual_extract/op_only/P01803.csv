@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01803,NOTES,skip: 论文仅研究土壤重金属(As/Cd/Cr/Cu/Pb/Zn)无任何有机污染物数据。op_groups=Pesticides系误标:农药仅在讨论中作为As的可能来源提及,未实测农药浓度,skip: 无OP数据(纯HM论文)

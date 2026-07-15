@@ -1,0 +1,15 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+72239_s11356-014-3399-1,72239_s11356-014-3399-1_Compoundse-Waste,Compoundse-Waste,Ni_mgkg,41.25,Unknown,,high,table_p4_ri5_ci2,,,,,,,phase14
+72239_s11356-014-3399-1,72239_s11356-014-3399-1_Optimuma,Optimuma,Ni_mgkg,35.0,Unknown,,high,table_p4_ri5_ci8,,,,,,,phase14
+72239_s11356-014-3399-1,72239_s11356-014-3399-1_Actiona,Actiona,Ni_mgkg,210.0,Unknown,,high,table_p4_ri5_ci9,,,,,,,phase14
+72239_s11356-014-3399-1,72239_s11356-014-3399-1_Grade_IIb,Grade IIb,Ni_mgkg,40.0,Unknown,,high,table_p4_ri5_ci10,,,,,,,phase14
+72239_s11356-014-3399-1,72239_s11356-014-3399-1_Background_valuee,Background valuee,Ni_mgkg,14.4,Unknown,,high,table_p4_ri5_ci11,,,,,,,phase14
+72239_s11356-014-3399-1,72239_s11356-014-3399-1_Compoundse-Waste,Compoundse-Waste,Hg_mgkg,0.28,Unknown,,high,table_p4_ri6_ci2,,,,,,,phase14
+72239_s11356-014-3399-1,72239_s11356-014-3399-1_Optimuma,Optimuma,Hg_mgkg,0.3,Unknown,,high,table_p4_ri6_ci8,,,,,,,phase14
+72239_s11356-014-3399-1,72239_s11356-014-3399-1_Actiona,Actiona,Hg_mgkg,10.0,Unknown,,high,table_p4_ri6_ci9,,,,,,,phase14
+72239_s11356-014-3399-1,72239_s11356-014-3399-1_Grade_IIb,Grade IIb,Hg_mgkg,0.3,Unknown,,high,table_p4_ri6_ci10,,,,,,,phase14
+72239_s11356-014-3399-1,72239_s11356-014-3399-1_Background_valuee,Background valuee,Hg_mgkg,0.078,Unknown,,high,table_p4_ri6_ci11,,,,,,,phase14
+72239_s11356-014-3399-1,72239_s11356-014-3399-1_Sediments,Sediments,Cu_mgkg,0.74,Unknown,,high,table_p9_ri2_ci1,"Table 2 Correlations between metals and BFRs in sediments/soils and TOC, pH",,,,,,phase14
+72239_s11356-014-3399-1,72239_s11356-014-3399-1_Sediments,Sediments,Cd_mgkg,0.75,Unknown,,high,table_p9_ri5_ci1,"Table 2 Correlations between metals and BFRs in sediments/soils and TOC, pH",,,,,,phase14
+72239_s11356-014-3399-1,72239_s11356-014-3399-1_Sediments,Sediments,Hg_mgkg,0.67,Unknown,,high,table_p9_ri7_ci1,"Table 2 Correlations between metals and BFRs in sediments/soils and TOC, pH",,,,,,phase14
+72239_s11356-014-3399-1,72239_s11356-014-3399-1_Soils,Soils,As_mgkg,0.63,Unknown,,high,table_p9_ri8_ci2,"Table 2 Correlations between metals and BFRs in sediments/soils and TOC, pH",,,,,,phase14

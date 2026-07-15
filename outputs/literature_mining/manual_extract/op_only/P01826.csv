@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01826,,,,,,,soil,agricultural,"skip: 全国尺度调查(857土壤样本/139站点/17省份), Table 1仅有Range/Mean/DR国家级统计汇总, Fig.2为省级均值空间分布, Fig.3为诊断比值散点图非浓度, Table S7为区域均值; 无任何采样点级浓度数据"

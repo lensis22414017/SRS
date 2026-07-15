@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04590,,,,,,,,"skip: 研究对象为淮南矿区塌陷水体(subsidence water bodies)中PAHs，16个采样点(S1-S16)均为地表水样，浓度单位ng/L。非土壤/沉积物，属水体研究，无可用土壤数据。Table S4有采样点级PAH数据但全部为水体浓度(ng/L)。"

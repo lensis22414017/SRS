@@ -1,0 +1,22 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_BC(%),BC(%),Nap_ngg,0.005,Unknown,,high,table_p7_ri2_ci9,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_∑16PAHs,∑16PAHs,Nap_ngg,0.456,Unknown,,high,table_p7_ri13_ci1,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_5-ring,5-ring,Nap_ngg,0.385,Unknown,,high,table_p7_ri13_ci7,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_∑16PAHs,∑16PAHs,Ant_ngg,0.072,Unknown,,high,table_p7_ri14_ci1,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_LMWa,LMWa,Ant_ngg,0.076,Unknown,,high,table_p7_ri14_ci2,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_HMWb,HMWb,Ant_ngg,0.07,Unknown,,high,table_p7_ri14_ci3,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_2-ring,2-ring,Ant_ngg,0.126,Unknown,,high,table_p7_ri14_ci4,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_3-ring,3-ring,Ant_ngg,0.059,Unknown,,high,table_p7_ri14_ci5,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_4-ring,4-ring,Ant_ngg,0.043,Unknown,,high,table_p7_ri14_ci6,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_5-ring,5-ring,Ant_ngg,0.116,Unknown,,high,table_p7_ri14_ci7,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_6-ring,6-ring,Ant_ngg,0.024,Unknown,,high,table_p7_ri14_ci8,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_BC(%),BC(%),Ant_ngg,0.065,Unknown,,high,table_p7_ri14_ci9,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_∑16PAHs,∑16PAHs,Nap_ngg,0.401,Unknown,,high,table_p7_ri24_ci1,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_HMWb,HMWb,Nap_ngg,0.348,Unknown,,high,table_p7_ri24_ci3,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_4-ring,4-ring,Nap_ngg,0.27,Unknown,,high,table_p7_ri24_ci6,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_5-ring,5-ring,Nap_ngg,0.304,Unknown,,high,table_p7_ri24_ci7,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_6-ring,6-ring,Nap_ngg,0.393,Unknown,,high,table_p7_ri24_ci8,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_BC(%),BC(%),Nap_ngg,0.462,Unknown,,high,table_p7_ri24_ci9,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_2-ring,2-ring,Ant_ngg,0.441,Unknown,,high,table_p7_ri25_ci4,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_5-ring,5-ring,Ant_ngg,0.292,Unknown,,high,table_p7_ri25_ci7,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14
+1-s2.0-S0045653523023597,1-s2.0-S0045653523023597_6-ring,6-ring,Ant_ngg,0.286,Unknown,,high,table_p7_ri25_ci8,Pearson's correlation coefficients between the ten markers and PAHs content.,,,,,,phase14

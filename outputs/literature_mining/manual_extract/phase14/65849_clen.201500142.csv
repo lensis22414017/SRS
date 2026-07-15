@@ -1,0 +1,6 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+65849_clen.201500142,65849_clen.201500142_WS_2,WS_2,pH,2.47,Unknown,,high,table_p2_ri1_ci5,
+65849_clen.201500142,65849_clen.201500142_${_\mathrm_{_W_S_}_}___{_-_}_4$,${ \mathrm { W S } } _ { - } 4$,pH,2.64,Unknown,,high,table_p2_ri1_ci6,
+65849_clen.201500142,65849_clen.201500142_${_\mathrm_{_W_S_}_}___{_-_}_6$,${ \mathrm { W S } } _ { - } 6$,pH,2.45,Unknown,,high,table_p2_ri1_ci7,
+65849_clen.201500142,65849_clen.201500142_WS_2,WS_2,TotalPHC_mgkg,32.9,Unknown,,high,table_p2_ri7_ci5,
+65849_clen.201500142,65849_clen.201500142_WS_2,WS_2,OC_pct,37.5,Unknown,,high,table_p2_ri8_ci5,

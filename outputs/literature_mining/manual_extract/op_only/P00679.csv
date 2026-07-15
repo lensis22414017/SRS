@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P00679,QX1,SumPAE_ngg,746.85,ng/g,Fig 2 / 正文Distribution of PAEs段,soil,agricultural,Heilongjiang,三江平原农田土壤6种优控PAE总量，QX1采样点正文直接引用Fig2数值,46.75,132.1833
+P00679,QX3,SumPAE_ngg,643.46,ng/g,Fig 2 / 正文Distribution of PAEs段,soil,agricultural,Heilongjiang,三江平原农田土壤6种优控PAE总量，QX3采样点正文直接引用Fig2数值,46.75,132.1833
+P00679,QX4,SumPAE_ngg,946.92,ng/g,Fig 2 / 正文Distribution of PAEs段,soil,agricultural,Heilongjiang,三江平原农田土壤6种优控PAE总量，QX4采样点正文直接引用Fig2数值,46.75,132.1833

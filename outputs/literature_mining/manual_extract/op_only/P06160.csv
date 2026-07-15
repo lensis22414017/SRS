@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06160,42-Jul2005,Sum_PAH_ngg,237.1,ng/g,Section 3.2 (text),sediment,urban,Zhejiang,Site 42 (Zhakou) sediment total PAHs from narrative text; 15-PAH sum (acenaphthylene excluded); July 2005 campaign
+P06160,42-Oct2005,Sum_PAH_ngg,323.7,ng/g,Section 3.2 (text),sediment,urban,Zhejiang,Site 42 (Zhakou) sediment total PAHs from narrative text; 15-PAH sum (acenaphthylene excluded); October 2005 campaign
+P06160,42-Apr2006,Sum_PAH_ngg,767.8,ng/g,Section 3.2 (text),sediment,urban,Zhejiang,Site 42 (Zhakou) sediment total PAHs from narrative text; 15-PAH sum (acenaphthylene excluded); April 2006 campaign

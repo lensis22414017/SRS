@@ -1,0 +1,12 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+s11356-020-10093-8,s11356-020-10093-8_July_2019_(n_=_12)1,July 2019 (n = 12)1,SDZ_ngg,468.0,Unknown,,medium,table_p5_ri2_ci1,Table 3 Concentrations of the detected EOCs in leachate influent
+s11356-020-10093-8,s11356-020-10093-8_December_2019_(n_=_12),December 2019 (n = 12),SDZ_ngg,178.0,Unknown,,medium,table_p5_ri2_ci2,Table 3 Concentrations of the detected EOCs in leachate influent
+s11356-020-10093-8,s11356-020-10093-8_col3,col3,SDZ_ngg,281.0,Unknown,,medium,table_p5_ri2_ci3,Table 3 Concentrations of the detected EOCs in leachate influent
+s11356-020-10093-8,s11356-020-10093-8_col4,col4,SDZ_ngg,98.9,Unknown,,medium,table_p5_ri2_ci4,Table 3 Concentrations of the detected EOCs in leachate influent
+s11356-020-10093-8,s11356-020-10093-8_col5,col5,SDZ_ngg,789.0,Unknown,,medium,table_p5_ri2_ci5,Table 3 Concentrations of the detected EOCs in leachate influent
+s11356-020-10093-8,s11356-020-10093-8_col6,col6,SDZ_ngg,425.2,Unknown,,medium,table_p5_ri2_ci6,Table 3 Concentrations of the detected EOCs in leachate influent
+s11356-020-10093-8,s11356-020-10093-8_col7,col7,SDZ_ngg,596.0,Unknown,,medium,table_p5_ri2_ci7,Table 3 Concentrations of the detected EOCs in leachate influent
+s11356-020-10093-8,s11356-020-10093-8_col8,col8,SDZ_ngg,100.0,Unknown,,medium,table_p5_ri2_ci8,Table 3 Concentrations of the detected EOCs in leachate influent
+s11356-020-10093-8,s11356-020-10093-8_col4,col4,SDZ_ngg,0.6,Unknown,,medium,table_p11_ri2_ci4,Table 6 Daily human exposure to the EOCs in corn and Chinese cabbage (calculated from the concentrations of these EOCs in the edible tissues (corn fruit and Chinese cabbage leaves))
+s11356-020-10093-8,s11356-020-10093-8_col5,col5,SDZ_ngg,0.5,Unknown,,medium,table_p11_ri2_ci5,Table 6 Daily human exposure to the EOCs in corn and Chinese cabbage (calculated from the concentrations of these EOCs in the edible tissues (corn fruit and Chinese cabbage leaves))
+s11356-020-10093-8,s11356-020-10093-8_col6,col6,SDZ_ngg,0.05,Unknown,,medium,table_p11_ri2_ci6,Table 6 Daily human exposure to the EOCs in corn and Chinese cabbage (calculated from the concentrations of these EOCs in the edible tissues (corn fruit and Chinese cabbage leaves))

@@ -1,0 +1,9 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+1-s2.0-S0304389426011660,1-s2.0-S0304389426011660_PC1,PC1,OC_pct,0.698,Unknown,,high,table_p8_ri2_ci1,The loading profile in PCs.,,,,,,phase14
+1-s2.0-S0304389426011660,1-s2.0-S0304389426011660_PC2,PC2,OC_pct,0.292,Unknown,,high,table_p8_ri2_ci2,The loading profile in PCs.,,,,,,phase14
+1-s2.0-S0304389426011660,1-s2.0-S0304389426011660_PC1,PC1,SumPCB_ngg,0.25,Unknown,,high,table_p8_ri4_ci1,The loading profile in PCs.,,,,,,phase14
+1-s2.0-S0304389426011660,1-s2.0-S0304389426011660_PC2,PC2,SumPCB_ngg,0.603,Unknown,,high,table_p8_ri4_ci2,The loading profile in PCs.,,,,,,phase14
+1-s2.0-S0304389426011660,1-s2.0-S0304389426011660_PC1,PC1,SumPCB_ngg,0.683,Unknown,,high,table_p8_ri5_ci1,The loading profile in PCs.,,,,,,phase14
+1-s2.0-S0304389426011660,1-s2.0-S0304389426011660_PC2,PC2,SumPCB_ngg,0.415,Unknown,,high,table_p8_ri5_ci2,The loading profile in PCs.,,,,,,phase14
+1-s2.0-S0304389426011660,1-s2.0-S0304389426011660_PC1,PC1,SumPCB_ngg,0.841,Unknown,,high,table_p8_ri6_ci1,The loading profile in PCs.,,,,,,phase14
+1-s2.0-S0304389426011660,1-s2.0-S0304389426011660_PC2,PC2,SumPCB_ngg,0.143,Unknown,,high,table_p8_ri6_ci2,The loading profile in PCs.,,,,,,phase14

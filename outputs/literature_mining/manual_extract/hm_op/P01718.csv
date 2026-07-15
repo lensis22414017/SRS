@@ -1,0 +1,32 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01718,S1,Sum_PAH_ngg,481.83,ng/g,Table 5,soil,other,Tianjin,RA(residential area);Total PAHs行直接读取
+P01718,S1,BaP_ngg,2.28,ng/g,Table 5,soil,other,Tianjin,RA;BaP行直接读取
+P01718,S1,Cr_mgkg,325,mg/kg,正文3.1.1段,soil,other,Tianjin,"正文明确: maximum Cr(325 mg/kg) found in S1; range 83.00-324.75(Fig.2图表数据,正文舍入为325)"
+P01718,S1,Ni_mgkg,135,mg/kg,正文3.1.1段,soil,other,Tianjin,"正文明确: maximum Ni(135 mg/kg) found in S1; range 35.00-135.25(Fig.2图表数据,正文舍入为135)"
+P01718,S2,Sum_PAH_ngg,435.06,ng/g,Table 5,soil,other,Tianjin,RA;Total PAHs行直接读取
+P01718,S2,BaP_ngg,6.06,ng/g,Table 5,soil,other,Tianjin,RA;BaP行直接读取
+P01718,S3,Sum_PAH_ngg,289.12,ng/g,Table 5,soil,other,Tianjin,RA;Total PAHs行直接读取
+P01718,S3,BaP_ngg,1.96,ng/g,Table 5,soil,other,Tianjin,RA;BaP行直接读取
+P01718,S4,Sum_PAH_ngg,473.98,ng/g,Table 5,soil,industrial,Tianjin,IA(industrial area);Total PAHs行直接读取
+P01718,S4,BaP_ngg,4.06,ng/g,Table 5,soil,industrial,Tianjin,IA;BaP行直接读取
+P01718,S5,Sum_PAH_ngg,387.62,ng/g,Table 5,soil,industrial,Tianjin,IA;Total PAHs行直接读取
+P01718,S5,BaP_ngg,1.51,ng/g,Table 5,soil,industrial,Tianjin,IA;BaP行直接读取
+P01718,S6,Sum_PAH_ngg,175.74,ng/g,Table 5,soil,agricultural,Tianjin,"FAA;Total PAHs行直接读取;S6值(175.74)低于正文范围下限(229),单体求和验证=175.74一致,可能正文排除该异常低值"
+P01718,S6,BaP_ngg,4.71,ng/g,Table 5,soil,agricultural,Tianjin,FAA;BaP行直接读取
+P01718,S7,Sum_PAH_ngg,296.09,ng/g,Table 5,soil,agricultural,Tianjin,FAA;Total PAHs行直接读取
+P01718,S7,BaP_ngg,16.71,ng/g,Table 5,soil,agricultural,Tianjin,"FAA;BaP行直接读取;正文验证(S7致癌PAH最高)"
+P01718,S8,Sum_PAH_ngg,229.25,ng/g,Table 5,soil,agricultural,Tianjin,FAA;Total PAHs行直接读取;与正文范围下限229吻合
+P01718,S8,BaP_ngg,7.67,ng/g,Table 5,soil,agricultural,Tianjin,FAA;BaP行直接读取
+P01718,S9,Sum_PAH_ngg,286.00,ng/g,Table 5,soil,agricultural,Tianjin,FAA;Total PAHs行直接读取
+P01718,S9,BaP_ngg,10.37,ng/g,Table 5,soil,agricultural,Tianjin,"FAA;BaP行读取;HTML中S9/S10合并在同一td(10.37±5.75±2.32±2.19),按列序S9=10.37±5.75"
+P01718,S10,Sum_PAH_ngg,772.94,ng/g,Table 5,soil,agricultural,Tianjin,FLA(farmland around livestock);Total PAHs行直接读取;正文验证(SigmaPAH最高773 at S10)
+P01718,S10,BaP_ngg,2.32,ng/g,Table 5,soil,agricultural,Tianjin,"FLA;BaP行读取;HTML中S9/S10合并在同一td,S10=2.32±2.19;FLA以LMW PAHs为主导(72.3-84.1percent),BaP(HMW)低值合理"
+P01718,S11,Sum_PAH_ngg,259.93,ng/g,Table 5,soil,agricultural,Tianjin,FLA;Total PAHs行直接读取
+P01718,S11,BaP_ngg,2.12,ng/g,Table 5,soil,agricultural,Tianjin,FLA;BaP行直接读取
+P01718,S12,Sum_PAH_ngg,323.26,ng/g,Table 5,soil,industrial,Tianjin,FIA(farmland around industrial);Total PAHs行直接读取
+P01718,S12,BaP_ngg,8.86,ng/g,Table 5,soil,industrial,Tianjin,FIA;BaP行直接读取
+P01718,S12,As_mgkg,10.8,mg/kg,正文3.1.1段,soil,industrial,Tianjin,"正文明确: highest As(10.8 mg/kg) in FIA; S12为唯一FIA点位,故为S12实测值;range上限10.75(Fig.2图表)"
+P01718,S12,Cd_mgkg,0.20,mg/kg,正文3.1.1段,soil,industrial,Tianjin,"正文明确: highest Cd(0.20 mg/kg) in FIA; S12为唯一FIA点位"
+P01718,S12,Cu_mgkg,63.2,mg/kg,正文3.1.1段,soil,industrial,Tianjin,"正文明确: highest Cu(63.2 mg/kg) in FIA; S12为唯一FIA点位;range上限63.25"
+P01718,S12,Pb_mgkg,28.0,mg/kg,正文3.1.1段,soil,industrial,Tianjin,"正文明确: highest Pb(28.0 mg/kg) in FIA; S12为唯一FIA点位;range上限28.00"
+P01718,S12,Zn_mgkg,91.5,mg/kg,正文3.1.1段,soil,industrial,Tianjin,"正文明确: highest Zn(91.5 mg/kg) in FIA; S12为唯一FIA点位;range上限91.50"

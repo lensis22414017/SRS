@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08598,,,,,,,,,"skip: 论文仅提供31采样点统计汇总(Min/Max/Mean/Median/SD/CV/Skewness/Kurtosis), 无采样点级原始浓度数据; Table2=统计描述(每行=1污染物跨31点的Min/Max/Mean/Median); Table3=澳门vs深圳/香港/广东背景值比较(含GB36600+Dutch标准阈值); Table4=单/综合污染指数统计(Mean/Min/Max/权重W/4级污染等级百分比); Table5=Spearman相关系数矩阵; 论文为方法论(ABV+熵权+PMF)非数据发布; 之前脚本training_ready为误判(把统计行名当sample_id, 统计值当采样点浓度)"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07631,,,,,,,"skip: paper only provides statistical summaries (Mean/STD/Median/Range) across 82 sites; no sample-level concentration data; target pollutants are nitro-PAHs and oxy-PAHs (PAH derivatives) not the 16 EPA priority PAHs; pPAH data referenced from companion paper Sun et al. 2017"

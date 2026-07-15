@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11478,,,,,,,agricultural,nationwide,"skip: 仅三类覆膜分组汇总统计(Median/Max/DF%),无采样点级浓度数据;污染物为新烟碱类杀虫剂(NEOs:IMI/ACE/CLO/THIA等),不在目标OP清单(PAHs/PCBs/DDT/HCH/PBDE/石油烃/抗生素/PAEs/OCPs)内;无HM数据"

@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06580,,,,,,,,,skip: 论文仅测量SCCPs(短链氯化石蜡)浓度,不在目标OP列表(Sum_PAH/BaP/SumPCB/SumDDT/SumHCH/SumPBDE/TotalPHC/抗生素/PAEs/OCP)中,无HM数据

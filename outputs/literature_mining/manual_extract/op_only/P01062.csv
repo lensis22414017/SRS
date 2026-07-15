@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01062,coal_gas_plant,TotalPHC_mgkg,13259.44,mg/kg,Section 3.4 / Fig 5 day-0,soil,coking,Jiangsu,"Pre-remediation baseline (day 0); sum of 4 TPH n-alkane fractions: C8-C10(65.78)+C10-C20(5077.78)+C20-C30(7996.86)+C30-C40(119.02); lab microcosm with BC-nZVI activated persulfate; soil from former coal gas plant Nanjing; post-day-0 remediation data rejected"

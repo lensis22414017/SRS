@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01980,Baisha Shoal,BaP_ngg,186.3,ng/g,正文Experimental Section Soil samples段,soil,other,未注明,"修复前本底值; 滩涂土壤(长江附近Baisha Shoal); 仅测4种PAH单体(Phe=312.7/Flt=228.5/BaA=292.6/BaP=186.3 ug/kg), 非完整16 EPA PAHs故Sum_PAH不可算; 论文为漆酶纤维膜修复实验但本底值为自然污染场地实测"

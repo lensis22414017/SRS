@@ -1,0 +1,11 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+d4ra06060a,d4ra06060a_OSR%,TotalPHC_mgkg,9.945,Unknown,table_p2_ri6_ci1,water,industrial,,phase14_auto; confidence=high; flag=,,
+d4ra06060a,d4ra06060a_OSR%,As_mgkg,0.492,Unknown,table_p2_ri6_ci2,water,industrial,,phase14_auto; confidence=high; flag=,,
+d4ra06060a,d4ra06060a_OSR%,Co_mgkg,0.492,Unknown,table_p2_ri6_ci3,water,industrial,,phase14_auto; confidence=high; flag=,,
+d4ra06060a,d4ra06060a_OSR%,Ni_mgkg,0.492,Unknown,table_p2_ri6_ci4,water,industrial,,phase14_auto; confidence=high; flag=,,
+d4ra06060a,d4ra06060a_OSR%,Pb_mgkg,0.219,Unknown,table_p2_ri6_ci5,water,industrial,,phase14_auto; confidence=high; flag=,,
+d4ra06060a,d4ra06060a_Soil_reference_valueª,TotalPHC_mgkg,826.0,Unknown,table_p2_ri7_ci1,water,industrial,,phase14_auto; confidence=high; flag=,,
+d4ra06060a,d4ra06060a_Soil_reference_valueª,As_mgkg,40.0,Unknown,table_p2_ri7_ci2,water,industrial,,phase14_auto; confidence=high; flag=,,
+d4ra06060a,d4ra06060a_Soil_reference_valueª,Co_mgkg,40.0,Unknown,table_p2_ri7_ci3,water,industrial,,phase14_auto; confidence=high; flag=,,
+d4ra06060a,d4ra06060a_Soil_reference_valueª,Ni_mgkg,150.0,Unknown,table_p2_ri7_ci4,water,industrial,,phase14_auto; confidence=high; flag=,,
+d4ra06060a,d4ra06060a_Soil_reference_valueª,Pb_mgkg,400.0,Unknown,table_p2_ri7_ci5,water,industrial,,phase14_auto; confidence=high; flag=,,

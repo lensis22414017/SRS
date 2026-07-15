@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09321,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Zhejiang,"skip: 建模/排放清单研究(Level IV fugacity model)，仅杭州市2010-2050年模拟/预测PAH排放量(t/year)与多介质模拟浓度，无真实场地采样点级土壤实测数据; paper.md仅39行截断(只有摘要); 主目录PDF实为错配的2003年methanogen论文; 摘要明确: Annual PAH emissions (t/year) 158.33-205.53, Simulated concentrations, ILCR model, future projections to 2050"

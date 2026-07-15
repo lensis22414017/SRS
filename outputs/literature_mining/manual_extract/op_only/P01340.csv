@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01340,NOTES,,,,,,,"skip: 阿特拉津(atrazine)不在目标OP污染物列表中(非PAH/PCB/DDT/HCH/PBDE/TotalPHC/抗生素/PAE/OCP); 论文为农业除草剂处理实验(AT0/AT6/AT10/AT16四组不同施药年限)非污染场地调查; 所有数据为处理均值(n=3)无个体采样点级数据; 研究焦点为酶活性和细菌群落结构而非污染物浓度"

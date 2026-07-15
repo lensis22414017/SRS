@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01450,NOTES,SKIP,,,Abstract only,soil,wetland,Hubei,"skip: PDF不完整(仅1页/摘要+引言开头)，完整论文含Table 2-3(38个样品PAH/OCP浓度)但未下载到本地，ScienceDirect付费墙无法获取全文，Unpaywall确认非OA无开放获取版本，所有摘要数值(Σ15PAHs 42.4±38.5 ng/g/HCHs 7.03±5.59/DDTs 4.75±5.26)均为Mean±SD统计汇总非采样点级数据需剔除"

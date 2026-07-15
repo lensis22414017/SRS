@@ -1,0 +1,17 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07943,100R,Sum_PAH_ngg,340.2,ng/g,Section 3.2正文,soil,agricultural,Guangdong,Section 3.2正文直接读取Σ16PAHs浓度;复合样品(3子样品混合)
+P07943,40R,Sum_PAH_ngg,114.7,ng/g,Section 3.2正文,soil,agricultural,Guangdong,Section 3.2正文直接读取Σ16PAHs浓度;复合样品(3子样品混合)
+P07943,30R,Sum_PAH_ngg,1172.8,ng/g,Section 3.2正文,soil,agricultural,Guangdong,Section 3.2正文直接读取Σ16PAHs浓度;复合样品(3子样品混合)
+P07943,10R,Sum_PAH_ngg,257.2,ng/g,Section 3.2正文,soil,agricultural,Guangdong,Section 3.2正文直接读取Σ16PAHs浓度;复合样品(3子样品混合)
+P07943,100D,Sum_PAH_ngg,67.6,ng/g,Section 3.2正文,soil,agricultural,Guangdong,Section 3.2正文直接读取Σ16PAHs浓度;复合样品(3子样品混合)
+P07943,40D,Sum_PAH_ngg,376.9,ng/g,Section 3.2正文,soil,agricultural,Guangdong,Section 3.2正文直接读取Σ16PAHs浓度;复合样品(3子样品混合)
+P07943,30D,Sum_PAH_ngg,379.8,ng/g,Section 3.2正文,soil,agricultural,Guangdong,Section 3.2正文直接读取Σ16PAHs浓度;复合样品(3子样品混合)
+P07943,10D,Sum_PAH_ngg,569.1,ng/g,Section 3.2正文,soil,agricultural,Guangdong,Section 3.2正文直接读取Σ16PAHs浓度;复合样品(3子样品混合)
+P07943,100R,BaP_ngg,124.5,ng/g,Table 6,soil,agricultural,Guangdong,Table 6反推;TEF_BaP=1.0;TEQ值=BaP浓度;10D点BaP占比52.62%与正文52.61%一致验证提取正确
+P07943,40R,BaP_ngg,16.0,ng/g,Table 6,soil,agricultural,Guangdong,Table 6反推;TEF_BaP=1.0;TEQ值=BaP浓度
+P07943,30R,BaP_ngg,179.4,ng/g,Table 6,soil,agricultural,Guangdong,Table 6反推;TEF_BaP=1.0;TEQ值=BaP浓度
+P07943,10R,BaP_ngg,63.1,ng/g,Table 6,soil,agricultural,Guangdong,Table 6反推;TEF_BaP=1.0;TEQ值=BaP浓度
+P07943,100D,BaP_ngg,7.4,ng/g,Table 6,soil,agricultural,Guangdong,Table 6反推;TEF_BaP=1.0;TEQ值=BaP浓度
+P07943,40D,BaP_ngg,72.1,ng/g,Table 6,soil,agricultural,Guangdong,Table 6反推;TEF_BaP=1.0;TEQ值=BaP浓度
+P07943,30D,BaP_ngg,26.8,ng/g,Table 6,soil,agricultural,Guangdong,Table 6反推;TEF_BaP=1.0;TEQ值=BaP浓度
+P07943,10D,BaP_ngg,299.4,ng/g,Table 6,soil,agricultural,Guangdong,Table 6反推;TEF_BaP=1.0;TEQ值=BaP浓度

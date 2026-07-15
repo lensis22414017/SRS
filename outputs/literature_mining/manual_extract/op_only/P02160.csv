@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02160,S4,TotalPHC_mgkg,52800,mg/kg,"Results-Concentration of TPHs section para2",soil,petrochemical,Shandong,"SL油田S4邻近废弃油井 TPHs=5.28e4 mg/kg 正文直接读取"
+P02160,S8,TotalPHC_mgkg,66600,mg/kg,"Results-Concentration of TPHs section para2",soil,petrochemical,Shandong,"SL油田S8邻近工作油井 TPHs=6.66e4 mg/kg 正文直接读取"
+P02160,Y1,TotalPHC_mgkg,5390,mg/kg,"Results-Concentration of TPHs section para2",soil,petrochemical,Shaanxi,"YC油田Y1邻近废弃油井 TPHs=5.39e3 mg/kg 正文直接读取"
+P02160,N8,TotalPHC_mgkg,7420,mg/kg,"Results-Concentration of TPHs section para2",soil,petrochemical,Henan,"NY油田N8邻近废弃油井 TPHs=7.42e3 mg/kg 正文直接读取"

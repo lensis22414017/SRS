@@ -1,0 +1,13 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+72250_10807030500536843,72250_10807030500536843_15-17,15-17,SumHCH_ngg,0.885,Unknown,range_mean,high,table_p5_ri1_ci1,Table 2.Levels (mg/kg) of OCPs in human fats by age.,,,,,,phase14
+72250_10807030500536843,72250_10807030500536843_15-17,15-17,SumHCH_ngg,0.885,Unknown,range_mean,high,table_p5_ri1_ci2,Table 2.Levels (mg/kg) of OCPs in human fats by age.,,,,,,phase14
+72250_10807030500536843,72250_10807030500536843_15-17,15-17,SumDDT_ngg,2.815,Unknown,range_mean,high,table_p5_ri1_ci4,Table 2.Levels (mg/kg) of OCPs in human fats by age.,,,,,,phase14
+72250_10807030500536843,72250_10807030500536843_21-29,21-29,SumHCH_ngg,1.2854999999999999,Unknown,range_mean,high,table_p5_ri2_ci1,Table 2.Levels (mg/kg) of OCPs in human fats by age.,,,,,,phase14
+72250_10807030500536843,72250_10807030500536843_21-29,21-29,SumHCH_ngg,1.2905000000000002,Unknown,range_mean,high,table_p5_ri2_ci2,Table 2.Levels (mg/kg) of OCPs in human fats by age.,,,,,,phase14
+72250_10807030500536843,72250_10807030500536843_21-29,21-29,SumDDT_ngg,2.8415,Unknown,range_mean,high,table_p5_ri2_ci4,Table 2.Levels (mg/kg) of OCPs in human fats by age.,,,,,,phase14
+72250_10807030500536843,72250_10807030500536843_47-52,47-52,SumHCH_ngg,0.5845,Unknown,range_mean,high,table_p5_ri3_ci1,Table 2.Levels (mg/kg) of OCPs in human fats by age.,,,,,,phase14
+72250_10807030500536843,72250_10807030500536843_47-52,47-52,SumHCH_ngg,0.5945,Unknown,range_mean,high,table_p5_ri3_ci2,Table 2.Levels (mg/kg) of OCPs in human fats by age.,,,,,,phase14
+72250_10807030500536843,72250_10807030500536843_47-52,47-52,SumDDT_ngg,2.624,Unknown,range_mean,high,table_p5_ri3_ci4,Table 2.Levels (mg/kg) of OCPs in human fats by age.,,,,,,phase14
+72250_10807030500536843,72250_10807030500536843_82,82,SumHCH_ngg,2.13,Unknown,,high,table_p5_ri4_ci1,Table 2.Levels (mg/kg) of OCPs in human fats by age.,,,,,,phase14
+72250_10807030500536843,72250_10807030500536843_82,82,SumHCH_ngg,2.14,Unknown,,high,table_p5_ri4_ci2,Table 2.Levels (mg/kg) of OCPs in human fats by age.,,,,,,phase14
+72250_10807030500536843,72250_10807030500536843_82,82,SumDDT_ngg,9.22,Unknown,,high,table_p5_ri4_ci4,Table 2.Levels (mg/kg) of OCPs in human fats by age.,,,,,,phase14

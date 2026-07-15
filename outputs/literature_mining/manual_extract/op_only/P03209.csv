@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03209,污染土壤,DBP_ngg,29600,ng/g,Table 4,soil,industrial,Jiangsu,"Pre-remediation baseline from mechanochemical remediation study; bulk soil from abandoned pesticide factory in Jiangsu; paper is primarily pot experiment (盆栽试验) but Table 4 reports real site soil characterization; DBP=邻苯二甲酸二丁酯 29.6 mg/kg x1000=ng/g; only 4 of 16 EPA PAH monomers reported so Sum_PAH not computed"

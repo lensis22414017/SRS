@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03838,,,,,,,,"skip: 典型盆栽/spiked实验(1kg土壤装入塑料盆,芘/Cu/Cd人工添加喷雾/溶液spike,1000L phytotron人工气候箱培养玉米57天,Section 2.1明确'pot-culture',Table 1全部为人为设计浓度P5/P50/P400/P750/Cu100-Cu1000/Cd1-Cd100,结论段明确'Pot tests were conducted')。无真实场地采样点级数据,所有浓度均为实验室人为设计剂量,非场地实测"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01643,,,,,,,soil,shale_gas,Chongqing,"skip: 主文无采样点级数据，仅有土地利用类型级统计汇总（Mean/Range/CV：Σ16PAHs整体均值105 ng/g、页岩气田均值184、森林草地均值73.4、放喷区均值56.4）；96个样品的个体浓度仅在补充材料Table S4中，未提供；Fig.2a为箱线图无可追溯个体值；CSI/ILCR为风险指数剔除"

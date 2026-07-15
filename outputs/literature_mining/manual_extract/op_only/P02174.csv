@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02174,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"skip:仅区域汇总(Range/Average)无采样点级数据,Table1仅有Range/Average列,Fig1为柱状图无法解析数值,Table3为TEQ风险指数已剔除,正文零散提及个别样点单体值但非系统性表格"

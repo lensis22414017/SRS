@@ -1,0 +1,90 @@
+{
+  "Q1_duplicate_obs": {
+    "n_duplicate_rows": 103,
+    "n_duplicate_keys": 33,
+    "examples": [
+      {
+        "source_id": "10.3389/fenvs.2022.990471",
+        "canonical_sample_id": "P03780_tr2_49970",
+        "pollutant_name_std": "Sum_PAH_ngg"
+      },
+      {
+        "source_id": "10.3389/fenvs.2022.990471",
+        "canonical_sample_id": "P03780_tr3_0050",
+        "pollutant_name_std": "Sum_PAH_ngg"
+      },
+      {
+        "source_id": "10.3389/fenvs.2022.990471",
+        "canonical_sample_id": "P03780_003",
+        "pollutant_name_std": "Sum_PAH_ngg"
+      },
+      {
+        "source_id": "10.1371/journal.pone.0113699",
+        "canonical_sample_id": "P06949_tr4_0749",
+        "pollutant_name_std": "SumPBDE_ngg"
+      },
+      {
+        "source_id": "10.1007/s10163-005-0141-6",
+        "canonical_sample_id": "P00289_tr1_River2",
+        "pollutant_name_std": "SumPBDE_ngg"
+      }
+    ]
+  },
+  "Q2_negative_value": {
+    "n_negative": 0
+  },
+  "Q3_missing_conversion_note": {
+    "n_missing": 0,
+    "note": "unit_original 有值但 conversion_note 空 (单位可能未换算)"
+  },
+  "Q4_hm_op_pairing": {
+    "training_ready_samples": 63,
+    "real_hm_op_paired": 63,
+    "suspicious_no_pair": 0,
+    "note": "真配对 = 同 canonical 同时含 HM 族 + OP 族"
+  },
+  "Q5_groupkfold_source": {
+    "n_sources": 11,
+    "total_samples": 63,
+    "max_source_samples": 22,
+    "max_source_ratio": 0.349,
+    "outer_folds_feasible": true,
+    "source_distribution": {
+      "P10991": 22,
+      "10.1016/j.envpol.2013.11.020": 10,
+      "10.1016/j.jenvman.2005.02.011": 7,
+      "10.1016/j.jhazmat.2009.08.134": 7,
+      "10.1016/j.ecoenv.2024.116927": 4,
+      "10.3390/toxics13010011": 4,
+      "10.1016/j.jclepro.2022.135417": 3,
+      "10.1051/radiopro/2015022": 2,
+      "10.1016/j.scitotenv.2021.147082": 2,
+      "10.1016/j.envpol.2013.03.042": 1,
+      "10.1080/02757540.2013.844798": 1
+    },
+    "leakage_risk": "高",
+    "note": "GroupKFold 按 source_id 分组防泄漏; max_source_ratio>0.3 表示单论文占比过高"
+  },
+  "Q6_std_name_coverage": {
+    "n_invalid_std_name": 0,
+    "invalid_names": [],
+    "valid_whitelist_size": 21
+  },
+  "Q7_traceability": {
+    "n_missing_evidence_location": 0,
+    "n_invalid_evidence_level": 0
+  },
+  "summary": {
+    "total_observations": 1704,
+    "total_papers": 53,
+    "total_canonical_samples": 490,
+    "training_ready_hm_op_samples": 63,
+    "training_ready_soil_samples": 41,
+    "training_ready_sediment_samples": 22,
+    "op_only_samples": 212,
+    "hm_only_samples": 107,
+    "source_groups_tr": 11,
+    "peizong_threshold_100sample_10source": false,
+    "soil_threshold_100sample_10source": false
+  }
+}

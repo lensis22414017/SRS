@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03315,,,,,,,,,"skip: 论文为PCA方法学文章，仅有因子载荷表(表1)、分级阈值表(表2)、污染级别百分比分布(表3)，无任何采样点级PAHs浓度数据(12B-1/13B-1/15B-1~5浓度未报告)"

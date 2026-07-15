@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05960,,,,,,,,,,"skip: paper.md被MinerU截断仅26行(无数据表格); paper.pdf实际为Herrick et al. 2007 PCB论文(metadata: Soil Contamination from PCB-Containing Buildings), 非Cai et al.珠三角蔬菜田PAHs论文; Sci-Hub(.ru/.st/.ee/.se)均返回空壳/拦截页面; 无法获取Table 2(9采样点GZ01/GZ02/ZC01/HD01/HD02/HD03/SZ01/SZ02/SZ03的16种个体PAH浓度). 论文仅有OP(PAHs)无HM数据."

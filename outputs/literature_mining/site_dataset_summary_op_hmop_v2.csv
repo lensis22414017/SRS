@@ -1,0 +1,859 @@
+﻿sample_id,source_id,paper_id,site_name,land_use,province,n_hm_obs,n_op_obs,n_hm_elements,n_op_families,hm_elements,op_families,has_hm,has_op,hm_op_paired,is_summary_only,evidence_level,n_source,matrix_flag,readiness,qa_flag
+P00133_10,10.1002/jssc.200900420,P00133,10 (Table 4. Analytical parameters),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00133_118,10.1002/jssc.200900420,P00133,11.8 (Table 4. Analytical parameters),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00133_tr1_151200,10.1002/jssc.200900420,P00133,15-1200 (Table 4. Analytical parameters),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00133_tr2_09910,10.1002/jssc.200900420,P00133,0.9910 (Table 4. Analytical parameters),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00208_S1,10.1007_s00128-015-1563-z,P00208,S1,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_S10,10.1007_s00128-015-1563-z,P00208,S10,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_S11,10.1007_s00128-015-1563-z,P00208,S11,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_S12,10.1007_s00128-015-1563-z,P00208,S12,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_S13,10.1007_s00128-015-1563-z,P00208,S13,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_S14,10.1007_s00128-015-1563-z,P00208,S14,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_S15,10.1007_s00128-015-1563-z,P00208,S15,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_S16,10.1007_s00128-015-1563-z,P00208,S16,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_S17,10.1007_s00128-015-1563-z,P00208,S17,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_S18,10.1007_s00128-015-1563-z,P00208,S18,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_S19,10.1007_s00128-015-1563-z,P00208,S19,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_S2,10.1007_s00128-015-1563-z,P00208,S2,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_S3,10.1007_s00128-015-1563-z,P00208,S3,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_S4,10.1007_s00128-015-1563-z,P00208,S4,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_S5,10.1007_s00128-015-1563-z,P00208,S5,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_S6,10.1007_s00128-015-1563-z,P00208,S6,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_S7,10.1007_s00128-015-1563-z,P00208,S7,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_S8,10.1007_s00128-015-1563-z,P00208,S8,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_S9,10.1007_s00128-015-1563-z,P00208,S9,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_tr1_Numberofchlorin,10.1007_s00128-015-1563-z,P00208,Number of chlorine atoms (Table 1 Concen,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_tr2_Rangeugkg,10.1007_s00128-015-1563-z,P00208,Range (ug/kg) (Table 1 Concentrations of,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_tr3_Averagegkg,10.1007_s00128-015-1563-z,P00208,Average (μg/kg) (Table 1 Concentrations ,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00208_tr4_Detectionrate,10.1007_s00128-015-1563-z,P00208,Detection rate (%) (Table 1 Concentratio,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00228_tr1_rings,10.1007/s00128-021-03193-9,P00228,rings (Table 1 PAH concentrations in ),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00242_s10_Target_value__Dutch_guide,10.1007/s00244-010-9590-6,P00242,"Target value, Dutch guidelines",agricultural,,4,0,4,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P00242_s11_Intervention_value_Dutch_,10.1007/s00244-010-9590-6,P00242,"Intervention value,Dutch guide",agricultural,,4,0,4,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P00242_s2_EW__S______mathrm___p_H__,10.1007/s00244-010-9590-6,P00242,EW (S) $( \mathrm { p H } 4 . ,agricultural,,1,0,1,0,Pb_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P00242_s3_EW__DW______mathrm___p_H_,10.1007/s00244-010-9590-6,P00242,EW (DW) $( \mathrm { p H } 7 .,agricultural,,2,0,2,0,"Cr_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P00242_s4_EW__OBS______mathrm___p_H,10.1007/s00244-010-9590-6,P00242,EW (OBS) $( \mathrm { p H } 7 ,agricultural,,3,0,3,0,"Cr_mgkg,Cu_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P00242_s6_pH_6.5,10.1007/s00244-010-9590-6,P00242,pH<6.5,agricultural,,4,0,4,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P00242_s7_pH_6.5-7.5,10.1007/s00244-010-9590-6,P00242,pH 6.5-7.5,agricultural,,4,0,4,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P00242_s8_pH__7.5,10.1007/s00244-010-9590-6,P00242,pH >7.5,agricultural,,3,0,3,0,"Cr_mgkg,Cu_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P00242_s9_Canadian_soil_quality_gui,10.1007/s00244-010-9590-6,P00242,Canadian soil quality guidelin,agricultural,,4,0,4,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P00242_tr3_1048,10.1007/s00244-010-9590-6,P00242,10.48 (Table 3 Concentrations (ng/g d),agricultural,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00242_tr4_5060,10.1007/s00244-010-9590-6,P00242,50.60 (Table 3 Concentrations (ng/g d),agricultural,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00258_B,10.1007/s00267-008-9268-2,P00258,"B (Table 1 Basic soil properties,)",other,,1,0,1,0,Zn_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P00289_tr1_River2,10.1007/s10163-005-0141-6,P00289,River-2 (Table 5. Concentrations of PBD),e_waste,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00289_tr2_Burntplasticdum,10.1007/s10163-005-0141-6,P00289,Burnt plastic dump site (Table 5. Concen,e_waste,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00289_tr3_Printerrollerdu,10.1007/s10163-005-0141-6,P00289,Printer roller dump site (Table 5. Conce,e_waste,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00319_s5__50,10.1007/s10653-016-9899-9,P00319,≤50,other,,0,2,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00319_s6__500,10.1007/s10653-016-9899-9,P00319,≤500,other,,0,2,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00319_s7__1000,10.1007/s10653-016-9899-9,P00319,≤1000,other,,0,2,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00321_s2_Peiku,10.1007/s10653-017-9908-7,P00321,Peiku,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00321_s3_Cuo_E,10.1007/s10653-017-9908-7,P00321,Cuo E,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00321_s4_Cuo_Na,10.1007/s10653-017-9908-7,P00321,Cuo Na,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00321_s5_Keluke,10.1007/s10653-017-9908-7,P00321,Keluke,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P00355_tr2_Anningqutown,10.1007/s10653-022-01369-8,P00355,Anningqu town (Table 2 Content of PAHs i,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00355_tr3_Qinggedahucount,10.1007/s10653-022-01369-8,P00355,Qinggedahu county (Table 2 Content of PA,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00355_tr4_Liushihuvillage,10.1007/s10653-022-01369-8,P00355,Liushihu village (Table 2 Content of PAH,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00355_tr5_Sishihuvillage,10.1007/s10653-022-01369-8,P00355,Sishihu village (Table 2 Content of PAHs,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00418_AS,10.1007/s10661-022-10747-9,P00418,As,other,,1,0,1,0,Ni_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P00418_PB,10.1007/s10661-022-10747-9,P00418,Pb,other,,1,0,1,0,Ni_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P00418_s10_4_rings,10.1007/s10661-022-10747-9,P00418,4 rings,other,,1,0,1,0,Ni_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P00418_s11_5_rings,10.1007/s10661-022-10747-9,P00418,5 rings,other,,1,0,1,0,Ni_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P00418_s12_6_rings,10.1007/s10661-022-10747-9,P00418,6 rings,other,,1,0,1,0,Ni_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P00418_s7_TPAH,10.1007/s10661-022-10747-9,P00418,TPAH,other,,1,0,1,0,Ni_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P00418_s8_2_rings,10.1007/s10661-022-10747-9,P00418,2 rings,other,,1,0,1,0,Ni_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P00418_s9_3_rings,10.1007/s10661-022-10747-9,P00418,3 rings,other,,1,0,1,0,Ni_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P00612_s10_Smelting,10.1007/s11356-014-3171-6,P00612,Smelting,industrial,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00612_s2_Coke_power,10.1007/s11356-014-3171-6,P00612,Coke power,industrial,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00612_s5_Coal_mining,10.1007/s11356-014-3171-6,P00612,Coal mining,industrial,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00612_s6_Coal_mining,10.1007/s11356-014-3171-6,P00612,Coal mining,industrial,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00612_s8_Smelting,10.1007/s11356-014-3171-6,P00612,Smelting,industrial,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P00630_mean,10.1007/s11356-015-5249-1,P00630,site_mean_summary,e_waste,,7,0,7,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Hg_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,True,B_site_summary,1,soil,hm_only_ready,
+P01085_B,10.1016/j.chemosphere.2006.03.076,P01085,B,other,,6,0,6,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01085_G1,10.1016/j.chemosphere.2006.03.076,P01085,G1,other,,6,0,6,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01085_G2,10.1016/j.chemosphere.2006.03.076,P01085,G2,other,,6,0,6,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01085_G3,10.1016/j.chemosphere.2006.03.076,P01085,G3,other,,6,0,6,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01085_G4,10.1016/j.chemosphere.2006.03.076,P01085,G4,other,,6,0,6,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01085_S1,10.1016/j.chemosphere.2006.03.076,P01085,S1,other,,6,0,6,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01085_S2,10.1016/j.chemosphere.2006.03.076,P01085,S2,other,,6,0,6,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01085_S3,10.1016/j.chemosphere.2006.03.076,P01085,S3,other,,6,0,6,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01085_S4,10.1016/j.chemosphere.2006.03.076,P01085,S4,other,,6,0,6,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01085_S5,10.1016/j.chemosphere.2006.03.076,P01085,S5,other,,6,0,6,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01085_S6,10.1016/j.chemosphere.2006.03.076,P01085,S6,other,,6,0,6,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01177_s10_Reservoir_Dianchi__China,10.1016/j.chemosphere.2022.136788,P01177,"Reservoir Dianchi, China",other,,1,0,1,0,Pb_mgkg,,True,False,False,False,A_sample_table,1,sediment_not_soil,hm_only_ready,sediment_not_soil
+P01177_s11_Lhasa_River_,10.1016/j.chemosphere.2022.136788,P01177,"Lhasa River,",other,,2,0,2,0,"Cr_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,sediment_not_soil,hm_only_ready,sediment_not_soil
+P01177_s12_China_Lijiang_River_,10.1016/j.chemosphere.2022.136788,P01177,"China Lijiang River,",other,,2,0,2,0,"Hg_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,sediment_not_soil,hm_only_ready,sediment_not_soil
+P01177_s15_SWQS__Grade_1_,10.1016/j.chemosphere.2022.136788,P01177,SWQS (Grade 1),other,,2,0,2,0,"Ni_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,sediment_not_soil,hm_only_ready,sediment_not_soil
+P01177_s2_Lake,10.1016/j.chemosphere.2022.136788,P01177,Lake,other,,2,0,2,0,"As_mgkg,Hg_mgkg",,True,False,False,False,A_sample_table,1,sediment_not_soil,hm_only_ready,sediment_not_soil
+P01177_s3_Peat_River_Fiji,10.1016/j.chemosphere.2022.136788,P01177,"Peat River,Fiji",other,,3,0,3,0,"Cu_mgkg,Ni_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,sediment_not_soil,hm_only_ready,sediment_not_soil
+P01177_s4_Yellow_Sea_,10.1016/j.chemosphere.2022.136788,P01177,"Yellow Sea,",other,,3,0,3,0,"As_mgkg,Cu_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,sediment_not_soil,hm_only_ready,sediment_not_soil
+P01177_s5_Sourth_Korea_Modaomen__So,10.1016/j.chemosphere.2022.136788,P01177,"Sourth Korea Modaomen, South C",other,,3,0,3,0,"Cu_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,sediment_not_soil,hm_only_ready,sediment_not_soil
+P01177_s6_Changjiang_River__China,10.1016/j.chemosphere.2022.136788,P01177,"Changjiang River, China",other,,4,0,4,0,"Cu_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,sediment_not_soil,hm_only_ready,sediment_not_soil
+P01177_s7_Bohai_Sea__China_2.22-311,10.1016/j.chemosphere.2022.136788,P01177,"Bohai Sea, China 2.22-311.7 0.",other,,2,0,2,0,"As_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,sediment_not_soil,hm_only_ready,sediment_not_soil
+P01177_s8_Yellow_Sea_,10.1016/j.chemosphere.2022.136788,P01177,"Yellow Sea,",other,,1,0,1,0,As_mgkg,,True,False,False,False,A_sample_table,1,sediment_not_soil,hm_only_ready,sediment_not_soil
+P01177_s9_China_Three_Gorges,10.1016/j.chemosphere.2022.136788,P01177,China Three Gorges,other,,2,0,2,0,"Cr_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,sediment_not_soil,hm_only_ready,sediment_not_soil
+P01244_CV,10.1016/j.ecoenv.2024.116927,P01244,CV,industrial,,7,1,7,1,"As_mgkg,Cd_mgkg,Cu_mgkg,Hg_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01244_MAX,10.1016/j.ecoenv.2024.116927,P01244,Max,industrial,,7,1,7,1,"As_mgkg,Cd_mgkg,Cu_mgkg,Hg_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01244_MIN,10.1016/j.ecoenv.2024.116927,P01244,Min,industrial,,7,1,7,1,"As_mgkg,Cd_mgkg,Cu_mgkg,Hg_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01244_SD,10.1016/j.ecoenv.2024.116927,P01244,SD,industrial,,7,1,7,1,"As_mgkg,Cd_mgkg,Cu_mgkg,Hg_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01301_C1,10.1016/j.envpol.2017.08.003,P01301,C1,e_waste,,1,0,1,0,Zn_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01301_C2,10.1016/j.envpol.2017.08.003,P01301,C2,e_waste,,1,0,1,0,Zn_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01301_C3,10.1016/j.envpol.2017.08.003,P01301,C3,e_waste,,1,0,1,0,Zn_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01301_C4,10.1016/j.envpol.2017.08.003,P01301,C4,e_waste,,1,0,1,0,Zn_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01301_C5,10.1016/j.envpol.2017.08.003,P01301,C5,e_waste,,1,0,1,0,Zn_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01301_P1,10.1016/j.envpol.2017.08.003,P01301,P1,e_waste,,1,0,1,0,Zn_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01301_P2,10.1016/j.envpol.2017.08.003,P01301,P2,e_waste,,1,0,1,0,Zn_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01301_P3,10.1016/j.envpol.2017.08.003,P01301,P3,e_waste,,1,0,1,0,Zn_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01301_s2_Module_2,10.1016/j.envpol.2017.08.003,P01301,Module 2,e_waste,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01301_s3_Module_3,10.1016/j.envpol.2017.08.003,P01301,Module 3,e_waste,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01302_tr2_Ringnumberd,10.1016/j.envpol.2017.07.035,P01302,Ring numberd (summarized in Tables SIe3.,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01302_tr3_MDLbngg,10.1016/j.envpol.2017.07.035,P01302,MDLb (ng/g) (summarized in Tables SIe3. ,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01302_tr4_Detectionrate,10.1016/j.envpol.2017.07.035,P01302,Detection rate (%) (summarized in Tables,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01302_tr5_Meancngg,10.1016/j.envpol.2017.07.035,P01302,Meanc (ng/g) (summarized in Tables SIe3.,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01302_tr6_Medianngg,10.1016/j.envpol.2017.07.035,P01302,Median (ng/g) (summarized in Tables SIe3,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01302_tr7_Minngg,10.1016/j.envpol.2017.07.035,P01302,Min (ng/g) (summarized in Tables SIe3. B,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01302_tr8_Maxngg,10.1016/j.envpol.2017.07.035,P01302,Max (ng/g) (summarized in Tables SIe3. B,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01336_tr4_RangemgkgAverag,10.1016/j.envpol.2020.114016,P01336,Range/(mg/kg） Average/(mg/kg） SD (Fig. 1,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01336_tr7_TEFC,10.1016/j.envpol.2020.114016,P01336,TEFC (Fig. 1. The concentration dist),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01336_tr8_Rangemgkg,10.1016/j.envpol.2020.114016,P01336,Range/(mg/kg) (Fig. 1. The concentration,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01336_tr9_Averagemgkg,10.1016/j.envpol.2020.114016,P01336,Average/(mg/kg) (Fig. 1. The concentrati,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01482_BSM,10.1016/j.jclepro.2022.135417,P01482,BSM,other,,3,1,3,1,"Cd_mgkg,Cu_mgkg,Zn_mgkg",PAHs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01482_PS,10.1016/j.jclepro.2022.135417,P01482,PS,other,,3,1,3,1,"Cd_mgkg,Cu_mgkg,Zn_mgkg",PAHs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01482_s4_BSM_WTR,10.1016/j.jclepro.2022.135417,P01482,BSM+WTR,other,,3,1,3,1,"Cd_mgkg,Cu_mgkg,Zn_mgkg",PAHs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01492_1,10.1016/j.jenvman.2005.02.011,P01492,1,other,,2,2,2,1,"As_mgkg,Cd_mgkg",OCPs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01492_2,10.1016/j.jenvman.2005.02.011,P01492,2,other,,1,2,1,1,As_mgkg,OCPs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01492_3,10.1016/j.jenvman.2005.02.011,P01492,3,other,,2,2,2,1,"As_mgkg,Cd_mgkg",OCPs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01492_4,10.1016/j.jenvman.2005.02.011,P01492,4,other,,2,2,2,1,"As_mgkg,Cd_mgkg",OCPs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01492_5,10.1016/j.jenvman.2005.02.011,P01492,5,other,,2,2,2,1,"As_mgkg,Cd_mgkg",OCPs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01492_6,10.1016/j.jenvman.2005.02.011,P01492,6,other,,2,2,2,1,"As_mgkg,Cd_mgkg",OCPs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01492_AS,10.1016/j.jenvman.2005.02.011,P01492,As,other,,3,0,3,0,"Hg_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P01492_CU,10.1016/j.jenvman.2005.02.011,P01492,Cu,other,,1,0,1,0,Cr_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P01492_DDT,10.1016/j.jenvman.2005.02.011,P01492,DDT,other,,3,0,3,0,"Cr_mgkg,Cu_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P01492_HCH,10.1016/j.jenvman.2005.02.011,P01492,HCH,other,,4,0,4,0,"As_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P01492_HG,10.1016/j.jenvman.2005.02.011,P01492,Hg,other,,2,0,2,0,"Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P01492_ZN,10.1016/j.jenvman.2005.02.011,P01492,Zn,other,,3,0,3,0,"Cr_mgkg,Cu_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P01492_s24_Background,10.1016/j.jenvman.2005.02.011,P01492,Background,other,,2,2,2,1,"As_mgkg,Cd_mgkg",OCPs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01492_s25_values,10.1016/j.jenvman.2005.02.011,P01492,values,other,,1,0,1,0,Cd_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01492_s26_Threshold_of,10.1016/j.jenvman.2005.02.011,P01492,Threshold of,other,,2,0,2,0,"As_mgkg,Cd_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01492_s27_nature_background,10.1016/j.jenvman.2005.02.011,P01492,nature background,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01524_1,10.1016/j.jhazmat.2009.08.134,P01524,1,e_waste,,4,0,4,0,"Hg_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01524_A,10.1016/j.jhazmat.2009.08.134,P01524,A (Table 4),e_waste,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01524_B,10.1016/j.jhazmat.2009.08.134,P01524,B (Table 4),e_waste,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01524_C,10.1016/j.jhazmat.2009.08.134,P01524,C,e_waste,,4,1,4,1,"Hg_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01524_D,10.1016/j.jhazmat.2009.08.134,P01524,D,e_waste,,4,1,4,1,"Hg_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01524_E,10.1016/j.jhazmat.2009.08.134,P01524,E,e_waste,,4,1,4,1,"Hg_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01524_F,10.1016/j.jhazmat.2009.08.134,P01524,F,e_waste,,4,1,4,1,"Hg_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01524_G,10.1016/j.jhazmat.2009.08.134,P01524,G,e_waste,,4,1,4,1,"Hg_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01524_H,10.1016/j.jhazmat.2009.08.134,P01524,H,e_waste,,4,1,4,1,"Hg_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01524_I,10.1016/j.jhazmat.2009.08.134,P01524,I (Table 4),e_waste,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01524_J,10.1016/j.jhazmat.2009.08.134,P01524,j (Table 4),e_waste,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01524_K,10.1016/j.jhazmat.2009.08.134,P01524,K (Table 4),e_waste,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01524_L,10.1016/j.jhazmat.2009.08.134,P01524,l,e_waste,,4,1,4,1,"Hg_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P01524_M,10.1016/j.jhazmat.2009.08.134,P01524,M,e_waste,,2,0,2,0,"Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01524_s12_j_K,10.1016/j.jhazmat.2009.08.134,P01524,j K,e_waste,,4,0,4,0,"Hg_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01524_s15_Optimum,10.1016/j.jhazmat.2009.08.134,P01524,Optimum,e_waste,,3,0,3,0,"Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01524_s16_Action,10.1016/j.jhazmat.2009.08.134,P01524,Action,e_waste,,3,0,3,0,"Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01524_s17_Grade_I,10.1016/j.jhazmat.2009.08.134,P01524,Grade I,e_waste,,4,0,4,0,"Hg_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01524_s18_Grade_II__pH_6.5_,10.1016/j.jhazmat.2009.08.134,P01524,Grade II (pH<6.5),e_waste,,4,0,4,0,"Hg_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01524_s19_Grade_III,10.1016/j.jhazmat.2009.08.134,P01524,Grade III,e_waste,,4,0,4,0,"Hg_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01524_s2_Large-scale_e-waste_recyc,10.1016/j.jhazmat.2009.08.134,P01524,Large-scale e-waste recycling ,e_waste,,3,0,3,0,"Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01524_s3_A_b,10.1016/j.jhazmat.2009.08.134,P01524,A b,e_waste,,4,0,4,0,"Hg_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01545_BC,10.1016/j.jhazmat.2018.09.082,P01545,BC,urban_green,,2,0,2,0,"Cu_mgkg,Ni_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01545_TOC,10.1016/j.jhazmat.2018.09.082,P01545,TOC,urban_green,,2,0,2,0,"Cu_mgkg,Ni_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01545_s4_Clay,10.1016/j.jhazmat.2018.09.082,P01545,Clay,urban_green,,2,0,2,0,"Cu_mgkg,Ni_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01545_s5_Silt,10.1016/j.jhazmat.2018.09.082,P01545,Silt,urban_green,,2,0,2,0,"Cu_mgkg,Ni_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01545_s6_Sand,10.1016/j.jhazmat.2018.09.082,P01545,Sand,urban_green,,1,0,1,0,Ni_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P01706_tr1_Outdoor,10.1016/j.scitotenv.2017.08.101,P01706,Outdoor (## Table 2 | Correlations of P),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01706_tr2_Indoor,10.1016/j.scitotenv.2017.08.101,P01706,Indoor (## Table 2 | Correlations of P),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01706_tr3_Outdoor,10.1016/j.scitotenv.2017.08.101,P01706,Outdoor (## Table 2 | Correlations of P),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P01706_tr4_Indoor,10.1016/j.scitotenv.2017.08.101,P01706,Indoor (## Table 2 | Correlations of P),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02143_CV,10.1038/s41598-020-XXXXX,P02143,Cv (%) (AHs accounted for about 0.50% ),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02143_MAX,10.1038/s41598-020-XXXXX,P02143,Max (AHs accounted for about 0.50% ),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02143_MIN,10.1038/s41598-020-XXXXX,P02143,Min (AHs accounted for about 0.50% ),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02143_SD,10.1038/s41598-020-XXXXX,P02143,SD (AHs accounted for about 0.50% ),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02143_tr2_Aromaticring,10.1038/s41598-020-XXXXX,P02143,Aromatic ring (AHs accounted for about 0,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02143_tr5_Mean,10.1038/s41598-020-XXXXX,P02143,Mean (AHs accounted for about 0.50% ),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02143_tr6_Median,10.1038/s41598-020-XXXXX,P02143,Median (AHs accounted for about 0.50% ),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02143_tr9_Composition,10.1038/s41598-020-XXXXX,P02143,Composition (%) (AHs accounted for about,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02164_CV,10.1038/s41598-022-15285-5,P02164,Cv (%) (AHs accounted for about 0.50% ),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P02164_MAX,10.1038/s41598-022-15285-5,P02164,Max (AHs accounted for about 0.50% ),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P02164_MIN,10.1038/s41598-022-15285-5,P02164,Min (AHs accounted for about 0.50% ),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P02164_SD,10.1038/s41598-022-15285-5,P02164,SD (AHs accounted for about 0.50% ),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P02164_tr2_Aromaticring,10.1038/s41598-022-15285-5,P02164,Aromatic ring (AHs accounted for about 0,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P02164_tr5_Mean,10.1038/s41598-022-15285-5,P02164,Mean (AHs accounted for about 0.50% ),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P02164_tr6_Median,10.1038/s41598-022-15285-5,P02164,Median (AHs accounted for about 0.50% ),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P02164_tr9_Composition,10.1038/s41598-022-15285-5,P02164,Composition (%) (AHs accounted for about,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P02317_CD,10.1051/radiopro/2015022,P02317,Cd,agricultural,,2,1,2,1,"Cr_mgkg,Pb_mgkg",OCPs,True,True,True,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P02317_CR,10.1051/radiopro/2015022,P02317,Cr,agricultural,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P02317_HCH,10.1051/radiopro/2015022,P02317,HCH,agricultural,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P02317_PB,10.1051/radiopro/2015022,P02317,Pb,agricultural,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P02317_TH,10.1051/radiopro/2015022,P02317,Th,agricultural,,1,0,1,0,Pb_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P02317_U,10.1051/radiopro/2015022,P02317,U,agricultural,,1,1,1,1,Cd_mgkg,OCPs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P02317_ZN,10.1051/radiopro/2015022,P02317,Zn,agricultural,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P02317_s7_SV_,10.1051/radiopro/2015022,P02317,SV*,agricultural,,5,2,5,1,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg",OCPs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P02376_03,10.1080/02757540.2013.844798,P02376,<0.3 (Table 1. Concentrations of PBD),e_waste,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02376_04,10.1080/02757540.2013.844798,P02376,0.4 (Table 1. Concentrations of PBD),e_waste,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02376_08,10.1080/02757540.2013.844798,P02376,0.8 (Table 1. Concentrations of PBD),e_waste,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02376_30,10.1080/02757540.2013.844798,P02376,3.0 (Table 1. Concentrations of PBD),e_waste,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02376_411,10.1080/02757540.2013.844798,P02376,41.1 (Table 1. Concentrations of PBD),e_waste,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02376_71,10.1080/02757540.2013.844798,P02376,7.1 (Table 1. Concentrations of PBD),e_waste,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02376_CD,10.1080/02757540.2013.844798,P02376,Cd,e_waste,,2,0,2,0,"Cr_mgkg,Cu_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P02376_HG,10.1080/02757540.2013.844798,P02376,Hg,e_waste,,4,0,4,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Ni_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P02376_NI,10.1080/02757540.2013.844798,P02376,Ni,e_waste,,2,0,2,0,"Cr_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P02376_PB,10.1080/02757540.2013.844798,P02376,Pb,e_waste,,1,0,1,0,Cd_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P02376_ZN,10.1080/02757540.2013.844798,P02376,Zn,e_waste,,3,0,3,0,"Cr_mgkg,Cu_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P02376_s11_PAHs,10.1080/02757540.2013.844798,P02376,PAHs,e_waste,,1,0,1,0,Cr_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P02376_s12_PCBs_PBDEs,10.1080/02757540.2013.844798,P02376,PCBs PBDEs,e_waste,,4,0,4,0,"Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P02376_s14_PCDD_Fs,10.1080/02757540.2013.844798,P02376,PCDD/Fs,e_waste,,4,1,4,1,"Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg",PBDEs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P02549_001,10.1080/15320383.2012.697937,P02549,"0.01 (refer to public square, reside)",other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02549_002,10.1080/15320383.2012.697937,P02549,"0.02 (refer to public square, reside)",other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02549_004,10.1080/15320383.2012.697937,P02549,"0.04 (refer to public square, reside)",other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02549_071,10.1080/15320383.2012.697937,P02549,0.7-1,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02549_12,10.1080/15320383.2012.697937,P02549,1-2,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02549_23,10.1080/15320383.2012.697937,P02549,2-3,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02549_s2__0.7,10.1080/15320383.2012.697937,P02549,≤0.7,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02562_s2_pH__H2O__5.5,10.1080/15320383.2013.750265,P02562,pH (H2O) 5.5,agricultural,,4,0,4,0,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P02763_05,10.1089/ees.2020.0416,P02763,0.5 (Table 1. Effects Range-Low and),coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_1,10.1089/ees.2020.0416,P02763,1,coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_10,10.1089/ees.2020.0416,P02763,10,coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_11,10.1089/ees.2020.0416,P02763,11,coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_12,10.1089/ees.2020.0416,P02763,12,coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_13,10.1089/ees.2020.0416,P02763,13,coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_14,10.1089/ees.2020.0416,P02763,14,coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_15,10.1089/ees.2020.0416,P02763,15,coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_16,10.1089/ees.2020.0416,P02763,16,coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_17,10.1089/ees.2020.0416,P02763,17,coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_18,10.1089/ees.2020.0416,P02763,18,coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_19,10.1089/ees.2020.0416,P02763,19,coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_2,10.1089/ees.2020.0416,P02763,2,coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_20,10.1089/ees.2020.0416,P02763,20,coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_3,10.1089/ees.2020.0416,P02763,3,coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_4,10.1089/ees.2020.0416,P02763,4,coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_5,10.1089/ees.2020.0416,P02763,5,coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_6,10.1089/ees.2020.0416,P02763,6,coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_7,10.1089/ees.2020.0416,P02763,7,coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_8,10.1089/ees.2020.0416,P02763,8,coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_9,10.1089/ees.2020.0416,P02763,9,coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02763_tr2_0016,10.1089/ees.2020.0416,P02763,0.016 (Table 1. Effects Range-Low and),coking,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P02892_B1,10.1155/2013/417435,P02892,"b1 (At six locations (b2, b5, b7, )",other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P02892_B10,10.1155/2013/417435,P02892,"b10 (At six locations (b2, b5, b7, )",other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P02892_B2,10.1155/2013/417435,P02892,"b2 (At six locations (b2, b5, b7, )",other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P02892_B3,10.1155/2013/417435,P02892,"b3 (At six locations (b2, b5, b7, )",other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P02892_B4,10.1155/2013/417435,P02892,"b4 (At six locations (b2, b5, b7, )",other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P02892_B5,10.1155/2013/417435,P02892,"b5 (At six locations (b2, b5, b7, )",other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P02892_B6,10.1155/2013/417435,P02892,"b6 (At six locations (b2, b5, b7, )",other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P02892_B7,10.1155/2013/417435,P02892,"b7 (At six locations (b2, b5, b7, )",other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P02892_B8,10.1155/2013/417435,P02892,"b8 (At six locations (b2, b5, b7, )",other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P02892_B9,10.1155/2013/417435,P02892,"b9 (At six locations (b2, b5, b7, )",other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P02892_tr1_TECgkg,10.1155/2013/417435,P02892,"TEC (μg/kg) (At six locations (b2, b5, b",other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P02920_ERL,10.1155/2017-3510796,P02920,ERL (## Acknowledgments | This work),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P02920_ERM,10.1155/2017-3510796,P02920,ERM (## Acknowledgments | This work),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P02920_PEL,10.1155/2017-3510796,P02920,PEL (</tr><tr><td>Chr</td><td>384</),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P02920_TEL,10.1155/2017-3510796,P02920,<TEL (</tr><tr><td>Chr</td><td>384</),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P02920_tr10_ERLERM,10.1155/2017-3510796,P02920,ERL-ERM (## Acknowledgments | This work),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P02920_tr10_TELPEL,10.1155/2017-3510796,P02920,TEL-PEL (</tr><tr><td>Chr</td><td>384</),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P02920_tr13_TELPEL,10.1155/2017-3510796,P02920,TEL-PEL (</tr><tr><td>Chr</td><td>384</),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P02920_tr4_ERLERM,10.1155/2017-3510796,P02920,ERL-ERM (## Acknowledgments | This work),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P02920_tr4_TELPEL,10.1155/2017-3510796,P02920,TEL-PEL (</tr><tr><td>Chr</td><td>384</),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P02920_tr7_TELPEL,10.1155/2017-3510796,P02920,TEL-PEL (</tr><tr><td>Chr</td><td>384</),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P03076_NAP,10.13209/j.0479-8023.2011.022,P03076,Nap,agricultural,,1,0,1,0,Ni_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P03187_tr1_nggdw,10.1371/journal.pone.0205484,P03187,ng/gdw) ( (Table 1. Detection values of ,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P03187_tr2_nggdw,10.1371/journal.pone.0205484,P03187,ng/gdw) ( (Table 1. Detection values of ,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P03187_tr3_nggdw,10.1371/journal.pone.0205484,P03187,ng/gdw) (Table 1. Detection values of i),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P03187_tr4_nggdw,10.1371/journal.pone.0205484,P03187,(ng/gdw) (Table 1. Detection values of i,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P03187_tr5_,10.1371/journal.pone.0205484,P03187,%) (Table 1. Detection values of i),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P03303_AS,10.17221/211/2017-SWR,P03303,As,agricultural,,1,0,1,0,Cd_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P03303_CR,10.17221/211/2017-SWR,P03303,Cr,agricultural,,1,0,1,0,Zn_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P03303_CU,10.17221/211/2017-SWR,P03303,Cu,agricultural,,2,0,2,0,"Cr_mgkg,Hg_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P03303_DDT,10.17221/211/2017-SWR,P03303,DDT,agricultural,,5,0,5,0,"Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P03303_HCH,10.17221/211/2017-SWR,P03303,HCH,agricultural,,5,0,5,0,"Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P03303_HG,10.17221/211/2017-SWR,P03303,Hg,agricultural,,1,0,1,0,Cr_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P03303_NI,10.17221/211/2017-SWR,P03303,Ni,agricultural,,2,0,2,0,"Hg_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P03303_PB,10.17221/211/2017-SWR,P03303,Pb,agricultural,,3,0,3,0,"Cr_mgkg,Hg_mgkg,Ni_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P03345_AS,10.21203/rs.3.rs-1769519/v1,P03345,As,other,,1,0,1,0,Ni_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,duplicate_paper;chem_symbol_as_sample
+P03345_PB,10.21203/rs.3.rs-1769519/v1,P03345,Pb,other,,1,0,1,0,Ni_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,duplicate_paper;chem_symbol_as_sample
+P03345_s10_4rings,10.21203/rs.3.rs-1769519/v1,P03345,4rings,other,,1,0,1,0,Ni_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P03345_s11_5rings,10.21203/rs.3.rs-1769519/v1,P03345,5rings,other,,1,0,1,0,Ni_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P03345_s12_6rings,10.21203/rs.3.rs-1769519/v1,P03345,6rings,other,,1,0,1,0,Ni_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P03345_s7_TPAH,10.21203/rs.3.rs-1769519/v1,P03345,TPAH,other,,1,0,1,0,Ni_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P03345_s8_2rings,10.21203/rs.3.rs-1769519/v1,P03345,2rings,other,,1,0,1,0,Ni_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P03345_s9_3rings,10.21203/rs.3.rs-1769519/v1,P03345,3rings,other,,1,0,1,0,Ni_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P03780_003,10.3389/fenvs.2022.990471,P03780,0.03 (TABLE 5 Toxic equivalent facto),mining,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P03780_S1,10.3389/fenvs.2022.990471,P03780,S1,mining,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P03780_S2,10.3389/fenvs.2022.990471,P03780,S2,mining,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P03780_S3,10.3389/fenvs.2022.990471,P03780,S3,mining,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P03780_S4,10.3389/fenvs.2022.990471,P03780,S4,mining,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P03780_S5,10.3389/fenvs.2022.990471,P03780,S5,mining,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P03780_tr2_49970,10.3389/fenvs.2022.990471,P03780,49.970 (TABLE 5 Toxic equivalent facto),mining,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P03780_tr3_0050,10.3389/fenvs.2022.990471,P03780,0.050 (TABLE 5 Toxic equivalent facto),mining,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P03781_tr2_rings,10.3389/fenvs.2023.1209137,P03781,rings (TABLE 1 PAHs in soi l of an in),industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P03781_tr3_factorTEF,10.3389/fenvs.2023.1209137,P03781,factor (TEF) (TABLE 1 PAHs in soi l of a,industrial,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P03781_tr5_mgkg,10.3389/fenvs.2023.1209137,P03781,mg/kg (TABLE 1 PAHs in soi l of an in),industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P03781_tr6_mgkg,10.3389/fenvs.2023.1209137,P03781,mg/kg (TABLE 1 PAHs in soi l of an in),industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P03781_tr7_deviationmgkg,10.3389/fenvs.2023.1209137,P03781,deviation mg/kg (TABLE 1 PAHs in soi l o,industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P03781_tr8_Coefficientofva,10.3389/fenvs.2023.1209137,P03781,Coefficient ofvariation % (TABLE 1 PAHs ,industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P03781_tr9_Detectionrate,10.3389/fenvs.2023.1209137,P03781,Detectionrate% (TABLE 1 PAHs in soi l of,industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04044_37,10.3390/ijerph14010085,P04044,37 (Table 5. Biological toxicity a),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04044_s10_Zhujiang_Estuary_Wetland_,10.3390/ijerph14010085,P04044,Zhujiang Estuary Wetland [35],other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04044_s11_estuary_wetland_in_Elizab,10.3390/ijerph14010085,P04044,estuary wetland in Elizabeth [,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04044_s12_floodplains_wetland_in_Ca,10.3390/ijerph14010085,P04044,floodplains wetland in Canada ,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04044_s13_This_study,10.3390/ijerph14010085,P04044,This study,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04044_s2_Chongming_Wetland_in_Shan,10.3390/ijerph14010085,P04044,Chongming Wetland in Shanghai ,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04044_s3_Jiaozhou_Bay_Wetland__28_,10.3390/ijerph14010085,P04044,Jiaozhou Bay Wetland [28],other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04044_s4_Liaohe_Estuary_Wetland__2,10.3390/ijerph14010085,P04044,Liaohe Estuary Wetland [29],other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04044_s5_south_of_Yellow_River_Del,10.3390/ijerph14010085,P04044,south of Yellow River Delta We,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04044_s6_north_of_Yellow_River_Del,10.3390/ijerph14010085,P04044,north of Yellow River Delta We,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04044_s7_Qinkenpa_Wetland_in_Daqin,10.3390/ijerph14010085,P04044,Qinkenpa Wetland in Daqing [32,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04044_s8_typical_wetland_in_Three-,10.3390/ijerph14010085,P04044,typical wetland in Three-river,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04044_s9_Lalu_Wetland_in_Tibet__34,10.3390/ijerph14010085,P04044,Lalu Wetland in Tibet [34],other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04044_tr1_01600,10.3390/ijerph14010085,P04044,0.1600 (Table 5. Biological toxicity a),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04044_tr2_21000,10.3390/ijerph14010085,P04044,2.1000 (Table 5. Biological toxicity a),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04044_tr3_0004102955,10.3390/ijerph14010085,P04044,0.0041-0.2955 (Table 5. Biological toxic,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04074_001,10.3390/ijerph15040698,P04074,0.01 (Table 1. Polycyclic aromatic h),other,,9,0,9,0,"As_mgkg,Cd_mgkg,Co_mgkg,Cr_mgkg,Cu_mgkg,Mn_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,sediment_not_soil,hm_only_ready,sediment_not_soil
+P04074_002,10.3390/ijerph15040698,P04074,0.02 (Table 1. Polycyclic aromatic h),other,,9,0,9,0,"As_mgkg,Cd_mgkg,Co_mgkg,Cr_mgkg,Cu_mgkg,Mn_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,sediment_not_soil,hm_only_ready,sediment_not_soil
+P04074_046,10.3390/ijerph15040698,P04074,0.46 (Table 1. Polycyclic aromatic h),other,,9,0,9,0,"As_mgkg,Cd_mgkg,Co_mgkg,Cr_mgkg,Cu_mgkg,Mn_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,sediment_not_soil,hm_only_ready,sediment_not_soil
+P04086_tr10_Mean,10.3390/ijerph15081785,P04086,Mean (Table 2. Concentrations of ind),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04086_tr11_Median,10.3390/ijerph15081785,P04086,Median (Table 2. Concentrations of ind),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04086_tr3_Range,10.3390/ijerph15081785,P04086,Range (Table 2. Concentrations of ind),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04086_tr4_Mean,10.3390/ijerph15081785,P04086,Mean (Table 2. Concentrations of ind),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04086_tr5_Median,10.3390/ijerph15081785,P04086,Median (Table 2. Concentrations of ind),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04086_tr6_Range,10.3390/ijerph15081785,P04086,Range (Table 2. Concentrations of ind),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04086_tr7_Mean,10.3390/ijerph15081785,P04086,Mean (Table 2. Concentrations of ind),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04086_tr8_Median,10.3390/ijerph15081785,P04086,Median (Table 2. Concentrations of ind),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04086_tr9_Range,10.3390/ijerph15081785,P04086,Range (Table 2. Concentrations of ind),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04125_s1_Not_contaminated,10.3390/ijerph16132302,P04125,Not contaminated,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P04125_s2_Weakly_contaminated,10.3390/ijerph16132302,P04125,Weakly contaminated,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P04171_MAX,10.3390/ijerph17186735,P04171,Max (Table 4. The Statistical chara),urban_green,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04171_MIN,10.3390/ijerph17186735,P04171,Min (Table 4. The Statistical chara),urban_green,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04171_SD,10.3390/ijerph17186735,P04171,SD (Table 4. The Statistical chara),urban_green,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04171_tr3_Mean,10.3390/ijerph17186735,P04171,Mean (Table 4. The Statistical chara),urban_green,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04171_tr7_Mean,10.3390/ijerph17186735,P04171,Mean (Table 4. The Statistical chara),urban_green,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04229_MAX,10.3390/ijerph191610265,P04229,Max (Table 3. The concentrations of),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04229_MIN,10.3390/ijerph191610265,P04229,Min (Table 3. The concentrations of),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04229_tr1_0001,10.3390/ijerph191610265,P04229,0.001 (Table 6. Toxic equivalence con),agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04229_tr1_Rings,10.3390/ijerph191610265,P04229,Rings (Table 3. The concentrations of),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04229_tr2_0007,10.3390/ijerph191610265,P04229,0.007 (Table 6. Toxic equivalence con),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04229_tr3_0044,10.3390/ijerph191610265,P04229,0.044 (Table 6. Toxic equivalence con),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04229_tr4_0016,10.3390/ijerph191610265,P04229,0.016 (Table 6. Toxic equivalence con),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04229_tr4_Mean,10.3390/ijerph191610265,P04229,Mean (Table 3. The concentrations of),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04229_tr7_Mean,10.3390/ijerph191610265,P04229,Mean (Table 3. The concentrations of),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04243_A1,10.3390/ijerph191912860,P04243,A1,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04243_A10,10.3390/ijerph191912860,P04243,A10,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04243_A11,10.3390/ijerph191912860,P04243,A11,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04243_A12,10.3390/ijerph191912860,P04243,A12,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04243_A13,10.3390/ijerph191912860,P04243,A13,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04243_A14,10.3390/ijerph191912860,P04243,A14,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04243_A15,10.3390/ijerph191912860,P04243,A15,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04243_A16,10.3390/ijerph191912860,P04243,A16,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04243_A17,10.3390/ijerph191912860,P04243,A17,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04243_A2,10.3390/ijerph191912860,P04243,A2,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04243_A3,10.3390/ijerph191912860,P04243,A3,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04243_A4,10.3390/ijerph191912860,P04243,A4,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04243_A5,10.3390/ijerph191912860,P04243,A5,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04243_A6,10.3390/ijerph191912860,P04243,A6,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04243_A7,10.3390/ijerph191912860,P04243,A7,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04243_A8,10.3390/ijerph191912860,P04243,A8,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04243_A9,10.3390/ijerph191912860,P04243,A9,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04243_BKG,10.3390/ijerph191912860,P04243,BKG,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04256_02,10.3390/ijerph192316233,P04256,0.2 (Table 1. The concentration (ng),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04256_100,10.3390/ijerph192316233,P04256,100 (Table 1. The concentration (ng),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04256_2,10.3390/ijerph192316233,P04256,2 (Table 1. The concentration (ng),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04256_516,10.3390/ijerph192316233,P04256,51.6 (Table 1. The concentration (ng),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04256_708,10.3390/ijerph192316233,P04256,7.08 (Table 1. The concentration (ng),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04256_tr5_1034,10.3390/ijerph192316233,P04256,103.4 (Table 1. The concentration (ng),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04324_s3_Chinese_topsoil__30_,10.3390/land13111798,P04324,Chinese topsoil [30],agricultural,,5,0,5,0,"Cd_mgkg,Cr_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P04324_s4_Spanish_soils__31_,10.3390/land13111798,P04324,Spanish soils [31],agricultural,,5,0,5,0,"Cd_mgkg,Cr_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P04324_s5_Usangu_basin_soils__32_,10.3390/land13111798,P04324,Usangu basin soils [32],agricultural,,5,0,5,0,"Cd_mgkg,Cr_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P04607_tr3_LOQNGG,10.3390/su18031502,P04607,LOQ (NG/G) (Table 1. Limits of detection,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04645_tr2_Median,10.3390/toxics11080695,P04645,Median (Table 1. Statistical descripti),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04645_tr3_Mean,10.3390/toxics11080695,P04645,Mean (Table 1. Statistical descripti),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04645_tr5_Median,10.3390/toxics11080695,P04645,Median (Table 1. Statistical descripti),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04645_tr6_Mean,10.3390/toxics11080695,P04645,Mean (Table 1. Statistical descripti),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04645_tr8_Median,10.3390/toxics11080695,P04645,Median (Table 1. Statistical descripti),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04645_tr9_Mean,10.3390/toxics11080695,P04645,Mean (Table 1. Statistical descripti),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04669_s2_wall_1,10.3390/toxics13010011,P04669,wall 1,industrial,,1,1,1,1,Pb_mgkg,PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P04669_s3_wall_2,10.3390/toxics13010011,P04669,wall 2,industrial,,1,1,1,1,Pb_mgkg,PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P04669_s4_wall_3,10.3390/toxics13010011,P04669,wall 3,industrial,,1,1,1,1,Pb_mgkg,PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P04669_s5_wall_4,10.3390/toxics13010011,P04669,wall 4,industrial,,1,1,1,1,Pb_mgkg,PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P04714_s3_Jianghan_Plain,10.3390/w15234147,P04714,Jianghan Plain,agricultural,,0,2,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P04805_TEF,10.4209/aaqr.2016.02.0085,P04805,TEF (Table 2. Summary of PAHs conte),industrial,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P04805_tr2_Rings,10.4209/aaqr.2016.02.0085,P04805,Rings (Table 2. Summary of PAHs conte),industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P04805_tr4_Minimum,10.4209/aaqr.2016.02.0085,P04805,Minimum (Table 2. Summary of PAHs conte),industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P04805_tr5_Maximum,10.4209/aaqr.2016.02.0085,P04805,Maximum (Table 2. Summary of PAHs conte),industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P04805_tr6_Mean,10.4209/aaqr.2016.02.0085,P04805,Mean (Table 2. Summary of PAHs conte),industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P04805_tr7_pmmathrmSDa,10.4209/aaqr.2016.02.0085,P04805,$\pm \mathrm { \ S D ^ { a } }$ (Table 2,industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P04805_tr8_Median,10.4209/aaqr.2016.02.0085,P04805,Median (Table 2. Summary of PAHs conte),industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P04902_s10_2016,10.5194/acp-21-6365-2021,P04902,2016,other,,1,1,1,1,Co_mgkg,OCPs,True,True,True,False,A_sample_table,1,soil,not_training_ready_offtopic,offtopic_atmospheric
+P04902_s11_2017,10.5194/acp-21-6365-2021,P04902,2017,other,,1,1,1,1,Co_mgkg,OCPs,True,True,True,False,A_sample_table,1,soil,not_training_ready_offtopic,offtopic_atmospheric
+P04902_s2_2016,10.5194/acp-21-6365-2021,P04902,2016,other,,1,1,1,1,Co_mgkg,OCPs,True,True,True,False,A_sample_table,1,soil,not_training_ready_offtopic,offtopic_atmospheric
+P04902_s3_2017,10.5194/acp-21-6365-2021,P04902,2017,other,,1,1,1,1,Co_mgkg,OCPs,True,True,True,False,A_sample_table,1,soil,not_training_ready_offtopic,offtopic_atmospheric
+P04902_s7_2015,10.5194/acp-21-6365-2021,P04902,2015,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,not_training_ready_offtopic,offtopic_atmospheric
+P04904_79,10.5194/bg-7-3961-2010,P04904,7.9,other,,3,1,3,1,"Cr_mgkg,Cu_mgkg,Ni_mgkg",TPH,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P05264_762,10.1080/10807039.2010.512238,P05264,"76.2 (Table 1. Concentrations (ng/g,)",industrial,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05264_tr1_000275,10.1080/10807039.2010.512238,P05264,0.00 2.75 (Table 1. Concentrations (ng/g,industrial,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05264_tr2_2794,10.1080/10807039.2010.512238,P05264,"27.94 (Table 1. Concentrations (ng/g,)",industrial,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05268_208,10.1080/10807039.2015.1104627,P05268,20.8 (Table 2 Average PAH concentrat),agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05268_357,10.1080/10807039.2015.1104627,P05268,35.7 (Table 2 Average PAH concentrat),agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05268_378,10.1080/10807039.2015.1104627,P05268,37.8 (Table 2 Average PAH concentrat),agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05268_38,10.1080/10807039.2015.1104627,P05268,38 (Table 1 Average PAH concentrat),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05268_43,10.1080/10807039.2015.1104627,P05268,4.3 (Table 2 Average PAH concentrat),agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05268_479,10.1080/10807039.2015.1104627,P05268,47.9 (Table 2 Average PAH concentrat),agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05268_597,10.1080/10807039.2015.1104627,P05268,59.7 (Table 2 Average PAH concentrat),agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05268_632,10.1080/10807039.2015.1104627,P05268,63.2 (Table 2 Average PAH concentrat),agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05268_704,10.1080/10807039.2015.1104627,P05268,70.4 (Table 2 Average PAH concentrat),agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05268_973,10.1080/10807039.2015.1104627,P05268,97.3 (Table 1 Average PAH concentrat),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05268_tr1_2431,10.1080/10807039.2015.1104627,P05268,243.1 (Table 1 Average PAH concentrat),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05268_tr1_44909,10.1080/10807039.2015.1104627,P05268,449.09 (Table 3 Values of PCF of PAHs ),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05268_tr2_3225,10.1080/10807039.2015.1104627,P05268,322.5 (Table 1 Average PAH concentrat),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05268_tr3_6091,10.1080/10807039.2015.1104627,P05268,609.1 (Table 1 Average PAH concentrat),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05268_tr4_3011,10.1080/10807039.2015.1104627,P05268,301.1 (Table 1 Average PAH concentrat),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05268_tr5_6738,10.1080/10807039.2015.1104627,P05268,673.8 (Table 1 Average PAH concentrat),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05268_tr6_4147,10.1080/10807039.2015.1104627,P05268,414.7 (Table 1 Average PAH concentrat),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05268_tr7_5793,10.1080/10807039.2015.1104627,P05268,579.3 (Table 1 Average PAH concentrat),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05268_tr8_4491,10.1080/10807039.2015.1104627,P05268,449.1 (Table 1 Average PAH concentrat),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05276_15,10.1080/10807039.2017.1377595,P05276,15 (Table 3 Ba $\mathrm { P _ { e ),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05276_tr2_0001,10.1080/10807039.2017.1377595,P05276,0.001 (Table 3 Ba $\mathrm { P _ { e ),agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05276_tr3_0143,10.1080/10807039.2017.1377595,P05276,0.143 (Table 3 Ba $\mathrm { P _ { e ),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05276_tr4_0543,10.1080/10807039.2017.1377595,P05276,0.543 (Table 3 Ba $\mathrm { P _ { e ),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05276_tr5_0375,10.1080/10807039.2017.1377595,P05276,0.375 (Table 3 Ba $\mathrm { P _ { e ),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05289_A,10.1080/10934529.2021.1927597,P05289,A,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05289_B,10.1080/10934529.2021.1927597,P05289,B,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05289_s11_Concentration,10.1080/10934529.2021.1927597,P05289,Concentration,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05289_s13_Over-standard,10.1080/10934529.2021.1927597,P05289,Over-standard,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05289_s14_rate____,10.1080/10934529.2021.1927597,P05289,rate (%),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05289_s19_15__0-15cm_,10.1080/10934529.2021.1927597,P05289,15 (0-15cm),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05289_s20_16__15-30_cm_,10.1080/10934529.2021.1927597,P05289,16 (15-30 cm),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05289_s21_17__0-15_cm_,10.1080/10934529.2021.1927597,P05289,17 (0-15 cm),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05289_s6_6__15-30cm_,10.1080/10934529.2021.1927597,P05289,6 (15-30cm),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05289_s7_7__0-15cm_,10.1080/10934529.2021.1927597,P05289,7 (0-15cm),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05289_s8_8__15-30_cm_,10.1080/10934529.2021.1927597,P05289,8 (15-30 cm),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05289_s9_9__0-15cm_,10.1080/10934529.2021.1927597,P05289,9 (0-15cm),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05307_040,10.1080/15320383.2020.1734535,P05307,0.40 ((Fig. S2 (b)). In order to cla),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05307_100,10.1080/15320383.2020.1734535,P05307,100 ((Fig. S2 (b)). In order to cla),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05307_2,10.1080/15320383.2020.1734535,P05307,2 ((Fig. S2 (b)). In order to cla),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05307_513,10.1080/15320383.2020.1734535,P05307,5.13 ((Fig. S2 (b)). In order to cla),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05307_tr3_29908,10.1080/15320383.2020.1734535,P05307,299.08 ((Fig. S2 (b)). In order to cla),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05307_tr4_11431,10.1080/15320383.2020.1734535,P05307,114.31 ((Fig. S2 (b)). In order to cla),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05307_tr5_7955,10.1080/15320383.2020.1734535,P05307,79.55 ((Fig. S2 (b)). In order to cla),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05307_tr8_5000,10.1080/15320383.2020.1734535,P05307,50.00 ((Fig. S2 (b)). In order to cla),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05700_1,10.1016/j.watres.2005.02.013,P05700,1,other,,2,2,2,1,"As_mgkg,Cd_mgkg",OCPs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P05700_2,10.1016/j.watres.2005.02.013,P05700,2,other,,1,2,1,1,As_mgkg,OCPs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P05700_3,10.1016/j.watres.2005.02.013,P05700,3,other,,2,2,2,1,"As_mgkg,Cd_mgkg",OCPs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P05700_4,10.1016/j.watres.2005.02.013,P05700,4,other,,2,2,2,1,"As_mgkg,Cd_mgkg",OCPs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P05700_5,10.1016/j.watres.2005.02.013,P05700,5,other,,2,2,2,1,"As_mgkg,Cd_mgkg",OCPs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P05700_6,10.1016/j.watres.2005.02.013,P05700,6,other,,2,2,2,1,"As_mgkg,Cd_mgkg",OCPs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P05700_AS,10.1016/j.watres.2005.02.013,P05700,As,other,,3,0,3,0,"Hg_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,duplicate_paper;chem_symbol_as_sample
+P05700_CU,10.1016/j.watres.2005.02.013,P05700,Cu,other,,1,0,1,0,Cr_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,duplicate_paper;chem_symbol_as_sample
+P05700_DDT,10.1016/j.watres.2005.02.013,P05700,DDT,other,,3,0,3,0,"Cr_mgkg,Cu_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,duplicate_paper;chem_symbol_as_sample
+P05700_HCH,10.1016/j.watres.2005.02.013,P05700,HCH,other,,4,0,4,0,"As_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,duplicate_paper;chem_symbol_as_sample
+P05700_HG,10.1016/j.watres.2005.02.013,P05700,Hg,other,,2,0,2,0,"Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,duplicate_paper;chem_symbol_as_sample
+P05700_ZN,10.1016/j.watres.2005.02.013,P05700,Zn,other,,3,0,3,0,"Cr_mgkg,Cu_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,duplicate_paper;chem_symbol_as_sample
+P05700_s24_Background,10.1016/j.watres.2005.02.013,P05700,Background,other,,2,2,2,1,"As_mgkg,Cd_mgkg",OCPs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P05700_s25_values,10.1016/j.watres.2005.02.013,P05700,values,other,,1,0,1,0,Cd_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P05700_s26_Threshold_of,10.1016/j.watres.2005.02.013,P05700,Threshold of,other,,2,0,2,0,"As_mgkg,Cd_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P05700_s27_nature_background,10.1016/j.watres.2005.02.013,P05700,nature background,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P05764_tr1_Upstreamregion,10.1007/s11356-012-1330-5,P05764,Upstream region (plained 37.7 % and 24.3,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05764_tr2_Upstreamregion,10.1007/s11356-012-1330-5,P05764,Upstream region (plained 37.7 % and 24.3,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05764_tr3_Upstreamregion,10.1007/s11356-012-1330-5,P05764,Upstream region (plained 37.7 % and 24.3,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05764_tr4_Midstreamregion,10.1007/s11356-012-1330-5,P05764,Midstream region (plained 37.7 % and 24.,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05764_tr5_Midstreamregion,10.1007/s11356-012-1330-5,P05764,Midstream region (plained 37.7 % and 24.,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05764_tr6_Midstreamregion,10.1007/s11356-012-1330-5,P05764,Midstream region (plained 37.7 % and 24.,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05764_tr7_Downstreamregio,10.1007/s11356-012-1330-5,P05764,Downstream region (plained 37.7 % and 24,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05764_tr8_Downstreamregio,10.1007/s11356-012-1330-5,P05764,Downstream region (plained 37.7 % and 24,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05764_tr9_Downstreamregio,10.1007/s11356-012-1330-5,P05764,Downstream region (plained 37.7 % and 24,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P05979_s2_Qz1,10.1016/j.marpolbul.2007.03.008,P05979,Qz1,other,,0,2,0,1,,OCPs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P05979_s3_QZ2,10.1016/j.marpolbul.2007.03.008,P05979,QZ2,other,,0,2,0,1,,OCPs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P05979_s4_QZ3,10.1016/j.marpolbul.2007.03.008,P05979,QZ3,other,,0,2,0,1,,OCPs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P06121_PH,10.1016/j.envpol.2013.03.042,P06121,pH,urban_green,,1,0,1,0,Cr_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P06121_SOC,10.1016/j.envpol.2013.03.042,P06121,SOC,urban_green,,1,0,1,0,Cr_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P06121_mean,10.1016/j.envpol.2013.03.042,P06121,site_mean_summary,urban_green,,6,1,6,1,"As_mgkg,Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",PAHs,True,True,True,True,B_site_summary,1,soil,site_level_hm_op_only,
+P06121_s1_Residence_age,10.1016/j.envpol.2013.03.042,P06121,Residence age,urban_green,,2,0,2,0,"Cr_mgkg,Ni_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P06121_s3_Population_density,10.1016/j.envpol.2013.03.042,P06121,Population density,urban_green,,2,0,2,0,"Ni_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P06121_s4_Road_density,10.1016/j.envpol.2013.03.042,P06121,Road density,urban_green,,3,0,3,0,"Cr_mgkg,Ni_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P06121_s8_urban_center,10.1016/j.envpol.2013.03.042,P06121,urban center,urban_green,,6,1,6,1,"As_mgkg,Cd_mgkg,Cr_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",PAHs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P06123_GM,10.1016/j.scitotenv.2008.03.010,P06123,G.M. (7.04</td><td>42.42</td><td>11.),e_waste,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06123_LOD,10.1016/j.scitotenv.2008.03.010,P06123,">LOD, % (7.04</td><td>42.42</td><td>11.)",e_waste,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06123_tr10_Circuitboardsch,10.1016/j.scitotenv.2008.03.010,P06123,Circuit boards chipping (7.04</td><td>42,e_waste,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06123_tr2_Median,10.1016/j.scitotenv.2008.03.010,P06123,Median (7.04</td><td>42.42</td><td>11.),e_waste,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06123_tr3_Range,10.1016/j.scitotenv.2008.03.010,P06123,Range (7.04</td><td>42.42</td><td>11.),e_waste,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06123_tr4_mathrmLOD,10.1016/j.scitotenv.2008.03.010,P06123,"${ > } \mathrm { L O D } , \ \%$ (les ev",e_waste,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06123_tr6_Median,10.1016/j.scitotenv.2008.03.010,P06123,Median (7.04</td><td>42.42</td><td>11.),e_waste,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06123_tr7_Range,10.1016/j.scitotenv.2008.03.010,P06123,Range (les even though this congener ),e_waste,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06123_tr7_RangeLOD,10.1016/j.scitotenv.2008.03.010,P06123,"Range >LOD,% (7.04</td><td>42.42</td><td",e_waste,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06123_tr8_Cablecoating,10.1016/j.scitotenv.2008.03.010,P06123,Cable coating (7.04</td><td>42.42</td><t,e_waste,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06123_tr9_Stuffingpowder,10.1016/j.scitotenv.2008.03.010,P06123,Stuffing powder (7.04</td><td>42.42</td>,e_waste,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06150_GKG,10.1016/j.ecoenv.2012.07.014,P06150,μg/kg (Table 1),agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06150_tr2_Aromaticring,10.1016/j.ecoenv.2012.07.014,P06150,Aromatic ring (Table 1),agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06579_03,10.1016/j.envpol.2013.11.020,P06579,0.3,industrial,,5,0,5,0,"As_mgkg,Cd_mgkg,Cr_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P06579_04,10.1016/j.envpol.2013.11.020,P06579,-0.4,industrial,,3,1,3,1,"As_mgkg,Cd_mgkg,Cr_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P06579_10,10.1016/j.envpol.2013.11.020,P06579,-1.0,industrial,,4,1,4,1,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P06579_14,10.1016/j.envpol.2013.11.020,P06579,-1.4,industrial,,7,0,7,0,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P06579_242,10.1016/j.envpol.2013.11.020,P06579,24.2,industrial,,7,1,7,1,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P06579_718,10.1016/j.envpol.2013.11.020,P06579,71.8,industrial,,7,1,7,1,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P06579_s11_228.7,10.1016/j.envpol.2013.11.020,P06579,228.7,industrial,,7,1,7,1,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P06579_s2_5557.4,10.1016/j.envpol.2013.11.020,P06579,5557.4,industrial,,7,1,7,1,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P06579_s3_988.9,10.1016/j.envpol.2013.11.020,P06579,988.9,industrial,,7,1,7,1,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P06579_s4_6510.5,10.1016/j.envpol.2013.11.020,P06579,6510.5,industrial,,7,1,7,1,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P06579_s5_3957.7,10.1016/j.envpol.2013.11.020,P06579,3957.7,industrial,,7,1,7,1,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P06579_s9_111.7,10.1016/j.envpol.2013.11.020,P06579,111.7,industrial,,7,1,7,1,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P06607_mean,10.1016/j.scitotenv.2015.06.054,P06607,site_mean_summary,industrial,,6,0,6,0,"Cr_mgkg,Cu_mgkg,Mn_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,True,B_site_summary,1,sediment_not_soil,hm_only_ready,sediment_not_soil
+P06729_419,10.1016/j.scitotenv.2012.08.042,P06729,41.9 (ls were the principal reason f),e_waste,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06729_443,10.1016/j.scitotenv.2012.08.042,P06729,44.3 (ls were the principal reason f),e_waste,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06729_511,10.1016/j.scitotenv.2012.08.042,P06729,51.1 (ls were the principal reason f),e_waste,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06729_647,10.1016/j.scitotenv.2012.08.042,P06729,64.7 (ls were the principal reason f),e_waste,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06729_742,10.1016/j.scitotenv.2012.08.042,P06729,74.2 (ls were the principal reason f),e_waste,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06729_758,10.1016/j.scitotenv.2012.08.042,P06729,75.8 (ls were the principal reason f),e_waste,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06729_785,10.1016/j.scitotenv.2012.08.042,P06729,78.5 (ls were the principal reason f),e_waste,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06729_865,10.1016/j.scitotenv.2012.08.042,P06729,86.5 (ls were the principal reason f),e_waste,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06729_tr10_Range,10.1016/j.scitotenv.2012.08.042,P06729,Range (Table 1),e_waste,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06729_tr1_Mean,10.1016/j.scitotenv.2012.08.042,P06729,Mean (Table 1),e_waste,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06729_tr2_Range,10.1016/j.scitotenv.2012.08.042,P06729,Range (Table 1),e_waste,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06729_tr3_Mean,10.1016/j.scitotenv.2012.08.042,P06729,Mean (Table 1),e_waste,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06729_tr4_Range,10.1016/j.scitotenv.2012.08.042,P06729,Range (Table 1),e_waste,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06729_tr5_Mean,10.1016/j.scitotenv.2012.08.042,P06729,Mean (Table 1),e_waste,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06729_tr6_Range,10.1016/j.scitotenv.2012.08.042,P06729,Range (Table 1),e_waste,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06729_tr7_Mean,10.1016/j.scitotenv.2012.08.042,P06729,Mean (Table 1),e_waste,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06729_tr8_Range,10.1016/j.scitotenv.2012.08.042,P06729,Range (Table 1),e_waste,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06729_tr9_Mean,10.1016/j.scitotenv.2012.08.042,P06729,Mean (Table 1),e_waste,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06840_PH,10.1016/j.envpol.2013.03.046,P06840,pH,urban_green,,1,0,1,0,Cr_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P06840_SOC,10.1016/j.envpol.2013.03.046,P06840,SOC,urban_green,,1,0,1,0,Cr_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P06840_mean,10.1016/j.envpol.2013.03.046,P06840,site_mean_summary,urban_green,,6,1,6,1,"As_mgkg,Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",PAHs,True,True,True,True,B_site_summary,1,soil,not_training_ready_duplicate,duplicate_paper
+P06840_s1_Residence_age,10.1016/j.envpol.2013.03.046,P06840,Residence age,urban_green,,2,0,2,0,"Cr_mgkg,Ni_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P06840_s3_Population_density,10.1016/j.envpol.2013.03.046,P06840,Population density,urban_green,,2,0,2,0,"Ni_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P06840_s4_Road_density,10.1016/j.envpol.2013.03.046,P06840,Road density,urban_green,,3,0,3,0,"Cr_mgkg,Ni_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P06840_s8_urban_center,10.1016/j.envpol.2013.03.046,P06840,urban center,urban_green,,6,1,6,1,"As_mgkg,Cd_mgkg,Cr_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",PAHs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P06949_BMI,10.1371/journal.pone.0113699,P06949,BMI,other,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06949_s4_The_frequency_of_taking_c,10.1371/journal.pone.0113699,P06949,The frequency of taking calciu,other,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06949_s5_The_frequency_of_passive_,10.1371/journal.pone.0113699,P06949,The frequency of passive smoki,other,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06949_s6_House_close_to_e-waste,10.1371/journal.pone.0113699,P06949,House close to e-waste,other,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06949_s8_Residence_of_the_child,10.1371/journal.pone.0113699,P06949,Residence of the child,other,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06949_tr10_90th,10.1371/journal.pone.0113699,P06949,"90th (Table 2. PBDEs (ng/g lipids), )",other,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06949_tr4_0749,10.1371/journal.pone.0113699,P06949,0.749 (Table 1. Study Subjects Charac),other,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06949_tr6_10th,10.1371/journal.pone.0113699,P06949,"10th (Table 2. PBDEs (ng/g lipids), )",other,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06949_tr6_6355,10.1371/journal.pone.0113699,P06949,6.355 (Table 6. Multiple stepwise reg),other,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06949_tr7_25th,10.1371/journal.pone.0113699,P06949,"25th (Table 2. PBDEs (ng/g lipids), )",other,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06949_tr8_50th,10.1371/journal.pone.0113699,P06949,"50th (Table 2. PBDEs (ng/g lipids), )",other,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P06949_tr9_75th,10.1371/journal.pone.0113699,P06949,"75th (Table 2. PBDEs (ng/g lipids), )",other,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07320_SD,10.1016/j.envint.2018.08.046,P07320,SD (the average value of 0.57. Fur),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07320_tr3_Range,10.1016/j.envint.2018.08.046,P07320,Range (the average value of 0.57. Fur),agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07320_tr4_Mean,10.1016/j.envint.2018.08.046,P07320,Mean (the average value of 0.57. Fur),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07320_tr5_Median,10.1016/j.envint.2018.08.046,P07320,Median (the average value of 0.57. Fur),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07320_tr7_Range,10.1016/j.envint.2018.08.046,P07320,Range (the average value of 0.57. Fur),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07320_tr8_Mean,10.1016/j.envint.2018.08.046,P07320,Mean (the average value of 0.57. Fur),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07320_tr9_Median,10.1016/j.envint.2018.08.046,P07320,Median (the average value of 0.57. Fur),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07445_tr2_Range,10.15244/pjoes-62904,P07445,Range (Table 1. Concentrations of hea),other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07445_tr4_Range,10.15244/pjoes-62904,P07445,Range (Table 1. Concentrations of hea),other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07474_s10___mathtt___H________matht,10.1016/j.envmic.2016.03.005,P07474,$\mathtt { H } ^ { \mathtt { D,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07474_s11___mathrm_____I__________m,10.1016/j.envmic.2016.03.005,P07474,$\mathrm { ~ I ~ } ^ { \mathrm,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07474_s12__J______textnormal___D___,10.1016/j.envmic.2016.03.005,P07474,$J ^ { \textnormal { D } }$,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07474_s13_____tt_K________tt_D___,10.1016/j.envmic.2016.03.005,P07474,${ \tt K } ^ { \tt D }$,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07474_s14___mathrm_____L__________m,10.1016/j.envmic.2016.03.005,P07474,$\mathrm { ~ L ~ } ^ { \mathrm,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07474_s15_____tt_M__________tt_M___,10.1016/j.envmic.2016.03.005,P07474,${ \tt M } ^ { { \tt M } }$,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07474_s16___Nu______mathrm_____D___,10.1016/j.envmic.2016.03.005,P07474,$\Nu ^ { \mathrm { ~ D ~ } }$,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07474_s17__0______mathrm_____D_____,10.1016/j.envmic.2016.03.005,P07474,$0 ^ { \mathrm { ~ D ~ } }$,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07474_s4___mathsf___A________mathr,10.1016/j.envmic.2016.03.005,P07474,$\mathsf { A } ^ { \mathrm { ~,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07474_s5___texttt___B________mathr,10.1016/j.envmic.2016.03.005,P07474,$\texttt { B } ^ { \mathrm { U,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07474_s6___mathsf___C________mathr,10.1016/j.envmic.2016.03.005,P07474,$\mathsf { C } ^ { \mathrm { ~,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07474_s8___mathbb___E________mathr,10.1016/j.envmic.2016.03.005,P07474,$\mathbb { E } ^ { \mathrm { ~,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07474_s9__G______textrm___M_____,10.1016/j.envmic.2016.03.005,P07474,$G ^ { \textrm { M } }$,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07629_tr1_Aromaticring,10.1016/j.ecoenv.2010.07.005,P07629,Aromatic ring (Toxic equivalency factors,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P07629_tr3_Range,10.1016/j.ecoenv.2010.07.005,P07629,Range (Toxic equivalency factors (TEF),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P07629_tr4_Percentageofpos,10.1016/j.ecoenv.2010.07.005,P07629,Percentage of positive results (%) (Toxi,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P07639_BS,10.1016/j.apr.2017.09.002,P07639,BS (The total concentrations of PB),e_waste,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07639_NBS,10.1016/j.apr.2017.09.002,P07639,NBS (The total concentrations of PB),e_waste,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07663_tr1_Dissolved,10.1016/j.scitotenv.2017.10.109,P07663,Dissolved (Table 1),other,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07663_tr2_Particulate,10.1016/j.scitotenv.2017.10.109,P07663,Particulate (Table 1),other,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07663_tr3_Medianofsuma,10.1016/j.scitotenv.2017.10.109,P07663,Median of suma (Table 1),other,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07663_tr4_Range,10.1016/j.scitotenv.2017.10.109,P07663,Range (Table 1),other,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P07663_tr5_Median,10.1016/j.scitotenv.2017.10.109,P07663,Median (Table 1),other,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P08111_MAX,10.1007/s11368-020-02838-2,P08111,Max (Table 1 Detection of 15 PAHs i),urban_green,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P08111_SD,10.1007/s11368-020-02838-2,P08111,SD (Table 1 Detection of 15 PAHs i),urban_green,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P08111_SEM,10.1007/s11368-020-02838-2,P08111,SEM (Table 1 Detection of 15 PAHs i),urban_green,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P08111_tr12_MedianMaxMinMea,10.1007/s11368-020-02838-2,P08111,Median Max Min Mean (Table 1 Detection o,urban_green,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P08111_tr18_Median,10.1007/s11368-020-02838-2,P08111,Median (Table 1 Detection of 15 PAHs i),urban_green,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P08111_tr3_MinMeanSEMSD,10.1007/s11368-020-02838-2,P08111,Min Mean SEM SD (Table 1 Detection of 15,urban_green,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P08111_tr6_MedianMax,10.1007/s11368-020-02838-2,P08111,Median Max (Table 1 Detection of 15 PAHs,urban_green,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P08598_MAX,10.1016/j.scitotenv.2021.147082,P08598,Max,other,,5,1,5,1,"Cd_mgkg,Cu_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",PAHs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P08598_W,10.1016/j.scitotenv.2021.147082,P08598,W,other,,2,1,2,1,"Cu_mgkg,Zn_mgkg",PAHs,True,True,True,False,A_sample_table,1,soil,training_ready_hm_op,
+P09059_2,10.1016/j.scitotenv.2020.xxxxx,P09059,2,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09059_3,10.1016/j.scitotenv.2020.xxxxx,P09059,3,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09083_BS,10.1016/j.ecoenv.2024.116014,P09083,BS,urban_green,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09083_GJ,10.1016/j.ecoenv.2024.116014,P09083,GJ,urban_green,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09083_GS,10.1016/j.ecoenv.2024.116014,P09083,GS,urban_green,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09083_GW,10.1016/j.ecoenv.2024.116014,P09083,GW,urban_green,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09083_YN,10.1016/j.ecoenv.2024.116014,P09083,YN,urban_green,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s10_Nam_Co,P09817,P09817,Nam Co,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s10_Nam_Co_2012.12.06,P09817,P09817,Nam Co 2012.12.06,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s10_Nam_Co_2013.07.18,P09817,P09817,Nam Co 2013.07.18,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s11_Nam_Co,P09817,P09817,Nam Co,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s11_Nam_Co_2012.12.12,P09817,P09817,Nam Co 2012.12.12,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s11_Nam_Co_2013.07.25,P09817,P09817,Nam Co 2013.07.25,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s11_SFS_field_blank_3,P09817,P09817,SFS field blank 3,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s12_Nam_Co,P09817,P09817,Nam Co,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s12_Nam_Co_2013.07.30,P09817,P09817,Nam Co 2013.07.30,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s12_Ngari_2014.06.09,P09817,P09817,Ngari 2014.06.09,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s12_SFS_field_blank_4,P09817,P09817,SFS field blank 4,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s13_Nam_Co,P09817,P09817,Nam Co,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s13_Nam_Co_2013.08.03,P09817,P09817,Nam Co 2013.08.03,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s13_Ngari_2014.06.14,P09817,P09817,Ngari 2014.06.14,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s13_SFS_field_blank_5,P09817,P09817,SFS field blank 5,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s14_Nam_Co,P09817,P09817,Nam Co,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s14_Nam_Co_2012.12.01,P09817,P09817,Nam Co 2012.12.01,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s14_Ngari_2014.06.19,P09817,P09817,Ngari 2014.06.19,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s14_SFS_field_blank_6,P09817,P09817,SFS field blank 6,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s15_Nam_Co_2012.12.16,P09817,P09817,Nam Co 2012.12.16,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s15_Ngari,P09817,P09817,Ngari,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s15_Ngari_2014.06.24,P09817,P09817,Ngari 2014.06.24,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s15_SFS_field_blank_7,P09817,P09817,SFS field blank 7,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s16_Ngari,P09817,P09817,Ngari,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s16_Ngari_2014.06.15,P09817,P09817,Ngari 2014.06.15,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s16_Ngari_2014.10.07,P09817,P09817,Ngari 2014.10.07,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s16_SFS_field_blank_8,P09817,P09817,SFS field blank 8,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s17_Ngari,P09817,P09817,Ngari,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s17_Ngari_2014.07.01,P09817,P09817,Ngari 2014.07.01,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s17_average,P09817,P09817,average,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s18_Ngari,P09817,P09817,Ngari,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s18_Ngari_2014.10.16,P09817,P09817,Ngari 2014.10.16,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s18_Ngari_2014.10.17,P09817,P09817,Ngari 2014.10.17,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s19_Ngari,P09817,P09817,Ngari,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s19_Ngari_2014.10.22,P09817,P09817,Ngari 2014.10.22,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s19_Ngari_2014.10.31,P09817,P09817,Ngari 2014.10.31,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s19__ng_sample-1_,P09817,P09817,(ng sample-1),other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s1_AAS_field_blank_1,P09817,P09817,AAS field blank 1,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s1_Lulang,P09817,P09817,Lulang,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s20_Ngari,P09817,P09817,Ngari,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s20_procedural_blank_1,P09817,P09817,procedural blank 1,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s21_procedural_blank_2,P09817,P09817,procedural blank 2,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s22_Ngari,P09817,P09817,Ngari,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s22_procedural_blank_3,P09817,P09817,procedural blank 3,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s23_procedural_blank_4_proced,P09817,P09817,procedural blank 4 procedural ,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s24_procedural_blank_6,P09817,P09817,procedural blank 6,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s26_average,P09817,P09817,average,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s2_AAS_field_blank_2,P09817,P09817,AAS field blank 2,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s2_Lulang,P09817,P09817,Lulang,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s2_Lulang_2013.08.16,P09817,P09817,Lulang 2013.08.16,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s2_Lulang_2013.08.21,P09817,P09817,Lulang 2013.08.21,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s2_Nam_Co,P09817,P09817,Nam Co,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s3_AAS_field_blank_3,P09817,P09817,AAS field blank 3,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s3_Lulang,P09817,P09817,Lulang,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s3_Lulang_2013.08.21,P09817,P09817,Lulang 2013.08.21,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s3_Lulang_2013.08.26,P09817,P09817,Lulang 2013.08.26,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s3_Nam_Co,P09817,P09817,Nam Co,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s3_Ngari,P09817,P09817,Ngari,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s4_AAS_field_blank_4,P09817,P09817,AAS field blank 4,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s4_Lulang,P09817,P09817,Lulang,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s4_Lulang_2013.08.26,P09817,P09817,Lulang 2013.08.26,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s4_Lulang_2015.01.07,P09817,P09817,Lulang 2015.01.07,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s4_Nam_Co,P09817,P09817,Nam Co,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s5_AAS_field_blank_5,P09817,P09817,AAS field blank 5,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s5_Lulang,P09817,P09817,Lulang,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s5_Lulang_2013.08.31,P09817,P09817,Lulang 2013.08.31,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s5_Lulang_2015.01.13,P09817,P09817,Lulang 2015.01.13,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s5_Ngari,P09817,P09817,Ngari,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s6_AAS_field_blank_6,P09817,P09817,AAS field blank 6,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s6_Lulang,P09817,P09817,Lulang,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s6_Lulang_2015.01.07,P09817,P09817,Lulang 2015.01.07,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s6_Lulang_2015.01.18,P09817,P09817,Lulang 2015.01.18,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s6_Ngari,P09817,P09817,Ngari,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s7_Lulang,P09817,P09817,Lulang,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s7_Lulang_2015.01.13,P09817,P09817,Lulang 2015.01.13,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s7_Lulang_2015.01.23,P09817,P09817,Lulang 2015.01.23,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s7_average,P09817,P09817,average,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s8_Lulang_2015.01.18,P09817,P09817,Lulang 2015.01.18,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s8_Nam_Co_2013.08.03,P09817,P09817,Nam Co 2013.08.03,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s9_Lulang_2015.01.23,P09817,P09817,Lulang 2015.01.23,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s9_Nam_Co,P09817,P09817,Nam Co,other,,0,2,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s9_Nam_Co_2012.12.03,P09817,P09817,Nam Co 2012.12.03,other,,0,3,0,2,,"OCPs,PCBs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09817_s9_PUF_for_SFS_SFS_field_bla,P09817,P09817,PUF for SFS SFS field blank 1,other,,0,1,0,1,,PCBs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09823_s2_Guangzhou,P09823,P09823,Guangzhou,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09823_s3_Foshan,P09823,P09823,Foshan,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09823_s4_Huizhou,P09823,P09823,Huizhou,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09823_s5_Shaoguan,P09823,P09823,Shaoguan,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09823_s6_Pearl_River_Delta,P09823,P09823,Pearl River Delta,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P09823_s7_Dalian,P09823,P09823,Dalian,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10188_s2_Loamy_mixed_active_thermi,P10188,P10188,Loamy mixed active thermic aer,other,,4,0,4,0,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P10228_R0,P10228,P10228,R0,agricultural,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10228_R1,P10228,P10228,R1,agricultural,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10228_R2,P10228,P10228,R2,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10228_S1,P10228,P10228,S1,agricultural,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10228_S2,P10228,P10228,S2,agricultural,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10228_S3,P10228,P10228,S3,agricultural,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10228_S4,P10228,P10228,S4,agricultural,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10228_S5,P10228,P10228,S5,agricultural,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10228_S6,P10228,P10228,S6,agricultural,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10228_S7,P10228,P10228,S7,agricultural,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10228_S8,P10228,P10228,S8,agricultural,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10228_S9,P10228,P10228,S9,agricultural,,0,2,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10229_R0,P10229,P10229,R0,agricultural,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10229_R1,P10229,P10229,R1,agricultural,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10229_R2,P10229,P10229,R2,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10229_S1,P10229,P10229,S1,agricultural,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10229_S2,P10229,P10229,S2,agricultural,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10229_S3,P10229,P10229,S3,agricultural,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10229_S4,P10229,P10229,S4,agricultural,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10229_S5,P10229,P10229,S5,agricultural,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10229_S6,P10229,P10229,S6,agricultural,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10229_S7,P10229,P10229,S7,agricultural,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10229_S8,P10229,P10229,S8,agricultural,,0,3,0,2,,"OCPs,PAHs",False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10229_S9,P10229,P10229,S9,agricultural,,0,2,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10247_1,P10247,P10247,1,other,,2,2,2,1,"As_mgkg,Cd_mgkg",OCPs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10247_2,P10247,P10247,2,other,,1,2,1,1,As_mgkg,OCPs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10247_3,P10247,P10247,3,other,,2,2,2,1,"As_mgkg,Cd_mgkg",OCPs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10247_4,P10247,P10247,4,other,,2,2,2,1,"As_mgkg,Cd_mgkg",OCPs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10247_5,P10247,P10247,5,other,,2,2,2,1,"As_mgkg,Cd_mgkg",OCPs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10247_6,P10247,P10247,6,other,,2,2,2,1,"As_mgkg,Cd_mgkg",OCPs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10247_AS,P10247,P10247,As,other,,3,0,3,0,"Hg_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,duplicate_paper;chem_symbol_as_sample
+P10247_CU,P10247,P10247,Cu,other,,1,0,1,0,Cr_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,duplicate_paper;chem_symbol_as_sample
+P10247_DDT,P10247,P10247,DDT,other,,3,0,3,0,"Cr_mgkg,Cu_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,duplicate_paper;chem_symbol_as_sample
+P10247_HCH,P10247,P10247,HCH,other,,4,0,4,0,"As_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,duplicate_paper;chem_symbol_as_sample
+P10247_HG,P10247,P10247,Hg,other,,2,0,2,0,"Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,duplicate_paper;chem_symbol_as_sample
+P10247_ZN,P10247,P10247,Zn,other,,3,0,3,0,"Cr_mgkg,Cu_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,duplicate_paper;chem_symbol_as_sample
+P10247_s24_Background,P10247,P10247,Background,other,,2,2,2,1,"As_mgkg,Cd_mgkg",OCPs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10247_s25_values,P10247,P10247,values,other,,1,0,1,0,Cd_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10247_s26_Threshold_of,P10247,P10247,Threshold of,other,,2,0,2,0,"As_mgkg,Cd_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10247_s27_nature_background,P10247,P10247,nature background,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10369_783,P10369,P10369,"7.83 (ast 12 h, respectively, and th)",other,,5,0,5,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P10369_795,P10369,P10369,"7.95 (ast 12 h, respectively, and th)",other,,5,0,5,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P10369_815,P10369,P10369,"8.15 (ast 12 h, respectively, and th)",other,,5,0,5,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P10369_825,P10369,P10369,"8.25 (ast 12 h, respectively, and th)",other,,5,0,5,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P10369_828,P10369,P10369,"8.28 (ast 12 h, respectively, and th)",other,,5,0,5,0,"Cd_mgkg,Cr_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P10444_s2_Before_SFE,P10444,P10444,Before SFE,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10444_s3_RSD___,P10444,P10444,RSD (%,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10444_s4_After_SFE,P10444,P10444,After SFE,other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10444_s5_RSD____,P10444,P10444,RSD (%),other,,0,1,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10502_s1_Number_of_samples,P10502,P10502,Number of samples,agricultural,,0,2,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10502_s2_Min_mg_kg_,P10502,P10502,Min(mg/kg),agricultural,,0,2,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10502_s3_Max_mg_kg_,P10502,P10502,Max(mg/kg),agricultural,,0,2,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10502_s4_Average__mg_kg_,P10502,P10502,Average (mg/kg),agricultural,,0,2,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10502_s5_Standard_deviation_mg_kg_,P10502,P10502,Standard deviation(mg/kg),agricultural,,0,2,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10502_s6_Detection_rate____,P10502,P10502,Detection rate (%),agricultural,,0,2,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10502_s7_Coefficient_of_variation_,P10502,P10502,Coefficient of variation (%),agricultural,,0,2,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10502_s8_Kurtosis,P10502,P10502,Kurtosis,agricultural,,0,2,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10502_s9_Skewness,P10502,P10502,Skewness,agricultural,,0,2,0,1,,OCPs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10518_GM,P10518,P10518,GM (smantling region. In another i),e_waste,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10518_tr1_Range,P10518,P10518,Range (smantling region. In another i),e_waste,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10518_tr3_Range,P10518,P10518,Range (smantling region. In another i),e_waste,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10518_tr5_Range,P10518,P10518,Range (smantling region. In another i),e_waste,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10518_tr7_Range,P10518,P10518,Range (smantling region. In another i),e_waste,,0,1,0,1,,PBDEs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P10531_004,P10531,P10531,0.04 (Table S2 Rotated component mat),urban_green,,6,0,6,0,"As_mgkg,Cd_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10531_tr1_0002,P10531,P10531,-0.002 (Table S2 Rotated component mat),urban_green,,5,0,5,0,"Cd_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10531_tr3_0853,P10531,P10531,0.853 (Table S2 Rotated component mat),urban_green,,5,0,5,0,"Cd_mgkg,Cu_mgkg,Ni_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10733_03,P10733,P10733,0.3,industrial,,5,0,5,0,"As_mgkg,Cd_mgkg,Cr_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10733_04,P10733,P10733,-0.4,industrial,,3,1,3,1,"As_mgkg,Cd_mgkg,Cr_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10733_10,P10733,P10733,-1.0,industrial,,4,1,4,1,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10733_14,P10733,P10733,-1.4,industrial,,7,0,7,0,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10733_242,P10733,P10733,24.2,industrial,,7,1,7,1,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10733_718,P10733,P10733,71.8,industrial,,7,1,7,1,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10733_s11_228.7,P10733,P10733,228.7,industrial,,7,1,7,1,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10733_s2_5557.4,P10733,P10733,5557.4,industrial,,7,1,7,1,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10733_s3_988.9,P10733,P10733,988.9,industrial,,7,1,7,1,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10733_s4_6510.5,P10733,P10733,6510.5,industrial,,7,1,7,1,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10733_s5_3957.7,P10733,P10733,3957.7,industrial,,7,1,7,1,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10733_s9_111.7,P10733,P10733,111.7,industrial,,7,1,7,1,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Hg_mgkg,Pb_mgkg,Zn_mgkg",PCBs,True,True,True,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P10735_ERL,P10735,P10735,<ERL (Table 1 SQGs values for PAHs a),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P10735_TEL,P10735,P10735,<TEL (Table 1 SQGs values for PAHs a),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P10735_tr7_TELPE,P10735,P10735,TEL-PE (Table 1 SQGs values for PAHs a),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,sediment_not_soil,op_only_ready,sediment_not_soil
+P10991_s10_BG3-3,P10991,P10991,BG3-3,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s11_BG4-1,P10991,P10991,BG4-1,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s12_BG4-2,P10991,P10991,BG4-2,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s13_NY1-1,P10991,P10991,NY1-1,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s14_NY1-2,P10991,P10991,NY1-2,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s15_NY1-3,P10991,P10991,NY1-3,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s16_NY2-1,P10991,P10991,NY2-1,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s17_NY2-2,P10991,P10991,NY2-2,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s18_NY2-3,P10991,P10991,NY2-3,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s19_NY3-1,P10991,P10991,NY3-1,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s20_NY3-2,P10991,P10991,NY3-2,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s21_NY4-1,P10991,P10991,NY4-1,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s22_NY4-2,P10991,P10991,NY4-2,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s23_NY4-3,P10991,P10991,NY4-3,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s2_BG1-1,P10991,P10991,BG1-1,e_waste,,3,3,3,3,"Cd_mgkg,Cu_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s3_BG1-2,P10991,P10991,BG1-2,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s4_BG1-3,P10991,P10991,BG1-3,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s5_BG2-1,P10991,P10991,BG2-1,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s6_BG2-2,P10991,P10991,BG2-2,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s7_BG2-3,P10991,P10991,BG2-3,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s8_BG3-1,P10991,P10991,BG3-1,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P10991_s9_BG3-2,P10991,P10991,BG3-2,e_waste,,4,3,4,3,"Cd_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg","PAHs,PBDEs,PCBs",True,True,True,False,A_sample_table,1,sediment_not_soil,training_ready_hm_op,sediment_not_soil
+P11045_SD,P11045,P11045,SD (the average value of 0.57. Fur),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P11045_tr3_Range,P11045,P11045,Range (the average value of 0.57. Fur),agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P11045_tr4_Mean,P11045,P11045,Mean (the average value of 0.57. Fur),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P11045_tr5_Median,P11045,P11045,Median (the average value of 0.57. Fur),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P11045_tr7_Range,P11045,P11045,Range (the average value of 0.57. Fur),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P11045_tr8_Mean,P11045,P11045,Mean (the average value of 0.57. Fur),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P11045_tr9_Median,P11045,P11045,Median (the average value of 0.57. Fur),agricultural,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper
+P11183_tr1_环数,P11183,P11183,环数 (Table3-3 Content of PAHs in so),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11183_tr2_1号范围gkg,P11183,P11183,（1号） 范围（μg/kg） (Table3-3 Content of PAHs,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11183_tr3_范围ugkg,P11183,P11183,范围（ug/kg） (Table3-3 Content of PAHs in s,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11183_tr4_范围ugkg,P11183,P11183,范围（ug/kg） (Table3-3 Content of PAHs in s,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11183_tr5_旱田范围ugkg,P11183,P11183,（旱田） 范围（ug/kg） (Table3-3 Content of PAHs,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11183_tr6_范围gkg,P11183,P11183,范围（μg/kg） (Table3-3 Content of PAHs in s,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11188_s3_场地,P11188,P11188,场地,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11191_s2__200,P11191,P11191,<200,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11191_s3_200_600,P11191,P11191,200~600,other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11292_s1_宜兴市,P11292,P11292,宜兴市,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11292_s2_武汉,P11292,P11292,武汉,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11292_s3_北京东南郊区,P11292,P11292,北京东南郊区,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11292_s4_南京市六合区,P11292,P11292,南京市六合区,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11292_s5_南京市栖霞区,P11292,P11292,南京市栖霞区,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11292_s6_苏州市,P11292,P11292,苏州市,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11292_s7_沈抚新城,P11292,P11292,沈抚新城,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11292_s8_本研究,P11292,P11292,本研究,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11292_tr1_平均值mumathrmgcdo,P11292,P11292,平均值 $( \mu \mathrm { g } \cdot \mathrm {,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11292_tr2_标准差,P11292,P11292,标准差 (Table 5-1 Toxic equivalent con),agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11292_tr3_本文结果,P11292,P11292,本文结果 (Table 5-4 Toxicity assessment ),agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11292_tr3_范围mumathrmgcdot,P11292,P11292,范围 $( \mu \mathrm { g } \cdot \mathrm { ,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11292_tr4_ERL的样品个数,P11292,P11292,<ERL的样 品个数 (Table 5-4 Toxicity assessmen,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11292_tr4_贡献率,P11292,P11292,贡献率 (%) (Table 5-1 Toxic equivalent con),agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11292_tr5_ERLERM的样品个数,P11292,P11292,ERL~ERM 的样品个数 (Table 5-4 Toxicity assess,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11292_tr6_ERM的样品个数,P11292,P11292,>ERM的样 品个数 (Table 5-4 Toxicity assessmen,agricultural,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11353_s1_GB_15618-2018土壤,P11353,P11353,GB 15618-2018土壤,other,,6,0,6,0,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P11353_s2_环境标准值_mg_kg_,P11353,P11353,环境标准值(mg/kg),other,,6,0,6,0,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P11353_s3_山西省土壤环境背景值___mathrm_____m,P11353,P11353,山西省土壤环境背景值 $\mathrm { ( m g / ,other,,6,0,6,0,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P11353_s4_毒性响应系数___mathrm___T______,P11353,P11353,毒性响应系数 $\mathrm { T _ { \mathr,other,,5,0,5,0,"As_mgkg,Cd_mgkg,Cr_mgkg,Cu_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P11353_tr4_经口摄入,P11353,P11353,经口摄入 (表2.6重金属和PAHs的RfD和SF参考值),other,,1,0,1,0,As_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P11353_tr5_呼吸吸入,P11353,P11353,呼吸吸入 (表2.6重金属和PAHs的RfD和SF参考值),other,,2,0,2,0,"As_mgkg,Cd_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P11353_tr6_皮肤接触,P11353,P11353,皮肤接触 (表2.6重金属和PAHs的RfD和SF参考值),other,,2,0,2,0,"As_mgkg,Cr_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P11359_s1_蔬菜_大棚,P11359,P11359,蔬菜 大棚,other,,1,0,1,0,Cd_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P11359_s2_农药_厂旧_址,P11359,P11359,农药 厂旧 址,other,,1,0,1,0,Pb_mgkg,,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P11361_A,P11361,P11361,A (表2-9荷兰PAHs含量规定相关标准),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11361_B,P11361,P11361,B (表2-9荷兰PAHs含量规定相关标准),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11361_CV,P11361,P11361,CV (表2-8 香溪消落带土壤16种PAHs含量),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11361_NHL,P11361,P11361,NHL (表2-9荷兰PAHs含量规定相关标准),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11361_NLL,P11361,P11361,NLL (表2-9荷兰PAHs含量规定相关标准),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11361_NML,P11361,P11361,NML (表2-9荷兰PAHs含量规定相关标准),other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11361_SE,P11361,P11361,SE (表2-8 香溪消落带土壤16种PAHs含量),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P11361_s10_孟加拉_沿海地带_136_,P11361,P11361,孟加拉 沿海地带[136],other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11361_s1_秦皇岛滨海湿地_127_,P11361,P11361,秦皇岛滨海湿地[127],other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11361_s2_珠江口段_128_,P11361,P11361,珠江口段[128],other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11361_s3_黄河口段_129_,P11361,P11361,黄河口段[129],other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11361_s4_长江湖北段_130_,P11361,P11361,长江湖北段[130],other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11361_s5_台湾盐河样带_131_,P11361,P11361,台湾盐河样带[131],other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11361_s6_乌鲁木齐市中心_132_,P11361,P11361,乌鲁木齐市中心[132],other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11361_s7_黑龙江松嫩平原湖泊_133_,P11361,P11361,黑龙江松嫩平原湖泊[133],other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11361_s8_青藏高原达孜湖沉积岩_134_,P11361,P11361,青藏高原达孜湖沉积岩[134],other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11361_s9_美国_Sacramento_River_135_,P11361,P11361,美国 Sacramento River[135],other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11361_tr1_Minngg,P11361,P11361,Min (ng/g) (表2-8 香溪消落带土壤16种PAHs含量),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11361_tr2_Maxngg,P11361,P11361,Max (ng/g) (表2-8 香溪消落带土壤16种PAHs含量),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11361_tr3_Meanngg,P11361,P11361,Mean (ng/g) (表2-8 香溪消落带土壤16种PAHs含量),other,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11442_0,P11442,P11442,0 (Table 4.1 Descriptive statisti),industrial,,0,1,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11442_058,P11442,P11442,0.58 (Table 4.1 Descriptive statisti),industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11442_108,P11442,P11442,10.8 (Table 4.1 Descriptive statisti),industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11442_124,P11442,P11442,1.24 (Table 4.1 Descriptive statisti),industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11442_142,P11442,P11442,14.2 (Table 4.1 Descriptive statisti),industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11442_168,P11442,P11442,16.8 (Table 4.1 Descriptive statisti),industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11442_209,P11442,P11442,2.09 (Table 4.1 Descriptive statisti),industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11442_568,P11442,P11442,56.8 (Table 4.1 Descriptive statisti),industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11442_70,P11442,P11442,70 (Table 4.1 Descriptive statisti),industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11442_700,P11442,P11442,700 (Table 4.1 Descriptive statisti),industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11442_94,P11442,P11442,94 (Table 4.1 Descriptive statisti),industrial,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,op_only_ready,
+P11456_CD,P11456,P11456,Cd,other,,1,0,1,0,As_mgkg,,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P11456_PB,P11456,P11456,Pb,other,,2,0,2,0,"As_mgkg,Cd_mgkg",,True,False,False,False,A_sample_table,1,soil,not_training_ready_chem_label,chem_symbol_as_sample
+P11456_s1_高污染0-20cm,P11456,P11456,高污染0-20cm,other,,4,0,4,0,"As_mgkg,Cd_mgkg,Mn_mgkg,Ni_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P11456_s2_高污染_20-40cm,P11456,P11456,高污染 20-40cm,other,,4,0,4,0,"As_mgkg,Cd_mgkg,Mn_mgkg,Ni_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P11456_s3_中污染0-20cm,P11456,P11456,中污染0-20cm,other,,4,0,4,0,"As_mgkg,Cd_mgkg,Mn_mgkg,Ni_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P11456_s4_中污染_20-40cm,P11456,P11456,中污染 20-40cm,other,,4,0,4,0,"As_mgkg,Cd_mgkg,Mn_mgkg,Ni_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P11456_s5_低污染0-20cm,P11456,P11456,低污染0-20cm,other,,4,0,4,0,"As_mgkg,Cd_mgkg,Mn_mgkg,Ni_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P11456_s6_低污染20-40cm,P11456,P11456,低污染20-40cm,other,,4,0,4,0,"As_mgkg,Cd_mgkg,Mn_mgkg,Ni_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P11637_tr1_0310,P11637,P11637,0.310** (Table2-7 Analysis of the influ),other,,3,0,3,0,"Cu_mgkg,Pb_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P11637_tr2_0331,P11637,P11637,0.331** (Table2-7 Analysis of the influ),other,,2,0,2,0,"Cu_mgkg,Zn_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P11637_tr3_0194,P11637,P11637,0.194 (Table2-7 Analysis of the influ),other,,2,0,2,0,"Cr_mgkg,Pb_mgkg",,True,False,False,False,A_sample_table,1,soil,hm_only_ready,
+P11643_tr3_LOQNGG,P11643,P11643,LOQ (NG/G) (Table 1. Limits of detection,other,,0,2,0,1,,PAHs,False,True,False,False,A_sample_table,1,soil,not_training_ready_duplicate,duplicate_paper

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03586,,,,,,soil,industrial,Jiangsu,"仅统计汇总(Min/Max/Mean/Median/SD), 无采样点级数据; Table1为30样本汇总统计, 无单点标识(S1/S2)与对应浓度; Table3为TEQ风险指数(剔除); 采样点仅在Fig.1地图标注, 无数值表"

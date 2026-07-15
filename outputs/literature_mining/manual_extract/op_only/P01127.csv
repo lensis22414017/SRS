@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01127,,,,,,,,,skip: PAH采样点级数据在Fig.2柱状图中(图片不可解析提取数值),32个采样点Σ16PAH和16单体全以图片形式呈现; HM数据仅Table 2b统计汇总(Mean/Min/Max/SD/CV/Skewness/Kurtosis,无采样点级原始浓度数据); 正文零星提及2个PAH值(NE50m/SW200m)但ID疑似解析错误(200m不在采样方案中)且不完整

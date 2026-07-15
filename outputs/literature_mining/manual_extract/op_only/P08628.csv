@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08628,,,,,,,,,skip: 仅区域/分类汇总无采样点级数据。Table1为全国描述性统计(Mean/SD/Median/CV) Table2按省份Table3按种植模式均为Mean±SD无单样点标识

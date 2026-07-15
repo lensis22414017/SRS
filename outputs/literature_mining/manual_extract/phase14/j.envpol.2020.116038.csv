@@ -1,0 +1,14 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+j.envpol.2020.116038,j.envpol.2020.116038_Minimum_Maximum_National,Minimum Maximum National,HM_total,126.0,Unknown,,low,table_p4_ri1_ci5,Contents (dw) of pollutants in Changchun soil samples.
+j.envpol.2020.116038,j.envpol.2020.116038_Background_valuec,Background valuec,HM_total,45.7,Unknown,,low,table_p4_ri1_ci7,Contents (dw) of pollutants in Changchun soil samples.
+j.envpol.2020.116038,j.envpol.2020.116038_Canadian_standardd,Canadian standardd,HM_total,87.0,Unknown,,low,table_p4_ri1_ci8,Contents (dw) of pollutants in Changchun soil samples.
+j.envpol.2020.116038,j.envpol.2020.116038_Netherlands_standarde,Netherlands standarde,HM_total,382.0,Unknown,,low,table_p4_ri1_ci9,Contents (dw) of pollutants in Changchun soil samples.
+j.envpol.2020.116038,j.envpol.2020.116038_Minimum_Maximum_National,Minimum Maximum National,OP_total,47.7,Unknown,,low,table_p4_ri13_ci5,Contents (dw) of pollutants in Changchun soil samples.
+j.envpol.2020.116038,j.envpol.2020.116038_standardb,standardb,OP_total,400.0,Unknown,,low,table_p4_ri13_ci6,Contents (dw) of pollutants in Changchun soil samples.
+j.envpol.2020.116038,j.envpol.2020.116038_Background_valuec,Background valuec,OP_total,23.1,Unknown,,low,table_p4_ri13_ci7,Contents (dw) of pollutants in Changchun soil samples.
+j.envpol.2020.116038,j.envpol.2020.116038_Canadian_standardd,Canadian standardd,OP_total,260.0,Unknown,,low,table_p4_ri13_ci8,Contents (dw) of pollutants in Changchun soil samples.
+j.envpol.2020.116038,j.envpol.2020.116038_Netherlands_standarde,Netherlands standarde,OP_total,530.0,Unknown,,low,table_p4_ri13_ci9,Contents (dw) of pollutants in Changchun soil samples.
+j.envpol.2020.116038,j.envpol.2020.116038_standardb,standardb,SumOCP_ngg,0.09,Unknown,,high,table_p4_ri38_ci6,Contents (dw) of pollutants in Changchun soil samples.
+j.envpol.2020.116038,j.envpol.2020.116038_standardb,standardb,OC_pct,0.09,Unknown,,high,table_p4_ri38_ci6,Contents (dw) of pollutants in Changchun soil samples.
+j.envpol.2020.116038,j.envpol.2020.116038_Background_valuec,Background valuec,SumOCP_ngg,0.14,Unknown,,high,table_p4_ri38_ci7,Contents (dw) of pollutants in Changchun soil samples.
+j.envpol.2020.116038,j.envpol.2020.116038_Background_valuec,Background valuec,OC_pct,0.14,Unknown,,high,table_p4_ri38_ci7,Contents (dw) of pollutants in Changchun soil samples.

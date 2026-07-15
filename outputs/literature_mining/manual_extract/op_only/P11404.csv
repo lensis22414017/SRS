@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11404,skip,skip,0,skip,skip,skip,skip,skip,"SKIP原因：1) MinerU解析不完整(仅40行摘要+引言,无表格数据); 2) 论文为纯重金属(HM)源解析与风险评价(As/Mn/Cu/Zn/Cd/Pb/Cr/Ni/Ti/V/Fe),无任何有机污染物(OP)实测浓度数据。CSV标注pesticides为PMF源识别标签(化肥农药源贡献As/Mn),非农药浓度检测。"

@@ -1,0 +1,11 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01911,S1,SumDDT_ngg,376.44,ng/g,Table 5,soil,industrial,未明确,"Table 5直接读取ΣDDTs=o,p'-DDE+p,p'-DDE+p,p'-DDD+o,p'-DDT+p,p'-DDT"
+P01911,S1,SumHCH_ngg,39.40,ng/g,Table 5,soil,industrial,未明确,"Table 5直接读取ΣHCHs=α+β+γ+δ-HCH"
+P01911,S2,SumDDT_ngg,465.58,ng/g,Table 5,soil,industrial,未明确,"Table 5直接读取ΣDDTs"
+P01911,S2,SumHCH_ngg,55.24,ng/g,Table 5,soil,industrial,未明确,"Table 5直接读取ΣHCHs"
+P01911,S3,SumDDT_ngg,258.98,ng/g,Table 5,sediment,industrial,未明确,"Table 5直接读取ΣDDTs; S3为池塘沉积物(pond sediment)"
+P01911,S3,SumHCH_ngg,28.29,ng/g,Table 5,sediment,industrial,未明确,"Table 5直接读取ΣHCHs; δ-HCH为n.d.(按0计); S3为池塘沉积物"
+P01911,S4,SumDDT_ngg,195.63,ng/g,Table 5,soil,industrial,未明确,"Table 5直接读取ΣDDTs"
+P01911,S4,SumHCH_ngg,11.32,ng/g,Table 5,soil,industrial,未明确,"Table 5直接读取ΣHCHs"
+P01911,S5,SumDDT_ngg,424.33,ng/g,Table 5,soil,industrial,未明确,"Table 5直接读取ΣDDTs"
+P01911,S5,SumHCH_ngg,15.69,ng/g,Table 5,soil,industrial,未明确,"Table 5直接读取ΣHCHs; δ-HCH为n.d.(按0计)"

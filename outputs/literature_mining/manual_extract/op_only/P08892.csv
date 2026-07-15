@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08892,,,,,,,,"skip: 正文仅含统计汇总(按行业类型均值CM=773/PM=322/EM=290/MM=234 μg/kg ∑16PAHs; 按深度0-20cm range63.3-4956 median255 mean600 / 20-40cm range101-1166 median221 mean285 μg/kg; PAEs同理)，无采样点级浓度; 66样品详细浓度在补充材料Table S3/S4(paper.md不可获取); Fig2为箱线图非单点值; 正文提及site S6/G1/G2/G3仅在微生物语境未附浓度; 真实场地研究非盆栽/修复实验"

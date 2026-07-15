@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04376,,,,,,soil,e_waste,Shandong,"skip: 论文研究规范化电子垃圾回收厂HM(10元素)+PBDE(21同系物)，但Table1(PBDE)和Table2(HM)均为统计汇总表(Min/Max/Median/Mean/Range)+标准阈值(Background/GB36600/GB15618/TEC/PEC)，无采样点级HM+OP配对数据表；正文仅文字提及S19/S20的Σ21PBDEs最高值(1366/593 ng/g)但无对应HM浓度，S24的Igeo值为风险指数非浓度；21土壤/7沉积物样本仅以汇总形式呈现"

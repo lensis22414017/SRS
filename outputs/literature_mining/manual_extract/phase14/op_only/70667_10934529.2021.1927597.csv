@@ -1,0 +1,270 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D_}___{_\mathsf_{_o_}_}$,$\mathsf { R f D } _ { \mathsf { o } }$,Nap_ngg,0.02,Unknown,,high,table_p4_ri1_ci4,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D___{_d_}_}$,$\mathsf { R f D _ { d } }$,Nap_ngg,0.02,Unknown,,high,table_p4_ri1_ci5,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D_}___{_\mathrm_{_i_}_}$,$\mathsf { R f D } _ { \mathrm { i } }$,Nap_ngg,0.00072,Unknown,,high,table_p4_ri1_ci6,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D_}___{_\mathsf_{_o_}_}$,$\mathsf { R f D } _ { \mathsf { o } }$,Flu_ngg,0.04,Unknown,,high,table_p4_ri4_ci4,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D___{_d_}_}$,$\mathsf { R f D _ { d } }$,Flu_ngg,0.04,Unknown,,high,table_p4_ri4_ci5,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D_}___{_\mathrm_{_i_}_}$,$\mathsf { R f D } _ { \mathrm { i } }$,Flu_ngg,0.02,Unknown,,high,table_p4_ri4_ci6,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D_}___{_\mathsf_{_o_}_}$,$\mathsf { R f D } _ { \mathsf { o } }$,Phe_ngg,0.03,Unknown,,high,table_p4_ri5_ci4,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D___{_d_}_}$,$\mathsf { R f D _ { d } }$,Phe_ngg,0.03,Unknown,,high,table_p4_ri5_ci5,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D_}___{_\mathrm_{_i_}_}$,$\mathsf { R f D } _ { \mathrm { i } }$,Phe_ngg,0.015,Unknown,,high,table_p4_ri5_ci6,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D_}___{_\mathsf_{_o_}_}$,$\mathsf { R f D } _ { \mathsf { o } }$,Ant_ngg,0.3,Unknown,,high,table_p4_ri6_ci4,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D___{_d_}_}$,$\mathsf { R f D _ { d } }$,Ant_ngg,0.3,Unknown,,high,table_p4_ri6_ci5,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D_}___{_\mathrm_{_i_}_}$,$\mathsf { R f D } _ { \mathrm { i } }$,Ant_ngg,0.15,Unknown,,high,table_p4_ri6_ci6,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D_}___{_\mathsf_{_o_}_}$,$\mathsf { R f D } _ { \mathsf { o } }$,Pyr_ngg,0.03,Unknown,,high,table_p4_ri8_ci4,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D_}___{_\mathsf_{_o_}_}$,$\mathsf { R f D } _ { \mathsf { o } }$,BaP_ngg,0.03,Unknown,,high,table_p4_ri8_ci4,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D___{_d_}_}$,$\mathsf { R f D _ { d } }$,Pyr_ngg,0.03,Unknown,,high,table_p4_ri8_ci5,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D___{_d_}_}$,$\mathsf { R f D _ { d } }$,BaP_ngg,0.03,Unknown,,high,table_p4_ri8_ci5,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D_}___{_\mathrm_{_i_}_}$,$\mathsf { R f D } _ { \mathrm { i } }$,Pyr_ngg,0.015,Unknown,,high,table_p4_ri8_ci6,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D_}___{_\mathrm_{_i_}_}$,$\mathsf { R f D } _ { \mathrm { i } }$,BaP_ngg,0.015,Unknown,,high,table_p4_ri8_ci6,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_S_F_}___{_\circ_}$,$\mathsf { S F } _ { \circ }$,BaA_ngg,0.73,Unknown,,high,table_p4_ri9_ci1,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_S_F___{_d_}_}$,$\mathsf { S F _ { d } }$,BaA_ngg,0.73,Unknown,,high,table_p4_ri9_ci2,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$S_\mathsf_{_F_}___{_\mathrm_{_i_}_}$,$S \mathsf { F } _ { \mathrm { i } }$,BaA_ngg,0.31,Unknown,,high,table_p4_ri9_ci3,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D_}___{_\mathsf_{_o_}_}$,$\mathsf { R f D } _ { \mathsf { o } }$,BaA_ngg,0.03,Unknown,,high,table_p4_ri9_ci4,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D___{_d_}_}$,$\mathsf { R f D _ { d } }$,BaA_ngg,0.03,Unknown,,high,table_p4_ri9_ci5,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_R_f_D_}___{_\mathrm_{_i_}_}$,$\mathsf { R f D } _ { \mathrm { i } }$,BaA_ngg,0.015,Unknown,,high,table_p4_ri9_ci6,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$S_\mathsf_{_F_}___{_\mathrm_{_i_}_}$,$S \mathsf { F } _ { \mathrm { i } }$,Chr_ngg,0.0031,Unknown,,high,table_p4_ri11_ci3,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_S_F_}___{_\circ_}$,$\mathsf { S F } _ { \circ }$,BbF_ngg,0.73,Unknown,,high,table_p4_ri12_ci1,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_S_F___{_d_}_}$,$\mathsf { S F _ { d } }$,BbF_ngg,0.73,Unknown,,high,table_p4_ri12_ci2,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$S_\mathsf_{_F_}___{_\mathrm_{_i_}_}$,$S \mathsf { F } _ { \mathrm { i } }$,BbF_ngg,0.31,Unknown,,high,table_p4_ri12_ci3,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_S_F_}___{_\circ_}$,$\mathsf { S F } _ { \circ }$,BkF_ngg,0.073,Unknown,,high,table_p4_ri13_ci1,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_S_F___{_d_}_}$,$\mathsf { S F _ { d } }$,BkF_ngg,0.073,Unknown,,high,table_p4_ri13_ci2,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$S_\mathsf_{_F_}___{_\mathrm_{_i_}_}$,$S \mathsf { F } _ { \mathrm { i } }$,BkF_ngg,0.031,Unknown,,high,table_p4_ri13_ci3,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$\mathsf_{_S_F___{_d_}_}$,$\mathsf { S F _ { d } }$,BaP_ngg,7.3,Unknown,,high,table_p4_ri14_ci2,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_$S_\mathsf_{_F_}___{_\mathrm_{_i_}_}$,$S \mathsf { F } _ { \mathrm { i } }$,BaP_ngg,3.1,Unknown,,high,table_p4_ri14_ci3,Table 2.RfD and SF values of PAHs.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_A,A,Nap_ngg,1545.0,Unknown,,high,table_p6_ri1_ci2,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_A,A,Flu_ngg,1917.0,Unknown,,high,table_p6_ri1_ci5,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_A,A,Phe_ngg,4629.0,Unknown,,high,table_p6_ri1_ci6,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_A,A,Ant_ngg,175.0,Unknown,,high,table_p6_ri1_ci7,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_A,A,Pyr_ngg,485.0,Unknown,,high,table_p6_ri1_ci9,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_A,A,BaA_ngg,246.0,Unknown,,high,table_p6_ri1_ci11,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_A,A,Chr_ngg,201.0,Unknown,,high,table_p6_ri1_ci12,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_A,A,BbF_ngg,406.0,Unknown,,high,table_p6_ri1_ci13,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_A,A,BkF_ngg,186.0,Unknown,,high,table_p6_ri1_ci14,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_A,A,BaP_ngg,114.0,Unknown,,high,table_p6_ri1_ci15,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_A,A,Sum_PAH_ngg,11.856,Unknown,,high,table_p6_ri1_ci18,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_A,A,Sum_PAH_ngg,1396.0,Unknown,,high,table_p6_ri1_ci19,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S2,S2,Nap_ngg,679.0,Unknown,,high,table_p6_ri2_ci2,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S2,S2,Flu_ngg,1544.0,Unknown,,high,table_p6_ri2_ci5,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S2,S2,Phe_ngg,3325.0,Unknown,,high,table_p6_ri2_ci6,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S2,S2,Ant_ngg,71.0,Unknown,,high,table_p6_ri2_ci7,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S2,S2,Pyr_ngg,285.0,Unknown,,high,table_p6_ri2_ci9,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S2,S2,BaA_ngg,16.0,Unknown,,high,table_p6_ri2_ci11,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S2,S2,Chr_ngg,64.0,Unknown,,high,table_p6_ri2_ci12,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S2,S2,BbF_ngg,69.0,Unknown,,high,table_p6_ri2_ci13,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S2,S2,BkF_ngg,99.0,Unknown,,high,table_p6_ri2_ci14,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S2,S2,BaP_ngg,42.0,Unknown,,high,table_p6_ri2_ci15,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S2,S2,Sum_PAH_ngg,7134.0,Unknown,,high,table_p6_ri2_ci18,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S2,S2,Sum_PAH_ngg,381.0,Unknown,,high,table_p6_ri2_ci19,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S3,S3,Nap_ngg,1617.0,Unknown,,high,table_p6_ri3_ci2,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S3,S3,Flu_ngg,648.0,Unknown,,high,table_p6_ri3_ci5,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S3,S3,Phe_ngg,1038.0,Unknown,,high,table_p6_ri3_ci6,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S3,S3,Ant_ngg,61.0,Unknown,,high,table_p6_ri3_ci7,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S3,S3,Pyr_ngg,108.0,Unknown,,high,table_p6_ri3_ci9,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S3,S3,Chr_ngg,82.0,Unknown,,high,table_p6_ri3_ci12,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S3,S3,BbF_ngg,162.0,Unknown,,high,table_p6_ri3_ci13,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S3,S3,BkF_ngg,208.0,Unknown,,high,table_p6_ri3_ci14,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S3,S3,BaP_ngg,79.0,Unknown,,high,table_p6_ri3_ci15,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S3,S3,Sum_PAH_ngg,4704.0,Unknown,,high,table_p6_ri3_ci18,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S3,S3,Sum_PAH_ngg,716.0,Unknown,,high,table_p6_ri3_ci19,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S4,S4,Nap_ngg,978.0,Unknown,,high,table_p6_ri4_ci2,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S4,S4,Flu_ngg,1770.0,Unknown,,high,table_p6_ri4_ci5,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S4,S4,Phe_ngg,2924.0,Unknown,,high,table_p6_ri4_ci6,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S4,S4,Ant_ngg,106.0,Unknown,,high,table_p6_ri4_ci7,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S4,S4,Pyr_ngg,263.0,Unknown,,high,table_p6_ri4_ci9,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S4,S4,BaA_ngg,7.0,Unknown,,high,table_p6_ri4_ci11,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S4,S4,Chr_ngg,51.0,Unknown,,high,table_p6_ri4_ci12,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S4,S4,BbF_ngg,52.0,Unknown,,high,table_p6_ri4_ci13,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S4,S4,BkF_ngg,84.0,Unknown,,high,table_p6_ri4_ci14,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S4,S4,BaP_ngg,26.0,Unknown,,high,table_p6_ri4_ci15,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S4,S4,Sum_PAH_ngg,7249.0,Unknown,,high,table_p6_ri4_ci18,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S4,S4,Sum_PAH_ngg,288.0,Unknown,,high,table_p6_ri4_ci19,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S5,S5,Nap_ngg,1344.0,Unknown,,high,table_p6_ri5_ci2,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S5,S5,Flu_ngg,841.0,Unknown,,high,table_p6_ri5_ci5,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S5,S5,Phe_ngg,1371.0,Unknown,,high,table_p6_ri5_ci6,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S5,S5,Ant_ngg,52.0,Unknown,,high,table_p6_ri5_ci7,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S5,S5,Pyr_ngg,202.0,Unknown,,high,table_p6_ri5_ci9,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S5,S5,BaA_ngg,18.0,Unknown,,high,table_p6_ri5_ci11,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S5,S5,Chr_ngg,131.0,Unknown,,high,table_p6_ri5_ci12,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S5,S5,BbF_ngg,317.0,Unknown,,high,table_p6_ri5_ci13,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S5,S5,BkF_ngg,474.0,Unknown,,high,table_p6_ri5_ci14,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S5,S5,BaP_ngg,103.0,Unknown,,high,table_p6_ri5_ci15,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S5,S5,Sum_PAH_ngg,6027.0,Unknown,,high,table_p6_ri5_ci18,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S5,S5,Sum_PAH_ngg,1396.0,Unknown,,high,table_p6_ri5_ci19,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_6_(15-30cm),6 (15-30cm),Nap_ngg,968.0,Unknown,,high,table_p6_ri6_ci2,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_6_(15-30cm),6 (15-30cm),Flu_ngg,1048.0,Unknown,,high,table_p6_ri6_ci5,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_6_(15-30cm),6 (15-30cm),Phe_ngg,1761.0,Unknown,,high,table_p6_ri6_ci6,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_6_(15-30cm),6 (15-30cm),Ant_ngg,71.0,Unknown,,high,table_p6_ri6_ci7,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_6_(15-30cm),6 (15-30cm),Pyr_ngg,153.0,Unknown,,high,table_p6_ri6_ci9,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_6_(15-30cm),6 (15-30cm),BaA_ngg,11.0,Unknown,,high,table_p6_ri6_ci11,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_6_(15-30cm),6 (15-30cm),Chr_ngg,62.0,Unknown,,high,table_p6_ri6_ci12,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_6_(15-30cm),6 (15-30cm),BbF_ngg,176.0,Unknown,,high,table_p6_ri6_ci13,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_6_(15-30cm),6 (15-30cm),BkF_ngg,88.0,Unknown,,high,table_p6_ri6_ci14,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_6_(15-30cm),6 (15-30cm),BaP_ngg,25.0,Unknown,,high,table_p6_ri6_ci15,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_6_(15-30cm),6 (15-30cm),Sum_PAH_ngg,5016.0,Unknown,,high,table_p6_ri6_ci18,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_6_(15-30cm),6 (15-30cm),Sum_PAH_ngg,425.0,Unknown,,high,table_p6_ri6_ci19,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_7_(0-15cm),7 (0-15cm),Nap_ngg,3650.0,Unknown,,high,table_p6_ri7_ci2,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_7_(0-15cm),7 (0-15cm),Flu_ngg,1746.0,Unknown,,high,table_p6_ri7_ci5,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_7_(0-15cm),7 (0-15cm),Phe_ngg,2982.0,Unknown,,high,table_p6_ri7_ci6,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_7_(0-15cm),7 (0-15cm),Ant_ngg,109.0,Unknown,,high,table_p6_ri7_ci7,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_7_(0-15cm),7 (0-15cm),Pyr_ngg,476.0,Unknown,,high,table_p6_ri7_ci9,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_7_(0-15cm),7 (0-15cm),BaA_ngg,157.0,Unknown,,high,table_p6_ri7_ci11,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_7_(0-15cm),7 (0-15cm),Chr_ngg,182.0,Unknown,,high,table_p6_ri7_ci12,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_7_(0-15cm),7 (0-15cm),BbF_ngg,523.0,Unknown,,high,table_p6_ri7_ci13,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_7_(0-15cm),7 (0-15cm),BkF_ngg,213.0,Unknown,,high,table_p6_ri7_ci14,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_7_(0-15cm),7 (0-15cm),BaP_ngg,117.0,Unknown,,high,table_p6_ri7_ci15,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_7_(0-15cm),7 (0-15cm),Sum_PAH_ngg,12173.0,Unknown,,high,table_p6_ri7_ci18,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_7_(0-15cm),7 (0-15cm),Sum_PAH_ngg,1456.0,Unknown,,high,table_p6_ri7_ci19,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_8_(15-30_cm),8 (15-30 cm),Nap_ngg,808.0,Unknown,,high,table_p6_ri8_ci2,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_8_(15-30_cm),8 (15-30 cm),Flu_ngg,1378.0,Unknown,,high,table_p6_ri8_ci5,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_8_(15-30_cm),8 (15-30 cm),Phe_ngg,2722.0,Unknown,,high,table_p6_ri8_ci6,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_8_(15-30_cm),8 (15-30 cm),Ant_ngg,50.0,Unknown,,high,table_p6_ri8_ci7,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_8_(15-30_cm),8 (15-30 cm),Pyr_ngg,257.0,Unknown,,high,table_p6_ri8_ci9,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_8_(15-30_cm),8 (15-30 cm),BaA_ngg,86.0,Unknown,,high,table_p6_ri8_ci11,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_8_(15-30_cm),8 (15-30 cm),Chr_ngg,79.0,Unknown,,high,table_p6_ri8_ci12,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_8_(15-30_cm),8 (15-30 cm),BbF_ngg,270.0,Unknown,,high,table_p6_ri8_ci13,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_8_(15-30_cm),8 (15-30 cm),BkF_ngg,45.0,Unknown,,high,table_p6_ri8_ci14,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_8_(15-30_cm),8 (15-30 cm),BaP_ngg,27.0,Unknown,,high,table_p6_ri8_ci15,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_8_(15-30_cm),8 (15-30 cm),Sum_PAH_ngg,6552.0,Unknown,,high,table_p6_ri8_ci18,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_8_(15-30_cm),8 (15-30 cm),Sum_PAH_ngg,588.0,Unknown,,high,table_p6_ri8_ci19,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_9_(0-15cm),9 (0-15cm),Nap_ngg,1716.0,Unknown,,high,table_p6_ri9_ci2,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_9_(0-15cm),9 (0-15cm),Flu_ngg,1365.0,Unknown,,high,table_p6_ri9_ci5,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_9_(0-15cm),9 (0-15cm),Phe_ngg,2331.0,Unknown,,high,table_p6_ri9_ci6,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_9_(0-15cm),9 (0-15cm),Ant_ngg,104.0,Unknown,,high,table_p6_ri9_ci7,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_9_(0-15cm),9 (0-15cm),Pyr_ngg,233.0,Unknown,,high,table_p6_ri9_ci9,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_9_(0-15cm),9 (0-15cm),BaA_ngg,18.0,Unknown,,high,table_p6_ri9_ci11,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_9_(0-15cm),9 (0-15cm),Chr_ngg,125.0,Unknown,,high,table_p6_ri9_ci12,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_9_(0-15cm),9 (0-15cm),BbF_ngg,297.0,Unknown,,high,table_p6_ri9_ci13,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_9_(0-15cm),9 (0-15cm),BkF_ngg,49.0,Unknown,,high,table_p6_ri9_ci14,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_9_(0-15cm),9 (0-15cm),BaP_ngg,26.0,Unknown,,high,table_p6_ri9_ci15,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_9_(0-15cm),9 (0-15cm),Sum_PAH_ngg,7108.0,Unknown,,high,table_p6_ri9_ci18,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_9_(0-15cm),9 (0-15cm),Sum_PAH_ngg,626.0,Unknown,,high,table_p6_ri9_ci19,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S10,S10,Nap_ngg,922.0,Unknown,,high,table_p6_ri10_ci2,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S10,S10,Flu_ngg,1385.0,Unknown,,high,table_p6_ri10_ci5,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S10,S10,Phe_ngg,1904.0,Unknown,,high,table_p6_ri10_ci6,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S10,S10,Ant_ngg,189.0,Unknown,,high,table_p6_ri10_ci7,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S10,S10,Pyr_ngg,278.0,Unknown,,high,table_p6_ri10_ci9,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S10,S10,BaA_ngg,18.0,Unknown,,high,table_p6_ri10_ci11,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S10,S10,Chr_ngg,71.0,Unknown,,high,table_p6_ri10_ci12,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S10,S10,BbF_ngg,181.0,Unknown,,high,table_p6_ri10_ci13,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S10,S10,BkF_ngg,441.0,Unknown,,high,table_p6_ri10_ci14,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S10,S10,BaP_ngg,259.0,Unknown,,high,table_p6_ri10_ci15,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S10,S10,Sum_PAH_ngg,6533.0,Unknown,,high,table_p6_ri10_ci18,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S10,S10,Sum_PAH_ngg,1049.0,Unknown,,high,table_p6_ri10_ci19,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Concentration,Concentration,Nap_ngg,2164.5,Unknown,range_mean,high,table_p6_ri11_ci2,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Concentration,Concentration,Flu_ngg,1197.0,Unknown,range_mean,high,table_p6_ri11_ci5,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Concentration,Concentration,Phe_ngg,2833.5,Unknown,range_mean,high,table_p6_ri11_ci6,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Concentration,Concentration,Ant_ngg,119.5,Unknown,range_mean,high,table_p6_ri11_ci7,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Concentration,Concentration,Pyr_ngg,296.5,Unknown,range_mean,high,table_p6_ri11_ci9,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Concentration,Concentration,BaA_ngg,126.5,Unknown,range_mean,high,table_p6_ri11_ci11,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Concentration,Concentration,Chr_ngg,126.0,Unknown,range_mean,high,table_p6_ri11_ci12,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Concentration,Concentration,BbF_ngg,287.5,Unknown,range_mean,high,table_p6_ri11_ci13,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Concentration,Concentration,BkF_ngg,259.5,Unknown,range_mean,high,table_p6_ri11_ci14,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Concentration,Concentration,BaP_ngg,142.5,Unknown,range_mean,high,table_p6_ri11_ci15,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Concentration,Concentration,Sum_PAH_ngg,2358.0,Unknown,range_mean,high,table_p6_ri11_ci18,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Concentration,Concentration,Sum_PAH_ngg,872.0,Unknown,range_mean,high,table_p6_ri11_ci19,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_range_(μg/kg)_Mean,range (μg/kg) Mean,Nap_ngg,1423.0,Unknown,,high,table_p6_ri12_ci2,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_range_(μg/kg)_Mean,range (μg/kg) Mean,Flu_ngg,1364.0,Unknown,,high,table_p6_ri12_ci5,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_range_(μg/kg)_Mean,range (μg/kg) Mean,Phe_ngg,2499.0,Unknown,,high,table_p6_ri12_ci6,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_range_(μg/kg)_Mean,range (μg/kg) Mean,Ant_ngg,99.0,Unknown,,high,table_p6_ri12_ci7,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_range_(μg/kg)_Mean,range (μg/kg) Mean,Pyr_ngg,274.0,Unknown,,high,table_p6_ri12_ci9,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_range_(μg/kg)_Mean,range (μg/kg) Mean,BaA_ngg,59.0,Unknown,,high,table_p6_ri12_ci11,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_range_(μg/kg)_Mean,range (μg/kg) Mean,Chr_ngg,105.0,Unknown,,high,table_p6_ri12_ci12,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_range_(μg/kg)_Mean,range (μg/kg) Mean,BbF_ngg,245.0,Unknown,,high,table_p6_ri12_ci13,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_range_(μg/kg)_Mean,range (μg/kg) Mean,BkF_ngg,189.0,Unknown,,high,table_p6_ri12_ci14,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_range_(μg/kg)_Mean,range (μg/kg) Mean,BaP_ngg,82.0,Unknown,,high,table_p6_ri12_ci15,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Over-standard,Over-standard,Nap_ngg,100.0,Unknown,,high,table_p6_ri13_ci2,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Over-standard,Over-standard,Phe_ngg,100.0,Unknown,,high,table_p6_ri13_ci6,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Over-standard,Over-standard,Ant_ngg,100.0,Unknown,,high,table_p6_ri13_ci7,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Over-standard,Over-standard,Chr_ngg,100.0,Unknown,,high,table_p6_ri13_ci12,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Over-standard,Over-standard,BbF_ngg,100.0,Unknown,,high,table_p6_ri13_ci13,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Over-standard,Over-standard,BkF_ngg,100.0,Unknown,,high,table_p6_ri13_ci14,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Over-standard,Over-standard,Sum_PAH_ngg,7436.0,Unknown,,high,table_p6_ri13_ci18,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Over-standard,Over-standard,Sum_PAH_ngg,832.0,Unknown,,high,table_p6_ri13_ci19,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_rate_(%),rate (%),Chr_ngg,416.0,Unknown,,high,table_p6_ri14_ci12,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_B,B,Nap_ngg,315.0,Unknown,,high,table_p6_ri15_ci2,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_B,B,Flu_ngg,1334.0,Unknown,,high,table_p6_ri15_ci5,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_B,B,Phe_ngg,4916.0,Unknown,,high,table_p6_ri15_ci6,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_B,B,Ant_ngg,260.0,Unknown,,high,table_p6_ri15_ci7,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_B,B,Pyr_ngg,1202.0,Unknown,,high,table_p6_ri15_ci9,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_B,B,BbF_ngg,539.0,Unknown,,high,table_p6_ri15_ci13,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_B,B,BkF_ngg,178.0,Unknown,,high,table_p6_ri15_ci14,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_B,B,BaP_ngg,89.0,Unknown,,high,table_p6_ri15_ci15,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_B,B,Sum_PAH_ngg,13005.0,Unknown,,high,table_p6_ri15_ci18,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_B,B,Sum_PAH_ngg,2228.0,Unknown,,high,table_p6_ri15_ci19,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S16,S16,Nap_ngg,865.0,Unknown,,high,table_p6_ri16_ci2,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S16,S16,Flu_ngg,2477.0,Unknown,,high,table_p6_ri16_ci5,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S16,S16,Phe_ngg,10849.0,Unknown,,high,table_p6_ri16_ci6,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S16,S16,Ant_ngg,375.0,Unknown,,high,table_p6_ri16_ci7,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S16,S16,Pyr_ngg,3836.0,Unknown,,high,table_p6_ri16_ci9,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S16,S16,BbF_ngg,812.0,Unknown,,high,table_p6_ri16_ci13,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S16,S16,BkF_ngg,273.0,Unknown,,high,table_p6_ri16_ci14,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S16,S16,BaP_ngg,102.0,Unknown,,high,table_p6_ri16_ci15,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S16,S16,Sum_PAH_ngg,31816.0,Unknown,,high,table_p6_ri16_ci18,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S16,S16,Sum_PAH_ngg,3105.0,Unknown,,high,table_p6_ri16_ci19,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S17,S17,Nap_ngg,874.0,Unknown,,high,table_p6_ri17_ci2,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S17,S17,Flu_ngg,1546.0,Unknown,,high,table_p6_ri17_ci5,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S17,S17,Phe_ngg,2689.0,Unknown,,high,table_p6_ri17_ci6,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S17,S17,Ant_ngg,26.0,Unknown,,high,table_p6_ri17_ci7,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S17,S17,Pyr_ngg,362.0,Unknown,,high,table_p6_ri17_ci9,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S17,S17,BbF_ngg,194.0,Unknown,,high,table_p6_ri17_ci13,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S17,S17,BkF_ngg,41.0,Unknown,,high,table_p6_ri17_ci14,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S17,S17,BaP_ngg,56.0,Unknown,,high,table_p6_ri17_ci15,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_S17,S17,Sum_PAH_ngg,7285.0,Unknown,,high,table_p6_ri17_ci18,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_14_(15-30_cm),14 (15-30 cm),Nap_ngg,421.0,Unknown,,high,table_p6_ri18_ci2,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_14_(15-30_cm),14 (15-30 cm),Flu_ngg,700.0,Unknown,,high,table_p6_ri18_ci5,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_14_(15-30_cm),14 (15-30 cm),Phe_ngg,2159.0,Unknown,,high,table_p6_ri18_ci6,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_14_(15-30_cm),14 (15-30 cm),Ant_ngg,15.0,Unknown,,high,table_p6_ri18_ci7,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_14_(15-30_cm),14 (15-30 cm),Pyr_ngg,346.0,Unknown,,high,table_p6_ri18_ci9,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_14_(15-30_cm),14 (15-30 cm),BbF_ngg,210.0,Unknown,,high,table_p6_ri18_ci13,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_14_(15-30_cm),14 (15-30 cm),BkF_ngg,60.0,Unknown,,high,table_p6_ri18_ci14,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_14_(15-30_cm),14 (15-30 cm),BaP_ngg,40.0,Unknown,,high,table_p6_ri18_ci15,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_14_(15-30_cm),14 (15-30 cm),Sum_PAH_ngg,5352.0,Unknown,,high,table_p6_ri18_ci18,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_14_(15-30_cm),14 (15-30 cm),Sum_PAH_ngg,895.0,Unknown,,high,table_p6_ri18_ci19,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_15_(0-15cm),15 (0-15cm),Nap_ngg,551.0,Unknown,,high,table_p6_ri19_ci2,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_15_(0-15cm),15 (0-15cm),Flu_ngg,337.0,Unknown,,high,table_p6_ri19_ci5,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_15_(0-15cm),15 (0-15cm),Phe_ngg,879.0,Unknown,,high,table_p6_ri19_ci6,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_15_(0-15cm),15 (0-15cm),Ant_ngg,72.0,Unknown,,high,table_p6_ri19_ci7,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_15_(0-15cm),15 (0-15cm),Pyr_ngg,195.0,Unknown,,high,table_p6_ri19_ci9,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_15_(0-15cm),15 (0-15cm),Chr_ngg,123144.0,Unknown,,high,table_p6_ri19_ci12,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_15_(0-15cm),15 (0-15cm),BbF_ngg,331.0,Unknown,,high,table_p6_ri19_ci13,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_15_(0-15cm),15 (0-15cm),BkF_ngg,162.0,Unknown,,high,table_p6_ri19_ci14,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_15_(0-15cm),15 (0-15cm),BaP_ngg,144.0,Unknown,,high,table_p6_ri19_ci15,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_15_(0-15cm),15 (0-15cm),Sum_PAH_ngg,3582.0,Unknown,,high,table_p6_ri19_ci18,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_15_(0-15cm),15 (0-15cm),Sum_PAH_ngg,673.0,Unknown,,high,table_p6_ri19_ci19,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_16_(15-30_cm),16 (15-30 cm),Nap_ngg,1267.0,Unknown,,high,table_p6_ri20_ci2,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_16_(15-30_cm),16 (15-30 cm),Flu_ngg,1290.0,Unknown,,high,table_p6_ri20_ci5,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_16_(15-30_cm),16 (15-30 cm),Phe_ngg,1685.0,Unknown,,high,table_p6_ri20_ci6,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_16_(15-30_cm),16 (15-30 cm),Ant_ngg,34.0,Unknown,,high,table_p6_ri20_ci7,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_16_(15-30_cm),16 (15-30 cm),Pyr_ngg,166.0,Unknown,,high,table_p6_ri20_ci9,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_16_(15-30_cm),16 (15-30 cm),Chr_ngg,99.0,Unknown,,high,table_p6_ri20_ci12,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_16_(15-30_cm),16 (15-30 cm),BbF_ngg,233.0,Unknown,,high,table_p6_ri20_ci13,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_16_(15-30_cm),16 (15-30 cm),BkF_ngg,69.0,Unknown,,high,table_p6_ri20_ci14,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_16_(15-30_cm),16 (15-30 cm),BaP_ngg,110.0,Unknown,,high,table_p6_ri20_ci15,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_16_(15-30_cm),16 (15-30 cm),Sum_PAH_ngg,5947.0,Unknown,,high,table_p6_ri20_ci18,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_16_(15-30_cm),16 (15-30 cm),Sum_PAH_ngg,816.0,Unknown,,high,table_p6_ri20_ci19,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_17_(0-15_cm),17 (0-15 cm),Nap_ngg,1420.0,Unknown,,high,table_p6_ri21_ci2,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_17_(0-15_cm),17 (0-15 cm),Flu_ngg,811.0,Unknown,,high,table_p6_ri21_ci5,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_17_(0-15_cm),17 (0-15 cm),Phe_ngg,1827.0,Unknown,,high,table_p6_ri21_ci6,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_17_(0-15_cm),17 (0-15 cm),Ant_ngg,49.0,Unknown,,high,table_p6_ri21_ci7,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_17_(0-15_cm),17 (0-15 cm),Pyr_ngg,325.0,Unknown,,high,table_p6_ri21_ci9,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_17_(0-15_cm),17 (0-15 cm),Chr_ngg,123.0,Unknown,,high,table_p6_ri21_ci12,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_17_(0-15_cm),17 (0-15 cm),BbF_ngg,21323.0,Unknown,,high,table_p6_ri21_ci13,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_17_(0-15_cm),17 (0-15 cm),BkF_ngg,6928.0,Unknown,,high,table_p6_ri21_ci14,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_17_(0-15_cm),17 (0-15 cm),BaP_ngg,8624.0,Unknown,,high,table_p6_ri21_ci15,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_17_(0-15_cm),17 (0-15 cm),Sum_PAH_ngg,218479.0,Unknown,,high,table_p6_ri21_ci19,,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Oral_ingestion,Oral ingestion,BaA_ngg,3.27,Unknown,,high,table_p9_ri1_ci1,Figure 5.The contribution rate of diferent exposure pathways to the health risk. Table7.Safety threshold values of PAHs in the thermal power plant.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Oral_ingestion,Oral ingestion,Chr_ngg,327.17,Unknown,,high,table_p9_ri1_ci2,Figure 5.The contribution rate of diferent exposure pathways to the health risk. Table7.Safety threshold values of PAHs in the thermal power plant.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Oral_ingestion,Oral ingestion,BbF_ngg,3.27,Unknown,,high,table_p9_ri1_ci3,Figure 5.The contribution rate of diferent exposure pathways to the health risk. Table7.Safety threshold values of PAHs in the thermal power plant.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Oral_ingestion,Oral ingestion,BkF_ngg,32.71,Unknown,,high,table_p9_ri1_ci4,Figure 5.The contribution rate of diferent exposure pathways to the health risk. Table7.Safety threshold values of PAHs in the thermal power plant.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Oral_ingestion,Oral ingestion,BaP_ngg,0.32,Unknown,,high,table_p9_ri1_ci5,Figure 5.The contribution rate of diferent exposure pathways to the health risk. Table7.Safety threshold values of PAHs in the thermal power plant.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Skin_contact,Skin contact,BaA_ngg,4.41,Unknown,,high,table_p9_ri2_ci1,Figure 5.The contribution rate of diferent exposure pathways to the health risk. Table7.Safety threshold values of PAHs in the thermal power plant.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Skin_contact,Skin contact,Chr_ngg,440.75,Unknown,,high,table_p9_ri2_ci2,Figure 5.The contribution rate of diferent exposure pathways to the health risk. Table7.Safety threshold values of PAHs in the thermal power plant.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Skin_contact,Skin contact,BbF_ngg,4.41,Unknown,,high,table_p9_ri2_ci3,Figure 5.The contribution rate of diferent exposure pathways to the health risk. Table7.Safety threshold values of PAHs in the thermal power plant.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Skin_contact,Skin contact,BkF_ngg,44.08,Unknown,,high,table_p9_ri2_ci4,Figure 5.The contribution rate of diferent exposure pathways to the health risk. Table7.Safety threshold values of PAHs in the thermal power plant.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Skin_contact,Skin contact,BaP_ngg,0.44,Unknown,,high,table_p9_ri2_ci5,Figure 5.The contribution rate of diferent exposure pathways to the health risk. Table7.Safety threshold values of PAHs in the thermal power plant.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Inhalation_of_soil_particles,Inhalation of soil particles,BaA_ngg,651.41,Unknown,,high,table_p9_ri3_ci1,Figure 5.The contribution rate of diferent exposure pathways to the health risk. Table7.Safety threshold values of PAHs in the thermal power plant.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Inhalation_of_soil_particles,Inhalation of soil particles,Chr_ngg,65141.49,Unknown,,high,table_p9_ri3_ci2,Figure 5.The contribution rate of diferent exposure pathways to the health risk. Table7.Safety threshold values of PAHs in the thermal power plant.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Inhalation_of_soil_particles,Inhalation of soil particles,BbF_ngg,651.41,Unknown,,high,table_p9_ri3_ci3,Figure 5.The contribution rate of diferent exposure pathways to the health risk. Table7.Safety threshold values of PAHs in the thermal power plant.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Inhalation_of_soil_particles,Inhalation of soil particles,BkF_ngg,6514.15,Unknown,,high,table_p9_ri3_ci4,Figure 5.The contribution rate of diferent exposure pathways to the health risk. Table7.Safety threshold values of PAHs in the thermal power plant.,,,,,,phase14
+70667_10934529.2021.1927597,70667_10934529.2021.1927597_Inhalation_of_soil_particles,Inhalation of soil particles,BaP_ngg,65.14,Unknown,,high,table_p9_ri3_ci5,Figure 5.The contribution rate of diferent exposure pathways to the health risk. Table7.Safety threshold values of PAHs in the thermal power plant.,,,,,,phase14

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01128,Shengli_Oilfield_PCS,TotalPHC_mgkg,26300,mg/kg,Section 2.1 & 3.1,soil,petrochemical,Shandong,"pre-remediation baseline TPH of composite field soil from Shengli Oilfield crude oil spill site; value=26300±250 mg/kg (mean of 3 analytical replicates of one composite sample); lab bioreactor/greenhouse remediation time-series data rejected per pot/greenhouse rule; no sample-level PAH/PCB/DDT/HCH/PBDE data (only TPH reported)"

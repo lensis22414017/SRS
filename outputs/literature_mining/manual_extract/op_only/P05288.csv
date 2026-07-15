@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05288,S3,Sum_PAH_ngg,1324,ng/g,正文Results段(3.1 Concentration level),soil,other,Chongqing,"Σ15PAHs (Nap excluded by authors due to low d8 surrogate recovery); WLFZ soil sample; only 2 of 20 samples have text-level values; Table 1 is range(median) group summary (rejected); remaining 18 sample values only in Fig S2/Fig 1 (images)"
+P05288,S5,Sum_PAH_ngg,1171,ng/g,正文Results段(3.1 Concentration level),soil,other,Chongqing,"Σ15PAHs (Nap excluded by authors due to low d8 surrogate recovery); WLFZ soil sample; only 2 of 20 samples have text-level values; Table 1 is range(median) group summary (rejected); remaining 18 sample values only in Fig S2/Fig 1 (images)"

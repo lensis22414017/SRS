@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01265,skip,,na,,na,soil,e_waste,Zhejiang,"skip: 本地PDF仅1/9页（仅abstract+intro），含浓度数据的Table 1-4在第2-9页缺失；SI目录为空；ScienceDirect/ResearchGate/DiVA等网络源均无法获取全文。论文为蚯蚓生物累积研究（60 paired samples from Luqiao District Taizhou E-waste area, Sept 2009），有5+ sites（BFA/TiY/FJ/HeJ/ToY），含PCBs/PBDEs/PCDD-Fs土壤浓度但无法读取数值。需完整PDF方可提取。"

@@ -1,0 +1,8 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+10807039.2017.1394175,"10807039.2017.1394175_Moscow,_Russia",SumPCB_ngg,17.0,Unknown,table_p6_ri1_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+10807039.2017.1394175,"10807039.2017.1394175_London,_U.k.",SumPCB_ngg,7.0,Unknown,table_p6_ri2_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+10807039.2017.1394175,"10807039.2017.1394175_Torino,_Italy",SumPCB_ngg,5.0,Unknown,table_p6_ri3_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+10807039.2017.1394175,10807039.2017.1394175_Hong_Kong_urban,SumPCB_ngg,7.0,Unknown,table_p6_ri4_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+10807039.2017.1394175,10807039.2017.1394175_World_background_values,SumPCB_ngg,29.0,Unknown,table_p6_ri5_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+10807039.2017.1394175,"10807039.2017.1394175_Chongming,Shanghai",SumPCB_ngg,8.0,Unknown,table_p6_ri6_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+10807039.2017.1394175,10807039.2017.1394175_Changchun_area,SumPCB_ngg,7.0,Unknown,table_p6_ri7_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,

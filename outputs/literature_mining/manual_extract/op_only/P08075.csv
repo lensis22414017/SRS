@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08075,,,,,,,,,skip: 微生物降解实验室研究(Klebsiella variicola FH-1在液体培养基中降解Atrazine)。论文仅从吉林农大实验站取土分离菌株(2.1节仅记录pH6.54/有机质18.57g/kg无OP浓度)，所有Atrazine浓度均为实验室液体培养基spiked实验(50/100mg/L)。Atrazine(三嗪类除草剂)不在目标OP清单(PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAEs/OCPs)。无场地采样点级OP数据，无修复前本底实测。Discussion 4.2引文值2.89-3.81mg/kg为文献[14]非本研究实测。

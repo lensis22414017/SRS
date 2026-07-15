@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11024,,,,,,,,"skip: 无真实场地采样点级数据；表1仅场地范围浓度(min~max)非个体采样点；表6为实验室小试(50g密封瓶/72h养护)属实验室实验已剔除；表8为施工现场中试堆体(S0-S4)经清挖/筛分/破碎/湿度调节处理非原状场地采样点","whole paper is a remediation engineering project report, no original undisturbed field sampling points with individual sample IDs; only site-level concentration ranges, lab experiments, and pilot-scale processed soil data available"

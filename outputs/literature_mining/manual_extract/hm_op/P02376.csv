@@ -1,0 +1,7 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02376,S1,SumPBDE_ngg,1195.1,ng/g,Table 1,soil,e_waste,Zhejiang,"Table 1 Total PBDEs 行直接读取, 原始单位 μg/kg dry wt = ng/g 数值不变; 8个BDE单体(BDE-28/47/99/100/153/154/183/209)之和"
+P02376,S2,SumPBDE_ngg,27.9,ng/g,Table 1,soil,e_waste,Zhejiang,"Table 1 Total PBDEs 行直接读取, 原始单位 μg/kg dry wt = ng/g 数值不变; 8个BDE单体之和"
+P02376,S3,SumPBDE_ngg,131.1,ng/g,Table 1,soil,e_waste,Zhejiang,"Table 1 Total PBDEs 行直接读取, 原始单位 μg/kg dry wt = ng/g 数值不变; 8个BDE单体之和"
+P02376,S4,SumPBDE_ngg,1889.1,ng/g,Table 1,soil,e_waste,Zhejiang,"Table 1 Total PBDEs 行直接读取, 原始单位 μg/kg dry wt = ng/g 数值不变; 8个BDE单体之和"
+P02376,S5,SumPBDE_ngg,3128.4,ng/g,Table 1,soil,e_waste,Zhejiang,"Table 1 Total PBDEs 行直接读取, 原始单位 μg/kg dry wt = ng/g 数值不变; 8个BDE单体之和, BDE-209主导(2182.7)"
+P02376,M,SumPBDE_ngg,64.4,ng/g,Table 1,soil,e_waste,Zhejiang,"Table 1 Total PBDEs 行直接读取, M为参考点(远离电子废物回收活动)但仍为真实采样点; 原始单位 μg/kg dry wt = ng/g"

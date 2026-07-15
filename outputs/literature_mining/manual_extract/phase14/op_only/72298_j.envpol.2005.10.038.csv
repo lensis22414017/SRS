@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+72298_j.envpol.2005.10.038,72298_j.envpol.2005.10.038_Minimum,Minimum,TotalPHC_mgkg,1100.0,Unknown,,medium,table_p5_ri2_ci2,Organopollutants of soil samples of the abandoned shipyard area,,,,,,phase14
+72298_j.envpol.2005.10.038,72298_j.envpol.2005.10.038_Maximum,Maximum,TotalPHC_mgkg,2740.0,Unknown,,medium,table_p5_ri2_ci3,Organopollutants of soil samples of the abandoned shipyard area,,,,,,phase14
+72298_j.envpol.2005.10.038,72298_j.envpol.2005.10.038_Dutch_B,Dutch B,TotalPHC_mgkg,1000.0,Unknown,,medium,table_p5_ri2_ci4,Organopollutants of soil samples of the abandoned shipyard area,,,,,,phase14
+72298_j.envpol.2005.10.038,72298_j.envpol.2005.10.038_Dutch_C,Dutch C,TotalPHC_mgkg,5000.0,Unknown,,medium,table_p5_ri2_ci5,Organopollutants of soil samples of the abandoned shipyard area,,,,,,phase14

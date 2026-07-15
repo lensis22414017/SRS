@@ -1,0 +1,13 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+1-s2.0-S0048969724077404,1-s2.0-S0048969724077404_CZTUA,Sum_PAH_ngg,493.2,Unknown,table_p1_ri1_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+1-s2.0-S0048969724077404,1-s2.0-S0048969724077404_Changsha,Sum_PAH_ngg,433.01,Unknown,table_p1_ri1_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+1-s2.0-S0048969724077404,1-s2.0-S0048969724077404_Zhuzhou,Sum_PAH_ngg,427.4,Unknown,table_p1_ri1_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+1-s2.0-S0048969724077404,1-s2.0-S0048969724077404_Xiangtan,Sum_PAH_ngg,660.7,Unknown,table_p1_ri1_ci4,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+1-s2.0-S0048969724077404,1-s2.0-S0048969724077404_CZTUA,Sum_PAH_ngg,118.48,Unknown,table_p1_ri3_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+1-s2.0-S0048969724077404,1-s2.0-S0048969724077404_Changsha,Sum_PAH_ngg,112.79,Unknown,table_p1_ri3_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+1-s2.0-S0048969724077404,1-s2.0-S0048969724077404_Zhuzhou,Sum_PAH_ngg,106.86,Unknown,table_p1_ri3_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+1-s2.0-S0048969724077404,1-s2.0-S0048969724077404_Xiangtan,Sum_PAH_ngg,143.2,Unknown,table_p1_ri3_ci4,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+1-s2.0-S0048969724077404,1-s2.0-S0048969724077404_CZTUA,Sum_PAH_ngg,374.67,Unknown,table_p1_ri5_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+1-s2.0-S0048969724077404,1-s2.0-S0048969724077404_Changsha,Sum_PAH_ngg,323.1,Unknown,table_p1_ri5_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+1-s2.0-S0048969724077404,1-s2.0-S0048969724077404_Zhuzhou,Sum_PAH_ngg,334.08,Unknown,table_p1_ri5_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+1-s2.0-S0048969724077404,1-s2.0-S0048969724077404_Xiangtan,Sum_PAH_ngg,543.29,Unknown,table_p1_ri5_ci4,soil,agricultural,,phase14_auto; confidence=high; flag=,,

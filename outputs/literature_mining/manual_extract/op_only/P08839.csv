@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08839,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"skip: 表格为图片无法解析采样点级数据；paper.md仅含摘要(Σ16PAHs 5.70-1512 ng/g, median 44.2 ng/g)无采样点级；无HM数据"

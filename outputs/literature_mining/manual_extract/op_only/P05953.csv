@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05953,,,,,,,,,"skip: 论文仅提供6个功能区组(工业/交通/加油站/垃圾/居住/郊区)的Mean/Max/Min统计汇总，32个独立采样点未标识、无采样点级浓度数据。仅含PAHs，无HM。Table 1仅分组汇总行，无site-level individual value。"

@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+1-s2.0-S0269749123013702,1-s2.0-S0269749123013702_PFBA,PFBA,V_mgkg,846.54,Unknown,,high,table_p3_ri5_ci1,Table 1 The physicochemical and toxicological parameters of the selected perfluoroalkyl acids.
+1-s2.0-S0269749123013702,1-s2.0-S0269749123013702_PFOA,PFOA,V_mgkg,126.52,Unknown,,high,table_p3_ri5_ci3,Table 1 The physicochemical and toxicological parameters of the selected perfluoroalkyl acids.
+1-s2.0-S0269749123013702,1-s2.0-S0269749123013702_PFOS,PFOS,V_mgkg,0.00033,Unknown,,high,table_p3_ri5_ci4,Table 1 The physicochemical and toxicological parameters of the selected perfluoroalkyl acids.
+1-s2.0-S0269749123013702,1-s2.0-S0269749123013702_PFOA,PFOA,OC_pct,2.31,Unknown,,high,table_p3_ri8_ci3,Table 1 The physicochemical and toxicological parameters of the selected perfluoroalkyl acids.
+1-s2.0-S0269749123013702,1-s2.0-S0269749123013702_PFOS,PFOS,OC_pct,3.35,Unknown,,high,table_p3_ri8_ci4,Table 1 The physicochemical and toxicological parameters of the selected perfluoroalkyl acids.
+1-s2.0-S0269749123013702,1-s2.0-S0269749123013702_PFBS,PFBS,OC_pct,0.14,Unknown,,high,table_p3_ri9_ci2,Table 1 The physicochemical and toxicological parameters of the selected perfluoroalkyl acids.

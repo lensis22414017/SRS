@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10635,,,,,,,soil,mountain/background,Sichuan,"skip: 论文仅测PCDD/Fs(二噁英)、dl-PCBs(12种类二噁英PCB同族体)和PCNs(多氯萘)三类污染物，均非目标OP类别(PAH/BaP/SumPCB总量/DDT/HCH/PBDE/石油烃/抗生素/PAEs/OCPs)；dl-PCB各点位总量仅在Fig 2b柱状图中、文本仅给range 7.6-10.5 pg/g dw无逐点位值；Table 2的WHO-TEQ为风险指数须剔除；5个高海拔采样点(DS/BMP/95km/TF/YK)无任何目标OP的采样点级表格数据"

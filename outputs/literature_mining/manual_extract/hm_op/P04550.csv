@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04550,,,,,,,,,"skip: 论文Table 2仅给出Region I-X十场地的区域级统计汇总(Max/Min/Median, n=11-28)，无采样点级个体观测值(S1/A/B等)；且仅测HM 7元素(Cd/As/Cu/Pb/Cr/Zn/Hg)无任何OP数据(PAH/PCB/DDT/HCH/PBDE/PHC)，非HM+OP复合论文；Table A1为CV/超标倍数(风险指数)，Table A2为HI/CR风险值，Table 3为RBRLs修复阈值；均不可作采样点浓度。研究地点=广西河池市，site_type=industrial/mining(金属冶炼区)"

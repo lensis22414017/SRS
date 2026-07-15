@@ -1,0 +1,9 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00321,Peiku,SumDDT_ngg,0.48,ng/g,Table 1,sediment,other,Tibet,"Surface layer concentration (top 0-0.5cm segment of sediment core); SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDD+p,p'-DDD+o,p'-DDT+p,p'-DDT per text definition"
+P00321,Peiku,SumHCH_ngg,0.69,ng/g,Table 1,sediment,other,Tibet,Surface layer concentration; SumHCH=alpha+beta+gamma+delta-HCH
+P00321,Cuo E,SumDDT_ngg,1.00,ng/g,Table 1,sediment,other,Tibet,Surface layer concentration (top segment); SumDDT=6 DDT compounds per text
+P00321,Cuo E,SumHCH_ngg,1.37,ng/g,Table 1,sediment,other,Tibet,Surface layer concentration; SumHCH=4 HCH isomers
+P00321,Cuo Na,SumDDT_ngg,0.93,ng/g,Table 1,sediment,other,Tibet,Surface layer concentration (top segment); SumDDT=6 DDT compounds
+P00321,Cuo Na,SumHCH_ngg,1.23,ng/g,Table 1,sediment,other,Tibet,Surface layer concentration; SumHCH=4 HCH isomers
+P00321,Keluke,SumDDT_ngg,0.28,ng/g,Table 1,sediment,other,Qinghai,Surface layer concentration (top segment); northeast TP; SumDDT=6 DDT compounds
+P00321,Keluke,SumHCH_ngg,1.03,ng/g,Table 1,sediment,other,Qinghai,Surface layer concentration; SumHCH=4 HCH isomers

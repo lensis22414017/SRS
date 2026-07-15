@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11023,,,,,,soil,industrial,Hebei,"skip: 修复工程实践报告无采样点级场地本底数据. 表1为场地级检出浓度范围(min~max)无采样点标识(砷0.32~42.8/铅7.7~1140/钒14.1~382/锰107~4640 mg/kg及5种PAH单体+TPH范围); 表2为GB36600修复目标阈值已剔除; 表3-4为水泥窑协同处置工程限值非土壤浓度; 表5-6为实验室小试(50g土样化学氧化实验S1/S2/S3/T1/T2/T3为实验组编号非野外采样点)属剔除场景; 表7-8为中试工程堆体(0#-4#)修复后效果检测值S0为对照组挖掘土非原位采样. 论文10种关注污染物中仅As/Pb属8元素HM目标且仅有范围值; Cd/Cr/Hg/Cu/Zn/Ni全缺. 实际场地调查原始数据引自文献[2]刘洋等2022宣钢科技未在本文呈现. HM+OP无法构建同采样点记录"

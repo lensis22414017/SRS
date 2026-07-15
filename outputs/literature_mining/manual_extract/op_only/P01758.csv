@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01758,,,,,,,,,"skip: 综述论文(Microalgae bioremediation of pesticides in WATER, not soil). Abstract明确指出In this review. 讨论微藻修复水体农药机制/培养/固定化/生物柴油回收. 无任何采样点级土壤OP浓度数据. 属于剔除场景: 综述/Meta分析+水体非土壤+生物修复实验"

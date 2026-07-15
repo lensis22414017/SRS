@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11460,,,,,,,,"skip: 实验室生物修复(biostimulation/bioaugmentation)+提取方法优化实验。土壤虽采自杭州拱墅区但仅作实验材料，论文只报告降解率(%)和提取率(%)，无采样点级OP绝对浓度数据。Section 2.2.2为TCE spiked实验(5mg/kg)。无修复前场地本底浓度实测值。"

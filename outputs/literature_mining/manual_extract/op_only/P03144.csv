@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03144,NOTES,,,,,,,"仅区域级统计汇总(Mean/SD/Min/Max),无采样点级数据。111个土壤样本来自37个蔬菜温室,但Table 2仅报告16种PAE单体(DMP/DEP/DiBP/DnBP/DEHP等)的Mean/SD/Min/Max汇总值;Table 3为Shandong Peninsula与其他地区的Mean及range对比;Table 4为超标率百分比。无任何单独采样点ID(如S1/S2/温室编号)对应的浓度值。Fig 2为区域级箱线图非样本数据表"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01545,,,,,,,soil,urban,Nanjing,Jiangsu,"skip: 正文无采样点级HM/PAHs浓度表；论文为bivariate LISA空间交互+PMF源解析+风险分区方法学研究，150点(实采123点)统计特征在SI Table S3(SI未提供)；正文3个表格=Table1风险识别概念矩阵+Fig8a/b相关性系数矩阵(非浓度)；Fig2/3为空间插值表面图/Fig4-5 LISA聚类图/Fig7 PMF源贡献饼图/Fig9风险分区图，均非采样点级真实浓度；论文本身HM+PAHs真复合(同南京场地)但无可提取采样点级数值"

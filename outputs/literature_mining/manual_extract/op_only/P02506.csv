@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02506,,,,,,,,"skip: 仅48样本汇总统计(Mean=140±85.7 μg/kg Range=48.4-381.6 μg/kg)无采样点级数据; Table1为文献对比表仅汇总行; Table2为同分异构体源解析比值; Table3为PCA因子载荷; Fig2为组成谱图; 全文无单样本ID或单样本浓度"

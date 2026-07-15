@@ -1,0 +1,103 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Minimum,Minimum,Co_mgkg,3.3,Unknown,,high,table_p5_ri1_ci2,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Maximum,Maximum,Co_mgkg,20.0,Unknown,,high,table_p5_ri1_ci3,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_CV_(%),CV (%),Co_mgkg,35.6,Unknown,,high,table_p5_ri1_ci7,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Skewness,Skewness,Co_mgkg,0.5,Unknown,,high,table_p5_ri1_ci8,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Kurtosis,Kurtosis,Co_mgkg,-0.3,Unknown,,high,table_p5_ri1_ci9,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_BV(Wang_et_al._1992),BV(Wang et al. 1992),Co_mgkg,12.8,Unknown,,high,table_p5_ri1_ci10,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Minimum,Minimum,Cr_mgkg,11.1,Unknown,,high,table_p5_ri2_ci2,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Maximum,Maximum,Cr_mgkg,110.1,Unknown,,high,table_p5_ri2_ci3,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_CV_(%),CV (%),Cr_mgkg,25.4,Unknown,,high,table_p5_ri2_ci7,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Skewness,Skewness,Cr_mgkg,-0.4,Unknown,,high,table_p5_ri2_ci8,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Kurtosis,Kurtosis,Cr_mgkg,0.5,Unknown,,high,table_p5_ri2_ci9,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_BV(Wang_et_al._1992),BV(Wang et al. 1992),Cr_mgkg,58.1,Unknown,,high,table_p5_ri2_ci10,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Minimum,Minimum,Cu_mgkg,5.3,Unknown,,high,table_p5_ri3_ci2,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Maximum,Maximum,Cu_mgkg,179.1,Unknown,,high,table_p5_ri3_ci3,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_CV_(%),CV (%),Cu_mgkg,94.9,Unknown,,high,table_p5_ri3_ci7,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Skewness,Skewness,Cu_mgkg,5.6,Unknown,,high,table_p5_ri3_ci8,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Kurtosis,Kurtosis,Cu_mgkg,39.4,Unknown,,high,table_p5_ri3_ci9,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_BV(Wang_et_al._1992),BV(Wang et al. 1992),Cu_mgkg,18.5,Unknown,,high,table_p5_ri3_ci10,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Minimum,Minimum,Hg_mgkg,0.007,Unknown,,high,table_p5_ri4_ci2,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Maximum,Maximum,Hg_mgkg,1.416,Unknown,,high,table_p5_ri4_ci3,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_CV_(%),CV (%),Hg_mgkg,302.6,Unknown,,high,table_p5_ri4_ci7,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Skewness,Skewness,Hg_mgkg,9.672,Unknown,,high,table_p5_ri4_ci8,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Kurtosis,Kurtosis,Hg_mgkg,98.054,Unknown,,high,table_p5_ri4_ci9,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_BV(Wang_et_al._1992),BV(Wang et al. 1992),Hg_mgkg,0.017,Unknown,,high,table_p5_ri4_ci10,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Minimum,Minimum,Mn_mgkg,61.8,Unknown,,high,table_p5_ri5_ci2,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Maximum,Maximum,Mn_mgkg,955.7,Unknown,,high,table_p5_ri5_ci3,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_CV_(%),CV (%),Mn_mgkg,29.5,Unknown,,high,table_p5_ri5_ci7,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Skewness,Skewness,Mn_mgkg,0.2,Unknown,,high,table_p5_ri5_ci8,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Kurtosis,Kurtosis,Mn_mgkg,0.8,Unknown,,high,table_p5_ri5_ci9,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_BV(Wang_et_al._1992),BV(Wang et al. 1992),Mn_mgkg,425.1,Unknown,,high,table_p5_ri5_ci10,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Minimum,Minimum,Ni_mgkg,10.9,Unknown,,high,table_p5_ri6_ci2,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Maximum,Maximum,Ni_mgkg,101.2,Unknown,,high,table_p5_ri6_ci3,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_CV_(%),CV (%),Ni_mgkg,45.7,Unknown,,high,table_p5_ri6_ci7,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Skewness,Skewness,Ni_mgkg,2.2,Unknown,,high,table_p5_ri6_ci8,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Kurtosis,Kurtosis,Ni_mgkg,9.8,Unknown,,high,table_p5_ri6_ci9,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_BV(Wang_et_al._1992),BV(Wang et al. 1992),Ni_mgkg,22.7,Unknown,,high,table_p5_ri6_ci10,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Minimum,Minimum,Pb_mgkg,9.7,Unknown,,high,table_p5_ri7_ci2,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Maximum,Maximum,Pb_mgkg,85.8,Unknown,,high,table_p5_ri7_ci3,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_CV_(%),CV (%),Pb_mgkg,39.3,Unknown,,high,table_p5_ri7_ci7,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Skewness,Skewness,Pb_mgkg,4.8,Unknown,,high,table_p5_ri7_ci8,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Kurtosis,Kurtosis,Pb_mgkg,32.0,Unknown,,high,table_p5_ri7_ci9,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_BV(Wang_et_al._1992),BV(Wang et al. 1992),Pb_mgkg,22.4,Unknown,,high,table_p5_ri7_ci10,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Minimum,Minimum,Zn_mgkg,28.9,Unknown,,high,table_p5_ri8_ci2,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Maximum,Maximum,Zn_mgkg,598.0,Unknown,,high,table_p5_ri8_ci3,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_CV_(%),CV (%),Zn_mgkg,87.5,Unknown,,high,table_p5_ri8_ci7,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Skewness,Skewness,Zn_mgkg,8.8,Unknown,,high,table_p5_ri8_ci8,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Kurtosis,Kurtosis,Zn_mgkg,86.7,Unknown,,high,table_p5_ri8_ci9,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_BV(Wang_et_al._1992),BV(Wang et al. 1992),Zn_mgkg,50.8,Unknown,,high,table_p5_ri8_ci10,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Minimum,Minimum,pH,6.1,Unknown,,high,table_p5_ri9_ci2,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Maximum,Maximum,pH,8.1,Unknown,,high,table_p5_ri9_ci3,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_CV_(%),CV (%),pH,3.9,Unknown,,high,table_p5_ri9_ci7,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Skewness,Skewness,pH,-0.9,Unknown,,high,table_p5_ri9_ci8,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Kurtosis,Kurtosis,pH,2.6,Unknown,,high,table_p5_ri9_ci9,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_BV(Wang_et_al._1992),BV(Wang et al. 1992),pH,1.0,Unknown,,high,table_p5_ri9_ci10,Table 3. Descriptive statistics for heavy metals and soil properties.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Nugget,Nugget,Co_mgkg,0.01,Unknown,,high,table_p9_ri1_ci2,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Sill,Sill,Co_mgkg,0.133,Unknown,,high,table_p9_ri1_ci3,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Nugget/Sill_(%),Nugget/Sill (%),Co_mgkg,0.075,Unknown,,high,table_p9_ri1_ci4,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Range/m,Range/m,Co_mgkg,4800.0,Unknown,,high,table_p9_ri1_ci5,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_$R_^_{_2_}$,$R ^ { 2 }$,Co_mgkg,0.512,Unknown,,high,table_p9_ri1_ci6,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Residual_SS,Residual SS,Co_mgkg,0.002,Unknown,,high,table_p9_ri1_ci7,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Nugget,Nugget,Cr_mgkg,0.004,Unknown,,high,table_p9_ri2_ci2,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Sill,Sill,Cr_mgkg,0.095,Unknown,,high,table_p9_ri2_ci3,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Nugget/Sill_(%),Nugget/Sill (%),Cr_mgkg,0.042,Unknown,,high,table_p9_ri2_ci4,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Range/m,Range/m,Cr_mgkg,3291.0,Unknown,,high,table_p9_ri2_ci5,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_$R_^_{_2_}$,$R ^ { 2 }$,Cr_mgkg,0.501,Unknown,,high,table_p9_ri2_ci6,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Residual_SS,Residual SS,Cr_mgkg,0.003,Unknown,,high,table_p9_ri2_ci7,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Nugget,Nugget,Cu_mgkg,0.028,Unknown,,high,table_p9_ri3_ci2,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Sill,Sill,Cu_mgkg,0.318,Unknown,,high,table_p9_ri3_ci3,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Nugget/Sill_(%),Nugget/Sill (%),Cu_mgkg,0.088,Unknown,,high,table_p9_ri3_ci4,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Range/m,Range/m,Cu_mgkg,5940.0,Unknown,,high,table_p9_ri3_ci5,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_$R_^_{_2_}$,$R ^ { 2 }$,Cu_mgkg,0.536,Unknown,,high,table_p9_ri3_ci6,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Residual_SS,Residual SS,Cu_mgkg,0.02,Unknown,,high,table_p9_ri3_ci7,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Nugget,Nugget,Hg_mgkg,0.083,Unknown,,high,table_p9_ri4_ci2,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Sill,Sill,Hg_mgkg,0.536,Unknown,,high,table_p9_ri4_ci3,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Nugget/Sill_(%),Nugget/Sill (%),Hg_mgkg,0.155,Unknown,,high,table_p9_ri4_ci4,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Range/m,Range/m,Hg_mgkg,2220.0,Unknown,,high,table_p9_ri4_ci5,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_$R_^_{_2_}$,$R ^ { 2 }$,Hg_mgkg,0.429,Unknown,,high,table_p9_ri4_ci6,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Residual_SS,Residual SS,Hg_mgkg,0.158,Unknown,,high,table_p9_ri4_ci7,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Nugget,Nugget,Mn_mgkg,0.003,Unknown,,high,table_p9_ri5_ci2,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Sill,Sill,Mn_mgkg,0.125,Unknown,,high,table_p9_ri5_ci3,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Nugget/Sill_(%),Nugget/Sill (%),Mn_mgkg,0.024,Unknown,,high,table_p9_ri5_ci4,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Range/m,Range/m,Mn_mgkg,2789.0,Unknown,,high,table_p9_ri5_ci5,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_$R_^_{_2_}$,$R ^ { 2 }$,Mn_mgkg,0.439,Unknown,,high,table_p9_ri5_ci6,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Residual_SS,Residual SS,Mn_mgkg,0.007,Unknown,,high,table_p9_ri5_ci7,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Nugget,Nugget,Ni_mgkg,0.072,Unknown,,high,table_p9_ri6_ci2,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Sill,Sill,Ni_mgkg,0.175,Unknown,,high,table_p9_ri6_ci3,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Nugget/Sill_(%),Nugget/Sill (%),Ni_mgkg,0.411,Unknown,,high,table_p9_ri6_ci4,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Range/m,Range/m,Ni_mgkg,24810.0,Unknown,,high,table_p9_ri6_ci5,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_$R_^_{_2_}$,$R ^ { 2 }$,Ni_mgkg,0.863,Unknown,,high,table_p9_ri6_ci6,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Residual_SS,Residual SS,Ni_mgkg,0.002,Unknown,,high,table_p9_ri6_ci7,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Nugget,Nugget,Pb_mgkg,0.0001,Unknown,,high,table_p9_ri7_ci2,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Sill,Sill,Pb_mgkg,0.07,Unknown,,high,table_p9_ri7_ci3,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Nugget/Sill_(%),Nugget/Sill (%),Pb_mgkg,0.001,Unknown,,high,table_p9_ri7_ci4,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Range/m,Range/m,Pb_mgkg,2650.0,Unknown,,high,table_p9_ri7_ci5,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_$R_^_{_2_}$,$R ^ { 2 }$,Pb_mgkg,0.465,Unknown,,high,table_p9_ri7_ci6,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Residual_SS,Residual SS,Pb_mgkg,0.002,Unknown,,high,table_p9_ri7_ci7,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Nugget,Nugget,Zn_mgkg,0.0001,Unknown,,high,table_p9_ri8_ci2,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Sill,Sill,Zn_mgkg,0.128,Unknown,,high,table_p9_ri8_ci3,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Nugget/Sill_(%),Nugget/Sill (%),Zn_mgkg,0.0007,Unknown,,high,table_p9_ri8_ci4,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Range/m,Range/m,Zn_mgkg,2980.0,Unknown,,high,table_p9_ri8_ci5,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_$R_^_{_2_}$,$R ^ { 2 }$,Zn_mgkg,0.524,Unknown,,high,table_p9_ri8_ci6,Table 5. Variogram fitting for heavy metals in soils.
+70659_10807039.2018.1478275,70659_10807039.2018.1478275_Residual_SS,Residual SS,Zn_mgkg,0.013,Unknown,,high,table_p9_ri8_ci7,Table 5. Variogram fitting for heavy metals in soils.

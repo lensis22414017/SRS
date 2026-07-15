@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07643,N/A,N/A,N/A,N/A,N/A,sediment,other,Jiangsu,"skip: 论文主题污染物为Polyhalogenated carbazoles (PHCZs) 不在目标OP清单中; 目标OP中仅PBDEs在本研究实测但sample-level数据仅在Supplementary Table S3(文件不可得) 正文仅给range统计(0.07-15.9 ng/g dw)为stat summary须剔除; 其余目标OP(PAH/PCB/DDT/HCH/PHC/antibiotics/PAEs/OCPs)均未实测 仅在Fig.2引用文献作对比; Table 1仅含PHCZ 11单体非目标污染物; matrix=sediment(太湖); 22采样点(C1-C5/E1-E5/N1-N4/S1-S4/W1-W4)"

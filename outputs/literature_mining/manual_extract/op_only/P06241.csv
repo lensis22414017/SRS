@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06241,Jilin Oilfield,TotalPHC_mgkg,123000,mg/kg,Abstract,soil,petrochemical,Jilin,"Pre-remediation baseline TPH of field-collected soil used in lab surfactant washing experiment; 123 mg/g dry soil = 123000 mg/kg; paper.md truncated at 40 lines (only abstract+intro available); no sampling-point-level tables visible"

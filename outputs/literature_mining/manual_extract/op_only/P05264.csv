@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05264,,,,,,,,"skip: 无采样点级数据。论文采集105个混合样但仅报告统计汇总(Table 1为50th/95th百分位+检出率; 正文为range/mean; 空间分布段落为区域级均值 Tanggu 590.3/Hangu 299.7/Dagang 220.1 ng PAH/g; Tables 4-6为ELCR风险指数+Mann-Whitney/Kruskal-Wallis统计检验)。无任何单个采样点(S1/S2/村庄名)浓度数据"

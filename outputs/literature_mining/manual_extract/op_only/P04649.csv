@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04649,,,,,,soil,agricultural,Qinghai,"skip: 论文仅提供区县级统计汇总(Table 1各区县Mean+detection frequency)，无采样点级土壤OCP浓度数据；土壤仅检出p,p'-DDE(HCHs全未检出)；Table 2为水体数据(μg/L按规则剔除)；Table 3为流域整体模型vs实测均值对比；Table 4为迁移通量模型输出；110个土壤样品仅报汇总频率31.8%/max 19μg/kg/CV 212%"

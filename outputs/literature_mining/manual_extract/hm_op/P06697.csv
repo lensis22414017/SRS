@@ -1,0 +1,49 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06697,Mining-Collection,As_mgkg,167.65,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Collection,Cd_mgkg,83.09,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Collection,Cr_mgkg,201.98,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Collection,Cu_mgkg,131.68,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Collection,Hg_mgkg,4.78,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Collection,Ni_mgkg,67.52,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Collection,Pb_mgkg,398.29,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Collection,Zn_mgkg,278.94,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Transportation,As_mgkg,153.90,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Transportation,Cd_mgkg,73.04,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Transportation,Cr_mgkg,166.43,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Transportation,Cu_mgkg,122.16,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Transportation,Hg_mgkg,2.62,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Transportation,Ni_mgkg,42.49,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Transportation,Pb_mgkg,334.22,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Transportation,Zn_mgkg,253.55,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Tailing,As_mgkg,121.98,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Tailing,Cd_mgkg,59.46,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Tailing,Cr_mgkg,154.85,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Tailing,Cu_mgkg,129.92,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Tailing,Hg_mgkg,2.86,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Tailing,Ni_mgkg,42.42,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Tailing,Pb_mgkg,298.67,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Mining-Tailing,Zn_mgkg,205.85,mg/kg,Table 4,soil,mining,Liaoning,Table 4直接读取 20子样composite 3分析重复均值
+P06697,Agri-Collection,As_mgkg,33.11,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田vege field近Collection 20子样composite
+P06697,Agri-Collection,Cd_mgkg,10.45,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田vege field近Collection 20子样composite
+P06697,Agri-Collection,Cr_mgkg,3353.60,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 极端高值但为论文原文值 CAi/CRi=11.18验证
+P06697,Agri-Collection,Cu_mgkg,968.82,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田近Collection 20子样composite
+P06697,Agri-Collection,Hg_mgkg,12.19,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田近Collection 20子样composite
+P06697,Agri-Collection,Ni_mgkg,1556.80,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 极端高值但为论文原文值 CAi/CRi=7.78验证
+P06697,Agri-Collection,Pb_mgkg,459.94,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田近Collection 20子样composite
+P06697,Agri-Collection,Zn_mgkg,2407.10,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 极端高值但为论文原文值 CAi/CRi=4.81验证
+P06697,Agri-Transportation,As_mgkg,6.14,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田近Transportation 20子样composite
+P06697,Agri-Transportation,Cd_mgkg,4.20,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田近Transportation 20子样composite
+P06697,Agri-Transportation,Cr_mgkg,329.37,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田近Transportation 20子样composite
+P06697,Agri-Transportation,Cu_mgkg,379.28,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田近Transportation 20子样composite
+P06697,Agri-Transportation,Hg_mgkg,14.11,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田近Transportation 20子样composite Hg偏高论文归因于含汞农药
+P06697,Agri-Transportation,Ni_mgkg,121.85,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田近Transportation 20子样composite
+P06697,Agri-Transportation,Pb_mgkg,78.89,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田近Transportation 20子样composite
+P06697,Agri-Transportation,Zn_mgkg,217.10,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田近Transportation 20子样composite
+P06697,Agri-Tailing,As_mgkg,5.45,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田近Tailing 20子样composite
+P06697,Agri-Tailing,Cd_mgkg,4.49,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田近Tailing 20子样composite
+P06697,Agri-Tailing,Cr_mgkg,528.14,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田近Tailing 20子样composite
+P06697,Agri-Tailing,Cu_mgkg,198.21,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田近Tailing 20子样composite
+P06697,Agri-Tailing,Hg_mgkg,7.77,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田近Tailing 20子样composite
+P06697,Agri-Tailing,Ni_mgkg,227.87,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田近Tailing 20子样composite
+P06697,Agri-Tailing,Pb_mgkg,81.60,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田近Tailing 20子样composite
+P06697,Agri-Tailing,Zn_mgkg,481.80,mg/kg,Table 6,soil,agricultural,Liaoning,Table 6直接读取 农田近Tailing 20子样composite

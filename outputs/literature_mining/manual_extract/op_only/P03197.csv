@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03197,,,,,,,,"skip: Meta分析/综述论文，汇编41篇文献的PAH数据，Table1每行为研究级汇总值(Total PAHs)而非采样点级数据，BaP_eq列为TEQ风险指数非直接测量值，无个体采样点标识且无16单体分解，违反铁律4(区域均值非场地样本)及剔除场景(综述无原始数据)"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11573,,,,,,,,"skip: 论文研究对象为有机磷酸酯(OPEs=TEP/TPrP/TiBP/TnBP/TCEP/TDCP/TPhP/TBEP/EHDPP/TEHP/TPPO/TCrPs)，不属于目标OP污染物类别(PAHs/BaP/PCBs/DDTs/HCHs/PBDEs/TotalPHC)。OPEs为有机磷阻燃剂/塑化剂，与多环芳烃/多氯联苯/有机氯农药/多溴联苯醚/石油烃完全不同。且正文仅给汇总统计(range 33.17-98.65 μg/kg avg 50.2 median 46.2)，无采样点级数据表。"

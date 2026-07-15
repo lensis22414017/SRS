@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07224,,,,,,,,""","skip: paper.md解析不完整(仅35行/4.5KB)，MinerU未能提取Results/Tables内容，论文涵盖HM(12元素)+OP(OCPs/PAHs/PCBs/PAEs/PHCs)但表格数据完全缺失，需重新解析PDF或OCR补充"

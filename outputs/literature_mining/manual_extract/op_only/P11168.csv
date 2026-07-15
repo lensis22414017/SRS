@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11168,,,,,,soil,urban,Liaoning,"skip: 主文仅含统计汇总(Σ15PAHs range 42.8-28600 ng/g; mean 2580±5730; median 281; 城市均值5490/郊区1890/乡村196 ng/g); 唯二标注到点位的值S4=28600(max)和S23=42.8(min)是range端点非独立样本级测量; 论文实测15种PAH(无Nap非标准Σ16); 全部49点位单体数据在SI Table S5(parsed paper未含SI); Fig.2b为图片不可提取"

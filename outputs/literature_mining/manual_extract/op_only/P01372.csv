@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01372,,,,,,,"Dalian (Liaoning)","skip: 论文和SI Table S6所有土壤浓度数据均为按土地利用类型(Paddy/Maize/Vegetable/Wasteland/Orchard)汇总的Mean/Std/Min/Max/Median统计量，无单个采样点(RS1-NRS11)级别原始数值；单样本数据仅存在于Fig.1柱状图(图片不可解析)；论文研究OPEs和PAEs两类有机污染物，无PAH/PCB/DDT/HCH/PBDE/PHC/抗生素数据"

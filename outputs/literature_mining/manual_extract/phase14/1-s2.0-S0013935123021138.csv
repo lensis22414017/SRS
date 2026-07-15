@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+1-s2.0-S0013935123021138,1-s2.0-S0013935123021138_Black_soil,Black soil,pH,6.81,Unknown,,high,table_p2_ri3_ci2,Table 1 Physical and chemical properties of soil samples.
+1-s2.0-S0013935123021138,1-s2.0-S0013935123021138_Fluvo-aquic_soil,Fluvo-aquic soil,pH,7.99,Unknown,,high,table_p2_ri4_ci2,Table 1 Physical and chemical properties of soil samples.
+1-s2.0-S0013935123021138,1-s2.0-S0013935123021138_Laterite,Laterite,pH,4.84,Unknown,,high,table_p2_ri5_ci2,Table 1 Physical and chemical properties of soil samples.

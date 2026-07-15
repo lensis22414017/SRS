@@ -1,0 +1,31 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05868,1,Sum_PAH_ngg,330,ng/g,Table 1,soil,e_waste,Zhejiang,Total 16 PAHs 直接读取 PDF 文本提取
+P05868,2,Sum_PAH_ngg,790,ng/g,Table 1,soil,e_waste,Zhejiang,Total 16 PAHs 直接读取 PDF 文本提取
+P05868,3,Sum_PAH_ngg,380,ng/g,Table 1,soil,e_waste,Zhejiang,Total 16 PAHs 直接读取 PDF 文本提取
+P05868,4,Sum_PAH_ngg,460,ng/g,Table 1,soil,e_waste,Zhejiang,Total 16 PAHs 直接读取 PDF 文本提取
+P05868,5,Sum_PAH_ngg,770,ng/g,Table 1,soil,e_waste,Zhejiang,Total 16 PAHs 直接读取 PDF 文本提取
+P05868,6,Sum_PAH_ngg,20000,ng/g,Table 1,soil,e_waste,Zhejiang,"Total 16 PAHs 直接读取,site 6极端高值(20000 ng/g)为开放燃烧点附近"
+P05868,7,Sum_PAH_ngg,590,ng/g,Table 1,soil,e_waste,Zhejiang,Total 16 PAHs 直接读取 PDF 文本提取
+P05868,8,Sum_PAH_ngg,370,ng/g,Table 1,soil,e_waste,Zhejiang,Total 16 PAHs 直接读取 PDF 文本提取
+P05868,9,Sum_PAH_ngg,690,ng/g,Table 1,soil,e_waste,Zhejiang,Total 16 PAHs 直接读取 PDF 文本提取
+P05868,10,Sum_PAH_ngg,720,ng/g,Table 1,soil,e_waste,Zhejiang,Total 16 PAHs 直接读取 PDF 文本提取
+P05868,1,BaP_ngg,32,ng/g,Table 1,soil,e_waste,Zhejiang,B(a)P 单体直接读取 PDF 文本提取
+P05868,2,BaP_ngg,73,ng/g,Table 1,soil,e_waste,Zhejiang,B(a)P 单体直接读取 PDF 文本提取
+P05868,3,BaP_ngg,36,ng/g,Table 1,soil,e_waste,Zhejiang,B(a)P 单体直接读取 PDF 文本提取
+P05868,4,BaP_ngg,39,ng/g,Table 1,soil,e_waste,Zhejiang,B(a)P 单体直接读取 PDF 文本提取
+P05868,5,BaP_ngg,71,ng/g,Table 1,soil,e_waste,Zhejiang,B(a)P 单体直接读取 PDF 文本提取
+P05868,6,BaP_ngg,2900,ng/g,Table 1,soil,e_waste,Zhejiang,"B(a)P 单体直接读取,site 6极端高值"
+P05868,7,BaP_ngg,58,ng/g,Table 1,soil,e_waste,Zhejiang,B(a)P 单体直接读取 PDF 文本提取
+P05868,8,BaP_ngg,41,ng/g,Table 1,soil,e_waste,Zhejiang,B(a)P 单体直接读取 PDF 文本提取
+P05868,9,BaP_ngg,63,ng/g,Table 1,soil,e_waste,Zhejiang,B(a)P 单体直接读取 PDF 文本提取
+P05868,10,BaP_ngg,88,ng/g,Table 1,soil,e_waste,Zhejiang,B(a)P 单体直接读取 PDF 文本提取
+P05868,1,SumPCB_ngg,11,ng/g,Table 1,soil,e_waste,Zhejiang,Total 36 PCBs 直接读取 PDF 文本提取
+P05868,2,SumPCB_ngg,32,ng/g,Table 1,soil,e_waste,Zhejiang,Total 36 PCBs 直接读取 PDF 文本提取
+P05868,3,SumPCB_ngg,19,ng/g,Table 1,soil,e_waste,Zhejiang,Total 36 PCBs 直接读取 PDF 文本提取
+P05868,4,SumPCB_ngg,26,ng/g,Table 1,soil,e_waste,Zhejiang,Total 36 PCBs 直接读取 PDF 文本提取
+P05868,5,SumPCB_ngg,65,ng/g,Table 1,soil,e_waste,Zhejiang,Total 36 PCBs 直接读取 PDF 文本提取
+P05868,6,SumPCB_ngg,75,ng/g,Table 1,soil,e_waste,Zhejiang,Total 36 PCBs 直接读取 PDF 文本提取
+P05868,7,SumPCB_ngg,21,ng/g,Table 1,soil,e_waste,Zhejiang,Total 36 PCBs 直接读取 PDF 文本提取
+P05868,8,SumPCB_ngg,32,ng/g,Table 1,soil,e_waste,Zhejiang,Total 36 PCBs 直接读取 PDF 文本提取
+P05868,9,SumPCB_ngg,100,ng/g,Table 1,soil,e_waste,Zhejiang,Total 36 PCBs 直接读取 PDF 文本提取
+P05868,10,SumPCB_ngg,33,ng/g,Table 1,soil,e_waste,Zhejiang,Total 36 PCBs 直接读取 PDF 文本提取

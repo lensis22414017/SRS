@@ -1,0 +1,505 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+s00128-021-03245-0,s00128-021-03245-0_Retention_time_(min),Retention time (min),SumHCH_ngg,9.07,Unknown,,high,table_p3_ri1_ci1,"Table 1 Retention time, correlation coefcient(r) and detection frequency of OCPs"
+s00128-021-03245-0,s00128-021-03245-0_Correlation_coef-_ficient_(r),Correlation coef- ficient (r),SumHCH_ngg,0.9998,Unknown,,high,table_p3_ri1_ci2,"Table 1 Retention time, correlation coefcient(r) and detection frequency of OCPs"
+s00128-021-03245-0,s00128-021-03245-0_Detection_frequency_(%),Detection frequency (%),SumHCH_ngg,92.0,Unknown,,high,table_p3_ri1_ci3,"Table 1 Retention time, correlation coefcient(r) and detection frequency of OCPs"
+s00128-021-03245-0,s00128-021-03245-0_Retention_time_(min),Retention time (min),SumHCH_ngg,10.197,Unknown,,high,table_p3_ri2_ci1,"Table 1 Retention time, correlation coefcient(r) and detection frequency of OCPs"
+s00128-021-03245-0,s00128-021-03245-0_Correlation_coef-_ficient_(r),Correlation coef- ficient (r),SumHCH_ngg,0.9998,Unknown,,high,table_p3_ri2_ci2,"Table 1 Retention time, correlation coefcient(r) and detection frequency of OCPs"
+s00128-021-03245-0,s00128-021-03245-0_Detection_frequency_(%),Detection frequency (%),SumHCH_ngg,73.0,Unknown,,high,table_p3_ri2_ci3,"Table 1 Retention time, correlation coefcient(r) and detection frequency of OCPs"
+s00128-021-03245-0,s00128-021-03245-0_Retention_time_(min),Retention time (min),SumHCH_ngg,12.433,Unknown,,high,table_p3_ri3_ci1,"Table 1 Retention time, correlation coefcient(r) and detection frequency of OCPs"
+s00128-021-03245-0,s00128-021-03245-0_Correlation_coef-_ficient_(r),Correlation coef- ficient (r),SumHCH_ngg,0.9991,Unknown,,high,table_p3_ri3_ci2,"Table 1 Retention time, correlation coefcient(r) and detection frequency of OCPs"
+s00128-021-03245-0,s00128-021-03245-0_Detection_frequency_(%),Detection frequency (%),SumHCH_ngg,96.0,Unknown,,high,table_p3_ri3_ci3,"Table 1 Retention time, correlation coefcient(r) and detection frequency of OCPs"
+s00128-021-03245-0,s00128-021-03245-0_Retention_time_(min),Retention time (min),SumHCH_ngg,12.917,Unknown,,high,table_p3_ri4_ci1,"Table 1 Retention time, correlation coefcient(r) and detection frequency of OCPs"
+s00128-021-03245-0,s00128-021-03245-0_Correlation_coef-_ficient_(r),Correlation coef- ficient (r),SumHCH_ngg,0.9996,Unknown,,high,table_p3_ri4_ci2,"Table 1 Retention time, correlation coefcient(r) and detection frequency of OCPs"
+s00128-021-03245-0,s00128-021-03245-0_Detection_frequency_(%),Detection frequency (%),SumHCH_ngg,62.0,Unknown,,high,table_p3_ri4_ci3,"Table 1 Retention time, correlation coefcient(r) and detection frequency of OCPs"
+s00128-021-03245-0,s00128-021-03245-0_Maximum,Maximum,SumHCH_ngg,21.93,Unknown,,high,table_p4_ri1_ci2,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_Det.Fre,Det.Fre,SumHCH_ngg,92.0,Unknown,,high,table_p4_ri1_ci5,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_RV,RV,SumHCH_ngg,2.5,Unknown,,high,table_p4_ri1_ci7,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_Maximum,Maximum,SumHCH_ngg,19.37,Unknown,,high,table_p4_ri2_ci2,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_Det.Fre,Det.Fre,SumHCH_ngg,73.0,Unknown,,high,table_p4_ri2_ci5,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_RV,RV,SumHCH_ngg,0.5,Unknown,,high,table_p4_ri2_ci7,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_Maximum,Maximum,SumHCH_ngg,82.34,Unknown,,high,table_p4_ri3_ci2,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_Det.Fre,Det.Fre,SumHCH_ngg,96.0,Unknown,,high,table_p4_ri3_ci5,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_RV,RV,SumHCH_ngg,1.0,Unknown,,high,table_p4_ri3_ci7,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_Maximum,Maximum,SumHCH_ngg,38.1,Unknown,,high,table_p4_ri4_ci2,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_Det.Fre,Det.Fre,SumHCH_ngg,62.0,Unknown,,high,table_p4_ri4_ci5,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_Minimum,Minimum,SumHCH_ngg,0.19,Unknown,,high,table_p4_ri5_ci1,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_Maximum,Maximum,SumHCH_ngg,135.28,Unknown,,high,table_p4_ri5_ci2,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_RV,RV,SumHCH_ngg,10.0,Unknown,,high,table_p4_ri5_ci7,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_Minimum,Minimum,SumDDT_ngg,2.48,Unknown,,high,table_p4_ri10_ci1,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_Maximum,Maximum,SumDDT_ngg,987.25,Unknown,,high,table_p4_ri10_ci2,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_RV,RV,SumDDT_ngg,2.5,Unknown,,high,table_p4_ri10_ci7,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_Minimum,Minimum,pH,5.84,Unknown,,high,table_p4_ri11_ci1,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_Maximum,Maximum,pH,8.7,Unknown,,high,table_p4_ri11_ci2,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_Minimum,Minimum,OC_pct,0.07,Unknown,,high,table_p4_ri12_ci1,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_Maximum,Maximum,OC_pct,5.59,Unknown,,high,table_p4_ri12_ci2,Fig. 2 Percentage contribution OCPs (DDTS and HCHs) in the soil
+s00128-021-03245-0,s00128-021-03245-0_VL,VL,SumHCH_ngg,2.73,Unknown,,high,table_p6_ri1_ci2,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_VL,VL,SumHCH_ngg,0.59,Unknown,,high,table_p6_ri1_ci3,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_VL,VL,SumHCH_ngg,9.86,Unknown,,high,table_p6_ri1_ci4,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_VL,VL,SumHCH_ngg,0.55,Unknown,,high,table_p6_ri1_ci5,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_VL,VL,SumHCH_ngg,10.77,Unknown,,high,table_p6_ri1_ci6,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_VL,VL,SumDDT_ngg,987.25,Unknown,,high,table_p6_ri1_ci11,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_VL,VL,SumOCP_ngg,994.44,Unknown,,high,table_p6_ri1_ci12,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S2,S2,SumHCH_ngg,0.0,Unknown,,high,table_p6_ri2_ci2,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S2,S2,SumHCH_ngg,0.03,Unknown,,high,table_p6_ri2_ci3,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S2,S2,SumHCH_ngg,0.13,Unknown,,high,table_p6_ri2_ci4,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S2,S2,SumHCH_ngg,0.0,Unknown,,high,table_p6_ri2_ci5,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S2,S2,SumHCH_ngg,1.13,Unknown,,high,table_p6_ri2_ci6,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S2,S2,SumDDT_ngg,2.71,Unknown,,high,table_p6_ri2_ci11,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S2,S2,SumOCP_ngg,5.91,Unknown,,high,table_p6_ri2_ci12,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_WL,WL,SumHCH_ngg,1.06,Unknown,,high,table_p6_ri3_ci2,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_WL,WL,SumHCH_ngg,0.18,Unknown,,high,table_p6_ri3_ci3,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_WL,WL,SumHCH_ngg,3.49,Unknown,,high,table_p6_ri3_ci4,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_WL,WL,SumHCH_ngg,0.14,Unknown,,high,table_p6_ri3_ci5,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_WL,WL,SumHCH_ngg,4.87,Unknown,,high,table_p6_ri3_ci6,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_WL,WL,SumDDT_ngg,98.05,Unknown,,high,table_p6_ri3_ci11,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_WL,WL,SumOCP_ngg,102.91,Unknown,,high,table_p6_ri3_ci12,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S4,S4,SumHCH_ngg,21.93,Unknown,,high,table_p6_ri4_ci2,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S4,S4,SumHCH_ngg,19.37,Unknown,,high,table_p6_ri4_ci3,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S4,S4,SumHCH_ngg,80.19,Unknown,,high,table_p6_ri4_ci4,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S4,S4,SumHCH_ngg,13.78,Unknown,,high,table_p6_ri4_ci5,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S4,S4,SumHCH_ngg,135.28,Unknown,,high,table_p6_ri4_ci6,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S4,S4,SumDDT_ngg,286.95,Unknown,,high,table_p6_ri4_ci11,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S4,S4,SumOCP_ngg,422.23,Unknown,,high,table_p6_ri4_ci12,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S5,S5,SumHCH_ngg,0.15,Unknown,,high,table_p6_ri5_ci2,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S5,S5,SumHCH_ngg,0.0,Unknown,,high,table_p6_ri5_ci3,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S5,S5,SumHCH_ngg,0.66,Unknown,,high,table_p6_ri5_ci4,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S5,S5,SumHCH_ngg,0.0,Unknown,,high,table_p6_ri5_ci5,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S5,S5,SumHCH_ngg,0.86,Unknown,,high,table_p6_ri5_ci6,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S5,S5,SumDDT_ngg,4.8,Unknown,,high,table_p6_ri5_ci11,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S5,S5,SumOCP_ngg,8.68,Unknown,,high,table_p6_ri5_ci12,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S6,S6,SumHCH_ngg,3.99,Unknown,,high,table_p6_ri6_ci2,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S6,S6,SumHCH_ngg,2.82,Unknown,,high,table_p6_ri6_ci3,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S6,S6,SumHCH_ngg,14.81,Unknown,,high,table_p6_ri6_ci4,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S6,S6,SumHCH_ngg,2.04,Unknown,,high,table_p6_ri6_ci5,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S6,S6,SumHCH_ngg,23.66,Unknown,,high,table_p6_ri6_ci6,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S6,S6,SumDDT_ngg,49.7,Unknown,,high,table_p6_ri6_ci11,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S6,S6,SumOCP_ngg,73.36,Unknown,,high,table_p6_ri6_ci12,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_FL,FL,SumHCH_ngg,2.01,Unknown,,high,table_p6_ri7_ci2,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_FL,FL,SumHCH_ngg,0.48,Unknown,,high,table_p6_ri7_ci3,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_FL,FL,SumHCH_ngg,82.33,Unknown,,high,table_p6_ri7_ci4,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_FL,FL,SumHCH_ngg,38.1,Unknown,,high,table_p6_ri7_ci5,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_FL,FL,SumHCH_ngg,121.14,Unknown,,high,table_p6_ri7_ci6,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_FL,FL,SumDDT_ngg,351.26,Unknown,,high,table_p6_ri7_ci11,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_FL,FL,SumOCP_ngg,472.4,Unknown,,high,table_p6_ri7_ci12,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S8,S8,SumHCH_ngg,0.02,Unknown,,high,table_p6_ri8_ci2,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S8,S8,SumHCH_ngg,0.0,Unknown,,high,table_p6_ri8_ci3,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S8,S8,SumHCH_ngg,0.0,Unknown,,high,table_p6_ri8_ci4,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S8,S8,SumHCH_ngg,0.0,Unknown,,high,table_p6_ri8_ci5,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S8,S8,SumHCH_ngg,0.19,Unknown,,high,table_p6_ri8_ci6,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S8,S8,SumDDT_ngg,2.48,Unknown,,high,table_p6_ri8_ci11,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S8,S8,SumOCP_ngg,5.44,Unknown,,high,table_p6_ri8_ci12,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S9,S9,SumHCH_ngg,0.92,Unknown,,high,table_p6_ri9_ci2,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S9,S9,SumHCH_ngg,0.15,Unknown,,high,table_p6_ri9_ci3,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S9,S9,SumHCH_ngg,20.48,Unknown,,high,table_p6_ri9_ci4,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S9,S9,SumHCH_ngg,10.85,Unknown,,high,table_p6_ri9_ci5,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S9,S9,SumHCH_ngg,32.39,Unknown,,high,table_p6_ri9_ci6,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S9,S9,SumDDT_ngg,92.95,Unknown,,high,table_p6_ri9_ci11,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_S9,S9,SumOCP_ngg,125.34,Unknown,,high,table_p6_ri9_ci12,Table 3 The concentration of OCPs according to land-use types
+s00128-021-03245-0,s00128-021-03245-0_Wuhan_(China),Wuhan (China),SumDDT_ngg,494.865,Unknown,range_mean,high,table_p6_ri2_ci1,Table 4 Comparison of OCP concentrations $( \mathbf { n } \mathbf { g } \mathbf { \Lambda } \mathbf { g } ^ { - 1 } )$ of this study with the other studies
+s00128-021-03245-0,s00128-021-03245-0_Wuhan_(China),Wuhan (China),SumHCH_ngg,80.06,Unknown,,high,table_p6_ri2_ci2,Table 4 Comparison of OCP concentrations $( \mathbf { n } \mathbf { g } \mathbf { \Lambda } \mathbf { g } ^ { - 1 } )$ of this study with the other studies
+s00128-021-03245-0,s00128-021-03245-0_Shanghai_(China),Shanghai (China),SumDDT_ngg,122.945,Unknown,range_mean,high,table_p6_ri3_ci1,Table 4 Comparison of OCP concentrations $( \mathbf { n } \mathbf { g } \mathbf { \Lambda } \mathbf { g } ^ { - 1 } )$ of this study with the other studies
+s00128-021-03245-0,s00128-021-03245-0_Shanghai_(China),Shanghai (China),SumHCH_ngg,21.41,Unknown,,high,table_p6_ri3_ci2,Table 4 Comparison of OCP concentrations $( \mathbf { n } \mathbf { g } \mathbf { \Lambda } \mathbf { g } ^ { - 1 } )$ of this study with the other studies
+s00128-021-03245-0,s00128-021-03245-0_China_(Wuhan),China (Wuhan),SumHCH_ngg,151.56,Unknown,,high,table_p6_ri4_ci2,Table 4 Comparison of OCP concentrations $( \mathbf { n } \mathbf { g } \mathbf { \Lambda } \mathbf { g } ^ { - 1 } )$ of this study with the other studies
+s00128-021-03245-0,s00128-021-03245-0_Jilin_(China),Jilin (China),SumDDT_ngg,25.755000000000003,Unknown,range_mean,high,table_p6_ri5_ci1,Table 4 Comparison of OCP concentrations $( \mathbf { n } \mathbf { g } \mathbf { \Lambda } \mathbf { g } ^ { - 1 } )$ of this study with the other studies
+s00128-021-03245-0,s00128-021-03245-0_Jilin_(China),Jilin (China),SumHCH_ngg,13.19,Unknown,,high,table_p6_ri5_ci2,Table 4 Comparison of OCP concentrations $( \mathbf { n } \mathbf { g } \mathbf { \Lambda } \mathbf { g } ^ { - 1 } )$ of this study with the other studies
+s00128-021-03245-0,s00128-021-03245-0_Zhangzhou_(China),Zhangzhou (China),SumDDT_ngg,39.355,Unknown,range_mean,high,table_p6_ri6_ci1,Table 4 Comparison of OCP concentrations $( \mathbf { n } \mathbf { g } \mathbf { \Lambda } \mathbf { g } ^ { - 1 } )$ of this study with the other studies
+s00128-021-03245-0,s00128-021-03245-0_Guanting_Reservoir_area_(China),Guanting Reservoir area (China),SumHCH_ngg,9.46,Unknown,,high,table_p6_ri7_ci2,Table 4 Comparison of OCP concentrations $( \mathbf { n } \mathbf { g } \mathbf { \Lambda } \mathbf { g } ^ { - 1 } )$ of this study with the other studies
+s00128-021-03245-0,s00128-021-03245-0_Beijing_(China),Beijing (China),SumDDT_ngg,1089.66,Unknown,range_mean,high,table_p6_ri8_ci1,Table 4 Comparison of OCP concentrations $( \mathbf { n } \mathbf { g } \mathbf { \Lambda } \mathbf { g } ^ { - 1 } )$ of this study with the other studies
+s00128-021-03245-0,s00128-021-03245-0_Beijing_(China),Beijing (China),SumHCH_ngg,140.79,Unknown,,high,table_p6_ri8_ci2,Table 4 Comparison of OCP concentrations $( \mathbf { n } \mathbf { g } \mathbf { \Lambda } \mathbf { g } ^ { - 1 } )$ of this study with the other studies
+s00128-021-03245-0,s00128-021-03245-0_S9,S9,SumDDT_ngg,33.555,Unknown,range_mean,high,table_p6_ri9_ci1,Table 4 Comparison of OCP concentrations $( \mathbf { n } \mathbf { g } \mathbf { \Lambda } \mathbf { g } ^ { - 1 } )$ of this study with the other studies
+s00128-021-03245-0,s00128-021-03245-0_S9,S9,SumHCH_ngg,5.59,Unknown,,high,table_p6_ri9_ci2,Table 4 Comparison of OCP concentrations $( \mathbf { n } \mathbf { g } \mathbf { \Lambda } \mathbf { g } ^ { - 1 } )$ of this study with the other studies
+s00128-021-03245-0,s00128-021-03245-0_Pakistan,Pakistan,SumHCH_ngg,251.05,Unknown,,high,table_p6_ri10_ci2,Table 4 Comparison of OCP concentrations $( \mathbf { n } \mathbf { g } \mathbf { \Lambda } \mathbf { g } ^ { - 1 } )$ of this study with the other studies
+s00128-021-03245-0,s00128-021-03245-0_Katahmandu_(Nepal),Katahmandu (Nepal),SumDDT_ngg,31.8,Unknown,range_mean,high,table_p6_ri12_ci1,Table 4 Comparison of OCP concentrations $( \mathbf { n } \mathbf { g } \mathbf { \Lambda } \mathbf { g } ^ { - 1 } )$ of this study with the other studies
+s00128-021-03245-0,s00128-021-03245-0_pokhara_(Nepal),pokhara (Nepal),SumDDT_ngg,35.1,Unknown,range_mean,high,table_p6_ri13_ci1,Table 4 Comparison of OCP concentrations $( \mathbf { n } \mathbf { g } \mathbf { \Lambda } \mathbf { g } ^ { - 1 } )$ of this study with the other studies
+s00128-021-03245-0,s00128-021-03245-0_Birgunj_(Nepal),Birgunj (Nepal),SumDDT_ngg,17.1,Unknown,range_mean,high,table_p6_ri14_ci1,Table 4 Comparison of OCP concentrations $( \mathbf { n } \mathbf { g } \mathbf { \Lambda } \mathbf { g } ^ { - 1 } )$ of this study with the other studies
+s00128-021-03245-0,s00128-021-03245-0_Biratnagar_(Nepal),Biratnagar (Nepal),SumDDT_ngg,119.2,Unknown,range_mean,high,table_p6_ri15_ci1,Table 4 Comparison of OCP concentrations $( \mathbf { n } \mathbf { g } \mathbf { \Lambda } \mathbf { g } ^ { - 1 } )$ of this study with the other studies
+s00128-021-03245-0,s00128-021-03245-0_Yellow_reserve_of_Delta_(China),Yellow reserve of Delta (China),SumDDT_ngg,5.315,Unknown,range_mean,high,table_p6_ri16_ci1,Table 4 Comparison of OCP concentrations $( \mathbf { n } \mathbf { g } \mathbf { \Lambda } \mathbf { g } ^ { - 1 } )$ of this study with the other studies
+s00128-021-03245-0,s00128-021-03245-0_Yellow_reserve_of_Delta_(China),Yellow reserve of Delta (China),SumHCH_ngg,0.63,Unknown,,high,table_p6_ri16_ci2,Table 4 Comparison of OCP concentrations $( \mathbf { n } \mathbf { g } \mathbf { \Lambda } \mathbf { g } ^ { - 1 } )$ of this study with the other studies
+s00128-021-03245-0,s00128-021-03245-0_α-HCH,α-HCH,SumHCH_ngg,1.0,Unknown,,high,table_p7_ri1_ci1,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_γ-HCH,γ-HCH,SumHCH_ngg,1.0,Unknown,,high,table_p7_ri2_ci2,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_β-HCH,β-HCH,SumHCH_ngg,1.0,Unknown,,high,table_p7_ri3_ci3,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_α-HCH,α-HCH,SumHCH_ngg,0.151,Unknown,,high,table_p7_ri4_ci1,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_γ-HCH,γ-HCH,SumHCH_ngg,0.189,Unknown,,high,table_p7_ri4_ci2,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_δ-HCH,δ-HCH,SumHCH_ngg,1.0,Unknown,,high,table_p7_ri4_ci4,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_ΣHCHs,ΣHCHs,SumHCH_ngg,1.0,Unknown,,high,table_p7_ri5_ci5,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_α-HCH,α-HCH,SumDDT_ngg,-0.17,Unknown,,high,table_p7_ri7_ci1,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_γ-HCH,γ-HCH,SumDDT_ngg,-0.183,Unknown,,high,table_p7_ri7_ci2,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_β-HCH,β-HCH,SumDDT_ngg,-0.295,Unknown,,high,table_p7_ri7_ci3,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_δ-HCH,δ-HCH,SumDDT_ngg,-0.313,Unknown,,high,table_p7_ri7_ci4,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_ΣHCHs,ΣHCHs,SumDDT_ngg,-0.312,Unknown,,high,table_p7_ri7_ci5,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,"s00128-021-03245-0_p,_p&#x27;-DDE","p, p&#x27;-DDE",SumDDT_ngg,-0.023,Unknown,,high,table_p7_ri7_ci6,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,"s00128-021-03245-0_0,_p&#x27;-DDT","0, p&#x27;-DDT",SumDDT_ngg,1.0,Unknown,,high,table_p7_ri7_ci7,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_α-HCH,α-HCH,SumDDT_ngg,-0.158,Unknown,,high,table_p7_ri9_ci1,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_γ-HCH,γ-HCH,SumDDT_ngg,-0.09,Unknown,,high,table_p7_ri9_ci2,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_β-HCH,β-HCH,SumDDT_ngg,-0.143,Unknown,,high,table_p7_ri9_ci3,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_δ-HCH,δ-HCH,SumDDT_ngg,-0.172,Unknown,,high,table_p7_ri9_ci4,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_ΣHCHs,ΣHCHs,SumDDT_ngg,-0.166,Unknown,,high,table_p7_ri9_ci5,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,"s00128-021-03245-0_p,_p&#x27;-DDE","p, p&#x27;-DDE",SumDDT_ngg,0.168,Unknown,,high,table_p7_ri9_ci6,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,"s00128-021-03245-0_0,_p&#x27;-DDT","0, p&#x27;-DDT",SumDDT_ngg,0.118,Unknown,,high,table_p7_ri9_ci7,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,"s00128-021-03245-0_p,_p′-DDD","p, p′-DDD",SumDDT_ngg,-0.173,Unknown,,high,table_p7_ri9_ci8,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,"s00128-021-03245-0_p,_p&#x27;_-DDT","p, p&#x27; -DDT",SumDDT_ngg,1.0,Unknown,,high,table_p7_ri9_ci9,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_α-HCH,α-HCH,SumDDT_ngg,0.189,Unknown,,high,table_p7_ri10_ci1,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_γ-HCH,γ-HCH,SumDDT_ngg,0.197,Unknown,,high,table_p7_ri10_ci2,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_δ-HCH,δ-HCH,SumDDT_ngg,0.355,Unknown,,high,table_p7_ri10_ci4,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,"s00128-021-03245-0_0,_p&#x27;-DDT","0, p&#x27;-DDT",SumDDT_ngg,-0.132,Unknown,,high,table_p7_ri10_ci7,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,"s00128-021-03245-0_p,_p′-DDD","p, p′-DDD",SumDDT_ngg,0.386,Unknown,,high,table_p7_ri10_ci8,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,"s00128-021-03245-0_p,_p&#x27;_-DDT","p, p&#x27; -DDT",SumDDT_ngg,0.096,Unknown,,high,table_p7_ri10_ci9,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_ΣDDTs,ΣDDTs,SumDDT_ngg,1.0,Unknown,,high,table_p7_ri10_ci10,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_α-HCH,α-HCH,SumOCP_ngg,0.277,Unknown,,high,table_p7_ri11_ci1,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_γ-HCH,γ-HCH,SumOCP_ngg,0.289,Unknown,,high,table_p7_ri11_ci2,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,"s00128-021-03245-0_0,_p&#x27;-DDT","0, p&#x27;-DDT",SumOCP_ngg,-0.172,Unknown,,high,table_p7_ri11_ci7,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,"s00128-021-03245-0_p,_p&#x27;_-DDT","p, p&#x27; -DDT",SumOCP_ngg,0.062,Unknown,,high,table_p7_ri11_ci9,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_ΣOCPs,ΣOCPs,SumOCP_ngg,1.0,Unknown,,high,table_p7_ri11_ci11,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_α-HCH,α-HCH,pH,0.239,Unknown,,high,table_p7_ri12_ci1,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_γ-HCH,γ-HCH,pH,0.202,Unknown,,high,table_p7_ri12_ci2,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_β-HCH,β-HCH,pH,0.023,Unknown,,high,table_p7_ri12_ci3,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_δ-HCH,δ-HCH,pH,-0.087,Unknown,,high,table_p7_ri12_ci4,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_ΣHCHs,ΣHCHs,pH,0.038,Unknown,,high,table_p7_ri12_ci5,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,"s00128-021-03245-0_p,_p&#x27;-DDE","p, p&#x27;-DDE",pH,0.062,Unknown,,high,table_p7_ri12_ci6,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,"s00128-021-03245-0_0,_p&#x27;-DDT","0, p&#x27;-DDT",pH,0.126,Unknown,,high,table_p7_ri12_ci7,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,"s00128-021-03245-0_p,_p′-DDD","p, p′-DDD",pH,-0.002,Unknown,,high,table_p7_ri12_ci8,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,"s00128-021-03245-0_p,_p&#x27;_-DDT","p, p&#x27; -DDT",pH,-0.113,Unknown,,high,table_p7_ri12_ci9,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_ΣDDTs,ΣDDTs,pH,0.057,Unknown,,high,table_p7_ri12_ci10,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_ΣOCPs,ΣOCPs,pH,0.059,Unknown,,high,table_p7_ri12_ci11,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_Soil_pH,Soil pH,pH,1.0,Unknown,,high,table_p7_ri12_ci12,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_α-HCH,α-HCH,OC_pct,-0.042,Unknown,,high,table_p7_ri13_ci1,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_γ-HCH,γ-HCH,OC_pct,-0.064,Unknown,,high,table_p7_ri13_ci2,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_β-HCH,β-HCH,OC_pct,-0.028,Unknown,,high,table_p7_ri13_ci3,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_δ-HCH,δ-HCH,OC_pct,0.013,Unknown,,high,table_p7_ri13_ci4,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_ΣHCHs,ΣHCHs,OC_pct,-0.025,Unknown,,high,table_p7_ri13_ci5,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,"s00128-021-03245-0_p,_p&#x27;-DDE","p, p&#x27;-DDE",OC_pct,-0.076,Unknown,,high,table_p7_ri13_ci6,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,"s00128-021-03245-0_0,_p&#x27;-DDT","0, p&#x27;-DDT",OC_pct,-0.155,Unknown,,high,table_p7_ri13_ci7,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,"s00128-021-03245-0_p,_p′-DDD","p, p′-DDD",OC_pct,-0.025,Unknown,,high,table_p7_ri13_ci8,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,"s00128-021-03245-0_p,_p&#x27;_-DDT","p, p&#x27; -DDT",OC_pct,-0.071,Unknown,,high,table_p7_ri13_ci9,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_ΣDDTs,ΣDDTs,OC_pct,-0.081,Unknown,,high,table_p7_ri13_ci10,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_ΣOCPs,ΣOCPs,OC_pct,-0.079,Unknown,,high,table_p7_ri13_ci11,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_Soil_pH,Soil pH,OC_pct,-0.117,Unknown,,high,table_p7_ri13_ci12,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_TOC%,TOC%,OC_pct,1.0,Unknown,,high,table_p7_ri13_ci13,Table 5 Correlations between individual OCPs and Soil properties \*\*Correlation is signifcant at the 0.01 level (2-tailed) \*Correlation is signifcant at the 0.05 level (2-tailed)
+s00128-021-03245-0,s00128-021-03245-0_Component,Component,SumHCH_ngg,0.722,Unknown,,high,table_p8_ri2_ci1,Table 6 Component matrix
+s00128-021-03245-0,s00128-021-03245-0_Component,Component,SumHCH_ngg,0.742,Unknown,,high,table_p8_ri3_ci1,Table 6 Component matrix
+s00128-021-03245-0,s00128-021-03245-0_Component,Component,SumHCH_ngg,0.5405,Unknown,range_mean,high,table_p8_ri4_ci1,Table 6 Component matrix
+s00128-021-03245-0,s00128-021-03245-0_Component,Component,SumHCH_ngg,0.6845,Unknown,range_mean,high,table_p8_ri5_ci1,Table 6 Component matrix
+s00128-021-03245-0,s00128-021-03245-0_1,1,SumHCH_ngg,8.9e-09,Unknown,,high,table_p10_ri2_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_1,1,SumDDT_ngg,1.3e-07,Unknown,,high,table_p10_ri2_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_2,2,SumHCH_ngg,5.2e-09,Unknown,,high,table_p10_ri3_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_2,2,SumDDT_ngg,7.5e-08,Unknown,,high,table_p10_ri3_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_3,3,SumHCH_ngg,7.6e-09,Unknown,,high,table_p10_ri4_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_3,3,SumDDT_ngg,1.1e-07,Unknown,,high,table_p10_ri4_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_4,4,SumHCH_ngg,1.7e-07,Unknown,,high,table_p10_ri5_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_4,4,SumDDT_ngg,2.5e-06,Unknown,,high,table_p10_ri5_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_5,5,SumHCH_ngg,7e-09,Unknown,,high,table_p10_ri6_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_5,5,SumDDT_ngg,1e-07,Unknown,,high,table_p10_ri6_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_6,6,SumHCH_ngg,2.8e-10,Unknown,,high,table_p10_ri7_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_6,6,SumDDT_ngg,3.9e-09,Unknown,,high,table_p10_ri7_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_7,7,SumHCH_ngg,4.2e-09,Unknown,,high,table_p10_ri8_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_7,7,SumDDT_ngg,6.1e-08,Unknown,,high,table_p10_ri8_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_8,8,SumHCH_ngg,5.5e-09,Unknown,,high,table_p10_ri9_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_8,8,SumDDT_ngg,7.9e-08,Unknown,,high,table_p10_ri9_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_9,9,SumHCH_ngg,1.1e-07,Unknown,,high,table_p10_ri10_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_9,9,SumDDT_ngg,1.6e-06,Unknown,,high,table_p10_ri10_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_10,10,SumHCH_ngg,1e-08,Unknown,,high,table_p10_ri11_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_10,10,SumDDT_ngg,1.5e-07,Unknown,,high,table_p10_ri11_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_11,11,SumHCH_ngg,1.2e-09,Unknown,,high,table_p10_ri12_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_11,11,SumDDT_ngg,1.8e-08,Unknown,,high,table_p10_ri12_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_12,12,SumHCH_ngg,1.3e-08,Unknown,,high,table_p10_ri13_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_12,12,SumDDT_ngg,1.9e-07,Unknown,,high,table_p10_ri13_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_13,13,SumHCH_ngg,1.9e-07,Unknown,,high,table_p10_ri14_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_13,13,SumDDT_ngg,2.8e-06,Unknown,,high,table_p10_ri14_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_14,14,SumHCH_ngg,1.4e-08,Unknown,,high,table_p10_ri15_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_14,14,SumDDT_ngg,2e-07,Unknown,,high,table_p10_ri15_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_15,15,SumHCH_ngg,9.9e-09,Unknown,,high,table_p10_ri16_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_15,15,SumDDT_ngg,1.4e-07,Unknown,,high,table_p10_ri16_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_16,16,SumHCH_ngg,5e-09,Unknown,,high,table_p10_ri17_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_16,16,SumDDT_ngg,7.1e-08,Unknown,,high,table_p10_ri17_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_17,17,SumHCH_ngg,1.6e-09,Unknown,,high,table_p10_ri18_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_17,17,SumDDT_ngg,2.3e-08,Unknown,,high,table_p10_ri18_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_18,18,SumHCH_ngg,5.7e-09,Unknown,,high,table_p10_ri19_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_18,18,SumDDT_ngg,8.1e-08,Unknown,,high,table_p10_ri19_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_19,19,SumHCH_ngg,5.3e-09,Unknown,,high,table_p10_ri20_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_19,19,SumDDT_ngg,7.6e-08,Unknown,,high,table_p10_ri20_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_20,20,SumHCH_ngg,7e-09,Unknown,,high,table_p10_ri21_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_20,20,SumDDT_ngg,1e-07,Unknown,,high,table_p10_ri21_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_21,21,SumHCH_ngg,1.1e-08,Unknown,,high,table_p10_ri22_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_21,21,SumDDT_ngg,1.5e-07,Unknown,,high,table_p10_ri22_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_22,22,SumHCH_ngg,2.5e-09,Unknown,,high,table_p10_ri23_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_22,22,SumDDT_ngg,3.5e-08,Unknown,,high,table_p10_ri23_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_23,23,SumHCH_ngg,6.3e-09,Unknown,,high,table_p10_ri24_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_23,23,SumDDT_ngg,9e-08,Unknown,,high,table_p10_ri24_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_24,24,SumHCH_ngg,8e-09,Unknown,,high,table_p10_ri25_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_24,24,SumDDT_ngg,1.1e-07,Unknown,,high,table_p10_ri25_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_25,25,SumHCH_ngg,1.5e-08,Unknown,,high,table_p10_ri26_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_25,25,SumDDT_ngg,2.2e-07,Unknown,,high,table_p10_ri26_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_26,26,SumHCH_ngg,8.2e-09,Unknown,,high,table_p10_ri27_ci1,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_26,26,SumDDT_ngg,1.2e-07,Unknown,,high,table_p10_ri27_ci2,"Table 7 Lifetime Average Daily Dose (LADD), Incremental Lifetime Cancer Risks (ILCR) and Hazard Quotient that adopted from (HQ) of OCPs for both Adult and Children"
+s00128-021-03245-0,s00128-021-03245-0_1,1,SumHCH_ngg,2.3e-05,Unknown,,high,table_p10_ri2_ci1,
+s00128-021-03245-0,s00128-021-03245-0_1,1,SumDDT_ngg,0.00033,Unknown,,high,table_p10_ri2_ci2,
+s00128-021-03245-0,s00128-021-03245-0_2,2,SumHCH_ngg,1.4e-05,Unknown,,high,table_p10_ri3_ci1,
+s00128-021-03245-0,s00128-021-03245-0_2,2,SumDDT_ngg,0.00019,Unknown,,high,table_p10_ri3_ci2,
+s00128-021-03245-0,s00128-021-03245-0_3,3,SumHCH_ngg,2e-05,Unknown,,high,table_p10_ri4_ci1,
+s00128-021-03245-0,s00128-021-03245-0_3,3,SumDDT_ngg,0.00028,Unknown,,high,table_p10_ri4_ci2,
+s00128-021-03245-0,s00128-021-03245-0_4,4,SumHCH_ngg,0.00045,Unknown,,high,table_p10_ri5_ci1,
+s00128-021-03245-0,s00128-021-03245-0_4,4,SumDDT_ngg,0.0064,Unknown,,high,table_p10_ri5_ci2,
+s00128-021-03245-0,s00128-021-03245-0_5,5,SumHCH_ngg,1.8e-05,Unknown,,high,table_p10_ri6_ci1,
+s00128-021-03245-0,s00128-021-03245-0_5,5,SumDDT_ngg,0.00026,Unknown,,high,table_p10_ri6_ci2,
+s00128-021-03245-0,s00128-021-03245-0_6,6,SumHCH_ngg,7.2e-07,Unknown,,high,table_p10_ri7_ci1,
+s00128-021-03245-0,s00128-021-03245-0_6,6,SumDDT_ngg,1e-05,Unknown,,high,table_p10_ri7_ci2,
+s00128-021-03245-0,s00128-021-03245-0_7,7,SumHCH_ngg,1.1e-05,Unknown,,high,table_p10_ri8_ci1,
+s00128-021-03245-0,s00128-021-03245-0_7,7,SumDDT_ngg,0.00016,Unknown,,high,table_p10_ri8_ci2,
+s00128-021-03245-0,s00128-021-03245-0_8,8,SumHCH_ngg,1.4e-05,Unknown,,high,table_p10_ri9_ci1,
+s00128-021-03245-0,s00128-021-03245-0_8,8,SumDDT_ngg,0.00021,Unknown,,high,table_p10_ri9_ci2,
+s00128-021-03245-0,s00128-021-03245-0_9,9,SumHCH_ngg,0.0003,Unknown,,high,table_p10_ri10_ci1,
+s00128-021-03245-0,s00128-021-03245-0_9,9,SumDDT_ngg,0.0042,Unknown,,high,table_p10_ri10_ci2,
+s00128-021-03245-0,s00128-021-03245-0_10,10,SumHCH_ngg,2.7e-05,Unknown,,high,table_p10_ri11_ci1,
+s00128-021-03245-0,s00128-021-03245-0_10,10,SumDDT_ngg,0.00038,Unknown,,high,table_p10_ri11_ci2,
+s00128-021-03245-0,s00128-021-03245-0_11,11,SumHCH_ngg,3.2e-06,Unknown,,high,table_p10_ri12_ci1,
+s00128-021-03245-0,s00128-021-03245-0_11,11,SumDDT_ngg,4.5e-05,Unknown,,high,table_p10_ri12_ci2,
+s00128-021-03245-0,s00128-021-03245-0_12,12,SumHCH_ngg,3.5e-05,Unknown,,high,table_p10_ri13_ci1,
+s00128-021-03245-0,s00128-021-03245-0_12,12,SumDDT_ngg,0.0005,Unknown,,high,table_p10_ri13_ci2,
+s00128-021-03245-0,s00128-021-03245-0_13,13,SumHCH_ngg,0.0005,Unknown,,high,table_p10_ri14_ci1,
+s00128-021-03245-0,s00128-021-03245-0_13,13,SumDDT_ngg,0.0072,Unknown,,high,table_p10_ri14_ci2,
+s00128-021-03245-0,s00128-021-03245-0_1,1,SumHCH_ngg,1.62,Unknown,,high,table_p13_ri1_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_1,1,SumHCH_ngg,0.03,Unknown,,high,table_p13_ri1_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_1,1,SumHCH_ngg,4.25,Unknown,,high,table_p13_ri1_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_1,1,SumHCH_ngg,0.37,Unknown,,high,table_p13_ri1_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_1,1,SumDDT_ngg,1.53,Unknown,,high,table_p13_ri1_ci8,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_1,1,SumDDT_ngg,0.03,Unknown,,high,table_p13_ri1_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_1,1,SumDDT_ngg,9.64,Unknown,,high,table_p13_ri1_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_1,1,SumOCP_ngg,15.91,Unknown,,high,table_p13_ri1_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_1,1,pH,5.84,Unknown,,high,table_p13_ri1_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_1,1,OC_pct,0.727,Unknown,,high,table_p13_ri1_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_2,2,SumHCH_ngg,0.81,Unknown,,high,table_p13_ri2_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_2,2,SumHCH_ngg,0.11,Unknown,,high,table_p13_ri2_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_2,2,SumHCH_ngg,2.73,Unknown,,high,table_p13_ri2_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_2,2,SumHCH_ngg,0.03,Unknown,,high,table_p13_ri2_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_2,2,SumDDT_ngg,0.18,Unknown,,high,table_p13_ri2_ci8,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_2,2,SumDDT_ngg,0.34,Unknown,,high,table_p13_ri2_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_2,2,SumDDT_ngg,2.71,Unknown,,high,table_p13_ri2_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_2,2,SumOCP_ngg,6.38,Unknown,,high,table_p13_ri2_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_2,2,pH,6.31,Unknown,,high,table_p13_ri2_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_2,2,OC_pct,1.624,Unknown,,high,table_p13_ri2_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_3,3,SumHCH_ngg,0.77,Unknown,,high,table_p13_ri3_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_3,3,SumHCH_ngg,0.01,Unknown,,high,table_p13_ri3_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_3,3,SumHCH_ngg,4.24,Unknown,,high,table_p13_ri3_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_3,3,SumHCH_ngg,0.33,Unknown,,high,table_p13_ri3_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_3,3,SumDDT_ngg,2.58,Unknown,,high,table_p13_ri3_ci8,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_3,3,SumDDT_ngg,0.32,Unknown,,high,table_p13_ri3_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_3,3,SumDDT_ngg,6.8,Unknown,,high,table_p13_ri3_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_3,3,SumOCP_ngg,12.14,Unknown,,high,table_p13_ri3_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_3,3,pH,6.39,Unknown,,high,table_p13_ri3_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_3,3,OC_pct,3.921,Unknown,,high,table_p13_ri3_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_4,4,SumHCH_ngg,0.72,Unknown,,high,table_p13_ri4_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_4,4,SumHCH_ngg,0.0,Unknown,,high,table_p13_ri4_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_4,4,SumHCH_ngg,82.33,Unknown,,high,table_p13_ri4_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_4,4,SumHCH_ngg,38.1,Unknown,,high,table_p13_ri4_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_4,4,SumDDT_ngg,0.0,Unknown,,high,table_p13_ri4_ci8,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_4,4,SumDDT_ngg,0.0,Unknown,,high,table_p13_ri4_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_4,4,SumDDT_ngg,351.26,Unknown,,high,table_p13_ri4_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_4,4,SumOCP_ngg,472.4,Unknown,,high,table_p13_ri4_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_4,4,pH,6.87,Unknown,,high,table_p13_ri4_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_4,4,OC_pct,2.309,Unknown,,high,table_p13_ri4_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_5,5,SumHCH_ngg,1.45,Unknown,,high,table_p13_ri5_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_5,5,SumHCH_ngg,0.0,Unknown,,high,table_p13_ri5_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_5,5,SumHCH_ngg,3.14,Unknown,,high,table_p13_ri5_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_5,5,SumHCH_ngg,0.33,Unknown,,high,table_p13_ri5_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_5,5,SumDDT_ngg,0.33,Unknown,,high,table_p13_ri5_ci8,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_5,5,SumDDT_ngg,0.0,Unknown,,high,table_p13_ri5_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_5,5,SumDDT_ngg,4.35,Unknown,,high,table_p13_ri5_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_5,5,SumOCP_ngg,9.26,Unknown,,high,table_p13_ri5_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_5,5,pH,6.96,Unknown,,high,table_p13_ri5_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_5,5,OC_pct,1.382,Unknown,,high,table_p13_ri5_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_6,6,SumHCH_ngg,0.19,Unknown,,high,table_p13_ri6_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_6,6,SumHCH_ngg,0.0,Unknown,,high,table_p13_ri6_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_6,6,SumHCH_ngg,0.0,Unknown,,high,table_p13_ri6_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_6,6,SumHCH_ngg,0.0,Unknown,,high,table_p13_ri6_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_6,6,SumDDT_ngg,4.49,Unknown,,high,table_p13_ri6_ci8,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_6,6,SumDDT_ngg,0.22,Unknown,,high,table_p13_ri6_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_6,6,SumDDT_ngg,6.3,Unknown,,high,table_p13_ri6_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_6,6,SumOCP_ngg,6.49,Unknown,,high,table_p13_ri6_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_6,6,pH,7.54,Unknown,,high,table_p13_ri6_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_6,6,OC_pct,0.81,Unknown,,high,table_p13_ri6_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_7,7,SumHCH_ngg,0.26,Unknown,,high,table_p13_ri7_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_7,7,SumHCH_ngg,0.48,Unknown,,high,table_p13_ri7_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_7,7,SumHCH_ngg,2.23,Unknown,,high,table_p13_ri7_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_7,7,SumHCH_ngg,0.0,Unknown,,high,table_p13_ri7_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_7,7,SumDDT_ngg,0.37,Unknown,,high,table_p13_ri7_ci8,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_7,7,SumDDT_ngg,0.0,Unknown,,high,table_p13_ri7_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_7,7,SumDDT_ngg,2.48,Unknown,,high,table_p13_ri7_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_7,7,SumOCP_ngg,5.44,Unknown,,high,table_p13_ri7_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_7,7,pH,7.21,Unknown,,high,table_p13_ri7_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_7,7,OC_pct,1.637,Unknown,,high,table_p13_ri7_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_8,8,SumHCH_ngg,0.87,Unknown,,high,table_p13_ri8_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_8,8,SumHCH_ngg,0.01,Unknown,,high,table_p13_ri8_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_8,8,SumHCH_ngg,2.99,Unknown,,high,table_p13_ri8_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_8,8,SumHCH_ngg,0.01,Unknown,,high,table_p13_ri8_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_8,8,SumDDT_ngg,0.51,Unknown,,high,table_p13_ri8_ci8,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_8,8,SumDDT_ngg,0.0,Unknown,,high,table_p13_ri8_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_8,8,SumDDT_ngg,4.8,Unknown,,high,table_p13_ri8_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_8,8,SumOCP_ngg,8.68,Unknown,,high,table_p13_ri8_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_8,8,pH,7.23,Unknown,,high,table_p13_ri8_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_8,8,OC_pct,5.183,Unknown,,high,table_p13_ri8_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_9,9,SumHCH_ngg,0.02,Unknown,,high,table_p13_ri9_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_9,9,SumHCH_ngg,0.0,Unknown,,high,table_p13_ri9_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_9,9,SumHCH_ngg,41.94,Unknown,,high,table_p13_ri9_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_9,9,SumHCH_ngg,37.81,Unknown,,high,table_p13_ri9_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_9,9,SumDDT_ngg,0.0,Unknown,,high,table_p13_ri9_ci8,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_9,9,SumDDT_ngg,0.0,Unknown,,high,table_p13_ri9_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_9,9,SumDDT_ngg,234.29,Unknown,,high,table_p13_ri9_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_9,9,SumOCP_ngg,314.07,Unknown,,high,table_p13_ri9_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_9,9,pH,7.5,Unknown,,high,table_p13_ri9_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_9,9,OC_pct,1.895,Unknown,,high,table_p13_ri9_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_10,10,SumHCH_ngg,1.06,Unknown,,high,table_p13_ri10_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_10,10,SumHCH_ngg,0.07,Unknown,,high,table_p13_ri10_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_10,10,SumHCH_ngg,5.62,Unknown,,high,table_p13_ri10_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_10,10,SumHCH_ngg,0.45,Unknown,,high,table_p13_ri10_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_10,10,SumDDT_ngg,1.05,Unknown,,high,table_p13_ri10_ci8,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_10,10,SumDDT_ngg,1.15,Unknown,,high,table_p13_ri10_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_10,10,SumDDT_ngg,987.25,Unknown,,high,table_p13_ri10_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_10,10,SumOCP_ngg,994.44,Unknown,,high,table_p13_ri10_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_10,10,pH,7.7,Unknown,,high,table_p13_ri10_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_10,10,OC_pct,1.513,Unknown,,high,table_p13_ri10_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_11,11,SumHCH_ngg,0.15,Unknown,,high,table_p13_ri11_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_11,11,SumHCH_ngg,0.0,Unknown,,high,table_p13_ri11_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_11,11,SumHCH_ngg,0.66,Unknown,,high,table_p13_ri11_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_11,11,SumHCH_ngg,0.05,Unknown,,high,table_p13_ri11_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_11,11,SumDDT_ngg,0.0,Unknown,,high,table_p13_ri11_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_11,11,SumDDT_ngg,8.15,Unknown,,high,table_p13_ri11_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_11,11,SumOCP_ngg,9.01,Unknown,,high,table_p13_ri11_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_11,11,pH,7.54,Unknown,,high,table_p13_ri11_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_11,11,OC_pct,2.572,Unknown,,high,table_p13_ri11_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_12,12,SumHCH_ngg,1.29,Unknown,,high,table_p13_ri12_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_12,12,SumHCH_ngg,0.0,Unknown,,high,table_p13_ri12_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_12,12,SumHCH_ngg,8.14,Unknown,,high,table_p13_ri12_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_12,12,SumHCH_ngg,0.0,Unknown,,high,table_p13_ri12_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_12,12,SumDDT_ngg,0.0,Unknown,,high,table_p13_ri12_ci8,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_12,12,SumDDT_ngg,0.0,Unknown,,high,table_p13_ri12_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_12,12,SumDDT_ngg,8.02,Unknown,,high,table_p13_ri12_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_12,12,SumOCP_ngg,17.44,Unknown,,high,table_p13_ri12_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_12,12,pH,8.1,Unknown,,high,table_p13_ri12_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_12,12,OC_pct,0.913,Unknown,,high,table_p13_ri12_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_13,13,SumHCH_ngg,21.93,Unknown,,high,table_p13_ri13_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_13,13,SumHCH_ngg,19.37,Unknown,,high,table_p13_ri13_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_13,13,SumHCH_ngg,80.19,Unknown,,high,table_p13_ri13_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_13,13,SumHCH_ngg,13.78,Unknown,,high,table_p13_ri13_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_13,13,SumDDT_ngg,0.0,Unknown,,high,table_p13_ri13_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_13,13,SumDDT_ngg,286.95,Unknown,,high,table_p13_ri13_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_13,13,SumOCP_ngg,422.23,Unknown,,high,table_p13_ri13_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_13,13,pH,8.13,Unknown,,high,table_p13_ri13_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_13,13,OC_pct,1.62,Unknown,,high,table_p13_ri13_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_14,14,SumHCH_ngg,1.49,Unknown,,high,table_p13_ri14_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_14,14,SumHCH_ngg,0.0,Unknown,,high,table_p13_ri14_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_14,14,SumHCH_ngg,8.31,Unknown,,high,table_p13_ri14_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_14,14,SumHCH_ngg,0.0,Unknown,,high,table_p13_ri14_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_14,14,SumDDT_ngg,0.0,Unknown,,high,table_p13_ri14_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_14,14,SumDDT_ngg,13.52,Unknown,,high,table_p13_ri14_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_14,14,SumOCP_ngg,23.32,Unknown,,high,table_p13_ri14_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_14,14,pH,8.7,Unknown,,high,table_p13_ri14_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_14,14,OC_pct,1.59,Unknown,,high,table_p13_ri14_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_15,15,SumHCH_ngg,1.51,Unknown,,high,table_p13_ri15_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_15,15,SumHCH_ngg,0.2,Unknown,,high,table_p13_ri15_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_15,15,SumHCH_ngg,5.21,Unknown,,high,table_p13_ri15_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_15,15,SumHCH_ngg,0.05,Unknown,,high,table_p13_ri15_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_15,15,SumDDT_ngg,0.13,Unknown,,high,table_p13_ri15_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_15,15,SumDDT_ngg,13.36,Unknown,,high,table_p13_ri15_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_15,15,SumOCP_ngg,20.33,Unknown,,high,table_p13_ri15_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_15,15,pH,7.92,Unknown,,high,table_p13_ri15_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_15,15,OC_pct,2.917,Unknown,,high,table_p13_ri15_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_16,16,SumHCH_ngg,1.2,Unknown,,high,table_p13_ri16_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_16,16,SumHCH_ngg,0.19,Unknown,,high,table_p13_ri16_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_16,16,SumHCH_ngg,2.06,Unknown,,high,table_p13_ri16_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_16,16,SumHCH_ngg,0.03,Unknown,,high,table_p13_ri16_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_16,16,SumDDT_ngg,0.0,Unknown,,high,table_p13_ri16_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_16,16,SumDDT_ngg,14.31,Unknown,,high,table_p13_ri16_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_16,16,SumOCP_ngg,17.79,Unknown,,high,table_p13_ri16_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_16,16,pH,8.06,Unknown,,high,table_p13_ri16_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_16,16,OC_pct,1.324,Unknown,,high,table_p13_ri16_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_17,17,SumHCH_ngg,0.9,Unknown,,high,table_p13_ri17_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_17,17,SumHCH_ngg,0.11,Unknown,,high,table_p13_ri17_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_17,17,SumHCH_ngg,0.13,Unknown,,high,table_p13_ri17_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_17,17,SumHCH_ngg,0.0,Unknown,,high,table_p13_ri17_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_17,17,SumDDT_ngg,0.68,Unknown,,high,table_p13_ri17_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_17,17,SumDDT_ngg,11.39,Unknown,,high,table_p13_ri17_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_17,17,SumOCP_ngg,12.52,Unknown,,high,table_p13_ri17_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_17,17,pH,7.51,Unknown,,high,table_p13_ri17_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_17,17,OC_pct,2.377,Unknown,,high,table_p13_ri17_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_18,18,SumHCH_ngg,0.0,Unknown,,high,table_p13_ri18_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_18,18,SumHCH_ngg,0.06,Unknown,,high,table_p13_ri18_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_18,18,SumHCH_ngg,3.89,Unknown,,high,table_p13_ri18_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_18,18,SumHCH_ngg,0.0,Unknown,,high,table_p13_ri18_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_18,18,SumDDT_ngg,3.44,Unknown,,high,table_p13_ri18_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_18,18,SumDDT_ngg,13.92,Unknown,,high,table_p13_ri18_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_18,18,SumOCP_ngg,17.88,Unknown,,high,table_p13_ri18_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_18,18,pH,6.74,Unknown,,high,table_p13_ri18_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_18,18,OC_pct,2.55,Unknown,,high,table_p13_ri18_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_19,19,SumHCH_ngg,0.82,Unknown,,high,table_p13_ri19_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_19,19,SumHCH_ngg,0.04,Unknown,,high,table_p13_ri19_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_19,19,SumHCH_ngg,2.88,Unknown,,high,table_p13_ri19_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_19,19,SumHCH_ngg,0.0,Unknown,,high,table_p13_ri19_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_19,19,SumDDT_ngg,0.0,Unknown,,high,table_p13_ri19_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_19,19,SumDDT_ngg,11.24,Unknown,,high,table_p13_ri19_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_19,19,SumOCP_ngg,14.98,Unknown,,high,table_p13_ri19_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_19,19,pH,7.13,Unknown,,high,table_p13_ri19_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_19,19,OC_pct,0.987,Unknown,,high,table_p13_ri19_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_20,20,SumHCH_ngg,2.54,Unknown,,high,table_p13_ri20_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_20,20,SumHCH_ngg,0.26,Unknown,,high,table_p13_ri20_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_20,20,SumHCH_ngg,2.12,Unknown,,high,table_p13_ri20_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_20,20,SumHCH_ngg,0.0,Unknown,,high,table_p13_ri20_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_20,20,SumDDT_ngg,0.0,Unknown,,high,table_p13_ri20_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_20,20,SumDDT_ngg,3.68,Unknown,,high,table_p13_ri20_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_20,20,SumOCP_ngg,8.59,Unknown,,high,table_p13_ri20_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_20,20,pH,7.7,Unknown,,high,table_p13_ri20_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_20,20,OC_pct,5.591,Unknown,,high,table_p13_ri20_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_21,21,SumHCH_ngg,1.96,Unknown,,high,table_p13_ri21_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_21,21,SumHCH_ngg,0.29,Unknown,,high,table_p13_ri21_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_21,21,SumHCH_ngg,5.33,Unknown,,high,table_p13_ri21_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_21,21,SumHCH_ngg,0.01,Unknown,,high,table_p13_ri21_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_21,21,SumDDT_ngg,0.86,Unknown,,high,table_p13_ri21_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_21,21,SumDDT_ngg,16.96,Unknown,,high,table_p13_ri21_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_21,21,SumOCP_ngg,24.54,Unknown,,high,table_p13_ri21_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_21,21,pH,7.48,Unknown,,high,table_p13_ri21_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_21,21,OC_pct,0.886,Unknown,,high,table_p13_ri21_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_22,22,SumHCH_ngg,0.0,Unknown,,high,table_p13_ri22_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_22,22,SumHCH_ngg,0.08,Unknown,,high,table_p13_ri22_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_22,22,SumHCH_ngg,1.51,Unknown,,high,table_p13_ri22_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_22,22,SumHCH_ngg,0.15,Unknown,,high,table_p13_ri22_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_22,22,SumDDT_ngg,0.66,Unknown,,high,table_p13_ri22_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_22,22,SumDDT_ngg,4.17,Unknown,,high,table_p13_ri22_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_22,22,SumOCP_ngg,5.91,Unknown,,high,table_p13_ri22_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_22,22,pH,7.47,Unknown,,high,table_p13_ri22_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_22,22,OC_pct,1.12,Unknown,,high,table_p13_ri22_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_23,23,SumHCH_ngg,0.88,Unknown,,high,table_p13_ri23_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_23,23,SumHCH_ngg,0.1,Unknown,,high,table_p13_ri23_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_23,23,SumHCH_ngg,2.89,Unknown,,high,table_p13_ri23_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_23,23,SumHCH_ngg,0.55,Unknown,,high,table_p13_ri23_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_23,23,SumDDT_ngg,0.09,Unknown,,high,table_p13_ri23_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_23,23,SumDDT_ngg,4.5,Unknown,,high,table_p13_ri23_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_23,23,SumOCP_ngg,8.92,Unknown,,high,table_p13_ri23_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_23,23,pH,8.05,Unknown,,high,table_p13_ri23_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_23,23,OC_pct,2.52,Unknown,,high,table_p13_ri23_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_24,24,SumHCH_ngg,2.01,Unknown,,high,table_p13_ri24_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_24,24,SumHCH_ngg,0.25,Unknown,,high,table_p13_ri24_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_24,24,SumHCH_ngg,3.35,Unknown,,high,table_p13_ri24_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_24,24,SumHCH_ngg,0.0,Unknown,,high,table_p13_ri24_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_24,24,SumDDT_ngg,0.0,Unknown,,high,table_p13_ri24_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_24,24,SumDDT_ngg,31.38,Unknown,,high,table_p13_ri24_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_24,24,SumOCP_ngg,37.0,Unknown,,high,table_p13_ri24_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_24,24,pH,8.32,Unknown,,high,table_p13_ri24_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_24,24,OC_pct,1.338,Unknown,,high,table_p13_ri24_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_25,25,SumHCH_ngg,0.32,Unknown,,high,table_p13_ri25_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_25,25,SumHCH_ngg,0.59,Unknown,,high,table_p13_ri25_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_25,25,SumHCH_ngg,9.86,Unknown,,high,table_p13_ri25_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_25,25,SumHCH_ngg,0.0,Unknown,,high,table_p13_ri25_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_25,25,SumDDT_ngg,2.4,Unknown,,high,table_p13_ri25_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_25,25,SumDDT_ngg,15.3,Unknown,,high,table_p13_ri25_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_25,25,SumOCP_ngg,26.07,Unknown,,high,table_p13_ri25_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_25,25,pH,8.01,Unknown,,high,table_p13_ri25_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_25,25,OC_pct,1.081,Unknown,,high,table_p13_ri25_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_26,26,SumHCH_ngg,2.73,Unknown,,high,table_p13_ri26_ci1,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_26,26,SumHCH_ngg,0.5,Unknown,,high,table_p13_ri26_ci2,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_26,26,SumHCH_ngg,2.49,Unknown,,high,table_p13_ri26_ci3,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_26,26,SumHCH_ngg,0.01,Unknown,,high,table_p13_ri26_ci4,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_26,26,SumDDT_ngg,0.52,Unknown,,high,table_p13_ri26_ci8,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_26,26,SumDDT_ngg,0.26,Unknown,,high,table_p13_ri26_ci10,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_26,26,SumDDT_ngg,14.73,Unknown,,high,table_p13_ri26_ci11,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_26,26,SumOCP_ngg,20.46,Unknown,,high,table_p13_ri26_ci12,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_26,26,pH,8.52,Unknown,,high,table_p13_ri26_ci13,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties
+s00128-021-03245-0,s00128-021-03245-0_26,26,OC_pct,1.149,Unknown,,high,table_p13_ri26_ci14,Table 9 The concentration of individual OCPs (ng g−1) and soil Properties

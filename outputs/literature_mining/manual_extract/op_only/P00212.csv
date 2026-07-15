@@ -1,0 +1,10 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P00212,CBS-1,SumHCH_ngg,3.69,ng/g,Table 2,soil,agricultural,Jilin,ΣHCHs=α+β+γ+δ-HCH; Table1:CBS-1=Changbai County 628m dark brown soil corn field,42.267,127.992
+P00212,CBS-2,SumHCH_ngg,9.46,ng/g,Table 2,soil,other,Jilin,ΣHCHs=α+β+γ+δ-HCH; Table1:CBS-2=Changbai County 725m dark brown soil Pinus koraiensis,42.267,127.992
+P00212,CBS-3,SumHCH_ngg,3.62,ng/g,Table 2,soil,other,Jilin,ΣHCHs=α+β+γ+δ-HCH; Table1:CBS-3=Fusong County 847m dark brown soil uncultivated land,42.267,127.992
+P00212,CBS-4,SumHCH_ngg,7.05,ng/g,Table 2,soil,other,Jilin,ΣHCHs=α+β+γ+δ-HCH; Table1:CBS-4=Mt.Changbai 1012m dark brown soil Picea Abies,42.267,127.992
+P00212,CBS-5,SumHCH_ngg,18.7,ng/g,Table 2,soil,other,Jilin,ΣHCHs=α+β+γ+δ-HCH; Table1:CBS-5=Mt.Changbai 1450m brown coniferous forest soil,42.267,127.992
+P00212,CBS-6,SumHCH_ngg,3.10,ng/g,Table 2,soil,other,Jilin,ΣHCHs=α+β+γ+δ-HCH; Table1:CBS-6=Mt.Changbai 1547m brown coniferous forest soil,42.267,127.992
+P00212,CBS-7,SumHCH_ngg,12.9,ng/g,Table 2,soil,other,Jilin,ΣHCHs=α+β+γ+δ-HCH; Table1:CBS-7=Mt.Changbai 1795m brown coniferous forest soil,42.267,127.992
+P00212,CBS-8,SumHCH_ngg,25.6,ng/g,Table 2,soil,other,Jilin,ΣHCHs=α+β+γ+δ-HCH; Table1:CBS-8=Heaven Lake 2521m gray alpine tundra soil moss,42.267,127.992
+P00212,CBS-1,SumDDT_ngg,0.95,ng/g,Table 2,soil,agricultural,Jilin,"ΣDDTs=p,p'-DDE+p,p'-DDD+o,p'-DDT+p,p'-DDT; Table1:CBS-1=corn field",42.267,127.992

@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+72301_es405632v,72301_es405632v_eucalyptus_leaf,eucalyptus leaf,OC_pct,6.405,Unknown,range_mean,high,table_p2_ri8_ci1,
+72301_es405632v,72301_es405632v_eucalyptus_leaf,eucalyptus leaf,SumPCB_ngg,361.5,Unknown,range_mean,high,table_p2_ri11_ci1,
+72301_es405632v,72301_es405632v_particle_gas,particle gas,SumPCB_ngg,1010.25,Unknown,range_mean,high,table_p2_ri11_ci3,
+72301_es405632v,72301_es405632v_bare_land_soil,bare land soil,SumPCB_ngg,42077.5,Unknown,range_mean,high,table_p2_ri11_ci5,
+72301_es405632v,72301_es405632v_eucalyptus_leaf,eucalyptus leaf,SumPCB_ngg,400.2,Unknown,range_mean,high,table_p2_ri24_ci1,
+72301_es405632v,72301_es405632v_farmland_soil,farmland soil,SumPCB_ngg,109.05,Unknown,range_mean,high,table_p2_ri24_ci4,

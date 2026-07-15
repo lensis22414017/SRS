@@ -1,0 +1,80 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+10807039.2017.1398631,10807039.2017.1398631_Background_of_Tonglinga,Background of Tonglinga,Cr_mgkg,32.15,Unknown,,high,table_p5_ri1_ci7,Table 1.Soil heavy metals (total and TCLP-extractable) and chemical properties (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_MACb,MACb,Cr_mgkg,250.0,Unknown,,high,table_p5_ri1_ci8,Table 1.Soil heavy metals (total and TCLP-extractable) and chemical properties (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Background_of_Tonglinga,Background of Tonglinga,Cu_mgkg,32.15,Unknown,,high,table_p5_ri5_ci7,Table 1.Soil heavy metals (total and TCLP-extractable) and chemical properties (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_MACb,MACb,Cu_mgkg,50.0,Unknown,,high,table_p5_ri5_ci8,Table 1.Soil heavy metals (total and TCLP-extractable) and chemical properties (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Background_of_Tonglinga,Background of Tonglinga,Zn_mgkg,85.58,Unknown,,high,table_p5_ri7_ci7,Table 1.Soil heavy metals (total and TCLP-extractable) and chemical properties (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_MACb,MACb,Zn_mgkg,200.0,Unknown,,high,table_p5_ri7_ci8,Table 1.Soil heavy metals (total and TCLP-extractable) and chemical properties (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Background_of_Tonglinga,Background of Tonglinga,Pb_mgkg,1.0,Unknown,,high,table_p5_ri8_ci7,Table 1.Soil heavy metals (total and TCLP-extractable) and chemical properties (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Cr,Cr,Cr_mgkg,1.0,Unknown,,high,table_p5_ri1_ci1,Table 2. Spearman's correlations of heavy metals in soil.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Ni,Ni,Ni_mgkg,1.0,Unknown,,high,table_p5_ri2_ci2,Table 2. Spearman's correlations of heavy metals in soil.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Cr,Cr,Cu_mgkg,0.195,Unknown,,high,table_p5_ri3_ci1,Table 2. Spearman's correlations of heavy metals in soil.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Cu,Cu,Cu_mgkg,1.0,Unknown,,high,table_p5_ri3_ci3,Table 2. Spearman's correlations of heavy metals in soil.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Cr,Cr,Zn_mgkg,0.047,Unknown,,high,table_p5_ri4_ci1,Table 2. Spearman's correlations of heavy metals in soil.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Zn,Zn,Zn_mgkg,1.0,Unknown,,high,table_p5_ri4_ci4,Table 2. Spearman's correlations of heavy metals in soil.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Cr,Cr,Pb_mgkg,0.096,Unknown,,high,table_p5_ri5_ci1,Table 2. Spearman's correlations of heavy metals in soil.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Ni,Ni,Pb_mgkg,0.259,Unknown,,high,table_p5_ri5_ci2,Table 2. Spearman's correlations of heavy metals in soil.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Pb,Pb,Pb_mgkg,1.0,Unknown,,high,table_p5_ri5_ci5,Table 2. Spearman's correlations of heavy metals in soil.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Cr,Cr,Cd_mgkg,0.181,Unknown,,high,table_p5_ri6_ci1,Table 2. Spearman's correlations of heavy metals in soil.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Tongling,Tongling,Cr_mgkg,2.41,Unknown,,high,table_p6_ri1_ci2,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Tongling,Tongling,Ni_mgkg,2.86,Unknown,,high,table_p6_ri1_ci3,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Tongling,Tongling,Cu_mgkg,17.71,Unknown,,high,table_p6_ri1_ci4,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Tongling,Tongling,Zn_mgkg,35.59,Unknown,,high,table_p6_ri1_ci5,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Tongling,Tongling,Pb_mgkg,0.17,Unknown,,high,table_p6_ri1_ci6,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Tongling,Tongling,Cd_mgkg,0.78,Unknown,,high,table_p6_ri1_ci7,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S2,S2,Cr_mgkg,2.33,Unknown,,high,table_p6_ri2_ci2,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S2,S2,Ni_mgkg,3.28,Unknown,,high,table_p6_ri2_ci3,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S2,S2,Cu_mgkg,14.2,Unknown,,high,table_p6_ri2_ci4,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S2,S2,Zn_mgkg,22.57,Unknown,,high,table_p6_ri2_ci5,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S2,S2,Pb_mgkg,0.08,Unknown,,high,table_p6_ri2_ci6,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S2,S2,Cd_mgkg,0.69,Unknown,,high,table_p6_ri2_ci7,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S3,S3,Cr_mgkg,2.71,Unknown,range_mean,high,table_p6_ri3_ci2,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S3,S3,Ni_mgkg,5.94,Unknown,range_mean,high,table_p6_ri3_ci3,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S3,S3,Cu_mgkg,39.13999999999999,Unknown,range_mean,high,table_p6_ri3_ci4,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S3,S3,Zn_mgkg,77.38,Unknown,range_mean,high,table_p6_ri3_ci5,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S3,S3,Pb_mgkg,0.21,Unknown,range_mean,high,table_p6_ri3_ci6,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S3,S3,Cd_mgkg,1.3599999999999999,Unknown,range_mean,high,table_p6_ri3_ci7,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Guangdonga:,Guangdonga:,Cr_mgkg,1.0,Unknown,,high,table_p6_ri4_ci2,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Guangdonga:,Guangdonga:,Cu_mgkg,4.96,Unknown,,high,table_p6_ri4_ci4,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Guangdonga:,Guangdonga:,Zn_mgkg,31.98,Unknown,,high,table_p6_ri4_ci5,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Guangdonga:,Guangdonga:,Pb_mgkg,1.86,Unknown,,high,table_p6_ri4_ci6,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Guangdonga:,Guangdonga:,Cd_mgkg,0.59,Unknown,,high,table_p6_ri4_ci7,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Korea_b:,Korea b:,Cu_mgkg,4.69,Unknown,,high,table_p6_ri5_ci4,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Korea_b:,Korea b:,Zn_mgkg,16.8,Unknown,,high,table_p6_ri5_ci5,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Korea_b:,Korea b:,Pb_mgkg,0.8,Unknown,,high,table_p6_ri5_ci6,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_Korea_b:,Korea b:,Cd_mgkg,0.17,Unknown,,high,table_p6_ri5_ci7,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_MLCC,MLCC,Cr_mgkg,1.0,Unknown,,high,table_p6_ri6_ci2,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_MLCC,MLCC,Cu_mgkg,10.0,Unknown,,high,table_p6_ri6_ci4,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_MLCC,MLCC,Zn_mgkg,50.0,Unknown,,high,table_p6_ri6_ci5,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_MLCC,MLCC,Pb_mgkg,0.2,Unknown,,high,table_p6_ri6_ci6,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_MLCC,MLCC,Cd_mgkg,0.2,Unknown,,high,table_p6_ri6_ci7,Table 3. Heavy metal concentrations (mg/kg) in rice grains (n = 60).,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_adults,adults,Cr_mgkg,0.015,Unknown,,high,table_p8_ri1_ci2,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_adults,adults,Ni_mgkg,0.0178,Unknown,,high,table_p8_ri1_ci3,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_adults,adults,Cu_mgkg,0.11,Unknown,,high,table_p8_ri1_ci4,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_adults,adults,Zn_mgkg,0.221,Unknown,,high,table_p8_ri1_ci5,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_adults,adults,Pb_mgkg,0.00106,Unknown,,high,table_p8_ri1_ci6,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_adults,adults,Cd_mgkg,0.00485,Unknown,,high,table_p8_ri1_ci7,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S2,S2,Cr_mgkg,0.01,Unknown,,high,table_p8_ri2_ci2,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S2,S2,Ni_mgkg,0.89,Unknown,,high,table_p8_ri2_ci3,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S2,S2,Cu_mgkg,2.75,Unknown,,high,table_p8_ri2_ci4,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S2,S2,Zn_mgkg,0.74,Unknown,,high,table_p8_ri2_ci5,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S2,S2,Pb_mgkg,0.3,Unknown,,high,table_p8_ri2_ci6,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S2,S2,Cd_mgkg,4.85,Unknown,,high,table_p8_ri2_ci7,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S3,S3,Cr_mgkg,0.0075,Unknown,,high,table_p8_ri3_ci2,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S3,S3,Ni_mgkg,0.0149,Unknown,,high,table_p8_ri3_ci3,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S3,S3,Cd_mgkg,0.0296,Unknown,,high,table_p8_ri3_ci7,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_children,children,Cr_mgkg,0.0306,Unknown,,high,table_p8_ri4_ci2,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_children,children,Ni_mgkg,0.0362,Unknown,,high,table_p8_ri4_ci3,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_children,children,Cu_mgkg,0.225,Unknown,,high,table_p8_ri4_ci4,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_children,children,Zn_mgkg,0.451,Unknown,,high,table_p8_ri4_ci5,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_children,children,Pb_mgkg,0.002156,Unknown,,high,table_p8_ri4_ci6,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_children,children,Cd_mgkg,0.00988,Unknown,,high,table_p8_ri4_ci7,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S5,S5,Cr_mgkg,0.02,Unknown,,high,table_p8_ri5_ci2,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S5,S5,Ni_mgkg,1.81,Unknown,,high,table_p8_ri5_ci3,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S5,S5,Cu_mgkg,5.62,Unknown,,high,table_p8_ri5_ci4,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S5,S5,Zn_mgkg,1.5,Unknown,,high,table_p8_ri5_ci5,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S5,S5,Pb_mgkg,0.62,Unknown,,high,table_p8_ri5_ci6,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S5,S5,Cd_mgkg,9.88,Unknown,,high,table_p8_ri5_ci7,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S6,S6,Cr_mgkg,0.00131,Unknown,,high,table_p8_ri6_ci2,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S6,S6,Ni_mgkg,0.00261,Unknown,,high,table_p8_ri6_ci3,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14
+10807039.2017.1398631,10807039.2017.1398631_S6,S6,Cd_mgkg,0.00516,Unknown,,high,table_p8_ri6_ci7,Table 5. Estimated daily intake and health risk from rice consumption.,,,,,,phase14

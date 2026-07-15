@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01108,,,,,,,soil,urban/industrial,YRD多省,"skip: 仅统计汇总(Mean/Median/Min/Max/STD/CV)无采样点级数据; 243个样品分布在长三角11市; Table1为全样统计; Table2为ILCR风险指数; Figure1为Kriging插值图; SI目录为空; 正文提及最高3个样3579/3421/2895 ng/g但无sample_id"

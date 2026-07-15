@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+ijerph-20-03478,ijerph-20-03478_TEQ,TEQ,SumPCB_ngg,132.9,Unknown,range_mean,high,table_p7_ri2_ci4,"Table 1. The concentrations (range or average) of PCBs, PCNs, and PCDD/Fs in soil samples collected around the industrial park (pg/g)."

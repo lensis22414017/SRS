@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00367,NOTES,,,,,,,"无采样点级数据;论文正文仅有统计汇总(mean/median/max/range/IQR);89个采样点的原始数据全在Supplementary Table S7/S9/S10中(parsed paper.md未包含);测量OCP仅含DDTs(HCB/p,p'-DDE/p,p'-DDD/o,p'-DDT/p,p'-DDT)及β-endosulfan;无PAH/PCB/PBDE/PHC;skip: 仅区域汇总无采样点级数据"

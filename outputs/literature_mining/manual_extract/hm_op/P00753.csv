@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00753,,,,,,,,,skip: 盆栽+真菌修复实验(mycoremediation/bioremediation)。土壤采自四川后人为spike Cd(0/5/15/30 mg/kg)+pyrene(0/200/400 mg/kg)于塑料盆greenroom培养Oudemansiella radicata。scan中12行=4×3实验处理组合非采样点。全文无真实污染场地本底实测浓度，表1为基质土理化性质(pH/CEC/OM)，表2为修复后蘑菇Cd积累+BCF，图2为9周后残留pyrene。剔除全部。

@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03104,,,,,,,,,"skip: 无采样点级浓度数据可提取。论文6个采样点(SLJ/CCC/LJC/TXC/GR/CY)的9种重金属(Ti/Mn/Zr/Sr/Rb/Cr/Zn/Ni/Pb)和16种PAHs浓度数据均以堆叠累积柱状图(Fig 5)呈现，非数值表格。论文仅给出整流域范围值：HM总含量5049~5741 mg/kg、ΣPAHs 3.84~6.31 mg/kg、BaP最高0.51 mg/kg，均非按采样点分列的可提取数值。Table 3为微塑料风险指数(Igeo/PLI)，Table 4为PAH致癌风险指数(ILCR)，均非浓度数据。HM中仅Cr/Zn/Ni/Pb与目标8元素重叠，Cd/As/Hg/Cu未测定。"

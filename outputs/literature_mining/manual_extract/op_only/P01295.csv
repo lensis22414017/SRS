@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01295,NOTES,,,,,,e_waste,Guangdong,"skip: 论文仅提供PBDEs范围和均值汇总(无采样点级数据)。Table 1为各PBDE同系物组的range+mean(如0.04-3.2,mean,1.3)；正文3.1段ΣPBDE=13.9-13251.2(mean,898.3)ng/g dw、BDE-209=5.0-11940.2(mean,783.5)ng/g dw；正文3.3段ΣOH-PBDE=0.04-45.8(mean,6.0)、ΣMeO-PBDE=1.7-52.2(mean,11.9)；Fig.2为箱线图(percentiles)；SI Table S1=MS/MS参数、Table S2=植物种类+OH/MeO-PBDE百分比组成(非浓度)。36个土样(Site1:样本1-8、Site2:10-20、Site3:21-28、Site4:30-36)的逐样浓度均未在正文或SI中报告"

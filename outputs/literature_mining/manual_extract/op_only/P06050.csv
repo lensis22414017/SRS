@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06050,,,,,,,,"skip: Table 1仅提供Mean/SD/Range统计汇总行，无采样点级数据；Fig 2为图片格式柱状图，不可解析；36个采样点(CM/BS/JD/QP/SJ/JS/FX/NH/MH)，仅PAHs无HM数据"

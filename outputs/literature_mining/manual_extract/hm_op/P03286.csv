@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03286,,,,,,,,,"综述论文(无原始数据)：标题/摘要明确""综述了...研究进展""；全文为生物修复机理文献综述(细菌/真菌生物吸附剂去除HM与PAH)，无数据表格/无采样点/无场地实测；正文引用数值均为他人文献的去除率/累积百分比/峰值浓度(如[7]菲峰值500mg/kg去除95.07%、[19]铁锌铅去除率95/90/79%)，非采样点级土壤浓度；属剔除场景：综述/Meta分析(无原始数据)+生物修复实验讨论"

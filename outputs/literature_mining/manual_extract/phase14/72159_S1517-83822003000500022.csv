@@ -1,0 +1,13 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+72159_S1517-83822003000500022,72159_S1517-83822003000500022_Long_Beach,Long Beach,pH,6.3,Unknown,,high,table_p1_ri2_ci1,Table 1. Physical and chemical characteristics of soils.
+72159_S1517-83822003000500022,72159_S1517-83822003000500022_Long_Beach,Long Beach,CEC_cmolkg,6.2,Unknown,,high,table_p1_ri2_ci2,Table 1. Physical and chemical characteristics of soils.
+72159_S1517-83822003000500022,72159_S1517-83822003000500022_Long_Beach,Long Beach,OM_pct,25.9,Unknown,,high,table_p1_ri2_ci3,Table 1. Physical and chemical characteristics of soils.
+72159_S1517-83822003000500022,72159_S1517-83822003000500022_Long_Beach,Long Beach,Sand_pct,610.0,Unknown,,high,table_p1_ri2_ci5,Table 1. Physical and chemical characteristics of soils.
+72159_S1517-83822003000500022,72159_S1517-83822003000500022_Long_Beach,Long Beach,Silt_pct,320.0,Unknown,,high,table_p1_ri2_ci6,Table 1. Physical and chemical characteristics of soils.
+72159_S1517-83822003000500022,72159_S1517-83822003000500022_Long_Beach,Long Beach,Clay_pct,70.0,Unknown,,high,table_p1_ri2_ci7,Table 1. Physical and chemical characteristics of soils.
+72159_S1517-83822003000500022,72159_S1517-83822003000500022_Hong_Kong,Hong Kong,pH,7.7,Unknown,,high,table_p1_ri3_ci1,Table 1. Physical and chemical characteristics of soils.
+72159_S1517-83822003000500022,72159_S1517-83822003000500022_Hong_Kong,Hong Kong,CEC_cmolkg,10.8,Unknown,,high,table_p1_ri3_ci2,Table 1. Physical and chemical characteristics of soils.
+72159_S1517-83822003000500022,72159_S1517-83822003000500022_Hong_Kong,Hong Kong,OM_pct,65.5,Unknown,,high,table_p1_ri3_ci3,Table 1. Physical and chemical characteristics of soils.
+72159_S1517-83822003000500022,72159_S1517-83822003000500022_Hong_Kong,Hong Kong,Sand_pct,780.0,Unknown,,high,table_p1_ri3_ci5,Table 1. Physical and chemical characteristics of soils.
+72159_S1517-83822003000500022,72159_S1517-83822003000500022_Hong_Kong,Hong Kong,Silt_pct,150.0,Unknown,,high,table_p1_ri3_ci6,Table 1. Physical and chemical characteristics of soils.
+72159_S1517-83822003000500022,72159_S1517-83822003000500022_Hong_Kong,Hong Kong,Clay_pct,70.0,Unknown,,high,table_p1_ri3_ci7,Table 1. Physical and chemical characteristics of soils.

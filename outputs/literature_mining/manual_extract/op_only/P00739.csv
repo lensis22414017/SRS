@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00739,,,,,,,,"skip: phytoremediation field experiment (alfalfa+tall fescue intercropping). No sample-point-level data. Pre-remediation baseline is only a site-wide range 747-810 ug/kg total PAHs (Section 2.2) without individual sample IDs. All post-remediation values are treatment means (A/T/A/CK) with SD. No PAH monomer-level data reported (only total PAHs and ring-group sums). Iron/steel foundry site Jiangsu."

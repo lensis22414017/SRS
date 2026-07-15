@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00191,soil,SumPBDE_ngg,25478.84,ng/g,Table 1,soil,e_waste,未明确(South China),"Table 1 ∑PBDEs row直接读取; 单一土壤采样点来自废弃电子废物倾倒场; 论文仅述South China未明确省份(提及Zhejiang和Guangdong为e-waste集中地); 叶片数据(Pa/Pm/Sb/Rj/Ea)为植物组织已剔除"

@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03102,,,,,,soil,other,,"skip: 综述论文(标题'A review'/摘要'本文综述了')，无原始采样数据。Table 1的9行(煤气生产/木材厂/炼钢厂/焦化场地/废弃木材厂/石油泄漏交通/电子垃圾烧/废水污灌/水泥厂)全部引用自9篇不同外部文献(Kuppusamy 2016/Madrid 2019/Davin 2020/桑康云2023/Kristin 2009/徐素云2017/Moeckel 2020/Chen 2016/Wang 2018)，非P03102自身实测。按铁律6(HM+OP须同论文同场地)不可跨文献拼接，且数据归属应为各原始文献而非本综述。全文仅讨论表面活性剂强化生物修复机制/影响因素(浓度/pH/盐分/DOM)，无任何场地本底调查章节。建议各源文献独立追溯。"

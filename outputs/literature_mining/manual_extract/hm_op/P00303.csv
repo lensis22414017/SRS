@@ -1,0 +1,71 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P00303,S0,Cr_mgkg,68.50,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S0,Cu_mgkg,23.90,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S0,Ni_mgkg,36.80,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S0,Pb_mgkg,16.90,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S0,Zn_mgkg,79.00,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S1,Cr_mgkg,248.00,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S1,Cu_mgkg,103.00,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S1,Ni_mgkg,47.40,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S1,Pb_mgkg,197.00,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S1,Zn_mgkg,903.00,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S2,Cr_mgkg,165.00,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S2,Cu_mgkg,466.00,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S2,Ni_mgkg,62.80,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S2,Pb_mgkg,394.00,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S2,Zn_mgkg,1729.00,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S3,Cr_mgkg,289.00,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S3,Cu_mgkg,105.00,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S3,Ni_mgkg,69.30,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S3,Pb_mgkg,138.00,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S3,Zn_mgkg,685.00,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S4,Cr_mgkg,79.70,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S4,Cu_mgkg,27.20,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S4,Ni_mgkg,35.10,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S4,Pb_mgkg,31.60,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S4,Zn_mgkg,133.00,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S5,Cr_mgkg,90.30,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S5,Cu_mgkg,48.60,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S5,Ni_mgkg,40.20,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S5,Pb_mgkg,45.10,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S5,Zn_mgkg,161.00,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S6,Cr_mgkg,67.60,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S6,Cu_mgkg,48.60,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S6,Ni_mgkg,36.20,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S6,Pb_mgkg,45.70,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S6,Zn_mgkg,194.00,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S7,Cr_mgkg,77.00,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S7,Cu_mgkg,42.60,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S7,Ni_mgkg,37.60,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S7,Pb_mgkg,45.10,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S7,Zn_mgkg,184.00,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S8,Cr_mgkg,94.20,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S8,Cu_mgkg,20.20,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S8,Ni_mgkg,37.50,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S8,Pb_mgkg,22.20,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S8,Zn_mgkg,98.40,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S9,Cr_mgkg,82.20,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S9,Cu_mgkg,34.30,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S9,Ni_mgkg,28.70,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S9,Pb_mgkg,26.80,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S9,Zn_mgkg,110.00,mg/kg,Table 1,soil,industrial,Jiangsu,Table 1直接读取,32.2708,118.7936
+P00303,S0,Sum_PAH_ngg,2390,ng/g,Table 2,soil,industrial,Jiangsu,Table 2 论文Σ16PAH=2.39 mg/kg ×1000转ng/g (单体加和验证=2.42 含ND),32.2708,118.7936
+P00303,S0,BaP_ngg,100,ng/g,Table 2,soil,industrial,Jiangsu,Table 2 BaP单体=0.10 mg/kg ×1000转ng/g,32.2708,118.7936
+P00303,S1,Sum_PAH_ngg,25600,ng/g,Table 2,soil,industrial,Jiangsu,Table 2 论文Σ16PAH=25.60 mg/kg ×1000转ng/g,32.2708,118.7936
+P00303,S1,BaP_ngg,1530,ng/g,Table 2,soil,industrial,Jiangsu,Table 2 BaP单体=1.53 mg/kg ×1000转ng/g,32.2708,118.7936
+P00303,S2,Sum_PAH_ngg,99020,ng/g,Table 2,soil,industrial,Jiangsu,Table 2 论文Σ16PAH=99.02 mg/kg ×1000转ng/g,32.2708,118.7936
+P00303,S2,BaP_ngg,6300,ng/g,Table 2,soil,industrial,Jiangsu,Table 2 BaP单体=6.30 mg/kg ×1000转ng/g,32.2708,118.7936
+P00303,S3,Sum_PAH_ngg,9020,ng/g,Table 2,soil,industrial,Jiangsu,Table 2 论文Σ16PAH=9.02 mg/kg ×1000转ng/g,32.2708,118.7936
+P00303,S3,BaP_ngg,350,ng/g,Table 2,soil,industrial,Jiangsu,Table 2 BaP单体=0.35 mg/kg ×1000转ng/g,32.2708,118.7936
+P00303,S4,Sum_PAH_ngg,3160,ng/g,Table 2,soil,industrial,Jiangsu,Table 2 论文Σ16PAH=3.16 mg/kg ×1000转ng/g,32.2708,118.7936
+P00303,S4,BaP_ngg,140,ng/g,Table 2,soil,industrial,Jiangsu,Table 2 BaP单体=0.14 mg/kg ×1000转ng/g,32.2708,118.7936
+P00303,S5,Sum_PAH_ngg,5590,ng/g,Table 2,soil,industrial,Jiangsu,Table 2 论文Σ16PAH=5.59 mg/kg ×1000转ng/g,32.2708,118.7936
+P00303,S5,BaP_ngg,200,ng/g,Table 2,soil,industrial,Jiangsu,Table 2 BaP单体=0.20 mg/kg ×1000转ng/g,32.2708,118.7936
+P00303,S6,Sum_PAH_ngg,8850,ng/g,Table 2,soil,industrial,Jiangsu,Table 2 论文Σ16PAH=8.85 mg/kg ×1000转ng/g,32.2708,118.7936
+P00303,S6,BaP_ngg,430,ng/g,Table 2,soil,industrial,Jiangsu,Table 2 BaP单体=0.43 mg/kg ×1000转ng/g,32.2708,118.7936
+P00303,S7,Sum_PAH_ngg,6530,ng/g,Table 2,soil,industrial,Jiangsu,Table 2 论文Σ16PAH=6.53 mg/kg ×1000转ng/g,32.2708,118.7936
+P00303,S7,BaP_ngg,260,ng/g,Table 2,soil,industrial,Jiangsu,Table 2 BaP单体=0.26 mg/kg ×1000转ng/g,32.2708,118.7936
+P00303,S8,Sum_PAH_ngg,2930,ng/g,Table 2,soil,industrial,Jiangsu,Table 2 论文Σ16PAH=2.93 mg/kg ×1000转ng/g,32.2708,118.7936
+P00303,S8,BaP_ngg,130,ng/g,Table 2,soil,industrial,Jiangsu,Table 2 BaP单体=0.13 mg/kg ×1000转ng/g,32.2708,118.7936
+P00303,S9,Sum_PAH_ngg,5130,ng/g,Table 2,soil,industrial,Jiangsu,Table 2 论文Σ16PAH=5.13 mg/kg ×1000转ng/g,32.2708,118.7936
+P00303,S9,BaP_ngg,200,ng/g,Table 2,soil,industrial,Jiangsu,Table 2 BaP单体=0.20 mg/kg ×1000转ng/g,32.2708,118.7936

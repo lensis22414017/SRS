@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10260,NOTES,,,,Table 1,soil,coastal/agricultural,Fujian,'skip: 论文仅提供Sanduao Bay(11点)和Xinghua Bay(10点)两个海湾级别的Mean±SD和Range统计汇总(表1)，无逐采样点(S1-S11/X1-X10)浓度数据。正文仅定性提及S5最高/S10最低/X4-X6比值，Fig.1可能含点级数据但为图片无法提取'

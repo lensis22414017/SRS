@@ -1,0 +1,35 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00865,R1-E9,Sum_PAH_ngg,2024.48,ng/g,Table 1,sediment,e_waste,Guangdong,Table1 sediment 16 EPA PAH monomer sum (Nap+Acy+Ace+Flu+Phe+Ant+Flt+Pyr+BaA+Chr+BbF+BkF+BaP+DahA+BghiP+IcdP)
+P00865,R1-E9,BaP_ngg,116.58,ng/g,Table 1,sediment,e_waste,Guangdong,Table1 sediment BaP monomer direct read
+P00865,R1-E10,Sum_PAH_ngg,594.35,ng/g,Table 1,sediment,e_waste,Guangdong,Table1 sediment 16 EPA PAH monomer sum (Nap+Acy+Ace+Flu+Phe+Ant+Flt+Pyr+BaA+Chr+BbF+BkF+BaP+DahA+BghiP+IcdP)
+P00865,R1-E10,BaP_ngg,21.89,ng/g,Table 1,sediment,e_waste,Guangdong,Table1 sediment BaP monomer direct read
+P00865,R2-E6,Sum_PAH_ngg,2258.59,ng/g,Table 1,sediment,e_waste,Guangdong,Table1 sediment 16 EPA PAH monomer sum (Nap+Acy+Ace+Flu+Phe+Ant+Flt+Pyr+BaA+Chr+BbF+BkF+BaP+DahA+BghiP+IcdP)
+P00865,R2-E6,BaP_ngg,89.63,ng/g,Table 1,sediment,e_waste,Guangdong,Table1 sediment BaP monomer direct read
+P00865,R2-E7,Sum_PAH_ngg,654.50,ng/g,Table 1,sediment,e_waste,Guangdong,Table1 sediment 16 EPA PAH monomer sum (Nap+Acy+Ace+Flu+Phe+Ant+Flt+Pyr+BaA+Chr+BbF+BkF+BaP+DahA+BghiP+IcdP)
+P00865,R2-E7,BaP_ngg,16.11,ng/g,Table 1,sediment,e_waste,Guangdong,Table1 sediment BaP monomer direct read
+P00865,R2-E8,Sum_PAH_ngg,67.16,ng/g,Table 1,sediment,e_waste,Guangdong,Table1 sediment 16 EPA PAH monomer sum (Nap+Acy+Ace+Flu+Phe+Ant+Flt+Pyr+BaA+Chr+BbF+BkF+BaP+DahA+BghiP+IcdP)
+P00865,R2-E8,BaP_ngg,1.59,ng/g,Table 1,sediment,e_waste,Guangdong,Table1 sediment BaP monomer direct read
+P00865,R3-E1,Sum_PAH_ngg,4766.33,ng/g,Table 1,sediment,e_waste,Guangdong,Table1 sediment 16 EPA PAH monomer sum (Nap+Acy+Ace+Flu+Phe+Ant+Flt+Pyr+BaA+Chr+BbF+BkF+BaP+DahA+BghiP+IcdP)
+P00865,R3-E1,BaP_ngg,231.09,ng/g,Table 1,sediment,e_waste,Guangdong,Table1 sediment BaP monomer direct read
+P00865,R3-E2,Sum_PAH_ngg,364.25,ng/g,Table 1,sediment,e_waste,Guangdong,Table1 sediment 16 EPA PAH monomer sum (Nap+Acy+Ace+Flu+Phe+Ant+Flt+Pyr+BaA+Chr+BbF+BkF+BaP+DahA+BghiP+IcdP)
+P00865,R3-E2,BaP_ngg,10.67,ng/g,Table 1,sediment,e_waste,Guangdong,Table1 sediment BaP monomer direct read
+P00865,R3-E3,Sum_PAH_ngg,183.77,ng/g,Table 1,sediment,e_waste,Guangdong,Table1 sediment 16 EPA PAH monomer sum (Nap+Acy+Ace+Flu+Phe+Ant+Flt+Pyr+BaA+Chr+BbF+BkF+BaP+DahA+BghiP+IcdP)
+P00865,R3-E3,BaP_ngg,4.154,ng/g,Table 1,sediment,e_waste,Guangdong,Table1 sediment BaP monomer direct read
+P00865,R3-E4,Sum_PAH_ngg,134.76,ng/g,Table 1,sediment,e_waste,Guangdong,Table1 sediment 16 EPA PAH monomer sum (Nap+Acy+Ace+Flu+Phe+Ant+Flt+Pyr+BaA+Chr+BbF+BkF+BaP+DahA+BghiP+IcdP)
+P00865,R3-E4,BaP_ngg,3.28,ng/g,Table 1,sediment,e_waste,Guangdong,Table1 sediment BaP monomer direct read
+P00865,R3-E5,Sum_PAH_ngg,105.37,ng/g,Table 1,sediment,e_waste,Guangdong,Table1 sediment 16 EPA PAH monomer sum (Nap+Acy+Ace+Flu+Phe+Ant+Flt+Pyr+BaA+Chr+BbF+BkF+BaP+DahA+BghiP+IcdP)
+P00865,R3-E5,BaP_ngg,1.74,ng/g,Table 1,sediment,e_waste,Guangdong,Table1 sediment BaP monomer direct read
+P00865,S1,Sum_PAH_ngg,5962.55,ng/g,Table 2,soil,e_waste,Guangdong,Table2 Sigma16PAHs row direct read; site=e-waste storage (ES)
+P00865,S1,BaP_ngg,182.60,ng/g,Table 2,soil,e_waste,Guangdong,Table2 BaP row direct read; site=e-waste storage (ES)
+P00865,S2,Sum_PAH_ngg,327.16,ng/g,Table 2,soil,e_waste,Guangdong,Table2 Sigma16PAHs row direct read; site=e-waste storage for plastics (EP)
+P00865,S2,BaP_ngg,4.30,ng/g,Table 2,soil,e_waste,Guangdong,Table2 BaP row direct read; site=e-waste storage for plastics (EP)
+P00865,S3,Sum_PAH_ngg,924.57,ng/g,Table 2,soil,e_waste,Guangdong,Table2 Sigma16PAHs row direct read; site=e-waste storage for copiers/printer axles (PA)
+P00865,S3,BaP_ngg,76.80,ng/g,Table 2,soil,e_waste,Guangdong,Table2 BaP row direct read; site=e-waste storage for copiers/printer axles (PA)
+P00865,S4,Sum_PAH_ngg,739.58,ng/g,Table 2,soil,e_waste,Guangdong,Table2 Sigma16PAHs row direct read; site=plastic shredding workshop (PS)
+P00865,S4,BaP_ngg,6.22,ng/g,Table 2,soil,e_waste,Guangdong,Table2 BaP row direct read; site=plastic shredding workshop (PS)
+P00865,S5,Sum_PAH_ngg,10083.86,ng/g,Table 2,soil,e_waste,Guangdong,Table2 Sigma16PAHs row direct read; site=residues after open burning (EBS)
+P00865,S5,BaP_ngg,732.24,ng/g,Table 2,soil,e_waste,Guangdong,Table2 BaP row direct read; site=residues after open burning (EBS)
+P00865,S6,Sum_PAH_ngg,294.90,ng/g,Table 2,soil,e_waste,Guangdong,Table2 Sigma16PAHs row direct read; site=rice fields near open burning site (RFBS)
+P00865,S6,BaP_ngg,2.11,ng/g,Table 2,soil,e_waste,Guangdong,Table2 BaP row direct read; site=rice fields near open burning site (RFBS)
+P00865,S7,Sum_PAH_ngg,425.45,ng/g,Table 2,soil,e_waste,Guangdong,Table2 Sigma16PAHs row direct read; site=site S7 (description not given in methods)
+P00865,S7,BaP_ngg,6.72,ng/g,Table 2,soil,e_waste,Guangdong,Table2 BaP row direct read; site=site S7 (description not given in methods)

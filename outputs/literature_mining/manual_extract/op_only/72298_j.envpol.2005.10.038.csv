@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+72298_j.envpol.2005.10.038,72298_j.envpol.2005.10.038_Minimum,TotalPHC_mgkg,1100.0,Unknown,table_p5_ri2_ci2,soil,industrial,,phase14_auto; confidence=medium; flag=,,
+72298_j.envpol.2005.10.038,72298_j.envpol.2005.10.038_Maximum,TotalPHC_mgkg,2740.0,Unknown,table_p5_ri2_ci3,soil,industrial,,phase14_auto; confidence=medium; flag=,,
+72298_j.envpol.2005.10.038,72298_j.envpol.2005.10.038_Dutch_B,TotalPHC_mgkg,1000.0,Unknown,table_p5_ri2_ci4,soil,industrial,,phase14_auto; confidence=medium; flag=,,
+72298_j.envpol.2005.10.038,72298_j.envpol.2005.10.038_Dutch_C,TotalPHC_mgkg,5000.0,Unknown,table_p5_ri2_ci5,soil,industrial,,phase14_auto; confidence=medium; flag=,,

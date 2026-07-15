@@ -1,0 +1,8 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10527,C1,Sum_PAH_ngg,4105,ng/g,Section 3.1 text,sediment,urban,Hunan,Street dust (bulk atmospheric deposition on plates at 1.5m). Sum16 EPA PAHs from text section 3.1 - one of lowest sites
+P10527,C4,Sum_PAH_ngg,14470,ng/g,Section 3.1 text,sediment,urban,Hunan,Street dust. Sum16 EPA PAHs from text - Changsha highest site (traffic area near Xiangjiang River)
+P10527,C7,Sum_PAH_ngg,3515,ng/g,Section 3.1 text,sediment,urban,Hunan,Street dust. Sum16 EPA PAHs from text - overall lowest site (office area with greenery)
+P10527,C8,Sum_PAH_ngg,3935,ng/g,Section 3.1 text,sediment,urban,Hunan,Street dust. Sum16 EPA PAHs from text - second lowest site
+P10527,X1,Sum_PAH_ngg,13337,ng/g,Section 3.1 text,sediment,urban,Hunan,Street dust. Sum16 EPA PAHs from text (Bantang industrial area)
+P10527,X5,Sum_PAH_ngg,24488,ng/g,Section 3.1 text,sediment,urban,Hunan,Street dust. Sum16 EPA PAHs from text - overall highest site (Xiangtan coal-fired power plant)
+P10527,Z2,Sum_PAH_ngg,13197,ng/g,Section 3.1 text,sediment,urban,Hunan,Street dust. Sum16 EPA PAHs from text - Zhuzhou highest site (Zhicheng Chemical plant)

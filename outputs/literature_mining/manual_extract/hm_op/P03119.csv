@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03119,,,,,,,,,"skip: 盆栽/温室/spiked/microcosm实验。论文为'增温和锌复合作用对菠菜富集PAHs的影响'，构建土壤-大气-植物密闭微宇宙(2.3节)，人为向河北保定农用地土壤中外加ZnSO4(100/200/400/600 mg·kg-1)和4种氘代PAHs(dPhe/dAnt/dFlt/dPyr，2.2节污染土壤制备)。无真实场地采样点级HM+OP浓度。表1为植物脂肪含量/电解质渗透率(生理指标)；表2为ILCR致癌风险指数(铁律剔除)；图2-7为盆栽处理组(Control/Zn100-Zn600)的植物/土/气相浓度，非真实场地样本。仅有外加Zn设计浓度，无Cd/Pb/Cr/As/Hg/Cu/Ni实测；PAH仅4种氘代单体非16 EPA真实污染。符合剔除场景第1条(pot/greenhouse/spiked/amber bottle/microcosm)"

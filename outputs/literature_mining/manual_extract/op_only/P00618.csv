@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00618,,,,,,,"skip: 仅统计汇总(Table1含Min/5th%/Median/95th%/Max/Mean/SD/GeoMean/Detection rate为157样本汇总行); Table2为他人文献汇编(mean+range+reference); 正文仅报告区域级均值(urban/rural/background); SI目录为空; 无任何采样点级原始数据"

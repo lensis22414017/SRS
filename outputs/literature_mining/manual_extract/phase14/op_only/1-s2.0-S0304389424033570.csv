@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+1-s2.0-S0304389424033570,1-s2.0-S0304389424033570_Lower_leaves,Lower leaves,SumPAE_ngg,129.0,Unknown,,medium,table_p4_ri6_ci1,"Mean concentrations of 4 PAEs and ∑4PAEs in upper,middle and lower tobacco leaves (ngog-1).",,,,,,phase14
+1-s2.0-S0304389424033570,1-s2.0-S0304389424033570_Middle_leaves,Middle leaves,SumPAE_ngg,65.5,Unknown,,medium,table_p4_ri6_ci2,"Mean concentrations of 4 PAEs and ∑4PAEs in upper,middle and lower tobacco leaves (ngog-1).",,,,,,phase14
+1-s2.0-S0304389424033570,1-s2.0-S0304389424033570_Upper_leaves,Upper leaves,SumPAE_ngg,97.5,Unknown,,medium,table_p4_ri6_ci3,"Mean concentrations of 4 PAEs and ∑4PAEs in upper,middle and lower tobacco leaves (ngog-1).",,,,,,phase14
+1-s2.0-S0304389424033570,1-s2.0-S0304389424033570_col4,col4,SumPAE_ngg,42.7,Unknown,,medium,table_p4_ri6_ci4,"Mean concentrations of 4 PAEs and ∑4PAEs in upper,middle and lower tobacco leaves (ngog-1).",,,,,,phase14
+1-s2.0-S0304389424033570,1-s2.0-S0304389424033570_col5,col5,SumPAE_ngg,85.2,Unknown,,medium,table_p4_ri6_ci5,"Mean concentrations of 4 PAEs and ∑4PAEs in upper,middle and lower tobacco leaves (ngog-1).",,,,,,phase14
+1-s2.0-S0304389424033570,1-s2.0-S0304389424033570_col6,col6,SumPAE_ngg,40.9,Unknown,,medium,table_p4_ri6_ci6,"Mean concentrations of 4 PAEs and ∑4PAEs in upper,middle and lower tobacco leaves (ngog-1).",,,,,,phase14

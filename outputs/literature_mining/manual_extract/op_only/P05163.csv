@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05163,,,,,,,,"skip: Table 1 only reports aggregate statistics (Frequency/Mean/Median/Max) across 53 vegetable farm soil samples from 4 provinces (Hebei/Henan/Sichuan/Jiangsu); no individual sampling-point level antibiotic concentration data (SMZ/SDZ/ERFX/CTC/OTC all as stat rows); SI contains only analytical method details"

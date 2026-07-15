@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05292,,,,,,,,"skip: 全文为bioremediation/phytoremediation盆栽实验(PCB降解菌Mesorhizobium sp. ZY1分离+紫云英联合修复)。实验1(2.4.1)南京郊区土artificially spiked PCBs 9409.22 ug/kg用于sterilized pot降解实验。实验2(2.4.2)浙江电子废弃物拆解场地土(PCB 237.9±4.1 ug/kg)用于ceramic pot培养室100天植物修复实验。无独立采样点ID(无S1/S2/村庄名)，仅有bulk土壤表征值用于实验setup。所有数据均为remediation treatment时间序列追踪(Fig2-7)，非field sampling-point level数据。"

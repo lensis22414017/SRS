@@ -1,0 +1,11 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P04788,0m,Sum_PAH_ngg,164800,ng/g,Table 6,soil,coking,Beijing,Sum_PAHs direct read mg/kg x1000 = ng/g,39.85583,116.52861
+P04788,0m,BaP_ngg,8480,ng/g,Table 6,soil,coking,Beijing,BaP direct read mg/kg x1000 = ng/g,39.85583,116.52861
+P04788,50m,Sum_PAH_ngg,599070,ng/g,Table 6,soil,coking,Beijing,Sum_PAHs direct read mg/kg x1000 = ng/g,,
+P04788,50m,BaP_ngg,11450,ng/g,Table 6,soil,coking,Beijing,BaP direct read mg/kg x1000 = ng/g,,
+P04788,100m,Sum_PAH_ngg,1378900,ng/g,Table 6,soil,coking,Beijing,Sum_PAHs direct read mg/kg x1000 = ng/g,,
+P04788,100m,BaP_ngg,91490,ng/g,Table 6,soil,coking,Beijing,BaP direct read mg/kg x1000 = ng/g,,
+P04788,150m,Sum_PAH_ngg,923790,ng/g,Table 6,soil,coking,Beijing,Sum_PAHs direct read mg/kg x1000 = ng/g,,
+P04788,150m,BaP_ngg,58020,ng/g,Table 6,soil,coking,Beijing,BaP direct read mg/kg x1000 = ng/g,,
+P04788,200m,Sum_PAH_ngg,204110,ng/g,Table 6,soil,coking,Beijing,Sum_PAHs direct read mg/kg x1000 = ng/g,39.85583,116.52861
+P04788,200m,BaP_ngg,14390,ng/g,Table 6,soil,coking,Beijing,BaP direct read mg/kg x1000 = ng/g,39.85583,116.52861

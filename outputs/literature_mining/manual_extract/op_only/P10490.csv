@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10490,SKIP,,0,,Table S3,,,Tibet,仅统计汇总(min-max/mean)，无采样点级浓度数据，Table S3 仅给出四种基质(soil/needle/bark/lichen)的range和mean，48个点位(Table S1)无对应逐点浓度

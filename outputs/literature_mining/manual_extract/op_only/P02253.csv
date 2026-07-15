@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02253,,,,,,,,"skip: 论文仅提供区域级Mean/Median汇总(城区1228/688, 郊区322/189, 乡村219/145 ng/g)，无采样点级浓度数据表；Table 1为PAH分子比值Mean±SD统计(非浓度)；所有浓度分布仅在Cokriging插值图和移动平均曲线图中无法提取；476个样品(233+243)但未列出逐点数据；SI目录为空"

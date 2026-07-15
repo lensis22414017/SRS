@@ -1,0 +1,11 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02381,Pig farm-winter,SMZ,0.18,ng/g,Table 2,soil,agricultural,Jiangsu,"paper SMZ=sulfamerazine (not sulfamethazine); value±SD=0.18±0.05 ng/g"
+P02381,Pig farm-winter,OTC,36.83,ng/g,Table 2,soil,agricultural,Jiangsu,"oxytetracycline; value±SD=36.83±3.20"
+P02381,Pig farm-winter,CTC,21.60,ng/g,Table 2,soil,agricultural,Jiangsu,"chlorotetracycline; value±SD=21.60±2.86"
+P02381,Pig farm-summer,OTC,28.90,ng/g,Table 2,soil,agricultural,Jiangsu,"oxytetracycline; value±SD=28.90±4.81"
+P02381,Pig farm-summer,CTC,12.88,ng/g,Table 2,soil,agricultural,Jiangsu,"chlorotetracycline; value±SD=12.88±2.45"
+P02381,Cattle farm,OTC,0.92,ng/g,Table 2,soil,agricultural,Jiangsu,"oxytetracycline; value±SD=0.92±0.08; only antibiotic detected in cattle farm soil"
+P02381,Chicken farm,SDZ,21.86,ng/g,Table 2,soil,agricultural,Jiangsu,"sulfadiazine; value±SD=21.86±5.22"
+P02381,Chicken farm,ENRO,197,ng/g,Table 2,soil,agricultural,Jiangsu,"enrofloxacin (ENR in paper); value±SD=197±9.72"
+P02381,Chicken farm,CTC,4331,ng/g,Table 2,soil,agricultural,Jiangsu,"chlorotetracycline; value±SD=4331±490"
+P02381,Chicken farm,OTC,3212,ng/g,Table 2,soil,agricultural,Jiangsu,"oxytetracycline; value±SD=3212±292"

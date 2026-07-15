@@ -1,0 +1,11 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+70708_ees.2016.0328,70708_ees.2016.0328_Red_soil,Red soil,pH,5.13,Unknown,,high,table_p2_ri1_ci1,TABLE 2． PROPERTIES OF SOIL AND AMENDMENTS
+70708_ees.2016.0328,70708_ees.2016.0328_Red_soil,Red soil,CEC_cmolkg,19.32,Unknown,,high,table_p2_ri1_ci2,TABLE 2． PROPERTIES OF SOIL AND AMENDMENTS
+70708_ees.2016.0328,70708_ees.2016.0328_Red_soil,Red soil,OM_pct,15.9,Unknown,,high,table_p2_ri1_ci3,TABLE 2． PROPERTIES OF SOIL AND AMENDMENTS
+70708_ees.2016.0328,70708_ees.2016.0328_Sepiolite,Sepiolite,pH,8.29,Unknown,,high,table_p2_ri2_ci1,TABLE 2． PROPERTIES OF SOIL AND AMENDMENTS
+70708_ees.2016.0328,70708_ees.2016.0328_Sepiolite,Sepiolite,Cd_mgkg,0.59,Unknown,,high,table_p2_ri2_ci4,TABLE 2． PROPERTIES OF SOIL AND AMENDMENTS
+70708_ees.2016.0328,70708_ees.2016.0328_Bone_char,Bone char,pH,10.79,Unknown,,high,table_p2_ri3_ci1,TABLE 2． PROPERTIES OF SOIL AND AMENDMENTS
+70708_ees.2016.0328,70708_ees.2016.0328_Bone_char,Bone char,Cd_mgkg,0.28,Unknown,,high,table_p2_ri3_ci4,TABLE 2． PROPERTIES OF SOIL AND AMENDMENTS
+70708_ees.2016.0328,70708_ees.2016.0328_Silicon_fertilizer,Silicon fertilizer,pH,5.63,Unknown,,high,table_p2_ri4_ci1,TABLE 2． PROPERTIES OF SOIL AND AMENDMENTS
+70708_ees.2016.0328,70708_ees.2016.0328_Silicon_fertilizer,Silicon fertilizer,Cd_mgkg,0.44,Unknown,,high,table_p2_ri4_ci4,TABLE 2． PROPERTIES OF SOIL AND AMENDMENTS
+70708_ees.2016.0328,70708_ees.2016.0328_EQSHMSa,EQSHMSa,Cd_mgkg,0.3,Unknown,,high,table_p2_ri5_ci4,TABLE 2． PROPERTIES OF SOIL AND AMENDMENTS

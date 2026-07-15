@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04192,,,,,,soil,agricultural,Guangdong,"skip: Table 1 是 240 个样本的 Min/Max/Mean/Detection Rate 统计汇总行（非采样点级），Table 2 是不同区域/城市 HCHs/DDTs 均值对比（区域级汇总），无任何单点采样ID（S1/点位名）及对应浓度；仅统计汇总，无采样点级原始数据"

@@ -1,0 +1,12 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+66370_j.chemosphere.2017.10.066,66370_j.chemosphere.2017.10.066_S11,SumPAE_ngg,504.3,Unknown,table_p3_ri11_ci7,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+66370_j.chemosphere.2017.10.066,66370_j.chemosphere.2017.10.066_S13,SumPAE_ngg,1.78,Unknown,table_p3_ri13_ci7,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+66370_j.chemosphere.2017.10.066,66370_j.chemosphere.2017.10.066_S22,SumPAE_ngg,1554.3,Unknown,table_p3_ri22_ci7,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+66370_j.chemosphere.2017.10.066,66370_j.chemosphere.2017.10.066_S25,SumPAE_ngg,0.48,Unknown,table_p3_ri25_ci7,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+66370_j.chemosphere.2017.10.066,66370_j.chemosphere.2017.10.066_S31,SumPAE_ngg,0.82,Unknown,table_p3_ri31_ci7,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+66370_j.chemosphere.2017.10.066,66370_j.chemosphere.2017.10.066_S45,SumPAE_ngg,337.8,Unknown,table_p3_ri45_ci7,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+66370_j.chemosphere.2017.10.066,66370_j.chemosphere.2017.10.066_Min_Max,SumPAE_ngg,1752.6,Unknown,table_p3_ri46_ci7,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+66370_j.chemosphere.2017.10.066,66370_j.chemosphere.2017.10.066_S48,SumPAE_ngg,395.2,Unknown,table_p3_ri48_ci7,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+66370_j.chemosphere.2017.10.066,66370_j.chemosphere.2017.10.066_SD_CV,SumPAE_ngg,1.9,Unknown,table_p3_ri49_ci7,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+66370_j.chemosphere.2017.10.066,66370_j.chemosphere.2017.10.066_DMP,SumPAE_ngg,0.14,Unknown,table_p4_ri7_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+66370_j.chemosphere.2017.10.066,66370_j.chemosphere.2017.10.066_£6PAEs,SumPAE_ngg,1.0,Unknown,table_p4_ri7_ci7,soil,agricultural,,phase14_auto; confidence=high; flag=,,

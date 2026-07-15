@@ -1,0 +1,12 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+70599_c2em30433c,"70599_c2em30433c_Delhi,_India","Delhi, India",Sum_PAH_ngg,16.0,Unknown,,high,table_p3_ri1_ci4,Table 2 PAH concentration in soils compared to other studies in the world
+70599_c2em30433c,70599_c2em30433c_South_Korea,South Korea,Sum_PAH_ngg,16.0,Unknown,,high,table_p3_ri2_ci4,Table 2 PAH concentration in soils compared to other studies in the world
+70599_c2em30433c,70599_c2em30433c_Poland,Poland,Sum_PAH_ngg,16.0,Unknown,,high,table_p3_ri3_ci4,Table 2 PAH concentration in soils compared to other studies in the world
+70599_c2em30433c,70599_c2em30433c_Nanjing,Nanjing,Sum_PAH_ngg,15.0,Unknown,,high,table_p3_ri4_ci4,Table 2 PAH concentration in soils compared to other studies in the world
+70599_c2em30433c,"70599_c2em30433c_Guangdong,_China","Guangdong, China",Sum_PAH_ngg,16.0,Unknown,,high,table_p3_ri5_ci4,Table 2 PAH concentration in soils compared to other studies in the world
+70599_c2em30433c,"70599_c2em30433c_Tiefa,_China","Tiefa, China",Sum_PAH_ngg,16.0,Unknown,,high,table_p3_ri6_ci4,Table 2 PAH concentration in soils compared to other studies in the world
+70599_c2em30433c,"70599_c2em30433c_Anhui,_China","Anhui, China",Sum_PAH_ngg,16.0,Unknown,,high,table_p3_ri7_ci4,Table 2 PAH concentration in soils compared to other studies in the world
+70599_c2em30433c,"70599_c2em30433c_Shilong,_China","Shilong, China",Sum_PAH_ngg,78.0,Unknown,,high,table_p3_ri8_ci4,Table 2 PAH concentration in soils compared to other studies in the world
+70599_c2em30433c,"70599_c2em30433c_Tiefa,China","Tiefa,China",Sum_PAH_ngg,16.0,Unknown,,high,table_p3_ri9_ci4,Table 2 PAH concentration in soils compared to other studies in the world
+70599_c2em30433c,"70599_c2em30433c_Saar_Rivers,Germany","Saar Rivers,Germany",Sum_PAH_ngg,45.0,Unknown,,high,table_p3_ri10_ci4,Table 2 PAH concentration in soils compared to other studies in the world
+70599_c2em30433c,"70599_c2em30433c_Tiefa,_China","Tiefa, China",Sum_PAH_ngg,16.0,Unknown,,high,table_p3_ri11_ci4,Table 2 PAH concentration in soils compared to other studies in the world

@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+72258_j.wasman.2021.03.015,72258_j.wasman.2021.03.015_Test2,Test2,SumDDT_ngg,0.32,Unknown,,high,table_p3_ri1_ci3,Organic pollutant concentrations in the flue gas emitted by the cement kiln.,,,,,,phase14
+72258_j.wasman.2021.03.015,72258_j.wasman.2021.03.015_Test2,Test2,Co_mgkg,306.0,Unknown,,high,table_p4_ri5_ci3,Table 4 Pollutant concentrations in the flue gas emitted by the cement kiln.,,,,,,phase14
+72258_j.wasman.2021.03.015,72258_j.wasman.2021.03.015_Test2,Test2,OC_pct,2.61,Unknown,,high,table_p4_ri6_ci3,Table 4 Pollutant concentrations in the flue gas emitted by the cement kiln.,,,,,,phase14

@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+72287_s00128-013-1130-4,72287_s00128-013-1130-4_19902000,19902000,SumDDT_ngg,1966.5,Unknown,range_mean,high,table_p1_ri2_ci6,,,,,,,phase14
+72287_s00128-013-1130-4,72287_s00128-013-1130-4_19902000,19902000,SumDDT_ngg,1979.5,Unknown,range_mean,high,table_p1_ri3_ci6,,,,,,,phase14
+72287_s00128-013-1130-4,72287_s00128-013-1130-4_19902000,19902000,SumHCH_ngg,1967.5,Unknown,range_mean,high,table_p1_ri4_ci6,,,,,,,phase14

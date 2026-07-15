@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11442,,,,,,,,"skip: 河北武安钢铁行业场地PAHs研究(14点位94样品) 仅Table4.1为16种PAH单体描述性统计(Mean/Min/Max/Median/SD/CV/峰度/偏度)须剔除 全部采样点级数据仅存在于图中(图4.1/4.3/4.5/4.7克里金插值图 图4.10-4.13单体物质空间分布柱状图 图6.6-6.7 BaP实测vs模拟散点图)无法从markdown解析 正文仅给出各深度层次的range和mean(跨14点汇总非采样点级)及少量零星极值(如S248 0-50cm Nap=56.8 S250 100-150cm Fluo=231.4) 但仅为单体非Sum_PAH或BaP且不构成完整数据集"

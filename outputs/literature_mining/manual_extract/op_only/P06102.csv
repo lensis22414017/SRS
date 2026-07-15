@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06102,SKIP,NA,,,,,,,"skip: 论文仅Table 1描述性统计(Min/Max/Mean/Median/Geo./DF of 18 PAH compounds)+Fig.1b/3b/4等值线图/得分图。无采样点级数据表。scan_sample_row误将18个PAH化合物行识别为18采样点行(实际54样本仅以地图可视化呈现,无表格化采样点数值)。单位ng/g dw。场地=Shanghai表层土壤(urban/industrial)"

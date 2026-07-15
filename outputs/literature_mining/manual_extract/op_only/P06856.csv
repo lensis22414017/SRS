@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06856,,,,,,,,"skip: 论文Table 1仅提供Mean和Range统计汇总，12个土壤样品合并为6个混合样分析，无单个采样点级(S1/S2等)原始浓度数据；论文无HM数据；仅区域汇总，无采样点级数据"

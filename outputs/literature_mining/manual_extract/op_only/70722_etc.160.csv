@@ -1,0 +1,9 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+70722_etc.160,"70722_etc.160_Guiyu_Exposed,_e-waste_site",SumPBDE_ngg,16.0,Unknown,table_p3_ri3_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+70722_etc.160,"70722_etc.160_Control,_reservoir",SumPBDE_ngg,3.3,Unknown,table_p3_ri4_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+70722_etc.160,70722_etc.160_Concentration_(ng/g)a,Sum_PAH_ngg,0.94,Unknown,table_p6_ri1_ci1,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+70722_etc.160,70722_etc.160_Annual_loading_(kg/year),Sum_PAH_ngg,24.0,Unknown,table_p6_ri1_ci2,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+70722_etc.160,70722_etc.160_Annual_loading_(tons/year),SumPBDE_ngg,170.0,Unknown,table_p7_ri2_ci2,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+70722_etc.160,70722_etc.160_col3,SumPBDE_ngg,0.04,Unknown,table_p7_ri2_ci3,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+70722_etc.160,70722_etc.160_col4,SumPBDE_ngg,0.84,Unknown,table_p7_ri2_ci4,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+70722_etc.160,70722_etc.160_col5,SumPBDE_ngg,0.875,Unknown,table_p7_ri2_ci5,soil,agricultural,,phase14_auto; confidence=medium; flag=,,

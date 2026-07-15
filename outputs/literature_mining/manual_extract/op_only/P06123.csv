@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06123,,,,,,,,"skip: 土壤OP数据仅以G.M./Median/Range统计汇总形式呈现(Tab1-3 n=6拆解区+n=3对照区)，无采样点级实测值；6个拆解区土壤样本混合统计无单独sample_id；e-waste(cable coating/stuffing powder/circuit board)为电子废物非土壤matrix不匹配；头发数据为生物组织非土壤"

@@ -1,0 +1,9 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+72361_s10661-013-3190-7,72361_s10661-013-3190-7_Urban_(n=17),pH,7.865,Unknown,table_p4_ri2_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+72361_s10661-013-3190-7,72361_s10661-013-3190-7_Rural_(n=37),pH,7.91,Unknown,table_p4_ri2_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+72361_s10661-013-3190-7,72361_s10661-013-3190-7_Urban_(n=17),OC_pct,1.4100000000000001,Unknown,table_p4_ri3_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+72361_s10661-013-3190-7,72361_s10661-013-3190-7_Rural_(n=37),OC_pct,1.13,Unknown,table_p4_ri3_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+72361_s10661-013-3190-7,72361_s10661-013-3190-7_Urban_(n=17),SumPAE_ngg,5.2205,Unknown,table_p5_ri13_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+72361_s10661-013-3190-7,72361_s10661-013-3190-7_Rural_(n=37),SumPAE_ngg,4.722,Unknown,table_p5_ri13_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+72361_s10661-013-3190-7,72361_s10661-013-3190-7_Urban_(n=17),SumPAE_ngg,5.3115,Unknown,table_p5_ri14_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+72361_s10661-013-3190-7,72361_s10661-013-3190-7_Rural_(n=37),SumPAE_ngg,4.764,Unknown,table_p5_ri14_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,

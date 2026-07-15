@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02093,,,,,,,,"仅区域汇总(Mean±SD/Min-Max)，无采样点级数据；Table S1个体数据为补充材料未解析至paper.md，正文Table 1仅按O/A-horizon分层统计143个样本的均值/标准差/最小值/最大值，不得作为采样点数据提取"

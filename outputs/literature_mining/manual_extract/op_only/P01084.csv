@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01084,Ji Canal (Tianjin Chemical Co. outlet),SumDDT_ngg,5350,ng/g,Section 3.3,sediment,industrial,Tianjin,"Sediment sample immediately downstream of Tianjin Chemical Company effluent outlet; DDX=sum of 6 species (o,p'+p,p' DDT/DDD/DDE); individual value from narrative text"
+P01084,North Canal (Renmin Pesticide Co. outlet),SumDDT_ngg,3620,ng/g,Section 3.3,sediment,industrial,Tianjin,"Sediment sample immediately downstream of Renmin Pesticide Company effluent outlet; DDX=sum of 6 species; individual value from narrative text"
+P01084,Yongding River (Tianjin Pesticide Co. outlet),SumDDT_ngg,3640,ng/g,Section 3.3,sediment,industrial,Tianjin,"Sediment sample immediately downstream of Tianjin Pesticide Company effluent outlet; DDX=sum of 6 species; individual value from narrative text"

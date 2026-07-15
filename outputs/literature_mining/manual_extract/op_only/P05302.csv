@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05302,,,,,,,,,,skip: 论文为巢湖沉积物OCPs研究, 数据仅以range+mean统计汇总呈现在正文中(如SOCPs 3.48-121 mean 34.9 ng/g), 无采样点级数据表格; Figure 2a/3/4显示各站点柱状图但无法从文本精确提取数值; 补充材料Table S1/S2/S3未包含在paper.md中; matrix=sediment

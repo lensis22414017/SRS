@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11636,,,,,,,,"skip: 论文研究对象为PAEs(邻苯二甲酸酯/塑化剂 DMP/DEP/DBP/BBP/DEHP/DNOP), 不属于目标OP类别(PAH/PCB/DDT/HCH/PBDE/PHC); 全文无PAH/PCB/DDT/HCH/PBDE/PHC任何数据; 且正文仅给浓度范围和检出率, 采样点级数据在Tables S2/S3(SI未含)"

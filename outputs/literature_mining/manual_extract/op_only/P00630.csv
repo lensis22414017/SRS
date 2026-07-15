@@ -1,0 +1,11 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P00630,S2,SumPCB_ngg,27534.95,ng/g,Table S3,soil,industrial,Zhejiang,"2006年固体废物清除前场地本底实测值,按同系物组(Tri+Tetra+Penta+Hexa+Hepta)求和,Table S3原始SPCBs列为论文自行求和值",29.1053,121.5286
+P00630,S3,SumPCB_ngg,39256.2,ng/g,Table S3,soil,industrial,Zhejiang,"2006年固体废物清除前场地本底实测值,按同系物组(Tri+Tetra+Penta+Hexa+Hepta)求和,Table S3原始SPCBs列为论文自行求和值",29.1053,121.5286
+P00630,S6,SumPCB_ngg,12244.37,ng/g,Table S3,soil,industrial,Zhejiang,"2006年固体废物清除前场地本底实测值,按同系物组(Tri+Tetra+Penta+Hexa+Hepta)求和,Table S3原始SPCBs列为论文自行求和值",29.1053,121.5286
+P00630,S7,SumPCB_ngg,18890.42,ng/g,Table S3,soil,industrial,Zhejiang,"2006年固体废物清除前场地本底实测值,按同系物组(Tri+Tetra+Penta+Hexa+Hepta)求和,Table S3原始SPCBs列为论文自行求和值",29.1053,121.5286
+P00630,S9,SumPCB_ngg,13628.99,ng/g,Table S3,soil,industrial,Zhejiang,"2006年固体废物清除前场地本底实测值,按同系物组(Tri+Tetra+Penta+Hexa+Hepta)求和,Table S3原始SPCBs列为论文自行求和值",29.1053,121.5286
+P00630,S11,SumPCB_ngg,10293.03,ng/g,Table S3,soil,industrial,Zhejiang,"2006年固体废物清除前场地本底实测值,按同系物组(Tri+Tetra+Penta+Hexa+Hepta)求和,Table S3原始SPCBs列为论文自行求和值",29.1053,121.5286
+P00630,S12,SumPCB_ngg,6802.95,ng/g,Table S3,soil,industrial,Zhejiang,"2006年固体废物清除前场地本底实测值,按同系物组(Tri+Tetra+Penta+Hexa+Hepta)求和,Table S3原始SPCBs列为论文自行求和值",29.1053,121.5286
+P00630,S14,SumPCB_ngg,6071.05,ng/g,Table S3,soil,industrial,Zhejiang,"2006年固体废物清除前场地本底实测值,按同系物组(Tri+Tetra+Penta+Hexa+Hepta)求和,Table S3原始SPCBs列为论文自行求和值",29.1053,121.5286
+P00630,S17,SumPCB_ngg,7481.71,ng/g,Table S3,soil,industrial,Zhejiang,"2006年固体废物清除前场地本底实测值,按同系物组(Tri+Tetra+Penta+Hexa+Hepta)求和,Table S3原始SPCBs列为论文自行求和值",29.1053,121.5286
+P00630,NOTES,NA,NA,NA,NA,NA,NA,NA,"HM:无采样点级数据,Table 2仅有Mean/Min/Max/SD汇总统计",29.1053,121.5286

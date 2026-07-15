@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00764,,,,,,soil,,,skip: 典型盆栽spiked生物修复实验(pot experiment in greenhouse); Cd和endosulfan均为人为添加(CdCl2 spiked 0/10/30 mg/kg; endosulfan spiked 0/200/400/800 mg/kg); Table 2显示本底Cd=Not detected无真实场地HM数据; Table 1为处理设计表非实测浓度; 全文Fig 1-7均为修复效果(生物量/去除率/Cd形态/硫丹残留); endosulfan不在标准OP清单(SumPAH/BaP/SumPCB/SumDDT/SumHCH/SumPBDE/TotalPHC); 无采样点级真实场地浓度可提取

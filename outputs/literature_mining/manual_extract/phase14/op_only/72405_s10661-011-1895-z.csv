@@ -1,0 +1,149 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_1,1,Nap_ngg,20.36,Unknown,,high,table_p3_ri1_ci1,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_2,2,Acy_ngg,13.75,Unknown,,high,table_p3_ri2_ci2,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_6,6,Acy_ngg,15.78,Unknown,,high,table_p3_ri2_ci6,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_8,8,Acy_ngg,21.12,Unknown,,high,table_p3_ri2_ci8,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_10,10,Acy_ngg,62.86,Unknown,,high,table_p3_ri2_ci10,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_11,11,Acy_ngg,23.92,Unknown,,high,table_p3_ri2_ci11,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_4,4,Ace_ngg,1.0,Unknown,,high,table_p3_ri3_ci4,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_1,1,Phe_ngg,0.76,Unknown,,high,table_p3_ri5_ci1,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_2,2,Phe_ngg,2.75,Unknown,,high,table_p3_ri5_ci2,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_3,3,Phe_ngg,7.28,Unknown,,high,table_p3_ri5_ci3,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_4,4,Phe_ngg,2.39,Unknown,,high,table_p3_ri5_ci4,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_5,5,Phe_ngg,4.06,Unknown,,high,table_p3_ri5_ci5,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_6,6,Phe_ngg,13.72,Unknown,,high,table_p3_ri5_ci6,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_7,7,Phe_ngg,3.76,Unknown,,high,table_p3_ri5_ci7,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_8,8,Phe_ngg,35.48,Unknown,,high,table_p3_ri5_ci8,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_9,9,Phe_ngg,21.74,Unknown,,high,table_p3_ri5_ci9,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_10,10,Phe_ngg,2.84,Unknown,,high,table_p3_ri5_ci10,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_11,11,Phe_ngg,6.1,Unknown,,high,table_p3_ri5_ci11,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_12,12,Phe_ngg,19.16,Unknown,,high,table_p3_ri5_ci12,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_1,1,Ant_ngg,9.67,Unknown,,high,table_p3_ri6_ci1,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_3,3,Ant_ngg,0.75,Unknown,,high,table_p3_ri6_ci3,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_5,5,Ant_ngg,0.76,Unknown,,high,table_p3_ri6_ci5,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_6,6,Ant_ngg,4.99,Unknown,,high,table_p3_ri6_ci6,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_7,7,Ant_ngg,2.51,Unknown,,high,table_p3_ri6_ci7,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_9,9,Ant_ngg,2.42,Unknown,,high,table_p3_ri6_ci9,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_11,11,Ant_ngg,6.1,Unknown,,high,table_p3_ri6_ci11,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_12,12,Ant_ngg,2.3,Unknown,,high,table_p3_ri6_ci12,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_1,1,Pyr_ngg,7.89,Unknown,,high,table_p3_ri8_ci1,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_2,2,Pyr_ngg,3.75,Unknown,,high,table_p3_ri8_ci2,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_3,3,Pyr_ngg,10.3,Unknown,,high,table_p3_ri8_ci3,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_4,4,Pyr_ngg,1.86,Unknown,,high,table_p3_ri8_ci4,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_5,5,Pyr_ngg,15.3,Unknown,,high,table_p3_ri8_ci5,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_6,6,Pyr_ngg,54.9,Unknown,,high,table_p3_ri8_ci6,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_7,7,Pyr_ngg,51.48,Unknown,,high,table_p3_ri8_ci7,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_8,8,Pyr_ngg,10.14,Unknown,,high,table_p3_ri8_ci8,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_9,9,Pyr_ngg,13.28,Unknown,,high,table_p3_ri8_ci9,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_10,10,Pyr_ngg,85.08,Unknown,,high,table_p3_ri8_ci10,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_11,11,Pyr_ngg,16.84,Unknown,,high,table_p3_ri8_ci11,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_12,12,Pyr_ngg,30.69,Unknown,,high,table_p3_ri8_ci12,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_1,1,BaA_ngg,15.53,Unknown,,high,table_p3_ri9_ci1,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_2,2,BaA_ngg,16.0,Unknown,,high,table_p3_ri9_ci2,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_3,3,BaA_ngg,54.69,Unknown,,high,table_p3_ri9_ci3,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_4,4,BaA_ngg,3.18,Unknown,,high,table_p3_ri9_ci4,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_5,5,BaA_ngg,5.59,Unknown,,high,table_p3_ri9_ci5,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_6,6,BaA_ngg,16.22,Unknown,,high,table_p3_ri9_ci6,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_7,7,BaA_ngg,21.31,Unknown,,high,table_p3_ri9_ci7,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_8,8,BaA_ngg,248.33,Unknown,,high,table_p3_ri9_ci8,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_9,9,BaA_ngg,67.62,Unknown,,high,table_p3_ri9_ci9,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_10,10,BaA_ngg,19.85,Unknown,,high,table_p3_ri9_ci10,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_11,11,BaA_ngg,159.83,Unknown,,high,table_p3_ri9_ci11,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_12,12,BaA_ngg,42.66,Unknown,,high,table_p3_ri9_ci12,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_1,1,Chr_ngg,16.8,Unknown,,high,table_p3_ri10_ci1,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_2,2,Chr_ngg,5.5,Unknown,,high,table_p3_ri10_ci2,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_3,3,Chr_ngg,3.26,Unknown,,high,table_p3_ri10_ci3,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_4,4,Chr_ngg,2.39,Unknown,,high,table_p3_ri10_ci4,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_5,5,Chr_ngg,10.67,Unknown,,high,table_p3_ri10_ci5,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_6,6,Chr_ngg,32.44,Unknown,,high,table_p3_ri10_ci6,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_7,7,Chr_ngg,23.82,Unknown,,high,table_p3_ri10_ci7,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_8,8,Chr_ngg,6.33,Unknown,,high,table_p3_ri10_ci8,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_9,9,Chr_ngg,10.87,Unknown,,high,table_p3_ri10_ci9,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_10,10,Chr_ngg,34.03,Unknown,,high,table_p3_ri10_ci10,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_11,11,Chr_ngg,30.5,Unknown,,high,table_p3_ri10_ci11,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_12,12,Chr_ngg,2.81,Unknown,,high,table_p3_ri10_ci12,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_1,1,BbF_ngg,8.65,Unknown,,high,table_p3_ri11_ci1,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_2,2,BbF_ngg,5.75,Unknown,,high,table_p3_ri11_ci2,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_3,3,BbF_ngg,8.53,Unknown,,high,table_p3_ri11_ci3,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_4,4,BbF_ngg,2.12,Unknown,,high,table_p3_ri11_ci4,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_5,5,BbF_ngg,11.94,Unknown,,high,table_p3_ri11_ci5,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_6,6,BbF_ngg,29.94,Unknown,,high,table_p3_ri11_ci6,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_7,7,BbF_ngg,53.9,Unknown,,high,table_p3_ri11_ci7,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_8,8,BbF_ngg,2.53,Unknown,,high,table_p3_ri11_ci8,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_9,9,BbF_ngg,7.25,Unknown,,high,table_p3_ri11_ci9,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_10,10,BbF_ngg,38.29,Unknown,,high,table_p3_ri11_ci10,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_11,11,BbF_ngg,12.2,Unknown,,high,table_p3_ri11_ci11,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_12,12,BbF_ngg,22.22,Unknown,,high,table_p3_ri11_ci12,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_1,1,BkF_ngg,20.11,Unknown,,high,table_p3_ri12_ci1,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_2,2,BkF_ngg,2.0,Unknown,,high,table_p3_ri12_ci2,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_3,3,BkF_ngg,1.0,Unknown,,high,table_p3_ri12_ci3,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_4,4,BkF_ngg,0.8,Unknown,,high,table_p3_ri12_ci4,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_5,5,BkF_ngg,7.11,Unknown,,high,table_p3_ri12_ci5,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_6,6,BkF_ngg,2.5,Unknown,,high,table_p3_ri12_ci6,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_7,7,BkF_ngg,33.85,Unknown,,high,table_p3_ri12_ci7,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_9,9,BkF_ngg,4.83,Unknown,,high,table_p3_ri12_ci9,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_10,10,BkF_ngg,4.25,Unknown,,high,table_p3_ri12_ci10,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_11,11,BkF_ngg,7.32,Unknown,,high,table_p3_ri12_ci11,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_12,12,BkF_ngg,1.53,Unknown,,high,table_p3_ri12_ci12,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_1,1,BaP_ngg,20.0,Unknown,,high,table_p3_ri13_ci1,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_2,2,BaP_ngg,4.25,Unknown,,high,table_p3_ri13_ci2,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_3,3,BaP_ngg,7.28,Unknown,,high,table_p3_ri13_ci3,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_4,4,BaP_ngg,0.8,Unknown,,high,table_p3_ri13_ci4,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_5,5,BaP_ngg,13.97,Unknown,,high,table_p3_ri13_ci5,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_6,6,BaP_ngg,41.17,Unknown,,high,table_p3_ri13_ci6,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_7,7,BaP_ngg,52.65,Unknown,,high,table_p3_ri13_ci7,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_8,8,BaP_ngg,4.53,Unknown,,high,table_p3_ri13_ci8,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_9,9,BaP_ngg,7.25,Unknown,,high,table_p3_ri13_ci9,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_10,10,BaP_ngg,5.67,Unknown,,high,table_p3_ri13_ci10,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_11,11,BaP_ngg,28.3,Unknown,,high,table_p3_ri13_ci11,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_12,12,BaP_ngg,4.09,Unknown,,high,table_p3_ri13_ci12,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_1,1,Sum_PAH_ngg,34.61,Unknown,,high,table_p3_ri17_ci1,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_2,2,Sum_PAH_ngg,16.5,Unknown,,high,table_p3_ri17_ci2,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_3,3,Sum_PAH_ngg,8.03,Unknown,,high,table_p3_ri17_ci3,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_4,4,Sum_PAH_ngg,3.39,Unknown,,high,table_p3_ri17_ci4,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_5,5,Sum_PAH_ngg,4.82,Unknown,,high,table_p3_ri17_ci5,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_6,6,Sum_PAH_ngg,34.49,Unknown,,high,table_p3_ri17_ci6,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_7,7,Sum_PAH_ngg,6.27,Unknown,,high,table_p3_ri17_ci7,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_8,8,Sum_PAH_ngg,67.6,Unknown,,high,table_p3_ri17_ci8,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_9,9,Sum_PAH_ngg,24.16,Unknown,,high,table_p3_ri17_ci9,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_10,10,Sum_PAH_ngg,65.7,Unknown,,high,table_p3_ri17_ci10,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_11,11,Sum_PAH_ngg,36.12,Unknown,,high,table_p3_ri17_ci11,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_12,12,Sum_PAH_ngg,23.46,Unknown,,high,table_p3_ri17_ci12,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_1,1,Sum_PAH_ngg,151.4,Unknown,,high,table_p3_ri18_ci1,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_2,2,Sum_PAH_ngg,51.5,Unknown,,high,table_p3_ri18_ci2,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_3,3,Sum_PAH_ngg,116.42,Unknown,,high,table_p3_ri18_ci3,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_4,4,Sum_PAH_ngg,15.34,Unknown,,high,table_p3_ri18_ci4,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_5,5,Sum_PAH_ngg,115.48,Unknown,,high,table_p3_ri18_ci5,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_6,6,Sum_PAH_ngg,316.95,Unknown,,high,table_p3_ri18_ci6,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_7,7,Sum_PAH_ngg,435.07,Unknown,,high,table_p3_ri18_ci7,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_8,8,Sum_PAH_ngg,279.98,Unknown,,high,table_p3_ri18_ci8,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_9,9,Sum_PAH_ngg,134.05,Unknown,,high,table_p3_ri18_ci9,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_10,10,Sum_PAH_ngg,294.94,Unknown,,high,table_p3_ri18_ci10,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_11,11,Sum_PAH_ngg,322.87,Unknown,,high,table_p3_ri18_ci11,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_12,12,Sum_PAH_ngg,191.1,Unknown,,high,table_p3_ri18_ci12,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_1,1,Sum_PAH_ngg,186.01,Unknown,,high,table_p3_ri19_ci1,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_2,2,Sum_PAH_ngg,68.0,Unknown,,high,table_p3_ri19_ci2,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_3,3,Sum_PAH_ngg,124.45,Unknown,,high,table_p3_ri19_ci3,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_4,4,Sum_PAH_ngg,18.73,Unknown,,high,table_p3_ri19_ci4,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_5,5,Sum_PAH_ngg,120.3,Unknown,,high,table_p3_ri19_ci5,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_6,6,Sum_PAH_ngg,351.44,Unknown,,high,table_p3_ri19_ci6,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_7,7,Sum_PAH_ngg,441.34,Unknown,,high,table_p3_ri19_ci7,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_8,8,Sum_PAH_ngg,347.58,Unknown,,high,table_p3_ri19_ci8,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_9,9,Sum_PAH_ngg,158.21,Unknown,,high,table_p3_ri19_ci9,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_10,10,Sum_PAH_ngg,360.64,Unknown,,high,table_p3_ri19_ci10,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_11,11,Sum_PAH_ngg,358.99,Unknown,,high,table_p3_ri19_ci11,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_12,12,Sum_PAH_ngg,214.56,Unknown,,high,table_p3_ri19_ci12,Table 2 Concentration of individual PAHs in every sampling location (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_Medium,Medium,Nap_ngg,20.36,Unknown,,high,table_p5_ri1_ci3,Table 3 Statistical description of PAHs in the soil samples of Jiaxing (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_Medium,Medium,Acy_ngg,27.49,Unknown,,high,table_p5_ri2_ci3,Table 3 Statistical description of PAHs in the soil samples of Jiaxing (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_Medium,Medium,Ace_ngg,1.0,Unknown,,high,table_p5_ri3_ci3,Table 3 Statistical description of PAHs in the soil samples of Jiaxing (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_Medium,Medium,Phe_ngg,10.0,Unknown,,high,table_p5_ri5_ci3,Table 3 Statistical description of PAHs in the soil samples of Jiaxing (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_Medium,Medium,Ant_ngg,3.69,Unknown,,high,table_p5_ri6_ci3,Table 3 Statistical description of PAHs in the soil samples of Jiaxing (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_Medium,Medium,Pyr_ngg,25.13,Unknown,,high,table_p5_ri8_ci3,Table 3 Statistical description of PAHs in the soil samples of Jiaxing (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_Medium,Medium,BaA_ngg,55.9,Unknown,,high,table_p5_ri9_ci3,Table 3 Statistical description of PAHs in the soil samples of Jiaxing (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_Medium,Medium,Chr_ngg,14.95,Unknown,,high,table_p5_ri10_ci3,Table 3 Statistical description of PAHs in the soil samples of Jiaxing (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_Medium,Medium,BbF_ngg,16.94,Unknown,,high,table_p5_ri11_ci3,Table 3 Statistical description of PAHs in the soil samples of Jiaxing (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_Medium,Medium,BkF_ngg,7.75,Unknown,,high,table_p5_ri12_ci3,Table 3 Statistical description of PAHs in the soil samples of Jiaxing (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_Medium,Medium,BaP_ngg,15.83,Unknown,,high,table_p5_ri13_ci3,Table 3 Statistical description of PAHs in the soil samples of Jiaxing (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_Medium,Medium,Sum_PAH_ngg,68.14,Unknown,,high,table_p5_ri17_ci3,Table 3 Statistical description of PAHs in the soil samples of Jiaxing (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_Medium,Medium,Sum_PAH_ngg,208.3,Unknown,,high,table_p5_ri18_ci3,Table 3 Statistical description of PAHs in the soil samples of Jiaxing (pg/g),,,,,,phase14
+72405_s10661-011-1895-z,72405_s10661-011-1895-z_Medium,Medium,Sum_PAH_ngg,276.45,Unknown,,high,table_p5_ri19_ci3,Table 3 Statistical description of PAHs in the soil samples of Jiaxing (pg/g),,,,,,phase14

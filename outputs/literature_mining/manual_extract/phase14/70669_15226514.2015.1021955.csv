@@ -1,0 +1,115 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S1,S1,CEC_cmolkg,0.22,Unknown,,high,table_p4_ri1_ci3, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S1,S1,Sb_mgkg,733.0,Unknown,,high,table_p4_ri1_ci5, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S1,S1,As_mgkg,22.1,Unknown,,high,table_p4_ri1_ci6, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S1,S1,Co_mgkg,3.0,Unknown,,high,table_p4_ri1_ci7, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S1,S1,Al_mgkg,18.2,Unknown,,high,table_p4_ri1_ci11, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S1,S1,Fe_mgkg,16.4,Unknown,,high,table_p4_ri1_ci12, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S1,S1,Mn_mgkg,232.0,Unknown,,high,table_p4_ri1_ci13, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S2,S2,pH,7.3,Unknown,,high,table_p4_ri2_ci2, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S2,S2,CEC_cmolkg,0.34,Unknown,,high,table_p4_ri2_ci3, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S2,S2,Sb_mgkg,764.0,Unknown,,high,table_p4_ri2_ci5, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S2,S2,As_mgkg,17.7,Unknown,,high,table_p4_ri2_ci6, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S2,S2,Co_mgkg,2.8,Unknown,,high,table_p4_ri2_ci7, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S2,S2,Al_mgkg,16.5,Unknown,,high,table_p4_ri2_ci11, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S2,S2,Fe_mgkg,7.55,Unknown,,high,table_p4_ri2_ci12, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S2,S2,Mn_mgkg,155.0,Unknown,,high,table_p4_ri2_ci13, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S3,S3,pH,6.3,Unknown,,high,table_p4_ri3_ci2, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S3,S3,Sb_mgkg,1657.0,Unknown,,high,table_p4_ri3_ci5, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S3,S3,As_mgkg,0.6,Unknown,,high,table_p4_ri3_ci6, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S3,S3,Co_mgkg,3.3,Unknown,,high,table_p4_ri3_ci7, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S3,S3,Pb_mgkg,7.9,Unknown,,high,table_p4_ri3_ci10, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S3,S3,Al_mgkg,57.4,Unknown,,high,table_p4_ri3_ci11, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S3,S3,Fe_mgkg,98.7,Unknown,,high,table_p4_ri3_ci12, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S3,S3,Mn_mgkg,465.0,Unknown,,high,table_p4_ri3_ci13, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S4,S4,pH,7.1,Unknown,,high,table_p4_ri4_ci2, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S4,S4,CEC_cmolkg,2.31,Unknown,,high,table_p4_ri4_ci3, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S4,S4,Sb_mgkg,5536.0,Unknown,,high,table_p4_ri4_ci5, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S4,S4,As_mgkg,7.5,Unknown,,high,table_p4_ri4_ci6, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S4,S4,Co_mgkg,1.1,Unknown,,high,table_p4_ri4_ci7, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S4,S4,Pb_mgkg,19.3,Unknown,,high,table_p4_ri4_ci10, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S4,S4,Al_mgkg,69.5,Unknown,,high,table_p4_ri4_ci11, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S4,S4,Fe_mgkg,42.0,Unknown,,high,table_p4_ri4_ci12, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S4,S4,Mn_mgkg,697.0,Unknown,,high,table_p4_ri4_ci13, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S5,S5,pH,6.6,Unknown,,high,table_p4_ri5_ci2, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S5,S5,Sb_mgkg,3139.0,Unknown,,high,table_p4_ri5_ci5, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S5,S5,As_mgkg,13.1,Unknown,,high,table_p4_ri5_ci6, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S5,S5,Co_mgkg,2.4,Unknown,,high,table_p4_ri5_ci7, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S5,S5,Pb_mgkg,18.0,Unknown,,high,table_p4_ri5_ci10, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S5,S5,Al_mgkg,74.3,Unknown,,high,table_p4_ri5_ci11, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S5,S5,Fe_mgkg,59.2,Unknown,,high,table_p4_ri5_ci12, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S5,S5,Mn_mgkg,4260.0,Unknown,,high,table_p4_ri5_ci13, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S6,S6,CEC_cmolkg,1.65,Unknown,,high,table_p4_ri6_ci3, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S6,S6,Sb_mgkg,2666.0,Unknown,,high,table_p4_ri6_ci5, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S6,S6,As_mgkg,54.7,Unknown,,high,table_p4_ri6_ci6, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S6,S6,Co_mgkg,5.6,Unknown,,high,table_p4_ri6_ci7, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S6,S6,Al_mgkg,44.8,Unknown,,high,table_p4_ri6_ci11, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S6,S6,Fe_mgkg,28.7,Unknown,,high,table_p4_ri6_ci12, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S6,S6,Mn_mgkg,77.4,Unknown,,high,table_p4_ri6_ci13, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S7,S7,pH,6.9,Unknown,,high,table_p4_ri7_ci2, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S7,S7,Sb_mgkg,466.0,Unknown,,high,table_p4_ri7_ci5, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S7,S7,Co_mgkg,0.8,Unknown,,high,table_p4_ri7_ci7, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S7,S7,Pb_mgkg,6.0,Unknown,,high,table_p4_ri7_ci10, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S7,S7,Al_mgkg,18.2,Unknown,,high,table_p4_ri7_ci11, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S7,S7,Fe_mgkg,15.1,Unknown,,high,table_p4_ri7_ci12, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S7,S7,Mn_mgkg,232.0,Unknown,,high,table_p4_ri7_ci13, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S8,S8,pH,6.4,Unknown,,high,table_p4_ri8_ci2, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S8,S8,CEC_cmolkg,1.19,Unknown,,high,table_p4_ri8_ci3, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S8,S8,Sb_mgkg,2705.0,Unknown,,high,table_p4_ri8_ci5, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S8,S8,As_mgkg,20.7,Unknown,,high,table_p4_ri8_ci6, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S8,S8,Co_mgkg,4.2,Unknown,,high,table_p4_ri8_ci7, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S8,S8,Pb_mgkg,28.1,Unknown,,high,table_p4_ri8_ci10, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S8,S8,Al_mgkg,33.2,Unknown,,high,table_p4_ri8_ci11, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S8,S8,Fe_mgkg,11.8,Unknown,,high,table_p4_ri8_ci12, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S8,S8,Mn_mgkg,28.8,Unknown,,high,table_p4_ri8_ci13, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S9,S9,pH,7.4,Unknown,,high,table_p4_ri9_ci2, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S9,S9,Sb_mgkg,267.0,Unknown,,high,table_p4_ri9_ci5, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S9,S9,Co_mgkg,0.1,Unknown,,high,table_p4_ri9_ci7, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S9,S9,Pb_mgkg,3.9,Unknown,,high,table_p4_ri9_ci10, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S9,S9,Al_mgkg,18.3,Unknown,,high,table_p4_ri9_ci11, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S9,S9,Fe_mgkg,6.43,Unknown,,high,table_p4_ri9_ci12, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_S9,S9,Mn_mgkg,77.4,Unknown,,high,table_p4_ri9_ci13, 
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_pH,pH,pH,1.0,Unknown,,high,table_p5_ri1_ci1,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_CEC,CEC,CEC_cmolkg,1.0,Unknown,,high,table_p5_ri2_ci2,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_pH,pH,Sb_mgkg,-0.252,Unknown,,high,table_p5_ri4_ci1,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_SOC,SOC,Sb_mgkg,0.305,Unknown,,high,table_p5_ri4_ci3,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_Sb,Sb,Sb_mgkg,1.0,Unknown,,high,table_p5_ri4_ci4,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_pH,pH,As_mgkg,0.27,Unknown,,high,table_p5_ri5_ci1,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_CEC,CEC,As_mgkg,0.047,Unknown,,high,table_p5_ri5_ci2,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_SOC,SOC,As_mgkg,-0.424,Unknown,,high,table_p5_ri5_ci3,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_Sb,Sb,As_mgkg,-0.116,Unknown,,high,table_p5_ri5_ci4,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_As,As,As_mgkg,1.0,Unknown,,high,table_p5_ri5_ci5,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_pH,pH,Co_mgkg,-0.706,Unknown,,high,table_p5_ri6_ci1,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_CEC,CEC,Co_mgkg,-0.115,Unknown,,high,table_p5_ri6_ci2,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_SOC,SOC,Co_mgkg,-0.086,Unknown,,high,table_p5_ri6_ci3,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_Sb,Sb,Co_mgkg,0.156,Unknown,,high,table_p5_ri6_ci4,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_Co,Co,Co_mgkg,1.0,Unknown,,high,table_p5_ri6_ci6,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_pH,pH,Pb_mgkg,-0.437,Unknown,,high,table_p5_ri9_ci1,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_CEC,CEC,Pb_mgkg,4.0,Unknown,range_mean,high,table_p5_ri9_ci2,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_SOC,SOC,Pb_mgkg,0.04,Unknown,,high,table_p5_ri9_ci3,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_Sb,Sb,Pb_mgkg,0.706,Unknown,,high,table_p5_ri9_ci4,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_As,As,Pb_mgkg,0.942,Unknown,,high,table_p5_ri9_ci5,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_Co,Co,Pb_mgkg,0.651,Unknown,,high,table_p5_ri9_ci6,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_T1,T1,Pb_mgkg,0.8,Unknown,,high,table_p5_ri9_ci8,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_Pb,Pb,Pb_mgkg,1.0,Unknown,,high,table_p5_ri9_ci9,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_pH,pH,Al_mgkg,-0.51,Unknown,,high,table_p5_ri10_ci1,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_Co,Co,Al_mgkg,0.137,Unknown,,high,table_p5_ri10_ci6,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_Ba,Ba,Al_mgkg,-0.173,Unknown,,high,table_p5_ri10_ci7,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_T1,T1,Al_mgkg,-0.356,Unknown,,high,table_p5_ri10_ci8,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_Pb,Pb,Al_mgkg,0.411,Unknown,,high,table_p5_ri10_ci9,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_Al,Al,Al_mgkg,1.0,Unknown,,high,table_p5_ri10_ci10,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_pH,pH,Fe_mgkg,-0.667,Unknown,,high,table_p5_ri11_ci1,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_CEC,CEC,Fe_mgkg,0.869,Unknown,,high,table_p5_ri11_ci2,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_Sb,Sb,Fe_mgkg,0.352,Unknown,,high,table_p5_ri11_ci4,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_As,As,Fe_mgkg,-0.503,Unknown,,high,table_p5_ri11_ci5,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_Co,Co,Fe_mgkg,0.158,Unknown,,high,table_p5_ri11_ci6,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_Ba,Ba,Fe_mgkg,10.28,Unknown,,high,table_p5_ri11_ci7,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_T1,T1,Fe_mgkg,-0.321,Unknown,,high,table_p5_ri11_ci8,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_Fe,Fe,Fe_mgkg,1.0,Unknown,,high,table_p5_ri11_ci11,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_pH,pH,Mn_mgkg,-0.299,Unknown,,high,table_p5_ri12_ci1,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_CEC,CEC,Mn_mgkg,0.546,Unknown,,high,table_p5_ri12_ci2,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_Sb,Sb,Mn_mgkg,0.34,Unknown,,high,table_p5_ri12_ci4,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_As,As,Mn_mgkg,-0.261,Unknown,,high,table_p5_ri12_ci5,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_T1,T1,Mn_mgkg,-0.161,Unknown,,high,table_p5_ri12_ci8,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_Fe,Fe,Mn_mgkg,0.426,Unknown,,high,table_p5_ri12_ci11,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"
+70669_15226514.2015.1021955,70669_15226514.2015.1021955_Mn,Mn,Mn_mgkg,1.0,Unknown,,high,table_p5_ri12_ci12,"Table 3.Pearson correlation coefficients among metals, pH, CEC,and SOC in soil"

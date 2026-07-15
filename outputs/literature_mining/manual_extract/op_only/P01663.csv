@@ -1,0 +1,111 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P01663,site 27,Sum_PAH_ngg,225.2,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 27,BaP_ngg,1.2,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 33,Sum_PAH_ngg,217.0,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 33,BaP_ngg,5.51,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 34,Sum_PAH_ngg,121.5,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 34,BaP_ngg,1.86,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 35,Sum_PAH_ngg,1042.8,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 35,BaP_ngg,21.32,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 36,Sum_PAH_ngg,1780.7,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 36,BaP_ngg,30.34,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 45,Sum_PAH_ngg,114.6,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 45,BaP_ngg,3.42,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 46,Sum_PAH_ngg,164.6,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 46,BaP_ngg,2.21,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 47,Sum_PAH_ngg,441.5,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 47,BaP_ngg,21.81,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 48,Sum_PAH_ngg,105.9,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 48,BaP_ngg,1.12,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 49,Sum_PAH_ngg,1520.7,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 49,BaP_ngg,65.53,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 50,Sum_PAH_ngg,657.1,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 50,BaP_ngg,10.42,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 51,Sum_PAH_ngg,202.7,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 51,BaP_ngg,4.04,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 52,Sum_PAH_ngg,302.5,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 52,BaP_ngg,6.09,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 55,Sum_PAH_ngg,819.1,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 55,BaP_ngg,36.4,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 56,Sum_PAH_ngg,370.5,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 56,BaP_ngg,10.94,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 57,Sum_PAH_ngg,664.4,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 57,BaP_ngg,22.46,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 58,Sum_PAH_ngg,260.0,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 58,BaP_ngg,6.04,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 59,Sum_PAH_ngg,2114.0,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 59,BaP_ngg,62.98,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 60,Sum_PAH_ngg,299.0,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 60,BaP_ngg,6.48,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 63,Sum_PAH_ngg,342.2,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 63,BaP_ngg,6.99,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 74,Sum_PAH_ngg,314.1,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 74,BaP_ngg,3.24,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 75,Sum_PAH_ngg,459.2,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 75,BaP_ngg,13.75,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 76,Sum_PAH_ngg,1289.0,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 76,BaP_ngg,46.92,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 77,Sum_PAH_ngg,3147.8,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 77,BaP_ngg,137.66,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 78,Sum_PAH_ngg,1448.6,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 78,BaP_ngg,17.92,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 79,Sum_PAH_ngg,628.1,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 79,BaP_ngg,14.13,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 80,Sum_PAH_ngg,207.3,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 80,BaP_ngg,4.32,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 81,Sum_PAH_ngg,320.6,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 81,BaP_ngg,7.56,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 82,Sum_PAH_ngg,317.2,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 82,BaP_ngg,9.49,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 92,Sum_PAH_ngg,155.3,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 92,BaP_ngg,4.6,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 93,Sum_PAH_ngg,1074.8,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 93,BaP_ngg,23.41,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 94,Sum_PAH_ngg,621.9,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 94,BaP_ngg,10.82,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 95,Sum_PAH_ngg,497.9,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 95,BaP_ngg,19.72,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 96,Sum_PAH_ngg,446.7,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 96,BaP_ngg,16.81,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 97,Sum_PAH_ngg,282.8,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 97,BaP_ngg,7.66,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 98,Sum_PAH_ngg,114.9,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 98,BaP_ngg,1.45,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 99,Sum_PAH_ngg,147.5,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 99,BaP_ngg,5.44,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 100,Sum_PAH_ngg,217.1,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 100,BaP_ngg,4.35,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 101,Sum_PAH_ngg,547.5,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 101,BaP_ngg,14.69,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 113,Sum_PAH_ngg,425.6,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 113,BaP_ngg,9.18,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 114,Sum_PAH_ngg,984.3,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 114,BaP_ngg,17.06,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 115,Sum_PAH_ngg,296.2,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 115,BaP_ngg,8.09,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 118,Sum_PAH_ngg,124.3,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 118,BaP_ngg,2.49,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 119,Sum_PAH_ngg,876.9,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 119,BaP_ngg,30.54,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 130,Sum_PAH_ngg,505.1,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 130,BaP_ngg,16.08,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 131,Sum_PAH_ngg,263.2,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 131,BaP_ngg,6.01,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 132,Sum_PAH_ngg,274.7,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 132,BaP_ngg,10.33,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 133,Sum_PAH_ngg,364.2,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 133,BaP_ngg,11.16,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 135,Sum_PAH_ngg,214.0,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 135,BaP_ngg,4.82,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 136,Sum_PAH_ngg,203.3,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 136,BaP_ngg,4.7,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 145,Sum_PAH_ngg,253.6,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 145,BaP_ngg,6.33,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 156,Sum_PAH_ngg,114.3,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 156,BaP_ngg,2.24,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 201,Sum_PAH_ngg,435.4,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 201,BaP_ngg,14.58,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 204,Sum_PAH_ngg,431.8,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 204,BaP_ngg,20.46,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97
+P01663,site 207,Sum_PAH_ngg,501.3,ng/g,Table S1,soil,other,Liaoning,16 PAHs row in Table S1 = sum of 16 EPA priority PAHs,41.04,121.97
+P01663,site 207,BaP_ngg,22.35,ng/g,Table S1,soil,other,Liaoning,BaP row in Table S1 direct read,41.04,121.97

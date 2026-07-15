@@ -1,0 +1,6 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+66029_s10653-016-9899-9,66029_s10653-016-9899-9_Topsoil__$(_\mathrm_{_n_g_~_g_^_{_-_1_}_}_)$,SumHCH_ngg,126.4,Unknown,table_p5_ri9_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+66029_s10653-016-9899-9,66029_s10653-016-9899-9_Topsoil__$(_\mathrm_{_n_g_~_g_^_{_-_1_}_}_)$,SumHCH_ngg,1.9,Unknown,table_p5_ri11_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+66029_s10653-016-9899-9,66029_s10653-016-9899-9_Topsoil__$(_\mathrm_{_n_g_~_g_^_{_-_1_}_}_)$,OC_pct,47.8,Unknown,table_p5_ri28_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+66029_s10653-016-9899-9,66029_s10653-016-9899-9_Topsoil__$(_\mathrm_{_n_g_~_g_^_{_-_1_}_}_)$,SumOCP_ngg,682.15,Unknown,table_p5_ri29_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+66029_s10653-016-9899-9,66029_s10653-016-9899-9_Groundwater,SumOCP_ngg,230.0,Unknown,table_p6_ri13_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,

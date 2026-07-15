@@ -1,0 +1,9 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+journal.pone.0335518,journal.pone.0335518_Number_ofResistance_Isolates_(fecal),Number ofResistance Isolates (fecal),ENRO_ngg,34.0,Unknown,,medium,table_p6_ri6_ci1,Table 4. Resistance of 220 isolated strains of Escherichia coli from 8 broiler farms to 18 antimicrobial drugs.
+journal.pone.0335518,journal.pone.0335518_Number_ofResistance_Isolates_(soil),Number ofResistance Isolates (soil),ENRO_ngg,32.0,Unknown,,medium,table_p6_ri6_ci2,Table 4. Resistance of 220 isolated strains of Escherichia coli from 8 broiler farms to 18 antimicrobial drugs.
+journal.pone.0335518,journal.pone.0335518_Total,Total,ENRO_ngg,66.0,Unknown,,medium,table_p6_ri6_ci3,Table 4. Resistance of 220 isolated strains of Escherichia coli from 8 broiler farms to 18 antimicrobial drugs.
+journal.pone.0335518,"journal.pone.0335518_Percentage,_%","Percentage, %",ENRO_ngg,30.0,Unknown,,medium,table_p6_ri6_ci4,Table 4. Resistance of 220 isolated strains of Escherichia coli from 8 broiler farms to 18 antimicrobial drugs.
+journal.pone.0335518,journal.pone.0335518_Antimicrobialresistancegenes,Antimicrobialresistancegenes,Ant_ngg,73.0,Unknown,,medium,table_p8_ri15_ci1,Table 5. Detection of drug resistance genes in 220 strains of Escherichia coli.
+journal.pone.0335518,journal.pone.0335518_Number_of_resistance_isolates,Number of resistance isolates,Ant_ngg,79.0,Unknown,,medium,table_p8_ri15_ci2,Table 5. Detection of drug resistance genes in 220 strains of Escherichia coli.
+journal.pone.0335518,journal.pone.0335518_Detection_prevalence_%,Detection prevalence %,Ant_ngg,152.0,Unknown,,medium,table_p8_ri15_ci3,Table 5. Detection of drug resistance genes in 220 strains of Escherichia coli.
+journal.pone.0335518,journal.pone.0335518_col4,col4,Ant_ngg,69.09,Unknown,,medium,table_p8_ri15_ci4,Table 5. Detection of drug resistance genes in 220 strains of Escherichia coli.

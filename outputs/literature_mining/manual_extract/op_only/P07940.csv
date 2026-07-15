@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07940,,,,,,,,,"skip: 综述/Meta分析（summarized 160 references 2002-2018），无独立采样点级原始数据；Table 1/2 为省级/城市级 PAHs 汇总（引用文献来源，含 'reference' 列），属区域均值非法场地样本（铁律#4）；Table 8 为各城市引用文献的均值（Beijing/Xi'an/Chengdu 等 21 行），均为 site-level summary 非采样点；Table 9 大气 PAHs（非土壤）；Table 10 ILCR 风险指数（铁律#5）。论文未自行采样，所有数值均可溯源至已收录的其他原始研究论文（避免重复计数）。"

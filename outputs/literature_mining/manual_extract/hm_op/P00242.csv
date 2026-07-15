@@ -1,0 +1,28 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00242,A,Cd_mgkg,1.34,mg/kg,Table 5,soil,e_waste,Hong Kong,Agricultural对照点(1 site)场地均值 5 composite samples
+P00242,A,Cr_mgkg,12.2,mg/kg,Table 5,soil,e_waste,Hong Kong,Agricultural对照点场地均值
+P00242,A,Cu_mgkg,28.4,mg/kg,Table 5,soil,e_waste,Hong Kong,Agricultural对照点场地均值
+P00242,A,Zn_mgkg,121.5,mg/kg,Table 5,soil,e_waste,Hong Kong,Agricultural对照点场地均值
+P00242,A,Pb_mgkg,144.8,mg/kg,Table 5,soil,e_waste,Hong Kong,Agricultural对照点场地均值
+P00242,A,Sum_PAH_ngg,128,ng/g,Table 1,soil,e_waste,Hong Kong,16 EPA PAHs求和(表1∑16 PAHs行) 单体加和验证=128.0
+P00242,A,BaP_ngg,7.12,ng/g,Table 1,soil,e_waste,Hong Kong,Benzo(a)pyrene单体直接读
+P00242,A,SumPCB_ngg,6.7,ng/g,Table 2,soil,e_waste,Hong Kong,Total 37 PCBs行直接读
+P00242,A,SumPBDE_ngg,27.5,ng/g,Table 3,soil,e_waste,Hong Kong,Total BDE行直接读(Mono~Deca加和)
+P00242,EW(S),Cd_mgkg,0.08,mg/kg,Table 5,soil,e_waste,Hong Kong,e-Waste storage(1 site)场地均值
+P00242,EW(S),Cr_mgkg,22.93,mg/kg,Table 5,soil,e_waste,Hong Kong,e-Waste storage场地均值
+P00242,EW(S),Cu_mgkg,11.5,mg/kg,Table 5,soil,e_waste,Hong Kong,e-Waste storage场地均值
+P00242,EW(S),Zn_mgkg,114.6,mg/kg,Table 5,soil,e_waste,Hong Kong,e-Waste storage场地均值
+P00242,EW(S),Pb_mgkg,232,mg/kg,Table 5,soil,e_waste,Hong Kong,e-Waste storage场地均值
+P00242,EW(S),Sum_PAH_ngg,107.3,ng/g,Table 1,soil,e_waste,Hong Kong,16 EPA PAHs求和 单体加和验证=107.28
+P00242,EW(S),BaP_ngg,5.82,ng/g,Table 1,soil,e_waste,Hong Kong,Benzo(a)pyrene单体直接读
+P00242,EW(S),SumPCB_ngg,9.5,ng/g,Table 2,soil,e_waste,Hong Kong,Total 37 PCBs行直接读
+P00242,EW(S),SumPBDE_ngg,50.5,ng/g,Table 3,soil,e_waste,Hong Kong,Total BDE行直接读
+P00242,EW(OBS),Cd_mgkg,11.4,mg/kg,Table 5,soil,e_waste,Hong Kong,e-Waste open burning site(1 site)场地均值
+P00242,EW(OBS),Cr_mgkg,272,mg/kg,Table 5,soil,e_waste,Hong Kong,e-Waste open burning site场地均值
+P00242,EW(OBS),Cu_mgkg,533,mg/kg,Table 5,soil,e_waste,Hong Kong,e-Waste open burning site场地均值
+P00242,EW(OBS),Zn_mgkg,920,mg/kg,Table 5,soil,e_waste,Hong Kong,e-Waste open burning site场地均值
+P00242,EW(OBS),Pb_mgkg,3254,mg/kg,Table 5,soil,e_waste,Hong Kong,e-Waste open burning site场地均值
+P00242,EW(OBS),Sum_PAH_ngg,1008,ng/g,Table 1,soil,e_waste,Hong Kong,16 EPA PAHs求和 单体加和验证=1008.02
+P00242,EW(OBS),BaP_ngg,48.44,ng/g,Table 1,soil,e_waste,Hong Kong,Benzo(a)pyrene单体直接读
+P00242,EW(OBS),SumPCB_ngg,143.8,ng/g,Table 2,soil,e_waste,Hong Kong,Total 37 PCBs行直接读
+P00242,EW(OBS),SumPBDE_ngg,32340,ng/g,Table 3,soil,e_waste,Hong Kong,Total BDE行直接读

@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05281,,,,,,,soil,industrial,Shaanxi,"skip: 论文仅研究Cr(总Cr+Cr(VI))单一重金属,无任何有机污染物(PAH/PCB/DDT/HCH/PBDE/PHC全部缺失),非HM+OP真复合论文;且HM浓度数据主体在Figure 2图片中(75样本),正文仅零散提及5个采样点级数值(745.15/505.60/802.77/525.79/69.58 mg/kg),无完整采样点级浓度表格;Table 4为CR/HQ风险指数(已剔除);Table 1-3为公式与暴露参数(非浓度)"

@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00710,,,,,,soil,agricultural,Zhejiang,"skip: 论文仅有120个采样点的描述性统计汇总(Mean/Median/SD/Min/Max/CV/Skewness/Kurtosis,Table 2和Table 3),无采样点级原始数值;且论文仅测8种HM(As/Cd/Pb/Cr/Hg/Zn/Cu/Ni),无任何OP(PAH/PCB/DDT/HCH/PBDE/PHC),非HM+OP真复合;Table 2还含Background value和GB15618-2018 Risk screening value标准阈值行,均不可作为浓度提取"

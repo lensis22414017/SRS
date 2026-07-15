@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03244,,,,,,soil+sediment,urban,Shaanxi,"skip: 仅区域级(灞河上/中/下游+浐河)统计汇总(mean±SD/range)，无采样点级(H1-H12/T1-T12)原始数值; 论文72样品分3季节采集但所有图表(Fig2/3/4/5/6/7)均按区域+季节聚合; Table1/2/3均为风险指数(CR致癌风险/HI非致癌风险)非浓度; 正文range值如ΣPAHs 3649.09~8659.4 ng/g(沉积物)/4745.33~8649.63 ng/g(土壤)及ΣHMs 14.22~15.34 mg/g(沉积物)等均为全区域汇总; 无法提取sample_id级真实可追溯浓度"

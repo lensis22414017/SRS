@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00277,,,,,,soil,industrial,Xinjiang,"skip: Table3仅提供51个土壤样本的统计汇总(Min/Max/Mean/Median/Sum)非采样点级数据; Table4为作物/植物组织样本(plant tissue须剔除); Tables5-8为风险指数(TEQ/ILCR须剔除); 无任何采样点级土壤PAH浓度数据"

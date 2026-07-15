@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04591,,,,,,soil,urban,Jilin,"skip: 仅有48个采样点(PZ1-PZ8/IZ1-IZ8/RZ1-RZ8/CT1-CT11/CE1-CE5/OF1-OF4)的汇总统计(Min/Max/AM/GM/CV), 无任何单个采样点级OCP浓度数据。Table 1为18种OCP的聚合统计量, Table 2为生态风险阈值(ERL/ERM/TEL/PEL), 图表均为汇总。正文提及PZ5/PZ2/CE1/CE5等热点但未给出具体浓度值。"

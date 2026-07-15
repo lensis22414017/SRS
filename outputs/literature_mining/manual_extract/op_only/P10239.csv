@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10239,XAUAT,SumDDT_ngg,56.3,ng/g,正文Results段,soil,urban,Shaanxi,"DDTs=p,p'-DDT+p,p'-DDD+o,p'-DDT+p,p'-DDE sum; 正文明确该site最高56.3 ng/g"
+P10239,XAUAT,SumHCH_ngg,8.3,ng/g,正文Results段,soil,urban,Shaanxi,"HCHs=α+β+γ+δ-HCH sum; 正文明确XAUAT的HCHs=8.3; 注Table1 Max显示8.5存轻微不一致"
+P10239,IEE,SumDDT_ngg,0.1,ng/g,正文Results段,soil,urban,Shaanxi,"DDTs sum; 正文明确IEE最低0.1 ng/g"
+P10239,IEE,SumHCH_ngg,0.1,ng/g,正文Results段,soil,urban,Shaanxi,"HCHs sum; 正文明确IEE最低0.1 ng/g"

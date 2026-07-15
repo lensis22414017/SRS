@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00991,,,,,,,,"skip: 正文仅含统计汇总(range/mean), 无采样点级数据; PAHs仅给TPAH 88.7-25977.0 ng/g mean 2476.3(Table S2); 抗生素0.7-113.6 ng/g mean 13.7(Table S3a); 金属825.8-2580 mg/kg mean 1244.7(Fig S1); 全部per-sample数据在Supplementary Information(Table S2等)未包含于parsed paper.md; 论文未测PCB/DDT/HCH/PBDE/PHC"

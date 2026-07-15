@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01603,,,,,,soil,e_waste,Guangdong,"skip: 实验室生物修复实验(bioremediation)，标题/摘要明确为 Pseudomonas plecoglossicida + biochar 修复 PBDEs+HMs 复合污染土壤；BDE-47 为 spiked 添加单体(非真实场地 SumPBDE)；HM 仅报告 Cu/Pb availability(有效性，非8元素总量)；无采样点级(S1/点位名)真实场地本底数据；paper.md 解析仅含摘要(2968B)，SI mmc1.docx 全为实验方法(SEM制样/GC-MS定量/酶活测定)，无场地调查表；按铁律第7条+剔除场景(bioremediation/spiked)剔除"

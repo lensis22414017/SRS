@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02793,,,,,,,,"skip: 论文Table 1仅提供58个样本的Mean±SD(min-max)汇总统计(ΣHCH/ΣDDT/各单体)，无任何采样点级个体数据(无S1/S2等sample_id标签)。Fig1仅标注GPS点位位置地图，Fig2/3为Kriging插值结果图。正文提及两处DDT超标(64.91和59.05 ng/g dw)但为Table 1的max值且无sample_id。属于区域级统计汇总，无采样点级数据"

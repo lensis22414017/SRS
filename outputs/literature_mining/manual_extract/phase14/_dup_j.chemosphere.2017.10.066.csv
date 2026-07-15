@@ -1,0 +1,47 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_S13,S13,SumPAE_ngg,1.78,Unknown,,high,table_p3_ri13_ci7,Table 1 Concentrations of PAEs in urban soil in Xi'an as well as its functional areas (mg $\mathbf { k g } ^ { - 1 } ) .$
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_S22,S22,SumPAE_ngg,1554.3,Unknown,,high,table_p3_ri22_ci7,Table 1 Concentrations of PAEs in urban soil in Xi'an as well as its functional areas (mg $\mathbf { k g } ^ { - 1 } ) .$
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_S25,S25,SumPAE_ngg,0.48,Unknown,,high,table_p3_ri25_ci7,Table 1 Concentrations of PAEs in urban soil in Xi'an as well as its functional areas (mg $\mathbf { k g } ^ { - 1 } ) .$
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_S31,S31,SumPAE_ngg,0.82,Unknown,,high,table_p3_ri31_ci7,Table 1 Concentrations of PAEs in urban soil in Xi'an as well as its functional areas (mg $\mathbf { k g } ^ { - 1 } ) .$
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_S45,S45,SumPAE_ngg,337.8,Unknown,,high,table_p3_ri45_ci7,Table 1 Concentrations of PAEs in urban soil in Xi'an as well as its functional areas (mg $\mathbf { k g } ^ { - 1 } ) .$
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_Min_Max,Min Max,SumPAE_ngg,1752.6,Unknown,,high,table_p3_ri46_ci7,Table 1 Concentrations of PAEs in urban soil in Xi'an as well as its functional areas (mg $\mathbf { k g } ^ { - 1 } ) .$
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_S48,S48,SumPAE_ngg,395.2,Unknown,,high,table_p3_ri48_ci7,Table 1 Concentrations of PAEs in urban soil in Xi'an as well as its functional areas (mg $\mathbf { k g } ^ { - 1 } ) .$
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_SD_CV,SD CV,SumPAE_ngg,1.9,Unknown,,high,table_p3_ri49_ci7,Table 1 Concentrations of PAEs in urban soil in Xi'an as well as its functional areas (mg $\mathbf { k g } ^ { - 1 } ) .$
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_DMP,DMP,SumPAE_ngg,0.14,Unknown,,high,table_p4_ri7_ci1,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_DnOP,DnOP,SumPAE_ngg,-0.04,Unknown,,high,table_p4_ri7_ci6,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_Σ6PAEs,Σ6PAEs,SumPAE_ngg,1.0,Unknown,,high,table_p4_ri7_ci7,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_DMP,DMP,pH,-0.08,Unknown,,high,table_p4_ri8_ci1,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_DEP,DEP,pH,0.04,Unknown,,high,table_p4_ri8_ci2,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_BBP,BBP,pH,0.15,Unknown,,high,table_p4_ri8_ci3,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_DnBP,DnBP,pH,-0.12,Unknown,,high,table_p4_ri8_ci4,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_DEHP,DEHP,pH,-0.03,Unknown,,high,table_p4_ri8_ci5,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_DnOP,DnOP,pH,-0.09,Unknown,,high,table_p4_ri8_ci6,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_Σ6PAEs,Σ6PAEs,pH,-0.04,Unknown,,high,table_p4_ri8_ci7,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_pH,pH,pH,1.0,Unknown,,high,table_p4_ri8_ci8,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_DEP,DEP,OC_pct,-0.04,Unknown,,high,table_p4_ri9_ci2,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_BBP,BBP,OC_pct,-0.04,Unknown,,high,table_p4_ri9_ci3,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_DnBP,DnBP,OC_pct,0.09,Unknown,,high,table_p4_ri9_ci4,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_DEHP,DEHP,OC_pct,0.04,Unknown,,high,table_p4_ri9_ci5,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_DnOP,DnOP,OC_pct,-0.1,Unknown,,high,table_p4_ri9_ci6,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_Σ6PAEs,Σ6PAEs,OC_pct,0.05,Unknown,,high,table_p4_ri9_ci7,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_pH,pH,OC_pct,0.2,Unknown,,high,table_p4_ri9_ci8,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_TOC,TOC,OC_pct,1.0,Unknown,,high,table_p4_ri9_ci9,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_DMP,DMP,Clay_pct,0.01,Unknown,,high,table_p4_ri12_ci1,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_DnOP,DnOP,Clay_pct,0.18,Unknown,,high,table_p4_ri12_ci6,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_pH,pH,Clay_pct,0.24,Unknown,,high,table_p4_ri12_ci8,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_TOC,TOC,Clay_pct,0.13,Unknown,,high,table_p4_ri12_ci9,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_XFD,XFD,Clay_pct,1.0,Unknown,,high,table_p4_ri12_ci12,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_DMP,DMP,Silt_pct,-0.16,Unknown,,high,table_p4_ri13_ci1,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_DEP,DEP,Silt_pct,-0.08,Unknown,,high,table_p4_ri13_ci2,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_DnBP,DnBP,Silt_pct,-0.18,Unknown,,high,table_p4_ri13_ci4,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_DnOP,DnOP,Silt_pct,0.07,Unknown,,high,table_p4_ri13_ci6,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_pH,pH,Silt_pct,0.18,Unknown,,high,table_p4_ri13_ci8,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_TOC,TOC,Silt_pct,0.06,Unknown,,high,table_p4_ri13_ci9,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_XHF,XHF,Silt_pct,-0.18,Unknown,,high,table_p4_ri13_ci11,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_Clay,Clay,Silt_pct,1.0,Unknown,,high,table_p4_ri13_ci13,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_Silt,Silt,Silt_pct,1.0,Unknown,,high,table_p4_ri13_ci14,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_DMP,DMP,Sand_pct,0.14,Unknown,,high,table_p4_ri14_ci1,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_DEP,DEP,Sand_pct,0.16,Unknown,,high,table_p4_ri14_ci2,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_pH,pH,Sand_pct,0.115,Unknown,range_mean,high,table_p4_ri14_ci8,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_Clay,Clay,Sand_pct,0.27,Unknown,range_mean,high,table_p4_ri14_ci13,Correlation analysis of PAEs and physicochemical parameters of urban soil.
+_dup_j.chemosphere.2017.10.066,_dup_j.chemosphere.2017.10.066_Sand,Sand,Sand_pct,1.0,Unknown,,high,table_p4_ri14_ci15,Correlation analysis of PAEs and physicochemical parameters of urban soil.

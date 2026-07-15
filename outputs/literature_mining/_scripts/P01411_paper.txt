@@ -1,0 +1,62 @@
+                                             Environmental Research 216 (2023) 114816
+                                             Contents lists available at ScienceDirect
+
+                                       Environmental Research
+
+                                   journal homepage: www.elsevier.com/locate/envres
+
+The collaborative monitored natural attenuation (CMNA) of soil and
+groundwater pollution in large petrochemical enterprises: A case study
+
+Quanwei Song a,b,1, Zhenkun Xue a,b,c,1, Huijun Wu a,b, Yong Zhai d, Taotao Lu a,b,
+Xianyuan Du a,b, Jin Zheng a,b, Hongkun Chen a,b,*, Rui Zuo c
+
+a State Key Laboratory of Petroleum Pollution Control, Beijing, 102206, China
+b CNPC Research Institute of Safety and Environment Technology, Beijing, 102206, China
+c College of Water Science, Beijing Normal University, Beijing, 100875, China
+d China Kunlun Contracting & Engineering Co., Ltd., Jilin Branch, Jilin, 132013, China
+
+ARTICLE INFO                       ABSTRACT
+
+Keywords:                          A large in-service petrochemical enterprises in Northeast China was taken as the research object, and the
+Petroleum-contaminated site        Collaborative Monitored Natural Attenuation (CMNA) for soil and groundwater pollution was carried out to
+Monitored natural attenuation      remedy combined pollution and reduce environmental risks. The pollutants distributions were obtained based on
+Pollutants distribution            detailed regional investigation (Mar. 2019), and feature pollutants in soil and groundwater were then screened.
+Microbial responses                The spatiotemporal variations of feature pollutants and relative microbial responses were explored during the
+Natural attenuation rate constant  CMNA process. Furthermore, the CMNA efficiency of the contaminated site at initial stage was evaluated by
+                                   calculation of natural attenuation rate constant. The results showed that the feature pollutants in soil were
+                                   2,2,5,5-tetrachlorobiphenyl (2,2,5,5-TCB) and petroleum hydrocarbons (C10~C40), and the feature pollutant
+                                   in groundwater was 1,2-dichloroethane (1,2-DCA). The concentrations of all feature pollutants decreased
+                                   continuously during four years of monitoring. Feature pollutants played a dominant role in the variability of
+                                   microbial species both in soil and groundwater, increasing the relative abundance of petroleum tolerant/
+                                   biodegradation bacteria, such as Actinobacteria, Proteobacteria and Acidobacteriota. The average natural attenu
+                                   ation rate constant of 2,2,5,5-TCB and C10~C40 in soil was 0.0012 d- 1 and 0.0010 d- 1, respectively, meeting
+                                   the screening value after four years' attenuation. The average natural attenuation rate constant of 1,2-DCA was
+                                   0.0004 d- 1, which need strengthening measures to improve the attenuation efficiency.
+
+1. Introduction                                                               and the remediation of pollutants with no interference to daily pro
+                                                                              duction (Hu et al., 2013; Varjani et al., 2020; Ossai et al., 2020).
+    Large petrochemical enterprises with high production capacity are
+widespread all over the world, which is a significant guarantee for en            Monitored natural attenuation (MNA) refers to the implementation
+ergy, economic and social development (Petkov et al., 2009a, 2009b;           of planned monitoring strategies to reduce the concentration, quality,
+Tang et al., 2011; Li and Fu, 2011; Zhu et al.,2013; Chen et al., 2020; Jia,  volume, toxicity and mobility of pollutants by utilizing the physical,
+2020). Due to long production duration, complex process chain and             chemical and biological processes occurring naturally in the contami
+diversified equipment, the site pollution of large petrochemical enter        nated sites, such as adsorption, volatilization, dilution, chemical reac
+prises is characterized of multi-sources, composite contaminants, coex        tion, biodegradation (Sturchio et al., 1998; Mulligan and Yong, 2004).
+istence of stock and increment, and high environmental risk                   MNA has been applied in many petroleum-contaminated site (Clement
+(Charmondusit and Keartpakpraek, 2011; Xie et al., 2020; Wang et al.,         et al., 2002; Kao et al., 2006; Abu and Dike, 2008; Choi and Lee, 2011;
+2020). The specific site pollution conditions of large in-service petro       Schreiber et al., 2022). For example, Naidu et al. (2012) confirmed the
+chemical enterprises, therefore, has brought great challenges to the          natural attenuation of petroleum pollutants in groundwater of a site in
+identification of feature pollutants, the control of environmental risks      Australia through geochemical parameters, data modeling, stable car
+                                                                              bon isotopes. Lv et al. (2018) explored the natural attenuation efficiency
+
+  * Corresponding author. State Key Laboratory of Petroleum Pollution Control, Beijing, 102206, China.
+     E-mail address: xzkbjsf@163.com (H. Chen).
+
+  1 These authors contributed equally to this work.
+
+https://doi.org/10.1016/j.envres.2022.114816
+Received 13 September 2022; Received in revised form 7 November 2022; Accepted 12 November 2022
+Available online 15 November 2022
+0013-9351/© 2022 Elsevier Inc. All rights reserved.
+

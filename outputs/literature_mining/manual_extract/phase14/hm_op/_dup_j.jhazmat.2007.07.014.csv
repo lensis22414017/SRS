@@ -1,0 +1,152 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,pH,7.83,Unknown,,high,table_p2_ri1_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,pH,8.28,Unknown,,high,table_p2_ri1_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,pH,8.25,Unknown,,high,table_p2_ri1_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,pH,7.95,Unknown,,high,table_p2_ri1_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,pH,8.15,Unknown,,high,table_p2_ri1_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Cd_mgkg,2.58,Unknown,,high,table_p2_ri11_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,Cd_mgkg,1.24,Unknown,,high,table_p2_ri11_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,Cd_mgkg,1.35,Unknown,,high,table_p2_ri11_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,Cd_mgkg,1.28,Unknown,,high,table_p2_ri11_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,Cd_mgkg,0.8,Unknown,,high,table_p2_ri11_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Cr_mgkg,77.5,Unknown,,high,table_p2_ri12_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,Cr_mgkg,75.5,Unknown,,high,table_p2_ri12_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,Cr_mgkg,76.6,Unknown,,high,table_p2_ri12_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,Cr_mgkg,67.6,Unknown,,high,table_p2_ri12_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,Cr_mgkg,64.2,Unknown,,high,table_p2_ri12_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Cu_mgkg,41.5,Unknown,,high,table_p2_ri13_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,Cu_mgkg,36.0,Unknown,,high,table_p2_ri13_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,Cu_mgkg,61.8,Unknown,,high,table_p2_ri13_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,Cu_mgkg,25.3,Unknown,,high,table_p2_ri13_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,Cu_mgkg,22.8,Unknown,,high,table_p2_ri13_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Ni_mgkg,38.5,Unknown,,high,table_p2_ri14_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,Ni_mgkg,35.8,Unknown,,high,table_p2_ri14_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,Ni_mgkg,33.8,Unknown,,high,table_p2_ri14_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,Ni_mgkg,33.0,Unknown,,high,table_p2_ri14_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,Ni_mgkg,28.1,Unknown,,high,table_p2_ri14_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Pb_mgkg,35.0,Unknown,,high,table_p2_ri15_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,Pb_mgkg,38.4,Unknown,,high,table_p2_ri15_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,Pb_mgkg,97.9,Unknown,,high,table_p2_ri15_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,Pb_mgkg,52.1,Unknown,,high,table_p2_ri15_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,Pb_mgkg,29.7,Unknown,,high,table_p2_ri15_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Nap_ngg,546.0,Unknown,,high,table_p2_ri17_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,Nap_ngg,502.0,Unknown,,high,table_p2_ri17_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,Nap_ngg,300.0,Unknown,,high,table_p2_ri17_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,Nap_ngg,414.0,Unknown,,high,table_p2_ri17_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,Nap_ngg,246.0,Unknown,,high,table_p2_ri17_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Ace_ngg,28.3,Unknown,,high,table_p2_ri18_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,Ace_ngg,26.3,Unknown,,high,table_p2_ri18_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,Ace_ngg,15.1,Unknown,,high,table_p2_ri18_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,Ace_ngg,19.0,Unknown,,high,table_p2_ri18_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,Ace_ngg,14.6,Unknown,,high,table_p2_ri18_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Acy_ngg,207.0,Unknown,,high,table_p2_ri19_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,Acy_ngg,352.0,Unknown,,high,table_p2_ri19_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,Acy_ngg,515.0,Unknown,,high,table_p2_ri19_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,Acy_ngg,677.0,Unknown,,high,table_p2_ri19_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,Acy_ngg,131.0,Unknown,,high,table_p2_ri19_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Flu_ngg,19.1,Unknown,,high,table_p2_ri20_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,Flu_ngg,23.5,Unknown,,high,table_p2_ri20_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,Flu_ngg,19.1,Unknown,,high,table_p2_ri20_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,Flu_ngg,25.1,Unknown,,high,table_p2_ri20_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,Flu_ngg,18.7,Unknown,,high,table_p2_ri20_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Phe_ngg,165.0,Unknown,,high,table_p2_ri21_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,Phe_ngg,41.7,Unknown,,high,table_p2_ri21_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,Phe_ngg,103.0,Unknown,,high,table_p2_ri21_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,Phe_ngg,111.0,Unknown,,high,table_p2_ri21_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,Phe_ngg,91.6,Unknown,,high,table_p2_ri21_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Ant_ngg,484.0,Unknown,,high,table_p2_ri22_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,Ant_ngg,471.0,Unknown,,high,table_p2_ri22_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,Ant_ngg,229.0,Unknown,,high,table_p2_ri22_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,Ant_ngg,287.0,Unknown,,high,table_p2_ri22_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,Ant_ngg,196.0,Unknown,,high,table_p2_ri22_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Flu_ngg,30.1,Unknown,,high,table_p2_ri24_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Flt_ngg,30.1,Unknown,,high,table_p2_ri24_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,Flu_ngg,35.3,Unknown,,high,table_p2_ri24_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,Flt_ngg,35.3,Unknown,,high,table_p2_ri24_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,Flu_ngg,64.5,Unknown,,high,table_p2_ri24_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,Flt_ngg,64.5,Unknown,,high,table_p2_ri24_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,Flu_ngg,15.9,Unknown,,high,table_p2_ri24_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,Flt_ngg,15.9,Unknown,,high,table_p2_ri24_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,Flu_ngg,30.8,Unknown,,high,table_p2_ri24_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,Flt_ngg,30.8,Unknown,,high,table_p2_ri24_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Pyr_ngg,401.0,Unknown,,high,table_p2_ri25_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,Pyr_ngg,259.0,Unknown,,high,table_p2_ri25_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,Pyr_ngg,61.0,Unknown,,high,table_p2_ri25_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,Pyr_ngg,109.0,Unknown,,high,table_p2_ri25_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,Pyr_ngg,88.3,Unknown,,high,table_p2_ri25_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Ant_ngg,288.0,Unknown,,high,table_p2_ri26_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,BaA_ngg,288.0,Unknown,,high,table_p2_ri26_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,Ant_ngg,204.0,Unknown,,high,table_p2_ri26_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,BaA_ngg,204.0,Unknown,,high,table_p2_ri26_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,Ant_ngg,46.6,Unknown,,high,table_p2_ri26_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,BaA_ngg,46.6,Unknown,,high,table_p2_ri26_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,Ant_ngg,97.3,Unknown,,high,table_p2_ri26_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,BaA_ngg,97.3,Unknown,,high,table_p2_ri26_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,Ant_ngg,77.9,Unknown,,high,table_p2_ri26_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,BaA_ngg,77.9,Unknown,,high,table_p2_ri26_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Chr_ngg,128.0,Unknown,,high,table_p2_ri27_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,Chr_ngg,140.0,Unknown,,high,table_p2_ri27_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,Chr_ngg,47.0,Unknown,,high,table_p2_ri27_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,Chr_ngg,35.5,Unknown,,high,table_p2_ri27_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,Chr_ngg,32.8,Unknown,,high,table_p2_ri27_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Flt_ngg,232.0,Unknown,,high,table_p2_ri28_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,BbF_ngg,232.0,Unknown,,high,table_p2_ri28_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,Flt_ngg,243.0,Unknown,,high,table_p2_ri28_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,BbF_ngg,243.0,Unknown,,high,table_p2_ri28_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,Flt_ngg,51.8,Unknown,,high,table_p2_ri28_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,BbF_ngg,51.8,Unknown,,high,table_p2_ri28_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,Flt_ngg,70.8,Unknown,,high,table_p2_ri28_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,BbF_ngg,70.8,Unknown,,high,table_p2_ri28_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,Flt_ngg,51.5,Unknown,,high,table_p2_ri28_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,BbF_ngg,51.5,Unknown,,high,table_p2_ri28_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Flt_ngg,304.0,Unknown,,high,table_p2_ri29_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,BkF_ngg,304.0,Unknown,,high,table_p2_ri29_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,Flt_ngg,301.0,Unknown,,high,table_p2_ri29_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,BkF_ngg,301.0,Unknown,,high,table_p2_ri29_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,Flt_ngg,53.5,Unknown,,high,table_p2_ri29_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T3,T3,BkF_ngg,53.5,Unknown,,high,table_p2_ri29_ci3,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,Flt_ngg,74.0,Unknown,,high,table_p2_ri29_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,BkF_ngg,74.0,Unknown,,high,table_p2_ri29_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,Flt_ngg,79.5,Unknown,,high,table_p2_ri29_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,BkF_ngg,79.5,Unknown,,high,table_p2_ri29_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Pyr_ngg,94.6,Unknown,,high,table_p2_ri30_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,BaP_ngg,94.6,Unknown,,high,table_p2_ri30_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,Pyr_ngg,49.2,Unknown,,high,table_p2_ri30_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,BaP_ngg,49.2,Unknown,,high,table_p2_ri30_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,Pyr_ngg,69.3,Unknown,,high,table_p2_ri30_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T4,T4,BaP_ngg,69.3,Unknown,,high,table_p2_ri30_ci4,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,Pyr_ngg,70.5,Unknown,,high,table_p2_ri30_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,BaP_ngg,70.5,Unknown,,high,table_p2_ri30_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Pyr_ngg,101.0,Unknown,,high,table_p2_ri32_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,Cd_mgkg,101.0,Unknown,,high,table_p2_ri32_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T1,T1,BghiP_ngg,79.2,Unknown,,high,table_p2_ri33_ci1,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T2,T2,BghiP_ngg,114.0,Unknown,,high,table_p2_ri33_ci2,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_T5,T5,BghiP_ngg,74.6,Unknown,,high,table_p2_ri33_ci5,Initial physico-chemical characteristics of the soils used,,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_RCFs,RCFs,Ace_ngg,0.43,Unknown,,high,table_p4_ri4_ci1,"PAH soil-to-plant transfer factors (on dry weight basis, $n = 2 0 )$",,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_SCFs,SCFs,Ace_ngg,0.11,Unknown,,high,table_p4_ri4_ci2,"PAH soil-to-plant transfer factors (on dry weight basis, $n = 2 0 )$",,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_RCFs,RCFs,Acy_ngg,0.71,Unknown,,high,table_p4_ri5_ci1,"PAH soil-to-plant transfer factors (on dry weight basis, $n = 2 0 )$",,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_SCFs,SCFs,Acy_ngg,0.1,Unknown,,high,table_p4_ri5_ci2,"PAH soil-to-plant transfer factors (on dry weight basis, $n = 2 0 )$",,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_RCFs,RCFs,Flu_ngg,0.84,Unknown,,high,table_p4_ri10_ci1,"PAH soil-to-plant transfer factors (on dry weight basis, $n = 2 0 )$",,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_SCFs,SCFs,Flu_ngg,0.07,Unknown,,high,table_p4_ri10_ci2,"PAH soil-to-plant transfer factors (on dry weight basis, $n = 2 0 )$",,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_RCFs,RCFs,Pyr_ngg,0.55,Unknown,,high,table_p4_ri11_ci1,"PAH soil-to-plant transfer factors (on dry weight basis, $n = 2 0 )$",,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_SCFs,SCFs,Pyr_ngg,0.11,Unknown,,high,table_p4_ri11_ci2,"PAH soil-to-plant transfer factors (on dry weight basis, $n = 2 0 )$",,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_RCFs,RCFs,BaA_ngg,0.55,Unknown,,high,table_p4_ri12_ci1,"PAH soil-to-plant transfer factors (on dry weight basis, $n = 2 0 )$",,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_SCFs,SCFs,BaA_ngg,0.15,Unknown,,high,table_p4_ri12_ci2,"PAH soil-to-plant transfer factors (on dry weight basis, $n = 2 0 )$",,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_RCFs,RCFs,Chr_ngg,0.43,Unknown,,high,table_p4_ri13_ci1,"PAH soil-to-plant transfer factors (on dry weight basis, $n = 2 0 )$",,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_SCFs,SCFs,Chr_ngg,0.13,Unknown,,high,table_p4_ri13_ci2,"PAH soil-to-plant transfer factors (on dry weight basis, $n = 2 0 )$",,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_RCFs,RCFs,BbF_ngg,0.47,Unknown,,high,table_p4_ri14_ci1,"PAH soil-to-plant transfer factors (on dry weight basis, $n = 2 0 )$",,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_SCFs,SCFs,BbF_ngg,0.29,Unknown,,high,table_p4_ri14_ci2,"PAH soil-to-plant transfer factors (on dry weight basis, $n = 2 0 )$",,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_RCFs,RCFs,BkF_ngg,0.52,Unknown,,high,table_p4_ri15_ci1,"PAH soil-to-plant transfer factors (on dry weight basis, $n = 2 0 )$",,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_SCFs,SCFs,BkF_ngg,0.18,Unknown,,high,table_p4_ri15_ci2,"PAH soil-to-plant transfer factors (on dry weight basis, $n = 2 0 )$",,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_RCFs,RCFs,BghiP_ngg,0.53,Unknown,,high,table_p4_ri17_ci1,"PAH soil-to-plant transfer factors (on dry weight basis, $n = 2 0 )$",,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_SCFs,SCFs,BghiP_ngg,0.3,Unknown,,high,table_p4_ri17_ci2,"PAH soil-to-plant transfer factors (on dry weight basis, $n = 2 0 )$",,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_RCFs,RCFs,Cd_mgkg,0.51,Unknown,,high,table_p6_ri2_ci1,HM transfer factors (on dry weight basis) for plants grown in wastewatercontaminated soils (n = 20),,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_SCFs,SCFs,Cd_mgkg,0.14,Unknown,,high,table_p6_ri2_ci2,HM transfer factors (on dry weight basis) for plants grown in wastewatercontaminated soils (n = 20),,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_RCFs,RCFs,Cr_mgkg,0.09,Unknown,,high,table_p6_ri3_ci1,HM transfer factors (on dry weight basis) for plants grown in wastewatercontaminated soils (n = 20),,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_SCFs,SCFs,Cr_mgkg,0.01,Unknown,,high,table_p6_ri3_ci2,HM transfer factors (on dry weight basis) for plants grown in wastewatercontaminated soils (n = 20),,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_RCFs,RCFs,Cu_mgkg,0.23,Unknown,,high,table_p6_ri4_ci1,HM transfer factors (on dry weight basis) for plants grown in wastewatercontaminated soils (n = 20),,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_SCFs,SCFs,Cu_mgkg,0.07,Unknown,,high,table_p6_ri4_ci2,HM transfer factors (on dry weight basis) for plants grown in wastewatercontaminated soils (n = 20),,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_RCFs,RCFs,Pb_mgkg,0.15,Unknown,,high,table_p6_ri5_ci1,HM transfer factors (on dry weight basis) for plants grown in wastewatercontaminated soils (n = 20),,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_SCFs,SCFs,Pb_mgkg,0.06,Unknown,,high,table_p6_ri5_ci2,HM transfer factors (on dry weight basis) for plants grown in wastewatercontaminated soils (n = 20),,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_RCFs,RCFs,Ni_mgkg,0.69,Unknown,,high,table_p6_ri6_ci1,HM transfer factors (on dry weight basis) for plants grown in wastewatercontaminated soils (n = 20),,,,,,phase14
+_dup_j.jhazmat.2007.07.014,_dup_j.jhazmat.2007.07.014_SCFs,SCFs,Ni_mgkg,0.15,Unknown,,high,table_p6_ri6_ci2,HM transfer factors (on dry weight basis) for plants grown in wastewatercontaminated soils (n = 20),,,,,,phase14

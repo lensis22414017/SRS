@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04229,,,,,,,,"skip: 仅统计汇总无采样点级数据。Table3为84样品全局Max/Min/Mean统计行; Section3.3为6镇区域均值(TB/ST/HS/HL/CN/LH各10-22样均值); Section3.4为TB/HL梯度距离级均值(每距离3-4样汇总); 仅Σ16PAHs总量无单体分样值; Table4-7为阈值/风险指数(Nemerow/TEQ/ILCR)全部剔除; Figure5为图片无表格数据"

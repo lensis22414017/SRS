@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00332,,,,,,,soil,oil_field,Shandong,"skip: Table3仅三层统计汇总(Surface n=290/Middle n=164/Bottom n=162的Average/STDEV/CV/Min-Max Range)，无采样点级(S1/S2/点位名)HM数据；论文仅研究7种HM(As/Cd/Cr/Cu/Hg/Pb/Zn，未测Ni)，无任何OP(PAHs/PCBs/DDT/HCH/PBDE/PHC)数据，非HM+OP复合论文；Table1背景值/Table2EF分级/Table4风险指数Er+RI/Table5理化指标/Table6相关系数矩阵全部剔除"

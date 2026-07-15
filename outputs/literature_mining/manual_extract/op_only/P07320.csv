@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07320,,skip_reason,,,Table 1,soil,e_waste,Zhejiang,"仅区域汇总统计(Range/Mean/Median/SD)无采样点级数据;Table1含129个(2011年)和150个(2016年)稻田土壤样本的16种PAH单体及∑16PAHs统计量但未列出单个采样点浓度;Table2为ILCRs风险指数非浓度;空间分布图为IDW插值图无法读取采样点精确值;论文无HM实测数据"

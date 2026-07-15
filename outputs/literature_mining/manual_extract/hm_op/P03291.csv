@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03291,,,,,,,,,"skip: 修复工程实例研究; 全文无数值化采样点级HM/OP浓度数据; Table 1=修复目标值/风险控制值/筛选值(thresholds 排除); Table 2=干基固废有害组分控制限值(thresholds 排除); 正文仅含工程方量/药剂比例/样品数量; 修复效果评估仅定性描述'均未超过修复目标值'; 无修复前场地本底实测浓度数据"

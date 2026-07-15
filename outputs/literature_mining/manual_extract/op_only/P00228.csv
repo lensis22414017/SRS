@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00228,S16,Sum_PAH_ngg,261000,ng/g,正文Results第1段(line77),soil,coking,Shandong,"S16炼焦区采样点Σ16PAHs=2.61E+05 μg/kg, 正文明确给出值为最高采样点; μg/kg=ng/g值不变"
+P00228,S17,Sum_PAH_ngg,10300,ng/g,正文Results第1段(line77),soil,coking,Shandong,"S17炼焦区采样点Σ16PAHs=1.03E+04 μg/kg, 正文明确给出; μg/kg=ng/g值不变"

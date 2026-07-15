@@ -1,0 +1,8 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+72200_jeq2004.0438,72200_jeq2004.0438_K,K,Sand_pct,59.0,Unknown,,high,table_p2_ri3_ci2,Table 1. Physical and chemical properties of soil samples.
+72200_jeq2004.0438,72200_jeq2004.0438_K,K,Silt_pct,27.0,Unknown,,high,table_p2_ri4_ci2,Table 1. Physical and chemical properties of soil samples.
+72200_jeq2004.0438,72200_jeq2004.0438_K,K,Clay_pct,14.0,Unknown,,high,table_p2_ri5_ci2,Table 1. Physical and chemical properties of soil samples.
+72200_jeq2004.0438,72200_jeq2004.0438_K,K,pH,7.3,Unknown,,high,table_p2_ri6_ci2,Table 1. Physical and chemical properties of soil samples.
+72200_jeq2004.0438,72200_jeq2004.0438_K,K,V_mgkg,106.3,Unknown,,high,table_p2_ri10_ci2,Table 1. Physical and chemical properties of soil samples.
+72200_jeq2004.0438,72200_jeq2004.0438_K,K,V_mgkg,15.7,Unknown,,high,table_p2_ri12_ci2,Table 1. Physical and chemical properties of soil samples.
+72200_jeq2004.0438,72200_jeq2004.0438_K,K,V_mgkg,87.2,Unknown,,high,table_p2_ri14_ci2,Table 1. Physical and chemical properties of soil samples.

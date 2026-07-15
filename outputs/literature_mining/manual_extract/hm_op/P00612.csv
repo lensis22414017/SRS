@@ -1,0 +1,13 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00612,S2_E.hyemale,As_mgkg,147.6,mg/kg,Table 2,soil,smelting,Hunan,E.hyemale smelting行Soil值;表头列序(As-Zn-Cu-Cd-Pb)与数据实际列序(As-Cd-Cu-Pb-Zn)不一致经正文交叉验证反推
+P00612,S2_E.hyemale,Cd_mgkg,248.6,mg/kg,Table 2,soil,smelting,Hunan,E.hyemale smelting行Soil值;Plant Cd=34.8正文确认
+P00612,S2_E.hyemale,Cu_mgkg,3786,mg/kg,Table 2,soil,smelting,Hunan,E.hyemale smelting行Soil值;Plant Cu=265正文确认
+P00612,S2_E.hyemale,Pb_mgkg,7383,mg/kg,Table 2,soil,smelting,Hunan,E.hyemale smelting行Soil值;Plant Pb=4430正文确认
+P00612,S2_E.hyemale,Zn_mgkg,11936,mg/kg,Table 2,soil,smelting,Hunan,E.hyemale smelting行Soil值;Plant Zn=6565正文确认;Zn Soil=11936超Table1 smelting max 10240存疑
+P00612,S2_E.hyemale,Sum_PAH_ngg,845,ng/g,Table 2,soil,smelting,Hunan,E.hyemale smelting行Soil值;原文单位ug/kg=ng/g
+P00612,S2_S.davidii,As_mgkg,211.3,mg/kg,Table 2,soil,smelting,Hunan,S.davidii smelting行Soil值;Plant As=169正文确认列序
+P00612,S2_S.davidii,Cd_mgkg,7.4,mg/kg,Table 2,soil,smelting,Hunan,S.davidii smelting行Soil值
+P00612,S2_S.davidii,Cu_mgkg,376.4,mg/kg,Table 2,soil,smelting,Hunan,S.davidii smelting行Soil值
+P00612,S2_S.davidii,Pb_mgkg,1743,mg/kg,Table 2,soil,smelting,Hunan,S.davidii smelting行Soil值
+P00612,S2_S.davidii,Zn_mgkg,224.4,mg/kg,Table 2,soil,smelting,Hunan,S.davidii smelting行Soil值
+P00612,S2_S.davidii,Sum_PAH_ngg,686,ng/g,Table 2,soil,smelting,Hunan,S.davidii smelting行Soil值;原文单位ug/kg=ng/g

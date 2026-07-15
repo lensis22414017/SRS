@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06126,NA,NA,NA,NA,NA,NA,NA,NA,"skip: 论文仅含PCDD/Fs二恶英/呋喃数据，不在指定OP污染物列表(无PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAEs/OCPs)；无HM数据；且Table 2数据为分组均值(n=4/n=2/n=1)非单个采样点级数据"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01045,,,,,,,,"skip: 排放清单/模型模拟研究(non-China sites也适用但本质是全国尺度建模)。论文用回归分析+ChnGPERM多介质环境归趋模型估算1952-2005年中国PCB-153的网格化排放量(1/4°×1/4°)，仅给出汇总排放量(总179 t PCB-153其中101 t进入土壤4.79 t进入大气)。无任何采样点级实测浓度数据。论文引用的观测数据来自其他已发表文献(Ren et al. 2007土壤;Pan et al. 2010沉积物;Xu et al. 2013泥炭芯;Jaward et al. 2005大气)用于模型验证，非本文原始数据。"

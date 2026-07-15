@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09467,,,,,,,,,"skip: 论文是SOC(土壤有机碳)克里金空间插值研究，无采样点级HM/OP浓度数据。HM(Cd/Pb/Cr/As/Hg/Cu/Zn)和OP(DDT/HCH/OCPs)仅在Table 5相关分析中以相关系数(pearson r)出现，无任何污染物浓度实测值表格。Table 1-4均为SOC统计/插值模型参数/预测精度。"

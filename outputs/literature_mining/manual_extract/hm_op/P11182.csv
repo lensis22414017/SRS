@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11182,,,,"N/A","全部表格仅含区域级统计汇总(Min/Max/Mean/Median/SD/CV),无采样点级真实浓度值","Table3-4/5-5/6-1等所有表格","soil","e_waste","Zhejiang","skip: 仅区域汇总(169样点HM/149样点HM+PAHs均仅以Min/Max/Mean/Median/SD呈现),论文未公开任何单点原始数据; 无采样点标识符(S1/A/B等)与对应浓度; 表6-1标题虽含复合污染点但内容仍是统计描述; 表3-7/3-8/5-8为风险指数(HQ/RI/ILCR)已剔除; 表4-2为情景预测值非实测; 表3-1/5-1/5-2为标准阈值/TEF已剔除; 表1-1/1-2为文献综述"

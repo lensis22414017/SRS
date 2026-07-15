@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03781,,,,,,,soil,industrial,Chongqing,"skip: 仅54采样点统计汇总(Min/Max/Mean/SD/CV/检出率),无个体采样点级浓度数据表;Table 2为单因子指数+Nemerow综合指数(风险指数剔除);Table 3为ILCR致癌风险值(剔除);Figure 3为ArcGIS空间插值分布图(非采样点表格);ΣPAHs范围ND~16.07 mg/kg均值1.78 mg/kg仅正文汇总无逐点值"

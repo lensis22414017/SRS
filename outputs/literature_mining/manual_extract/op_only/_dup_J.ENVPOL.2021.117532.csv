@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+_dup_J.ENVPOL.2021.117532,_dup_J.ENVPOL.2021.117532_Toddler,OPEs_ngg,1160.0,Unknown,table_p4_ri11_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_J.ENVPOL.2021.117532,_dup_J.ENVPOL.2021.117532_Adult,OPEs_ngg,1440.0,Unknown,table_p4_ri11_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_J.ENVPOL.2021.117532,_dup_J.ENVPOL.2021.117532_Toddler,SumPAE_ngg,1790.0,Unknown,table_p4_ri18_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_J.ENVPOL.2021.117532,_dup_J.ENVPOL.2021.117532_Adult,SumPAE_ngg,2320.0,Unknown,table_p4_ri18_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,

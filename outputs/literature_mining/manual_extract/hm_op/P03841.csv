@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03841,,,,,,,,"skip: 仅区域级描述性统计(Min/Max/Mean/Skewness/Kurtosis/CV/Exceedance)共190样本汇总无采样点级原始浓度; Table 5全为统计行; Table 6为Pi/Er污染指数; Table 9-10为HQ/CR风险指数; 无OP数据(PAH/PCB/DDT/HCH/PBDE/PHC均未测定)"

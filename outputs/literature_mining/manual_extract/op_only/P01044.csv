@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01044,,,,,,,,"skip: 大气研究—所有数据为大气浓度(ng/m3或pg/m3)，用高体积大气采样器采集air samples，无土壤采样点级数据"

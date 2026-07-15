@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04315,,,,,,,soil,industrial,Qinghai,"skip: 仅区域级统计汇总(Max/Min/Mean/CV in Table 5) 无采样点级数据; 138个样本但未公布个体浓度; 纯HM论文无OP数据; 浓度仅有7元素(Cd/As/Pb/Cr/Cu/Ni/Zn)缺Hg"

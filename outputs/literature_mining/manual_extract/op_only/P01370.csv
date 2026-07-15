@@ -1,0 +1,2 @@
+﻿﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01370,,skip_no_sample_data,,,,,,"论文侧重空间聚类分析(LISA/PMF), Table S1为描述性统计(范围/均值/CV), 121个采样点个体浓度数据未在正文或已解析SI中呈现; 正文仅给PPAHs范围37.76-7559.21 ng/g和Cr/Cu/Pb/Zn/Cd各范围, 无采样点级值"

@@ -1,0 +1,25 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+72224_es8017573,72224_es8017573_col1,col1,OC_pct,138.0,Unknown,,medium,table_p2_ri10_ci1,
+72224_es8017573,72224_es8017573_col2,col2,OC_pct,11.0,Unknown,,medium,table_p2_ri10_ci2,
+72224_es8017573,72224_es8017573_col3,col3,OC_pct,1560.0,Unknown,,medium,table_p2_ri10_ci3,
+72224_es8017573,72224_es8017573_col4,col4,OC_pct,560.0,Unknown,,medium,table_p2_ri10_ci4,
+72224_es8017573,72224_es8017573_col5,col5,OC_pct,553.0,Unknown,,medium,table_p2_ri10_ci5,
+72224_es8017573,72224_es8017573_col6,col6,OC_pct,203.0,Unknown,,medium,table_p2_ri10_ci6,
+72224_es8017573,72224_es8017573_col7,col7,OC_pct,38.2,Unknown,,medium,table_p2_ri10_ci7,
+72224_es8017573,72224_es8017573_col8,col8,OC_pct,121.0,Unknown,,medium,table_p2_ri10_ci8,
+72224_es8017573,72224_es8017573_col9,col9,OC_pct,233.0,Unknown,,medium,table_p2_ri10_ci9,
+72224_es8017573,72224_es8017573_col1,col1,OC_pct,68.6,Unknown,,medium,table_p2_ri21_ci1,
+72224_es8017573,72224_es8017573_col2,col2,OC_pct,5.3,Unknown,,medium,table_p2_ri21_ci2,
+72224_es8017573,72224_es8017573_col3,col3,OC_pct,450.0,Unknown,,medium,table_p2_ri21_ci3,
+72224_es8017573,72224_es8017573_col4,col4,OC_pct,32.6,Unknown,,medium,table_p2_ri21_ci4,
+72224_es8017573,72224_es8017573_col5,col5,OC_pct,57.8,Unknown,,medium,table_p2_ri21_ci5,
+72224_es8017573,72224_es8017573_col6,col6,OC_pct,0.56,Unknown,,medium,table_p2_ri21_ci6,
+72224_es8017573,72224_es8017573_col7,col7,OC_pct,49.8,Unknown,,medium,table_p2_ri21_ci7,
+72224_es8017573,72224_es8017573_col8,col8,OC_pct,3.44,Unknown,,medium,table_p2_ri21_ci8,
+72224_es8017573,72224_es8017573_col9,col9,OC_pct,0.37,Unknown,,medium,table_p2_ri21_ci9,
+72224_es8017573,72224_es8017573_col10,col10,OC_pct,0.12,Unknown,,medium,table_p2_ri21_ci10,
+72224_es8017573,72224_es8017573_soil_and_dust_ingestion,soil and dust ingestion,V_mgkg,1.68,Unknown,,high,table_p5_ri7_ci1,"TABLE 2.Estimated Daily Intakes(pg TEQ/kg bw/day)of PCDD/Fs for Children and Adults via Soil/Dust Ingestion and Dermal Exposure,and Comparison of Daily Intakes of PCDD/Fs from Various Exposure Pathway"
+72224_es8017573,72224_es8017573_dermal_exposure,dermal exposure,V_mgkg,0.148,Unknown,,high,table_p5_ri7_ci2,"TABLE 2.Estimated Daily Intakes(pg TEQ/kg bw/day)of PCDD/Fs for Children and Adults via Soil/Dust Ingestion and Dermal Exposure,and Comparison of Daily Intakes of PCDD/Fs from Various Exposure Pathway"
+72224_es8017573,72224_es8017573_air_inhalation,air inhalation,V_mgkg,0.302,Unknown,,high,table_p5_ri7_ci3,"TABLE 2.Estimated Daily Intakes(pg TEQ/kg bw/day)of PCDD/Fs for Children and Adults via Soil/Dust Ingestion and Dermal Exposure,and Comparison of Daily Intakes of PCDD/Fs from Various Exposure Pathway"
+72224_es8017573,72224_es8017573_dietary_intake,dietary intake,V_mgkg,0.351,Unknown,,high,table_p5_ri7_ci4,"TABLE 2.Estimated Daily Intakes(pg TEQ/kg bw/day)of PCDD/Fs for Children and Adults via Soil/Dust Ingestion and Dermal Exposure,and Comparison of Daily Intakes of PCDD/Fs from Various Exposure Pathway"
+72224_es8017573,72224_es8017573_soil_and_dust_ingestion,soil and dust ingestion,V_mgkg,0.113,Unknown,,high,table_p5_ri9_ci1,"TABLE 2.Estimated Daily Intakes(pg TEQ/kg bw/day)of PCDD/Fs for Children and Adults via Soil/Dust Ingestion and Dermal Exposure,and Comparison of Daily Intakes of PCDD/Fs from Various Exposure Pathway"

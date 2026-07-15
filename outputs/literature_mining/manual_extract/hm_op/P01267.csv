@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01267,,,,,,,,"skip: 综述/Meta分析论文，SI共7表，无采样点级土壤HM+OP浓度。Table1=各省OCP检出率/超标率统计(无浓度值)；Table2=谷物(wheat/rice/maize)中HM的Range+Mean汇总(非土壤，非采样点)；Table3=土壤HM Grade II标准阈值表(GB15618)；Table4=污染事件叙述文本；Table5=癌症村密度+水质分类统计；Table6=癌症村粮食产量/人口统计；Table7=地表水质量标准(GB3838 Class I-V)。全部为统计汇总/标准阈值/叙事/非土壤介质，无原始采样点数据可提取。"

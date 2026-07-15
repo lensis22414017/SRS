@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06941,,,,,,,,"skip: 仅区域汇总无采样点级数据, Table1仅有Mean/Median/Max/Min/SD(n=33), Fig5为Kriging空间插值图, 无个体采样点浓度表, 33 site无ID列表, 无HM数据"

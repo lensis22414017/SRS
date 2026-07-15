@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10721,,,,,,soil,agricultural,Fujian,"skip: 论文仅提供Range/Mean统计汇总(Table3: HCHs Range 0.45-151.21 Mean 14.51, DDTs Range 0.51-241.30 Mean 29.61, Endosulfan Range 0.14-453.96 Mean 17.59)和图片(Fig2-4箱线图/散点图), 无任何采样点级浓度表格(67个样品无S1/S2等逐点数据)"

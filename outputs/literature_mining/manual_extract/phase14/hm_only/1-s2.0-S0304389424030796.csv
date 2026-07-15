@@ -1,0 +1,11 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+1-s2.0-S0304389424030796,1-s2.0-S0304389424030796_Factor_1,Factor 1,Cr_mgkg,48.3,Unknown,,high,table_p8_ri11_ci2,Table 1 Source-oriented non-carcinogenic and carcinogenic health risks based on PMF and HHR.,,,,,,phase14
+1-s2.0-S0304389424030796,1-s2.0-S0304389424030796_Factor_2,Factor 2,Cr_mgkg,49.0,Unknown,,high,table_p8_ri11_ci3,Table 1 Source-oriented non-carcinogenic and carcinogenic health risks based on PMF and HHR.,,,,,,phase14
+1-s2.0-S0304389424030796,1-s2.0-S0304389424030796_Factor_3,Factor 3,Cr_mgkg,22.2,Unknown,,high,table_p8_ri11_ci4,Table 1 Source-oriented non-carcinogenic and carcinogenic health risks based on PMF and HHR.,,,,,,phase14
+1-s2.0-S0304389424030796,1-s2.0-S0304389424030796_Factor_4,Factor 4,Cr_mgkg,22.1,Unknown,,high,table_p8_ri11_ci5,Table 1 Source-oriented non-carcinogenic and carcinogenic health risks based on PMF and HHR.,,,,,,phase14
+1-s2.0-S0304389424030796,1-s2.0-S0304389424030796_Factor_5,Factor 5,Cr_mgkg,2.3,Unknown,,high,table_p8_ri11_ci6,Table 1 Source-oriented non-carcinogenic and carcinogenic health risks based on PMF and HHR.,,,,,,phase14
+1-s2.0-S0304389424030796,1-s2.0-S0304389424030796_Factor_1,Factor 1,Cr_mgkg,7.6e-10,Unknown,,high,table_p8_ri33_ci2,Table 1 Source-oriented non-carcinogenic and carcinogenic health risks based on PMF and HHR.,,,,,,phase14
+1-s2.0-S0304389424030796,1-s2.0-S0304389424030796_Factor_2,Factor 2,Cr_mgkg,8.5e-09,Unknown,,high,table_p8_ri33_ci3,Table 1 Source-oriented non-carcinogenic and carcinogenic health risks based on PMF and HHR.,,,,,,phase14
+1-s2.0-S0304389424030796,1-s2.0-S0304389424030796_Factor_3,Factor 3,Cr_mgkg,1.3e-09,Unknown,,high,table_p8_ri33_ci4,Table 1 Source-oriented non-carcinogenic and carcinogenic health risks based on PMF and HHR.,,,,,,phase14
+1-s2.0-S0304389424030796,1-s2.0-S0304389424030796_Factor_4,Factor 4,Cr_mgkg,1.5e-08,Unknown,,high,table_p8_ri33_ci5,Table 1 Source-oriented non-carcinogenic and carcinogenic health risks based on PMF and HHR.,,,,,,phase14
+1-s2.0-S0304389424030796,1-s2.0-S0304389424030796_Factor_5,Factor 5,Cr_mgkg,1.2e-07,Unknown,,high,table_p8_ri33_ci6,Table 1 Source-oriented non-carcinogenic and carcinogenic health risks based on PMF and HHR.,,,,,,phase14

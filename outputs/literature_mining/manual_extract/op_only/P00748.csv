@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00748,field-contaminated-soil,SumPCB_ngg,1052504,ng/g,Table 3,soil,e_waste,Zhejiang,"Pre-remediation baseline: 18 PCB congeners from field e-waste soil summed (PCB8/18/28/52/44/66/101/77/118/153/105/138/126/187/128/180/170/195); original unit μg g-1 (=mg/kg) ×1000→ng/g; site inferred from Shen et al. 2009 ref = Taizhou area Zhejiang; no explicit sample label in paper"

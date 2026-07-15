@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02399,,,,,,,,"skip: 建模/模拟研究(MODFLOW/MT3DMS+ERT)，目标污染物为氯苯/二氯苯(非目标OP类别PAH/PCB/DDT/HCH/PBDE/PHC)；所有浓度值均为地下水mg/L(非土壤mg/kg)；Table 3仅含模拟vs观测聚合值(0.58/0.50 mg/L 1行)，无采样点级土壤OP浓度数据；11个土壤采样点虽采集但未报告单体OP浓度"

@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+,skip,,,,,,,,仅区域汇总无采样点级数据:论文有13个命名采样点(MD/MP/AOB/AOR/RP/OB/OP/DZ/DP/CA1/CA2/CP/AW)但Table1-2仅按三级分区(Recycling zone n=9/Open burning n=3/Agricultural zone n=9)报告Mean±SD;Fig2-3为图片格式无法精确读取单点值;Table S1采样点详情不在paper.md中。

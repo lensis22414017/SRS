@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09447,BK-5,TotalPHC_mgkg,2.39,mg/kg,Table S3,soil,petrochemical,China,SI Table S3直接读取; BK=背景点; S1/S2=炼油厂场地; 5/10=深度m; Total TPHs=C6-C9+C10-C40
+P09447,BK-10,TotalPHC_mgkg,33.8,mg/kg,Table S3,soil,petrochemical,China,SI Table S3直接读取; BK=背景点; S1/S2=炼油厂场地; 5/10=深度m; Total TPHs=C6-C9+C10-C40
+P09447,S1-5,TotalPHC_mgkg,227,mg/kg,Table S3,soil,petrochemical,China,SI Table S3直接读取; BK=背景点; S1/S2=炼油厂场地; 5/10=深度m; Total TPHs=C6-C9+C10-C40
+P09447,S1-10,TotalPHC_mgkg,5760,mg/kg,Table S3,soil,petrochemical,China,SI Table S3直接读取; BK=背景点; S1/S2=炼油厂场地; 5/10=深度m; Total TPHs=C6-C9+C10-C40
+P09447,S2-5,TotalPHC_mgkg,72360,mg/kg,Table S3,soil,petrochemical,China,SI Table S3直接读取; BK=背景点; S1/S2=炼油厂场地; 5/10=深度m; Total TPHs=C6-C9+C10-C40
+P09447,S2-10,TotalPHC_mgkg,709,mg/kg,Table S3,soil,petrochemical,China,SI Table S3直接读取; BK=背景点; S1/S2=炼油厂场地; 5/10=深度m; Total TPHs=C6-C9+C10-C40

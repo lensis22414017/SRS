@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06283,,,,,,,,,"skip: 微生物分离与降解实验论文。从沈抚污水灌溉区污染土壤分离两株菌(A.faecalis J08/Brevundimonas X08)，在MSM液体培养基中人为添加CdCl2(0/0.01/0.1/0.5 mM)和菲(50 mg/L)进行实验室降解实验。全部4张表(Table1菌株鉴定/Table2+Table4不同Cd添加组的生长率与降解率/Table3 ANOVA)均为实验室MSM培养数据，非场地采样点级HM/OP实测浓度。场地仅定性描述受PAHs+Cd污染三余十年(L47)，无任何采样点级浓度数值。属剔除场景:实验室微宇宙+spiked添加实验+biodegradation研究。"

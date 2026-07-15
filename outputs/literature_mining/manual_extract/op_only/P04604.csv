@@ -1,0 +1,9 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04604,CZ4_wet,Sum_PAH_ngg,523,ng/g,Section 3.1 text,sediment,other,Anhui,"Section 3.1 narrative directly states CZ4 total PAH (=16 EPA PAHs sum), wet season Jul 2024"
+P04604,CZ4_dry,Sum_PAH_ngg,495,ng/g,Section 3.1 text,sediment,other,Anhui,"Section 3.1 narrative directly states CZ4 total PAH (=16 EPA PAHs sum), dry season Feb 2024"
+P04604,CZ5_wet,Sum_PAH_ngg,440,ng/g,Section 3.1 text,sediment,other,Anhui,"Section 3.1 narrative directly states CZ5 total PAH (=16 EPA PAHs sum), wet season Jul 2024"
+P04604,CZ5_dry,Sum_PAH_ngg,397,ng/g,Section 3.1 text,sediment,other,Anhui,"Section 3.1 narrative directly states CZ5 total PAH (=16 EPA PAHs sum), dry season Feb 2024"
+P04604,CZ8_wet,Sum_PAH_ngg,565,ng/g,Section 3.1 text,sediment,other,Anhui,"Section 3.1 narrative directly states CZ8 total PAH (=16 EPA PAHs sum), wet season Jul 2024"
+P04604,CZ8_dry,Sum_PAH_ngg,526,ng/g,Section 3.1 text,sediment,other,Anhui,"Section 3.1 narrative directly states CZ8 total PAH (=16 EPA PAHs sum), dry season Feb 2024"
+P04604,CZ9_wet,Sum_PAH_ngg,447,ng/g,Section 3.1 text,sediment,other,Anhui,"Section 3.1 narrative directly states CZ9 total PAH (=16 EPA PAHs sum), wet season Jul 2024"
+P04604,CZ9_dry,Sum_PAH_ngg,405,ng/g,Section 3.1 text,sediment,other,Anhui,"Section 3.1 narrative directly states CZ9 total PAH (=16 EPA PAHs sum), dry season Feb 2024"

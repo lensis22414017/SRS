@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04651,,,,,,,,"仅区域级统计汇总(Max/Min/Mean/Variation coefficient)，110个采样点原始浓度未在论文公开；Table 1按Xiaodian/Jinyuan/Qingxu三区汇总无采样点标识；Figure 2为IDW插值图不可提取；无OP数据"

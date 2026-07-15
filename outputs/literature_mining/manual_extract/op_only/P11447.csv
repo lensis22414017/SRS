@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11447,BS10-1,BaP_ngg,49930,ng/g,正文3.5.1段,soil,coking,Anhui,BS10-1为苯并(a)芘最高浓度样品 49.93 mg/kg×1000=49930 ng/g; 论文仅报告7种关注PAH单体(萘/菲/BaA/BbF/BaP/IcdP/DahA)的最大浓度样品 无16种EPA PAH总和或全部单体数据 无法计算Sum_PAH; 无PCB/DDT/HCH/PBDE/PAE/抗生素数据; TotalPHC(C10-C40)仅有统计范围ND~45000 mg/kg无采样点级数据

@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+15275922.2015.1133731,15275922.2015.1133731_Water,SumHCH_ngg,0.53,Unknown,table_p5_ri2_ci1,soil,other,,phase14_auto; confidence=high; flag=,,
+15275922.2015.1133731,15275922.2015.1133731_Sediment,SumHCH_ngg,0.475,Unknown,table_p5_ri2_ci2,soil,other,,phase14_auto; confidence=high; flag=range_mean,,
+15275922.2015.1133731,15275922.2015.1133731_Soil,SumHCH_ngg,0.67,Unknown,table_p5_ri2_ci3,soil,other,,phase14_auto; confidence=high; flag=,,
+15275922.2015.1133731,15275922.2015.1133731_Water,SumHCH_ngg,0.28,Unknown,table_p5_ri3_ci1,soil,other,,phase14_auto; confidence=high; flag=,,
+15275922.2015.1133731,15275922.2015.1133731_Sediment,SumHCH_ngg,0.28,Unknown,table_p5_ri3_ci2,soil,other,,phase14_auto; confidence=high; flag=range_mean,,
+15275922.2015.1133731,15275922.2015.1133731_Soil,SumHCH_ngg,0.32,Unknown,table_p5_ri3_ci3,soil,other,,phase14_auto; confidence=high; flag=,,

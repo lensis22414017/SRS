@@ -1,0 +1,160 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P01343,DX-1_O,SumDDT_ngg,0.841,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,49.54,123.51
+P01343,DX-1_O,Endosulfan,0.031,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,49.54,123.51
+P01343,DX-1_O,HCB_ngg,0.247,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon HCB direct read from Table S2 SI mmc1.docx,49.54,123.51
+P01343,DX-2_O,SumDDT_ngg,0.662,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,52.95,122.96
+P01343,DX-2_O,Endosulfan,0.028,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,52.95,122.96
+P01343,DX-2_O,HCB_ngg,0.278,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon HCB direct read from Table S2 SI mmc1.docx,52.95,122.96
+P01343,DX-3_O,SumDDT_ngg,1.41,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,51.84,123.61
+P01343,DX-3_O,Endosulfan,0.081,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,51.84,123.61
+P01343,DX-3_O,HCB_ngg,0.315,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon HCB direct read from Table S2 SI mmc1.docx,51.84,123.61
+P01343,DX-4_O,SumDDT_ngg,1.716,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,52.3,122.99
+P01343,DX-4_O,Endosulfan,0.04,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,52.3,122.99
+P01343,DX-4_O,HCB_ngg,0.302,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon HCB direct read from Table S2 SI mmc1.docx,52.3,122.99
+P01343,XX-1_O,SumDDT_ngg,3.214,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,46.63,128.52
+P01343,XX-1_O,Endosulfan,0.047,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,46.63,128.52
+P01343,XX-1_O,HCB_ngg,2.57,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon HCB direct read from Table S2 SI mmc1.docx,46.63,128.52
+P01343,XX-2_O,SumDDT_ngg,2.889,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,46.63,128.47
+P01343,XX-2_O,Endosulfan,0.045,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,46.63,128.47
+P01343,XX-2_O,HCB_ngg,1.74,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon HCB direct read from Table S2 SI mmc1.docx,46.63,128.47
+P01343,CB-1_O,SumDDT_ngg,1.098,ng/g,Table S2 (O-horizon),soil,forest,Jilin,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,42.26,127.89
+P01343,CB-1_O,Endosulfan,0.007,ng/g,Table S2 (O-horizon),soil,forest,Jilin,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,42.26,127.89
+P01343,CB-1_O,HCB_ngg,1.462,ng/g,Table S2 (O-horizon),soil,forest,Jilin,O-horizon HCB direct read from Table S2 SI mmc1.docx,42.26,127.89
+P01343,CB-2_O,SumDDT_ngg,2.419,ng/g,Table S2 (O-horizon),soil,forest,Jilin,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,42.14,128.13
+P01343,CB-2_O,Endosulfan,0.024,ng/g,Table S2 (O-horizon),soil,forest,Jilin,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,42.14,128.13
+P01343,CB-2_O,HCB_ngg,0.263,ng/g,Table S2 (O-horizon),soil,forest,Jilin,O-horizon HCB direct read from Table S2 SI mmc1.docx,42.14,128.13
+P01343,CB-3_O,SumDDT_ngg,11.074,ng/g,Table S2 (O-horizon),soil,forest,Jilin,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,42.08,128.07
+P01343,CB-3_O,Endosulfan,0.025,ng/g,Table S2 (O-horizon),soil,forest,Jilin,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,42.08,128.07
+P01343,CB-3_O,HCB_ngg,0.874,ng/g,Table S2 (O-horizon),soil,forest,Jilin,O-horizon HCB direct read from Table S2 SI mmc1.docx,42.08,128.07
+P01343,CB-4_O,SumDDT_ngg,8.35,ng/g,Table S2 (O-horizon),soil,forest,Jilin,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,42.06,128.07
+P01343,CB-4_O,Endosulfan,0.075,ng/g,Table S2 (O-horizon),soil,forest,Jilin,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,42.06,128.07
+P01343,CB-4_O,HCB_ngg,0.349,ng/g,Table S2 (O-horizon),soil,forest,Jilin,O-horizon HCB direct read from Table S2 SI mmc1.docx,42.06,128.07
+P01343,ME_O,SumDDT_ngg,2.596,ng/g,Table S2 (O-horizon),soil,forest,Heilongjiang,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,45.39,127.68
+P01343,ME_O,Endosulfan,0.078,ng/g,Table S2 (O-horizon),soil,forest,Heilongjiang,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,45.39,127.68
+P01343,ME_O,HCB_ngg,0.662,ng/g,Table S2 (O-horizon),soil,forest,Heilongjiang,O-horizon HCB direct read from Table S2 SI mmc1.docx,45.39,127.68
+P01343,HS-1_O,SumDDT_ngg,0.542,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,44.27,118.41
+P01343,HS-1_O,Endosulfan,0.016,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,44.27,118.41
+P01343,HS-1_O,HCB_ngg,0.108,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon HCB direct read from Table S2 SI mmc1.docx,44.27,118.41
+P01343,HS-2_O,SumDDT_ngg,0.361,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,44.2,118.72
+P01343,HS-2_O,Endosulfan,0.019,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,44.2,118.72
+P01343,HS-2_O,HCB_ngg,0.196,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon HCB direct read from Table S2 SI mmc1.docx,44.2,118.72
+P01343,HS-3_O,SumDDT_ngg,0.892,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,44.19,118.71
+P01343,HS-3_O,Endosulfan,0.083,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,44.19,118.71
+P01343,HS-3_O,HCB_ngg,0.2,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon HCB direct read from Table S2 SI mmc1.docx,44.19,118.71
+P01343,SHB-1_O,SumDDT_ngg,5.172,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,42.33,117.48
+P01343,SHB-1_O,Endosulfan,0.02,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,42.33,117.48
+P01343,SHB-1_O,HCB_ngg,0.425,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon HCB direct read from Table S2 SI mmc1.docx,42.33,117.48
+P01343,SHB-2_O,SumDDT_ngg,1.424,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,42.44,117.51
+P01343,SHB-2_O,Endosulfan,0.027,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,42.44,117.51
+P01343,SHB-2_O,HCB_ngg,0.626,ng/g,Table S2 (O-horizon),soil,forest,InnerMongolia,O-horizon HCB direct read from Table S2 SI mmc1.docx,42.44,117.51
+P01343,BCW-1_O,SumDDT_ngg,3.259,ng/g,Table S2 (O-horizon),soil,forest,Beijing,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,40.83,117.6
+P01343,BCW-1_O,Endosulfan,0.029,ng/g,Table S2 (O-horizon),soil,forest,Beijing,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,40.83,117.6
+P01343,BCW-1_O,HCB_ngg,1.068,ng/g,Table S2 (O-horizon),soil,forest,Beijing,O-horizon HCB direct read from Table S2 SI mmc1.docx,40.83,117.6
+P01343,BCW-2_O,SumDDT_ngg,6.136,ng/g,Table S2 (O-horizon),soil,forest,Beijing,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,40.83,117.61
+P01343,BCW-2_O,Endosulfan,0.093,ng/g,Table S2 (O-horizon),soil,forest,Beijing,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,40.83,117.61
+P01343,BCW-2_O,HCB_ngg,1.707,ng/g,Table S2 (O-horizon),soil,forest,Beijing,O-horizon HCB direct read from Table S2 SI mmc1.docx,40.83,117.61
+P01343,BCW-3_O,SumDDT_ngg,17.572,ng/g,Table S2 (O-horizon),soil,forest,Beijing,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,40.82,117.61
+P01343,BCW-3_O,Endosulfan,0.026,ng/g,Table S2 (O-horizon),soil,forest,Beijing,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,40.82,117.61
+P01343,BCW-3_O,HCB_ngg,3.543,ng/g,Table S2 (O-horizon),soil,forest,Beijing,O-horizon HCB direct read from Table S2 SI mmc1.docx,40.82,117.61
+P01343,BCW-4_O,SumDDT_ngg,15.717,ng/g,Table S2 (O-horizon),soil,forest,Beijing,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,40.82,117.61
+P01343,BCW-4_O,Endosulfan,0.024,ng/g,Table S2 (O-horizon),soil,forest,Beijing,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,40.82,117.61
+P01343,BCW-4_O,HCB_ngg,1.44,ng/g,Table S2 (O-horizon),soil,forest,Beijing,O-horizon HCB direct read from Table S2 SI mmc1.docx,40.82,117.61
+P01343,WYZ-1_O,SumDDT_ngg,2.763,ng/g,Table S2 (O-horizon),soil,forest,Hebei,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,38.72,113.84
+P01343,WYZ-1_O,Endosulfan,0.054,ng/g,Table S2 (O-horizon),soil,forest,Hebei,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,38.72,113.84
+P01343,WYZ-1_O,HCB_ngg,0.911,ng/g,Table S2 (O-horizon),soil,forest,Hebei,O-horizon HCB direct read from Table S2 SI mmc1.docx,38.72,113.84
+P01343,WYZ-2_O,SumDDT_ngg,16.541,ng/g,Table S2 (O-horizon),soil,forest,Hebei,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,38.72,113.84
+P01343,WYZ-2_O,Endosulfan,0.024,ng/g,Table S2 (O-horizon),soil,forest,Hebei,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,38.72,113.84
+P01343,WYZ-2_O,HCB_ngg,1.533,ng/g,Table S2 (O-horizon),soil,forest,Hebei,O-horizon HCB direct read from Table S2 SI mmc1.docx,38.72,113.84
+P01343,WYZ-3_O,SumDDT_ngg,17.298,ng/g,Table S2 (O-horizon),soil,forest,Hebei,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,38.72,113.84
+P01343,WYZ-3_O,Endosulfan,0.076,ng/g,Table S2 (O-horizon),soil,forest,Hebei,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,38.72,113.84
+P01343,WYZ-3_O,HCB_ngg,1.012,ng/g,Table S2 (O-horizon),soil,forest,Hebei,O-horizon HCB direct read from Table S2 SI mmc1.docx,38.72,113.84
+P01343,WYZ-4_O,SumDDT_ngg,104.093,ng/g,Table S2 (O-horizon),soil,forest,Hebei,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,38.73,113.85
+P01343,WYZ-4_O,Endosulfan,0.257,ng/g,Table S2 (O-horizon),soil,forest,Hebei,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,38.73,113.85
+P01343,WYZ-4_O,HCB_ngg,6.118,ng/g,Table S2 (O-horizon),soil,forest,Hebei,O-horizon HCB direct read from Table S2 SI mmc1.docx,38.73,113.85
+P01343,GD-1_O,SumDDT_ngg,2.998,ng/g,Table S2 (O-horizon),soil,forest,Shanxi,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,37.89,111.44
+P01343,GD-1_O,Endosulfan,0.058,ng/g,Table S2 (O-horizon),soil,forest,Shanxi,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,37.89,111.44
+P01343,GD-1_O,HCB_ngg,0.377,ng/g,Table S2 (O-horizon),soil,forest,Shanxi,O-horizon HCB direct read from Table S2 SI mmc1.docx,37.89,111.44
+P01343,GD-2_O,SumDDT_ngg,1.462,ng/g,Table S2 (O-horizon),soil,forest,Shanxi,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,37.9,111.43
+P01343,GD-2_O,Endosulfan,0.058,ng/g,Table S2 (O-horizon),soil,forest,Shanxi,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,37.9,111.43
+P01343,GD-2_O,HCB_ngg,0.41,ng/g,Table S2 (O-horizon),soil,forest,Shanxi,O-horizon HCB direct read from Table S2 SI mmc1.docx,37.9,111.43
+P01343,GD-3_O,SumDDT_ngg,2.671,ng/g,Table S2 (O-horizon),soil,forest,Shanxi,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,37.89,111.43
+P01343,GD-3_O,Endosulfan,0.034,ng/g,Table S2 (O-horizon),soil,forest,Shanxi,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,37.89,111.43
+P01343,GD-3_O,HCB_ngg,0.476,ng/g,Table S2 (O-horizon),soil,forest,Shanxi,O-horizon HCB direct read from Table S2 SI mmc1.docx,37.89,111.43
+P01343,TS-1_O,SumDDT_ngg,26.766,ng/g,Table S2 (O-horizon),soil,forest,Shandong,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,36.75,117.61
+P01343,TS-1_O,Endosulfan,0.096,ng/g,Table S2 (O-horizon),soil,forest,Shandong,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,36.75,117.61
+P01343,TS-1_O,HCB_ngg,0.473,ng/g,Table S2 (O-horizon),soil,forest,Shandong,O-horizon HCB direct read from Table S2 SI mmc1.docx,36.75,117.61
+P01343,TS-2_O,SumDDT_ngg,206.673,ng/g,Table S2 (O-horizon),soil,forest,Shandong,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,36.23,117.12
+P01343,TS-2_O,Endosulfan,0.01,ng/g,Table S2 (O-horizon),soil,forest,Shandong,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,36.23,117.12
+P01343,TS-2_O,HCB_ngg,0.737,ng/g,Table S2 (O-horizon),soil,forest,Shandong,O-horizon HCB direct read from Table S2 SI mmc1.docx,36.23,117.12
+P01343,TS-3_O,SumDDT_ngg,16.799,ng/g,Table S2 (O-horizon),soil,forest,Shandong,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,36.25,117.11
+P01343,TS-3_O,Endosulfan,0.029,ng/g,Table S2 (O-horizon),soil,forest,Shandong,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,36.25,117.11
+P01343,TS-3_O,HCB_ngg,0.913,ng/g,Table S2 (O-horizon),soil,forest,Shandong,O-horizon HCB direct read from Table S2 SI mmc1.docx,36.25,117.11
+P01343,AS-1_O,SumDDT_ngg,0.524,ng/g,Table S2 (O-horizon),soil,forest,Shaanxi,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,33.86,107.47
+P01343,AS-1_O,Endosulfan,0.011,ng/g,Table S2 (O-horizon),soil,forest,Shaanxi,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,33.86,107.47
+P01343,AS-1_O,HCB_ngg,0.069,ng/g,Table S2 (O-horizon),soil,forest,Shaanxi,O-horizon HCB direct read from Table S2 SI mmc1.docx,33.86,107.47
+P01343,AS-2_O,SumDDT_ngg,1.536,ng/g,Table S2 (O-horizon),soil,forest,Shaanxi,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,33.89,107.42
+P01343,AS-2_O,Endosulfan,0.042,ng/g,Table S2 (O-horizon),soil,forest,Shaanxi,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,33.89,107.42
+P01343,AS-2_O,HCB_ngg,0.143,ng/g,Table S2 (O-horizon),soil,forest,Shaanxi,O-horizon HCB direct read from Table S2 SI mmc1.docx,33.89,107.42
+P01343,AS-3_O,SumDDT_ngg,2.62,ng/g,Table S2 (O-horizon),soil,forest,Shaanxi,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,33.88,107.41
+P01343,AS-3_O,Endosulfan,0.061,ng/g,Table S2 (O-horizon),soil,forest,Shaanxi,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,33.88,107.41
+P01343,AS-3_O,HCB_ngg,0.216,ng/g,Table S2 (O-horizon),soil,forest,Shaanxi,O-horizon HCB direct read from Table S2 SI mmc1.docx,33.88,107.41
+P01343,AS-4_O,SumDDT_ngg,9.807,ng/g,Table S2 (O-horizon),soil,forest,Shaanxi,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,33.91,107.43
+P01343,AS-4_O,Endosulfan,0.087,ng/g,Table S2 (O-horizon),soil,forest,Shaanxi,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,33.91,107.43
+P01343,AS-4_O,HCB_ngg,0.331,ng/g,Table S2 (O-horizon),soil,forest,Shaanxi,O-horizon HCB direct read from Table S2 SI mmc1.docx,33.91,107.43
+P01343,SN-1_O,SumDDT_ngg,1.542,ng/g,Table S2 (O-horizon),soil,forest,Hubei,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,31.67,110.42
+P01343,SN-1_O,Endosulfan,0.022,ng/g,Table S2 (O-horizon),soil,forest,Hubei,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,31.67,110.42
+P01343,SN-1_O,HCB_ngg,0.491,ng/g,Table S2 (O-horizon),soil,forest,Hubei,O-horizon HCB direct read from Table S2 SI mmc1.docx,31.67,110.42
+P01343,SN-2_O,SumDDT_ngg,2.395,ng/g,Table S2 (O-horizon),soil,forest,Hubei,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,31.76,110.49
+P01343,SN-2_O,Endosulfan,0.019,ng/g,Table S2 (O-horizon),soil,forest,Hubei,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,31.76,110.49
+P01343,SN-2_O,HCB_ngg,0.463,ng/g,Table S2 (O-horizon),soil,forest,Hubei,O-horizon HCB direct read from Table S2 SI mmc1.docx,31.76,110.49
+P01343,SN-3_O,SumDDT_ngg,0.905,ng/g,Table S2 (O-horizon),soil,forest,Hubei,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,31.46,110.28
+P01343,SN-3_O,Endosulfan,0.012,ng/g,Table S2 (O-horizon),soil,forest,Hubei,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,31.46,110.28
+P01343,SN-3_O,HCB_ngg,0.269,ng/g,Table S2 (O-horizon),soil,forest,Hubei,O-horizon HCB direct read from Table S2 SI mmc1.docx,31.46,110.28
+P01343,SN-4_O,SumDDT_ngg,12.023,ng/g,Table S2 (O-horizon),soil,forest,Hubei,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,31.44,110.3
+P01343,SN-4_O,Endosulfan,0.02,ng/g,Table S2 (O-horizon),soil,forest,Hubei,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,31.44,110.3
+P01343,SN-4_O,HCB_ngg,0.763,ng/g,Table S2 (O-horizon),soil,forest,Hubei,O-horizon HCB direct read from Table S2 SI mmc1.docx,31.44,110.3
+P01343,JG-2_O,SumDDT_ngg,13.556,ng/g,Table S2 (O-horizon),soil,forest,Henan,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,34.69,114.58
+P01343,JG-2_O,HCB_ngg,1.174,ng/g,Table S2 (O-horizon),soil,forest,Henan,O-horizon HCB direct read from Table S2 SI mmc1.docx,34.69,114.58
+P01343,JG-3_O,SumDDT_ngg,20.254,ng/g,Table S2 (O-horizon),soil,forest,Henan,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,35.56,114.59
+P01343,JG-3_O,HCB_ngg,0.347,ng/g,Table S2 (O-horizon),soil,forest,Henan,O-horizon HCB direct read from Table S2 SI mmc1.docx,35.56,114.59
+P01343,JG-4_O,SumDDT_ngg,13.599,ng/g,Table S2 (O-horizon),soil,forest,Henan,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,37.22,114.62
+P01343,JG-4_O,HCB_ngg,0.827,ng/g,Table S2 (O-horizon),soil,forest,Henan,O-horizon HCB direct read from Table S2 SI mmc1.docx,37.22,114.62
+P01343,JF_O,SumDDT_ngg,1.579,ng/g,Table S2 (O-horizon),soil,forest,Sichuan,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,33.69,105.68
+P01343,JF_O,Endosulfan,0.009,ng/g,Table S2 (O-horizon),soil,forest,Sichuan,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,33.69,105.68
+P01343,JF_O,HCB_ngg,0.626,ng/g,Table S2 (O-horizon),soil,forest,Sichuan,O-horizon HCB direct read from Table S2 SI mmc1.docx,33.69,105.68
+P01343,GG-1_O,SumDDT_ngg,0.197,ng/g,Table S2 (O-horizon),soil,forest,Sichuan,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,29.6,102.07
+P01343,GG-1_O,Endosulfan,0.009,ng/g,Table S2 (O-horizon),soil,forest,Sichuan,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,29.6,102.07
+P01343,GG-1_O,HCB_ngg,0.299,ng/g,Table S2 (O-horizon),soil,forest,Sichuan,O-horizon HCB direct read from Table S2 SI mmc1.docx,29.6,102.07
+P01343,GG-2_O,SumDDT_ngg,3.68,ng/g,Table S2 (O-horizon),soil,forest,Sichuan,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,29.59,102.03
+P01343,GG-2_O,Endosulfan,0.056,ng/g,Table S2 (O-horizon),soil,forest,Sichuan,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,29.59,102.03
+P01343,GG-2_O,HCB_ngg,0.34,ng/g,Table S2 (O-horizon),soil,forest,Sichuan,O-horizon HCB direct read from Table S2 SI mmc1.docx,29.59,102.03
+P01343,GG-3_O,SumDDT_ngg,0.954,ng/g,Table S2 (O-horizon),soil,forest,Sichuan,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,29.57,102.0
+P01343,GG-3_O,Endosulfan,0.034,ng/g,Table S2 (O-horizon),soil,forest,Sichuan,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,29.57,102.0
+P01343,GG-3_O,HCB_ngg,0.571,ng/g,Table S2 (O-horizon),soil,forest,Sichuan,O-horizon HCB direct read from Table S2 SI mmc1.docx,29.57,102.0
+P01343,GG-4_O,SumDDT_ngg,4.137,ng/g,Table S2 (O-horizon),soil,forest,Sichuan,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,29.57,101.99
+P01343,GG-4_O,Endosulfan,0.014,ng/g,Table S2 (O-horizon),soil,forest,Sichuan,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,29.57,101.99
+P01343,GG-4_O,HCB_ngg,0.448,ng/g,Table S2 (O-horizon),soil,forest,Sichuan,O-horizon HCB direct read from Table S2 SI mmc1.docx,29.57,101.99
+P01343,LJ-2_O,SumDDT_ngg,4.185,ng/g,Table S2 (O-horizon),soil,forest,Yunnan,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,27.58,102.39
+P01343,LJ-2_O,Endosulfan,0.023,ng/g,Table S2 (O-horizon),soil,forest,Yunnan,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,27.58,102.39
+P01343,LJ-2_O,HCB_ngg,0.17,ng/g,Table S2 (O-horizon),soil,forest,Yunnan,O-horizon HCB direct read from Table S2 SI mmc1.docx,27.58,102.39
+P01343,LJ-1_O,SumDDT_ngg,2.905,ng/g,Table S2 (O-horizon),soil,forest,Yunnan,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,27.57,102.42
+P01343,LJ-1_O,Endosulfan,0.041,ng/g,Table S2 (O-horizon),soil,forest,Yunnan,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,27.57,102.42
+P01343,LJ-1_O,HCB_ngg,0.671,ng/g,Table S2 (O-horizon),soil,forest,Yunnan,O-horizon HCB direct read from Table S2 SI mmc1.docx,27.57,102.42
+P01343,LJ-3_O,SumDDT_ngg,0.109,ng/g,Table S2 (O-horizon),soil,forest,Yunnan,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,27.57,102.37
+P01343,LJ-3_O,Endosulfan,0.022,ng/g,Table S2 (O-horizon),soil,forest,Yunnan,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,27.57,102.37
+P01343,LJ-3_O,HCB_ngg,0.093,ng/g,Table S2 (O-horizon),soil,forest,Yunnan,O-horizon HCB direct read from Table S2 SI mmc1.docx,27.57,102.37
+P01343,FJ-2_O,SumDDT_ngg,0.095,ng/g,Table S2 (O-horizon),soil,forest,Guizhou,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,27.9,108.72
+P01343,FJ-2_O,Endosulfan,0.022,ng/g,Table S2 (O-horizon),soil,forest,Guizhou,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,27.9,108.72
+P01343,FJ-2_O,HCB_ngg,0.087,ng/g,Table S2 (O-horizon),soil,forest,Guizhou,O-horizon HCB direct read from Table S2 SI mmc1.docx,27.9,108.72
+P01343,NL-1_O,SumDDT_ngg,0.182,ng/g,Table S2 (O-horizon),soil,forest,Guangxi,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,24.95,112.99
+P01343,NL-1_O,Endosulfan,0.015,ng/g,Table S2 (O-horizon),soil,forest,Guangxi,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,24.95,112.99
+P01343,NL-1_O,HCB_ngg,0.132,ng/g,Table S2 (O-horizon),soil,forest,Guangxi,O-horizon HCB direct read from Table S2 SI mmc1.docx,24.95,112.99
+P01343,DB-1_O,SumDDT_ngg,0.436,ng/g,Table S2 (O-horizon),soil,forest,Hubei,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,31.09,115.78
+P01343,DB-1_O,Endosulfan,0.023,ng/g,Table S2 (O-horizon),soil,forest,Hubei,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,31.09,115.78
+P01343,DB-1_O,HCB_ngg,0.261,ng/g,Table S2 (O-horizon),soil,forest,Hubei,O-horizon HCB direct read from Table S2 SI mmc1.docx,31.09,115.78
+P01343,DB-2_O,SumDDT_ngg,0.077,ng/g,Table S2 (O-horizon),soil,forest,Hubei,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,31.1,115.77
+P01343,DB-2_O,Endosulfan,0.03,ng/g,Table S2 (O-horizon),soil,forest,Hubei,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,31.1,115.77
+P01343,DB-2_O,HCB_ngg,0.295,ng/g,Table S2 (O-horizon),soil,forest,Hubei,O-horizon HCB direct read from Table S2 SI mmc1.docx,31.1,115.77
+P01343,SWDS-1_O,SumDDT_ngg,0.098,ng/g,Table S2 (O-horizon),soil,forest,Guangdong,O-horizon 6 DDT isomers sum (op-DDT+pp-DDT+op-DDD+pp-DDD+op-DDE+pp-DDE) from Table S2 SI mmc1.docx,21.9,107.91
+P01343,SWDS-1_O,Endosulfan,0.031,ng/g,Table S2 (O-horizon),soil,forest,Guangdong,O-horizon alpha+beta endosulfan sum from Table S2 SI mmc1.docx,21.9,107.91
+P01343,SWDS-1_O,HCB_ngg,0.314,ng/g,Table S2 (O-horizon),soil,forest,Guangdong,O-horizon HCB direct read from Table S2 SI mmc1.docx,21.9,107.91

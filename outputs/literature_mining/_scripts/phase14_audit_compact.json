@@ -1,0 +1,582 @@
+[
+  {
+    "p": "72287_s00128-013-1130-4",
+    "pool": "op_only",
+    "n": 3,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "1-s2.0-S0269749122009307",
+    "pool": "op_only",
+    "n": 3,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "1-s2.0-S0045653522020495",
+    "pool": "op_only",
+    "n": 1,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "70581_es1007802",
+    "pool": "op_only",
+    "n": 9,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "66001_s00244-019-00617-w",
+    "pool": "op_only",
+    "n": 9,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "65855_etc.160",
+    "pool": "op_only",
+    "n": 8,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "10807039.2017.1394175",
+    "pool": "op_only",
+    "n": 7,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "_dup_es1007802",
+    "pool": "op_only",
+    "n": 10,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "1-s2.0-S0045653524029515",
+    "pool": "op_only",
+    "n": 11,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "72422_s12665-013-2349-4",
+    "pool": "op_only",
+    "n": 16,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "d4ra06060a",
+    "pool": "hm_op",
+    "n": 10,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "72169_j.jhazmat.2012.06.060",
+    "pool": "hm_op",
+    "n": 12,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "1-s2.0-S0045653522005136",
+    "pool": "op_only",
+    "n": 12,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "_dup_acs.est.9b00698",
+    "pool": "hm_op",
+    "n": 20,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "72309_s00128-008-9542-2",
+    "pool": "op_only",
+    "n": 26,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "1-s2.0-S0048969722046046",
+    "pool": "op_only",
+    "n": 26,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "1-s2.0-S0048969721063567",
+    "pool": "op_only",
+    "n": 20,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "1-s2.0-S1001074225001469",
+    "pool": "op_only",
+    "n": 43,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "70595_c0em00098a",
+    "pool": "op_only",
+    "n": 20,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "70598_c0em00737d",
+    "pool": "op_only",
+    "n": 32,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "72372_s10661-010-1801-0",
+    "pool": "op_only",
+    "n": 26,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "72320_s00244-009-9314-y",
+    "pool": "op_only",
+    "n": 68,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "1-s2.0-S0048969721051329",
+    "pool": "hm_op",
+    "n": 56,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "72240_s00254-008-1204-5",
+    "pool": "op_only",
+    "n": 77,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "15275920903558968",
+    "pool": "op_only",
+    "n": 95,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "72410_jep.2011.210153",
+    "pool": "op_only",
+    "n": 88,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "72350_es0513741",
+    "pool": "op_only",
+    "n": 55,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "72520_Chiu-Wen Chen 等 - 2012 - Distribution and so",
+    "pool": "op_only",
+    "n": 154,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  },
+  {
+    "p": "15320383.2011.528468",
+    "pool": "op_only",
+    "n": 376,
+    "csv_cols": [
+      "paper_id",
+      "sample_id",
+      "pollutant_std",
+      "value",
+      "unit",
+      "evidence_location",
+      "matrix",
+      "site_type",
+      "province",
+      "extract_notes",
+      "latitude",
+      "longitude"
+    ],
+    "has_md": true
+  }
+]

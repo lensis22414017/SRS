@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06749,,,,,,soil,agricultural,Shaanxi,"skip: 仅区域汇总统计(Mean/SD/Min/Max),无采样点级数据; Table 2为全体59个样点统计量,Table 3为4个菜地分组统计量,Table 5为TEQ风险指数(非原始浓度),论文未给出任何单个采样点的PAH实测值; 无HM数据"

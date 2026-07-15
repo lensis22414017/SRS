@@ -1,0 +1,21 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+1-s2.0-S0048969721063567,1-s2.0-S0048969721063567_1st_quartile,1st quartile,Pyr_ngg,24.67,Unknown,,high,table_p5_ri2_ci2,"Table 1 1st,median and 3rd quartile of pollutant concentrations estimated in different samples ofcoking plant. Values in ng g-1.",,,,,,phase14
+1-s2.0-S0048969721063567,1-s2.0-S0048969721063567_3rd_quartile,3rd quartile,Pyr_ngg,37.54,Unknown,,high,table_p5_ri2_ci4,"Table 1 1st,median and 3rd quartile of pollutant concentrations estimated in different samples ofcoking plant. Values in ng g-1.",,,,,,phase14
+1-s2.0-S0048969721063567,1-s2.0-S0048969721063567_1st_quartile,1st quartile,Flt_ngg,11.98,Unknown,,high,table_p5_ri6_ci2,"Table 1 1st,median and 3rd quartile of pollutant concentrations estimated in different samples ofcoking plant. Values in ng g-1.",,,,,,phase14
+1-s2.0-S0048969721063567,1-s2.0-S0048969721063567_3rd_quartile,3rd quartile,Flt_ngg,21.77,Unknown,,high,table_p5_ri6_ci4,"Table 1 1st,median and 3rd quartile of pollutant concentrations estimated in different samples ofcoking plant. Values in ng g-1.",,,,,,phase14
+1-s2.0-S0048969721063567,1-s2.0-S0048969721063567_1st_quartile,1st quartile,Phe_ngg,12.73,Unknown,,high,table_p5_ri9_ci2,"Table 1 1st,median and 3rd quartile of pollutant concentrations estimated in different samples ofcoking plant. Values in ng g-1.",,,,,,phase14
+1-s2.0-S0048969721063567,1-s2.0-S0048969721063567_3rd_quartile,3rd quartile,Phe_ngg,26.52,Unknown,,high,table_p5_ri9_ci4,"Table 1 1st,median and 3rd quartile of pollutant concentrations estimated in different samples ofcoking plant. Values in ng g-1.",,,,,,phase14
+1-s2.0-S0048969721063567,1-s2.0-S0048969721063567_1st_quartile,1st quartile,Phe_ngg,11.51,Unknown,,high,table_p5_ri19_ci2,"Table 1 1st,median and 3rd quartile of pollutant concentrations estimated in different samples ofcoking plant. Values in ng g-1.",,,,,,phase14
+1-s2.0-S0048969721063567,1-s2.0-S0048969721063567_3rd_quartile,3rd quartile,Phe_ngg,50.52,Unknown,,high,table_p5_ri19_ci4,"Table 1 1st,median and 3rd quartile of pollutant concentrations estimated in different samples ofcoking plant. Values in ng g-1.",,,,,,phase14
+1-s2.0-S0048969721063567,1-s2.0-S0048969721063567_1st_quartile,1st quartile,Nap_ngg,1.34,Unknown,,high,table_p5_ri1_ci2,,,,,,,phase14
+1-s2.0-S0048969721063567,1-s2.0-S0048969721063567_3rd_quartile,3rd quartile,Nap_ngg,3.5,Unknown,,high,table_p5_ri1_ci4,,,,,,,phase14
+1-s2.0-S0048969721063567,1-s2.0-S0048969721063567_1st_quartile,1st quartile,Phe_ngg,5.78,Unknown,,high,table_p5_ri2_ci2,,,,,,,phase14
+1-s2.0-S0048969721063567,1-s2.0-S0048969721063567_3rd_quartile,3rd quartile,Phe_ngg,15.15,Unknown,,high,table_p5_ri2_ci4,,,,,,,phase14
+1-s2.0-S0048969721063567,1-s2.0-S0048969721063567_1st_quartile,1st quartile,Flu_ngg,2.19,Unknown,,high,table_p5_ri4_ci2,,,,,,,phase14
+1-s2.0-S0048969721063567,1-s2.0-S0048969721063567_3rd_quartile,3rd quartile,Flu_ngg,5.65,Unknown,,high,table_p5_ri4_ci4,,,,,,,phase14
+1-s2.0-S0048969721063567,1-s2.0-S0048969721063567_1st_quartile,1st quartile,Nap_ngg,5.83,Unknown,,high,table_p5_ri5_ci2,,,,,,,phase14
+1-s2.0-S0048969721063567,1-s2.0-S0048969721063567_3rd_quartile,3rd quartile,Nap_ngg,21.38,Unknown,,high,table_p5_ri5_ci4,,,,,,,phase14
+1-s2.0-S0048969721063567,1-s2.0-S0048969721063567_1st_quartile,1st quartile,Ace_ngg,4.08,Unknown,,high,table_p5_ri13_ci2,,,,,,,phase14
+1-s2.0-S0048969721063567,1-s2.0-S0048969721063567_3rd_quartile,3rd quartile,Ace_ngg,13.32,Unknown,,high,table_p5_ri13_ci4,,,,,,,phase14
+1-s2.0-S0048969721063567,1-s2.0-S0048969721063567_1st_quartile,1st quartile,Ant_ngg,1.89,Unknown,,high,table_p5_ri14_ci2,,,,,,,phase14
+1-s2.0-S0048969721063567,1-s2.0-S0048969721063567_3rd_quartile,3rd quartile,Ant_ngg,1.94,Unknown,,high,table_p5_ri14_ci4,,,,,,,phase14

@@ -1,0 +1,31 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P01088,Yambajan,SumPCB_ngg,0.155,ng/g,Table 1,soil,background,Tibet,155 ng/kg dw ÷1000 → ng/g,30.093,90.498
+P01088,Yambajan,SumPBDE_ngg,0.0105,ng/g,Table 1,soil,background,Tibet,10.5 ng/kg dw ÷1000 → ng/g,30.093,90.498
+P01088,Lhasa,SumPCB_ngg,0.371,ng/g,Table 1,soil,urban,Tibet,371 ng/kg dw ÷1000 → ng/g,29.675,90.926
+P01088,Lhasa,SumPBDE_ngg,0.0349,ng/g,Table 1,soil,urban,Tibet,34.9 ng/kg dw ÷1000 → ng/g,29.675,90.926
+P01088,Shigatse 1,SumPCB_ngg,0.423,ng/g,Table 1,soil,agricultural,Tibet,423 ng/kg dw ÷1000 → ng/g,29.321,89.164
+P01088,Shigatse 1,SumPBDE_ngg,0.0135,ng/g,Table 1,soil,agricultural,Tibet,13.5 ng/kg dw ÷1000 → ng/g,29.321,89.164
+P01088,Shigatse 2,SumPCB_ngg,0.236,ng/g,Table 1,soil,upland,Tibet,236 ng/kg dw ÷1000 → ng/g,29.247,88.843
+P01088,Shigatse 2,SumPBDE_ngg,0.0094,ng/g,Table 1,soil,upland,Tibet,9.4 ng/kg dw ÷1000 → ng/g,29.247,88.843
+P01088,Sangpei,SumPCB_ngg,0.236,ng/g,Table 1,soil,agricultural,Tibet,236 ng/kg dw ÷1000 → ng/g,29.165,88.503
+P01088,Sangpei,SumPBDE_ngg,0.0093,ng/g,Table 1,soil,agricultural,Tibet,9.3 ng/kg dw ÷1000 → ng/g,29.165,88.503
+P01088,Lhaze,SumPCB_ngg,0.176,ng/g,Table 1,soil,agricultural,Tibet,176 ng/kg dw ÷1000 → ng/g,29.071,87.686
+P01088,Lhaze,SumPBDE_ngg,0.0199,ng/g,Table 1,soil,agricultural,Tibet,19.9 ng/kg dw ÷1000 → ng/g,29.071,87.686
+P01088,Tingri,SumPCB_ngg,0.127,ng/g,Table 1,soil,upland,Tibet,127 ng/kg dw ÷1000 → ng/g,28.628,87.17
+P01088,Tingri,SumPBDE_ngg,0.0077,ng/g,Table 1,soil,upland,Tibet,7.7 ng/kg dw ÷1000 → ng/g,28.628,87.17
+P01088,Basum,SumPCB_ngg,0.339,ng/g,Table 1,soil,agricultural,Tibet,339 ng/kg dw ÷1000 → ng/g,28.421,87.019
+P01088,Basum,SumPBDE_ngg,0.0089,ng/g,Table 1,soil,agricultural,Tibet,8.9 ng/kg dw ÷1000 → ng/g,28.421,87.019
+P01088,Ximu,SumPCB_ngg,0.139,ng/g,Table 1,soil,agricultural,Tibet,139 ng/kg dw ÷1000 → ng/g,28.794,86.242
+P01088,Ximu,SumPBDE_ngg,0.0043,ng/g,Table 1,soil,agricultural,Tibet,4.3 ng/kg dw ÷1000 → ng/g,28.794,86.242
+P01088,Nyalam,SumPCB_ngg,0.162,ng/g,Table 1,soil,upland,Tibet,162 ng/kg dw ÷1000 → ng/g,28.492,86.149
+P01088,Nyalam,SumPBDE_ngg,0.0063,ng/g,Table 1,soil,upland,Tibet,6.3 ng/kg dw ÷1000 → ng/g,28.492,86.149
+P01088,BC,SumPCB_ngg,0.07,ng/g,Table 1,soil,moraine/background,Tibet,70 ng/kg dw ÷1000 → ng/g; BC=base camp moraine soil,28.114,86.934
+P01088,BC,SumPBDE_ngg,0.0059,ng/g,Table 1,soil,moraine/background,Tibet,5.9 ng/kg dw ÷1000 → ng/g; BC=base camp moraine soil,28.114,86.934
+P01088,East Rongbuk 1,SumPCB_ngg,0.147,ng/g,Table 1,soil,moraine/background,Tibet,147 ng/kg dw ÷1000 → ng/g,28.103,86.874
+P01088,East Rongbuk 1,SumPBDE_ngg,0.0101,ng/g,Table 1,soil,moraine/background,Tibet,10.1 ng/kg dw ÷1000 → ng/g,28.103,86.874
+P01088,East Rongbuk 2,SumPCB_ngg,0.047,ng/g,Table 1,soil,moraine/background,Tibet,47 ng/kg dw ÷1000 → ng/g; original No.13 in table,28.085,86.914
+P01088,East Rongbuk 2,SumPBDE_ngg,0.0087,ng/g,Table 1,soil,moraine/background,Tibet,8.7 ng/kg dw ÷1000 → ng/g; original No.13 in table,28.085,86.914
+P01088,MBC,SumPCB_ngg,0.08,ng/g,Table 1,soil,moraine/background,Tibet,80 ng/kg dw ÷1000 → ng/g; MBC=middle base camp moraine soil,28.057,86.929
+P01088,MBC,SumPBDE_ngg,0.006,ng/g,Table 1,soil,moraine/background,Tibet,6.0 ng/kg dw ÷1000 → ng/g; MBC=middle base camp,28.057,86.929
+P01088,ABC,SumPCB_ngg,0.078,ng/g,Table 1,soil,moraine/background,Tibet,78 ng/kg dw ÷1000 → ng/g; ABC=advance base camp moraine soil (No.15),28.035,86.943
+P01088,ABC,SumPBDE_ngg,0.0074,ng/g,Table 1,soil,moraine/background,Tibet,7.4 ng/kg dw ÷1000 → ng/g; ABC=advance base camp (No.15),28.035,86.943

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03773,,,,,,,,,"skip: 微塑料综述论文(Microplastics review)—— 非传统OP,无原始采样数据。全文6节均为综述结构(sources/migration/effects/health/strategies/future)。Table1=他人研究MP丰度汇编(Ding/Huang/Feng等引用,非本文采样); Table2=塑料添加剂产品规范(typical concentrations,非场地实测); Table3=MPs与污染物联合效应的实验室添加实验汇编(Zeb/Xu/Dong/Lian等pot/incubation)。命中两条剔除规则: (1)microplastic非传统OP; (2)综述/Meta分析无原始数据。无HM+OP同论文同场地采样点级数据可提取。"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01394,,,.,.,SI Table S7 / Main Table 1,soil,steel/iron,Beijing,"skip: no sample-level data; only statistical summaries (mean/median/min/max/SD) by functional area (coking/iron-making/steel-making/steel rolling) and depth layer (0-0.5/0.5-2/2-3/3-4/4-5m); 935 samples collected but all reported as area-level and depth-level summaries; SI Tables S8-S12 are health risk indices (ILCR percentiles) not concentrations"

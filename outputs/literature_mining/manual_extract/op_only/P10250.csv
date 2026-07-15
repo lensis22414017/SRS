@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10250,,,,,,,,"skip: paper.md解析截断仅含Abstract+Introduction前两段(22行/3611字节) "individual compound concen-"处中断 Results/Tables/采样点数据全部缺失 G盘无原始PDF 网络访问ScienceDirect/Semantic Scholar均阻断无法在线获取 论文为北京城市土壤16 EPA PAHs调查(校园/学校/广场/路边 ΣPAHs 366-27825 ng/g) 需重新解析完整PDF后方可提取"

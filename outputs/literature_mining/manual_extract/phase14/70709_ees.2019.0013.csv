@@ -1,0 +1,40 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+70709_ees.2019.0013,70709_ees.2019.0013_CV/%,CV/%,HM_total,12.5,Unknown,,low,table_p3_ri7_ci1,TABLE 3．SUMMARY OF THE PROPERTIES OF VEGETABLE SOILS
+70709_ees.2019.0013,70709_ees.2019.0013_Minimum_value,Minimum value,HM_total,0.0,Unknown,,low,table_p3_ri3_ci1,TABLE 4.SUMMARY INFORMATION ABOUT HEAVY METALS IN VEGETABLES
+70709_ees.2019.0013,70709_ees.2019.0013_Standard_for_vegetable_hygiene_standards,Standard for vegetable hygiene standards,HM_total,0.2,Unknown,,low,table_p3_ri7_ci1,TABLE 4.SUMMARY INFORMATION ABOUT HEAVY METALS IN VEGETABLES
+70709_ees.2019.0013,70709_ees.2019.0013_Excessive_rate/%,Excessive rate/%,HM_total,46.67,Unknown,,low,table_p3_ri8_ci1,TABLE 4.SUMMARY INFORMATION ABOUT HEAVY METALS IN VEGETABLES
+70709_ees.2019.0013,70709_ees.2019.0013_Minimum_value,Minimum value,HM_total,0.0,Unknown,,low,table_p3_ri10_ci1,TABLE 4.SUMMARY INFORMATION ABOUT HEAVY METALS IN VEGETABLES
+70709_ees.2019.0013,70709_ees.2019.0013_CV/%,CV/%,HM_total,111.11,Unknown,,low,table_p3_ri13_ci1,TABLE 4.SUMMARY INFORMATION ABOUT HEAVY METALS IN VEGETABLES
+70709_ees.2019.0013,70709_ees.2019.0013_Excessive_rate/%,Excessive rate/%,HM_total,40.0,Unknown,,low,table_p3_ri15_ci1,TABLE 4.SUMMARY INFORMATION ABOUT HEAVY METALS IN VEGETABLES
+70709_ees.2019.0013,70709_ees.2019.0013_Soil_heavy_metal_elements,Soil heavy metal elements,Pb_mgkg,0.224,Unknown,,high,table_p4_ri1_ci3,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_Soil_heavy_metal_elements,Soil heavy metal elements,Zn_mgkg,0.289,Unknown,,high,table_p4_ri1_ci4,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_Soil_heavy_metal_elements,Soil heavy metal elements,Cr_mgkg,0.061,Unknown,,high,table_p4_ri1_ci5,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_Soil_heavy_metal_elements,Soil heavy metal elements,Hg_mgkg,0.008,Unknown,,high,table_p4_ri1_ci6,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_Soil_heavy_metal_elements,Soil heavy metal elements,As_mgkg,-0.223,Unknown,,high,table_p4_ri1_ci7,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S2,S2,Cu_mgkg,0.281,Unknown,,high,table_p4_ri2_ci2,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S2,S2,Pb_mgkg,0.184,Unknown,,high,table_p4_ri2_ci3,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S2,S2,Zn_mgkg,0.238,Unknown,,high,table_p4_ri2_ci4,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S2,S2,Cr_mgkg,-0.315,Unknown,,high,table_p4_ri2_ci5,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S2,S2,Hg_mgkg,0.36,Unknown,,high,table_p4_ri2_ci6,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S2,S2,As_mgkg,-0.256,Unknown,,high,table_p4_ri2_ci7,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S3,S3,Pb_mgkg,-0.188,Unknown,,high,table_p4_ri3_ci3,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S3,S3,As_mgkg,-0.494,Unknown,,high,table_p4_ri3_ci7,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S4,S4,Cu_mgkg,0.224,Unknown,,high,table_p4_ri4_ci2,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S4,S4,Pb_mgkg,0.479,Unknown,,high,table_p4_ri4_ci3,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S4,S4,Zn_mgkg,0.546,Unknown,,high,table_p4_ri4_ci4,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S4,S4,Cr_mgkg,-0.262,Unknown,,high,table_p4_ri4_ci5,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S4,S4,Hg_mgkg,0.388,Unknown,,high,table_p4_ri4_ci6,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S4,S4,As_mgkg,-0.34,Unknown,,high,table_p4_ri4_ci7,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S5,S5,Cu_mgkg,0.21,Unknown,,high,table_p4_ri5_ci2,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S5,S5,Pb_mgkg,-0.587,Unknown,,high,table_p4_ri5_ci3,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S5,S5,Zn_mgkg,-0.536,Unknown,,high,table_p4_ri5_ci4,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S5,S5,Cr_mgkg,-0.19,Unknown,,high,table_p4_ri5_ci5,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S5,S5,As_mgkg,0.081,Unknown,,high,table_p4_ri5_ci7,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S6,S6,Pb_mgkg,-0.26,Unknown,,high,table_p4_ri6_ci3,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S6,S6,As_mgkg,0.518,Unknown,,high,table_p4_ri6_ci7,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S7,S7,Cu_mgkg,-0.058,Unknown,,high,table_p4_ri7_ci2,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S7,S7,Pb_mgkg,-0.146,Unknown,,high,table_p4_ri7_ci3,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S7,S7,Zn_mgkg,-0.227,Unknown,,high,table_p4_ri7_ci4,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S7,S7,Cr_mgkg,0.066,Unknown,,high,table_p4_ri7_ci5,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S7,S7,Hg_mgkg,-0.123,Unknown,,high,table_p4_ri7_ci6,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables
+70709_ees.2019.0013,70709_ees.2019.0013_S7,S7,As_mgkg,-0.014,Unknown,,high,table_p4_ri7_ci7,TABLE 6. PEARSON CORRELATION ANALYSIS OF METALS IN SOILS AND VEGETABLES Heavy metal elements in vegetables

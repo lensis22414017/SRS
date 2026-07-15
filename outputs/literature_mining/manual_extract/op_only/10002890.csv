@@ -1,0 +1,9 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+10002890,10002890_SAMPLE_STATION,Nap_ngg,2.0,Unknown,table_p2_ri2_ci1,soil,industrial,,phase14_auto; confidence=high; flag=,,
+10002890,10002890_SAMPLE_STATION,Acy_ngg,3.0,Unknown,table_p2_ri3_ci1,soil,industrial,,phase14_auto; confidence=high; flag=,,
+10002890,10002890_SAMPLE_STATION,Ace_ngg,3.0,Unknown,table_p2_ri4_ci1,soil,industrial,,phase14_auto; confidence=high; flag=,,
+10002890,10002890_SAMPLE_STATION,Flu_ngg,3.0,Unknown,table_p2_ri5_ci1,soil,industrial,,phase14_auto; confidence=high; flag=,,
+10002890,10002890_SAMPLE_STATION,Phe_ngg,3.0,Unknown,table_p2_ri6_ci1,soil,industrial,,phase14_auto; confidence=high; flag=,,
+10002890,10002890_SAMPLE_STATION,Ant_ngg,3.0,Unknown,table_p2_ri7_ci1,soil,industrial,,phase14_auto; confidence=high; flag=,,
+10002890,10002890_SAMPLE_STATION,Flt_ngg,4.0,Unknown,table_p2_ri8_ci1,soil,industrial,,phase14_auto; confidence=high; flag=,,
+10002890,10002890_SAMPLE_STATION,Chr_ngg,4.0,Unknown,table_p2_ri10_ci1,soil,industrial,,phase14_auto; confidence=high; flag=,,

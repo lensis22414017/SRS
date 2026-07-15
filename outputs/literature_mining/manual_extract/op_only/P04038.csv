@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04038,,,,,,soil,,,"skip: 纯体外液体培养基(MS medium)PAH生物降解实验, 无场地采样点级土壤浓度数据; 植物采自南京扬子石化污染场地仅用于分离内生菌, 论文所有数值均为培养基中PAH残留/降解率/半衰期( spiked in vitro / bioremediation); Table 1-2为降解动力学方程, Table 3为额外碳氮源对PHE降解率影响"

@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+_dup_j.envint.2020.105741,_dup_j.envint.2020.105741_col6,col6,SumPBDE_ngg,11.6,Unknown,,medium,table_p3_ri23_ci6,"Table 1 Concentrations of PBDEs, PBBzs, DP, and OPEs in soils from an e-waste dismantling park and its surrounding area.",,,,,,phase14
+_dup_j.envint.2020.105741,_dup_j.envint.2020.105741_col7,col7,SumPBDE_ngg,61.8,Unknown,,medium,table_p3_ri23_ci7,"Table 1 Concentrations of PBDEs, PBBzs, DP, and OPEs in soils from an e-waste dismantling park and its surrounding area.",,,,,,phase14
+_dup_j.envint.2020.105741,_dup_j.envint.2020.105741_col8,col8,SumPBDE_ngg,575.0,Unknown,,medium,table_p3_ri23_ci8,"Table 1 Concentrations of PBDEs, PBBzs, DP, and OPEs in soils from an e-waste dismantling park and its surrounding area.",,,,,,phase14

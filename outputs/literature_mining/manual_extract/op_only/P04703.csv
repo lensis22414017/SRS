@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04703,,,,,,,,,"skip: 论文研究抗生素抗性基因(ARGs)的基因丰度(2^-ΔCT copy number), 非化学污染物浓度; 无PAH/PCB/DDT/HCH/PBDE/石油烃/抗生素残留/PAE/OCP浓度数据; 土壤样C0-C3来自鱼场排水口海洋沉积物; 所有数据为qPCR基因检测结果"

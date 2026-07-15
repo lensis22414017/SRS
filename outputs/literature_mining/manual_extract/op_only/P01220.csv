@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01220,,,,,,soil,plastic-shed,Shandong,"skip: 论文仅提供统计汇总(Table1: Min/Max/Median/Mean/SD/CV/percentiles, n=31)，无采样点级(SG1-SG31)PAE单体浓度数据; Fig.1为区域箱图(NW/NE/S); SI仅含方法验证和alpha diversity; 塑料大棚蔬菜土壤"

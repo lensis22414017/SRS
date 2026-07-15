@@ -1,0 +1,8 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10340,U1,SumPCB_ngg,1.73,ng/g,正文Results第1段,soil,urban,Shanghai,正文叙述上海Site U1 Σ51PCBs=1730pg/g÷1000=1.73ng/g;52点全国调查但正文无表格仅叙述中含6点ΣPCB值
+P10340,U5,SumPCB_ngg,1.84,ng/g,正文Results第1段,soil,urban,Yunnan,正文叙述昆明Site U5 Σ51PCBs=1840pg/g÷1000=1.84ng/g;全国最高值点
+P10340,B3,SumPCB_ngg,0.138,ng/g,正文Results第1段,soil,background,Tibet,正文叙述西藏Site B3 Σ51PCBs=138pg/g÷1000=0.138ng/g;背景点最低值
+P10340,R38,SumPCB_ngg,1.14,ng/g,正文Results第1段,soil,rural,Zhejiang,正文叙述浙江Site R38 Σ51PCBs=1140pg/g÷1000=1.14ng/g;农村点最高值
+P10340,R37,SumPCB_ngg,0.75,ng/g,正文Results最后段,soil,rural,未明确(上海西南方Figure1可见),正文叙述上海→R38→R37西南梯度 ΣPCBs=750pg/g÷1000=0.75ng/g
+P10340,R36,SumPCB_ngg,0.66,ng/g,正文Results最后段,soil,rural,未明确(上海西北方Figure1可见),正文叙述U1→R36西北梯度 ΣPCBs=660pg/g÷1000=0.66ng/g
+P10340,,SKIP_NOTE,,,SI未解析,,,"skip_summary: 正文无表格数据;仅6/52点位ΣPCB值在叙述中可追溯;完整52点×51同系物数据在SI Table S4(MinerU仅解析正文PDF未含SI);无HM(本文仅测PCBs);pg/g÷1000=ng/g"

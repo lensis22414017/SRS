@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11528,,,,,,,soil,industrial,Anhui,"skip: 仅区域汇总(Mean/SD/Min/Max/百分位数 n=304)无采样点级数据; 表3.1为描述性统计, 表3.2-3.4为风险指数(Igeo/EF/RI), 表4为PCA源解析, 表5为健康风险(HQ/HI/CR), 表6.1为2050年GANN模型预测值; 6种HM(As/Cd/Cu/Pb/Hg/Ni)无Cr/Zn/OP; 场地为安徽池州贵池区+青阳县工业聚集地(非盆栽/修复)"

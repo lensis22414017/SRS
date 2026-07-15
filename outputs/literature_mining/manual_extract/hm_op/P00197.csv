@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00197,,,,,,soil,urban,Beijing,"skip: 论文仅有按区域(Rural/Suburban/Center/Whole city)统计汇总(Min/Max/Median/Mean/SD/CV)的汞浓度表(Table 1)，无采样点级(S1/S2/点位编号)浓度数值；正文仅描述性提及若干采样点编号(383/438/238/241/305/306/307)超过临界值未给出具体浓度；PAHs为引用他人研究(Ma et al. 2005; Li et al. 2006)做相关性分析，非本研究实测，不满足HM+OP同论文同场地原则"

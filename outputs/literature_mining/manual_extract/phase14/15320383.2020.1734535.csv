@@ -1,0 +1,52 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+15320383.2020.1734535,15320383.2020.1734535_SDa_(ng/g),SDa (ng/g),Nap_ngg,5.13,Unknown,,high,table_p6_ri2_ci2,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,Nap_ngg,299.08,Unknown,,high,table_p6_ri2_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),Nap_ngg,114.31,Unknown,,high,table_p6_ri2_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,Acy_ngg,11.29,Unknown,,high,table_p6_ri3_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),Acy_ngg,2.91,Unknown,,high,table_p6_ri3_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,Ace_ngg,35.24,Unknown,,high,table_p6_ri4_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),Ace_ngg,9.13,Unknown,,high,table_p6_ri4_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_SDa_(ng/g),SDa (ng/g),Phe_ngg,0.19,Unknown,,high,table_p6_ri6_ci2,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,Phe_ngg,112.26,Unknown,,high,table_p6_ri6_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),Phe_ngg,17.93,Unknown,,high,table_p6_ri6_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,Ant_ngg,22.69,Unknown,,high,table_p6_ri7_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),Ant_ngg,13.23,Unknown,,high,table_p6_ri7_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,Flu_ngg,73.05,Unknown,,high,table_p6_ri8_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),Flu_ngg,10.34,Unknown,,high,table_p6_ri8_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,Pyr_ngg,39.81,Unknown,,high,table_p6_ri9_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),Pyr_ngg,7.97,Unknown,,high,table_p6_ri9_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,BaA_ngg,19.61,Unknown,,high,table_p6_ri10_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),BaA_ngg,2.88,Unknown,,high,table_p6_ri10_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,Chr_ngg,56.53,Unknown,,high,table_p6_ri11_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),Chr_ngg,9.03,Unknown,,high,table_p6_ri11_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,BbF_ngg,16.22,Unknown,,high,table_p6_ri12_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),BbF_ngg,5.47,Unknown,,high,table_p6_ri12_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,BkF_ngg,21.01,Unknown,,high,table_p6_ri13_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),BkF_ngg,11.46,Unknown,,high,table_p6_ri13_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,BaP_ngg,60.52,Unknown,,high,table_p6_ri14_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),BaP_ngg,13.34,Unknown,,high,table_p6_ri14_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,Ind_ngg,0.18,Unknown,,high,table_p6_ri15_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),Ind_ngg,0.17,Unknown,,high,table_p6_ri15_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,DahA_ngg,106.92,Unknown,,high,table_p6_ri16_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),DahA_ngg,97.18,Unknown,,high,table_p6_ri16_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,BghiP_ngg,7.84,Unknown,,high,table_p6_ri17_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),BghiP_ngg,5.96,Unknown,,high,table_p6_ri17_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_SDa_(ng/g),SDa (ng/g),Sum_PAH_ngg,5.13,Unknown,,high,table_p6_ri18_ci2,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,Sum_PAH_ngg,299.08,Unknown,,high,table_p6_ri18_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),Sum_PAH_ngg,114.31,Unknown,,high,table_p6_ri18_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_SDa_(ng/g),SDa (ng/g),Sum_PAH_ngg,8.65,Unknown,,high,table_p6_ri19_ci2,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,Sum_PAH_ngg,137.52,Unknown,,high,table_p6_ri19_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),Sum_PAH_ngg,46.19,Unknown,,high,table_p6_ri19_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_SDa_(ng/g),SDa (ng/g),Sum_PAH_ngg,5.35,Unknown,,high,table_p6_ri20_ci2,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,Sum_PAH_ngg,159.42,Unknown,,high,table_p6_ri20_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),Sum_PAH_ngg,25.3,Unknown,,high,table_p6_ri20_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,Sum_PAH_ngg,85.21,Unknown,,high,table_p6_ri21_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),Sum_PAH_ngg,23.64,Unknown,,high,table_p6_ri21_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,Sum_PAH_ngg,114.94,Unknown,,high,table_p6_ri22_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),Sum_PAH_ngg,103.31,Unknown,,high,table_p6_ri22_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_SDa_(ng/g),SDa (ng/g),Sum_PAH_ngg,0.53,Unknown,,high,table_p6_ri23_ci2,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,Sum_PAH_ngg,246.11,Unknown,,high,table_p6_ri23_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),Sum_PAH_ngg,38.25,Unknown,,high,table_p6_ri23_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_SDa_(ng/g),SDa (ng/g),Sum_PAH_ngg,68.27,Unknown,,high,table_p6_ri24_ci2,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_MDL,MDL,Sum_PAH_ngg,503.08,Unknown,,high,table_p6_ri24_ci3,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.
+15320383.2020.1734535,15320383.2020.1734535_Composition_(%),Composition (%),Sum_PAH_ngg,215.39,Unknown,,high,table_p6_ri24_ci4,Table 1. Descriptive statistics of PAH concentration in soils around Miyun Reservoir.

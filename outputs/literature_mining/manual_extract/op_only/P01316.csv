@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01316,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"skip:仅区域汇总统计(Mean±SD/Range),无采样点级浓度数据;SI表(Table S1等)含51对站点数据但缺失未解析"

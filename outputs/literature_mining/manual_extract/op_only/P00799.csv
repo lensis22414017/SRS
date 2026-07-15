@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00799,,,,,,,,"skip: 仅分组级Mean/SE汇总(oilfield组TPH=4191.89±639.02 mg/kg, control组TPH=128.78±7.42 mg/kg, Table 2), 无采样点级TPH数据; Fig 2b为散点图无法精确读取; 15个真实场地(O1-O10+C1-C5)黄河三角洲胜利油田Shandong, 但仅group-level统计"

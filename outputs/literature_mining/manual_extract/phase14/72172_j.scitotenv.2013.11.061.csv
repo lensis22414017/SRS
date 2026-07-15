@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+72172_j.scitotenv.2013.11.061,72172_j.scitotenv.2013.11.061_£OCPs,£OCPs,SumOCP_ngg,1.0,Unknown,,high,table_p3_ri1_ci1,Table 1 Pearson correlation coefficients between OCPs and soil components.
+72172_j.scitotenv.2013.11.061,72172_j.scitotenv.2013.11.061_SOC,SOC,Clay_pct,0.226,Unknown,,high,table_p3_ri3_ci2,Table 1 Pearson correlation coefficients between OCPs and soil components.
+72172_j.scitotenv.2013.11.061,72172_j.scitotenv.2013.11.061_Clay,Clay,Clay_pct,1.0,Unknown,,high,table_p3_ri3_ci3,Table 1 Pearson correlation coefficients between OCPs and soil components.
+72172_j.scitotenv.2013.11.061,72172_j.scitotenv.2013.11.061_∑PAHs,∑PAHs,Sum_PAH_ngg,1.0,Unknown,,high,table_p3_ri1_ci1,Table 2 Pearson correlation coefficients between PAHs and soil components.
+72172_j.scitotenv.2013.11.061,72172_j.scitotenv.2013.11.061_SOC,SOC,Clay_pct,0.226,Unknown,,high,table_p3_ri3_ci2,Table 2 Pearson correlation coefficients between PAHs and soil components.
+72172_j.scitotenv.2013.11.061,72172_j.scitotenv.2013.11.061_clay,clay,Clay_pct,1.0,Unknown,,high,table_p3_ri3_ci3,Table 2 Pearson correlation coefficients between PAHs and soil components.

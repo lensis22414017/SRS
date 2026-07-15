@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05979,QZ1,SumDDT_ngg,7.37,ng/g,Table 1,sediment,other,Fujian,"Surface (top 1-cm) sediment concentration; SumDDT=p,p'-DDD+p,p'-DDE+o,p'-DDT+p,p'-DDT; Max col (18.52) rejected as stat row"
+P05979,QZ1,SumHCH_ngg,0.55,ng/g,Table 1,sediment,other,Fujian,"Surface (top 1-cm) sediment concentration; SumHCH=alpha+beta+gamma+delta-HCH; Max col (1.63) rejected as stat row"
+P05979,QZ2,SumDDT_ngg,49.3,ng/g,Table 1,sediment,other,Fujian,"Surface (top 1-cm) sediment concentration; SumDDT=p,p'-DDD+p,p'-DDE+o,p'-DDT+p,p'-DDT; Max col (54.35) rejected as stat row"
+P05979,QZ2,SumHCH_ngg,3.74,ng/g,Table 1,sediment,other,Fujian,"Surface (top 1-cm) sediment concentration; SumHCH=alpha+beta+gamma+delta-HCH; Max col (5.12) rejected as stat row"
+P05979,QZ3,SumDDT_ngg,11.63,ng/g,Table 1,sediment,other,Fujian,"Surface (top 1-cm) sediment concentration; SumDDT=p,p'-DDD+p,p'-DDE+o,p'-DDT+p,p'-DDT; Max col (50.65) rejected as stat row"
+P05979,QZ3,SumHCH_ngg,0.6,ng/g,Table 1,sediment,other,Fujian,"Surface (top 1-cm) sediment concentration; SumHCH=alpha+beta+gamma+delta-HCH; Max col (3.03) rejected as stat row"

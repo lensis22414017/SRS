@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07144,,,,,,,,,,"skip: 无采样点级污染物浓度数据；HM仅提供Cu/Zn/Cr/As浓度范围(12-65/56-130/22-36/4-10 mg/kg)引用自Ostermann2014；抗生素仅提及SMZ/CTC/ENRO最大值；详细逐点数据在平行研究Ostermann et al. 2014中；论文主要内容为养分(N/P/K/有机碳)"

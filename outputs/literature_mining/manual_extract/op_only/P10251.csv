@@ -1,0 +1,37 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10251,3M-3,Sum_PAH_ngg,2241.3,ng/g,Table 2 (ΣPAHs row),soil,petrochemical,Henan,直接读取ΣPAHs行(16 EPA PAH加和);距含油污泥10m
+P10251,3M-3,BaP_ngg,19.9,ng/g,Table 2 (BaP row),soil,petrochemical,Henan,直接读取BaP行;距含油污泥10m
+P10251,3M-4,Sum_PAH_ngg,1888.2,ng/g,Table 2 (ΣPAHs row),soil,petrochemical,Henan,直接读取ΣPAHs行(16 EPA PAH加和);距含油污泥20m
+P10251,3M-4,BaP_ngg,18.3,ng/g,Table 2 (BaP row),soil,petrochemical,Henan,直接读取BaP行;距含油污泥20m
+P10251,3M-5,Sum_PAH_ngg,1568.1,ng/g,Table 2 (ΣPAHs row),soil,petrochemical,Henan,直接读取ΣPAHs行(16 EPA PAH加和);距含油污泥50m
+P10251,3M-5,BaP_ngg,15.2,ng/g,Table 2 (BaP row),soil,petrochemical,Henan,直接读取BaP行;距含油污泥50m
+P10251,3M-6,Sum_PAH_ngg,1079.4,ng/g,Table 2 (ΣPAHs row),soil,petrochemical,Henan,直接读取ΣPAHs行(16 EPA PAH加和);距含油污泥100m
+P10251,3M-6,BaP_ngg,5.94,ng/g,Table 2 (BaP row),soil,petrochemical,Henan,直接读取BaP行;距含油污泥100m
+P10251,3M-7,Sum_PAH_ngg,646.3,ng/g,Table 2 (ΣPAHs row),soil,petrochemical,Henan,直接读取ΣPAHs行(16 EPA PAH加和);距含油污泥200m
+P10251,3M-7,BaP_ngg,4.06,ng/g,Table 2 (BaP row),soil,petrochemical,Henan,直接读取BaP行;距含油污泥200m
+P10251,3M-8,Sum_PAH_ngg,499.9,ng/g,Table 2 (ΣPAHs row),soil,petrochemical,Henan,直接读取ΣPAHs行(16 EPA PAH加和);距含油污泥500m
+P10251,3M-8,BaP_ngg,5.40,ng/g,Table 2 (BaP row),soil,petrochemical,Henan,直接读取BaP行;距含油污泥500m
+P10251,3W-3,Sum_PAH_ngg,2408.8,ng/g,Table 3 (ΣPAHs row),soil,petrochemical,Henan,直接读取ΣPAHs行(16 EPA PAH加和);距含油污泥10m
+P10251,3W-3,BaP_ngg,21.5,ng/g,Table 3 (BaP row),soil,petrochemical,Henan,直接读取BaP行;距含油污泥10m
+P10251,3W-4,Sum_PAH_ngg,2029.7,ng/g,Table 3 (ΣPAHs row),soil,petrochemical,Henan,直接读取ΣPAHs行(16 EPA PAH加和);距含油污泥20m;解析值2029.7(原文202.7疑似缺字)
+P10251,3W-4,BaP_ngg,19.1,ng/g,Table 3 (BaP row),soil,petrochemical,Henan,直接读取BaP行;距含油污泥20m
+P10251,3W-5,Sum_PAH_ngg,1451.7,ng/g,Table 3 (ΣPAHs row),soil,petrochemical,Henan,直接读取ΣPAHs行(16 EPA PAH加和);距含油污泥50m
+P10251,3W-5,BaP_ngg,12.8,ng/g,Table 3 (BaP row),soil,petrochemical,Henan,直接读取BaP行;距含油污泥50m
+P10251,3W-6,Sum_PAH_ngg,1075.3,ng/g,Table 3 (ΣPAHs row),soil,petrochemical,Henan,直接读取ΣPAHs行(16 EPA PAH加和);距含油污泥100m
+P10251,3W-6,BaP_ngg,8.92,ng/g,Table 3 (BaP row),soil,petrochemical,Henan,直接读取BaP行;距含油污泥100m
+P10251,3W-7,Sum_PAH_ngg,683.1,ng/g,Table 3 (ΣPAHs row),soil,petrochemical,Henan,直接读取ΣPAHs行(16 EPA PAH加和);距含油污泥200m
+P10251,3W-7,BaP_ngg,5.55,ng/g,Table 3 (BaP row),soil,petrochemical,Henan,直接读取BaP行;距含油污泥200m
+P10251,3W-8,Sum_PAH_ngg,483.0,ng/g,Table 3 (ΣPAHs row),soil,petrochemical,Henan,直接读取ΣPAHs行(16 EPA PAH加和);距含油污泥500m
+P10251,3W-8,BaP_ngg,4.30,ng/g,Table 3 (BaP row),soil,petrochemical,Henan,直接读取BaP行;距含油污泥500m
+P10251,4W-3,Sum_PAH_ngg,1822.0,ng/g,Table 4 (ΣPAHs row),soil,petrochemical,Henan,直接读取ΣPAHs行(16 EPA PAH加和);距含油污泥10m
+P10251,4W-3,BaP_ngg,15.2,ng/g,Table 4 (BaP row),soil,petrochemical,Henan,直接读取BaP行;距含油污泥10m
+P10251,4W-4,Sum_PAH_ngg,1468.7,ng/g,Table 4 (ΣPAHs row),soil,petrochemical,Henan,直接读取ΣPAHs行(16 EPA PAH加和);距含油污泥20m
+P10251,4W-4,BaP_ngg,12.8,ng/g,Table 4 (BaP row),soil,petrochemical,Henan,直接读取BaP行;距含油污泥20m
+P10251,4W-5,Sum_PAH_ngg,1103.9,ng/g,Table 4 (ΣPAHs row),soil,petrochemical,Henan,直接读取ΣPAHs行(16 EPA PAH加和);距含油污泥50m
+P10251,4W-5,BaP_ngg,7.90,ng/g,Table 4 (BaP row),soil,petrochemical,Henan,直接读取BaP行;距含油污泥50m
+P10251,4W-6,Sum_PAH_ngg,813.0,ng/g,Table 4 (ΣPAHs row),soil,petrochemical,Henan,直接读取ΣPAHs行(16 EPA PAH加和);距含油污泥100m
+P10251,4W-6,BaP_ngg,2.18,ng/g,Table 4 (BaP row),soil,petrochemical,Henan,直接读取BaP行;距含油污泥100m
+P10251,4W-7,Sum_PAH_ngg,544.4,ng/g,Table 4 (ΣPAHs row),soil,petrochemical,Henan,直接读取ΣPAHs行(16 EPA PAH加和);距含油污泥200m
+P10251,4W-7,BaP_ngg,3.83,ng/g,Table 4 (BaP row),soil,petrochemical,Henan,直接读取BaP行;距含油污泥200m
+P10251,4W-8,Sum_PAH_ngg,434.5,ng/g,Table 4 (ΣPAHs row),soil,petrochemical,Henan,直接读取ΣPAHs行(16 EPA PAH加和);距含油污泥500m
+P10251,4W-8,BaP_ngg,4.06,ng/g,Table 4 (BaP row),soil,petrochemical,Henan,直接读取BaP行;距含油污泥500m

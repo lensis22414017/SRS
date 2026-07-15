@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+15275922.2015.1133731,15275922.2015.1133731_Water,Water,SumHCH_ngg,0.53,Unknown,,high,table_p5_ri2_ci1,"Table 2. Ratios of OCPs in soil,water,and sediment from the Bahe River.",,,,,,phase14
+15275922.2015.1133731,15275922.2015.1133731_Sediment,Sediment,SumHCH_ngg,0.475,Unknown,range_mean,high,table_p5_ri2_ci2,"Table 2. Ratios of OCPs in soil,water,and sediment from the Bahe River.",,,,,,phase14
+15275922.2015.1133731,15275922.2015.1133731_Soil,Soil,SumHCH_ngg,0.67,Unknown,,high,table_p5_ri2_ci3,"Table 2. Ratios of OCPs in soil,water,and sediment from the Bahe River.",,,,,,phase14
+15275922.2015.1133731,15275922.2015.1133731_Water,Water,SumHCH_ngg,0.28,Unknown,,high,table_p5_ri3_ci1,"Table 2. Ratios of OCPs in soil,water,and sediment from the Bahe River.",,,,,,phase14
+15275922.2015.1133731,15275922.2015.1133731_Sediment,Sediment,SumHCH_ngg,0.28,Unknown,range_mean,high,table_p5_ri3_ci2,"Table 2. Ratios of OCPs in soil,water,and sediment from the Bahe River.",,,,,,phase14
+15275922.2015.1133731,15275922.2015.1133731_Soil,Soil,SumHCH_ngg,0.32,Unknown,,high,table_p5_ri3_ci3,"Table 2. Ratios of OCPs in soil,water,and sediment from the Bahe River.",,,,,,phase14

@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01383,,,,,,soil,industrial,Sichuan,skip: 主文paper.md仅含HM均值(Mn=672.56 Zn=193.58 Hg=0.15 Cd=0.32 Sb=0.96 mg/kg)和PCDD/Fs range/mean(7.14-858.09 ng/kg 均值97.48; I-TEQ 0.25-7.50 均值1.54)统计汇总; 采样点级S1-S16数据在Supplementary Table S9(PCDD/Fs)/S12(HM)未提供于paper.md; 论文OP为PCDD/Fs(二噁英)不在目标OP列表(Sum_PAH/BaP/SumPCB/SumDDT/SumHCH/SumPBDE/TotalPHC); Table 1为文献对比表+Table 2为健康风险表(HI/CR)均须剔除; 16采样点围绕6 MSW焚烧厂(Sichuan省)

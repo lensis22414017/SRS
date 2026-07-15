@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00725,NOTES,,,,"skip: Meta-analysis compiling city-level mean ΣPAH from 23 published studies (2005-2021). Table S1 has one row per city (each = mean from a cited reference e.g. Liu et al. 2008/Taiyuan, Du et al. 2014/Shanghai). No original sampling-point level data. Table S2 = regional/national Min/Max/Mean/SD summaries. Violates rules: 综述/Meta分析无原始数据 + 区域均值非场地样本.",soil,urban,China,"skip: meta-analysis no sample-level data"

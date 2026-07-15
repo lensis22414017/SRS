@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+72298_j.envpol.2005.10.038,72298_j.envpol.2005.10.038_UTS_treatment_objectives_(mgL-1),UTS treatment objectives (mgL-1),Pb_mgkg,0.75,Unknown,,high,table_p5_ri1_ci5,TCLP metals of the abandoned shipyard soil,,,,,,phase14
+72298_j.envpol.2005.10.038,72298_j.envpol.2005.10.038_UTS_treatment_objectives_(mgL-1),UTS treatment objectives (mgL-1),Cu_mgkg,7.8,Unknown,,high,table_p5_ri2_ci5,TCLP metals of the abandoned shipyard soil,,,,,,phase14
+72298_j.envpol.2005.10.038,72298_j.envpol.2005.10.038_UTS_treatment_objectives_(mgL-1),UTS treatment objectives (mgL-1),Zn_mgkg,4.3,Unknown,,high,table_p5_ri3_ci5,TCLP metals of the abandoned shipyard soil,,,,,,phase14
+72298_j.envpol.2005.10.038,72298_j.envpol.2005.10.038_UTS_treatment_objectives_(mgL-1),UTS treatment objectives (mgL-1),Ni_mgkg,11.0,Unknown,,high,table_p5_ri4_ci5,TCLP metals of the abandoned shipyard soil,,,,,,phase14
+72298_j.envpol.2005.10.038,72298_j.envpol.2005.10.038_UTS_treatment_objectives_(mgL-1),UTS treatment objectives (mgL-1),Cr_mgkg,0.6,Unknown,,high,table_p5_ri5_ci5,TCLP metals of the abandoned shipyard soil,,,,,,phase14
+72298_j.envpol.2005.10.038,72298_j.envpol.2005.10.038_UTS_treatment_objectives_(mgL-1),UTS treatment objectives (mgL-1),Mn_mgkg,1.0,Unknown,,high,table_p5_ri6_ci5,TCLP metals of the abandoned shipyard soil,,,,,,phase14

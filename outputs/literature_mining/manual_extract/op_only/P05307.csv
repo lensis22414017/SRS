@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05307,,,,,,soil,agricultural,Beijing,"skip: 论文Table 1仅提供48个采样点的16种PAH统计汇总(Min/Max/Mean/SD/DR)，无采样点级单体PAH浓度数据表；正文文字仅提及个别点位的Σ16PAHs总值(如S25=503.08ng/g=Table1 Max值)属统计行须剔除；空间分布数据在补充材料Fig S2(图片)；48个表层土壤(0-15cm)采自北京密云水库周边"

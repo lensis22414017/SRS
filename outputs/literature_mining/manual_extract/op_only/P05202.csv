@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05202,NOTES,,,,,soil,oilfield,Shandong,"skip: 无采样点级数据。论文仅提供统计汇总(range 27-753 ng/g, mean 118±132)和SQG阈值(ERL/ERM)及风险指数(ERL quotient/BaPE)。Table2各PAH仅给Ave/Max统计列。61站点浓度仅在Fig2-5中展示为图片, 无可提取数值表格"

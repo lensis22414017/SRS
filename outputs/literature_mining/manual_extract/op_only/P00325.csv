@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00325,NOTES,,,,Table 1,soil,agricultural,Hubei,"skip: 仅区域汇总统计(Range/Mean/SD)，无采样点级个体数据。论文测量OCPs(∑DDT/∑HCH/∑Endosulfan/∑Heptachlor等)和OPPs(Chlorpyrifos等)于湖北省稻田土壤(topsoil 0-20cm/subsoil 20-40cm)及地下水，但Table 1仅提供各化合物的Range/Mean/SD汇总，30个土壤样本和16个地下水样本均无个体采样点标识+浓度配对数据。Fig 2为均值柱状图非个体数据。"

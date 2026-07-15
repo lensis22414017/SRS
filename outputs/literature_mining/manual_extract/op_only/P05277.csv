@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05277,,,,,,,soil,agricultural,Jilin,"skip: 仅区域级统计汇总(Mean+Range, 6区域106点), 无采样点级数据; 论文仅报告各城市/县级Σ7PCBs的range和mean(如Changchun City 29.0~148 ng/g mean 75.4; Nongan 27.8~106 mean 49.3; Dehui 31.0~81.6 mean 47.5; Yushu 37.7~73.5 mean 50.8; Jiutai 8.28~55.0 mean 22.2; Shuangyang 1.31~35.7 mean 14.5; Changchun area 1.31~148 mean 42.0 ng/g dw); Table3为健康风险指数(HQ/carcinogenic risk)已剔除; Table4/5为PCA分析; Figures为图片统计图"

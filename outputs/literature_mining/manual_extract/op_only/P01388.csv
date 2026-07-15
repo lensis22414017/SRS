@@ -1,0 +1,2 @@
+﻿﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01388,,skip,,,,,,,"skip: PCB concentration data only available as regional statistical summaries (Mean/Median/Min/Max/SD/CV for 3 regions: Sanjiang Plain/Taihu Plain/Hani Terrace) in Table S5; no sampling-point-level data; individual sites only in figures (Fig S3-S7); units in pg/g"

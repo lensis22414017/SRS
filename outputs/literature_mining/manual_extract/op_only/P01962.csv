@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01962,,,,,,,,"skip: Table 1 仅提供站点级统计汇总(mean/SD/min/max)，无采样点级数据。40个土壤样本的完整数据集在SI Table S8(不可用)。西藏3个背景点(Lulang/Nam Co/Ngari)的HCHs/HCB/DDTs/PCBs浓度均为pg/g dw量级汇总值，无法提取sample_id级数据"

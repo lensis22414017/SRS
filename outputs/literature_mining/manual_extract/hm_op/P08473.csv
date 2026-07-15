@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08473,,,,,,,,,"skip: 综述论文(Review)，无原始采样数据。Table 1a/1b/1c为跨文献汇编(每行引用不同Reference [27]-[102])，数据为site-level地名+年份的range/mean(如Guiyu 2004 PBDEs:0.002-44.473)；Table 2为修复技术去除率(%)非浓度且多含spike/pot实验。无S1/A/B等采样点级标识，无本文原创实测HM+OP复合数据。违反铁律#1(非本文可追溯)#4(地名级汇总)#6(跨论文拼接)"

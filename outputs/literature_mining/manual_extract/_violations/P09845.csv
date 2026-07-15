@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09845,CG1,Hg_mgkg,3.32,mg/kg,Table 3-2,soil,coking,Beijing,"焦化厂原土对照组(未添加HgSO4)老化后实测均值(n=3平行,SD=0.15);场地本底即盆栽起始浓度;CG2/3/4为HgSO4人工spike组已剔除"
+P09845,CG1,Sum_PAH_ngg,238970,ng/g,Table 3-3,soil,coking,Beijing,"焦化厂原土对照组ΣPAHs=238.97mg/kg×1000(论文Table3-3 CG1列直接读取,SD=7.74);场地本底;CG5/6为重柴油人工添加组已剔除;检测出13种PAH单体含萘/苣烯/范/芴/菲/蒽/荧蒽/芘/苯并蒽/苯并[i]荧蒽/苯并[e]芘/苯并[a]芘/芘并[1,2,3-cd]芘"
+P09845,CG1,BaP_ngg,11940,ng/g,Table 3-3,soil,coking,Beijing,"苯并[a]芘单体=11.94mg/kg×1000(Table3-3 CG1列直接读取,SD=2.97);原土对照组场地本底"

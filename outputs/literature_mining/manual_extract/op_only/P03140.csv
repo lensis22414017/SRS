@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03140,A,Sum_PAH_ngg,178000,ng/g,Table 1,soil,industrial,Jiangsu,直接读取Table 1 ∑PAHs行(A站); 仅12/16 EPA PAH检出(BkF/BaP/IcdP/DahA未检出); mg/kg×1000→ng/g
+P03140,Z,Sum_PAH_ngg,139000,ng/g,Table 1,soil,industrial,Jiangsu,直接读取Table 1 ∑PAHs行(Z站); 仅12/16 EPA PAH检出(BkF/BaP/IcdP/DahA未检出); mg/kg×1000→ng/g
+P03140,Q,Sum_PAH_ngg,89500,ng/g,Table 1,soil,industrial,Jiangsu,直接读取Table 1 ∑PAHs行(Q站); 仅12/16 EPA PAH检出(BkF/BaP/IcdP/DahA未检出); mg/kg×1000→ng/g

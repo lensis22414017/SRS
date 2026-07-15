@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P05746,1,Sum_PAH_ngg,16,ng/g,正文3.1段,soil,other,Beijing,"总PAHs(16 EPA)正文3.1段明确值, 0.016 μg/g×1000=16 ng/g, rural sample 1为全研究最低值",39.467,116.467
+P05746,13,Sum_PAH_ngg,2146,ng/g,正文3.1段,soil,other,Beijing,"总PAHs(16 EPA)正文3.1段明确值, 2.146 μg/g×1000=2146 ng/g, rural sample 13为农村异常高值(其余农村样本均<1 μg/g)",39.467,116.467
+P05746,40,Sum_PAH_ngg,3884,ng/g,正文3.1段,soil,other,Beijing,"总PAHs(16 EPA)正文3.1段明确值, 3.884 μg/g×1000=3884 ng/g, suburban sample 40为全研究最高值",39.467,116.467

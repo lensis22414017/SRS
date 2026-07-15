@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01490,,,,,,,,,"skip: ML吸附建模论文(非场地OP浓度调查); 1429个吸附等温线数据点来自72篇文献汇编(Qe vs Ce),非土壤实测PAH/PCB/DDT/HCH/PBDE/PHC浓度; Table1为土壤性质均值(非污染物); 唯一PAH浓度(65.01-23603.05 μg/kg)引自Yu et al.2019的全国统计汇总(非采样点级); 无任何采样点级OP数据"

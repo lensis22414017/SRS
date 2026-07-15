@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11637,NOTES_ONLY,skip,0,,,"matrix:dust","site_type:rural","province:四川","skip: 仅介质级汇总统计(Mean/SD/CV/背景值/Range)无采样点级数据,表2-3仅均值+标准差+CV按4类介质汇总,表2-4为Igeo地累积指数非浓度,PAHs数据全部以箱线图/空间分布图呈现无采样点级表格,论文为食品/灰尘多介质研究不涉及土壤采样点浓度数据"

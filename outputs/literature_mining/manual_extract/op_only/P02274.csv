@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02274,,(no target OP),,,,soil,e_waste,Guangdong,"skip: 论文仅测PCDDs/Fs(二恶英/呋喃)，不在目标OP提取清单内(PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAE/OCP)；无任何目标有机污染物数据。论文为真实场地(Longtang镇电子废弃物回收区，24土壤+6粉尘+1沉积物)，但污染物类型不匹配"

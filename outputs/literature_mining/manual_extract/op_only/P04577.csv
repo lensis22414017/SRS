@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04577,,,,,,,,,"skip: 实验室添加(spiked)培养实验，非真实场地实测OP浓度。研究将草甘膦和敌草快以已知浓度添加到红壤性稻田土壤中培养1/7/14/28天，测量微生物群落多样性(Shannon/Chao1指数)。无PAH/PCB/DDT/HCH/PBDE/石油烃等目标OP污染物浓度数据。论文仅测微生物16S rRNA/ITS基因测序，无采样点级有机污染物浓度。属spiked/microcosm实验类别剔除。"

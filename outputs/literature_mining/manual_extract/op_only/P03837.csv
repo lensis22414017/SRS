@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03837,,,,,,,,,"skip: 论文研究对象为蔬菜(植物组织/食品)中农药残留, 非土壤; 数据来自市场监管抽检(294703批次蔬菜); 所有表格仅含风险指数(IR/P/S)、批次计数和描述性统计(Mean/SD/Min/Max), 无采样点级土壤OP浓度; 农药为Clothianidin/Procymidone/Chlorpyrifos等非目标OP类别(PAH/PCB/DDT/HCH/PBDE/石油烃均无)"

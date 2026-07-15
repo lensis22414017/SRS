@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10329,,skip_reason,,,Table 2,soil,e_waste,Guangdong,"skip: 所有浓度数据为场地均值(Site-level Mean±SD, n=3 field replicates per site), 非个体采样点数据(不含任意单个重复样本值); Table 2 total PBDEs行明确标注Mean±SD; 个体BDE同系物23个列出但全文分析43个, 求和无法获得完整SumPBDE; 无HM数据; 无PAH/PCB/DDT/HCH/抗生素/PAEs/OCP数据; PCDD/Fs不在目标污染物列表中"

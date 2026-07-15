@@ -1,0 +1,17 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+72229_s00248-015-0572-0,72229_s00248-015-0572-0_DQ,DQ,TotalPHC_mgkg,44940.0,Unknown,,high,table_p2_ri4_ci1,Table1The geographical and physicochemical data of the four oil fields,,,,,,phase14
+72229_s00248-015-0572-0,72229_s00248-015-0572-0_DQ(BLK),DQ(BLK),TotalPHC_mgkg,0.0,Unknown,,high,table_p2_ri4_ci2,Table1The geographical and physicochemical data of the four oil fields,,,,,,phase14
+72229_s00248-015-0572-0,72229_s00248-015-0572-0_HB,HB,TotalPHC_mgkg,183760.0,Unknown,,high,table_p2_ri4_ci3,Table1The geographical and physicochemical data of the four oil fields,,,,,,phase14
+72229_s00248-015-0572-0,72229_s00248-015-0572-0_HB(BLK),HB(BLK),TotalPHC_mgkg,0.0,Unknown,,high,table_p2_ri4_ci4,Table1The geographical and physicochemical data of the four oil fields,,,,,,phase14
+72229_s00248-015-0572-0,72229_s00248-015-0572-0_SL,SL,TotalPHC_mgkg,25560.0,Unknown,,high,table_p2_ri4_ci5,Table1The geographical and physicochemical data of the four oil fields,,,,,,phase14
+72229_s00248-015-0572-0,72229_s00248-015-0572-0_SL(BLK),SL(BLK),TotalPHC_mgkg,0.0,Unknown,,high,table_p2_ri4_ci6,Table1The geographical and physicochemical data of the four oil fields,,,,,,phase14
+72229_s00248-015-0572-0,72229_s00248-015-0572-0_XJ,XJ,TotalPHC_mgkg,43350.0,Unknown,,high,table_p2_ri4_ci7,Table1The geographical and physicochemical data of the four oil fields,,,,,,phase14
+72229_s00248-015-0572-0,72229_s00248-015-0572-0_XJ(BLK),XJ(BLK),TotalPHC_mgkg,0.0,Unknown,,high,table_p2_ri4_ci8,Table1The geographical and physicochemical data of the four oil fields,,,,,,phase14
+72229_s00248-015-0572-0,72229_s00248-015-0572-0_DQ,DQ,pH,8.53,Unknown,,high,table_p2_ri12_ci1,Table1The geographical and physicochemical data of the four oil fields,,,,,,phase14
+72229_s00248-015-0572-0,72229_s00248-015-0572-0_DQ(BLK),DQ(BLK),pH,8.32,Unknown,,high,table_p2_ri12_ci2,Table1The geographical and physicochemical data of the four oil fields,,,,,,phase14
+72229_s00248-015-0572-0,72229_s00248-015-0572-0_HB,HB,pH,8.22,Unknown,,high,table_p2_ri12_ci3,Table1The geographical and physicochemical data of the four oil fields,,,,,,phase14
+72229_s00248-015-0572-0,72229_s00248-015-0572-0_HB(BLK),HB(BLK),pH,8.73,Unknown,,high,table_p2_ri12_ci4,Table1The geographical and physicochemical data of the four oil fields,,,,,,phase14
+72229_s00248-015-0572-0,72229_s00248-015-0572-0_SL,SL,pH,8.25,Unknown,,high,table_p2_ri12_ci5,Table1The geographical and physicochemical data of the four oil fields,,,,,,phase14
+72229_s00248-015-0572-0,72229_s00248-015-0572-0_SL(BLK),SL(BLK),pH,7.69,Unknown,,high,table_p2_ri12_ci6,Table1The geographical and physicochemical data of the four oil fields,,,,,,phase14
+72229_s00248-015-0572-0,72229_s00248-015-0572-0_XJ,XJ,pH,7.91,Unknown,,high,table_p2_ri12_ci7,Table1The geographical and physicochemical data of the four oil fields,,,,,,phase14
+72229_s00248-015-0572-0,72229_s00248-015-0572-0_XJ(BLK),XJ(BLK),pH,8.03,Unknown,,high,table_p2_ri12_ci8,Table1The geographical and physicochemical data of the four oil fields,,,,,,phase14

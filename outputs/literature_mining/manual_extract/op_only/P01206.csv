@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01206,,,,,,,,"skip: 土壤HCBD和OCP浓度仅在Fig.2箱线图中以统计汇总呈现(range/mean)，无采样点级数值表格；23个土壤采样点(S1-S23)的单点浓度不可从箱线图恢复；测量的OCP单体为alpha-HCH/beta-HCH/gamma-HCH/p_p-DDT/o_p-DDT/alpha-chlordane/gamma-chlordane/alpha-endosulfan/beta-endosulfan，但缺少delta-HCH和DDE/DDD无法组成SumHCH或SumDDT；HCBD非目标OP标准污染物"

@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P00243,Wulidun Village,Sum_PAH_ngg,5397.95,ng/g,正文 Modeling section,soil,coking,Shanxi,Grubbs test识别为点源，总16 PAH浓度正文直接给出 (Gucheng Town),33.36,111.4
+P00243,Shangbeirong Village,Sum_PAH_ngg,10419.61,ng/g,正文 Modeling section,soil,coking,Shanxi,Grubbs test识别为点源，总16 PAH浓度正文直接给出 (Fencheng Town),33.36,111.4
+P00243,Yandian Village,Sum_PAH_ngg,4979.96,ng/g,正文 Modeling section,soil,coking,Shanxi,Grubbs test识别为点源，总16 PAH浓度正文直接给出 (Xincheng Town),33.36,111.4

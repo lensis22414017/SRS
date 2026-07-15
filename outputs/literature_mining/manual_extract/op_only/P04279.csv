@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04279,,,,,,soil,laboratory,Chongqing,"skip: 实验室光催化降解实验(Fe3O4/SiO2/TiO2 photocatalyst降解草甘膦); 土壤采自重庆巴南区但实验室人工spike glyphosate标准液(1000mg/L stock)非场地实测; glyphosate不在目标OP清单(PAH/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAEs/OCPs); 全文无任何目标OP的真实采样点浓度数据; 属于spiked/degradation experiment剔除场景"

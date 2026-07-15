@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04240,,,,,,,soil,oilfield,Tianjin,"skip: 微生物降解菌种鉴定+正交实验论文。从大港油田分离新型石油降解菌Falsochrobactrum tianjinense TDYN1。全文仅含实验室降解率(%)正交实验数据(温度/pH/盐度/石油浓度/接种量5因素4水平L16)，无任何采样点级OP浓度实测数据(PAH/PCB/DDT/HCH/PBDE/TPH浓度均无)。论文土壤仅用于细菌分离，未测定场地土壤污染物浓度值。"

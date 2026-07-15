@@ -1,0 +1,276 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_S1,S1,pH,7.91,Unknown,,high,table_p2_ri2_ci1,Description of the sampling sites and properties of the samples.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_S8,S8,pH,8.55,Unknown,,high,table_p2_ri16_ci1,Description of the sampling sites and properties of the samples.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_S9,S9,pH,8.46,Unknown,,high,table_p2_ri18_ci1,Description of the sampling sites and properties of the samples.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_S10,S10,pH,8.39,Unknown,,high,table_p2_ri20_ci1,Description of the sampling sites and properties of the samples.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_S11,S11,pH,7.8,Unknown,,high,table_p2_ri22_ci1,Description of the sampling sites and properties of the samples.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col2,col2,Co_mgkg,0.23,Unknown,,medium,table_p4_ri8_ci2,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col3,col3,Co_mgkg,0.204,Unknown,,medium,table_p4_ri8_ci3,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col5,col5,Co_mgkg,0.186,Unknown,,medium,table_p4_ri8_ci5,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col6,col6,Co_mgkg,0.172,Unknown,,medium,table_p4_ri8_ci6,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col8,col8,Co_mgkg,0.201,Unknown,,medium,table_p4_ri8_ci8,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col9,col9,Co_mgkg,0.254,Unknown,,medium,table_p4_ri8_ci9,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col10,col10,Co_mgkg,0.21,Unknown,,medium,table_p4_ri8_ci10,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col11,col11,Co_mgkg,0.169,Unknown,,medium,table_p4_ri8_ci11,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col2,col2,Cr_mgkg,1.34,Unknown,,medium,table_p4_ri11_ci2,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col3,col3,Cr_mgkg,0.397,Unknown,,medium,table_p4_ri11_ci3,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col4,col4,Cr_mgkg,0.654,Unknown,,medium,table_p4_ri11_ci4,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col5,col5,Cr_mgkg,0.417,Unknown,,medium,table_p4_ri11_ci5,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col6,col6,Cr_mgkg,0.423,Unknown,,medium,table_p4_ri11_ci6,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col7,col7,Cr_mgkg,0.367,Unknown,,medium,table_p4_ri11_ci7,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col8,col8,Cr_mgkg,0.342,Unknown,,medium,table_p4_ri11_ci8,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col9,col9,Cr_mgkg,0.64,Unknown,,medium,table_p4_ri11_ci9,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col10,col10,Cr_mgkg,0.609,Unknown,,medium,table_p4_ri11_ci10,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col11,col11,Cr_mgkg,0.95,Unknown,,medium,table_p4_ri11_ci11,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col12,col12,Cr_mgkg,0.452,Unknown,,medium,table_p4_ri11_ci12,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col13,col13,Cr_mgkg,0.347,Unknown,,medium,table_p4_ri11_ci13,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col2,col2,Cu_mgkg,0.00748,Unknown,,medium,table_p4_ri14_ci2,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col3,col3,Cu_mgkg,0.00724,Unknown,,medium,table_p4_ri14_ci3,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col4,col4,Cu_mgkg,0.00613,Unknown,,medium,table_p4_ri14_ci4,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col5,col5,Cu_mgkg,0.00707,Unknown,,medium,table_p4_ri14_ci5,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col6,col6,Cu_mgkg,0.00613,Unknown,,medium,table_p4_ri14_ci6,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col7,col7,Cu_mgkg,0.00753,Unknown,,medium,table_p4_ri14_ci7,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col8,col8,Cu_mgkg,0.00705,Unknown,,medium,table_p4_ri14_ci8,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col9,col9,Cu_mgkg,0.00911,Unknown,,medium,table_p4_ri14_ci9,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col10,col10,Cu_mgkg,0.00859,Unknown,,medium,table_p4_ri14_ci10,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col11,col11,Cu_mgkg,0.00894,Unknown,,medium,table_p4_ri14_ci11,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col12,col12,Cu_mgkg,0.00736,Unknown,,medium,table_p4_ri14_ci12,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col13,col13,Cu_mgkg,0.0148,Unknown,,medium,table_p4_ri14_ci13,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col2,col2,Ni_mgkg,0.0634,Unknown,,medium,table_p4_ri17_ci2,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col3,col3,Ni_mgkg,0.0234,Unknown,,medium,table_p4_ri17_ci3,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col4,col4,Ni_mgkg,0.0241,Unknown,,medium,table_p4_ri17_ci4,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col5,col5,Ni_mgkg,0.0454,Unknown,,medium,table_p4_ri17_ci5,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col6,col6,Ni_mgkg,0.0209,Unknown,,medium,table_p4_ri17_ci6,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col7,col7,Ni_mgkg,0.0248,Unknown,,medium,table_p4_ri17_ci7,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col8,col8,Ni_mgkg,0.0164,Unknown,,medium,table_p4_ri17_ci8,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col9,col9,Ni_mgkg,0.0381,Unknown,,medium,table_p4_ri17_ci9,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col10,col10,Ni_mgkg,0.0222,Unknown,,medium,table_p4_ri17_ci10,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col11,col11,Ni_mgkg,0.0428,Unknown,,medium,table_p4_ri17_ci11,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col12,col12,Ni_mgkg,0.0219,Unknown,,medium,table_p4_ri17_ci12,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col13,col13,Ni_mgkg,0.0178,Unknown,,medium,table_p4_ri17_ci13,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col2,col2,Pb_mgkg,0.0574,Unknown,,medium,table_p4_ri20_ci2,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col3,col3,Pb_mgkg,0.0608,Unknown,,medium,table_p4_ri20_ci3,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col4,col4,Pb_mgkg,0.0498,Unknown,,medium,table_p4_ri20_ci4,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col5,col5,Pb_mgkg,0.041,Unknown,,medium,table_p4_ri20_ci5,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col6,col6,Pb_mgkg,0.0478,Unknown,,medium,table_p4_ri20_ci6,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col7,col7,Pb_mgkg,0.0505,Unknown,,medium,table_p4_ri20_ci7,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col8,col8,Pb_mgkg,0.0526,Unknown,,medium,table_p4_ri20_ci8,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col9,col9,Pb_mgkg,0.056,Unknown,,medium,table_p4_ri20_ci9,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col10,col10,Pb_mgkg,0.056,Unknown,,medium,table_p4_ri20_ci10,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col11,col11,Pb_mgkg,0.0696,Unknown,,medium,table_p4_ri20_ci11,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col12,col12,Pb_mgkg,0.0662,Unknown,,medium,table_p4_ri20_ci12,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col13,col13,Pb_mgkg,0.0765,Unknown,,medium,table_p4_ri20_ci13,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col3,col3,Zn_mgkg,0.00205,Unknown,,medium,table_p4_ri23_ci3,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col4,col4,Zn_mgkg,0.00185,Unknown,,medium,table_p4_ri23_ci4,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col5,col5,Zn_mgkg,0.00186,Unknown,,medium,table_p4_ri23_ci5,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col6,col6,Zn_mgkg,0.00247,Unknown,,medium,table_p4_ri23_ci6,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col7,col7,Zn_mgkg,0.00234,Unknown,,medium,table_p4_ri23_ci7,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col9,col9,Zn_mgkg,0.00238,Unknown,,medium,table_p4_ri23_ci9,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col10,col10,Zn_mgkg,0.00231,Unknown,,medium,table_p4_ri23_ci10,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col11,col11,Zn_mgkg,0.00288,Unknown,,medium,table_p4_ri23_ci11,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col2,col2,As_mgkg,1.19e-05,Unknown,,medium,table_p4_ri26_ci2,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col3,col3,As_mgkg,1.22e-05,Unknown,,medium,table_p4_ri26_ci3,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col4,col4,As_mgkg,1.07e-05,Unknown,,medium,table_p4_ri26_ci4,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col5,col5,As_mgkg,9.19e-06,Unknown,,medium,table_p4_ri26_ci5,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col6,col6,As_mgkg,9.72e-06,Unknown,,medium,table_p4_ri26_ci6,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col7,col7,As_mgkg,1.24e-05,Unknown,,medium,table_p4_ri26_ci7,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col8,col8,As_mgkg,1.35e-05,Unknown,,medium,table_p4_ri26_ci8,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col9,col9,As_mgkg,1.32e-05,Unknown,,medium,table_p4_ri26_ci9,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col11,col11,As_mgkg,1.31e-05,Unknown,,medium,table_p4_ri26_ci11,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col12,col12,As_mgkg,1.24e-05,Unknown,,medium,table_p4_ri26_ci12,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col13,col13,As_mgkg,1.3e-05,Unknown,,medium,table_p4_ri26_ci13,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col14,col14,As_mgkg,1.91e-05,Unknown,,medium,table_p4_ri26_ci14,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col2,col2,Cd_mgkg,4.93e-07,Unknown,,medium,table_p4_ri29_ci2,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col3,col3,Cd_mgkg,5.79e-07,Unknown,,medium,table_p4_ri29_ci3,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col4,col4,Cd_mgkg,3.57e-07,Unknown,,medium,table_p4_ri29_ci4,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col5,col5,Cd_mgkg,5.3e-07,Unknown,,medium,table_p4_ri29_ci5,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col6,col6,Cd_mgkg,3.75e-07,Unknown,,medium,table_p4_ri29_ci6,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col7,col7,Cd_mgkg,7.77e-07,Unknown,,medium,table_p4_ri29_ci7,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col8,col8,Cd_mgkg,6.69e-07,Unknown,,medium,table_p4_ri29_ci8,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col9,col9,Cd_mgkg,8.01e-07,Unknown,,medium,table_p4_ri29_ci9,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col11,col11,Cd_mgkg,7.15e-07,Unknown,,medium,table_p4_ri29_ci11,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col12,col12,Cd_mgkg,4.56e-07,Unknown,,medium,table_p4_ri29_ci12,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col13,col13,Cd_mgkg,5.43e-07,Unknown,,medium,table_p4_ri29_ci13,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col14,col14,Cd_mgkg,1e-06,Unknown,,medium,table_p4_ri29_ci14,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col2,col2,Co_mgkg,4.23e-09,Unknown,,medium,table_p4_ri32_ci2,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col3,col3,Co_mgkg,3.75e-09,Unknown,,medium,table_p4_ri32_ci3,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col4,col4,Co_mgkg,3.38e-09,Unknown,,medium,table_p4_ri32_ci4,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col5,col5,Co_mgkg,4.34e-09,Unknown,,medium,table_p4_ri32_ci5,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col6,col6,Co_mgkg,3.43e-09,Unknown,,medium,table_p4_ri32_ci6,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col7,col7,Co_mgkg,3.16e-09,Unknown,,medium,table_p4_ri32_ci7,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col8,col8,Co_mgkg,3.52e-09,Unknown,,medium,table_p4_ri32_ci8,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col9,col9,Co_mgkg,3.54e-09,Unknown,,medium,table_p4_ri32_ci9,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col10,col10,Co_mgkg,3.69e-09,Unknown,,medium,table_p4_ri32_ci10,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col11,col11,Co_mgkg,4.66e-09,Unknown,,medium,table_p4_ri32_ci11,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col12,col12,Co_mgkg,3.86e-09,Unknown,,medium,table_p4_ri32_ci12,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col13,col13,Co_mgkg,3.11e-09,Unknown,,medium,table_p4_ri32_ci13,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col2,col2,Cr_mgkg,0.0107,Unknown,,medium,table_p4_ri35_ci2,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col4,col4,Cr_mgkg,0.00317,Unknown,,medium,table_p4_ri35_ci4,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col5,col5,Cr_mgkg,0.00522,Unknown,,medium,table_p4_ri35_ci5,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col6,col6,Cr_mgkg,0.00333,Unknown,,medium,table_p4_ri35_ci6,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col7,col7,Cr_mgkg,0.00338,Unknown,,medium,table_p4_ri35_ci7,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col8,col8,Cr_mgkg,0.00292,Unknown,,medium,table_p4_ri35_ci8,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col10,col10,Cr_mgkg,0.00273,Unknown,,medium,table_p4_ri35_ci10,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col11,col11,Cr_mgkg,0.00511,Unknown,,medium,table_p4_ri35_ci11,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col13,col13,Cr_mgkg,0.00486,Unknown,,medium,table_p4_ri35_ci13,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col14,col14,Cr_mgkg,0.00758,Unknown,,medium,table_p4_ri35_ci14,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col15,col15,Cr_mgkg,0.00361,Unknown,,medium,table_p4_ri35_ci15,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col16,col16,Cr_mgkg,0.00277,Unknown,,medium,table_p4_ri35_ci16,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col2,col2,Ni_mgkg,8.91e-05,Unknown,,medium,table_p4_ri38_ci2,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col3,col3,Ni_mgkg,3.29e-05,Unknown,,medium,table_p4_ri38_ci3,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col4,col4,Ni_mgkg,3.39e-05,Unknown,,medium,table_p4_ri38_ci4,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col5,col5,Ni_mgkg,6.37e-05,Unknown,,medium,table_p4_ri38_ci5,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col6,col6,Ni_mgkg,2.94e-05,Unknown,,medium,table_p4_ri38_ci6,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col7,col7,Ni_mgkg,3.49e-05,Unknown,,medium,table_p4_ri38_ci7,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col8,col8,Ni_mgkg,2.3e-05,Unknown,,medium,table_p4_ri38_ci8,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col9,col9,Ni_mgkg,5.34e-05,Unknown,,medium,table_p4_ri38_ci9,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col11,col11,Ni_mgkg,3.12e-05,Unknown,,medium,table_p4_ri38_ci11,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col12,col12,Ni_mgkg,6.01e-05,Unknown,,medium,table_p4_ri38_ci12,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col13,col13,Ni_mgkg,3.08e-05,Unknown,,medium,table_p4_ri38_ci13,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col14,col14,Ni_mgkg,2.5e-05,Unknown,,medium,table_p4_ri38_ci14,Table 3 Average non-carcinogenic (HI) and carcinogenic (CR) risk values for PTE contamination of the rural soils.
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_RA,RA,Sum_PAH_ngg,481.83,Unknown,,high,table_p7_ri17_ci1,Table 5 Average concentrations of PAHs in the rural soils collected from Tianjin district (μg kg<sup>−1</sup> dw).
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_IA,IA,Sum_PAH_ngg,435.06,Unknown,,high,table_p7_ri17_ci2,Table 5 Average concentrations of PAHs in the rural soils collected from Tianjin district (μg kg<sup>−1</sup> dw).
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_RA,RA,Phe_ngg,0.14,Unknown,,high,table_p7_ri19_ci1,Table 5 Average concentrations of PAHs in the rural soils collected from Tianjin district (μg kg<sup>−1</sup> dw).
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_RA,RA,Ant_ngg,0.14,Unknown,,high,table_p7_ri19_ci1,Table 5 Average concentrations of PAHs in the rural soils collected from Tianjin district (μg kg<sup>−1</sup> dw).
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_IA,IA,Cr_mgkg,5.02e-08,Unknown,,medium,table_p8_ri11_ci2,"Average carcinogenic (CR) risk values for PAH contamination in the rural soils through ingestion, dermal contact and inhalation."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_FAA,FAA,Cr_mgkg,1.21e-07,Unknown,,medium,table_p8_ri11_ci3,"Average carcinogenic (CR) risk values for PAH contamination in the rural soils through ingestion, dermal contact and inhalation."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_FLA,FLA,Cr_mgkg,4.1e-08,Unknown,,medium,table_p8_ri11_ci4,"Average carcinogenic (CR) risk values for PAH contamination in the rural soils through ingestion, dermal contact and inhalation."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_FIA,FIA,Cr_mgkg,9.04e-08,Unknown,,medium,table_p8_ri11_ci5,"Average carcinogenic (CR) risk values for PAH contamination in the rural soils through ingestion, dermal contact and inhalation."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col6,col6,Cr_mgkg,3.92e-08,Unknown,,medium,table_p8_ri11_ci6,"Average carcinogenic (CR) risk values for PAH contamination in the rural soils through ingestion, dermal contact and inhalation."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col7,col7,Cr_mgkg,7.72e-08,Unknown,,medium,table_p8_ri11_ci7,"Average carcinogenic (CR) risk values for PAH contamination in the rural soils through ingestion, dermal contact and inhalation."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col8,col8,Cr_mgkg,2.85e-07,Unknown,,medium,table_p8_ri11_ci8,"Average carcinogenic (CR) risk values for PAH contamination in the rural soils through ingestion, dermal contact and inhalation."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col9,col9,Cr_mgkg,1.33e-07,Unknown,,medium,table_p8_ri11_ci9,"Average carcinogenic (CR) risk values for PAH contamination in the rural soils through ingestion, dermal contact and inhalation."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col10,col10,Cr_mgkg,1.91e-07,Unknown,,medium,table_p8_ri11_ci10,"Average carcinogenic (CR) risk values for PAH contamination in the rural soils through ingestion, dermal contact and inhalation."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col11,col11,Cr_mgkg,1.22e-07,Unknown,,medium,table_p8_ri11_ci11,"Average carcinogenic (CR) risk values for PAH contamination in the rural soils through ingestion, dermal contact and inhalation."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col12,col12,Cr_mgkg,4.64e-08,Unknown,,medium,table_p8_ri11_ci12,"Average carcinogenic (CR) risk values for PAH contamination in the rural soils through ingestion, dermal contact and inhalation."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_col13,col13,Cr_mgkg,2.72e-07,Unknown,,medium,table_p8_ri11_ci13,"Average carcinogenic (CR) risk values for PAH contamination in the rural soils through ingestion, dermal contact and inhalation."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_pH,pH,pH,1.0,Unknown,,high,table_p9_ri1_ci1,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_SOM,SOM,pH,0.26,Unknown,,high,table_p9_ri1_ci2,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_TN,TN,pH,0.129,Unknown,,high,table_p9_ri1_ci4,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_TP,TP,pH,0.225,Unknown,,high,table_p9_ri1_ci5,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_AN,AN,pH,0.13,Unknown,,high,table_p9_ri1_ci7,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_AP,AP,pH,-0.112,Unknown,,high,table_p9_ri1_ci8,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_AK,AK,pH,-0.237,Unknown,,high,table_p9_ri1_ci9,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Cd,Cd,pH,0.29,Unknown,,high,table_p9_ri1_ci11,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Co,Co,pH,-0.107,Unknown,,high,table_p9_ri1_ci12,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Cr,Cr,pH,-0.208,Unknown,,high,table_p9_ri1_ci13,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Ni,Ni,pH,-0.209,Unknown,,high,table_p9_ri1_ci15,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Pb,Pb,pH,0.151,Unknown,,high,table_p9_ri1_ci16,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Zn,Zn,pH,0.218,Unknown,,high,table_p9_ri1_ci17,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_ΣPAE,ΣPAE,pH,0.069,Unknown,,high,table_p9_ri1_ci18,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_ΣPAH,ΣPAH,pH,0.013,Unknown,,high,table_p9_ri1_ci19,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_CEC,CEC,CEC_cmolkg,1.0,Unknown,,high,table_p9_ri3_ci3,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_TN,TN,CEC_cmolkg,-0.22,Unknown,,high,table_p9_ri3_ci4,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_TP,TP,CEC_cmolkg,-0.302,Unknown,,high,table_p9_ri3_ci5,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_TK,TK,CEC_cmolkg,0.245,Unknown,,high,table_p9_ri3_ci6,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_AN,AN,CEC_cmolkg,-0.274,Unknown,,high,table_p9_ri3_ci7,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_AP,AP,CEC_cmolkg,-0.238,Unknown,,high,table_p9_ri3_ci8,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_AK,AK,CEC_cmolkg,0.212,Unknown,,high,table_p9_ri3_ci9,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_As,As,CEC_cmolkg,-0.057,Unknown,,high,table_p9_ri3_ci10,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Co,Co,CEC_cmolkg,0.282,Unknown,,high,table_p9_ri3_ci12,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Cr,Cr,CEC_cmolkg,0.279,Unknown,,high,table_p9_ri3_ci13,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Cu,Cu,CEC_cmolkg,-0.131,Unknown,,high,table_p9_ri3_ci14,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Ni,Ni,CEC_cmolkg,0.077,Unknown,,high,table_p9_ri3_ci15,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Zn,Zn,CEC_cmolkg,0.008,Unknown,,high,table_p9_ri3_ci17,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_ΣPAE,ΣPAE,CEC_cmolkg,0.274,Unknown,,high,table_p9_ri3_ci18,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_As,As,As_mgkg,1.0,Unknown,,high,table_p9_ri10_ci10,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Co,Co,As_mgkg,-0.219,Unknown,,high,table_p9_ri10_ci12,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Cr,Cr,As_mgkg,-0.138,Unknown,,high,table_p9_ri10_ci13,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Ni,Ni,As_mgkg,-0.295,Unknown,,high,table_p9_ri10_ci15,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_ΣPAE,ΣPAE,As_mgkg,0.098,Unknown,,high,table_p9_ri10_ci18,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_ΣPAH,ΣPAH,As_mgkg,-0.19,Unknown,,high,table_p9_ri10_ci19,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Cd,Cd,Cd_mgkg,1.0,Unknown,,high,table_p9_ri11_ci11,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Co,Co,Cd_mgkg,-0.267,Unknown,,high,table_p9_ri11_ci12,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Cr,Cr,Cd_mgkg,-0.313,Unknown,,high,table_p9_ri11_ci13,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Ni,Ni,Cd_mgkg,-0.226,Unknown,,high,table_p9_ri11_ci15,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_ΣPAE,ΣPAE,Cd_mgkg,-0.066,Unknown,,high,table_p9_ri11_ci18,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Co,Co,Co_mgkg,1.0,Unknown,,high,table_p9_ri12_ci12,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Cu,Cu,Co_mgkg,0.135,Unknown,,high,table_p9_ri12_ci14,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Pb,Pb,Co_mgkg,0.053,Unknown,,high,table_p9_ri12_ci16,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Zn,Zn,Co_mgkg,-0.216,Unknown,,high,table_p9_ri12_ci17,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_ΣPAE,ΣPAE,Co_mgkg,-0.132,Unknown,,high,table_p9_ri12_ci18,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Cr,Cr,Cr_mgkg,1.0,Unknown,,high,table_p9_ri13_ci13,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Cu,Cu,Cr_mgkg,0.112,Unknown,,high,table_p9_ri13_ci14,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Pb,Pb,Cr_mgkg,0.083,Unknown,,high,table_p9_ri13_ci16,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Zn,Zn,Cr_mgkg,-0.072,Unknown,,high,table_p9_ri13_ci17,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_ΣPAE,ΣPAE,Cr_mgkg,-0.147,Unknown,,high,table_p9_ri13_ci18,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Cu,Cu,Cu_mgkg,1.0,Unknown,,high,table_p9_ri14_ci14,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Ni,Ni,Cu_mgkg,-0.027,Unknown,,high,table_p9_ri14_ci15,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_ΣPAE,ΣPAE,Cu_mgkg,0.136,Unknown,,high,table_p9_ri14_ci18,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_ΣPAH,ΣPAH,Cu_mgkg,0.084,Unknown,,high,table_p9_ri14_ci19,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Ni,Ni,Ni_mgkg,1.0,Unknown,,high,table_p9_ri15_ci15,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Pb,Pb,Ni_mgkg,-0.106,Unknown,,high,table_p9_ri15_ci16,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Zn,Zn,Ni_mgkg,-0.215,Unknown,,high,table_p9_ri15_ci17,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_ΣPAE,ΣPAE,Ni_mgkg,-0.164,Unknown,,high,table_p9_ri15_ci18,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_Pb,Pb,Pb_mgkg,1.0,Unknown,,high,table_p9_ri16_ci16,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_ΣPAE,ΣPAE,Pb_mgkg,0.212,Unknown,,high,table_p9_ri16_ci18,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_ΣPAH,ΣPAH,Pb_mgkg,-0.309,Unknown,,high,table_p9_ri16_ci19,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_ΣPAE,ΣPAE,Zn_mgkg,-0.0461,Unknown,,high,table_p9_ri17_ci18,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_ΣPAH,ΣPAH,Zn_mgkg,-0.067,Unknown,,high,table_p9_ri17_ci19,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_ΣPAH,ΣPAH,Sum_PAH_ngg,1.0,Unknown,,high,table_p9_ri18_ci19,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."
+_dup_j.scitotenv.2018.02.212,_dup_j.scitotenv.2018.02.212_ΣPAH,ΣPAH,SumPAE_ngg,1.0,Unknown,,high,table_p9_ri18_ci19,"Spearman correlation matrix between soil PTEs, PA
+Es and PAHs and soil physicochemical properties."

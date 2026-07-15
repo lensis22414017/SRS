@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05240,,,,,,soil,agricultural,Beijing,"skip: 论文无任何数值表格，全部浓度数据仅在图(FIGURE1-5)中以柱状图/折线图呈现；正文明确声明3个钻孔数据取平均值呈现(average of three profiles)；正文数值均为范围值(12.44-206.75 ug/kg)或均值(Flu均值40.14 ug/kg、7种致癌PAHs均值103.4 ug/kg)，均为统计汇总非采样点级数据；3个钻孔未提供独立标识符；地下水数据(ZSJ-1/ZSJ-2)为water matrix排除"

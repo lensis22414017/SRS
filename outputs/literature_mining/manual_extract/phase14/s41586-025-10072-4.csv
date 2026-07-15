@@ -1,0 +1,10 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+s41586-025-10072-4,s41586-025-10072-4_Size,Size,Al_mgkg,208.0,Unknown,,high,table_p18_ri1_ci3,Extended Data Table 1 | Overview of ScholarQABench datasets and evaluation protocols
+s41586-025-10072-4,s41586-025-10072-4_Avg._|x|,Avg. |x|,Al_mgkg,12.4,Unknown,,high,table_p18_ri1_ci5,Extended Data Table 1 | Overview of ScholarQABench datasets and evaluation protocols
+s41586-025-10072-4,s41586-025-10072-4_Avg._|y|,Avg. |y|,Al_mgkg,1.0,Unknown,,high,table_p18_ri1_ci6,Extended Data Table 1 | Overview of ScholarQABench datasets and evaluation protocols
+s41586-025-10072-4,s41586-025-10072-4_Size,Size,Al_mgkg,843.0,Unknown,,high,table_p18_ri2_ci3,Extended Data Table 1 | Overview of ScholarQABench datasets and evaluation protocols
+s41586-025-10072-4,s41586-025-10072-4_Avg._|x|,Avg. |x|,Al_mgkg,12.8,Unknown,,high,table_p18_ri2_ci5,Extended Data Table 1 | Overview of ScholarQABench datasets and evaluation protocols
+s41586-025-10072-4,s41586-025-10072-4_Avg._|y|,Avg. |y|,Al_mgkg,1.0,Unknown,,high,table_p18_ri2_ci6,Extended Data Table 1 | Overview of ScholarQABench datasets and evaluation protocols
+s41586-025-10072-4,s41586-025-10072-4_Size,Size,Al_mgkg,1375.0,Unknown,,high,table_p18_ri3_ci3,Extended Data Table 1 | Overview of ScholarQABench datasets and evaluation protocols
+s41586-025-10072-4,s41586-025-10072-4_Avg._|x|,Avg. |x|,Al_mgkg,14.2,Unknown,,high,table_p18_ri3_ci5,Extended Data Table 1 | Overview of ScholarQABench datasets and evaluation protocols
+s41586-025-10072-4,s41586-025-10072-4_Avg._|y|,Avg. |y|,Al_mgkg,31.3,Unknown,,high,table_p18_ri3_ci6,Extended Data Table 1 | Overview of ScholarQABench datasets and evaluation protocols

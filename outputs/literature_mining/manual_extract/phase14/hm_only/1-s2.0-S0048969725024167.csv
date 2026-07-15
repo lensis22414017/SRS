@@ -1,0 +1,9 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+1-s2.0-S0048969725024167,1-s2.0-S0048969725024167_Var,Var,Pb_mgkg,1.048,Unknown,,high,table_p2_ri2_ci6,Descriptive statistics for BCF in rice grains and the corresponding soil physiochemical properties.,,,,,,phase14
+1-s2.0-S0048969725024167,1-s2.0-S0048969725024167_Skew,Skew,Pb_mgkg,0.217,Unknown,,high,table_p2_ri2_ci7,Descriptive statistics for BCF in rice grains and the corresponding soil physiochemical properties.,,,,,,phase14
+1-s2.0-S0048969725024167,1-s2.0-S0048969725024167_Var,Var,Cu_mgkg,1.155,Unknown,,high,table_p2_ri3_ci6,Descriptive statistics for BCF in rice grains and the corresponding soil physiochemical properties.,,,,,,phase14
+1-s2.0-S0048969725024167,1-s2.0-S0048969725024167_Skew,Skew,Cu_mgkg,0.676,Unknown,,high,table_p2_ri3_ci7,Descriptive statistics for BCF in rice grains and the corresponding soil physiochemical properties.,,,,,,phase14
+1-s2.0-S0048969725024167,1-s2.0-S0048969725024167_Var,Var,Zn_mgkg,0.911,Unknown,,high,table_p2_ri4_ci6,Descriptive statistics for BCF in rice grains and the corresponding soil physiochemical properties.,,,,,,phase14
+1-s2.0-S0048969725024167,1-s2.0-S0048969725024167_Skew,Skew,Zn_mgkg,0.325,Unknown,,high,table_p2_ri4_ci7,Descriptive statistics for BCF in rice grains and the corresponding soil physiochemical properties.,,,,,,phase14
+1-s2.0-S0048969725024167,1-s2.0-S0048969725024167_Var,Var,Ni_mgkg,2.679,Unknown,,high,table_p2_ri5_ci6,Descriptive statistics for BCF in rice grains and the corresponding soil physiochemical properties.,,,,,,phase14
+1-s2.0-S0048969725024167,1-s2.0-S0048969725024167_Skew,Skew,Ni_mgkg,7.51,Unknown,,high,table_p2_ri5_ci7,Descriptive statistics for BCF in rice grains and the corresponding soil physiochemical properties.,,,,,,phase14

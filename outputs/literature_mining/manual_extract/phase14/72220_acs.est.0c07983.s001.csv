@@ -1,0 +1,12 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+72220_acs.est.0c07983.s001,72220_acs.est.0c07983.s001_PX,PX,EC_mScm,10.0,Unknown,,high,table_p8_ri2_ci4,Table S4.Detailed composition and number density of particle classin each sample.
+72220_acs.est.0c07983.s001,72220_acs.est.0c07983.s001_BPIP,BPIP,EC_mScm,0.8,Unknown,,high,table_p8_ri2_ci5,Table S4.Detailed composition and number density of particle classin each sample.
+72220_acs.est.0c07983.s001,72220_acs.est.0c07983.s001_Particle,Particle,EC_mScm,19.0,Unknown,,high,table_p8_ri3_ci1,Table S4.Detailed composition and number density of particle classin each sample.
+72220_acs.est.0c07983.s001,72220_acs.est.0c07983.s001_JY,JY,EC_mScm,1.6,Unknown,,high,table_p8_ri3_ci2,Table S4.Detailed composition and number density of particle classin each sample.
+72220_acs.est.0c07983.s001,72220_acs.est.0c07983.s001_SPS,SPS,EC_mScm,131.0,Unknown,,high,table_p8_ri3_ci3,Table S4.Detailed composition and number density of particle classin each sample.
+72220_acs.est.0c07983.s001,72220_acs.est.0c07983.s001_PX,PX,EC_mScm,10.6,Unknown,,high,table_p8_ri3_ci4,Table S4.Detailed composition and number density of particle classin each sample.
+72220_acs.est.0c07983.s001,72220_acs.est.0c07983.s001_BPIP,BPIP,EC_mScm,41.0,Unknown,,high,table_p8_ri3_ci5,Table S4.Detailed composition and number density of particle classin each sample.
+72220_acs.est.0c07983.s001,72220_acs.est.0c07983.s001_PP,PP,EC_mScm,4.0,Unknown,,high,table_p8_ri3_ci6,Table S4.Detailed composition and number density of particle classin each sample.
+72220_acs.est.0c07983.s001,72220_acs.est.0c07983.s001_PX,PX,Sum_PAH_ngg,65.0,Unknown,,high,table_p8_ri21_ci4,Table S4.Detailed composition and number density of particle classin each sample.
+72220_acs.est.0c07983.s001,72220_acs.est.0c07983.s001_BPIP,BPIP,Sum_PAH_ngg,5.3,Unknown,,high,table_p8_ri21_ci5,Table S4.Detailed composition and number density of particle classin each sample.
+72220_acs.est.0c07983.s001,72220_acs.est.0c07983.s001_PP,PP,Sum_PAH_ngg,2.0,Unknown,,high,table_p8_ri21_ci6,Table S4.Detailed composition and number density of particle classin each sample.

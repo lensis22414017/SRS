@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11241,,NOTE:采样点级数据在Table S1(Supplementary),正文仅min-max范围无采样点级数值,0,,,soil,urban park,北京,"MinerU仅解析正文未含SI的Table S1,121采样点HM(CrCuPbZnCd)+16PAHs单体数据不可获取"

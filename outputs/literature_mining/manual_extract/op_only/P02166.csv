@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02166,NOTES,skip,"pollutant type mismatch + no sample-level data","8种新型农药(Carbendazim/Thiamethoxam/Atrazine/Tricyclazole/Propiconazole/Azoxystrobin/Metolachlor/Diniconazole)不属于任务要求的任何OP类别(PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAEs/OCP); Table2土壤数据仅有四季Mean±SD和Range统计汇总, SP1-SP13各点数值仅在Fig1图形中呈现无法读取","soil data=Table2(stat only), water=Table1",soil,agricultural,Hebei,"skip: 1)污染物类型完全不匹配(新型农药非传统OP); 2)Table2仅季节性Mean/SD/Range无采样点级数据; 3)个体采样点值仅在Fig1图形中无法精确提取"

@@ -1,0 +1,39 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06860,YM,SumPCB_ngg,2.00,ng/g,Table 1,soil,e_waste,Zhejiang,"sum19PCB (12 co-planar+6 indicator+CB-209) directly read from Table 1 soil column; YM row has paired values (possibly duplicate OCR), first value used"
+P06860,YM,SumPBDE_ngg,0.51,ng/g,Table 1,soil,e_waste,Zhejiang,"sum13PBDEs (excl BDE-209) directly read from Table 1 soil column; YM paired values first value used"
+P06860,XQ,SumPCB_ngg,0.43,ng/g,Table 1,soil,e_waste,Zhejiang,"sum19PCB directly read from Table 1; XQ=soil PCB min matching text range 0.43-21.3"
+P06860,XQ,SumPBDE_ngg,0.09,ng/g,Table 1,soil,e_waste,Zhejiang,"sum13PBDEs (excl BDE-209) directly read from Table 1; XQ=soil PBDE min matching text range 0.09-2.49"
+P06860,GQ,SumPCB_ngg,0.57,ng/g,Table 1,soil,e_waste,Zhejiang,sum19PCB directly read from Table 1 soil column
+P06860,GQ,SumPBDE_ngg,0.16,ng/g,Table 1,soil,e_waste,Zhejiang,"sum13PBDEs (excl BDE-209) directly read from Table 1 soil column"
+P06860,SB,SumPCB_ngg,0.88,ng/g,Table 1,soil,e_waste,Zhejiang,sum19PCB directly read from Table 1 soil column
+P06860,SB,SumPBDE_ngg,0.20,ng/g,Table 1,soil,e_waste,Zhejiang,"sum13PBDEs (excl BDE-209) directly read from Table 1 soil column"
+P06860,YQ,SumPCB_ngg,2.51,ng/g,Table 1,soil,e_waste,Zhejiang,sum19PCB directly read from Table 1 soil column
+P06860,YQ,SumPBDE_ngg,0.50,ng/g,Table 1,soil,e_waste,Zhejiang,"sum13PBDEs (excl BDE-209) directly read from Table 1 soil column"
+P06860,ToY,SumPCB_ngg,1.53,ng/g,Table 1,soil,e_waste,Zhejiang,sum19PCB directly read from Table 1 soil column
+P06860,ToY,SumPBDE_ngg,0.64,ng/g,Table 1,soil,e_waste,Zhejiang,"sum13PBDEs (excl BDE-209) directly read from Table 1 soil column"
+P06860,LY,SumPCB_ngg,1.15,ng/g,Table 1,soil,e_waste,Zhejiang,sum19PCB directly read from Table 1 soil column
+P06860,LY,SumPBDE_ngg,0.23,ng/g,Table 1,soil,e_waste,Zhejiang,"sum13PBDEs (excl BDE-209) directly read from Table 1 soil column"
+P06860,BFA,SumPCB_ngg,14.1,ng/g,Table 1,soil,e_waste,Zhejiang,"sum19PCB directly read from Table 1; BFA=typical E-waste dismantling site (site 9)"
+P06860,BFA,SumPBDE_ngg,0.81,ng/g,Table 1,soil,e_waste,Zhejiang,"sum13PBDEs (excl BDE-209) directly read from Table 1 soil column"
+P06860,TiY,SumPCB_ngg,14.3,ng/g,Table 1,soil,e_waste,Zhejiang,"sum19PCB directly read from Table 1; TiY=typical E-waste dismantling site (site 10)"
+P06860,TiY,SumPBDE_ngg,1.15,ng/g,Table 1,soil,e_waste,Zhejiang,"sum13PBDEs (excl BDE-209) directly read from Table 1 soil column"
+P06860,FJ,SumPCB_ngg,21.3,ng/g,Table 1,soil,e_waste,Zhejiang,"sum19PCB directly read from Table 1; FJ=soil PCB max matching text range 0.43-21.3"
+P06860,FJ,SumPBDE_ngg,2.49,ng/g,Table 1,soil,e_waste,Zhejiang,"sum13PBDEs (excl BDE-209) directly read from Table 1; FJ=soil PBDE max matching text range 0.09-2.49"
+P06860,ZG,SumPCB_ngg,4.31,ng/g,Table 1,soil,e_waste,Zhejiang,sum19PCB directly read from Table 1 soil column
+P06860,ZG,SumPBDE_ngg,1.09,ng/g,Table 1,soil,e_waste,Zhejiang,"sum13PBDEs (excl BDE-209) directly read from Table 1 soil column"
+P06860,HoJ,SumPCB_ngg,2.12,ng/g,Table 1,soil,e_waste,Zhejiang,sum19PCB directly read from Table 1 soil column
+P06860,HoJ,SumPBDE_ngg,0.46,ng/g,Table 1,soil,e_waste,Zhejiang,"sum13PBDEs (excl BDE-209) directly read from Table 1 soil column"
+P06860,JJ,SumPCB_ngg,1.61,ng/g,Table 1,soil,e_waste,Zhejiang,sum19PCB directly read from Table 1 soil column
+P06860,JJ,SumPBDE_ngg,0.36,ng/g,Table 1,soil,e_waste,Zhejiang,"sum13PBDEs (excl BDE-209) directly read from Table 1 soil column"
+P06860,SJ,SumPCB_ngg,1.05,ng/g,Table 1,soil,e_waste,Zhejiang,sum19PCB directly read from Table 1 soil column
+P06860,SJ,SumPBDE_ngg,0.27,ng/g,Table 1,soil,e_waste,Zhejiang,"sum13PBDEs (excl BDE-209) directly read from Table 1 soil column"
+P06860,XC1,SumPCB_ngg,2.64,ng/g,Table 1,soil,e_waste,Zhejiang,sum19PCB directly read from Table 1 soil column
+P06860,XC1,SumPBDE_ngg,0.24,ng/g,Table 1,soil,e_waste,Zhejiang,"sum13PBDEs (excl BDE-209) directly read from Table 1 soil column"
+P06860,XC2,SumPCB_ngg,1.01,ng/g,Table 1,soil,e_waste,Zhejiang,sum19PCB directly read from Table 1 soil column
+P06860,XC2,SumPBDE_ngg,0.24,ng/g,Table 1,soil,e_waste,Zhejiang,"sum13PBDEs (excl BDE-209) directly read from Table 1 soil column"
+P06860,PJ,SumPCB_ngg,2.24,ng/g,Table 1,soil,e_waste,Zhejiang,sum19PCB directly read from Table 1 soil column
+P06860,PJ,SumPBDE_ngg,0.63,ng/g,Table 1,soil,e_waste,Zhejiang,"sum13PBDEs (excl BDE-209) directly read from Table 1 soil column"
+P06860,HeJ,SumPCB_ngg,10.9,ng/g,Table 1,soil,e_waste,Zhejiang,"sum19PCB directly read from Table 1; HeJ paired with JQ in same row"
+P06860,HeJ,SumPBDE_ngg,0.75,ng/g,Table 1,soil,e_waste,Zhejiang,"sum13PBDEs (excl BDE-209) directly read from Table 1; HeJ paired with JQ in same row"
+P06860,JQ,SumPCB_ngg,0.83,ng/g,Table 1,soil,e_waste,Zhejiang,"sum19PCB directly read from Table 1; JQ paired with HeJ in same row"
+P06860,JQ,SumPBDE_ngg,0.19,ng/g,Table 1,soil,e_waste,Zhejiang,"sum13PBDEs (excl BDE-209) directly read from Table 1; JQ paired with HeJ in same row"

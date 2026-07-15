@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10893,,,,,,,,"skip: paper.md truncated (only abstract+intro, 4429 bytes, no tables/results). Paper studies 18 methylated PAHs (MPAHs) not 16 EPA PAHs; only range summary (5.5-696.2 ng/g) available, no sample-level data. No PDF found on disk for full re-parse."

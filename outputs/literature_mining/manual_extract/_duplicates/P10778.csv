@@ -1,0 +1,29 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10778,S1,TotalPHC_mgkg,37000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH gravimetric mean of triplicate (3.7±0.7)e4 mg/kg dm
+P10778,S1,Sum_PAH_ngg,1300,ng/g,Table 1,soil,petrochemical,Tianjin,16 EPA PAHs sum GC/MS mean of triplicate (1.3±0.05)e3 ug/kg dm
+P10778,S2,TotalPHC_mgkg,33000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH gravimetric mean of triplicate (3.3±0.7)e4 mg/kg dm
+P10778,S2,Sum_PAH_ngg,400,ng/g,Table 1,soil,petrochemical,Tianjin,16 EPA PAHs sum GC/MS mean of triplicate (4.0±0.3)e2 ug/kg dm
+P10778,S3,TotalPHC_mgkg,22000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH gravimetric mean of triplicate (2.2±0.6)e4 mg/kg dm
+P10778,S3,Sum_PAH_ngg,430,ng/g,Table 1,soil,petrochemical,Tianjin,16 EPA PAHs sum GC/MS mean of triplicate (4.3±0.2)e2 ug/kg dm
+P10778,S4,TotalPHC_mgkg,20000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH gravimetric mean of triplicate (2.0±0.5)e4 mg/kg dm
+P10778,S4,Sum_PAH_ngg,400,ng/g,Table 1,soil,petrochemical,Tianjin,16 EPA PAHs sum GC/MS mean of triplicate (4.0±0.7)e2 ug/kg dm
+P10778,S5,TotalPHC_mgkg,21000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH gravimetric mean of triplicate (2.1±0.2)e4 mg/kg dm
+P10778,S5,Sum_PAH_ngg,170,ng/g,Table 1,soil,petrochemical,Tianjin,16 EPA PAHs sum GC/MS mean of triplicate (1.7±0.1)e2 ug/kg dm
+P10778,S6,TotalPHC_mgkg,13000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH gravimetric mean of triplicate (1.3±0.3)e4 mg/kg dm
+P10778,S6,Sum_PAH_ngg,460,ng/g,Table 1,soil,petrochemical,Tianjin,16 EPA PAHs sum GC/MS mean of triplicate (4.6±0.4)e2 ug/kg dm
+P10778,S7,TotalPHC_mgkg,21000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH gravimetric mean of triplicate (2.1±0.5)e4 mg/kg dm
+P10778,S7,Sum_PAH_ngg,270,ng/g,Table 1,soil,petrochemical,Tianjin,16 EPA PAHs sum GC/MS mean of triplicate (2.7±0.3)e2 ug/kg dm
+P10778,S8,TotalPHC_mgkg,34000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH gravimetric mean of triplicate (3.4±0.5)e4 mg/kg dm
+P10778,S8,Sum_PAH_ngg,190,ng/g,Table 1,soil,petrochemical,Tianjin,16 EPA PAHs sum GC/MS mean of triplicate (1.9±0.2)e2 ug/kg dm
+P10778,S9,TotalPHC_mgkg,18000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH gravimetric mean of triplicate (1.8±0.2)e4 mg/kg dm
+P10778,S9,Sum_PAH_ngg,370,ng/g,Table 1,soil,petrochemical,Tianjin,16 EPA PAHs sum GC/MS mean of triplicate (3.7±0.1)e2 ug/kg dm
+P10778,S10,TotalPHC_mgkg,23000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH gravimetric mean of triplicate (2.3±0.4)e4 mg/kg dm
+P10778,S10,Sum_PAH_ngg,320,ng/g,Table 1,soil,petrochemical,Tianjin,16 EPA PAHs sum GC/MS mean of triplicate (3.2±0.3)e2 ug/kg dm
+P10778,S11,TotalPHC_mgkg,22000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH gravimetric mean of triplicate (2.2±0.1)e4 mg/kg dm
+P10778,S11,Sum_PAH_ngg,2800,ng/g,Table 1,soil,petrochemical,Tianjin,16 EPA PAHs sum GC/MS mean of triplicate (2.8±0.3)e3 ug/kg dm; exponent 3 confirmed from text range
+P10778,S12,TotalPHC_mgkg,23000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH gravimetric mean of triplicate (2.3±0.2)e4 mg/kg dm
+P10778,S12,Sum_PAH_ngg,180,ng/g,Table 1,soil,petrochemical,Tianjin,16 EPA PAHs sum GC/MS mean of triplicate (1.8±0.2)e2 ug/kg dm
+P10778,S13,TotalPHC_mgkg,22000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH gravimetric mean of triplicate (2.2±0.3)e4 mg/kg dm
+P10778,S13,Sum_PAH_ngg,710,ng/g,Table 1,soil,petrochemical,Tianjin,16 EPA PAHs sum GC/MS mean of triplicate (7.1±0.5)e2 ug/kg dm
+P10778,S14,TotalPHC_mgkg,20000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH gravimetric mean of triplicate (2.0±0.5)e4 mg/kg dm
+P10778,S14,Sum_PAH_ngg,280,ng/g,Table 1,soil,petrochemical,Tianjin,16 EPA PAHs sum GC/MS mean of triplicate (2.8±0.7)e2 ug/kg dm; exponent 2 deduced from Nap+Phe+Pyr=156ug/kg at 55.7 percent

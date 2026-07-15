@@ -1,0 +1,9 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P01976,A,SumHCH_ngg,3.6,ng/g,Table 2,soil,agricultural,Tianjin,bulk soil site A total HCHs direct read (mean of 2 composite samples),39.09028,116.93472
+P01976,A,SumDDT_ngg,80,ng/g,Table 2,soil,agricultural,Tianjin,bulk soil site A total DDXs direct read (mean of 2 composite samples),39.09028,116.93472
+P01976,B,SumHCH_ngg,102,ng/g,Table 2,soil,agricultural,Tianjin,bulk soil site B total HCHs direct read (mean of 2 composite samples),39.04833,117.14333
+P01976,B,SumDDT_ngg,235,ng/g,Table 2,soil,agricultural,Tianjin,bulk soil site B total DDXs direct read (mean of 2 composite samples),39.04833,117.14333
+P01976,A_rhiz,SumHCH_ngg,7.0,ng/g,Table 2,soil,agricultural,Tianjin,rhizosphere soil site A total HCHs mean across 8 vegetable species,39.09028,116.93472
+P01976,A_rhiz,SumDDT_ngg,83,ng/g,Table 2,soil,agricultural,Tianjin,rhizosphere soil site A total DDXs mean across 8 vegetable species,39.09028,116.93472
+P01976,B_rhiz,SumHCH_ngg,19,ng/g,Table 2,soil,agricultural,Tianjin,rhizosphere soil site B total HCHs mean across 8 vegetable species,39.04833,117.14333
+P01976,B_rhiz,SumDDT_ngg,109,ng/g,Table 2,soil,agricultural,Tianjin,rhizosphere soil site B total DDXs mean across 8 vegetable species,39.04833,117.14333

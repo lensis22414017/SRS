@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00589,field_soil,Sum_PAH_ngg,12400,ng/g,Section 2.1,soil,agricultural,Jiangsu,"Pre-remediation baseline of field soil; paper reports total 16 USEPA PAHs = 12.4 mg/kg dry soil; converted x1000 to ng/g; pot experiment paper but baseline is field soil characterization"
+P00589,field_soil,BaP_ngg,1176,ng/g,Section 2.1,soil,agricultural,Jiangsu,"Pre-remediation baseline of field soil; paper reports BaP = 1176±9 ug/kg = ng/g; pot experiment paper but baseline is field soil characterization"

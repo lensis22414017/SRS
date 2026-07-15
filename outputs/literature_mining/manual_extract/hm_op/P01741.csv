@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01741,,,,,,soil/sediment,e_waste,Guangdong,"skip: paper.md无HTML表; SI mmc1.docx Table S2(HM,37行)和Table S3(HFRs,28行)均为site-level Min/Max/Mean统计汇总(Burnt/Farmland/Stream site各3列统计量),非采样点级(site×depth)原始数据; Table S4虽有sample×depth标识但仅为微生物Chao1/Simpson/Shannon alpha diversity非HM/OP浓度; 论文Fig.1深度剖面图为图非可追溯表格; OP仅测PBDEs+AHFRs(无PAH/PCB/DDT/HCH/PHC),概念上属HM+OP复合但无可提取采样点级数值"

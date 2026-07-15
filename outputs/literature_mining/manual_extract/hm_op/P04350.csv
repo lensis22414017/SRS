@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04350,,,,,,,soil,mining,Shanxi,"skip: Table 1 仅提供按场地类型分组的 Mean±SD (CM n=11/CP n=6/CC n=4/CFP n=5/FS n=3/PS n=3) 统计汇总，无采样点级 (S1/S2/具体点位) 重金属浓度数据；论文焦点为微生物群落分析非浓度报告；无任何 OP (PAH/PCB/DDT/HCH/PBDE/PHC) 数据；Study Area 列和 Background Value 列为区域汇总/背景值，Risk Screening Values 为 GB15618 阈值，均须剔除"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10733,,,,,,soil,e_waste,Zhejiang,"skip: 仅区域级统计汇总无采样点级数据; Table 1按Abandoned site(厂区内16采样点)和Nearby abandoned area(周围32采样点)两个区域分组仅给Mean/SD/Max/Min/Skewness/Kurtosis六行统计量,无S1/A/B等单点原始浓度; Table 2为Nemerow指数(风险指数铁律5剔除); Table 3为Pearson相关矩阵; 论文测定7 HM(Pb/Cd/Cr/Zn/As/Hg/Cu,mg/kg)+5类PCB同系物(Tri/Tetra/Penta/Hexa/Hepta-PCB,mg/kg)但仅两组区域汇总; 补充材料Fig.S1(采样点图)/Fig.S2(PCA)/Table S1(毒性相关)均不含采样点级浓度; 正文3.1段亦只引用区域Mean值"

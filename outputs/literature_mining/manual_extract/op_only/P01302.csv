@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01302,,,,,,,,,"skip: Paper studies 18 methylated PAHs (MPAHs) not standard 16 EPA PAHs. Only 6 of 16 EPA PAH monomers measured (NAP/FLU/PHE/ANT/FLT/PYR) and only as statistical summaries (Mean/Median/Min/Max) in Table 1 across 243 samples. Cannot compute Sum_PAH_ngg (missing 10 of 16 monomers). No BaP/PCB/DDT/HCH/PBDE/PHC data. Site-level values in text (Z41-Z63) are for M-NAPs (methylated) not EPA PAHs."

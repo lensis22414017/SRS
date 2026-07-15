@@ -1,0 +1,24 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00289,Duck pond A,Sum_PAH_ngg,514,ng/g,Table 2,sediment,e_waste,Guangdong,Table 2 ∑16PAHs行直接读取
+P00289,Duck pond A,BaP_ngg,14.4,ng/g,Table 2,sediment,e_waste,Guangdong,Table 2 Benzo(a)pyrene行直接读取
+P00289,Duck pond A,SumPCB_ngg,5.3,ng/g,Table 4,sediment,e_waste,Guangdong,Table 4 Total PCBs行直接读取
+P00289,Duck pond B,Sum_PAH_ngg,308,ng/g,Table 2,sediment,e_waste,Guangdong,Table 2 ∑16PAHs行直接读取
+P00289,Duck pond B,BaP_ngg,12.8,ng/g,Table 2,sediment,e_waste,Guangdong,Table 2 Benzo(a)pyrene行直接读取
+P00289,Duck pond B,SumPCB_ngg,4.7,ng/g,Table 4,sediment,e_waste,Guangdong,Table 4 Total PCBs行直接读取
+P00289,River-1,Sum_PAH_ngg,98.2,ng/g,Table 2,sediment,e_waste,Guangdong,Table 2 ∑16PAHs行直接读取
+P00289,River-1,BaP_ngg,1.5,ng/g,Table 2,sediment,e_waste,Guangdong,Table 2 Benzo(a)pyrene行直接读取
+P00289,River-1,SumPCB_ngg,14.1,ng/g,Table 4,sediment,e_waste,Guangdong,Table 4 Total PCBs行直接读取
+P00289,River-2,Sum_PAH_ngg,352,ng/g,Table 2,sediment,e_waste,Guangdong,Table 2 ∑16PAHs行直接读取
+P00289,River-2,BaP_ngg,17.5,ng/g,Table 2,sediment,e_waste,Guangdong,Table 2 Benzo(a)pyrene行直接读取
+P00289,River-2,SumPCB_ngg,743,ng/g,Table 4,sediment,e_waste,Guangdong,Table 4 Total PCBs行直接读取;正文confirmed 743ug/kg
+P00289,River-2,SumPBDE_ngg,32.3,ng/g,Table 5,sediment,e_waste,Guangdong,Table 5 Total mono-hepta PBDEs行直接读取
+P00289,River-3,Sum_PAH_ngg,180,ng/g,Table 2,sediment,e_waste,Guangdong,Table 2 ∑16PAHs行直接读取
+P00289,Reservoir,Sum_PAH_ngg,240,ng/g,Table 2,sediment,e_waste,Guangdong,Table 2 ∑16PAHs行直接读取
+P00289,Burnt plastic dump site,Sum_PAH_ngg,428,ng/g,Table 3,soil,e_waste,Guangdong,Table 3 ∑16PAHs行直接读取
+P00289,Burnt plastic dump site,BaP_ngg,22.7,ng/g,Table 3,soil,e_waste,Guangdong,Table 3 Benzo(a)pyrene行直接读取
+P00289,Burnt plastic dump site,SumPCB_ngg,22.7,ng/g,Table 4,soil,e_waste,Guangdong,Table 4 Total PCBs行直接读取
+P00289,Burnt plastic dump site,SumPBDE_ngg,1140,ng/g,Table 5,soil,e_waste,Guangdong,Table 5 Total mono-hepta PBDEs行直接读取
+P00289,Printer roller dump site,Sum_PAH_ngg,593,ng/g,Table 3,soil,e_waste,Guangdong,Table 3 ∑16PAHs行直接读取
+P00289,Printer roller dump site,SumPCB_ngg,102,ng/g,Table 4,soil,e_waste,Guangdong,Table 4 Total PCBs行直接读取;正文confirmed 102ug/kg
+P00289,Printer roller dump site,SumPBDE_ngg,1169,ng/g,Table 5,soil,e_waste,Guangdong,Table 5 Total mono-hepta PBDEs行直接读取
+P00289,Reservoir,Sum_PAH_ngg,93.7,ng/g,Table 3,soil,e_waste,Guangdong,Table 3 ∑16PAHs行直接读取

@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01244,S13,Cu_mgkg,10228,mg/kg,正文3.1.1段,soil,industrial,Guangdong,表层0-0.5m Cu峰值 正文明确 highest Cu=10228 at S13
+P01244,S16,Cu_mgkg,7357,mg/kg,正文3.1.1段,soil,industrial,Guangdong,表层0-0.5m Cu次峰 正文明确 7357 at S16
+P01244,S25,Pb_mgkg,859,mg/kg,正文3.1.1段,soil,industrial,Guangdong,1-3m深度Pb峰值 正文明确 peak Pb=859 at S25 1-3m depth
+P01244,S20,Zn_mgkg,2591,mg/kg,正文3.1.1段,soil,industrial,Guangdong,3-5m深度Zn峰值 正文明确 highest Zn=2591 at S20 3-5m depth

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05249,,,,,,,,"skip: 论文仅有56个采样点的统计汇总(Mean/Min/Max/SD/Median/DR%)，无逐采样点级PAH浓度数据；Table 1为单体PAH统计行，正文仅提及最高值4110和1610 ng/g但无对应sample_id；Figure 2为GIS插值图非原始数值"

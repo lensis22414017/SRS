@@ -1,0 +1,19 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00611,S1,Cd_mgkg,0.81,mg/kg,Table 1 row(1),sediment,urban,Guangdong,site S1 平均浓度(3副样均值); 深圳河罗湖口岸上游 114.1140E 22.5302N
+P00611,S1,Cr_mgkg,129,mg/kg,Table 1 row(1),sediment,urban,Guangdong,site S1 平均浓度(3副样均值); 深圳河罗湖口岸上游 114.1140E 22.5302N
+P00611,S1,Cu_mgkg,162,mg/kg,Table 1 row(1),sediment,urban,Guangdong,site S1 平均浓度(3副样均值); 深圳河罗湖口岸上游 114.1140E 22.5302N
+P00611,S1,Ni_mgkg,107,mg/kg,Table 1 row(1),sediment,urban,Guangdong,site S1 平均浓度(3副样均值); 深圳河罗湖口岸上游 114.1140E 22.5302N
+P00611,S1,Pb_mgkg,102,mg/kg,Table 1 row(1),sediment,urban,Guangdong,site S1 平均浓度(3副样均值); 深圳河罗湖口岸上游 114.1140E 22.5302N
+P00611,S1,Zn_mgkg,659,mg/kg,Table 1 row(1),sediment,urban,Guangdong,site S1 平均浓度(3副样均值); 深圳河罗湖口岸上游 114.1140E 22.5302N
+P00611,S1,Hg_mgkg,0.2,mg/kg,Table 1 row(1),sediment,urban,Guangdong,site S1 平均浓度(3副样均值); 深圳河罗湖口岸上游 114.1140E 22.5302N
+P00611,S1,As_mgkg,11.8,mg/kg,Table 1 row(1),sediment,urban,Guangdong,site S1 平均浓度(3副样均值); 深圳河罗湖口岸上游 114.1140E 22.5302N
+P00611,S2,Cd_mgkg,0.88,mg/kg,Table 1 row(2),sediment,urban,Guangdong,site S2 平均浓度(3副样均值); 深圳河上埠装载区 114.0563E 22.5042N
+P00611,S2,Cr_mgkg,139,mg/kg,Table 1 row(2),sediment,urban,Guangdong,site S2 平均浓度(3副样均值); 深圳河上埠装载区 114.0563E 22.5042N
+P00611,S2,Cu_mgkg,194,mg/kg,Table 1 row(2),sediment,urban,Guangdong,site S2 平均浓度(3副样均值); 深圳河上埠装载区 114.0563E 22.5042N
+P00611,S2,Ni_mgkg,133,mg/kg,Table 1 row(2),sediment,urban,Guangdong,site S2 平均浓度(3副样均值); 深圳河上埠装载区 114.0563E 22.5042N
+P00611,S2,Pb_mgkg,82,mg/kg,Table 1 row(2),sediment,urban,Guangdong,site S2 平均浓度(3副样均值); 深圳河上埠装载区 114.0563E 22.5042N
+P00611,S2,Zn_mgkg,723,mg/kg,Table 1 row(2),sediment,urban,Guangdong,site S2 平均浓度(3副样均值); 深圳河上埠装载区 114.0563E 22.5042N
+P00611,S2,Hg_mgkg,0.3,mg/kg,Table 1 row(2),sediment,urban,Guangdong,site S2 平均浓度(3副样均值); 深圳河上埠装载区 114.0563E 22.5042N
+P00611,S2,As_mgkg,12.2,mg/kg,Table 1 row(2),sediment,urban,Guangdong,site S2 平均浓度(3副样均值); 深圳河上埠装载区 114.0563E 22.5042N
+P00611,S1,Sum_PAH_ngg,1230,ng/g,Table 5 S1 column,sediment,urban,Guangdong,16 EPA PAH 求和; 7检出(Flu+Phe+Ant+Fla+Pyr+BaA+Chry=1140); 9个<20(检测限)按0-20计; 论文给范围1140-1320; 取中点; BaP<20未检出单独不输出
+P00611,S2,Sum_PAH_ngg,918,ng/g,Table 5 S2 column,sediment,urban,Guangdong,16 EPA PAH 求和; 7检出(Flu+Phe+Ant+Fla+Pyr+BaA+Chry=828); 9个<20(检测限)按0-20计; 论文给范围828-1008; 取中点; BaP<20未检出单独不输出

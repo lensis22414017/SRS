@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02177,,,,,,,,"skip: lab spiked experiment on propaquizafop herbicide (adsorption/mobility/degradation in 5 agricultural soils simulated in laboratory). Soils spiked with standard solution; Tables 2-10 report adsorption kinetics/isotherm parameters and degradation half-lives. Target analyte (propaquizafop) not in OP list (PAH/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAEs). No real site-level OP pollution data; no pre-remediation baseline applicable."

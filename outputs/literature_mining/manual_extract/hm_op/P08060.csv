@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08060,,,,,,soil,e_waste,Tianjin,"skip: 采样点级HM(Cd/As/Cu/Pb/Cr/Zn/Ni/Hg)+PBDE(14同系物)浓度全部位于补充材料Table S2/Fig S1(本paper.md未含),正文仅给组均值/范围(A组Cu=135 mg/kg为n=30组均值非采样点级;pH 8.22-9.05;TN 1185-1351 mg/kg等均为组级统计),无可追溯采样点(S1-S42/c1-c3)级真实数值。论文本身确为HM+PBDE真复合研究(同一场地Ziya e-waste recycling area,天津),但数据 inaccessible。"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08069,,,,,,,,,"skip: 论文标题为'Occurrence and removal of antibiotics, antibiotic resistance genes, and bacterial communities in hospital wastewater'即医院废水研究，matrix=water非土壤，按规则剔除；且paper.md在G:/literature_final/及G:/MinerU/output/中均未找到(parsed未完成或未入库)"

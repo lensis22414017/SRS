@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00728,,,,,,,,"skip: 论文研究OPFRs有机磷酸酯阻燃剂(TEHP/TMP/TBEP/TEP/TPrP/TnBP/TCEP/TCPP/TDCIPP/TPhP/EHDPP/ToCP/TpCP/TmCP)，不在目标OP污染物列表(PAH/PCB/DDT/HCH/PBDE/TotalPHC/抗生素/PAEs/OCPs)中。190个采样点逐点浓度数据在Supplementary Table S4未纳入parsed paper.md，正文仅报告各省Mean/Range汇总。无HM数据。"

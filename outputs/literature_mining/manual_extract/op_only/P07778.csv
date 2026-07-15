@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07778,,,,,,,,"skip: 论文研究地下水氟污染与水文地球化学过程，全篇为地下水/地表水样品，matrix=water非土壤；唯一污染物为氟化物(无机离子)，无任何OP(PAH/PCB/DDT/HCH/PBDE/ petroleum/antibiotics/PAEs/OCPs)采样点级浓度数据；Table5中DDT仅为商品农药名称非环境浓度"

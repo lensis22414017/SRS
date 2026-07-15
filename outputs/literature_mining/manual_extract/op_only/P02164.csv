@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02164,,,,,,soil,agricultural,Jilin,"skip: 仅区域级描述性统计(Min/Max/Mean/Median/SD/Cv, n=51)，无采样点级数据；Table 1为16种PAH单体的汇总统计，Table 2为PCA因子载荷，Table 3为ERL/ERM阈值对比(Mean)，Table 4为TEQ风险指数；SI Table S1-S3为暴露参数/诊断比值/ILCR风险值"

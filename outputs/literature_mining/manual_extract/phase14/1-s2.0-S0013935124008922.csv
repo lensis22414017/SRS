@@ -1,0 +1,17 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+1-s2.0-S0013935124008922,1-s2.0-S0013935124008922_CAS,CAS,SumDDT_ngg,39.5,Unknown,range_mean,high,table_p5_ri5_ci1,Summary of pesticide standards in soil and maximum concentrations collected.
+1-s2.0-S0013935124008922,1-s2.0-S0013935124008922_Screening_values,Screening values,SumDDT_ngg,2.0,Unknown,,high,table_p5_ri5_ci2,Summary of pesticide standards in soil and maximum concentrations collected.
+1-s2.0-S0013935124008922,1-s2.0-S0013935124008922_Intervention_value,Intervention value,SumDDT_ngg,21.0,Unknown,,high,table_p5_ri5_ci3,Summary of pesticide standards in soil and maximum concentrations collected.
+1-s2.0-S0013935124008922,1-s2.0-S0013935124008922_Maximum,Maximum,SumDDT_ngg,0.308,Unknown,,high,table_p5_ri5_ci4,Summary of pesticide standards in soil and maximum concentrations collected.
+1-s2.0-S0013935124008922,1-s2.0-S0013935124008922_CAS,CAS,SumHCH_ngg,201.5,Unknown,range_mean,high,table_p5_ri9_ci1,Summary of pesticide standards in soil and maximum concentrations collected.
+1-s2.0-S0013935124008922,1-s2.0-S0013935124008922_Screening_values,Screening values,SumHCH_ngg,0.09,Unknown,,high,table_p5_ri9_ci2,Summary of pesticide standards in soil and maximum concentrations collected.
+1-s2.0-S0013935124008922,1-s2.0-S0013935124008922_Intervention_value,Intervention value,SumHCH_ngg,0.9,Unknown,,high,table_p5_ri9_ci3,Summary of pesticide standards in soil and maximum concentrations collected.
+1-s2.0-S0013935124008922,1-s2.0-S0013935124008922_Maximum,Maximum,SumHCH_ngg,0.005,Unknown,,high,table_p5_ri9_ci4,Summary of pesticide standards in soil and maximum concentrations collected.
+1-s2.0-S0013935124008922,1-s2.0-S0013935124008922_CAS,CAS,SumHCH_ngg,202.0,Unknown,range_mean,high,table_p5_ri10_ci1,Summary of pesticide standards in soil and maximum concentrations collected.
+1-s2.0-S0013935124008922,1-s2.0-S0013935124008922_Screening_values,Screening values,SumHCH_ngg,0.32,Unknown,,high,table_p5_ri10_ci2,Summary of pesticide standards in soil and maximum concentrations collected.
+1-s2.0-S0013935124008922,1-s2.0-S0013935124008922_Intervention_value,Intervention value,SumHCH_ngg,3.2,Unknown,,high,table_p5_ri10_ci3,Summary of pesticide standards in soil and maximum concentrations collected.
+1-s2.0-S0013935124008922,1-s2.0-S0013935124008922_Maximum,Maximum,SumHCH_ngg,0.009,Unknown,,high,table_p5_ri10_ci4,Summary of pesticide standards in soil and maximum concentrations collected.
+1-s2.0-S0013935124008922,1-s2.0-S0013935124008922_CAS,CAS,SumHCH_ngg,73.5,Unknown,range_mean,high,table_p5_ri11_ci1,Summary of pesticide standards in soil and maximum concentrations collected.
+1-s2.0-S0013935124008922,1-s2.0-S0013935124008922_Screening_values,Screening values,SumHCH_ngg,0.62,Unknown,,high,table_p5_ri11_ci2,Summary of pesticide standards in soil and maximum concentrations collected.
+1-s2.0-S0013935124008922,1-s2.0-S0013935124008922_Intervention_value,Intervention value,SumHCH_ngg,6.2,Unknown,,high,table_p5_ri11_ci3,Summary of pesticide standards in soil and maximum concentrations collected.
+1-s2.0-S0013935124008922,1-s2.0-S0013935124008922_Maximum,Maximum,SumHCH_ngg,0.007,Unknown,,high,table_p5_ri11_ci4,Summary of pesticide standards in soil and maximum concentrations collected.

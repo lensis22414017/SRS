@@ -1,0 +1,9 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+10928750260418926,10928750260418926_A,A,TotalPHC_mgkg,54.28,Unknown,,high,table_p9_ri1_ci2,Table 8.The residues of composition of TPH in soil (g/kg).,,,,,,phase14
+10928750260418926,10928750260418926_S2,S2,TotalPHC_mgkg,24.54,Unknown,,high,table_p9_ri2_ci2,Table 8.The residues of composition of TPH in soil (g/kg).,,,,,,phase14
+10928750260418926,10928750260418926_B,B,TotalPHC_mgkg,75.84,Unknown,,high,table_p9_ri3_ci2,Table 8.The residues of composition of TPH in soil (g/kg).,,,,,,phase14
+10928750260418926,10928750260418926_S4,S4,TotalPHC_mgkg,33.4,Unknown,,high,table_p9_ri4_ci2,Table 8.The residues of composition of TPH in soil (g/kg).,,,,,,phase14
+10928750260418926,10928750260418926_C,C,TotalPHC_mgkg,25.58,Unknown,,high,table_p9_ri5_ci2,Table 8.The residues of composition of TPH in soil (g/kg).,,,,,,phase14
+10928750260418926,10928750260418926_S6,S6,TotalPHC_mgkg,15.9,Unknown,,high,table_p9_ri6_ci2,Table 8.The residues of composition of TPH in soil (g/kg).,,,,,,phase14
+10928750260418926,10928750260418926_D,D,TotalPHC_mgkg,40.93,Unknown,,high,table_p9_ri7_ci2,Table 8.The residues of composition of TPH in soil (g/kg).,,,,,,phase14
+10928750260418926,10928750260418926_S8,S8,TotalPHC_mgkg,22.79,Unknown,,high,table_p9_ri8_ci2,Table 8.The residues of composition of TPH in soil (g/kg).,,,,,,phase14

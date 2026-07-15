@@ -1,0 +1,35 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P04120,S1,Sum_PAH_ngg,107.4,ng/g,Table 3,soil,mining,Shanxi,"Table 3 SumPAHs col direct read (16 EPA PAH monomer sum), surface soil, 5m from coal spoil bank",37.883,113.6
+P04120,S2,Sum_PAH_ngg,285.2,ng/g,Table 3,soil,mining,Shanxi,"Table 3 SumPAHs col direct read, surface soil, 10m from coal spoil bank",37.883,113.6
+P04120,S3,Sum_PAH_ngg,702.2,ng/g,Table 3,soil,mining,Shanxi,"Table 3 SumPAHs col direct read, surface soil, 50m from coal spoil bank",37.883,113.6
+P04120,S4,Sum_PAH_ngg,49.82,ng/g,Table 3,soil,mining,Shanxi,"Table 3 SumPAHs col direct read, surface soil, 100m from coal spoil bank",37.883,113.6
+P04120,S5,Sum_PAH_ngg,55.22,ng/g,Table 3,soil,mining,Shanxi,"Table 3 SumPAHs col direct read, surface soil, 500m from coal spoil bank",37.883,113.6
+P04120,B1-1,Sum_PAH_ngg,624.0,ng/g,Table 3,soil,mining,Shanxi,"Table 3 SumPAHs col direct read, B1 borehole depth 0m",37.883,113.6
+P04120,B1-2,Sum_PAH_ngg,287.7,ng/g,Table 3,soil,mining,Shanxi,"Table 3 SumPAHs col direct read, B1 borehole depth 0.1m",37.883,113.6
+P04120,B1-3,Sum_PAH_ngg,705.3,ng/g,Table 3,soil,mining,Shanxi,"Table 3 SumPAHs col direct read, B1 borehole depth 0.2m",37.883,113.6
+P04120,B1-4,Sum_PAH_ngg,66.0,ng/g,Table 3,soil,mining,Shanxi,"Table 3 SumPAHs col direct read, B1 borehole depth 0.5m",37.883,113.6
+P04120,B1-5,Sum_PAH_ngg,63.17,ng/g,Table 3,soil,mining,Shanxi,"Table 3 SumPAHs col direct read, B1 borehole depth 1m",37.883,113.6
+P04120,B1-6,Sum_PAH_ngg,105.1,ng/g,Table 3,soil,mining,Shanxi,"Table 3 SumPAHs col direct read, B1 borehole depth 1.5m",37.883,113.6
+P04120,B1-7,Sum_PAH_ngg,238.0,ng/g,Table 3,soil,mining,Shanxi,"Table 3 SumPAHs col direct read, B1 borehole depth 2m",37.883,113.6
+P04120,B2-1,Sum_PAH_ngg,47.13,ng/g,Table 3,soil,mining,Shanxi,"Table 3 SumPAHs col direct read, B2 borehole depth 0m",37.883,113.6
+P04120,B2-2,Sum_PAH_ngg,122.5,ng/g,Table 3,soil,mining,Shanxi,"Table 3 SumPAHs col direct read, B2 borehole depth 0.1m",37.883,113.6
+P04120,B2-3,Sum_PAH_ngg,194.4,ng/g,Table 3,soil,mining,Shanxi,"Table 3 SumPAHs col direct read, B2 borehole depth 0.2m",37.883,113.6
+P04120,B2-4,Sum_PAH_ngg,428.0,ng/g,Table 3,soil,mining,Shanxi,"Table 3 SumPAHs col direct read, B2 borehole depth 0.5m",37.883,113.6
+P04120,B2-5,Sum_PAH_ngg,338.3,ng/g,Table 3,soil,mining,Shanxi,"Table 3 SumPAHs col direct read, B2 borehole depth 1m",37.883,113.6
+P04120,S1,BaP_ngg,0.68,ng/g,Table 3,soil,mining,Shanxi,"Table 3 BaP monomer col direct read, surface soil, 5m from coal spoil bank",37.883,113.6
+P04120,S2,BaP_ngg,2.74,ng/g,Table 3,soil,mining,Shanxi,"Table 3 BaP monomer col direct read, surface soil, 10m from coal spoil bank",37.883,113.6
+P04120,S3,BaP_ngg,0.81,ng/g,Table 3,soil,mining,Shanxi,"Table 3 BaP monomer col direct read, surface soil, 50m from coal spoil bank",37.883,113.6
+P04120,S4,BaP_ngg,0.32,ng/g,Table 3,soil,mining,Shanxi,"Table 3 BaP monomer col direct read, surface soil, 100m from coal spoil bank",37.883,113.6
+P04120,S5,BaP_ngg,0.69,ng/g,Table 3,soil,mining,Shanxi,"Table 3 BaP monomer col direct read, surface soil, 500m from coal spoil bank",37.883,113.6
+P04120,B1-1,BaP_ngg,11.16,ng/g,Table 3,soil,mining,Shanxi,"Table 3 BaP monomer col direct read, B1 borehole depth 0m",37.883,113.6
+P04120,B1-2,BaP_ngg,3.07,ng/g,Table 3,soil,mining,Shanxi,"Table 3 BaP monomer col direct read, B1 borehole depth 0.1m",37.883,113.6
+P04120,B1-3,BaP_ngg,0.91,ng/g,Table 3,soil,mining,Shanxi,"Table 3 BaP monomer col direct read, B1 borehole depth 0.2m",37.883,113.6
+P04120,B1-4,BaP_ngg,0.43,ng/g,Table 3,soil,mining,Shanxi,"Table 3 BaP monomer col direct read, B1 borehole depth 0.5m",37.883,113.6
+P04120,B1-5,BaP_ngg,0.76,ng/g,Table 3,soil,mining,Shanxi,"Table 3 BaP monomer col direct read, B1 borehole depth 1m",37.883,113.6
+P04120,B1-6,BaP_ngg,1.15,ng/g,Table 3,soil,mining,Shanxi,"Table 3 BaP monomer col direct read, B1 borehole depth 1.5m",37.883,113.6
+P04120,B1-7,BaP_ngg,4.67,ng/g,Table 3,soil,mining,Shanxi,"Table 3 BaP monomer col direct read, B1 borehole depth 2m",37.883,113.6
+P04120,B2-1,BaP_ngg,0.68,ng/g,Table 3,soil,mining,Shanxi,"Table 3 BaP monomer col direct read, B2 borehole depth 0m",37.883,113.6
+P04120,B2-2,BaP_ngg,0.22,ng/g,Table 3,soil,mining,Shanxi,"Table 3 BaP monomer col direct read, B2 borehole depth 0.1m",37.883,113.6
+P04120,B2-3,BaP_ngg,0.32,ng/g,Table 3,soil,mining,Shanxi,"Table 3 BaP monomer col direct read, B2 borehole depth 0.2m",37.883,113.6
+P04120,B2-4,BaP_ngg,0.07,ng/g,Table 3,soil,mining,Shanxi,"Table 3 BaP monomer col direct read, B2 borehole depth 0.5m",37.883,113.6
+P04120,B2-5,BaP_ngg,0.66,ng/g,Table 3,soil,mining,Shanxi,"Table 3 BaP monomer col direct read, B2 borehole depth 1m",37.883,113.6

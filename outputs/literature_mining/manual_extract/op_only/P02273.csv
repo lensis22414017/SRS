@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02273,,,,,,,,"skip: 论文正文无采样点级OCP浓度数据表; 所有44个样品的逐点浓度数据在ESI Table S5(补充材料未包含在parsed目录); 正文表格全为统计分析(Table1 Pearson相关系数/Table2 PCA载荷/Table3-4 回归拟合方程)均剔除; 正文仅给出total OCP范围50~47600 ng/kg(GR44=min GR37=max)为Min/Max统计量予以剔除; Fig.2/Fig.3为散点图无法可靠提取数值; 需ESI补充材料Table S5方可提取SumDDT/SumHCH等采样点级数据"

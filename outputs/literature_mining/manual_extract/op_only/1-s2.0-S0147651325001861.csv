@@ -1,0 +1,10 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+1-s2.0-S0147651325001861,1-s2.0-S0147651325001861_4-ring,Sum_PAH_ngg,3.63,Unknown,table_p7_ri3_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+1-s2.0-S0147651325001861,1-s2.0-S0147651325001861_5-ring,Sum_PAH_ngg,0.94,Unknown,table_p7_ri4_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+1-s2.0-S0147651325001861,1-s2.0-S0147651325001861_6-ring,Sum_PAH_ngg,1.95,Unknown,table_p7_ri5_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+1-s2.0-S0147651325001861,1-s2.0-S0147651325001861_$\sum___{_1_6_}_\mathrm_{_P_A_H_s_}$,Sum_PAH_ngg,1.39,Unknown,table_p7_ri6_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+1-s2.0-S0147651325001861,1-s2.0-S0147651325001861_2-ring,Sum_PAH_ngg,1.79,Unknown,table_p7_ri7_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+1-s2.0-S0147651325001861,1-s2.0-S0147651325001861_3-ring,Sum_PAH_ngg,4.48,Unknown,table_p7_ri8_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+1-s2.0-S0147651325001861,1-s2.0-S0147651325001861_4-ring,Sum_PAH_ngg,2.88,Unknown,table_p7_ri9_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+1-s2.0-S0147651325001861,1-s2.0-S0147651325001861_5-ring,Sum_PAH_ngg,0.64,Unknown,table_p7_ri10_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+1-s2.0-S0147651325001861,1-s2.0-S0147651325001861_6-ring,Sum_PAH_ngg,1.31,Unknown,table_p7_ri11_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,

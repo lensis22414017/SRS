@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00908,,,,,,,,"skip: 微生物降解/生物修复实验论文(从延长油田及西北大学花园土壤分离菌株，在BH液体培养基+1%原油的锥形瓶中进行10天降解实验)。论文无任何采样点级OP浓度实测数据(TPH/PAH/PCB/DDT/HCH/PBDE/PAE/抗生素均无)。Tables 1-4数据均为实验室培养试验结果(DCPIP褪色率/微生物生长OD600/干重/原油降解百分比gravimetric)，非场地土壤OP浓度。无修复前场地本底OP浓度。细菌平板计数(6.0E2/4.0E3/6.0E4 CFU)非OP浓度。"

@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02368,NA,NA,NA,NA,NA,soil,urban,Jiangsu,"skip: 论文为BC-PAHs-HMs关联研究无采样点级浓度表。HM仅Table2汇总统计(Mean/Median/SD/Min/Max/Background)覆盖Pb/Cu/Zn/Cd/Ni无Cr/As/Hg无采样点标识按铁律剔除统计行。PAH数据引用自前作Wang et al.[13](doi:10.1080/00207233.2012.693288)本论文仅给BC-PAH Pearson相关系数(Table3)和散点图(Fig3/Fig4)无PAH单体或Σ16PAHs采样点级浓度数值。Table4为Spearman相关系数非浓度。无法提取采样点级HM+OP复合数据。"

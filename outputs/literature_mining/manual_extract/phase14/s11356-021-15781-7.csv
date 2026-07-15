@@ -1,0 +1,64 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+s11356-021-15781-7,s11356-021-15781-7_Slope_of_cancer_(SF)_(mg/kg/day)−1,Slope of cancer (SF) (mg/kg/day)−1,Ant_ngg,0.1,Unknown,,high,table_p5_ri2_ci1,Table 2 Toxicological parameters of the pollutants (USEPA 2017)
+s11356-021-15781-7,s11356-021-15781-7_Unit_carcinogenic_factor_(URF)_1/(μg/m³),Unit carcinogenic factor (URF) 1/(μg/m³),Ant_ngg,0.1,Unknown,,high,table_p5_ri2_ci2,Table 2 Toxicological parameters of the pollutants (USEPA 2017)
+s11356-021-15781-7,s11356-021-15781-7_Slope_of_cancer_(SF)_(mg/kg/day)−1,Slope of cancer (SF) (mg/kg/day)−1,Flt_ngg,0.1,Unknown,,high,table_p5_ri3_ci1,Table 2 Toxicological parameters of the pollutants (USEPA 2017)
+s11356-021-15781-7,s11356-021-15781-7_Unit_carcinogenic_factor_(URF)_1/(μg/m³),Unit carcinogenic factor (URF) 1/(μg/m³),Flt_ngg,0.1,Unknown,,high,table_p5_ri3_ci2,Table 2 Toxicological parameters of the pollutants (USEPA 2017)
+s11356-021-15781-7,s11356-021-15781-7_Slope_of_cancer_(SF)_(mg/kg/day)−1,Slope of cancer (SF) (mg/kg/day)−1,Pyr_ngg,1.0,Unknown,,high,table_p5_ri4_ci1,Table 2 Toxicological parameters of the pollutants (USEPA 2017)
+s11356-021-15781-7,s11356-021-15781-7_Unit_carcinogenic_factor_(URF)_1/(μg/m³),Unit carcinogenic factor (URF) 1/(μg/m³),Pyr_ngg,1.0,Unknown,,high,table_p5_ri4_ci2,Table 2 Toxicological parameters of the pollutants (USEPA 2017)
+s11356-021-15781-7,s11356-021-15781-7_Slope_of_cancer_(SF)_(mg/kg/day)−1,Slope of cancer (SF) (mg/kg/day)−1,Pyr_ngg,0.1,Unknown,,high,table_p5_ri5_ci1,Table 2 Toxicological parameters of the pollutants (USEPA 2017)
+s11356-021-15781-7,s11356-021-15781-7_Slope_of_cancer_(SF)_(mg/kg/day)−1,Slope of cancer (SF) (mg/kg/day)−1,Cd_mgkg,0.1,Unknown,,high,table_p5_ri5_ci1,Table 2 Toxicological parameters of the pollutants (USEPA 2017)
+s11356-021-15781-7,s11356-021-15781-7_Unit_carcinogenic_factor_(URF)_1/(μg/m³),Unit carcinogenic factor (URF) 1/(μg/m³),Pyr_ngg,0.1,Unknown,,high,table_p5_ri5_ci2,Table 2 Toxicological parameters of the pollutants (USEPA 2017)
+s11356-021-15781-7,s11356-021-15781-7_Unit_carcinogenic_factor_(URF)_1/(μg/m³),Unit carcinogenic factor (URF) 1/(μg/m³),Cd_mgkg,0.1,Unknown,,high,table_p5_ri5_ci2,Table 2 Toxicological parameters of the pollutants (USEPA 2017)
+s11356-021-15781-7,s11356-021-15781-7_Slope_of_cancer_(SF)_(mg/kg/day)−1,Slope of cancer (SF) (mg/kg/day)−1,Ant_ngg,1.0,Unknown,,high,table_p5_ri6_ci1,Table 2 Toxicological parameters of the pollutants (USEPA 2017)
+s11356-021-15781-7,s11356-021-15781-7_Unit_carcinogenic_factor_(URF)_1/(μg/m³),Unit carcinogenic factor (URF) 1/(μg/m³),Ant_ngg,1.0,Unknown,,high,table_p5_ri6_ci2,Table 2 Toxicological parameters of the pollutants (USEPA 2017)
+s11356-021-15781-7,s11356-021-15781-7_detections,detections,Ant_ngg,152.0,Unknown,,high,table_p5_ri1_ci2,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Minimum_Maximum_Detection,Minimum Maximum Detection,Ant_ngg,0.026,Unknown,,high,table_p5_ri1_ci3,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_rate_%,rate %,Ant_ngg,54.68,Unknown,,high,table_p5_ri1_ci5,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Over-limit_ratio_%,Over-limit ratio %,Ant_ngg,3.96,Unknown,,high,table_p5_ri1_ci6,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Maximum_multiple_of_exceeding_the_standard,Maximum multiple of exceeding the standard,Ant_ngg,3.2,Unknown,,high,table_p5_ri1_ci7,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_detections,detections,Flt_ngg,162.0,Unknown,,high,table_p5_ri2_ci2,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Minimum_Maximum_Detection,Minimum Maximum Detection,Flt_ngg,0.016,Unknown,,high,table_p5_ri2_ci3,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_rate_%,rate %,Flt_ngg,58.27,Unknown,,high,table_p5_ri2_ci5,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Over-limit_ratio_%,Over-limit ratio %,Flt_ngg,5.4,Unknown,,high,table_p5_ri2_ci6,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Maximum_multiple_of_exceeding_the_standard,Maximum multiple of exceeding the standard,Flt_ngg,4.2,Unknown,,high,table_p5_ri2_ci7,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_detections,detections,Pyr_ngg,147.0,Unknown,,high,table_p5_ri3_ci2,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Minimum_Maximum_Detection,Minimum Maximum Detection,Pyr_ngg,0.026,Unknown,,high,table_p5_ri3_ci3,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_rate_%,rate %,Pyr_ngg,52.88,Unknown,,high,table_p5_ri3_ci5,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Over-limit_ratio_%,Over-limit ratio %,Pyr_ngg,22.3,Unknown,,high,table_p5_ri3_ci6,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Maximum_multiple_of_exceeding_the_standard,Maximum multiple of exceeding the standard,Pyr_ngg,26.5,Unknown,,high,table_p5_ri3_ci7,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_detections,detections,Pyr_ngg,129.0,Unknown,,high,table_p5_ri4_ci2,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_detections,detections,Cd_mgkg,129.0,Unknown,,high,table_p5_ri4_ci2,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Minimum_Maximum_Detection,Minimum Maximum Detection,Pyr_ngg,0.024,Unknown,,high,table_p5_ri4_ci3,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Minimum_Maximum_Detection,Minimum Maximum Detection,Cd_mgkg,0.024,Unknown,,high,table_p5_ri4_ci3,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_rate_%,rate %,Pyr_ngg,46.4,Unknown,,high,table_p5_ri4_ci5,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_rate_%,rate %,Cd_mgkg,46.4,Unknown,,high,table_p5_ri4_ci5,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Over-limit_ratio_%,Over-limit ratio %,Pyr_ngg,0.72,Unknown,,high,table_p5_ri4_ci6,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Over-limit_ratio_%,Over-limit ratio %,Cd_mgkg,0.72,Unknown,,high,table_p5_ri4_ci6,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Maximum_multiple_of_exceeding_the_standard,Maximum multiple of exceeding the standard,Pyr_ngg,0.42,Unknown,,high,table_p5_ri4_ci7,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Maximum_multiple_of_exceeding_the_standard,Maximum multiple of exceeding the standard,Cd_mgkg,0.42,Unknown,,high,table_p5_ri4_ci7,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_detections,detections,Ant_ngg,82.0,Unknown,,high,table_p5_ri5_ci2,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Minimum_Maximum_Detection,Minimum Maximum Detection,Ant_ngg,0.015,Unknown,,high,table_p5_ri5_ci3,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_rate_%,rate %,Ant_ngg,29.5,Unknown,,high,table_p5_ri5_ci5,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Over-limit_ratio_%,Over-limit ratio %,Ant_ngg,6.47,Unknown,,high,table_p5_ri5_ci6,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Maximum_multiple_of_exceeding_the_standard,Maximum multiple of exceeding the standard,Ant_ngg,2.18,Unknown,,high,table_p5_ri5_ci7,Table 3 Statistical analysis of the PAH pollutant content (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Maximum,Maximum,BaA_ngg,16.8,Unknown,,high,table_p7_ri1_ci2,Table 4 Probability distribution of the PAH concentration (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Minimum,Minimum,BaA_ngg,0.025,Unknown,,high,table_p7_ri1_ci3,Table 4 Probability distribution of the PAH concentration (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Standard_deviation_(SD),Standard deviation (SD),BaA_ngg,0.066,Unknown,,high,table_p7_ri1_ci5,Table 4 Probability distribution of the PAH concentration (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Maximum,Maximum,BbF_ngg,20.8,Unknown,,high,table_p7_ri2_ci2,Table 4 Probability distribution of the PAH concentration (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Minimum,Minimum,BbF_ngg,0.025,Unknown,,high,table_p7_ri2_ci3,Table 4 Probability distribution of the PAH concentration (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Standard_deviation_(SD),Standard deviation (SD),BbF_ngg,1.145,Unknown,,high,table_p7_ri2_ci5,Table 4 Probability distribution of the PAH concentration (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Maximum,Maximum,BaP_ngg,11.0,Unknown,,high,table_p7_ri3_ci2,Table 4 Probability distribution of the PAH concentration (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Minimum,Minimum,BaP_ngg,0.025,Unknown,,high,table_p7_ri3_ci3,Table 4 Probability distribution of the PAH concentration (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Standard_deviation_(SD),Standard deviation (SD),BaP_ngg,0.382,Unknown,,high,table_p7_ri3_ci5,Table 4 Probability distribution of the PAH concentration (mg·g<sup>−1</sup>)
+s11356-021-15781-7,s11356-021-15781-7_Carcinogenic_risk,Carcinogenic risk,BaA_ngg,16.8,Unknown,,high,table_p8_ri3_ci1,Table 5 Quantitative estimation of the cancer risk caused by the PAHs
+s11356-021-15781-7,s11356-021-15781-7_Carcinogenic_risk,Carcinogenic risk,BbF_ngg,20.8,Unknown,,high,table_p8_ri4_ci1,Table 5 Quantitative estimation of the cancer risk caused by the PAHs
+s11356-021-15781-7,s11356-021-15781-7_Carcinogenic_risk,Carcinogenic risk,BaP_ngg,11.0,Unknown,,high,table_p8_ri5_ci1,Table 5 Quantitative estimation of the cancer risk caused by the PAHs
+s11356-021-15781-7,s11356-021-15781-7_Maximum,Maximum,BaA_ngg,4.8e-06,Unknown,,high,table_p9_ri2_ci1,Table 6 Statistics of the probabilistic health risk assessment of the PAHs
+s11356-021-15781-7,s11356-021-15781-7_Minimum,Minimum,BaA_ngg,3.03e-08,Unknown,,high,table_p9_ri2_ci2,Table 6 Statistics of the probabilistic health risk assessment of the PAHs
+s11356-021-15781-7,s11356-021-15781-7_Percentile,Percentile,BaA_ngg,1.68e-07,Unknown,,high,table_p9_ri2_ci5,Table 6 Statistics of the probabilistic health risk assessment of the PAHs
+s11356-021-15781-7,s11356-021-15781-7_Maximum,Maximum,BbF_ngg,7.16e-05,Unknown,,high,table_p9_ri3_ci1,Table 6 Statistics of the probabilistic health risk assessment of the PAHs
+s11356-021-15781-7,s11356-021-15781-7_Minimum,Minimum,BbF_ngg,3.83e-07,Unknown,,high,table_p9_ri3_ci2,Table 6 Statistics of the probabilistic health risk assessment of the PAHs
+s11356-021-15781-7,s11356-021-15781-7_Percentile,Percentile,BbF_ngg,2.36e-06,Unknown,,high,table_p9_ri3_ci5,Table 6 Statistics of the probabilistic health risk assessment of the PAHs
+s11356-021-15781-7,s11356-021-15781-7_Maximum,Maximum,BaP_ngg,0.000388,Unknown,,high,table_p9_ri4_ci1,Table 6 Statistics of the probabilistic health risk assessment of the PAHs
+s11356-021-15781-7,s11356-021-15781-7_Minimum,Minimum,BaP_ngg,2.22e-06,Unknown,,high,table_p9_ri4_ci2,Table 6 Statistics of the probabilistic health risk assessment of the PAHs
+s11356-021-15781-7,s11356-021-15781-7_Percentile,Percentile,BaP_ngg,1.2e-05,Unknown,,high,table_p9_ri4_ci5,Table 6 Statistics of the probabilistic health risk assessment of the PAHs

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04669,,,,,,soil,e_waste,Zhejiang,"skip: 所有土壤污染物浓度数据(HM: Cd/Cr/Cu/Ni/Pb/Zn mg/kg; OP: PCBs/PBDEs)仅以图片形式呈现(Figure 2表层土壤热力图/Figure 3深层土壤柱状图/Figure 4地下水)，无任何可提取的采样点级表格数据。正文仅提及一个Pb深层土壤值86.0 mg/kg但未关联具体sample ID。Table 1为水文地质参数非污染物，Table 2为防渗墙模拟结果非实测。需OCR或原图数字化方可提取。"

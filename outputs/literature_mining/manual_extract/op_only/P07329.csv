@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07329,,,,,,,,,"skip: 检测物OPFRs(12种有机磷酸酯阻燃剂)不在目标OP列表(PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAE/OCP), HM未检测; Table 1为n=98汇总统计(Min-Max/Mean±SD/Median/Freq%), 无采样点级原始数据; Table 2为文献对比表(二手引用PBDEs数据), 非本研究原始实测值; 无法提取任何采样点级OP/HM浓度数据"

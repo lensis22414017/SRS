@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04794,,,,,,,,"skip: 实验室批量吸附实验(batch sorption experiment), 非场地实测数据. 论文将DEP作为模型化合物加入四种土壤悬浮液(0.02-0.90 mM)测定吸附等温线, 拟合Langmuir/Freundlich模型参数(Koc/n/logKf). 土壤采自哈尔滨/封丘/六安/鹰潭四地仅用于实验, 无现场OP浓度. Table 1=土壤理化性质, Table 2=DOC芳香性, Table 3=吸附模型参数. 属于sorption isotherm实验明确剔除场景"

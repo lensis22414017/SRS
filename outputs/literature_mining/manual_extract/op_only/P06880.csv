@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06880,,,,,,,,"skip: Table 1 only contains statistical summaries (Mean/Median/Min/Max/Detection%) for 52 plastic-shed + 52 open-field soil groups. Sampling-point-level data (Table S3) is in supplementary materials not available in parsed paper. Regional means in text (Shandong 373/Jilin 219/Heilongjiang 126/Liaoning 88.3/Henan 67.2/Tianjin 63.3 ng/g for plastic shed OCPs) are provincial-level aggregates, not site-level. No extractable sample-level OP concentration data."

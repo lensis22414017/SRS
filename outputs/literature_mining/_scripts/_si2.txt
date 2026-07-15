@@ -1,0 +1,23 @@
+MOESM1 exists: True
+MOESM1 size: 3026255
+Paragraphs: 90
+Tables: 3
+  Table 0: 24 rows x 10 cols
+    Row0: ['File', 'Clean virome metagenomes', 'Clean virome metagenomes', 'Clean virome metagenomes', 'OCP-contaminated virome m', 'OCP-contaminated virome m', 'OCP-contaminated virome m', 'OCP-contaminated virome m']
+    Row1: ['', 'C1-C3', 'C1-C3', 'C1-C3', 'S1-S6', 'S1-S6', 'S1-S6', 'S1-S6']
+    Row2: ['Min sequence length', '200', '200', '200', '200', '200', '200', '200']
+    Row3: ['Max sequence length', '326943', '326943', '326943', '592406', '592406', '592406', '592406']
+    Row4: ['Total sequence number', '1091906', '1091906', '1091906', '3786311', '3786311', '3786311', '3786311']
+  Table 1: 16 rows x 16 cols
+    Row0: ['\u3000', 'Indicators', '\u3000', 'C1', 'C2', 'C3', 'S1', 'S2']
+    Row1: ['Physico-chemical properti', 'pH', '', '5.7 ¡À 0.1 b', '5.8 ¡À 0.1 b', '6.0 ¡À 0.1 a', '7.6 ¡À 0.1 b', '7.6 ¡À 0.3 a']
+    Row2: ['Physico-chemical properti', 'Cation Exchange Capacity', 'cmol¡¤kg-1', '17.4 ¡À 0.3 b', '17.3 ¡À 1.0 b', '18.5 ¡À 0.9 a', '23.4 ¡À 0.3 a', '22.6 ¡À 1.0 a']
+    Row3: ['Physico-chemical properti', 'Soil Organic Matter', 'g¡¤kg-1', '46.0 ¡À 0.4 b', '49.2 ¡À 0.5 a', '49.5 ¡À 0.5 a', '61.2 ¡À 0.6 a', '52.6¡À 1.0 b']
+    Row4: ['Physico-chemical properti', 'Total Nitrogen', 'g¡¤kg-1', '1.4 ¡À 0.1 a', '1.4 ¡À 0.3 b', '1.4 ¡À 0.3 c', '3.3 ¡À 0.1 a', '3.1 ¡À 0.3 b']
+  Table 2: 8 rows x 7 cols
+    Row0: ['Types', 'Bacterial genes', 'Bacterial genes', 'Bacterial genes', 'Viral genes', 'Viral genes', 'Viral genes']
+    Row1: ['Types', 'Clean', 'Light', 'Heavy', 'Clean', 'Light', 'Heavy']
+    Row2: ['C (carbon)', '584', '589', '586', '19', '27', '27']
+    Row3: ['N (nitrogen)', '48', '48', '49', '2', '3', '3']
+    Row4: ['P (phosphorus)', '7', '8', '7', '1', '1', '1']
+DONE

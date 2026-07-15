@@ -1,0 +1,23 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Detection_rate_(%),Detection rate (%),SumHCH_ngg,10.31,Unknown,,high,table_p2_ri1_ci3,Table 1 Concentration of OCPs (ng/g dw) in sediment core.,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Detection_rate_(%),Detection rate (%),SumHCH_ngg,87.05,Unknown,,high,table_p2_ri2_ci3,Table 1 Concentration of OCPs (ng/g dw) in sediment core.,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Detection_rate_(%),Detection rate (%),SumHCH_ngg,90.24,Unknown,,high,table_p2_ri3_ci3,Table 1 Concentration of OCPs (ng/g dw) in sediment core.,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Detection_rate_(%),Detection rate (%),SumHCH_ngg,35.58,Unknown,,high,table_p2_ri4_ci3,Table 1 Concentration of OCPs (ng/g dw) in sediment core.,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Detection_rate_(%),Detection rate (%),SumDDT_ngg,68.81,Unknown,,high,table_p2_ri7_ci3,Table 1 Concentration of OCPs (ng/g dw) in sediment core.,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Detection_rate_(%),Detection rate (%),SumDDT_ngg,50.97,Unknown,,high,table_p2_ri8_ci3,Table 1 Concentration of OCPs (ng/g dw) in sediment core.,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Detection_rate_(%),Detection rate (%),SumHCH_ngg,51.37,Unknown,,high,table_p2_ri11_ci3,Table 1 Concentration of OCPs (ng/g dw) in sediment core.,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Detection_rate_(%),Detection rate (%),SumDDT_ngg,68.51,Unknown,,high,table_p2_ri12_ci3,Table 1 Concentration of OCPs (ng/g dw) in sediment core.,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Taihu,Taihu,SumDDT_ngg,6.7,Unknown,range_mean,high,table_p3_ri2_ci1,Sedimentary record of HCHs and DDTs across China (ng/g dw).,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Taihu,Taihu,SumHCH_ngg,6.7,Unknown,range_mean,high,table_p3_ri2_ci1,Sedimentary record of HCHs and DDTs across China (ng/g dw).,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Quanzhou_Bay,Quanzhou Bay,SumDDT_ngg,2.56,Unknown,range_mean,high,table_p3_ri3_ci1,Sedimentary record of HCHs and DDTs across China (ng/g dw).,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Quanzhou_Bay,Quanzhou Bay,SumHCH_ngg,2.56,Unknown,range_mean,high,table_p3_ri3_ci1,Sedimentary record of HCHs and DDTs across China (ng/g dw).,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Deep_Bay,Deep Bay,SumDDT_ngg,3.755,Unknown,range_mean,high,table_p3_ri4_ci1,Sedimentary record of HCHs and DDTs across China (ng/g dw).,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Deep_Bay,Deep Bay,SumHCH_ngg,3.755,Unknown,range_mean,high,table_p3_ri4_ci1,Sedimentary record of HCHs and DDTs across China (ng/g dw).,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Sanya_Bay,Sanya Bay,SumDDT_ngg,0.75,Unknown,range_mean,high,table_p3_ri5_ci1,Sedimentary record of HCHs and DDTs across China (ng/g dw).,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Sanya_Bay,Sanya Bay,SumHCH_ngg,0.75,Unknown,range_mean,high,table_p3_ri5_ci1,Sedimentary record of HCHs and DDTs across China (ng/g dw).,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Pearl_River_Estuary,Pearl River Estuary,SumDDT_ngg,18.6,Unknown,range_mean,high,table_p3_ri7_ci1,Sedimentary record of HCHs and DDTs across China (ng/g dw).,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Pearl_River_Estuary,Pearl River Estuary,SumHCH_ngg,18.6,Unknown,range_mean,high,table_p3_ri7_ci1,Sedimentary record of HCHs and DDTs across China (ng/g dw).,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Daya_Bay,Daya Bay,SumDDT_ngg,16.384999999999998,Unknown,range_mean,high,table_p3_ri8_ci1,Sedimentary record of HCHs and DDTs across China (ng/g dw).,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Daya_Bay,Daya Bay,SumHCH_ngg,16.384999999999998,Unknown,range_mean,high,table_p3_ri8_ci1,Sedimentary record of HCHs and DDTs across China (ng/g dw).,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Deep_Bay,Deep Bay,SumDDT_ngg,27.75,Unknown,range_mean,high,table_p3_ri10_ci1,Sedimentary record of HCHs and DDTs across China (ng/g dw).,,,,,,phase14
+_dup_j.ecoenv.2013.10.034,_dup_j.ecoenv.2013.10.034_Deep_Bay,Deep Bay,SumHCH_ngg,27.75,Unknown,range_mean,high,table_p3_ri10_ci1,Sedimentary record of HCHs and DDTs across China (ng/g dw).,,,,,,phase14

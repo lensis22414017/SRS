@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06898,NA,NA,NA,NA,NA,NA,coking,Beijing,skip: 论文仅Table 3提供3区域(A/B/C) x 12 PAHs的统计汇总(Min/Max/Ave/UCL/SL/QE/QS共36行)全部剔除; 论文虽采样256个PAHs点位但全文未公布任何单采样点级真实浓度数值; Fig.1仅采样点位置图无数值; Table 4=风险指数(HQ/CR)剔除; Table 5=修复目标(标准阈值)剔除

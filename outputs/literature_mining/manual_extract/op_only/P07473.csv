@@ -1,0 +1,6 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07473,Beijing_Daxing,DEP_ngg,1.0,ng/g,Table S4,soil,agricultural,Beijing,"Table S4直接读取原值0.001mg/kg乘1000转ng/g,BDL=低于检测限不提取"
+P07473,Beijing_Daxing,DiBP_ngg,141.0,ng/g,Table S4,soil,agricultural,Beijing,Table S4直接读取原值0.141mg/kg乘1000转ng/g
+P07473,Beijing_Daxing,DBP_ngg,165.0,ng/g,Table S4,soil,agricultural,Beijing,Table S4直接读取原值0.165mg/kg乘1000转ng/g
+P07473,Beijing_Daxing,DEHP_ngg,46.0,ng/g,Table S4,soil,agricultural,Beijing,Table S4直接读取原值0.046mg/kg乘1000转ng/g
+P07473,Beijing_Daxing,SumPAE_ngg,353.0,ng/g,Table S4,soil,agricultural,Beijing,DEP+DiBP+DBP+DEHP求和（0.353mg/kg乘1000转ng/g），其他单体BDL未纳入；12/13站点PAEs全部BDL无数据

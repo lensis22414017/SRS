@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11300,,,,,,,,"skip: 仅区域汇总(Range/Average)无采样点级数据","Table 1仅提供Range+Average范围值和均值；Table 3为TEQ毒性当量(剔除)；正文提及孤立值(Zhiwu-3 BaP=0.944mg/kg等)不构成系统性逐点数据；Data available upon request但未公布原始采样点浓度；夏季/冬季土壤PAHs(16 EPA单体+Σ7PAH+Σ16PAH)均无逐点拆分"

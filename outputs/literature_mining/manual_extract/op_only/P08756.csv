@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08756,,,,,,,,"skip: paper.md解析截断仅31行(4106字符=摘要+引言开头)，无表格/采样点级数据；论文为ML风险概率预测研究(SSL-LPA半监督学习)非OP浓度实测；G盘无原始PDF可补读"

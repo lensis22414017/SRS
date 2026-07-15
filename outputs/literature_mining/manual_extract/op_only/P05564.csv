@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05564,,,,,,soil,archaeological,Hubei,"skip: 论文无PAH绝对浓度数据；Table 1仅含源诊断比值(MPh/Ph/Fl(Fl+Py)/BaA(BaA+Ch)/Bflas(Bflas+BeP))；正文明确用peak area测relative abundance非定量浓度；Fig2/3/4为mass chromatogram和ratio分布；无16 EPA PAH sum或BaP_ngg等浓度值"

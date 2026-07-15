@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08704,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"skip:采样点级数据在补充材料Table S1中,正文仅提供范围(如As 9.00-31.00,S16PAH 51.91-10523.58)和均值等统计汇总,无128个单点浓度,paper.md未解析补充表格"

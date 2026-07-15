@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01631,,,,,,,,"skip: Review paper on PAEs in aquatic environments (surface water/seawater/drinking water/wastewater/leachate). All data in ng/L or ug/L for water matrix. No soil sampling-point data. Covers biotreatment and bacterial degradation of PAEs. Reject: review + water matrix + bioremediation"

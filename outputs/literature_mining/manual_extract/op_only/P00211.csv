@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00211,XQG,SumPCB_ngg,4.04,ng/g,正文Results段(line 42),soil,urban,Shaanxi,"Σ7PCB sum (PCB28+52+101+118+138+153+180); 文中明确 XQG 为全部23站点最高值"
+P00211,OP,SumPCB_ngg,0.48,ng/g,正文Results段(line 42),soil,urban,Shaanxi,"Σ7PCB sum; 文中明确 OP(Olympic Park) 为全部23站点最低值"
+P00211,XJ,SumPCB_ngg,3.22,ng/g,正文Results段(line 59),soil,urban,Shaanxi,"Σ7PCB sum; 文中明确 XJ(Xinjiyuan Park) 为郊区15站点最高值"

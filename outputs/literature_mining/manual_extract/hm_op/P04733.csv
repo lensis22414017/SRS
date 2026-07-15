@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04733,,,,,,,,,"skip: 无采样点级数据。所有浓度以图(Fig.1-3)呈现超标倍数和致癌风险值，x轴为评估指标编号(Table1序号)非采样点；正文仅给全场最大值(maximum value如benzene314mg/kg)属site-level汇总违铁律2。HM仅Ni/As且土壤未超标(论文明确Ni/As仅在地下水超标，属water matrix非soil)。OP类别不匹配：论文为VOCs和有机磷农药单体(Parathion/Phorate/Terbufos/Cypermethrin/benzene等)非提取清单PAH/PCB/DDT/HCH/PBDE/PHC；虽有零星PAH单体(naphthalene/BaP等)但仅超标倍数无采样点级浓度且非16EPA求和"

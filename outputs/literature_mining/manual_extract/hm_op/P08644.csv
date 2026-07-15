@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08644,,,,,,soil,industrial,Sichuan,"skip: 手头PDF仅1页(摘要+引言), 缺正文结果与所有表格; ScienceDirect摘要仅透露统计量(PCDD/Fs总浓度范围7.14-858.09 ng/kg均值97.48 ng/kg; I-TEQ范围0.25-7.50均值1.54 ng I-TEQ/kg)与标准阈值(风险筛选40/干预400 ng I-TEQ/kg), 按铁律#2/#3全部剔除; 论文宣称6座MSW焚烧厂周边土壤测17 PCDD/Fs+11 HM(符合HM+OP同场地), 但真实采样点级数据位于Supplementary Table S9(付费墙无法获取); ResearchGate/PubMed亦无开放SI; 待获取完整PDF+SI后重抽"

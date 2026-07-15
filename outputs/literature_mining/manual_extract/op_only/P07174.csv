@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07174,Nanchang gasworks,Sum_PAH_ngg,620000,ng/g,Section 2.1,soil,industrial,Jiangxi,Pre-remediation baseline from former gasworks site in Nanchang; total 16 EPA PAHs=620 mg/kg x1000->ng/g; greenhouse pot phytoremediation experiment (tall fescue+AMF+earthworms) post-treatment data excluded per rules; no individual PAH monomers or BaP available (only ring-group totals)

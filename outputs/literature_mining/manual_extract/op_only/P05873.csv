@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05873,,,,,,,,"skip: Table 2仅提供9个场地(GZ01/GZ02/ZC01/HD01/HD02/HD03/SZ01/SZ02/SZ03)的Range和Mean统计汇总(每场地n=3-8子样)，无独立采样点级数据；Table 3为Pearson相关系数；Fig 2-4为百分比分布和PCA；无任何单样浓度值可供提取"

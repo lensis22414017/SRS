@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P00417,P76,BaP_ngg,400,ng/g,"Results section ""Distribution of PAHs in topsoil""",soil,petrochemical,Guangdong,P76 storage tank area; text states greatest BaP concentration (400 ug/kg=400 ng/g) detected at P76; paper only studied 12 of 16 EPA PAHs so Sum_PAH cannot be computed for individual samples; Table 1 is range/mean summary only,22.91083,113.50389

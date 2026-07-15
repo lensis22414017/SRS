@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01693,,,,,,,,"skip: 仅统计汇总(Min/Max/Mean/Median)无采样点级数据; 151个样本浓度仅在Table 1以Min/Max/Mean/Median四列呈现且Fig 2-4以箱线图展示; 补充材料Table S1-S2为p值和PCA载荷无个体数据"

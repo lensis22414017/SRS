@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03015,,,,,,,,,"skip: 土壤微生物燃料电池(MFC)生物电化学修复实验。原土采自天津西青农田但论文明确写明""No antibiotics were detected in this soil""(未检出抗生素)，实验中人为spike添加5 mg/kg四环素和磺胺嘧啶到清洁土壤中，所有测定浓度(TC/SC处理layer C/A/S的1.4 mg/kg、0.23 mg/kg等)均为MFC修复后残留值而非场地实测值。属实验室添加+生物修复实验(spiked+bioremediation)，且无修复前场地OP本底实测数据可提取。"

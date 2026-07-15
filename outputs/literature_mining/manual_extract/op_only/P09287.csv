@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09287,,,,,,,,,"skip: in vitro/in silico toxicology study on OPEs (organophosphate esters: BDP/CDP/RDP/TPP) and hemostatic disruption; no field soil sampling data; target pollutants (OPEs) not in extraction scope (PAH/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAEs/OCPs); all data from platelet/coagulation lab experiments and molecular docking/ML modeling"

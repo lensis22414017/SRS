@@ -1,0 +1,70 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01993,Farmland,Pb_mgkg,22.7,mg/kg,Table 1,soil,e_waste,Guangdong,采样点Farmland表1直接读取 n=3重复均值
+P01993,Farmland,Zn_mgkg,893,mg/kg,Table 1,soil,e_waste,Guangdong,采样点Farmland表1直接读取 n=3重复均值
+P01993,Farmland,Cu_mgkg,562,mg/kg,Table 1,soil,e_waste,Guangdong,采样点Farmland表1直接读取 n=3重复均值
+P01993,Farmland,Cd_mgkg,4.62,mg/kg,Table 1,soil,e_waste,Guangdong,采样点Farmland表1直接读取 n=3重复均值
+P01993,Farmland,SumPCB_ngg,391,ng/g,Table 1,soil,e_waste,Guangdong,Total PCBs列 ug/kg=ng/g 数值不变
+P01993,Farmland,SumPBDE_ngg,2205,ng/g,Table 1,soil,e_waste,Guangdong,Total PBDEs列 ug/kg=ng/g 数值不变
+P01993,Farmland_CK,Pb_mgkg,7.67,mg/kg,Table 1,soil,e_waste,Guangdong,对照点Farmland_CK表1直接读取 上游未受电子废物影响
+P01993,Farmland_CK,Zn_mgkg,119,mg/kg,Table 1,soil,e_waste,Guangdong,对照点Farmland_CK表1直接读取
+P01993,Farmland_CK,Cu_mgkg,58.9,mg/kg,Table 1,soil,e_waste,Guangdong,对照点Farmland_CK表1直接读取
+P01993,Farmland_CK,Cd_mgkg,0.48,mg/kg,Table 1,soil,e_waste,Guangdong,对照点Farmland_CK表1直接读取
+P01993,Farmland_CK,SumPCB_ngg,6.61,ng/g,Table 1,soil,e_waste,Guangdong,对照点Total PCBs ug/kg=ng/g
+P01993,Farmland_CK,SumPBDE_ngg,8.46,ng/g,Table 1,soil,e_waste,Guangdong,对照点Total PBDEs ug/kg=ng/g
+P01993,Mudflat,Pb_mgkg,15.9,mg/kg,Table 1,sediment,e_waste,Guangdong,河滩沉积物Mudflat近Lianjiang河 论文按soil处理 辛特助标sediment
+P01993,Mudflat,Zn_mgkg,238,mg/kg,Table 1,sediment,e_waste,Guangdong,河滩沉积物Mudflat近Lianjiang河
+P01993,Mudflat,Cu_mgkg,146,mg/kg,Table 1,sediment,e_waste,Guangdong,河滩沉积物Mudflat近Lianjiang河
+P01993,Mudflat,Cd_mgkg,0.90,mg/kg,Table 1,sediment,e_waste,Guangdong,河滩沉积物Mudflat近Lianjiang河
+P01993,Mudflat,SumPCB_ngg,23.9,ng/g,Table 1,sediment,e_waste,Guangdong,河滩沉积物Total PCBs ug/kg=ng/g
+P01993,Mudflat,SumPBDE_ngg,98.6,ng/g,Table 1,sediment,e_waste,Guangdong,河滩沉积物Total PBDEs ug/kg=ng/g
+P01993,Mudflat_CK,Pb_mgkg,7.98,mg/kg,Table 1,sediment,e_waste,Guangdong,对照点Mudflat_CK河滩沉积 PBDEs为ND未输出
+P01993,Mudflat_CK,Zn_mgkg,141,mg/kg,Table 1,sediment,e_waste,Guangdong,对照点Mudflat_CK河滩沉积
+P01993,Mudflat_CK,Cu_mgkg,15.3,mg/kg,Table 1,sediment,e_waste,Guangdong,对照点Mudflat_CK河滩沉积
+P01993,Mudflat_CK,Cd_mgkg,0.49,mg/kg,Table 1,sediment,e_waste,Guangdong,对照点Mudflat_CK河滩沉积
+P01993,Mudflat_CK,SumPCB_ngg,1.26,ng/g,Table 1,sediment,e_waste,Guangdong,对照点Total PCBs ug/kg=ng/g PBDEs列ND跳过
+P01993,Acid-strip,Pb_mgkg,62.1,mg/kg,Table 1,soil,e_waste,Guangdong,酸洗点Acid-strip表1直接读取
+P01993,Acid-strip,Zn_mgkg,1245,mg/kg,Table 1,soil,e_waste,Guangdong,酸洗点Acid-strip表1直接读取
+P01993,Acid-strip,Cu_mgkg,2841,mg/kg,Table 1,soil,e_waste,Guangdong,酸洗点Acid-strip表1直接读取
+P01993,Acid-strip,Cd_mgkg,3.94,mg/kg,Table 1,soil,e_waste,Guangdong,酸洗点Acid-strip表1直接读取
+P01993,Acid-strip,SumPCB_ngg,726,ng/g,Table 1,soil,e_waste,Guangdong,酸洗点Total PCBs ug/kg=ng/g
+P01993,Acid-strip,SumPBDE_ngg,4892,ng/g,Table 1,soil,e_waste,Guangdong,酸洗点Total PBDEs ug/kg=ng/g
+P01993,Acid-strip_CK,Pb_mgkg,7.38,mg/kg,Table 1,soil,e_waste,Guangdong,对照点Acid-strip_CK表1直接读取
+P01993,Acid-strip_CK,Zn_mgkg,128,mg/kg,Table 1,soil,e_waste,Guangdong,对照点Acid-strip_CK表1直接读取
+P01993,Acid-strip_CK,Cu_mgkg,9.86,mg/kg,Table 1,soil,e_waste,Guangdong,对照点Acid-strip_CK表1直接读取
+P01993,Acid-strip_CK,Cd_mgkg,0.70,mg/kg,Table 1,soil,e_waste,Guangdong,对照点Acid-strip_CK表1直接读取
+P01993,Acid-strip_CK,SumPCB_ngg,5.41,ng/g,Table 1,soil,e_waste,Guangdong,对照点Total PCBs ug/kg=ng/g
+P01993,Acid-strip_CK,SumPBDE_ngg,9.58,ng/g,Table 1,soil,e_waste,Guangdong,对照点Total PBDEs ug/kg=ng/g
+P01993,Dump-1,Pb_mgkg,19.7,mg/kg,Table 1,soil,e_waste,Guangdong,倾倒点Dump-1表1直接读取
+P01993,Dump-1,Zn_mgkg,795,mg/kg,Table 1,soil,e_waste,Guangdong,倾倒点Dump-1表1直接读取
+P01993,Dump-1,Cu_mgkg,322,mg/kg,Table 1,soil,e_waste,Guangdong,倾倒点Dump-1表1直接读取
+P01993,Dump-1,Cd_mgkg,1.25,mg/kg,Table 1,soil,e_waste,Guangdong,倾倒点Dump-1表1直接读取
+P01993,Dump-1,SumPCB_ngg,158,ng/g,Table 1,soil,e_waste,Guangdong,倾倒点Total PCBs ug/kg=ng/g
+P01993,Dump-1,SumPBDE_ngg,546,ng/g,Table 1,soil,e_waste,Guangdong,倾倒点Total PBDEs ug/kg=ng/g
+P01993,Dump-2,Pb_mgkg,26.1,mg/kg,Table 1,soil,e_waste,Guangdong,倾倒点Dump-2表1直接读取
+P01993,Dump-2,Zn_mgkg,1464,mg/kg,Table 1,soil,e_waste,Guangdong,倾倒点Dump-2表1直接读取
+P01993,Dump-2,Cu_mgkg,265,mg/kg,Table 1,soil,e_waste,Guangdong,倾倒点Dump-2表1直接读取
+P01993,Dump-2,Cd_mgkg,2.66,mg/kg,Table 1,soil,e_waste,Guangdong,倾倒点Dump-2表1直接读取
+P01993,Dump-2,SumPCB_ngg,119,ng/g,Table 1,soil,e_waste,Guangdong,倾倒点Total PCBs ug/kg=ng/g
+P01993,Dump-2,SumPBDE_ngg,759,ng/g,Table 1,soil,e_waste,Guangdong,倾倒点Total PBDEs ug/kg=ng/g
+P01993,Dump_CK,Pb_mgkg,8.54,mg/kg,Table 1,soil,e_waste,Guangdong,对照点Dump_CK表1直接读取 PBDEs列ND跳过
+P01993,Dump_CK,Zn_mgkg,35.9,mg/kg,Table 1,soil,e_waste,Guangdong,对照点Dump_CK表1直接读取
+P01993,Dump_CK,Cu_mgkg,8.79,mg/kg,Table 1,soil,e_waste,Guangdong,对照点Dump_CK表1直接读取
+P01993,Dump_CK,Cd_mgkg,0.93,mg/kg,Table 1,soil,e_waste,Guangdong,对照点Dump_CK表1直接读取
+P01993,Dump_CK,SumPCB_ngg,3.43,ng/g,Table 1,soil,e_waste,Guangdong,对照点Total PCBs ug/kg=ng/g
+P01993,Burn-1,Pb_mgkg,18.1,mg/kg,Table 1,soil,e_waste,Guangdong,焚烧点Burn-1表1直接读取
+P01993,Burn-1,Zn_mgkg,5455,mg/kg,Table 1,soil,e_waste,Guangdong,焚烧点Burn-1表1直接读取
+P01993,Burn-1,Cu_mgkg,1853,mg/kg,Table 1,soil,e_waste,Guangdong,焚烧点Burn-1表1直接读取
+P01993,Burn-1,Cd_mgkg,5.03,mg/kg,Table 1,soil,e_waste,Guangdong,焚烧点Burn-1表1直接读取
+P01993,Burn-1,SumPCB_ngg,177,ng/g,Table 1,soil,e_waste,Guangdong,焚烧点Total PCBs ug/kg=ng/g
+P01993,Burn-1,SumPBDE_ngg,2399,ng/g,Table 1,soil,e_waste,Guangdong,焚烧点Total PBDEs ug/kg=ng/g
+P01993,Burn-2,Pb_mgkg,37.9,mg/kg,Table 1,soil,e_waste,Guangdong,焚烧点Burn-2表1直接读取
+P01993,Burn-2,Zn_mgkg,5862,mg/kg,Table 1,soil,e_waste,Guangdong,焚烧点Burn-2表1直接读取
+P01993,Burn-2,Cu_mgkg,7324,mg/kg,Table 1,soil,e_waste,Guangdong,焚烧点Burn-2表1直接读取
+P01993,Burn-2,Cd_mgkg,16.7,mg/kg,Table 1,soil,e_waste,Guangdong,焚烧点Burn-2表1直接读取
+P01993,Burn-2,SumPCB_ngg,98.6,ng/g,Table 1,soil,e_waste,Guangdong,焚烧点Total PCBs ug/kg=ng/g
+P01993,Burn-2,SumPBDE_ngg,1992,ng/g,Table 1,soil,e_waste,Guangdong,焚烧点Total PBDEs ug/kg=ng/g
+P01993,Burn_CK,Pb_mgkg,9.09,mg/kg,Table 1,soil,e_waste,Guangdong,对照点Burn_CK表1直接读取 PBDEs列ND跳过
+P01993,Burn_CK,Zn_mgkg,49.8,mg/kg,Table 1,soil,e_waste,Guangdong,对照点Burn_CK表1直接读取
+P01993,Burn_CK,Cu_mgkg,6.40,mg/kg,Table 1,soil,e_waste,Guangdong,对照点Burn_CK表1直接读取
+P01993,Burn_CK,Cd_mgkg,0.60,mg/kg,Table 1,soil,e_waste,Guangdong,对照点Burn_CK表1直接读取
+P01993,Burn_CK,SumPCB_ngg,0.76,ng/g,Table 1,soil,e_waste,Guangdong,对照点Total PCBs ug/kg=ng/g PBDEs列ND未输出

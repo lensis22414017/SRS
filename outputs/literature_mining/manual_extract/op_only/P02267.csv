@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02267,,,,,,,,"skip: 仅统计汇总(Min/Max/Median/Mean across 73 pooled soil samples)无采样点级数据; Table 1为16 PAH单体汇总统计行+各国监管限值; Table 2为蔬菜可食部统计(按蔬菜类型非按采样点); 正文提及S12/S03/S07最高但未给单点浓度值; 所有数据为site-level summary非sample-level"

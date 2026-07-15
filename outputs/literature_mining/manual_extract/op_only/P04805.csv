@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04805,,,,,,,,"skip: street dust matrix (not soil); Table 2 only provides statistical summaries (Min/Max/Mean/SD/Median) for 16 PAHs + ΣPAHs + Fe + BC + OC + TOC across 22 sites in E'zhou City Hubei; no sample-level concentration table; Table 3=Pearson correlations (not concentrations); Table 4=ILCR risk indices (rejected); PT05=9.60 ug/g mentioned in text is just the Maximum value from Table 2 stats"

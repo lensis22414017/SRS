@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05362,,,,,,,,,"skip: 论文污染物为氯代烃VOCs(二氯甲烷/四氯化碳/氯仿/氯苯/三氯乙烯等)，非提取目标OP类别(PAH/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAEs/OCP)。表格仅含微生物多样性指数(OTUs/Chao1/Shannon)。仅有的定量浓度为地下水μg/L值(非土壤)，且为氯代溶剂非目标OP"

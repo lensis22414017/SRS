@@ -1,0 +1,6 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01260,1,SumPCB_ngg,11,ng/g,Table 1 (Total 36 PCBs row),soil,e_waste,Zhejiang,"Table 1直接读取Total 36 PCBs=11 ng/g dw; PAPER_MD截断:站点6-10 PCB数据丢失/PAH整段缺失; 正文仅给PAH范围330~790(不含S6=20000) ng/g dw无站点单值; BaP仅给~10%近似百分比不可提取; 无HM数据"
+P01260,2,SumPCB_ngg,32,ng/g,Table 1 (Total 36 PCBs row),soil,e_waste,Zhejiang,Table 1直接读取Total 36 PCBs=32 ng/g dw
+P01260,3,SumPCB_ngg,19,ng/g,Table 1 (Total 36 PCBs row),soil,e_waste,Zhejiang,Table 1直接读取Total 36 PCBs=19 ng/g dw
+P01260,4,SumPCB_ngg,26,ng/g,Table 1 (Total 36 PCBs row),soil,e_waste,Zhejiang,Table 1直接读取Total 36 PCBs=26 ng/g dw
+P01260,5,SumPCB_ngg,65,ng/g,Table 1 (Total 36 PCBs row),soil,e_waste,Zhejiang,Table 1直接读取Total 36 PCBs=65 ng/g dw

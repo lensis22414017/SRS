@@ -1,0 +1,141 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P02403,1,Sum_PAH_ngg,938.5,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,1,BaP_ngg,24.6,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,1,SumPCB_ngg,55.46,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,1,SumHCH_ngg,49.1,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,1,SumDDT_ngg,31.74,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,2,Sum_PAH_ngg,854.92,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,2,BaP_ngg,32.4,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,2,SumPCB_ngg,1.29,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,2,SumHCH_ngg,44.8,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,2,SumDDT_ngg,30.61,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,3,Sum_PAH_ngg,733.48,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,3,BaP_ngg,30.3,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,3,SumPCB_ngg,0.57,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,3,SumHCH_ngg,33.9,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,3,SumDDT_ngg,34.58,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,4-1,Sum_PAH_ngg,783.81,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,4-1,BaP_ngg,14.9,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,4-1,SumPCB_ngg,0.67,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,4-1,SumHCH_ngg,42.74,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,4-1,SumDDT_ngg,81.57,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,4-2,Sum_PAH_ngg,804.39,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,4-2,BaP_ngg,22.9,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,4-2,SumPCB_ngg,1.14,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,4-2,SumHCH_ngg,46.3,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,4-2,SumDDT_ngg,61.25,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,5,Sum_PAH_ngg,213.38,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,5,SumPCB_ngg,1.2,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,5,SumHCH_ngg,38.9,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,5,SumDDT_ngg,1.88,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,6,Sum_PAH_ngg,124.76,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,6,BaP_ngg,3.37,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,6,SumPCB_ngg,0.31,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,6,SumHCH_ngg,15.8,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,6,SumDDT_ngg,4.73,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,7,Sum_PAH_ngg,668.19,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,7,BaP_ngg,21.2,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,7,SumPCB_ngg,8.92,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,7,SumHCH_ngg,28.22,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,7,SumDDT_ngg,53.48,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,8,Sum_PAH_ngg,739.75,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,8,BaP_ngg,17.5,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,8,SumPCB_ngg,2.39,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,8,SumHCH_ngg,41.34,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,8,SumDDT_ngg,240.83,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,9,Sum_PAH_ngg,586.46,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,9,BaP_ngg,26.5,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,9,SumPCB_ngg,0.73,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,9,SumHCH_ngg,41.7,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,9,SumDDT_ngg,15.77,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,10,Sum_PAH_ngg,2355.79,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,10,BaP_ngg,169.0,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,10,SumHCH_ngg,37.8,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,10,SumDDT_ngg,83.54,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,11-1,Sum_PAH_ngg,318.76,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,11-1,BaP_ngg,19.5,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,11-1,SumPCB_ngg,0.5,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,11-1,SumHCH_ngg,17.8,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,11-1,SumDDT_ngg,6.36,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,11-2,Sum_PAH_ngg,603.15,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,11-2,BaP_ngg,22.9,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,11-2,SumPCB_ngg,0.29,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,11-2,SumHCH_ngg,41.1,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,11-2,SumDDT_ngg,13.21,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,12,Sum_PAH_ngg,759.38,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,12,BaP_ngg,19.9,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,12,SumPCB_ngg,0.68,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,12,SumHCH_ngg,25.59,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,12,SumDDT_ngg,76.54,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,13,Sum_PAH_ngg,645.42,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,13,BaP_ngg,40.2,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,13,SumPCB_ngg,1.56,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,13,SumHCH_ngg,82.4,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,13,SumDDT_ngg,54.44,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,14-1,Sum_PAH_ngg,1229.34,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,14-1,BaP_ngg,78.5,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,14-1,SumPCB_ngg,1.11,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,14-1,SumHCH_ngg,43.15,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,14-1,SumDDT_ngg,109.42,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,14-2,Sum_PAH_ngg,343.19,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,14-2,BaP_ngg,8.44,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,14-2,SumPCB_ngg,1.8,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,14-2,SumHCH_ngg,39.7,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,14-2,SumDDT_ngg,35.35,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,15,Sum_PAH_ngg,278.03,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,15,BaP_ngg,8.32,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,15,SumPCB_ngg,1.36,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,15,SumHCH_ngg,46.0,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,15,SumDDT_ngg,13.19,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,16,Sum_PAH_ngg,1192.85,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,16,BaP_ngg,111.0,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,16,SumPCB_ngg,6.06,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,16,SumHCH_ngg,21.0,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,16,SumDDT_ngg,17.47,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,17,Sum_PAH_ngg,4736.99,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,17,BaP_ngg,399.0,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,17,SumPCB_ngg,0.27,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,17,SumHCH_ngg,31.6,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,17,SumDDT_ngg,41.8,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,18,Sum_PAH_ngg,394.59,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,18,BaP_ngg,8.21,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,18,SumPCB_ngg,0.47,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,18,SumHCH_ngg,742.0,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,18,SumDDT_ngg,24.79,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,19,Sum_PAH_ngg,403.41,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,19,BaP_ngg,24.1,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,19,SumHCH_ngg,19.2,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,19,SumDDT_ngg,30.79,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,20,Sum_PAH_ngg,126.44,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,20,BaP_ngg,1.22,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,20,SumHCH_ngg,38.0,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,20,SumDDT_ngg,74.5,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,21,Sum_PAH_ngg,1420.2,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,21,BaP_ngg,85.9,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,21,SumPCB_ngg,1.04,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,21,SumHCH_ngg,46.09,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,21,SumDDT_ngg,29.49,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,22,Sum_PAH_ngg,770.01,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,22,BaP_ngg,27.7,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,22,SumPCB_ngg,1.44,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,22,SumHCH_ngg,53.1,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,22,SumDDT_ngg,33.01,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,23-1,Sum_PAH_ngg,910.39,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,23-1,BaP_ngg,45.7,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,23-1,SumPCB_ngg,0.86,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,23-1,SumHCH_ngg,51.4,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,23-1,SumDDT_ngg,37.76,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,23-2,Sum_PAH_ngg,798.16,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,23-2,BaP_ngg,33.3,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,23-2,SumPCB_ngg,0.56,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,23-2,SumHCH_ngg,44.9,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,23-2,SumDDT_ngg,23.53,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,24,Sum_PAH_ngg,140.66,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,24,BaP_ngg,3.89,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,24,SumPCB_ngg,1.08,ng/g,Table 1,soil,e_waste,Zhejiang,6 indicator PCBs summed (28+52+101+138+153+180),28.38,121.28
+P02403,24,SumHCH_ngg,35.2,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,24,SumDDT_ngg,220.71,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28
+P02403,25,Sum_PAH_ngg,901.63,ng/g,Table 1,soil,e_waste,Zhejiang,16 EPA PAH monomers summed,28.38,121.28
+P02403,25,BaP_ngg,38.2,ng/g,Table 1,soil,e_waste,Zhejiang,BaP monomer direct read,28.38,121.28
+P02403,25,SumHCH_ngg,48.4,ng/g,Table 1,soil,e_waste,Zhejiang,alpha+gamma+delta HCH summed,28.38,121.28
+P02403,25,SumDDT_ngg,11.2,ng/g,Table 1,soil,e_waste,Zhejiang,DDT+DDE+DDD all isomers (op+pp) summed,28.38,121.28

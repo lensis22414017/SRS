@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01690,,,,,,,,,"skip: All PAH concentration data presented only in figures (Fig.2-4 bar charts) without numeric tables. Table 1 contains only geochemical diagnostic ratios (LPAHs/HPAHs, Ant/(Ant+Phe), Fla/(Fla+Pyr) etc.) not concentrations. Text provides only statistical summaries (mean 275.04+/-49.95 ug/kg, range 7.88-2231.42 ug/kg) which are rejected. No sample-level concentration values extractable."

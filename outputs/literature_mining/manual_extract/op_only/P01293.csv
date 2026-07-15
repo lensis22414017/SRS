@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01293,Nam Co,Sum_PAH_ngg,5.54,ng/g,Section 3.1 text,soil,background,Tibet,15 EPA PAH sum (Nap excluded); mentioned as range minimum in text; full 41-sample dataset in SI Tables SI-6 to SI-9 not available in paper.md
+P01293,Nyingchi,Sum_PAH_ngg,389,ng/g,Section 3.1 text,soil,background,Tibet,15 EPA PAH sum (Nap excluded); mentioned as range maximum in text; burozem soil; full 41-sample dataset in SI Tables SI-6 to SI-9 not available in paper.md

@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01177,S13,Sum_PAH_ngg,342.99,ng/g,Table 3,peat,wetland,Hubei,S13泥炭采样点2018年Σ16PAHs;环数加和(2环148.58+3环131.22+4环35.25+5环20.30+6环7.65=343.00舍入);摘要确认342.99
+P01177,S13,Sum_PAH_ngg,385.48,ng/g,Table 3,peat,wetland,Hubei,S13泥炭采样点2019年Σ16PAHs;环数加和(108.68+186.14+46.24+28.56+15.86=385.48);摘要确认385.48
+P01177,S13,Sum_PAH_ngg,339.70,ng/g,Table 3,peat,wetland,Hubei,S13泥炭采样点2020年Σ16PAHs;环数加和(102.41+121.75+70.57+30.40+14.57=339.70);摘要确认339.70

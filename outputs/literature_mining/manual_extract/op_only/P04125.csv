@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04125,,,,,,,,"skip: 论文仅提供土地利用类型分组汇总均值(ditch wetland/riverine wetland/agriculture land的group average和Mean±SD)，无S1-S12采样点级单体PAH数据。Table 4为按土地利用类型×深度×环数类别的聚合值(每类型含4个采样点)，正文3.1节明确标注group average。SI目录为空无补充数据。"

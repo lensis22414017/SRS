@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02196,,,,,,,,"skip: Table 2仅提供42个采样点的Min/Max/Mean/SD/CV描述性统计, 11种PAH单体无采样点级原始浓度数据; 补充材料Table S1-S5为评分函数/相关性矩阵/Nemerow指数, 均非采样点原始浓度; 论文无HM数据; 数据需向通讯作者索取 (Data available from corresponding author on reasonable request)"

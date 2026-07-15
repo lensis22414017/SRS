@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01486,,,,,,,,,skip: 纯理论/解析模型论文，无真实采样点级OP浓度数据；论文主题为VOC蒸气在分层土壤中二维迁移解析解；唯一实验验证来自Wang et al.(2019) pilot-scale tank(实验室装置非野外采样)；无目标OP污染物(PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAEs/OCPs)；VOC蒸气浓度单位为ug/m3(气相)非土壤ng/g或mg/kg

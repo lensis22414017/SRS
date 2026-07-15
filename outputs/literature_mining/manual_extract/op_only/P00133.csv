@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00133,Soil 3,Sum_PAH_ngg,301.2,ng/g,Section 3.5,soil,other,Heilongjiang,"Partial sum of only 5 of 16 EPA PAH monomers reported in text (Nap=21.5+Flt=79.5+Pyr=64.8+BaA=83+Chr=52.4); remaining 11 monomers detected but not quantified; Soil 4 from heavy traffic area in Jiangning Nanjing Jiangsu had PAH concentrations exceeding linearity range so no quantitative values obtained; primarily a method development paper (SPME-GC-MS fiber comparison) with limited field validation"

@@ -1,0 +1,11 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+1-s2.0-S0269749122000306,1-s2.0-S0269749122000306_Total,Total,Al_mgkg,546.0,Unknown,,high,table_p1_ri4_ci3, 
+1-s2.0-S0269749122000306,1-s2.0-S0269749122000306_Health_risks_NCR,Health risks NCR,Al_mgkg,7.7,Unknown,,high,table_p1_ri4_ci4, 
+1-s2.0-S0269749122000306,1-s2.0-S0269749122000306_Total,Total,Al_mgkg,321.5,Unknown,,high,table_p1_ri7_ci3, 
+1-s2.0-S0269749122000306,1-s2.0-S0269749122000306_Health_risks_NCR,Health risks NCR,Al_mgkg,31.2,Unknown,,high,table_p1_ri9_ci4, 
+1-s2.0-S0269749122000306,1-s2.0-S0269749122000306_Total,Total,Al_mgkg,330.0,Unknown,,high,table_p1_ri11_ci3, 
+1-s2.0-S0269749122000306,1-s2.0-S0269749122000306_Health_risks_NCR,Health risks NCR,Al_mgkg,4.7,Unknown,,high,table_p1_ri11_ci4, 
+1-s2.0-S0269749122000306,1-s2.0-S0269749122000306_Total,Total,Al_mgkg,613.2,Unknown,,high,table_p1_ri12_ci3, 
+1-s2.0-S0269749122000306,1-s2.0-S0269749122000306_Health_risks_NCR,Health risks NCR,Al_mgkg,16.0,Unknown,,high,table_p1_ri12_ci4, 
+1-s2.0-S0269749122000306,1-s2.0-S0269749122000306_Heavy_metal_(mg/kg),Heavy metal (mg/kg),Al_mgkg,493358.0,Unknown,,high,table_p1_ri15_ci1, 
+1-s2.0-S0269749122000306,1-s2.0-S0269749122000306_Total,Total,Al_mgkg,856.2,Unknown,,high,table_p1_ri15_ci3, 

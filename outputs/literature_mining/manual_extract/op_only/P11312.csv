@@ -1,0 +1,21 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11312,DB-W,TotalPHC_mgkg,146500,mg/kg,Table S2 (SI),soil,petrochemical,Shaanxi,Table S2 SI; TPH by gravimetric method; mean of triplicate; oil well contaminated (Heavy)
+P11312,JB-W,TotalPHC_mgkg,27900,mg/kg,Table S2 (SI),soil,petrochemical,Shaanxi,Table S2 SI; TPH by gravimetric method; mean of triplicate; oil well contaminated (Heavy)
+P11312,ZD-W,TotalPHC_mgkg,26633,mg/kg,Table S2 (SI),soil,petrochemical,Shaanxi,Table S2 SI; TPH by gravimetric method; mean of triplicate; oil well contaminated (Heavy)
+P11312,AS-W,TotalPHC_mgkg,50200,mg/kg,Table S2 (SI),soil,petrochemical,Shaanxi,Table S2 SI; TPH by gravimetric method; mean of triplicate; oil well contaminated (Heavy)
+P11312,ZC-W,TotalPHC_mgkg,4533,mg/kg,Table S2 (SI),soil,petrochemical,Shaanxi,Table S2 SI; TPH by gravimetric method; mean of triplicate; oil well contaminated (Medium)
+P11312,SD-W,TotalPHC_mgkg,5533,mg/kg,Table S2 (SI),soil,petrochemical,Shaanxi,Table S2 SI; TPH by gravimetric method; mean of triplicate; oil well contaminated (Medium)
+P11312,WQ-W,TotalPHC_mgkg,4560,mg/kg,Table S2 (SI),soil,petrochemical,Shaanxi,Table S2 SI; TPH by gravimetric method; mean of triplicate; oil well contaminated (Medium)
+P11312,YA-W,TotalPHC_mgkg,6661,mg/kg,Table S2 (SI),soil,petrochemical,Shaanxi,Table S2 SI; TPH by gravimetric method; mean of triplicate; oil well contaminated (Medium)
+P11312,YC-W,TotalPHC_mgkg,5467,mg/kg,Table S2 (SI),soil,petrochemical,Shaanxi,Table S2 SI; TPH by gravimetric method; mean of triplicate; oil well contaminated (Medium)
+P11312,FX-W,TotalPHC_mgkg,12867,mg/kg,Table S2 (SI),soil,petrochemical,Shaanxi,Table S2 SI; TPH by gravimetric method; mean of triplicate; oil well contaminated (Medium)
+P11312,DB-C,TotalPHC_mgkg,230,mg/kg,Table S2 (SI),soil,agricultural,Shaanxi,Table S2 SI; TPH by gravimetric method; mean of triplicate; farmland control soil
+P11312,JB-C,TotalPHC_mgkg,207,mg/kg,Table S2 (SI),soil,agricultural,Shaanxi,Table S2 SI; TPH by gravimetric method; mean of triplicate; farmland control soil
+P11312,ZC-C,TotalPHC_mgkg,433,mg/kg,Table S2 (SI),soil,agricultural,Shaanxi,Table S2 SI; TPH by gravimetric method; mean of triplicate; farmland control soil
+P11312,SD-C,TotalPHC_mgkg,197,mg/kg,Table S2 (SI),soil,agricultural,Shaanxi,Table S2 SI; TPH by gravimetric method; mean of triplicate; farmland control soil
+P11312,WQ-C,TotalPHC_mgkg,205,mg/kg,Table S2 (SI),soil,agricultural,Shaanxi,Table S2 SI; TPH by gravimetric method; mean of triplicate; farmland control soil
+P11312,ZD-C,TotalPHC_mgkg,331,mg/kg,Table S2 (SI),soil,agricultural,Shaanxi,Table S2 SI; TPH by gravimetric method; mean of triplicate; farmland control soil
+P11312,AS-C,TotalPHC_mgkg,283,mg/kg,Table S2 (SI),soil,agricultural,Shaanxi,Table S2 SI; TPH by gravimetric method; mean of triplicate; farmland control soil
+P11312,YA-C,TotalPHC_mgkg,365,mg/kg,Table S2 (SI),soil,agricultural,Shaanxi,Table S2 SI; TPH by gravimetric method; mean of triplicate; farmland control soil
+P11312,YC-C,TotalPHC_mgkg,315,mg/kg,Table S2 (SI),soil,agricultural,Shaanxi,Table S2 SI; TPH by gravimetric method; mean of triplicate; farmland control soil
+P11312,FX-C,TotalPHC_mgkg,429,mg/kg,Table S2 (SI),soil,agricultural,Shaanxi,Table S2 SI; TPH by gravimetric method; mean of triplicate; farmland control soil

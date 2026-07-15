@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07978,,,,,,,sediment,,,,"skip: 论文仅有统计汇总数据(overall Min/Max/Median/Mean for 22 OCPs across 324 samples in Table 1; zone-level Mean for 14 intertidal zones in text and Fig 2)。无采样点级个体浓度数据。324 individual sample concentrations仅存于Supplementary Information(Table S3/S4)不可获取。符合Rule 2(剔除Mean/SD/Min/Max/Median统计汇总)和Rule 4(剔除区域均值当场地样本)。"

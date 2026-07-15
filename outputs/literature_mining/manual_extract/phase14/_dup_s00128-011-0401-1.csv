@@ -1,0 +1,14 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+_dup_s00128-011-0401-1,_dup_s00128-011-0401-1_R.T.,R.T.,OM_pct,12.118,Unknown,,high,table_p2_ri4_ci1,Table 1 SIM programs of the pesticides investigated
+_dup_s00128-011-0401-1,_dup_s00128-011-0401-1_T.ion,T.ion,OM_pct,156.0,Unknown,,high,table_p2_ri4_ci2,Table 1 SIM programs of the pesticides investigated
+_dup_s00128-011-0401-1,_dup_s00128-011-0401-1_Q.ions,Q.ions,OM_pct,110.0,Unknown,,high,table_p2_ri4_ci3,Table 1 SIM programs of the pesticides investigated
+_dup_s00128-011-0401-1,_dup_s00128-011-0401-1_LOD*,LOD*,OM_pct,0.24,Unknown,,high,table_p2_ri4_ci5,Table 1 SIM programs of the pesticides investigated
+_dup_s00128-011-0401-1,_dup_s00128-011-0401-1_R.T.,R.T.,SumDDT_ngg,23.123,Unknown,,high,table_p2_ri44_ci1,Table 1 SIM programs of the pesticides investigated
+_dup_s00128-011-0401-1,_dup_s00128-011-0401-1_T.ion,T.ion,SumDDT_ngg,235.0,Unknown,,high,table_p2_ri44_ci2,Table 1 SIM programs of the pesticides investigated
+_dup_s00128-011-0401-1,_dup_s00128-011-0401-1_Q.ions,Q.ions,SumDDT_ngg,165.0,Unknown,,high,table_p2_ri44_ci3,Table 1 SIM programs of the pesticides investigated
+_dup_s00128-011-0401-1,_dup_s00128-011-0401-1_LOD*,LOD*,SumDDT_ngg,0.25,Unknown,,high,table_p2_ri44_ci5,Table 1 SIM programs of the pesticides investigated
+_dup_s00128-011-0401-1,_dup_s00128-011-0401-1_R.T.,R.T.,SumDDT_ngg,22.031,Unknown,,medium,table_p2_ri39_ci1,
+_dup_s00128-011-0401-1,_dup_s00128-011-0401-1_T.ion,T.ion,SumDDT_ngg,235.0,Unknown,,medium,table_p2_ri39_ci2,
+_dup_s00128-011-0401-1,_dup_s00128-011-0401-1_Q.ions,Q.ions,SumDDT_ngg,165.0,Unknown,,medium,table_p2_ri39_ci3,
+_dup_s00128-011-0401-1,_dup_s00128-011-0401-1_col4,col4,SumDDT_ngg,237.0,Unknown,,medium,table_p2_ri39_ci4,
+_dup_s00128-011-0401-1,_dup_s00128-011-0401-1_LODa,LODa,SumDDT_ngg,0.44,Unknown,,medium,table_p2_ri39_ci5,

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02677,,,,,,,,"skip: spiked batch experiment — flumioxazin standard solution added to soil tubes in lab (100 µg/mL spiking); 4 soils collected from no-flumioxazin-application areas; tables contain recovery validation + degradation kinetic parameters (k/R2/T1/2) only; no field-measured OP data (no PAH/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAE/OCP); falls under spiked/greenhouse/remediation rejection criteria"

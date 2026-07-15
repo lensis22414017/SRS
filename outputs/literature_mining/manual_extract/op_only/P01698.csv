@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01698,,,,,,,,"skip: 仅区域统计汇总(Mean/Median/Min/Max)，无采样点级数据表。论文Table 1为241个土壤样本的汇总统计(按化合物列出Detection rate/Mean/Median/Min/Max)，无S1/S2/点位名等采样点标识。空间分布仅以Fig.1 Kriging插值地图呈现(不可提取)。SI文件夹为空，无per-site补充表格。"

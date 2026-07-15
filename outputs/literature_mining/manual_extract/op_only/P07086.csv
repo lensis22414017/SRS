@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07086,,,,,,,,"skip: sampling-point PCB data only in Supplementary Table S3 (SI directory empty/not available). Main paper text has only summary statistics (Sum29PCBs mean 510 ng/kg range 57-1320 for O-horizon, mean 227 ng/kg range 36-679 for A-horizon) which are stat rows rejected per rules. Fig 1 shows per-site bar charts but values are graphical-only not traceable tabular data. Table 1 is correlation/regression statistics not concentrations. No PDF available for OCR."

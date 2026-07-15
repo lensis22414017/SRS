@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04174,U4,Sum_PAH_ngg,294.36,ng/g,Section 3.3 text,soil,urban,Shanxi,"U4城市公园土壤 为城市Σ16PAHs最低值 文中正文明确给出具体数值"
+P04174,U6,Sum_PAH_ngg,2540.64,ng/g,Section 3.3 text,soil,urban,Shanxi,"U6城市公园土壤 为城市Σ16PAHs最高值 靠近热电厂和焦化厂"
+P04174,U12,Sum_PAH_ngg,2271.56,ng/g,Section 3.3 text,soil,urban,Shanxi,"U12城市公园土壤 小店区主干道旁 文中明确数值"
+P04174,U13,Sum_PAH_ngg,2067.01,ng/g,Section 3.3 text,soil,urban,Shanxi,"U13靠近化工园和热电厂 文中明确数值"
+P04174,A9,Sum_PAH_ngg,6594.63,ng/g,"Section 3.1/3.3 text",soil,agricultural,Shanxi,"A9农用土壤 为全部44个样品中Σ16PAHs最高值 靠近热电厂焦化厂"
+P04174,M10,Sum_PAH_ngg,695.26,ng/g,Section 3.3 text,soil,other,Shanxi,"M10山地土壤 为山地Σ16PAHs最高值 最靠近城区的采样点"

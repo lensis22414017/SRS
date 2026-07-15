@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02143,,SKIP,,,,,,,"仅区域汇总统计行(Min/Max/Mean/Median/SD/CV)，无采样点级数据; Table1为n=51样品的描述统计(Min/Max/Mean/Median/SD/CV/Composition%), Table3为均值与ERL/ERM比对, Table4为TEQ_BaP毒性当量(风险指数), 均无逐点位标识的采样点浓度值; 论文仅含PAHs(OP)不含HM"

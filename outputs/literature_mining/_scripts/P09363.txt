@@ -1,0 +1,60 @@
+                                                  Environmental Research 286 (2025) 122748
+                                                  Contents lists available at ScienceDirect
+
+                                            Environmental Research
+
+                                        journal homepage: www.elsevier.com/locate/envres
+
+Pollution characteristics, ecological risk and microbial response to
+combined heavy metals and polycyclic aromatic hydrocarbons in
+soil-groundwater system of the blown-sand region
+
+Xiaobang Liu a,b, Lei Duan a,b , Yaqiao Sun a,b,*, Chenchen Xie a,b, Guobin Song a,b
+
+a School of Water and Environment, Chang'an University, Xi'an 710054, Shaanxi, China
+b Key Laboratory of Underground Hydrology and Ecological Effects in Arid Regions of the Ministry of Education, Chang'an University, Xi'an 710054, Shaanxi, China
+
+ARTICLE INFO                            ABSTRACT
+
+Keywords:                               Systematic revelation on the interaction relationships and environmental behavior of composite pollutants in
+Soil-groundwater system                 soil-groundwater systems is essential but still paucity. This paper integrated geochemistry, statistical analysis and
+Multi-pollutants                        microbiology to progressively analyze the pollution characteristics of heavy metals (HMs) and polycyclic aro
+Pollution prevention                    matic hydrocarbons (PAHs), potential ecological risks and microbial response mechanisms in the blown-sand
+Empirical Bayesian kriging (EBK) model  region. The results indicate that the soil was compound-contaminated by HMs and PAHs. HMs primarily accu
+Microbial stress                        mulated in the soil of 1~1.5 m, while PAHs were predominantly found in 0~0.5 m. Although HMs and PAHs
+                                        showed different sources, the spatial distribution of co-pollutants exhibited a marked correlation with the in
+                                        dustrial layout. The ecological risk in the soil was at a low level, and its spatial distribution corresponded to the
+                                        pollutants. The microbial community in soil and groundwater exhibited significant distress due to pollutants, as
+                                        evidenced by disparities in OTU abundance, diversity index, and microbial community composition. The natural
+                                        attenuation, encompassing aerobic biodegradation, photodegradation, chemical oxidation and volatilization,
+                                        plays an important role in controlling the environmental behavior of HMs and PAHs in the blown-sand areas.
+                                        Based on the above analysis, a technical framework was proposed to prevent and remediate soil-groundwater
+                                        pollution using sensitive microorganisms and tolerant microorganisms. This paper initially combines compos
+                                        ite pollutants and microbial community response and highlights the systematic research in the prevention and
+                                        remediation of soil-groundwater pollution.
+
+1. Introduction                                                            et al., 2024), and others (Wu et al., 2024). It is well-known that pol
+                                                                           lutants in soil frequently engage in interactions that can be synergistic,
+    Accelerated urbanization and strategic industrial restructuring drive  antagonistic, or additive (Ashkanani et al., 2024). These processes not
+the spatial clustering of industrial activities. Consequently, soil-       only alter contaminant toxicity but also make their environmental
+groundwater pollution caused by industrial parks is characterized by       behavior more complex (Anjum et al., 2024; Jiang and Zhao, 2024).
+localized hotspots, high concentrations and multiple pollutants (Peng      Therefore, numerous studies have been conducted to investigate the
+et al., 2021; Wu et al., 2023). Among them, heavy metals (HMs) and         prevention, control and remediation technologies of combined HMs and
+polycyclic aromatic hydrocarbons (PAHs) are of significant concern due     PAHs pollution (Wu et al., 2022; Zhao, 2023).
+to their high toxicity, bioaccumulation, and adverse effects on human
+tissue (Li et al., 2024b; You et al., 2024). Despite their divergent           Identifying contaminant distribution characteristics and pollution
+anthropogenic origins, HMs and PAHs frequently exhibit spatially           levels is fundamental to deploying effective pollution prevention and
+overlapping contamination patterns and have been detected in multiple      remediation strategies. Most recently, numerous research methods such
+environmental compartments, such as indoor combustion (Fappiano            as multivariate statistics, geostatistics (Ma et al., 2025), chemical mass
+et al., 2024), urban soil (Amjadian et al., 2016), farmland soils (Xie     balance (CMB) (Li et al., 2014a), and pollution index (Jin et al., 2021)
+et al., 2024), street dust (Saeedi et al., 2012), contaminated sites (You  were used to analyze soil-groundwater contaminant levels. The inves
+                                                                           tigation revealed that the soil contamination is a complex, multifaceted
+
+  * Corresponding author. School of Water and Environment, Chang'an University, Xi'an 710054, Shaanxi, China.
+     E-mail address: sunyaqiao@chd.edu.cn (Y. Sun).
+
+https://doi.org/10.1016/j.envres.2025.122748
+Received 1 May 2025; Received in revised form 31 August 2025; Accepted 1 September 2025
+Available online 2 September 2025
+0013-9351/© 2025 Elsevier Inc. All rights are reserved, including those for text and data mining, AI training, and similar technologies.
+

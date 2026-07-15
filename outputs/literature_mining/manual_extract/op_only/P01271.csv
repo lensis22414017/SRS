@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01271,,,,,,,,,skip: PFAS only (PFOA/PFCA/PFSA/Cl-PFESA), not target OP pollutant category (PAHs/PCBs/DDT/HCH/PBDE/PHC/antibiotics/PAEs/OCPs); no HM data; Table 4 soil data is aggregate stats for n=40 (median/mean/5th/95th percentile/range) not individual sample-point level data

@@ -1,0 +1,706 @@
+
+===PAGE 1===
+Characterization of methanogenic Archaea in the leachate of
+a closed municipal solid waste land¢ll
+Li-Nan Huang a;b, Yue-Qin Chen a, Hui Zhou a, Shuo Luo a, Chong-Yu Lan a,
+Liang-Hu Qu a;
+a Key Laboratory of Gene Engineering of the Ministry of Education, School of Life Sciences, Zhongshan University, Guangzhou 510275, PR China
+b Department of Environmental Sciences, Zhongshan University, Guangzhou 510275, PR China
+Received 14 June 2003; received in revised form 19 July 2003; accepted 25 July 2003
+First published online 11 September 2003
+Abstract
+Cultivation-independent molecular approaches were used to investigate the phylogenetic composition of Archaea and the relative
+abundance of phylogenetically defined groups of methanogens in the leachate of a closed municipal solid waste landfill. Cloning and
+phylogenetic analysis of archaeal 16S rRNA gene sequences (16S rDNA) revealed that the landfill leachate harbored a diverse Archaea
+community, with sequence types distributed within the two archaeal kingdoms of the Euryarchaeota and the Crenarchaeota. Of the
+80 clones examined, 51 were phylogenetically associated with well-defined methanogen lineages covering two major methanogenic
+phenotypes; 20 were related to Thermoplasma and were grouped with some novel archaeal rRNA gene sequences recently recovered from
+various anaerobic habitats; finally, five belonged to Crenarchaeota and were not closely related to any hitherto cultivated species. Most of
+the methanogen-like clones were affiliated with the hydrogenotrophic Methanomicrobiales and the methylotrophic and acetoclastic
+Methanosarcinales. Quantitative oligonucleotide hybridization experiments showed that methanogens in the leachate accounted for only a
+very small fraction of the total community (approximately 2%) and that Methanomicrobiales and Methanosarcinales constituted the
+majority of the total methanogenic population.
+< 2003 Federation of European Microbiological Societies. Published by Elsevier B.V. All rights reserved.
+Keywords: Municipal solid waste land¢ll; Methanogen; Molecular diversity; Oligonucleotide probe; 16S rRNA
+1. Introduction
+Being a simple and e¡ective biotechnological process,
+anaerobic digestion has been exploited on a large scale
+to reduce the pollution caused by organic wastes [1]. An-
+aerobic processes involve the sequential breakdown of
+complex organic compounds by several e¡ectively interact-
+ing metabolic groups of microorganisms [2,3]. However,
+the limitations of the traditional cultivation-based tech-
+niques have restricted our knowledge of the microbiology
+in anaerobic treatment systems. Much needs to be done to
+identify and quantify the important microorganisms par-
+ticipating in the terminal steps (e.g. methanogenesis) of
+organic waste degradation. Molecular techniques have
+proven to be e¡ective for studying prokaryotes in nature
+without cultivation. Recently, several studies using 16S
+rRNA gene (16S rDNA) sequence analysis on microbial
+communities in anaerobic treatment systems have shown
+that many of the species in these habitats remain to be
+identi¢ed [4^7]. By the application of 16S rRNA-targeted
+oligonucleotide probes, other investigations determined
+the relative abundance of phylogenetically de¢ned groups
+of key microorganisms (e.g. methanogens and sulfate-re-
+ducing bacteria) in anaerobic digesters and related the
+presence and activity of these microbial populations to
+the system performance [8,9]. These studies have unprece-
+dentedly provided detailed insights into the microbial di-
+versity and activity of these poorly characterized ecosys-
+tems.
+In most countries, sanitary land¢lling remains an inte-
+gral part of both existing and new strategies for municipal
+solid waste (MSW) disposal. However, much of what is
+known or assumed concerning anaerobic processes in
+land¢lls has primarily come from investigations of anaer-
+obic digesters. Although the microbial populations in
+0168-6496 / 03 / $22.00 < 2003 Federation of European Microbiological Societies. Published by Elsevier B.V. All rights reserved.
+doi:10.1016/S0168-6496(03)00218-6
+* Corresponding author. Tel.: +86 (20) 84112399;
+Fax: +86 (20) 84036551.
+E-mail address: lsbrc04@zsu.edu.cn (L.-H. Qu).
+FEMS Microbiology Ecology 46 (2003) 171^177
+www.fems-microbiology.org
+
+===PAGE 2===
+these two environments appear to be similar, the environ-
+ment in land¢lls, unlike anaerobic digesters, is poorly con-
+trolled and is far from being optimal. Previously, we have
+used comparative 16S rRNA sequencing to identify mem-
+bers of the Archaea community in the leachate of a full-
+scale recirculating land¢ll [10]. Sequence types phyloge-
+netically associated either with genera within the hydro-
+genotrophic Methanomicrobiales or with Methanosarcina
+within the methylotrophic and aceticlastic Methanosarci-
+nales were retrieved abundantly. Furthermore, we antici-
+pated that these Methanosarcina-like populations most
+probably were responsible for the removal of acetate
+from the land¢ll system, as it was undergoing vigorous
+fermentation due to the high input of organic matter as-
+sociated with recirculated leachate.
+The majority of MSW land¢lls in the world do not
+employ leachate recirculation, but instead, they are mostly
+operated simply as storage facilities rather than treatment
+systems. Presently, little is known about the presence and
+activity of microbial populations in these traditional land-
+¢ll systems, and there has been no direct ¢eld experience
+on the stabilization process time [11]. Here, we have ex-
+tended our molecular study to the methanogenic Archaea
+associated with the leachate of a full-scale MSW land¢ll
+that was closed several years ago. A clone library of
+archaeal 16S rDNA was constructed and a comparative
+analysis of the retrieved sequences was performed to ob-
+tain a description of the Archaea phylogenetic diversity.
+The relative abundance of phylogenetically de¢ned groups
+of methanogens was quanti¢ed by probing RNA samples
+isolated directly from the land¢ll leachate. Additional in-
+sights from this study and similar analyses would improve
+our understanding of the waste stabilization processes in
+the land¢lls. This would increase our ability to evaluate
+and improve the daily land¢lling operations.
+2. Materials and methods
+2.1. MSW land¢ll, sample collection and chemical analysis
+Gouzikeng Land¢ll is located in a suburb approximately
+8 km east of Zhongshan City, Guangdong Province, P.R.
+China and has a capacity of about 1 200 000 m3. Its oper-
+ations started in 1982 and were ¢nished in 1996. A poor
+topsoil cover was applied after its closure.
+Samples of leachate oozing from the bottom of the
+land¢ll were collected in 1-l screw-cap bottles and placed
+immediately on ice for transport to the laboratory. All
+treatments were in triplicate. Chemical analyses of the
+leachate samples were performed as previously described
+[10], following procedures described in [12]. The results of
+these analyses are given in Table 1.
+2.2. DNA extraction and clone library construction
+DNA extraction and clone library construction were
+carried out as previously described [10]. Brie£y, total-com-
+munity DNA was extracted from the leachate samples us-
+ing a lysozyme/proteinase K/sodium dodecyl sulfate (SDS)
+treatment followed by standard phenol/chloroform extrac-
+tions, and archaeal 16S rDNA was ampli¢ed using the
+combination
+of
+the
+archaeal
+primer
+w017
+(5P-ATT-
+CYGGTTGATCCYGSCRG-3P, Escherichia coli F6) and
+the universal primer w002 (5P-GNTACCTTGTTACGA-
+CTT-3P, E. coli R1509) reported by Godon et al. [5].
+The amplicon was ligated into the pTZ plasmid and the
+ligation product was transformed into E. coli TG1 com-
+petent cells.
+2.3. DNA sequencing and phylogenetic analysis
+As described previously, clones carrying archaeal rDNA
+inserts were identi¢ed by colony hybridization with oligo-
+nucleotide probe S-D-Arch-0915-a-A-20 [13], and ran-
+domly selected archaeal clones were initially grouped by
+comparing HaeIII and HhaI restriction endonuclease
+cleavage patterns [10]. One to three representative clones
+from each unique restriction fragment length polymor-
+phism (RFLP) type were partially sequenced using the
+archaeal primer w017. Sequencing was performed on an
+automated ABI 377 sequencer (Dye-Terminator Cycle Se-
+quencing Ready Reaction FS Kit; PE Applied Biosys-
+tems) in accordance with the manufacturer’s instructions.
+The resulting sequences (about 440 bp) were compared
+with those available in GenBank by use of the BLAST
+network service to determine their approximate phyloge-
+netic a⁄liation. After checking for putative chimeras [10],
+they were analyzed using the PAUP software (version 4.0
+b8 [14]). DNA sequence comparisons between samples
+were performed with Lasergene software (Dnastar, Madi-
+son, WI, USA). Finally, representative clones were chosen
+and fully sequenced, using M13/pUC universal sequencing
+primers P47 and P48 and the 16S rDNA primer 533F
+(5P-GTGCCAGCMGCCGCGGTA-3P).
+The
+full-length
+sequences retrieved were used to construct the phyloge-
+netic tree, which was calculated by the Kimura two-pa-
+rameter model [15] and the neighbor-joining algorithm
+[16] using the PAUP software (version 4.0 b8) [14]. One
+Table 1
+Characteristics of the leachate from Gouzikeng Land¢ll (concentrations
+in mg l31)
+Parameter
+Value (mean T S.D.)
+pH
+8.2 T 0.2
+Conductivity (mS cm31)
+9.6 T 0.2
+total solids (TS)
+3660 T 285
+volatile solids (VS)
+2000 T 176
+Bicarb. alkalinity, as CaCO3
+459 T 70
+Sulfate, as SO4
+1.2 T 0.2
+chemical oxygen demand (COD)
+1086 T 134
+total Kjeldahe nitrogen (TKN)
+1226 T 112
+Total volatile fatty acids (VFAs), as acetic acid
+147 T 18
+L.-N. Huang et al. / FEMS Microbiology Ecology 46 (2003) 171^177
+172
+
+===PAGE 3===
+thousand bootstraps were performed to assign con¢dence
+levels to the nodes in the tree.
+The 16S rDNA sequences have been deposited in the
+EMBL/GenBank/DDBJ databases under accession num-
+bers AJ576205 to AJ576242.
+2.4. Quantitative oligonucleotide hybridization experiments
+A set of oligonucleotide probes (S-F-Mbac-0310-a-A-22,
+S-F-Mcoc-1109-a-A-20,
+S-O-Mmic-1200-a-A-21,
+S-G-
+Msar-0821-a-A-21 and S-F-Msae-0825-a-A-23) that target
+most currently known methanogens [9,17] was used in the
+quantitative hybridization. Nucleic acid was extracted in
+triplicate from leachate samples using a low pH/hot phe-
+nol procedure described elsewhere [8,18]. Glass beads (Sig-
+ma) were used to disrupt the cells. Nucleic acids were
+precipitated by the addition of 0.5 volumes of 7.5 M am-
+monium acetate and 2^3 volumes of absolute ethanol.
+Samples obtained from triplicate extractions were pooled,
+and the nucleic acid concentrations were measured spec-
+trophotometrically. Denatured and diluted sample RNAs
+were applied (triplicate application) with a dilution series
+of pure culture target RNA to nylon membranes (Hy-
+bond-N, Amersham) and prehybridizations, hybridiza-
+tions and washes were performed as described by Raskin
+et al. [17]. Oligonucleotide probes were 5P-end labeled with
+32P as described above. Bound probe signals were quanti-
+¢ed with Storage Phosphor Screens and a PhosphorImag-
+er (Molecular Dynamics, Sunnyvale, CA, USA), and the
+phylogenetic group abundance was expressed as a percent-
+age of the total 16S rRNA in the sample.
+3. Results and discussion
+3.1. Archaea diversity of the land¢ll leachate
+A 16S rDNA library was generated from total-commu-
+nity genomic DNA isolated from the land¢ll leachate, us-
+ing a universally conserved primer and an Archaea 16S
+rDNA-targeted primer. Archaeal rDNA clones in the li-
+brary were grouped by comparing restriction enzyme
+cleavage patterns, resulting in a total of 29 di¡erent
+RFLP types among the 80 clones examined. One to three
+representative clones in each unique RFLP type were par-
+tially sequenced with the Archaea-speci¢c primer w017.
+Table 2
+Distribution of sequence types from the 16S rDNA library
+Putative division
+(% representation)
+Sequence
+typea
+Number of RFLP
+patterns
+Number of
+clones
+Closest cultivated species or
+environmental clonesb
+% Sequence similarity
+Euryarchaeota
+Methanomicrobiales (35.1%)
+GZK7, 33, 76
+3
+9
+Methanoculleus oldenburgensis
+(AB065298)
+97.7^99.5
+GZK64
+1
+2
+Methanoculleus chikugoensis
+(AB038795)
+99.4
+GZK1, 3
+4
+14
+Methanoculleus marisnigri
+(AF028693)
+97.1^97.8
+GZK26
+1
+2
+Methanospirillum hungatei
+(M60880)
+99.8
+Methanosarcinales (29.8%)
+GZK31, 75
+5
+13
+Methanosaeta sp. clone A1
+(AJ133791)
+96.2^97.6
+GZK10, 39, 51
+2
+10
+Methanosaeta concilii (X16932)
+96.6^99.2
+Methanobacteriales (1.3%)
+GZK52
+1
+1
+Methanobacterium oryzae
+(AF028690)
+95.7
+Uncertainc (1.3%)
+GZK72
+1
+1
+Oil-contaminated cavity
+groundwater clone KuA13
+(AB077223)
+99.1
+Uncertainc (16.9%)
+GZK14, 24
+3
+13
+Contaminated aquifer clone
+(AF050616)
+91.5^92.6
+Uncertainc (6.5%)
+GZK56
+2
+5
+Anaerobic digester clone
+vadinCA11 (U81778)
+92.3
+Uncertainc (2.6%)
+GZK61
+1
+2
+Anaerobic digester clone
+vadinDC79 (U81773)
+94.4
+Crenarchaeota
+Uncertainc (1.3%)
+GZK8
+1
+1
+Anaerobic digester clone
+vadinDC69 (U81774)
+93.8
+Uncertain c (5.2%)
+GZK15
+1
+4
+Municipal wastewater sludge
+clone 72-1 (AF424768)
+97.3
+aGroups of two or more highly similar sequences ( v 97% identity) are considered to belong to the same sequence type. Sequence types placed on the
+same line are most closely related to the same cultivated organism or have the same database match.
+bClosest environmental clones are given for sequence types that are not closely related to any cultivated organisms.
+cSequence type with uncertain a⁄liation.
+L.-N. Huang et al. / FEMS Microbiology Ecology 46 (2003) 171^177
+173
+
+===PAGE 4===
+Sequences di¡ering only slightly ( 9 3%) were considered a
+single relatedness group, and one representative of each
+group was fully sequenced. Three chimeric sequences
+were identi¢ed among the 80 clones analyzed and excluded
+from subsequent analyses. Comparative analysis of the
+retrieved sequences revealed that all the clones could be
+grouped into the Archaea domain. Unlike the archaeal
+library of the Likeng full-scale recirculating land¢ll, in
+which methanogen-like rDNA accounted for 94.1% of
+the total clones [10], only about 66.2% of the clones in
+the Gouzikeng library could be assigned to known meth-
+anogens. Representatives for the hydrogenotrophic Meth-
+Fig. 1. Phylogenetic tree of the Archaea domain and archaeal 16S rDNA phylotypes from the leachate of a closed full-scale MSW land¢ll (shown in
+bold). The scale bar represents the substitution per nucleotide position. Reference sequences of Thermotoga maritima (M21774) and Aquifex pyrophilus
+(M83548) were used as the outgroup. Bootstrap values of v 50 are reported as percentages. The number of closely related clones found among the
+77 non-chimeric rDNA clones analyzed is indicated at the end of the corresponding sequence type(s) in parentheses. aRepresented by sequence types
+GZK10, 39 and 51. bRepresented by sequence types GZK31 and 75.
+L.-N. Huang et al. / FEMS Microbiology Ecology 46 (2003) 171^177
+174
+
+===PAGE 5===
+anomicrobiales and Methanobacteriales were the phylo-
+types closely related to the genera Methanoculleus, Meth-
+anospirillum and Methanobacterium, the clone distribution
+being 25, 2 and 1, respectively (Table 2; Fig. 1). A total of
+23 clones were phylogenetically associated with the meth-
+ylotrophic and acetoclastic Methanosarcinales. Ten of
+these clones, represented by sequence types GZK10, 39
+and 51, were closely related to Methanosaeta concilii.
+Methanosaeta spp. are known to produce energy only
+through acetoclastic methanogenesis. The other 13 clones,
+represented by sequence types GZK31 and 75, showed
+high (96.2^97.6%) sequence similarities with their closest
+counterpart AJ133791, the Methanosaeta sp. clone A1 re-
+cently
+recovered
+from
+a
+long-chain
+alkane-degrading
+methanogenic consortium enriched from anoxic ditch sedi-
+ment [19], and they formed an individual group in the
+phylogenetic tree (Table 2; Fig. 1). The result of the phy-
+logenetic analysis of these methanogen-like sequences pro-
+vided indications about the physiological characteristics of
+the methanogenic species presented in the ecosystem. Rep-
+resentatives of 16S rRNA lineages of many methanogens
+covering two major methanogenic phenotypes were de-
+tected, suggesting that the land¢ll system contains a di-
+verse methanogenic community. Novel methanogen-like
+sequences were recovered, supporting the previous as-
+sumption that the diversity of methanogens in natural
+and manipulated ecosystems might be considerably wider
+than the number of methanogens currently recognized [20^
+22].
+Sequence type GZK72, represented by a single clone,
+was not closely related to any cultivated organism. It
+showed very high (99.1%) sequence similarity with the
+uncultured archaeon clone KuA13 (AB077223) recently
+recovered from oil-contaminated cavity groundwater [23].
+They were individually deeply branched in the phyloge-
+netic tree and had no close phylogenetic association with
+known methanogenic groups (Fig. 1).
+Recently, molecular studies of microbial communities in
+a wide range of habitats have recovered novel 16S rDNA
+sequences related to those of Thermoplasma [5,24^26].
+This suggests that organisms represented by these sequen-
+ces are ubiquitous in the environment and, potentially,
+have
+broad
+metabolic
+capabilities.
+Sequence
+types
+GZK14, 24, 56 and 61, representing 26% of the gene li-
+brary, were grouped with 16S rDNA sequences recovered
+from a variety of anaerobic habitats [5,25] (Table 2; Fig.
+1). Since these sequences were only distinctly related to the
+thermoacidophilic archaeon Thermoplasma acidophilum,
+no conclusions could be drawn on the exact phylogenetic
+a⁄liation and phenotypic characteristics of their corre-
+sponding organisms. Nevertheless, the noteworthy exis-
+tence and diversity of this group in our library suggests
+that our knowledge of the microbial diversity in these
+ecosystems is still incomplete. Another group of sequence
+types, including GZK8 and 15 and accounting for 6.5% of
+the total clones, was also very atypical. Sequence type
+GZK8, represented by a single clone, showed 93.8% se-
+quence similarity with its closest counterpart U81774, an
+unidenti¢ed archaeon clone vadinDC69 recently recovered
+from a £uidized-bed anaerobic digester [5]. Sequence type
+GZK15, represented by four clones, was related (97.3%
+similarity) to the uncultured archaeal 16S rDNA clone
+72-1 (AF424768) recently isolated from a municipal waste-
+water sludge (published in database). Since this atypical
+group was only distantly related to the thermophilic Cren-
+archaeota (Fig. 1) and no closely related Archaea are cul-
+tivated, it is impossible to infer its metabolic capabilities.
+3.2. Relative abundance of methanogens
+Due to the potential biases introduced by the multiple
+steps of the comparative sequencing approach, the abun-
+dance of sequences in the clone library does not necessar-
+ily represent the true frequency of the corresponding spe-
+cies
+in
+the
+original
+sample
+[27,28].
+Alternatively,
+oligonucleotide probes can be used in dot-blot hybridiza-
+tions to quantify the abundance of a certain rRNA in the
+nucleic acids extracted directly from environmental sam-
+ples [27]. Although data of relative rRNA abundance can-
+not be directly translated into cell numbers, they represent
+a reasonable measurement of the relative physiological
+activity of the respective population, a very important
+consideration in ecological studies. Therefore, we esti-
+mated the relative rRNA abundance of various phyloge-
+netic groups of methanogens in the land¢ll leachate by
+quantitative rRNA hybridization experiments, using oligo-
+nucleotide probes that target most currently known meth-
+anogens [9,17]. It was determined
+that the leachate
+contained a very small fraction of methanogens (approx-
+imately 2% of total 16S rRNA consisted of methanogenic
+16S rRNA as was determined by summation of the per-
+cent 16S rRNA obtained by using the ¢ve methanogenic
+probes). It is somewhat reasonable to have this low abun-
+dance of methanogens, since the Gouzikeng Land¢ll is old
+and was closed many years ago. The physio-chemical pa-
+rameters of the leachate (e.g. the relatively low concentra-
+tions of organic pollutants, Table 1) also indicated that the
+waste stabilization process in the land¢ll was in the ¢nal
+phase, normally characterized by low microbial activities.
+Members of the hydrogenotrophic order Methanomicro-
+biales
+(probe
+S-O-Mmic-1200-a-A-21)
+accounted
+for
+0.93 T 0.06% of the total 16S rRNA and constituted the
+major methanogens present in the land¢ll leachate, where-
+as the other hydrogenotrophic methanogens ^ belonging
+to the Methanococcales (probe S-F-Mcoc-1109-a-A-20)
+and Methanobacteriales (probe S-F-Mbac-0310-a-A-22) ^
+were present at very low levels (averages 0.15 T 0.002%
+and 0.16 T 0.09% of the total 16S rRNA, respectively).
+Concerning the methylotrophic and acetoclastic Meth-
+anosarcinales, Methanosaeta spp. (probe S-F-Msae-0825-
+a-A-23) were most abundant and they accounted for
+0.55 T 0.11% of the total 16S rRNA in the sample, whereas
+L.-N. Huang et al. / FEMS Microbiology Ecology 46 (2003) 171^177
+175
+
+===PAGE 6===
+Methanosarcina spp. (probe S-G-Msar-0821-a-A-21) were
+present at a much lower level (0.18 T 0.09%). This result is
+consistent with the relatively low level of total VFAs in the
+land¢ll leachate (Table 1). Due to their di¡erent kinetic
+parameters (e.g. K values and minimum thresholds), Meth-
+anosarcina would be favored under conditions in which a
+high input of organic matter leads to rapid accumulation
+of acetate, such as a starting-up anaerobic bioreactor,
+while Methanosaeta should be favored in much more sta-
+ble habitats, such as a bioreactor operating e⁄ciently
+under long-term stable conditions [29].
+Overall, the relative abundance of phylogenetically de-
+¢ned groups of methanogens was reasonably consistent
+with that of the methanogen-like sequences previously re-
+covered in the clone library. No clones closely related to
+Methanosarcina spp. or a⁄liated with Methanococcaceae
+were recovered. One possibility is that the related rDNA
+clones did not exist in the archaeal library, either because
+the corresponding organisms were present at very low lev-
+els in the land¢ll leachate or because biases were intro-
+duced by the multiple steps involved in the comparative
+sequencing approach. In this regard, cell lysis and DNA
+extraction are especially worth considering, since Metha-
+nosarcina spp. have unusual outer cell layers (polysaccha-
+ride sacculus) that might lead to di⁄culties in nucleic acid
+extraction [30]. In our previous study, however, total-com-
+munity DNA was isolated from the leachate of a full-scale
+recirculating land¢ll using the same procedure (lysozyme/
+proteinase K/SDS treatment), and the archaeal rDNA li-
+brary constructed subsequently contained a signi¢cant
+proportion of sequences closely related to Methanosarcina
+spp. [10]. This indicates that bias associated with the ex-
+traction step is limited. Another possibility is that the
+number of clones screened was not large enough to cover
+these low-abundance targets, although our results suggest
+that the library was reasonably well sampled for the di-
+versity of the major methanogenic groups that probably
+contributed to the methanogenesis in situ. The notable
+existence of the novel Methanosaeta-like sequences, rep-
+resented by sequence types GZK31 and 75, indicates
+that their corresponding organisms may also be present
+at signi¢cant levels in the land¢ll leachate. Since the 16S
+rRNAs have two mismatches with probe S-F-Msae-0825-
+a-A-23 (data not shown), weaker hybridization signals and
+thus an underestimate of these organisms could be ex-
+pected in our probing experiments. Additional probes
+need to be designed and characterized to account for
+this novel methanogenic group.
+Given that full-scale land¢ll ecosystems are huge and
+complex and that they are highly heterogeneous with re-
+spect to waste composition, in¢ltration of water and the
+presence of microorganisms, it is very di⁄cult to obtain
+comprehensive and detailed information on the ecology of
+the microbial populations and communities in situ. In or-
+der to get a quick assessment of the methanogenic Ar-
+chaea contributing to the waste stabilization process in
+the land¢ll system, we started with a molecular survey of
+the microbial assemblages in its e¥uent leachate. Leachate
+is generated as a consequence of the contact of water with
+solid waste matrix disposed of in a land¢ll. It contains a
+complex mixture of organic, inorganic and bacteriological
+constituents associated with waste that is undergoing bio-
+degradation. Chemical parameters of land¢ll leachate
+along with time have been commonly used to follow the
+development of the mineralization process, and in combi-
+nation with biogas analysis, they provide useful informa-
+tion on the overall community activity and system perfor-
+mance. Therefore, we believe that our present work,
+within the limitations of the molecular technique involved,
+has given us a useful insight into the methanogenic pop-
+ulations within the full-scale land¢ll system and can be
+used as a starting point for more detailed studies.
+In summary, di¡ering from the Likeng recirculating
+land¢ll leachate, which contained a relatively simple-struc-
+tured Archaea community with most of its constituents
+closely related to known methanogens [10], the leachate
+of the closed Gouzikeng Land¢ll harbored a diverse Ar-
+chaea community with sequence types distributed within
+the two archaeal kingdoms of Euryarchaeota and Cren-
+archaeota.
+Representatives
+of many
+methanogen
+16S
+rRNA lineages that cover the two major methanogenic
+phenotypes were detected. Many novel sequences were re-
+trieved. Methanogens in the leachate accounted for a very
+small fraction of the total community. Methanomicro-
+biales and Methanosarcinales constituted the majority of
+the total methanogenic population.
+Acknowledgements
+This research was supported by the National Natural
+Science Foundation of China (39525007), by the Fund
+for Distinguished Young Scholars from the Education
+Ministry of China, and by the Natural Science Founda-
+tion of Guangdong Province, P.R. China (011120).
+References
+[1] Archer, D.B. and Kirsop, B.H. (1990) The microbiology and control
+of anaerobic digestion. In: Anaerobic Digestion: A Waste Treatment
+Technology (Wheatley, A., Ed.), pp. 43^89. Elsevier Science, London.
+[2] Zinder, S.H., Cardwell, S.C., Anguish, T., Lee, M. and Koch, M.
+(1984) Methanogenesis in a thermophilic (58‡C) anaerobic digestor:
+Methanothrix sp. as an important aceticlastic methanogen. Appl. En-
+viron. Microbiol. 47, 808^813.
+[3] Chynoweth, D.P. and Pullammanappallil, P. (1996) Anaerobic diges-
+tion of municipal solid wastes. In: Microbiology of Solid Waste
+(Palmisano, A.C. and Barlaz, M.A., Eds.), pp. 71^113. CRC Press,
+Boca Raton, FL.
+[4] Ng, A., Melvin, W.T. and Hobson, P.N. (1994) Identi¢cation of an-
+aerobic digester bacteria using a polymerase chain reaction method.
+Bioresour. Technol. 47, 73^80.
+[5] Godon, J.J., Zumstein, E., Dabert, P., Habouzit, F. and Moletta, R.
+L.-N. Huang et al. / FEMS Microbiology Ecology 46 (2003) 171^177
+176
+
+===PAGE 7===
+(1997) Molecular microbial diversity of an anaerobic digestor as de-
+termined by small-subunit rDNA sequence analysis. Appl. Environ.
+Microbiol. 63, 2802^2813.
+[6] Sekiguchi, Y., Kamagata, Y., Syutsubo, K., Ohashi, A., Harada, H.
+and Nakamura, K. (1998) Phylogenetic diversity of mesophilic and
+thermophilic granular sludges determined by 16S rRNA gene analy-
+sis. Microbiology 144, 2655^2665.
+[7] Wu, J.H., Liu, W.T., Tseng, I.C. and Cheng, S.S. (2001) Character-
+ization of microbial consortia in a terephthalate-degrading anaerobic
+granular sludge system. Microbiology 147, 373^382.
+[8] Raskin, L., Zheng, D., Gri⁄n, M.E., Stroot, P.G. and Misra, P.
+(1995) Characterization of microbial communities in anaerobic bio-
+reactors using molecular probes. Antonie van Leeuwenhoek 68, 297^
+308.
+[9] Gri⁄n, M.E., McMahon, K.D., Mackie, R.I. and Raskin, L. (1998)
+Methanogenic population dynamics during start-up of anaerobic di-
+gesters treating municipal solid waste and biosolids. Biotechnol. Bio-
+eng. 57, 342^355.
+[10] Huang, L.N., Zhou, H., Chen, Y.Q., Luo, S., Lan, C.Y. and Qu,
+L.H. (2002) Diversity and structure of the archaeal community in the
+leachate of a full-scale recirculating land¢ll as examined by direct 16S
+rRNA gene sequence retrieval. FEMS Microbiol. Lett. 214, 235^240.
+[11] Christensen, T.H. (1989) Environmental aspects of sanitary land¢ll-
+ing. In: Sanitary Land¢lling: Process, Technology and Environmen-
+tal Impact (Christensen, T.H., Cossu, R. and Stegmann, R., Eds.),
+pp. 19^25. Academic Press, London.
+[12] Greenberg, A.E., Clesceri, L.S. and Eaton, A.D. (1992) Standard
+Methods for the Examination of Water and Wastewater, 18th edn.
+American Public Health Association, Washington, DC.
+[13] Stahl, D.A. and Amann, R.I. (1991) Development and application of
+nucleic acid probes in bacterial systematics. In: Nucleic Acid Tech-
+niques in Bacterial Systematics (Stackebrandt, E. and Goodfellow,
+M., Eds.), pp. 205^248. John Wiley and Sons, Chichester.
+[14] Swo¡ord, D.L. (1999) PAUP: Phylogenetic Analysis Using Parsi-
+mony, version 4.0. Illinois Natural History Survey, Champaign, IL.
+[15] Kimura, M. (1980) A simple method for estimating evolutionary rate
+of base substitutions through comparative studies of nucleotide se-
+quences. J. Mol. Evol. 16, 111^120.
+[16] Saitou, N. and Nei, M. (1987) The neighbor-joining method: a meth-
+od for constructing phylogenetic trees. Mol. Biol. Evol. 4, 406^425.
+[17] Raskin, L., Stromley, J.M., Rittmann, B.E. and Stahl, D.A. (1994)
+Group-speci¢c 16S rRNA hybridization probes to describe natural
+communities of methanogens. Appl. Environ. Microbiol. 60, 1232^
+1240.
+[18] Stahl, D.A., Flesher, B., Mans¢eld, H.R. and Montgomery, L. (1988)
+Use of phylogenetically based hybridization probes for studies of
+ruminal microbial ecology. Appl. Environ. Microbiol. 54, 1079^
+1084.
+[19] Zengler, K., Richnow, H.H., Rossello-Mora, R., Michaelis, W. and
+Widdel, F. (1999) Methane formation from long-chain alkanes by
+anaerobic microorganisms. Nature 401, 266^269.
+[20] DeLong, E.F. (1992) Archaea in coastal marine environments. Proc.
+Natl. Acad. Sci. USA 89, 5685^5689.
+[21] Fuhrman, J.A., McCallum, K. and Davis, A.A. (1992) Novel major
+archaebacterial group from marine plankton. Nature 356, 148^149.
+[22] Macario, A.J.L., Peck, M.W., Conway de Macario, E. and Chyno-
+weth, D.P. (1991) Unusual methanogenic £ora of wood-fermenting
+anaerobic bioreactor. J. Appl. Bacteriol. 71, 31^37.
+[23] Watanabe, K., Kodama, Y., Hamamura, N. and Kaku, N. (2002)
+Diversity, abundance, and activity of archaeal populations in oil-con-
+taminated groundwater accumulated at the bottom of an under-
+ground crude oil storage cavity. Appl. Environ. Microbiol. 68,
+3899^3907.
+[24] Delong, E.F., Wu, K.Y., Prezelin, B.B. and Jovine, R.V.M. (1994)
+High abundance of archaea in Antarctic marine picoplankton. Na-
+ture 371, 695^697.
+[25] Dojka, M.A., Hugenholtz, P., Haack, S.K. and Pace, N.R. (1998)
+Microbial diversity in a hydrocarbon- and chlorinated-solvent-con-
+taminated aquifer undergoing intrinsic bioremediation. Appl. Envi-
+ron. Microbiol. 64, 3869^3877.
+[26] Chelius, M.K. and Triplett, E.W. (2001) The diversity of archaea and
+bacteria in association with the roots of Zea mays L. Microb. Ecol. 3,
+252^263.
+[27] Amann, R.I., Ludwig, W. and Schleifer, K.H. (1995) Phylogenetic
+identi¢cation and in situ detection of individual microbial cells with-
+out cultivation. Microbiol. Rev. 59, 143^169.
+[28] Liesack, W., Janssen, P.G., Rainey, F.A., Ward-Rainey, N.L. and
+Stackebrandt, E. (1997) Microbial diversity in soil: the need for a
+combined approach using molecular and cultivation techniques. In:
+Modern Soil Microbiology (van Elsas, J.D., Trevors, J.T. and Wel-
+lington, E.M., Eds.), pp. 375^439. Marcel Dekker, New York.
+[29] Zinder, S.H. (1993) Physiological ecology of methanogens. In: Meth-
+anogenesis: Ecology, Physiology, Biochemistry and Genetics (Ferry,
+J.G., Ed.), pp. 128^206. Chapman and Hall, New York.
+[30] Balch, W.E., Fox, G.E., Magrum, L.J., Woese, C.R. and Wolfe, R.S.
+(1979) Methanogens: re-evaluation of a unique biological group.
+Microbiol. Rev. 43, 260^296.
+L.-N. Huang et al. / FEMS Microbiology Ecology 46 (2003) 171^177
+177

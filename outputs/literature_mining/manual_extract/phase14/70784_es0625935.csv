@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+70784_es0625935,70784_es0625935_combusted_residue,combusted residue,OC_pct,978.0,Unknown,,high,table_p3_ri10_ci2,"TABLE 3.Concentration (pg/g and pg WHO-TEQ/g,dry wt) of PCDD/Fs in Guiyu Soils and Combusted Residue from Different Land Uses (n = 3)"
+70784_es0625935,70784_es0625935_soil,soil,OC_pct,0.0001,Unknown,,high,table_p3_ri20_ci1,"TABLE 3.Concentration (pg/g and pg WHO-TEQ/g,dry wt) of PCDD/Fs in Guiyu Soils and Combusted Residue from Different Land Uses (n = 3)"
+70784_es0625935,70784_es0625935_combusted_residue,combusted residue,OC_pct,256.0,Unknown,,high,table_p3_ri20_ci2,"TABLE 3.Concentration (pg/g and pg WHO-TEQ/g,dry wt) of PCDD/Fs in Guiyu Soils and Combusted Residue from Different Land Uses (n = 3)"

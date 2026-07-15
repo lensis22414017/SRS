@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10599,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"skip: 仅区域统计汇总(Min/P5/P25/P50/P75/P95/Max/Mean/Gmean)(Table1 n=302)""302个网格样品30km间距覆盖27万km2仅以百分位和均值报告""无S1/S2等独立采样点标识及对应浓度""SI(Tables S1-S4 Figs S1-S6)不可获取"

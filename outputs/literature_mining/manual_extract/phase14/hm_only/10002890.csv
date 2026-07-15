@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+10002890,10002890_B[a]a,B[a]a,Cd_mgkg,0.446,Unknown,,high,table_p3_ri14_ci10,"TABLE IV RELATIONSHIP BETWEEN PAHS OBTAINED BY PEARSON CORRELATION COEFFICIENT N=16, DF=14, Α=0.05",,,,,,phase14
+10002890,10002890_B[a]p,B[a]p,Cd_mgkg,0.416,Unknown,,high,table_p3_ri14_ci11,"TABLE IV RELATIONSHIP BETWEEN PAHS OBTAINED BY PEARSON CORRELATION COEFFICIENT N=16, DF=14, Α=0.05",,,,,,phase14
+10002890,10002890_B[b]f,B[b]f,Cd_mgkg,0.257,Unknown,,high,table_p3_ri14_ci12,"TABLE IV RELATIONSHIP BETWEEN PAHS OBTAINED BY PEARSON CORRELATION COEFFICIENT N=16, DF=14, Α=0.05",,,,,,phase14
+10002890,10002890_B[k]fB[ghi]pI[123-cd]p,B[k]fB[ghi]pI[123-cd]p,Cd_mgkg,1.0,Unknown,,high,table_p3_ri14_ci15,"TABLE IV RELATIONSHIP BETWEEN PAHS OBTAINED BY PEARSON CORRELATION COEFFICIENT N=16, DF=14, Α=0.05",,,,,,phase14

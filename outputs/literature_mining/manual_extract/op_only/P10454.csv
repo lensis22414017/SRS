@@ -1,0 +1,24 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P10454,R1,SumPCB_ngg,0.115,ng/g,Table 1,soil,agricultural,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g 仅3种手性PCB单体(非Total PCBs),36.6667,117.0
+P10454,R2,SumPCB_ngg,0.0245,ng/g,Table 1,soil,agricultural,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g PCB132和PCB149为BDL,36.6667,117.0
+P10454,R3,SumPCB_ngg,0.111,ng/g,Table 1,soil,agricultural,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g PCB132为BDL,36.6667,117.0
+P10454,R4,SumPCB_ngg,0.0936,ng/g,Table 1,soil,agricultural,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g,36.6667,117.0
+P10454,R5,SumPCB_ngg,0.0764,ng/g,Table 1,soil,agricultural,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g,36.6667,117.0
+P10454,R6,SumPCB_ngg,0.155,ng/g,Table 1,soil,industrial,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g 农村工业园站点(Rural IP),36.6667,117.0
+P10454,R7,SumPCB_ngg,0.160,ng/g,Table 1,soil,industrial,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g 农村工业园站点(Rural IP),36.6667,117.0
+P10454,R8,SumPCB_ngg,0.184,ng/g,Table 1,soil,industrial,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g 农村工业园站点(Rural IP),36.6667,117.0
+P10454,R9,SumPCB_ngg,0.137,ng/g,Table 1,soil,agricultural,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g,36.6667,117.0
+P10454,R10,SumPCB_ngg,0.0986,ng/g,Table 1,soil,agricultural,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g PCB132为BDL,36.6667,117.0
+P10454,R11,SumPCB_ngg,0.143,ng/g,Table 1,soil,industrial,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g 农村工业园站点(Rural IP),36.6667,117.0
+P10454,R12,SumPCB_ngg,0.246,ng/g,Table 1,soil,industrial,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g 农村工业园站点(Rural IP),36.6667,117.0
+P10454,R13,SumPCB_ngg,0.0915,ng/g,Table 1,soil,agricultural,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g,36.6667,117.0
+P10454,R14,SumPCB_ngg,0.022,ng/g,Table 1,soil,agricultural,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g PCB132和PCB149为BDL,36.6667,117.0
+P10454,U1,SumPCB_ngg,0.296,ng/g,Table 1,soil,urban,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g 城市站点,36.6667,117.0
+P10454,U2,SumPCB_ngg,0.115,ng/g,Table 1,soil,urban,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g 城市站点,36.6667,117.0
+P10454,U3,SumPCB_ngg,0.309,ng/g,Table 1,soil,urban,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g 城市站点,36.6667,117.0
+P10454,U4,SumPCB_ngg,0.208,ng/g,Table 1,soil,urban,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g 城市站点,36.6667,117.0
+P10454,U5,SumPCB_ngg,0.141,ng/g,Table 1,soil,urban,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g 城市站点,36.6667,117.0
+P10454,U6,SumPCB_ngg,0.0755,ng/g,Table 1,soil,urban,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g 城市站点(校园),36.6667,117.0
+P10454,U7,SumPCB_ngg,0.0818,ng/g,Table 1,soil,urban,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g 城市站点(公园),36.6667,117.0
+P10454,U8,SumPCB_ngg,0.695,ng/g,Table 1,soil,urban,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g 城市站点 最高浓度 附近变压器厂,36.6667,117.0
+P10454,U9,SumPCB_ngg,0.165,ng/g,Table 1,soil,urban,Shandong,Σ3PCBs=PCB95+PCB132+PCB149 Table1直接读取 原始ng/kg dw÷1000→ng/g 城市站点 PCB149为BDL,36.6667,117.0

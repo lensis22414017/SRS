@@ -1,0 +1,39 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+72207_10934529.2013.815500,72207_10934529.2013.815500_Rings,Rings,Phe_ngg,3.0,Unknown,,high,table_p2_ri1_ci1,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Percentage_(%),Percentage (%),Phe_ngg,7.81,Unknown,,high,table_p2_ri1_ci3,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Rings,Rings,Flu_ngg,4.0,Unknown,,high,table_p2_ri2_ci1,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Rings,Rings,Flt_ngg,4.0,Unknown,,high,table_p2_ri2_ci1,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Percentage_(%),Percentage (%),Flu_ngg,16.59,Unknown,,high,table_p2_ri2_ci3,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Percentage_(%),Percentage (%),Flt_ngg,16.59,Unknown,,high,table_p2_ri2_ci3,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Rings,Rings,Pyr_ngg,4.0,Unknown,,high,table_p2_ri3_ci1,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Percentage_(%),Percentage (%),Pyr_ngg,13.41,Unknown,,high,table_p2_ri3_ci3,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Rings,Rings,Ant_ngg,4.0,Unknown,,high,table_p2_ri4_ci1,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Rings,Rings,BaA_ngg,4.0,Unknown,,high,table_p2_ri4_ci1,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Percentage_(%),Percentage (%),Ant_ngg,4.28,Unknown,,high,table_p2_ri4_ci3,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Percentage_(%),Percentage (%),BaA_ngg,4.28,Unknown,,high,table_p2_ri4_ci3,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Rings,Rings,Chr_ngg,4.0,Unknown,,high,table_p2_ri5_ci1,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Percentage_(%),Percentage (%),Chr_ngg,8.61,Unknown,,high,table_p2_ri5_ci3,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Rings,Rings,Flt_ngg,5.0,Unknown,,high,table_p2_ri6_ci1,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Rings,Rings,BbF_ngg,5.0,Unknown,,high,table_p2_ri6_ci1,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Percentage_(%),Percentage (%),Flt_ngg,13.42,Unknown,,high,table_p2_ri6_ci3,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Percentage_(%),Percentage (%),BbF_ngg,13.42,Unknown,,high,table_p2_ri6_ci3,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Rings,Rings,Flt_ngg,5.0,Unknown,,high,table_p2_ri7_ci1,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Rings,Rings,BkF_ngg,5.0,Unknown,,high,table_p2_ri7_ci1,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Percentage_(%),Percentage (%),Flt_ngg,5.41,Unknown,,high,table_p2_ri7_ci3,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Percentage_(%),Percentage (%),BkF_ngg,5.41,Unknown,,high,table_p2_ri7_ci3,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Rings,Rings,Pyr_ngg,5.0,Unknown,,high,table_p2_ri8_ci1,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Rings,Rings,BaP_ngg,5.0,Unknown,,high,table_p2_ri8_ci1,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Percentage_(%),Percentage (%),Pyr_ngg,9.96,Unknown,,high,table_p2_ri8_ci3,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Percentage_(%),Percentage (%),BaP_ngg,9.96,Unknown,,high,table_p2_ri8_ci3,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Rings,Rings,Pyr_ngg,5.0,Unknown,,high,table_p2_ri9_ci1,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Rings,Rings,Cd_mgkg,5.0,Unknown,,high,table_p2_ri9_ci1,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Percentage_(%),Percentage (%),Pyr_ngg,1.36,Unknown,,high,table_p2_ri9_ci3,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Percentage_(%),Percentage (%),Cd_mgkg,1.36,Unknown,,high,table_p2_ri9_ci3,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Rings,Rings,Ant_ngg,6.0,Unknown,,high,table_p2_ri10_ci1,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Rings,Rings,Ind_ngg,6.0,Unknown,,high,table_p2_ri10_ci1,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Percentage_(%),Percentage (%),Ant_ngg,9.85,Unknown,,high,table_p2_ri10_ci3,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Percentage_(%),Percentage (%),Ind_ngg,9.85,Unknown,,high,table_p2_ri10_ci3,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Rings,Rings,Sum_PAH_ngg,6.0,Unknown,,high,table_p2_ri12_ci1,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Rings,Rings,BghiP_ngg,6.0,Unknown,,high,table_p2_ri12_ci1,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Percentage_(%),Percentage (%),Sum_PAH_ngg,9.3,Unknown,,high,table_p2_ri12_ci3,Table 1. Concentrations and composition of PAHs.,,,,,,phase14
+72207_10934529.2013.815500,72207_10934529.2013.815500_Percentage_(%),Percentage (%),BghiP_ngg,9.3,Unknown,,high,table_p2_ri12_ci3,Table 1. Concentrations and composition of PAHs.,,,,,,phase14

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01110,CP soil,Sum_PAH_ngg,677000,ng/g,Section 2.2,soil,coking,Beijing,"Pre-remediation baseline; bulk CP soil from former coking plant (N39°51'0.42 E116°31'38.83); 16 EPA PAHs total=677 mg/kg×1000→ng/g; paper is lab bioremediation experiment (biochar+M.gilvum); individual PAH monomers in Table S4 (SI) not available in paper.md"

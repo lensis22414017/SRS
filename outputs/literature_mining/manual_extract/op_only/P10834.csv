@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10834,,,,,,,,"skip: 研究对象为水体(surface water+groundwater)中PFAAs/PFOS/PFOA，非目标OP类别(PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAE/OCP)，且matrix为water非soil/sediment，属于剔除场景"

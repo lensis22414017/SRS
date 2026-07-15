@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06125,,,,,,,,,,"仅区域汇总无采样点级数据: Table1为544样品整体Mean/SD/Min/Max/CV统计行, Table2为Anthrosols(n=189)和Cambosols(n=355)分组的Mean+t检验统计行, 无任何个体采样点浓度值"

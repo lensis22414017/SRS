@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11254,,,,,,,soil,urban_industrial,Jilin,"skip: 仅区域统计汇总(Mean/Min/Max/CV), 无采样点级数据; Table 3 行=污染物单体(Cr/Nap/PCB28/...) 列=统计量+标准阈值(National standard/Background/Canadian/Netherlands); Fig2-4 为图无原始数值; 61 topsoil+3 background 仅以 Table3 统计聚合呈现, 论文是 HM+OP 真复合(13HM+16PAH+7PCB+8OCP 同场地)但无可提取采样点行"

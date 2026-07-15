@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08470,skip,skip,skip,skip,skip,skip,skip,skip,"skip: MinerU解析仅48行无表格数据,摘要仅报告OPP总浓度range/mean(温室22.1-435ng/g,露天9.93-303ng/g)无采样点级数据,OPP不在目标OP类别(PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAEs/OCP)中,HM无浓度数据仅作为环境因子提及"

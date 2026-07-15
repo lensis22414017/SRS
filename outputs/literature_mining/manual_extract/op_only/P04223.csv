@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04223,,,,,,,,"skip: 研究对象为水体(surface water)中抗生素浓度(ng/L)，非土壤/沉积物。20个采样点S1-S20全部为地表水样(0-50cm水深)，无任何土壤或沉积物数据。按规则water类研究剔除。"

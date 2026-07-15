@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01944,,,,,,,,"skip: 论文研究对象为PFAS(全氟烷基物质) 在氟化工园区附近小麦/土壤/大气中的积累, 不属于目标OP污染物范围(PAH/PCB/DDT/HCH/PBDE/石油烃/抗生素/PAEs/OCPs). 论文中唯一土壤数据(Table S6 rhizosphere soil)为PFAS按生长阶段的Mean±SD汇总, 非采样点级, 且PFAS非提取目标"

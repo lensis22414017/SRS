@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09521,,,,,,soil,coking,Shanxi,"skip: 论文按土地利用类型(coking plant/forest/grassland/farmland/abandoned land)汇总浓度，非采样点级。正文唯一显式浓度Hg 0.54 mg/kg为grassland类别均值(非命名采样点)。全部HM/PAH浓度数据在Fig 1a/1b(柱状图图片)及SI表S6/S7/Fig S3中，SI未在parsed paper.md中提供。30个样本的个体数据不可追溯。"

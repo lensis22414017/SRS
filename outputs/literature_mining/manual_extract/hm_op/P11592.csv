@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11592,,,,,,,soil,industrial,Shaanxi,"skip: 主文无采样点级浓度表格，所有HM(Cd/Pb/As/Cr/Cu/Zn)和PAHs浓度数据仅在补充材料Fig S1(箱线图)和Table S8(统计汇总Mean/SD/CV)中。SI目录(G:\所有文献\11.第十阶段小补充 1\si\10.1016-j.envres.2025.122748)为空，无法获取。采样点S1-S12三层深度(0~0.5m/1~1.5m/2~2.5m)的实测浓度值不可追溯。"

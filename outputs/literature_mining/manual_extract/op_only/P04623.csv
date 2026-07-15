@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04623,Qiandao Lake,Sum_PAH_ngg,552.10,ng/g,正文3.2段+Abstract,soil,other,Zhejiang,"正文3.2段highest soil sample=552 ng/g;Abstract精确值552.10;千岛湖杭州淳安;交通排放来源"
+P04623,Luoma Lake,Sum_PAH_ngg,99.17,ng/g,正文3.2段+Abstract,soil,other,Jiangsu,"正文3.2段lowest soil sample=99.2 ng/g;Abstract精确值99.17;骆马湖苏北;其余7湖Sum_PAH仅Figure 1a图片及Table S5补充材料可得,本文paper.md无法提取"

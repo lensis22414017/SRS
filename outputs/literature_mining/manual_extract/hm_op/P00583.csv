@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00583,NA,NA,NA,NA,NA,NA,NA,NA,"skip: 实验室sorption isotherm实验(spiked Cu+pyrethroid batch adsorption) 非真实场地; Pys在原土未检出(natural soil samples were not detected); 仅有background Cu(Red 19/Black 18 mg/kg Table 2)非采样点级HM+OP复合; Table 3为吸附系数Kd非浓度. 命中剔除规则: 吸附实验+spiked+非真实场地实测"

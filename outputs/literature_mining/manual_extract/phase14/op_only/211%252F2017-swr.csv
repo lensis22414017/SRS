@@ -1,0 +1,6 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+211%252F2017-swr,211%252F2017-swr_Cu,Cu,SumHCH_ngg,0.135,Unknown,,high,table_p5_ri8_ci6,Table 5. Correlation analysis of pollutants,,,,,,phase14
+211%252F2017-swr,211%252F2017-swr_Pb,Pb,SumHCH_ngg,0.153,Unknown,,high,table_p5_ri8_ci8,Table 5. Correlation analysis of pollutants,,,,,,phase14
+211%252F2017-swr,211%252F2017-swr_Cu,Cu,SumDDT_ngg,0.453,Unknown,,high,table_p5_ri9_ci6,Table 5. Correlation analysis of pollutants,,,,,,phase14
+211%252F2017-swr,211%252F2017-swr_Pb,Pb,SumDDT_ngg,0.319,Unknown,,high,table_p5_ri9_ci8,Table 5. Correlation analysis of pollutants,,,,,,phase14
+211%252F2017-swr,211%252F2017-swr_BHC,BHC,SumDDT_ngg,0.202,Unknown,,high,table_p5_ri9_ci9,Table 5. Correlation analysis of pollutants,,,,,,phase14

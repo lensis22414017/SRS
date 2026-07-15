@@ -1,0 +1,123 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_PRG,PRG,Ace_ngg,3700.0,Unknown,,high,table_p2_ri1_ci1,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_PRG,PRG,Ant_ngg,22000.0,Unknown,,high,table_p2_ri3_ci1,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_PRG,PRG,Ant_ngg,0.62,Unknown,,high,table_p2_ri4_ci1,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_TEF,TEF,Ant_ngg,0.1,Unknown,,high,table_p2_ri4_ci2,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_PRG,PRG,Pyr_ngg,0.062,Unknown,,high,table_p2_ri5_ci1,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_TEF,TEF,Pyr_ngg,1.0,Unknown,,high,table_p2_ri5_ci2,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_PRG,PRG,Flt_ngg,0.62,Unknown,,high,table_p2_ri6_ci1,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_TEF,TEF,Flt_ngg,0.1,Unknown,,high,table_p2_ri6_ci2,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_PRG,PRG,Flt_ngg,6.2,Unknown,,high,table_p2_ri7_ci1,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_TEF,TEF,Flt_ngg,0.01,Unknown,,high,table_p2_ri7_ci2,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_PRG,PRG,Chr_ngg,62.0,Unknown,,high,table_p2_ri9_ci1,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_TEF,TEF,Chr_ngg,0.001,Unknown,,high,table_p2_ri9_ci2,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_PRG,PRG,Ant_ngg,0.062,Unknown,,high,table_p2_ri10_ci1,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_PRG,PRG,DahA_ngg,0.062,Unknown,,high,table_p2_ri10_ci1,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_TEF,TEF,Ant_ngg,1.0,Unknown,,high,table_p2_ri10_ci2,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_TEF,TEF,DahA_ngg,1.0,Unknown,,high,table_p2_ri10_ci2,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_PRG,PRG,Flt_ngg,2.3,Unknown,,high,table_p2_ri11_ci1,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_PRG,PRG,Flu_ngg,2700.0,Unknown,,high,table_p2_ri12_ci1,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_PRG,PRG,Pyr_ngg,0.62,Unknown,,high,table_p2_ri13_ci1,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_PRG,PRG,Ind_ngg,0.62,Unknown,,high,table_p2_ri13_ci1,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_TEF,TEF,Pyr_ngg,0.1,Unknown,,high,table_p2_ri13_ci2,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_TEF,TEF,Ind_ngg,0.1,Unknown,,high,table_p2_ri13_ci2,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_PRG,PRG,Pyr_ngg,2300.0,Unknown,,high,table_p2_ri15_ci1,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_PRG,PRG,Nap_ngg,56.0,Unknown,,high,table_p2_ri16_ci1,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_PRG,PRG,Sum_PAH_ngg,70.0,Unknown,,high,table_p2_ri17_ci1,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_TEF,TEF,Sum_PAH_ngg,2.311,Unknown,,high,table_p2_ri17_ci2,Table 1 Assigned preliminary remedial goals (PRGs;milligram per kilogram soil) and toxic equivalency factors (TEFs) for seven priority PAHs (Nibet and LaGoy 1992)
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_%_Recovery_(n=5),% Recovery (n=5),Ace_ngg,85.1,Unknown,,high,table_p5_ri1_ci1,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_Coefficient_of_variation,Coefficient of variation,Ace_ngg,7.1,Unknown,,high,table_p5_ri1_ci2,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_%_Recovery_(n=5),% Recovery (n=5),Acy_ngg,83.2,Unknown,,high,table_p5_ri2_ci1,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_Coefficient_of_variation,Coefficient of variation,Acy_ngg,6.9,Unknown,,high,table_p5_ri2_ci2,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_%_Recovery_(n=5),% Recovery (n=5),Ant_ngg,82.8,Unknown,,high,table_p5_ri3_ci1,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_Coefficient_of_variation,Coefficient of variation,Ant_ngg,6.1,Unknown,,high,table_p5_ri3_ci2,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_%_Recovery_(n=5),% Recovery (n=5),Ant_ngg,94.5,Unknown,,high,table_p5_ri4_ci1,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_Coefficient_of_variation,Coefficient of variation,Ant_ngg,8.8,Unknown,,high,table_p5_ri4_ci2,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_%_Recovery_(n=5),% Recovery (n=5),Pyr_ngg,88.1,Unknown,,high,table_p5_ri5_ci1,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_Coefficient_of_variation,Coefficient of variation,Pyr_ngg,7.5,Unknown,,high,table_p5_ri5_ci2,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_%_Recovery_(n=5),% Recovery (n=5),Flt_ngg,74.8,Unknown,,high,table_p5_ri6_ci1,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_Coefficient_of_variation,Coefficient of variation,Flt_ngg,3.5,Unknown,,high,table_p5_ri6_ci2,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_%_Recovery_(n=5),% Recovery (n=5),Flt_ngg,75.3,Unknown,,high,table_p5_ri7_ci1,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_Coefficient_of_variation,Coefficient of variation,Flt_ngg,5.3,Unknown,,high,table_p5_ri7_ci2,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_%_Recovery_(n=5),% Recovery (n=5),Chr_ngg,83.6,Unknown,,high,table_p5_ri9_ci1,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_Coefficient_of_variation,Coefficient of variation,Chr_ngg,8.1,Unknown,,high,table_p5_ri9_ci2,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_%_Recovery_(n=5),% Recovery (n=5),Ant_ngg,76.1,Unknown,,high,table_p5_ri10_ci1,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_%_Recovery_(n=5),% Recovery (n=5),DahA_ngg,76.1,Unknown,,high,table_p5_ri10_ci1,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_Coefficient_of_variation,Coefficient of variation,Ant_ngg,13.5,Unknown,,high,table_p5_ri10_ci2,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_Coefficient_of_variation,Coefficient of variation,DahA_ngg,13.5,Unknown,,high,table_p5_ri10_ci2,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_%_Recovery_(n=5),% Recovery (n=5),Flt_ngg,70.7,Unknown,,high,table_p5_ri11_ci1,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_Coefficient_of_variation,Coefficient of variation,Flt_ngg,8.3,Unknown,,high,table_p5_ri11_ci2,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_%_Recovery_(n=5),% Recovery (n=5),Flu_ngg,90.2,Unknown,,high,table_p5_ri12_ci1,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_Coefficient_of_variation,Coefficient of variation,Flu_ngg,5.8,Unknown,,high,table_p5_ri12_ci2,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_%_Recovery_(n=5),% Recovery (n=5),Pyr_ngg,83.4,Unknown,,high,table_p5_ri13_ci1,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_%_Recovery_(n=5),% Recovery (n=5),Ind_ngg,83.4,Unknown,,high,table_p5_ri13_ci1,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_Coefficient_of_variation,Coefficient of variation,Pyr_ngg,5.9,Unknown,,high,table_p5_ri13_ci2,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_Coefficient_of_variation,Coefficient of variation,Ind_ngg,5.9,Unknown,,high,table_p5_ri13_ci2,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_%_Recovery_(n=5),% Recovery (n=5),Phe_ngg,90.4,Unknown,,high,table_p5_ri14_ci1,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_Coefficient_of_variation,Coefficient of variation,Phe_ngg,7.3,Unknown,,high,table_p5_ri14_ci2,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_%_Recovery_(n=5),% Recovery (n=5),Pyr_ngg,67.4,Unknown,,high,table_p5_ri15_ci1,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_Coefficient_of_variation,Coefficient of variation,Pyr_ngg,5.0,Unknown,,high,table_p5_ri15_ci2,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_%_Recovery_(n=5),% Recovery (n=5),Nap_ngg,85.6,Unknown,,high,table_p5_ri16_ci1,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_Coefficient_of_variation,Coefficient of variation,Nap_ngg,4.6,Unknown,,high,table_p5_ri16_ci2,Table 2 Method validation for the extraction technique
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col3,col3,Nap_ngg,2.1999999999999997,Unknown,,medium,table_p6_ri3_ci3,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col11,col11,Nap_ngg,0.1,Unknown,,medium,table_p6_ri3_ci11,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col1,col1,Ace_ngg,0.7,Unknown,,medium,table_p6_ri7_ci1,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col2,col2,Ace_ngg,0.2,Unknown,,medium,table_p6_ri7_ci2,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col7,col7,Ace_ngg,0.2,Unknown,,medium,table_p6_ri7_ci7,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col9,col9,Ace_ngg,0.2,Unknown,,medium,table_p6_ri7_ci9,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col10,col10,Ace_ngg,0.1,Unknown,,medium,table_p6_ri7_ci10,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col11,col11,Ace_ngg,0.2,Unknown,,medium,table_p6_ri7_ci11,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col7,col7,Flu_ngg,0.2,Unknown,,medium,table_p6_ri9_ci7,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col9,col9,Flu_ngg,0.3,Unknown,,medium,table_p6_ri9_ci9,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col10,col10,Flu_ngg,0.1,Unknown,,medium,table_p6_ri9_ci10,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col11,col11,Flu_ngg,0.2,Unknown,,medium,table_p6_ri9_ci11,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col1,col1,Pyr_ngg,5.9,Unknown,,medium,table_p6_ri17_ci1,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col2,col2,Pyr_ngg,23.8,Unknown,,medium,table_p6_ri17_ci2,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col3,col3,Pyr_ngg,2.8,Unknown,,medium,table_p6_ri17_ci3,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col4,col4,Pyr_ngg,0.7,Unknown,,medium,table_p6_ri17_ci4,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col5,col5,Pyr_ngg,0.6,Unknown,,medium,table_p6_ri17_ci5,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col6,col6,Pyr_ngg,0.1,Unknown,,medium,table_p6_ri17_ci6,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col7,col7,Pyr_ngg,5.0,Unknown,,medium,table_p6_ri17_ci7,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col8,col8,Pyr_ngg,0.7,Unknown,,medium,table_p6_ri17_ci8,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col9,col9,Pyr_ngg,4.7,Unknown,,medium,table_p6_ri17_ci9,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col10,col10,Pyr_ngg,2.6,Unknown,,medium,table_p6_ri17_ci10,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col11,col11,Pyr_ngg,1.1,Unknown,,medium,table_p6_ri17_ci11,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_Site,Site,Ind_ngg,1.7,Unknown,,high,table_p7_ri4_ci1,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_Site,Site,Sum_PAH_ngg,44.5,Unknown,,high,table_p7_ri6_ci1,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col3,col3,Ind_ngg,0.3,Unknown,,medium,table_p8_ri14_ci3, 
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col8,col8,Ind_ngg,4.7,Unknown,,medium,table_p8_ri14_ci8, 
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col9,col9,Ind_ngg,1.95,Unknown,,medium,table_p8_ri14_ci9, 
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col10,col10,Ind_ngg,1.9000000000000001,Unknown,,medium,table_p8_ri14_ci10, 
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col3,col3,Sum_PAH_ngg,3.0,Unknown,,medium,table_p8_ri16_ci3, 
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col4,col4,Sum_PAH_ngg,0.3,Unknown,,medium,table_p8_ri16_ci4, 
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col8,col8,Sum_PAH_ngg,5.95,Unknown,,medium,table_p8_ri16_ci8, 
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col9,col9,Sum_PAH_ngg,2.4,Unknown,,medium,table_p8_ri16_ci9, 
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col10,col10,Sum_PAH_ngg,3.15,Unknown,,medium,table_p8_ri16_ci10, 
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col1,col1,Nap_ngg,1.2,Unknown,,medium,table_p9_ri3_ci1,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col2,col2,Nap_ngg,0.6,Unknown,,medium,table_p9_ri3_ci2,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col3,col3,Nap_ngg,0.2,Unknown,,medium,table_p9_ri3_ci3,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col4,col4,Nap_ngg,0.2,Unknown,,medium,table_p9_ri3_ci4,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col8,col8,Nap_ngg,0.1,Unknown,,medium,table_p9_ri3_ci8,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col9,col9,Nap_ngg,0.3,Unknown,,medium,table_p9_ri3_ci9,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col2,col2,Acy_ngg,1.6500000000000001,Unknown,,medium,table_p9_ri4_ci2,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col9,col9,Acy_ngg,0.1,Unknown,,medium,table_p9_ri4_ci9,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col1,col1,Ace_ngg,0.5,Unknown,,medium,table_p9_ri6_ci1,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col2,col2,Ace_ngg,0.1,Unknown,,medium,table_p9_ri6_ci2,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col1,col1,Flu_ngg,0.2,Unknown,,medium,table_p9_ri8_ci1,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col2,col2,Flu_ngg,0.2,Unknown,,medium,table_p9_ri8_ci2,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col4,col4,Flu_ngg,0.1,Unknown,,medium,table_p9_ri8_ci4,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col7,col7,Flu_ngg,0.1,Unknown,,medium,table_p9_ri8_ci7,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col9,col9,Flu_ngg,0.1,Unknown,,medium,table_p9_ri8_ci9,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col2,col2,Pyr_ngg,3.4,Unknown,,medium,table_p9_ri16_ci2,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col3,col3,Pyr_ngg,0.7,Unknown,,medium,table_p9_ri16_ci3,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col5,col5,Pyr_ngg,1.2,Unknown,,medium,table_p9_ri16_ci5,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col6,col6,Pyr_ngg,0.2,Unknown,,medium,table_p9_ri16_ci6,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col8,col8,Pyr_ngg,4.9,Unknown,,medium,table_p9_ri16_ci8,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col9,col9,Pyr_ngg,1.5,Unknown,,medium,table_p9_ri16_ci9,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col10,col10,Pyr_ngg,1.5,Unknown,,medium,table_p9_ri16_ci10,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col11,col11,Pyr_ngg,0.1,Unknown,,medium,table_p9_ri16_ci11,
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col1,col1,Ind_ngg,11.950000000000001,Unknown,,medium,table_p10_ri2_ci1, 
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col2,col2,Ind_ngg,0.5,Unknown,,medium,table_p10_ri2_ci2, 
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col5,col5,Ind_ngg,3.275,Unknown,,medium,table_p10_ri2_ci5, 
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col8,col8,Ind_ngg,3.05,Unknown,,medium,table_p10_ri2_ci8, 
+72157_s11270-012-1265-7,72157_s11270-012-1265-7_col9,col9,Ind_ngg,0.5,Unknown,,medium,table_p10_ri2_ci9, 

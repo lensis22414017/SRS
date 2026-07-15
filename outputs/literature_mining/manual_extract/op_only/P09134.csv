@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09134,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"skip: PFAS(全氟和多氟烷基物质)不在目标污染物列表中。目标OP为PAH/PCB/DDT/HCH/PBDE/TotalPHC/抗生素/PAEs/OCPs,目标HM为Cd/Pb/Cr/As/Hg/Cu/Zn/Ni。本篇仅研究PFAS浓度(Σ16PFAS 0.21-1.71 ng/g dw),无可提取数据。"

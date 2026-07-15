@@ -1,0 +1,31 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+70606_c3em00450c,70606_c3em00450c_SOC_(%),SOC (%),SumHCH_ngg,0.144,Unknown,,high,table_p3_ri5_ci1,Table1 Pearson correlation coefficients between the individual OCPs and their influencing factorsa,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_SOC_(%),SOC (%),SumHCH_ngg,0.053,Unknown,,high,table_p3_ri5_ci2,Table1 Pearson correlation coefficients between the individual OCPs and their influencing factorsa,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_PC1,PC1,SumOCP_ngg,0.951,Unknown,,high,table_p4_ri1_ci1,Table 2 The results of the PCAa,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_PC1,PC1,OC_pct,0.951,Unknown,,high,table_p4_ri1_ci1,Table 2 The results of the PCAa,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_PC2,PC2,SumOCP_ngg,0.105,Unknown,,high,table_p4_ri1_ci2,Table 2 The results of the PCAa,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_PC2,PC2,OC_pct,0.105,Unknown,,high,table_p4_ri1_ci2,Table 2 The results of the PCAa,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_PC1,PC1,SumOCP_ngg,0.948,Unknown,,high,table_p4_ri2_ci1,Table 2 The results of the PCAa,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_PC1,PC1,OC_pct,0.948,Unknown,,high,table_p4_ri2_ci1,Table 2 The results of the PCAa,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_PC2,PC2,SumOCP_ngg,0.122,Unknown,,high,table_p4_ri2_ci2,Table 2 The results of the PCAa,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_PC2,PC2,OC_pct,0.122,Unknown,,high,table_p4_ri2_ci2,Table 2 The results of the PCAa,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_PC3,PC3,SumOCP_ngg,0.295,Unknown,,high,table_p4_ri2_ci3,Table 2 The results of the PCAa,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_PC3,PC3,OC_pct,0.295,Unknown,,high,table_p4_ri2_ci3,Table 2 The results of the PCAa,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_PC1,PC1,SumOCP_ngg,0.216,Unknown,,high,table_p4_ri3_ci1,Table 2 The results of the PCAa,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_PC1,PC1,OC_pct,0.216,Unknown,,high,table_p4_ri3_ci1,Table 2 The results of the PCAa,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_PC2,PC2,SumOCP_ngg,0.976,Unknown,,high,table_p4_ri3_ci2,Table 2 The results of the PCAa,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_PC2,PC2,OC_pct,0.976,Unknown,,high,table_p4_ri3_ci2,Table 2 The results of the PCAa,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_PC3,PC3,SumOCP_ngg,0.0,Unknown,,high,table_p4_ri3_ci3,Table 2 The results of the PCAa,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_PC3,PC3,OC_pct,0.0,Unknown,,high,table_p4_ri3_ci3,Table 2 The results of the PCAa,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_$R_^_{_2_}$,$R ^ { 2 }$,SumHCH_ngg,0.329,Unknown,,high,table_p4_ri1_ci2,,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_Sig._(P),Sig. (P),SumHCH_ngg,0.005,Unknown,,high,table_p4_ri1_ci3,,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_$R_^_{_2_}$,$R ^ { 2 }$,SumHCH_ngg,0.608,Unknown,,high,table_p4_ri2_ci2,,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_Sig._(P),Sig. (P),SumHCH_ngg,0.0,Unknown,,high,table_p4_ri2_ci3,,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_$R_^_{_2_}$,$R ^ { 2 }$,SumDDT_ngg,0.475,Unknown,,high,table_p4_ri4_ci2,,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_Sig._(P),Sig. (P),SumDDT_ngg,0.0,Unknown,,high,table_p4_ri4_ci3,,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_$R_^_{_2_}$,$R ^ { 2 }$,SumHCH_ngg,0.291,Unknown,,high,table_p5_ri1_ci2,Table 4 Fitting equation of the model of eqn (3) for individual ${ \mathsf { O C P S } } ^ { a }$,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_Sig._(P),Sig. (P),SumHCH_ngg,0.1,Unknown,,high,table_p5_ri1_ci3,Table 4 Fitting equation of the model of eqn (3) for individual ${ \mathsf { O C P S } } ^ { a }$,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_$R_^_{_2_}$,$R ^ { 2 }$,SumHCH_ngg,0.543,Unknown,,high,table_p5_ri2_ci2,Table 4 Fitting equation of the model of eqn (3) for individual ${ \mathsf { O C P S } } ^ { a }$,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_Sig._(P),Sig. (P),SumHCH_ngg,0.0,Unknown,,high,table_p5_ri2_ci3,Table 4 Fitting equation of the model of eqn (3) for individual ${ \mathsf { O C P S } } ^ { a }$,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_$R_^_{_2_}$,$R ^ { 2 }$,SumDDT_ngg,0.453,Unknown,,high,table_p5_ri4_ci2,Table 4 Fitting equation of the model of eqn (3) for individual ${ \mathsf { O C P S } } ^ { a }$,,,,,,phase14
+70606_c3em00450c,70606_c3em00450c_Sig._(P),Sig. (P),SumDDT_ngg,0.001,Unknown,,high,table_p5_ri4_ci3,Table 4 Fitting equation of the model of eqn (3) for individual ${ \mathsf { O C P S } } ^ { a }$,,,,,,phase14

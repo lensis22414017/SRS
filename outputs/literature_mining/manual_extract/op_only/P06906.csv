@@ -1,0 +1,17 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P06906,LH,Sum_PAH_ngg,272.14,ng/g,Table 5,soil,urban,Yunnan,15PAH sum from Table 5 ΣPAHs row; excludes NAP (naphthalene not analyzed),25.064783,102.696417
+P06906,LH,BaP_ngg,31.63,ng/g,Table 5,soil,urban,Yunnan,BaP from Table 5 soil column,25.064783,102.696417
+P06906,YIES,Sum_PAH_ngg,433.32,ng/g,Table 5,soil,urban,Yunnan,15PAH sum from Table 5 ΣPAHs row; excludes NAP (naphthalene not analyzed),25.026583,102.693883
+P06906,YIES,BaP_ngg,20.14,ng/g,Table 5,soil,urban,Yunnan,BaP from Table 5 soil column,25.026583,102.693883
+P06906,DF,Sum_PAH_ngg,635.95,ng/g,Table 5,soil,urban,Yunnan,15PAH sum from Table 5 ΣPAHs row; excludes NAP (naphthalene not analyzed),25.04055,102.722517
+P06906,DF,BaP_ngg,33.08,ng/g,Table 5,soil,urban,Yunnan,BaP from Table 5 soil column,25.04055,102.722517
+P06906,JD,Sum_PAH_ngg,436.70,ng/g,Table 5,soil,industrial,Yunnan,15PAH sum from Table 5 ΣPAHs row; excludes NAP (naphthalene not analyzed),25.067017,102.674317
+P06906,JD,BaP_ngg,29.05,ng/g,Table 5,soil,industrial,Yunnan,BaP from Table 5 soil column,25.067017,102.674317
+P06906,GS,Sum_PAH_ngg,367.40,ng/g,Table 5,soil,urban,Yunnan,15PAH sum from Table 5 ΣPAHs row; excludes NAP (naphthalene not analyzed),25.011783,102.7437
+P06906,GS,BaP_ngg,7.62,ng/g,Table 5,soil,urban,Yunnan,BaP from Table 5 soil column,25.011783,102.7437
+P06906,LQ,Sum_PAH_ngg,101.64,ng/g,Table 5,soil,urban,Yunnan,15PAH sum from Table 5 ΣPAHs row; excludes NAP (naphthalene not analyzed),25.083417,102.728283
+P06906,LQ,BaP_ngg,7.38,ng/g,Table 5,soil,urban,Yunnan,BaP from Table 5 soil column,25.083417,102.728283
+P06906,BJ,Sum_PAH_ngg,215.74,ng/g,Table 5,soil,urban,Yunnan,15PAH sum from Table 5 ΣPAHs row; excludes NAP (naphthalene not analyzed),25.04,102.6641
+P06906,BJ,BaP_ngg,17.52,ng/g,Table 5,soil,urban,Yunnan,BaP from Table 5 soil column,25.04,102.6641
+P06906,XS,Sum_PAH_ngg,693.30,ng/g,Table 5,soil,urban,Yunnan,15PAH sum from Table 5 ΣPAHs row; excludes NAP (naphthalene not analyzed),24.962783,102.625033
+P06906,XS,BaP_ngg,66.23,ng/g,Table 5,soil,urban,Yunnan,BaP from Table 5 soil column,24.962783,102.625033

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11095,,,,,,,,"skip: paper measures antibiotic resistance genes (ARGs: ermB/ermF/ermT/qnrS/acc(6')-Ib/tetM/tetO/tetQ/tetW) in copies/g — NOT target OP chemical pollutants (no PAH/PCB/DDT/HCH/PBDE/PHC/antibiotics SMZ-SDZ-ENRO-CTC-OTC/PAEs/OCPs measured); Table 1 only gives Min/Max/Mean±std.error summaries with no sample-level point data"

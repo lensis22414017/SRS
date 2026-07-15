@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P11365,Huludao_M1,Cd_mgkg,5.30,mg/kg,Table 2.1,soil,industrial,Liaoning,对角线6点混合单一土壤样(0-20cm); 冶炼厂周边; 修复前原始土本底实测; 论文仅测Cd未测其他7种HM,40.74,120.9039
+P11365,Huludao_M1,Sum_PAH_ngg,220240,ng/g,Table 2.6,soil,industrial,Liaoning,16EPA单体求和(Nap20250+Acy42280+Ace28300+Flu1900+Phe3260+Ant5100+Flt12800+Pyr23380+BaA10300+Chr6300+BbF4360+BkF18230+BaP11200+IcdP13630+DahA3520+BghiP15430); 论文原单位mg/kg×1000; 论文文字称250.24mg/kg但单体加和实际=220.24mg/kg以加和为准,40.74,120.9039
+P11365,Huludao_M1,BaP_ngg,11200,ng/g,Table 2.6,soil,industrial,Liaoning,苯并(a)芘单体直接读; 论文原单位mg/kg×1000; 与表2.1 BaP=11.20mg/kg一致,40.74,120.9039

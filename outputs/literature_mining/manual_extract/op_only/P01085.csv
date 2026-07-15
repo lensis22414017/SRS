@@ -1,0 +1,48 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01085,S1,Sum_PAH_ngg,2760,ng/g,Table 2,soil,agricultural,Liaoning,14-PAH sum(缂篈CY+IcdP闈炲畬鏁?6EPA);琛ㄦ敞Mean(SD) from 3 replicates;姹℃按鐏屾簤绋荤敯琛ㄥ湡0-20cm
+P01085,S1,BaP_ngg,230,ng/g,Table 2,soil,agricultural,Liaoning,BaP鍗曚綋鐩存帴璇诲彇;琛ㄦ敞Mean(SD) from 3 replicates
+P01085,S1,Cd_mgkg,1.4,mg/kg,Table 3,soil,agricultural,Liaoning,Total Cd鐩存帴璇诲彇;HNO3-HClO4娑堣ВAAS妫€娴?P01085,S1,Cu_mgkg,77.9,mg/kg,Table 3,soil,agricultural,Liaoning,Total Cu鐩存帴璇诲彇
+P01085,S1,Cr_mgkg,33.7,mg/kg,Table 3,soil,agricultural,Liaoning,Total Cr鐩存帴璇诲彇
+P01085,S1,Ni_mgkg,38.3,mg/kg,Table 3,soil,agricultural,Liaoning,Total Ni鐩存帴璇诲彇
+P01085,S1,Pb_mgkg,120,mg/kg,Table 3,soil,agricultural,Liaoning,Total Pb鐩存帴璇诲彇
+P01085,S1,Zn_mgkg,325,mg/kg,Table 3,soil,agricultural,Liaoning,Total Zn鐩存帴璇诲彇
+P01085,S2,Sum_PAH_ngg,2000,ng/g,Table 2,soil,agricultural,Liaoning,14-PAH sum(缂篈CY+IcdP)
+P01085,S2,BaP_ngg,135,ng/g,Table 2,soil,agricultural,Liaoning,BaP鍗曚綋鐩存帴璇诲彇
+P01085,S2,Cd_mgkg,1.9,mg/kg,Table 3,soil,agricultural,Liaoning,Total Cd鐩存帴璇诲彇
+P01085,S2,Cu_mgkg,112,mg/kg,Table 3,soil,agricultural,Liaoning,Total Cu鐩存帴璇诲彇
+P01085,S2,Cr_mgkg,41.0,mg/kg,Table 3,soil,agricultural,Liaoning,Total Cr鐩存帴璇诲彇
+P01085,S2,Ni_mgkg,53.8,mg/kg,Table 3,soil,agricultural,Liaoning,Total Ni鐩存帴璇诲彇
+P01085,S2,Pb_mgkg,114,mg/kg,Table 3,soil,agricultural,Liaoning,Total Pb鐩存帴璇诲彇
+P01085,S2,Zn_mgkg,353,mg/kg,Table 3,soil,agricultural,Liaoning,Total Zn鐩存帴璇诲彇
+P01085,S3,Sum_PAH_ngg,2790,ng/g,Table 2,soil,agricultural,Liaoning,14-PAH sum(缂篈CY+IcdP)
+P01085,S3,BaP_ngg,320,ng/g,Table 2,soil,agricultural,Liaoning,BaP鍗曚綋鐩存帴璇诲彇
+P01085,S3,Cd_mgkg,1.9,mg/kg,Table 3,soil,agricultural,Liaoning,Total Cd鐩存帴璇诲彇
+P01085,S3,Cu_mgkg,54.9,mg/kg,Table 3,soil,agricultural,Liaoning,Total Cu鐩存帴璇诲彇
+P01085,S3,Cr_mgkg,24.5,mg/kg,Table 3,soil,agricultural,Liaoning,Total Cr鐩存帴璇诲彇
+P01085,S3,Ni_mgkg,26.6,mg/kg,Table 3,soil,agricultural,Liaoning,Total Ni鐩存帴璇诲彇
+P01085,S3,Pb_mgkg,83.5,mg/kg,Table 3,soil,agricultural,Liaoning,Total Pb鐩存帴璇诲彇
+P01085,S3,Zn_mgkg,175,mg/kg,Table 3,soil,agricultural,Liaoning,Total Zn鐩存帴璇诲彇
+P01085,S4,Sum_PAH_ngg,2620,ng/g,Table 2,soil,agricultural,Liaoning,14-PAH sum(缂篈CY+IcdP)
+P01085,S4,BaP_ngg,245,ng/g,Table 2,soil,agricultural,Liaoning,BaP鍗曚綋鐩存帴璇诲彇
+P01085,S4,Cd_mgkg,2.0,mg/kg,Table 3,soil,agricultural,Liaoning,Total Cd鐩存帴璇诲彇
+P01085,S4,Cu_mgkg,116,mg/kg,Table 3,soil,agricultural,Liaoning,Total Cu鐩存帴璇诲彇
+P01085,S4,Cr_mgkg,59.4,mg/kg,Table 3,soil,agricultural,Liaoning,Total Cr鐩存帴璇诲彇
+P01085,S4,Ni_mgkg,68.8,mg/kg,Table 3,soil,agricultural,Liaoning,Total Ni鐩存帴璇诲彇
+P01085,S4,Pb_mgkg,130,mg/kg,Table 3,soil,agricultural,Liaoning,Total Pb鐩存帴璇诲彇
+P01085,S4,Zn_mgkg,290,mg/kg,Table 3,soil,agricultural,Liaoning,Total Zn鐩存帴璇诲彇
+P01085,S5,Sum_PAH_ngg,950,ng/g,Table 2,soil,agricultural,Liaoning,14-PAH sum(缂篈CY+IcdP)
+P01085,S5,BaP_ngg,80,ng/g,Table 2,soil,agricultural,Liaoning,BaP鍗曚綋鐩存帴璇诲彇
+P01085,S5,Cd_mgkg,1.5,mg/kg,Table 3,soil,agricultural,Liaoning,Total Cd鐩存帴璇诲彇
+P01085,S5,Cu_mgkg,45.9,mg/kg,Table 3,soil,agricultural,Liaoning,Total Cu鐩存帴璇诲彇
+P01085,S5,Cr_mgkg,27.1,mg/kg,Table 3,soil,agricultural,Liaoning,Total Cr鐩存帴璇诲彇
+P01085,S5,Ni_mgkg,34.0,mg/kg,Table 3,soil,agricultural,Liaoning,Total Ni鐩存帴璇诲彇
+P01085,S5,Pb_mgkg,565,mg/kg,Table 3,soil,agricultural,Liaoning,Total Pb鐩存帴璇诲彇
+P01085,S5,Zn_mgkg,473,mg/kg,Table 3,soil,agricultural,Liaoning,Total Zn鐩存帴璇诲彇
+P01085,S6,Sum_PAH_ngg,2230,ng/g,Table 2,soil,agricultural,Liaoning,14-PAH sum(缂篈CY+IcdP)
+P01085,S6,BaP_ngg,215,ng/g,Table 2,soil,agricultural,Liaoning,BaP鍗曚綋鐩存帴璇诲彇
+P01085,S6,Cd_mgkg,1.9,mg/kg,Table 3,soil,agricultural,Liaoning,Total Cd鐩存帴璇诲彇
+P01085,S6,Cu_mgkg,63.7,mg/kg,Table 3,soil,agricultural,Liaoning,Total Cu鐩存帴璇诲彇
+P01085,S6,Cr_mgkg,40.0,mg/kg,Table 3,soil,agricultural,Liaoning,Total Cr鐩存帴璇诲彇
+P01085,S6,Ni_mgkg,49.7,mg/kg,Table 3,soil,agricultural,Liaoning,Total Ni鐩存帴璇诲彇
+P01085,S6,Pb_mgkg,87.5,mg/kg,Table 3,soil,agricultural,Liaoning,Total Pb鐩存帴璇诲彇
+P01085,S6,Zn_mgkg,202,mg/kg,Table 3,soil,agricultural,Liaoning,Total Zn鐩存帴璇诲彇

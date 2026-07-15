@@ -1,0 +1,11 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+Chen Y - 2025 - Soil antibiotic pollution and ecol,Chen Y - 2025 - Soil antibiotic pollution and ecol_Max_(μg·kg−1),SDZ_ngg,6.75,Unknown,table_p5_ri1_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+Chen Y - 2025 - Soil antibiotic pollution and ecol,Chen Y - 2025 - Soil antibiotic pollution and ecol_Median_(μg·kg−1),SDZ_ngg,0.2,Unknown,table_p5_ri1_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+Chen Y - 2025 - Soil antibiotic pollution and ecol,Chen Y - 2025 - Soil antibiotic pollution and ecol_Mean_(μg·kg−1),SDZ_ngg,0.39,Unknown,table_p5_ri1_ci4,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+Chen Y - 2025 - Soil antibiotic pollution and ecol,Chen Y - 2025 - Soil antibiotic pollution and ecol_Detection_Rate_(%),SDZ_ngg,73.8,Unknown,table_p5_ri1_ci5,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+Chen Y - 2025 - Soil antibiotic pollution and ecol,Chen Y - 2025 - Soil antibiotic pollution and ecol_Max_(μg·kg−1),SMZ_ngg,328.0,Unknown,table_p5_ri5_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+Chen Y - 2025 - Soil antibiotic pollution and ecol,Chen Y - 2025 - Soil antibiotic pollution and ecol_Mean_(μg·kg−1),SMZ_ngg,2.93,Unknown,table_p5_ri5_ci4,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+Chen Y - 2025 - Soil antibiotic pollution and ecol,Chen Y - 2025 - Soil antibiotic pollution and ecol_Detection_Rate_(%),SMZ_ngg,24.6,Unknown,table_p5_ri5_ci5,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+Chen Y - 2025 - Soil antibiotic pollution and ecol,Chen Y - 2025 - Soil antibiotic pollution and ecol_Max_(μg·kg−1),ENRO_ngg,244.0,Unknown,table_p5_ri8_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+Chen Y - 2025 - Soil antibiotic pollution and ecol,Chen Y - 2025 - Soil antibiotic pollution and ecol_Mean_(μg·kg−1),ENRO_ngg,6.39,Unknown,table_p5_ri8_ci4,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+Chen Y - 2025 - Soil antibiotic pollution and ecol,Chen Y - 2025 - Soil antibiotic pollution and ecol_Detection_Rate_(%),ENRO_ngg,32.1,Unknown,table_p5_ri8_ci5,soil,agricultural,,phase14_auto; confidence=high; flag=,,

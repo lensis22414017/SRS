@@ -1,0 +1,241 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P02270,LT0,Cd_mgkg,1.343,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LT0,Pb_mgkg,162.5,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LT0,Cr_mgkg,19.84,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LT0,As_mgkg,9.615,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LT0,Hg_mgkg,0.393,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LT0,Cu_mgkg,287.5,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LT0,Zn_mgkg,174.9,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LT0,Ni_mgkg,12.91,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LT0,SumPBDE_ngg,2908,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LT0,SumPCB_ngg,1891,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PCBs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LY2.5,Cd_mgkg,2.564,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY2.5,Pb_mgkg,41.7,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY2.5,Cr_mgkg,28.98,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY2.5,As_mgkg,24.06,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY2.5,Hg_mgkg,0.197,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY2.5,Cu_mgkg,21.78,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY2.5,Zn_mgkg,95.8,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY2.5,Ni_mgkg,16.32,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY2.5,SumPBDE_ngg,4.659,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LY2.5,SumPCB_ngg,448.6,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PCBs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LY5,Cd_mgkg,0.237,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY5,Pb_mgkg,30.82,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY5,Cr_mgkg,39.14,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY5,As_mgkg,14.66,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY5,Hg_mgkg,0.127,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY5,Cu_mgkg,17.84,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY5,Zn_mgkg,29.73,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY5,Ni_mgkg,8.615,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY5,SumPBDE_ngg,45.17,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LY5,SumPCB_ngg,7.335,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PCBs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LY10,Cd_mgkg,1.268,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY10,Pb_mgkg,45.45,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY10,Cr_mgkg,26.86,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY10,As_mgkg,28.99,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY10,Hg_mgkg,0.219,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY10,Cu_mgkg,19.08,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY10,Zn_mgkg,72.24,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY10,Ni_mgkg,13.8,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY10,SumPBDE_ngg,25.46,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LY10,SumPCB_ngg,1.106,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PCBs=1.106; 组分加和0.826+0.238+0.042=1.106吻合,23.5878,113.0583
+P02270,LY20,Cd_mgkg,0.303,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY20,Pb_mgkg,39.64,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY20,Cr_mgkg,40.69,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY20,As_mgkg,31.19,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY20,Hg_mgkg,0.107,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY20,Cu_mgkg,17.18,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY20,Zn_mgkg,54.14,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY20,Ni_mgkg,19.67,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY20,SumPBDE_ngg,1.467,ng/g,Table 1,soil,e_waste,Guangdong,"Table1 ∑PBDEs=1.467(显示值); 组分加和0.360+0.268+2.753+0.452=3.833不匹配, 疑HTML解析错位, 取表显示值",23.5878,113.0583
+P02270,LY20,SumPCB_ngg,1.106,ng/g,Table 1,soil,e_waste,Guangdong,"Table1 ∑PCBs=1.106(显示值); 组分加和0.646+0.360+0.065=1.071差0.035, 取表显示值",23.5878,113.0583
+P02270,LY30,Cd_mgkg,0.203,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY30,Pb_mgkg,30.64,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY30,Cr_mgkg,17.88,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY30,As_mgkg,6.891,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY30,Hg_mgkg,0.104,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY30,Cu_mgkg,6.096,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY30,Zn_mgkg,33.22,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY30,Ni_mgkg,6.76,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY30,SumPBDE_ngg,1.731,ng/g,Table 1,soil,e_waste,Guangdong,"Table1 ∑PBDEs=1.731(显示值); 组分加和0.575+0.088+0.352+1.476=2.491不匹配, 疑HTML解析错位, 取表显示值",23.5878,113.0583
+P02270,LY30,SumPCB_ngg,1.812,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PCBs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LY40,Cd_mgkg,0.086,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY40,Pb_mgkg,24.51,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY40,Cr_mgkg,10.83,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY40,As_mgkg,6.143,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY40,Hg_mgkg,0.054,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY40,Cu_mgkg,15.25,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY40,Zn_mgkg,44.88,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY40,Ni_mgkg,8.235,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LY40,SumPBDE_ngg,2.988,ng/g,Table 1,soil,e_waste,Guangdong,"Table1 ∑PBDEs=2.988(显示值); 组分加和0.068+0.052+0.135+2.550=2.805差0.18, 取表显示值",23.5878,113.0583
+P02270,LY40,SumPCB_ngg,0.734,ng/g,Table 1,soil,e_waste,Guangdong,"Table1 ∑PCBs HTML显示1.812(与LY30重复疑错位), 取组分加和0.582+0.137+0.015=0.734",23.5878,113.0583
+P02270,LB2.5,Cd_mgkg,0.227,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB2.5,Pb_mgkg,56.89,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB2.5,Cr_mgkg,10.91,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB2.5,As_mgkg,9.433,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB2.5,Hg_mgkg,0.329,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB2.5,Cu_mgkg,28.89,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB2.5,Zn_mgkg,26.49,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB2.5,Ni_mgkg,6.758,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB2.5,SumPBDE_ngg,35.94,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LB2.5,SumPCB_ngg,0.734,ng/g,Table 1,soil,e_waste,Guangdong,"Table1 ∑PCBs=0.734(显示值); HTML中PCB组分1.164+0.491+0.134=1.789疑为LC2.5错位, ∑PCBs按显示值0.734",23.5878,113.0583
+P02270,LB5,Cd_mgkg,0.401,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB5,Pb_mgkg,59.79,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB5,Cr_mgkg,7.241,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB5,As_mgkg,7.682,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB5,Hg_mgkg,0.19,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB5,Cu_mgkg,15.59,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB5,Zn_mgkg,38.03,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB5,Ni_mgkg,4.417,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB5,SumPBDE_ngg,54.4,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LB5,SumPCB_ngg,1.789,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PCBs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LB10,Cd_mgkg,0.195,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB10,Pb_mgkg,29.73,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB10,Cr_mgkg,19.33,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB10,As_mgkg,11.45,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB10,Hg_mgkg,0.135,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB10,Cu_mgkg,10.66,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB10,Zn_mgkg,30.07,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB10,Ni_mgkg,7.414,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB10,SumPBDE_ngg,60.64,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LB10,SumPCB_ngg,2.098,ng/g,Table 1,soil,e_waste,Guangdong,"Table1 ∑PCBs HTML显示'1.010 2.098'解析歧义, 取与组分加和一致值2.098(1.103+0.857+0.138)",23.5878,113.0583
+P02270,LB20,Cd_mgkg,0.847,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB20,Pb_mgkg,60.23,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB20,Cr_mgkg,54.06,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB20,As_mgkg,16.86,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB20,Hg_mgkg,0.135,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB20,Cu_mgkg,20.58,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB20,Zn_mgkg,126.0,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB20,Ni_mgkg,18.86,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB20,SumPBDE_ngg,3.301,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LB20,SumPCB_ngg,2.213,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PCBs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LB30,Cd_mgkg,0.153,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB30,Pb_mgkg,23.11,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB30,Cr_mgkg,40.44,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB30,As_mgkg,8.542,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB30,Hg_mgkg,0.153,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB30,Cu_mgkg,9.697,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB30,Zn_mgkg,63.26,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB30,Ni_mgkg,9.118,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB30,SumPBDE_ngg,11.08,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LB30,SumPCB_ngg,1.773,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PCBs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LB40,Cd_mgkg,0.206,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB40,Pb_mgkg,28.72,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB40,Cr_mgkg,34.9,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB40,As_mgkg,12.34,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB40,Hg_mgkg,0.173,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB40,Cu_mgkg,14.39,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB40,Zn_mgkg,52.91,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB40,Ni_mgkg,12.72,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LB40,SumPBDE_ngg,65.07,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LB40,SumPCB_ngg,0.59,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PCBs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LZ2.5,Cd_mgkg,0.252,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ2.5,Pb_mgkg,29.21,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ2.5,Cr_mgkg,44.21,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ2.5,As_mgkg,11.51,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ2.5,Hg_mgkg,0.048,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ2.5,Cu_mgkg,16.07,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ2.5,Zn_mgkg,37.84,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ2.5,Ni_mgkg,9.195,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ2.5,SumPBDE_ngg,2.184,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LZ2.5,SumPCB_ngg,108.9,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PCBs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LZ5,Cd_mgkg,0.13,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ5,Pb_mgkg,25.27,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ5,Cr_mgkg,20.51,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ5,As_mgkg,56.72,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ5,Hg_mgkg,0.182,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ5,Cu_mgkg,13.68,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ5,Zn_mgkg,11.23,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ5,Ni_mgkg,3.607,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ5,SumPBDE_ngg,12.24,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LZ5,SumPCB_ngg,137.5,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PCBs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LZ20,Cd_mgkg,0.082,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ20,Pb_mgkg,42.02,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ20,Cr_mgkg,50.05,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ20,As_mgkg,104.6,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ20,Hg_mgkg,0.1,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ20,Cu_mgkg,20.02,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ20,Zn_mgkg,7.555,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ20,Ni_mgkg,10.32,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ20,SumPBDE_ngg,0.565,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LZ20,SumPCB_ngg,0.267,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PCBs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LZ30,Cd_mgkg,0.194,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ30,Pb_mgkg,18.98,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ30,Cr_mgkg,21.8,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ30,As_mgkg,14.55,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ30,Hg_mgkg,0.125,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ30,Cu_mgkg,13.41,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ30,Zn_mgkg,30.61,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ30,Ni_mgkg,9.396,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ30,SumPBDE_ngg,5.905,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LZ30,SumPCB_ngg,16.0,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PCBs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LZ40,Cd_mgkg,0.234,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ40,Pb_mgkg,50.04,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ40,Cr_mgkg,7.257,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ40,As_mgkg,3.606,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ40,Hg_mgkg,0.153,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ40,Cu_mgkg,18.43,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ40,Zn_mgkg,50.59,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ40,Ni_mgkg,4.942,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LZ40,SumPBDE_ngg,3.72,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LZ40,SumPCB_ngg,2.755,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PCBs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LC2.5,Cd_mgkg,0.227,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC2.5,Pb_mgkg,56.89,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC2.5,Cr_mgkg,10.91,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC2.5,As_mgkg,9.433,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC2.5,Hg_mgkg,0.329,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC2.5,Cu_mgkg,28.89,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC2.5,Zn_mgkg,26.49,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC2.5,Ni_mgkg,6.758,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC2.5,SumPBDE_ngg,62.62,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LC2.5,SumPCB_ngg,1.789,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PCBs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LC5,Cd_mgkg,0.224,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC5,Pb_mgkg,16.31,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC5,Cr_mgkg,16.09,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC5,As_mgkg,7.426,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC5,Hg_mgkg,0.164,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC5,Cu_mgkg,6.034,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC5,Zn_mgkg,22.94,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC5,Ni_mgkg,7.277,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC5,SumPBDE_ngg,14.68,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LC5,SumPCB_ngg,67.68,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PCBs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LC10,Cd_mgkg,0.155,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC10,Pb_mgkg,24.21,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC10,Cr_mgkg,12.72,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC10,As_mgkg,3.839,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC10,Hg_mgkg,0.122,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC10,Cu_mgkg,4.743,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC10,Zn_mgkg,16.0,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC10,Ni_mgkg,5.829,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC10,SumPBDE_ngg,23.0,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LC10,SumPCB_ngg,1.073,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PCBs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LC20,Cd_mgkg,0.21,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC20,Pb_mgkg,56.68,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC20,Cr_mgkg,2.761,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC20,As_mgkg,2.793,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC20,Hg_mgkg,0.138,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC20,Cu_mgkg,3.223,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC20,Zn_mgkg,22.41,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC20,Ni_mgkg,2.632,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC20,SumPBDE_ngg,3.066,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LC20,SumPCB_ngg,13.3,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PCBs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LC30,Cd_mgkg,0.2,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC30,Pb_mgkg,86.01,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC30,Cr_mgkg,3.996,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC30,As_mgkg,5.162,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC30,Hg_mgkg,0.147,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC30,Cu_mgkg,3.241,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC30,Zn_mgkg,27.76,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC30,Ni_mgkg,3.526,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC30,SumPBDE_ngg,22.96,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LC30,SumPCB_ngg,1.856,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PCBs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LC40,Cd_mgkg,0.181,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC40,Pb_mgkg,19.16,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC40,Cr_mgkg,9.335,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC40,As_mgkg,4.459,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC40,Hg_mgkg,0.062,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC40,Cu_mgkg,11.4,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC40,Zn_mgkg,32.74,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC40,Ni_mgkg,5.153,mg/kg,Table 2,soil,e_waste,Guangdong,Table2直接读取; 单位mg/kg(论文表头标注mg/g dw疑为mg/kg排版错误-数值范围与abstract Cd 0.082-2.56/Cu 3.22-287/Pb 16.3-162一致),23.5878,113.0583
+P02270,LC40,SumPBDE_ngg,9.632,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PBDEs列直接读取(ng/g dw),23.5878,113.0583
+P02270,LC40,SumPCB_ngg,2.528,ng/g,Table 1,soil,e_waste,Guangdong,Table1 ∑PCBs列直接读取(ng/g dw),23.5878,113.0583

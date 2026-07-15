@@ -1,0 +1,6 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+70585_es8018572,70585_es8018572_$\scriptstyle_r_^_{_2_}$,SumHCH_ngg,0.94,Unknown,table_p2_ri1_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+70585_es8018572,70585_es8018572_$\scriptstyle_r_^_{_2_}$,SumHCH_ngg,0.76,Unknown,table_p2_ri2_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+70585_es8018572,70585_es8018572_$\scriptstyle_r_^_{_2_}$,SumHCH_ngg,0.98,Unknown,table_p2_ri3_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+70585_es8018572,70585_es8018572_$\scriptstyle_r_^_{_2_}$,SumPCB_ngg,0.84,Unknown,table_p2_ri5_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+70585_es8018572,70585_es8018572_$\scriptstyle_r_^_{_2_}$,SumPCB_ngg,0.94,Unknown,table_p2_ri6_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,

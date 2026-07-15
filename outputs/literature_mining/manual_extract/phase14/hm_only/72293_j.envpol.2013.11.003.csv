@@ -1,0 +1,8 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+72293_j.envpol.2013.11.003,72293_j.envpol.2013.11.003_Pb,Pb,Pb_mgkg,1.0,Unknown,,high,table_p3_ri1_ci1,Pearson correlation coefficient matrix between metals and PCBs.,,,,,,phase14
+72293_j.envpol.2013.11.003,72293_j.envpol.2013.11.003_Cd,Cd,Cd_mgkg,1.0,Unknown,,high,table_p3_ri2_ci2,Pearson correlation coefficient matrix between metals and PCBs.,,,,,,phase14
+72293_j.envpol.2013.11.003,72293_j.envpol.2013.11.003_Cr,Cr,Cr_mgkg,1.0,Unknown,,high,table_p3_ri3_ci3,Pearson correlation coefficient matrix between metals and PCBs.,,,,,,phase14
+72293_j.envpol.2013.11.003,72293_j.envpol.2013.11.003_Zn,Zn,Zn_mgkg,1.0,Unknown,,high,table_p3_ri4_ci4,Pearson correlation coefficient matrix between metals and PCBs.,,,,,,phase14
+72293_j.envpol.2013.11.003,72293_j.envpol.2013.11.003_As,As,As_mgkg,1.0,Unknown,,high,table_p3_ri5_ci5,Pearson correlation coefficient matrix between metals and PCBs.,,,,,,phase14
+72293_j.envpol.2013.11.003,72293_j.envpol.2013.11.003_Hg,Hg,Hg_mgkg,1.0,Unknown,,high,table_p3_ri6_ci6,Pearson correlation coefficient matrix between metals and PCBs.,,,,,,phase14
+72293_j.envpol.2013.11.003,72293_j.envpol.2013.11.003_Cu,Cu,Cu_mgkg,1.0,Unknown,,high,table_p3_ri7_ci7,Pearson correlation coefficient matrix between metals and PCBs.,,,,,,phase14

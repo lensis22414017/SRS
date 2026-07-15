@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11534,,,,,,,"skip: only statistical summaries (Min/Max/Mean/SD/CV) in Table 2 for 11 PAHs, no sample-level PAH data; Fig 1/2/3 show derived indices (SFI/NPI/SQI) not raw concentrations; 42 samples collected but individual PAH values not reported"

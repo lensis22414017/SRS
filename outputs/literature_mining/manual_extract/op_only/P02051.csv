@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02051,,,,,,,soil,industrial,Jiangsu,"skip: 论文污染物为氯苯/二氯苯/硝基氯苯/苯/乙苯等工业氯代溶剂(MAH/CVOC), 非目标OP类别(无PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAE/传统OCP如Endosulfan); 虽有S1-S6采样点级浓度数据(Supp Table 2)但污染物类型完全不符"

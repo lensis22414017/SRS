@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+1-s2.0-S0304389425026664,1-s2.0-S0304389425026664_Day_0,Day 0,Ace_ngg,1522.6,Unknown,,high,table_p6_ri1_ci1,Variation of alpha diversity of the soil microbial community after bioremediation with strain DF5525.,,,,,,phase14
+1-s2.0-S0304389425026664,1-s2.0-S0304389425026664_Day_30,Day 30,Ace_ngg,2977.3,Unknown,,high,table_p6_ri3_ci1,Variation of alpha diversity of the soil microbial community after bioremediation with strain DF5525.,,,,,,phase14

@@ -1,0 +1,4 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03275,S11,Sum_PAH_ngg,2830,ng/g,正文2.1.2段,soil,agricultural,Shanxi,"正文直接读取∑PAHs=2.83 mg/kg×1000→ng/g；HM无采样点级浓度(表2仅max/min/avg/SD/CV统计汇总, 正文仅综合污染指数=风险指数)"
+P03275,S13,Sum_PAH_ngg,14390,ng/g,正文2.1.2段,soil,agricultural,Shanxi,"正文直接读取∑PAHs=14.39 mg/kg×1000→ng/g；HM无采样点级浓度(表2仅max/min/avg/SD/CV统计汇总, 正文仅综合污染指数=风险指数)"
+P03275,S14,Sum_PAH_ngg,21640,ng/g,正文2.1.2段,soil,agricultural,Shanxi,"正文直接读取∑PAHs=21.64 mg/kg×1000→ng/g(=表2 max值一致验证)；HM无采样点级浓度(表2仅max/min/avg/SD/CV统计汇总, 正文仅综合污染指数=风险指数)"

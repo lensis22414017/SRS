@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02594,,,,,,,,"skip: 论文为VOCs修复过程风险管控框架/方法论文章，无采样点级OP浓度数据；全文表格仅含风险等级矩阵(RRI1-RRI4)、概率/后果权重值、风险值，无PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAE/OCP实测浓度；提及案例气态VOC浓度452.04 mg/m³为大气浓度引自Yang(2006)非土壤"

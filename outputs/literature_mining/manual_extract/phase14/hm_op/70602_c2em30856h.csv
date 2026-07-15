@@ -1,0 +1,16 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+70602_c2em30856h,70602_c2em30856h_Rings,Rings,Acy_ngg,2.0,Unknown,,high,table_p2_ri1_ci2,Table 2Means and standard deviations of PAHs in the surface soils from the Tibetan Plateau in ng g-1,,,,,,phase14
+70602_c2em30856h,70602_c2em30856h_Rings,Rings,Ace_ngg,2.0,Unknown,,high,table_p2_ri2_ci2,Table 2Means and standard deviations of PAHs in the surface soils from the Tibetan Plateau in ng g-1,,,,,,phase14
+70602_c2em30856h,70602_c2em30856h_Rings,Rings,Flu_ngg,2.0,Unknown,,high,table_p2_ri3_ci2,Table 2Means and standard deviations of PAHs in the surface soils from the Tibetan Plateau in ng g-1,,,,,,phase14
+70602_c2em30856h,70602_c2em30856h_Rings,Rings,Phe_ngg,3.0,Unknown,,high,table_p2_ri4_ci2,Table 2Means and standard deviations of PAHs in the surface soils from the Tibetan Plateau in ng g-1,,,,,,phase14
+70602_c2em30856h,70602_c2em30856h_Rings,Rings,Ant_ngg,3.0,Unknown,,high,table_p2_ri5_ci2,Table 2Means and standard deviations of PAHs in the surface soils from the Tibetan Plateau in ng g-1,,,,,,phase14
+70602_c2em30856h,70602_c2em30856h_Rings,Rings,Flt_ngg,3.0,Unknown,,high,table_p2_ri6_ci2,Table 2Means and standard deviations of PAHs in the surface soils from the Tibetan Plateau in ng g-1,,,,,,phase14
+70602_c2em30856h,70602_c2em30856h_Rings,Rings,Pyr_ngg,4.0,Unknown,,high,table_p2_ri7_ci2,Table 2Means and standard deviations of PAHs in the surface soils from the Tibetan Plateau in ng g-1,,,,,,phase14
+70602_c2em30856h,70602_c2em30856h_Rings,Rings,Ant_ngg,4.0,Unknown,,high,table_p2_ri8_ci2,Table 2Means and standard deviations of PAHs in the surface soils from the Tibetan Plateau in ng g-1,,,,,,phase14
+70602_c2em30856h,70602_c2em30856h_Rings,Rings,Chr_ngg,4.0,Unknown,,high,table_p2_ri9_ci2,Table 2Means and standard deviations of PAHs in the surface soils from the Tibetan Plateau in ng g-1,,,,,,phase14
+70602_c2em30856h,70602_c2em30856h_Rings,Rings,Flt_ngg,4.0,Unknown,,high,table_p2_ri10_ci2,Table 2Means and standard deviations of PAHs in the surface soils from the Tibetan Plateau in ng g-1,,,,,,phase14
+70602_c2em30856h,70602_c2em30856h_Rings,Rings,Flt_ngg,4.0,Unknown,,high,table_p2_ri11_ci2,Table 2Means and standard deviations of PAHs in the surface soils from the Tibetan Plateau in ng g-1,,,,,,phase14
+70602_c2em30856h,70602_c2em30856h_Rings,Rings,Pyr_ngg,5.0,Unknown,,high,table_p2_ri12_ci2,Table 2Means and standard deviations of PAHs in the surface soils from the Tibetan Plateau in ng g-1,,,,,,phase14
+70602_c2em30856h,70602_c2em30856h_Rings,Rings,Pyr_ngg,5.0,Unknown,,high,table_p2_ri13_ci2,Table 2Means and standard deviations of PAHs in the surface soils from the Tibetan Plateau in ng g-1,,,,,,phase14
+70602_c2em30856h,70602_c2em30856h_Rings,Rings,Cd_mgkg,5.0,Unknown,,high,table_p2_ri13_ci2,Table 2Means and standard deviations of PAHs in the surface soils from the Tibetan Plateau in ng g-1,,,,,,phase14
+70602_c2em30856h,70602_c2em30856h_Rings,Rings,Ant_ngg,5.0,Unknown,,high,table_p2_ri14_ci2,Table 2Means and standard deviations of PAHs in the surface soils from the Tibetan Plateau in ng g-1,,,,,,phase14

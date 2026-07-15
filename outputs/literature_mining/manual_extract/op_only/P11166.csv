@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11166,,,,,,,,"skip: Table 1仅提供1980-1999和2000-2019两时段的Mean/Median/Range统计汇总，无采样点级个体数据，无样本ID(S1/S2等)；Figure 2为浓度柱状图图片无法解析提取个体值；Table 2为ILCR健康风险指数(剔除)"

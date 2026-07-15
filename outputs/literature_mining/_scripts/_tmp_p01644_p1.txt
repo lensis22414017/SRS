@@ -1,0 +1,62 @@
+Metallurgical organic pollutants assisted source apportionment of mobile 
+heavy metals on artisanal non-ferrous metal processing contamination
+Li-Rong Liu a,1
+, Junyao Yan b,1, Lei Xiang c, Ting Liu d,e, Ye Xiao a,*
+, Wen-Shen Liu a
+,  
+Wen-Jun Wu c, Ping Li b, Miaoyue Zhang a
+, Yuan-Qing Chao a, Ye-Tao Tang a,e,**
+,  
+Rong-Liang Qiu a,d,e
+a School of Environmental Science and Engineering, Guangdong Provincial Key Laboratory of Environmental Pollution Control and Remediation Technology, Guangdong 
+Provincial Engineering Research Center for Heavy Metal Contaminated Soil Remediation, Sun Yat-sen University, Guangzhou 510006, China
+b State Key Laboratory of Environmental Geochemistry, Institute of Geochemistry, Chinese Academy of Sciences, Guiyang 550081, China
+c Guangdong Provincial Research Center for Environment Pollution Control and Remediation Materials, College of Life Science and Technology, Jinan University, 
+Guangzhou 510632, China
+d Guangdong Provincial Key Laboratory of Agricultural & Rural Pollution Abatement and Environmental Safety, College of Natural Resources and Environment, South 
+China Agricultural University, Guangzhou 510642, China
+e Guangdong Laboratory for Lingnan Modern Agriculture, Guangzhou 510642, China
+H I G H L I G H T S
+G R A P H I C A L  A B S T R A C T
+• Metallurgical organic pollutants identify 
+the sources of HMs at ASMP sites.
+• Xanthates in tailings in μg/kg range 
+were quantified for the first time.
+• Presence of xanthates reveals their long- 
+term retention in abandoned tailing 
+ponds.
+• Hydrogeochemical 
+interactions 
+and 
+xanthates 
+complexation 
+redistribute 
+mobile HMs.
+A R T I C L E  I N F O
+Keywords:
+Xanthate
+PAHs
+Mercury
+Source apportionment
+Artisanal mining and processing
+A B S T R A C T
+Artisanal and small-scale mining and processing (ASMP) remain pervasive in developing countries, causing se­
+vere heavy metal(loids) (HMs) pollution and complicating source apportionment. Current understanding remains 
+limited regarding the distribution of metallurgical organic pollutants (MOPs) and their potential role in HM 
+source apportionment. In this study, representative MOPs, xanthates and polycyclic aromatic hydrocarbons 
+(PAHs), were selected and analyzed in an abandoned non-ferrous tailings pond within Guizhou’s mercury mining 
+areas, China. It presents the first quantitation of three flotation xanthates (ethyl-, isopropyl-, and butyl-xanthate) 
+* Corresponding author.
+** Corresponding author at: School of Environmental Science and Engineering, Guangdong Provincial Key Laboratory of Environmental Pollution Control and 
+Remediation Technology, Guangdong Provincial Engineering Research Center for Heavy Metal Contaminated Soil Remediation, Sun Yat-sen University, Guangzhou 
+510006, China.
+E-mail addresses: xiaoy299@mail.sysu.edu.cn (Y. Xiao), eestyt@mail.sysu.edu.cn (Y.-T. Tang). 
+1 L. Liu and J. Yan contribute equally to the study.
+Contents lists available at ScienceDirect
+Journal of Hazardous Materials
+journal homepage: www.elsevier.com/locate/jhazmat
+https://doi.org/10.1016/j.jhazmat.2025.140371
+Received 25 July 2025; Received in revised form 6 October 2025; Accepted 2 November 2025  
+Journal of Hazardous Materials 500 (2025) 140371 
+Available online 5 November 2025 
+0304-3894/© 2025 Elsevier B.V. All rights are reserved, including those for text and data mining, AI training, and similar technologies. 

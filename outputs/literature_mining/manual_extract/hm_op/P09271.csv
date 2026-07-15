@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09271,,,,,,,,"skip: 综述论文(A review, Cheng T et al 2025 JWaterProcessEng), 无原始采样点级数据。Table 1为全球湖泊/河口PAHs区域级range+均值(Pearl River/Taihu Lake/Doha等引用其他文献汇总); Tables 2/4/5为微生物固定化修复实验室spiked实验(mg/L或mg/kg添加浓度); Table 3为PAHs降解菌株清单(NCBI编号)。正文Taihu/Chaohu/Tibetan等PAHs range均为文献引用区域汇总。无同场地HM+OP采样点级浓度可提取。"

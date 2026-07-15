@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+s42773-024-00382-7,s42773-024-00382-7_BC500,BC500,V_mgkg,0.016,Unknown,,high,table_p6_ri23_ci1,Table 1 The physiochemical properties of biochars
+s42773-024-00382-7,s42773-024-00382-7_BC700,BC700,V_mgkg,0.037,Unknown,,high,table_p6_ri23_ci2,Table 1 The physiochemical properties of biochars

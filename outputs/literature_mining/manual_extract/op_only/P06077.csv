@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06077,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"skip: 论文仅提供统计汇总(Table 2为Range/Mean/Median，Table 3为各省文献汇总)，无采样点级数据表。正文中零星提及sample 37(Ningbo ∑DDTs=302.72)和sample 26(Jiading)个别单体值，但sample 26的∑DDTs值(26.93)与正文列举的p,p'-DDE(184.32)+其他单体总和矛盾(疑笔误)，数据不可靠无法提取。43个土壤样本的完整单体浓度未以表格形式提供。"

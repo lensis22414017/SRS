@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08479,,,,,,,,"skip: 论文纯重金属(As/Cd/Cr/Cu/Hg/Ni/Pb/Zn)研究，无任何OP数据(PAH/PCB/DDT/HCH/PBDE/TPH/抗生素/PAEs/OCP均无)。CSV中op_groups=Petroleum_TPH系误标。论文表1/表2/表3均为重金属统计汇总(Min/Max/Mean/SD/Exceedance rate)，且无采样点级标识。"

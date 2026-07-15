@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01746,,,,,,soil,agricultural,China,"skip: Meta-analysis/bibliometric compilation of 5597 samples from 1781 sites across 553 reports; tables contain only national-scale statistics (Mean/Std/CV/Range in Table 2), international mean comparison (Table 3), and GB15618-2018 standard thresholds (Table 1); no sampling-point level HM+OP co-located concentrations"

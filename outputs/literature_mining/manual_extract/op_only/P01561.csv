@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01561,,,,,,,,"skip: 论文研究农药(butachlor/clothianidin/tricyclazole)在稻田耕作管理下的消散动力学,三种农药均不在目标OP清单中(PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAEs/OCPs); 属田间降解实验非场地污染调查; paper.md仅解析出摘要无正文表格"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05206,,,,,,,,"skip: Table 1 only has summary statistics (Mean/Median/Min/Max) for 241 samples; no individual sampling-point level data table; spatial distributions in Fig.1 are images; one narrative mention of Taicang total OCPs=3250 ng/g in Section 3.2 but no systematic sample-level data; no PAHs/PCBs/petroleum/antibiotics measured"

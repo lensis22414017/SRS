@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01619,,,,,,,,"skip: 论文浓度数据仅在图中展示(箱线图Fig.3/采样点图Fig.4为图片无法解析)，正文仅给range/mean汇总(如PAHs 80.0-2860 ng/g mean 422 ng/g)；SI表格均为风险筛选值(Table S1)/毒性数据(Table S3-S4)/SSD模型参数(Table S5)/PAF-msPAF风险指数(Table S6)/PCA因子得分(Table S7-S13)/回归模型R2-RMSE(Table S14-S17)/背景值(Table S18)，无任何采样点级HM或OP浓度表格。24个表层土壤样点(6HM+16PAH+17PFAS)但原始浓度矩阵未公开"

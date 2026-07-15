@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+01490451.2020.1817196,01490451.2020.1817196_S1,S1,Ace_ngg,571.74,Unknown,,high,table_p5_ri1_ci2,Table 3.Alpha diversity index of six soil samples.
+01490451.2020.1817196,01490451.2020.1817196_S2,S2,Ace_ngg,361.04,Unknown,,high,table_p5_ri2_ci2,Table 3.Alpha diversity index of six soil samples.
+01490451.2020.1817196,01490451.2020.1817196_S3,S3,Ace_ngg,563.72,Unknown,,high,table_p5_ri3_ci2,Table 3.Alpha diversity index of six soil samples.
+01490451.2020.1817196,01490451.2020.1817196_T1,T1,Ace_ngg,631.83,Unknown,,high,table_p5_ri4_ci2,Table 3.Alpha diversity index of six soil samples.
+01490451.2020.1817196,01490451.2020.1817196_T2,T2,Ace_ngg,1098.53,Unknown,,high,table_p5_ri5_ci2,Table 3.Alpha diversity index of six soil samples.
+01490451.2020.1817196,01490451.2020.1817196_T3,T3,Ace_ngg,711.0,Unknown,,high,table_p5_ri6_ci2,Table 3.Alpha diversity index of six soil samples.

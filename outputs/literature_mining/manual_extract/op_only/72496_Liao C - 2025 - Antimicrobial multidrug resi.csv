@@ -1,0 +1,9 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+72496_Liao C - 2025 - Antimicrobial multidrug resi,72496_Liao C - 2025 - Antimicrobial multidrug resi_Number_ofResistance_Isolates_(fecal),ENRO_ngg,34.0,Unknown,table_p6_ri6_ci1,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+72496_Liao C - 2025 - Antimicrobial multidrug resi,72496_Liao C - 2025 - Antimicrobial multidrug resi_Number_ofResistance_Isolates_(soil),ENRO_ngg,32.0,Unknown,table_p6_ri6_ci2,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+72496_Liao C - 2025 - Antimicrobial multidrug resi,72496_Liao C - 2025 - Antimicrobial multidrug resi_Total,ENRO_ngg,66.0,Unknown,table_p6_ri6_ci3,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+72496_Liao C - 2025 - Antimicrobial multidrug resi,"72496_Liao C - 2025 - Antimicrobial multidrug resi_Percentage,_%",ENRO_ngg,30.0,Unknown,table_p6_ri6_ci4,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+72496_Liao C - 2025 - Antimicrobial multidrug resi,72496_Liao C - 2025 - Antimicrobial multidrug resi_Antimicrobialresistancegenes,Ant_ngg,73.0,Unknown,table_p8_ri15_ci1,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+72496_Liao C - 2025 - Antimicrobial multidrug resi,72496_Liao C - 2025 - Antimicrobial multidrug resi_Number_of_resistance_isolates,Ant_ngg,79.0,Unknown,table_p8_ri15_ci2,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+72496_Liao C - 2025 - Antimicrobial multidrug resi,72496_Liao C - 2025 - Antimicrobial multidrug resi_Detection_prevalence_%,Ant_ngg,152.0,Unknown,table_p8_ri15_ci3,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+72496_Liao C - 2025 - Antimicrobial multidrug resi,72496_Liao C - 2025 - Antimicrobial multidrug resi_col4,Ant_ngg,69.09,Unknown,table_p8_ri15_ci4,soil,agricultural,,phase14_auto; confidence=medium; flag=,,

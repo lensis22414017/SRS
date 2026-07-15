@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00247,NOT_APPLICABLE,NOT_APPLICABLE,,,Table 2/3,soil,urban,Shaanxi,"skip: 论文仅提供统计汇总(Min/Max/Mean/SD/CV)级别数据 无采样点级数据; Table 2为62个样品整体描述统计; Table 3按环路(一环/一至二环/二至三环)和功能区(工业/交通/商混/教育/居住/公园)分组的Min/Max/Mean/SD/CV; 无任何带采样点标识(S1/S2等)的个别样本PAH浓度; Fig.3空间分布为等值线图非数据表"

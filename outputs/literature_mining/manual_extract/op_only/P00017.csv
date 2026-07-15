@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P00017,U5,SumPCB_ngg,1.84,ng/g,正文Results General Discussion段(line 38),soil,urban,Yunnan,正文明确数值1840 pg/g dw为Site U5(Kunming)实测值; total 51 PCB congeners求和; pg/g÷1000=ng/g,,
+P00017,U1,SumPCB_ngg,1.73,ng/g,正文Results General Discussion段(line 38)+Fractionation段(line 86),soil,urban,Shanghai,正文明确数值1730 pg/g dw为Site U1(Shanghai)实测值; total 51 PCB congeners求和; pg/g÷1000=ng/g,,
+P00017,R38,SumPCB_ngg,1.14,ng/g,正文Results General Discussion段(line 38)+Fractionation段(line 86),soil,agricultural,Zhejiang,正文明确数值1140 pg/g dw为Site R38(Zhejiang Province)实测值; total 51 PCB congeners求和; pg/g÷1000=ng/g,30.83,120.92
+P00017,R37,SumPCB_ngg,0.75,ng/g,正文Results Fractionation段(line 86),soil,agricultural,unknown,正文明确数值750 pg/g dw为Site R37实测值; rural点位于Shanghai西南方向; total 51 PCB congeners; pg/g÷1000=ng/g; 具体省份SI Table S1未解析故标unknown,29.27,117.52
+P00017,R36,SumPCB_ngg,0.66,ng/g,正文Results Fractionation段(line 86),soil,agricultural,unknown,正文明确数值660 pg/g dw为Site R36实测值; rural点位于Shanghai西北方向; total 51 PCB congeners; pg/g÷1000=ng/g; 具体省份SI Table S1未解析故标unknown,33.33,120.06
+P00017,B3,SumPCB_ngg,0.138,ng/g,正文Results General Discussion段(line 38),soil,other,Tibet,正文明确数值138 pg/g dw为Site B3(Tibet)实测值; total 51 PCB congeners求和; pg/g÷1000=ng/g; background背景点,,

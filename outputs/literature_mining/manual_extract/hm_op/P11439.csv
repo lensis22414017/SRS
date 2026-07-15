@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11439,,,,,,,,"skip: 固定化微生物修复实验(immobilized microbial remediation)+模拟 spiked 土壤(人工添加Pyr 100mg/kg+Phe 150mg/kg制备复合污染土)。供试土壤为单一混合样(沈阳农田生态站Cd=1.89mg/kg背景土)，无采样点级场地调查数据。全文为实验室修复效果(钝化率/降解率)，非真实场地实测。"

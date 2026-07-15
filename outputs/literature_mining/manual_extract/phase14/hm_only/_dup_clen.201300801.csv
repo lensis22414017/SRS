@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+_dup_clen.201300801,_dup_clen.201300801_Tested_soil,Tested soil,pH,8.2,Unknown,,high,table_p2_ri1_ci1,Table 1. Soil properties,,,,,,phase14
+_dup_clen.201300801,_dup_clen.201300801_Tested_soil,Tested soil,CEC_cmolkg,10.43,Unknown,,high,table_p2_ri3_ci1,Table 1. Soil properties,,,,,,phase14
+_dup_clen.201300801,_dup_clen.201300801_Tested_soil,Tested soil,Pb_mgkg,0.419,Unknown,,high,table_p2_ri7_ci1,Table 1. Soil properties,,,,,,phase14

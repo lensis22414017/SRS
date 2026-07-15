@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04704,,,,,,soil,irrigation_agricultural,Inner Mongolia,"skip: 仅提供按土壤深度层(Table 2: Mean/Range/CV/Detection rate)和灌区(Table 3: Range/Mean)的统计汇总，无采样点级数据。20个采样点×5深度层=100个样本未列出各点独立PCB浓度值，灌区名(Jiefangzha/Wulanbuhe/Madihao/Dengkou)为区域聚合非个体采样点；Tables 5-6为风险指数(HQ/RT)剔除"

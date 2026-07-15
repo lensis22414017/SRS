@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+72174_j.jenvman.2005.02.011,72174_j.jenvman.2005.02.011_HCH,HCH,SumHCH_ngg,1.0,Unknown,,high,table_p4_ri8_ci8,Correlation coefficients between soil pollutants,,,,,,phase14
+72174_j.jenvman.2005.02.011,72174_j.jenvman.2005.02.011_DDT,DDT,SumDDT_ngg,1.0,Unknown,,high,table_p4_ri9_ci9,Correlation coefficients between soil pollutants,,,,,,phase14
+72174_j.jenvman.2005.02.011,72174_j.jenvman.2005.02.011_II_(pH&lt;6.5/6.5-7.5/&gt;7.5),II (pH&lt;6.5/6.5-7.5/&gt;7.5),SumDDT_ngg,0.5,Unknown,,high,table_p4_ri8_ci2,National soil environmental quality standards for soil in of China (mg/kg),,,,,,phase14
+72174_j.jenvman.2005.02.011,72174_j.jenvman.2005.02.011_II_(pH&lt;6.5/6.5-7.5/&gt;7.5),II (pH&lt;6.5/6.5-7.5/&gt;7.5),SumHCH_ngg,0.5,Unknown,,high,table_p4_ri9_ci2,National soil environmental quality standards for soil in of China (mg/kg),,,,,,phase14

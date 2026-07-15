@@ -1,0 +1,18 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P11351,QC4,TotalPHC_mgkg,1721.07,mg/kg,Section 3.1,soil,petrochemical,Gansu,"正文3.1段直接读取,QC region No.2采油厂",35.825,107.492
+P11351,QC12,TotalPHC_mgkg,1866.37,mg/kg,Section 3.1,soil,petrochemical,Gansu,"正文3.1段直接读取,QC region",35.825,107.492
+P11351,QC13,TotalPHC_mgkg,1960.29,mg/kg,Section 3.1,soil,petrochemical,Gansu,"正文3.1段直接读取,QC region,32样品中最高TPHs",35.825,107.492
+P11351,XF7,TotalPHC_mgkg,1235.19,mg/kg,Section 3.1,soil,petrochemical,Gansu,"正文3.1段直接读取,XF region No.11采油厂",35.825,107.492
+P11351,QC10,TotalPHC_mgkg,213.06,mg/kg,Section 3.1,soil,petrochemical,Gansu,"正文3.1段直接读取,QC region 近老化废弃油井",35.825,107.492
+P11351,QC6,TotalPHC_mgkg,404.96,mg/kg,Section 3.1,soil,petrochemical,Gansu,"正文3.1段直接读取,QC region",35.825,107.492
+P11351,XF5,TotalPHC_mgkg,421.21,mg/kg,Section 3.1,soil,petrochemical,Gansu,"正文3.1段直接读取,XF region 近老化油井",35.825,107.492
+P11351,PCQ3,TotalPHC_mgkg,91.30,mg/kg,Section 3.1,soil,petrochemical,Gansu,"正文3.1段直接读取,PCQ region 石化园区绿地旁",35.825,107.492
+P11351,PCQ10,TotalPHC_mgkg,101.95,mg/kg,Section 3.1,soil,petrochemical,Gansu,"正文3.1段直接读取,PCQ region 居民区旁",35.825,107.492
+P11351,HXF-6,TotalPHC_mgkg,1065.34,mg/kg,Section 3.2,soil,petrochemical,Gansu,"正文3.2段直接读取,水平分布距油井20m",35.825,107.492
+P11351,HXF-1,TotalPHC_mgkg,213.70,mg/kg,Section 3.2,soil,petrochemical,Gansu,"正文3.2段直接读取,水平分布距油井60m",35.825,107.492
+P11351,HXF-7,TotalPHC_mgkg,60.96,mg/kg,Section 3.2,soil,petrochemical,Gansu,"正文3.2段直接读取,水平分布距油井100m",35.825,107.492
+P11351,VXF-6,TotalPHC_mgkg,2083.77,mg/kg,Section 3.2,soil,petrochemical,Gansu,"正文3.2段直接读取,垂直分布10cm深度表层最高",35.825,107.492
+P11351,QC13,Sum_PAH_ngg,820,ng/g,Section 3.3,soil,petrochemical,Gansu,"正文3.3段直接读取,Σ16PAHs最高值QC13=0.82mg/kg×1000=820ng/g",35.825,107.492
+P11351,HXF-6,Sum_PAH_ngg,340,ng/g,Section 3.2,soil,petrochemical,Gansu,"正文3.2段直接读取,水平20m处ΣPAHs最高值=0.34mg/kg×1000",35.825,107.492
+P11351,HXF-7,Sum_PAH_ngg,50,ng/g,Section 3.2,soil,petrochemical,Gansu,"正文3.2段直接读取,水平100m处ΣPAHs最低值=0.05mg/kg×1000",35.825,107.492
+P11351,VXF-6,Sum_PAH_ngg,98,ng/g,Section 3.2,soil,petrochemical,Gansu,"正文3.2段直接读取,垂直10cm处ΣPAHs最高值=0.098mg/kg×1000",35.825,107.492

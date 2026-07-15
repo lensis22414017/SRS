@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01445,,,,,,,,"skip: paper is purely about potential toxic elements (PTEs/metalloids As Cd Co Cr Cu Ni Pb Sb Zn) geochemical baseline on Chongming Island; 'Pesticides' in screening CSV refers to PMF source contribution to PTEs not pesticide concentration measurements; no OP data (no PAHs/PCBs/DDTs/HCHs/PBDEs/PHC/antibiotics/PAEs/OCPs) in abstract SI or paper; PDF only contains 1-page abstract page"

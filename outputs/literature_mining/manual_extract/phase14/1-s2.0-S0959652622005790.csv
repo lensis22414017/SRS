@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+1-s2.0-S0959652622005790,1-s2.0-S0959652622005790_Hazard_index_(HI),Hazard index (HI),V_mgkg,1.13,Unknown,,high,table_p9_ri19_ci1,Table 5 Hazard index (HI) and carcinogenic risk (CR) of pollution sources in soils with various cultivated land qualities.
+1-s2.0-S0959652622005790,1-s2.0-S0959652622005790_Carcinogenic_risk_(CR),Carcinogenic risk (CR),V_mgkg,4.56,Unknown,,high,table_p9_ri19_ci2,Table 5 Hazard index (HI) and carcinogenic risk (CR) of pollution sources in soils with various cultivated land qualities.

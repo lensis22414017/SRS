@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File [35m"<string>"[0m, line [35m7[0m, in [35m<module>[0m
+    [31mprint[0m[1;31m(p.get_text())[0m
+    [31m~~~~~[0m[1;31m^^^^^^^^^^^^^^[0m
+[1;35mUnicodeEncodeError[0m: [35m'gbk' codec can't encode character '\u204e' in position 187: illegal multibyte sequence[0m
+pages: 1
+=== PAGE 1 ===

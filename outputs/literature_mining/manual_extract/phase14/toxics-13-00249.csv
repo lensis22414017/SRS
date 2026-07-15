@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+toxics-13-00249,toxics-13-00249_Standard_Deviation,Standard Deviation,pH,0.47,Unknown,,high,table_p6_ri1_ci4,Table 2. Description of soil pH and organic matter content.
+toxics-13-00249,toxics-13-00249_Standard_Deviation,Standard Deviation,OM_pct,4.64,Unknown,,high,table_p6_ri2_ci4,Table 2. Description of soil pH and organic matter content.

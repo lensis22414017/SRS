@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01572,,,,,,,,"skip: 论文为PCN(多氯萘)污染土壤的植物-微生物联合生物修复研究, PCN不在目标OP清单(Sum_PAH/BaP/SumPCB/SumDDT/SumHCH/SumPBDE/TotalPHC/抗生素/PAEs/OCPs)内; 研究内容为基因工程+QSAR模型+MD模拟的修复方案优化, 无真实场地采样点级实测数据; 无修复前场地本底值"

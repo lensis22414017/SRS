@@ -1,0 +1,9 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P07012,100R,Sum_PAH_ngg,340.2,ng/g,正文3.2段,soil,wetland_reclaimed,Guangdong,正文直接读取Σ16PAHs; RW=reclaimed wetland;采样区3子样混合复合样,22.677,113.519
+P07012,40R,Sum_PAH_ngg,114.7,ng/g,正文3.2段,soil,wetland_reclaimed,Guangdong,正文直接读取Σ16PAHs; RW=reclaimed wetland;采样区3子样混合复合样,22.677,113.519
+P07012,30R,Sum_PAH_ngg,1172.8,ng/g,正文3.2段,soil,wetland_reclaimed,Guangdong,正文直接读取Σ16PAHs; RW=reclaimed wetland;采样区3子样混合复合样,22.677,113.519
+P07012,10R,Sum_PAH_ngg,257.2,ng/g,正文3.2段,soil,wetland_reclaimed,Guangdong,正文直接读取Σ16PAHs; RW=reclaimed wetland;采样区3子样混合复合样,22.677,113.519
+P07012,100D,Sum_PAH_ngg,67.6,ng/g,正文3.2段,soil,wetland_ditch,Guangdong,正文直接读取Σ16PAHs; DW=ditch wetland;采样区3子样混合复合样,22.677,113.519
+P07012,40D,Sum_PAH_ngg,376.9,ng/g,正文3.2段,soil,wetland_ditch,Guangdong,正文直接读取Σ16PAHs; DW=ditch wetland;采样区3子样混合复合样,22.677,113.519
+P07012,30D,Sum_PAH_ngg,379.8,ng/g,正文3.2段,soil,wetland_ditch,Guangdong,正文直接读取Σ16PAHs; DW=ditch wetland;采样区3子样混合复合样,22.677,113.519
+P07012,10D,Sum_PAH_ngg,569.1,ng/g,正文3.2段,soil,wetland_ditch,Guangdong,正文直接读取Σ16PAHs; DW=ditch wetland;采样区3子样混合复合样,22.677,113.519

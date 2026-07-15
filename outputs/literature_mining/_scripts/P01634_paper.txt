@@ -1,0 +1,64 @@
+                                                   Journal of Hazardous Materials 494 (2025) 138561
+                                                       Contents lists available at ScienceDirect
+
+                                            Journal of Hazardous Materials
+
+                                            journal homepage: www.elsevier.com/locate/jhazmat
+
+Advanced three-dimensional prediction model based on stable machine
+learning for soil pollution: A case study from a contaminated site in
+Southern China
+
+Meiying Wang a, Wenhao Zhao a, Xiaochen Wu b , Anfu Yang b, Ying Chen a, Yajing Qu a,
+Jin Ma a,*, Fengchang Wu a
+
+a State Key Laboratory of Environmental Criteria and Risk Assessment, Chinese Research Academy of Environmental Sciences, Beijing 100012, China
+b Hainan Research Academy of Environmental Sciences, Haikou 570100, China
+
+HIGHLIGHTS                                  GRAPHICAL ABSTRACT
+
+· A 3D model was constructed considering    Environmental and spatial covariates                                 Machine Learning modeling           3D spatial distribution
+  spatial correlation and heterogeneity.
+                                                                                           Functional areas             Random dataset partitioning                                                  As
+· The input order of covariables causes
+  the performance fluctuation of ML                                    DCFP                                                                          3D spatial uncertainty
+  model.
+                                                                DSAPU                DPFP                                                                                                            As
+· Stable machine learning models and                                   DSAPR
+  their screening principles are proposed.  miscellaneous fill
+
+· The easy accessibility of covariates en   gravelly sand
+  hances the 3D model's generalizability.              Stratum
+
+                                            silty clay
+
+                                            gravelly sand
+
+                                            Measured point                                 Estimated point
+
+                                            Spatial regionalization (SR) indices
+
+                                            Interpolation analysis Classification data Calculating SR covariate  Random covariate ordering
+
+ARTICLE INFO                                ABSTRACT
+
+Keywords:                                   With over five million contaminated sites worldwide, accurately characterizing the three-dimensional (3D)
+Site contamination                          distribution of soil contamination is critical for effective risk assessment and site remediation. However, current
+Three-dimensional interpolation             3D interpolation methodologies often fail to simultaneously account for spatial correlation and spatial hetero
+Stable machine learning                     geneity, both of which are critical for capturing the complex spatial structure of subsurface contamination. This
+Spatial heterogeneity                       study developed a refined 3D interpolation model that integrates site characteristics, spatial position, spatial
+Spatial autocorrelation                     correlation, and spatial heterogeneity to simulate site contamination and quantify prediction uncertainty. The
+                                            proposed machine learning (ML) model achieved high predictive performance, with coefficient of determination
+                                            (R2) values above 0.73 for four heavy metals (HMs). To enhance model generalizability, a stability analysis
+                                            framework was developed alongside a novel model selection strategy based on random dataset partitioning and
+                                            random ordering of input covariates, and 1000 random simulations could provide a reliable basis for model
+                                            screening. This study introduces a new, precise 3D spatial interpolation method. Owing to the easy accessibility
+
+  * Corresponding author.
+     E-mail address: majin@craes.org.cn (J. Ma).
+
+https://doi.org/10.1016/j.jhazmat.2025.138561
+Received 21 January 2025; Received in revised form 8 April 2025; Accepted 8 May 2025
+Available online 9 May 2025
+0304-3894/© 2025 Elsevier B.V. All rights are reserved, including those for text and data mining, AI training, and similar technologies.
+

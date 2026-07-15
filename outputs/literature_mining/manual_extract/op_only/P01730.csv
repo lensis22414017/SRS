@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01730,NOT_EXTRACTED,SKIP,,,,,,,"skip: 论文研究对象为PFAS(PFOA/PFOS)，不属于目标OP清单(Sum_PAH/BaP/SumPCB/SumDDT/SumHCH/SumPBDE/TotalPHC/抗生素/PAEs/OCPs)；数据单位pg/g dw，仅为全国森林均值汇总，无目标污染物数据"

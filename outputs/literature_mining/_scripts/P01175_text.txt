@@ -1,0 +1,59 @@
+                                                       Chemosphere 303 (2022) 135193
+                                               Contents lists available at ScienceDirect
+
+                                               Chemosphere
+
+                                journal homepage: www.elsevier.com/locate/chemosphere
+
+Occurrence and health risk assessment of phthalate esters in tobacco and
+soils in tobacco-producing areas of Guizhou province, southwest China
+
+Jun Ma a,b, Yingang Lu c, Ying Teng d, Changyin Tan a,*, Wenjie Ren d, Xueying Cao e
+
+a School of Geographic Sciences, Hunan Normal University, Changsha, 410081, China
+b College of Materials and Chemistry, Tongren University, Tongren, 554300, China
+c College of Agriculture, Guizhou University, Guiyang, 550025, China
+d Key Laboratory of Soil Environment and Pollution Remediation, Institute of Soil Science, Chinese Academy of Sciences, Nanjing, 210008, China
+e Rural Vitalization Research Institute, Changsha University, Changsha, 410022, China
+
+HIGHLIGHTS
+
+· Phthalate esters (PAEs) in fresh tobacco leaves and soils were studied in southwest China.
+· DEHP was the most abundant of the total PAEs both in soils and tobacco.
+· Plastic films were a major source of PAEs in tobacco cultivation.
+· The carcinogenic and non-cancer risks of PAEs were within an acceptable level.
+
+ARTICLE INFO                    ABSTRACT
+
+Handling Editor: Prof. A. Gies  Flue-cured tobacco is one of the important sources of national economy in China. However, Phthalic acid esters
+                                (PAEs) are ubiquitous contaminants in the cultivation and growth management of flue-cured tobacco, and
+Keywords:                       attracting more and more attention. Here, six priority PAEs were detected in tobacco and soils and their residue
+Phthalic acid esters            characteristics, pollution sources were analyzed, and their exposure risks to the health of farmers were assessed.
+Tobacco                         The concentration of six total PAEs ranged from 0.78 to 4.79 mg/kg in tobacco with the average of 1.75 mg/kg,
+Soils                           and 0.84­25.68 mg/kg in soils with the average of 5.40 mg/kg. Di-(2-ethylhexyl) phthalate (DEHP) and di-n-
+Sources                         butyl phthalate (DBP) had the highest detection frequency (DF = 100%) both in soil and tobacco samples.
+Health risks                    DEHP was the most abundant of the total PAEs in soil and tobacco samples, with the mean contribution values of
+                                71.0% and 58.8%, respectively. Principal component analysis (PCA) indicates that the major sources of PAEs in
+                                the tobacco-soil system were plastic films, fertilizers and pesticides. Health risk assessment suggests that the non-
+                                cancer hazard indexes (NCHI) of dimethyl phthalate (DMP), diethyl phthalate (DEP), DBP and di-n-octyl
+                                phthalate (DnOP) in all samples for farmers were at acceptable levels (NCHI < 1), and the average carcino
+                                genic hazard indexes (CHI) of butyl benzyl phthalate (BBP) and DEHP for farmers were 3.79 × 10- 13 and 8.54 ×
+                                10- 11 in soils, respectively, 8.23 × 10- 13 and 1.95 × 10- 11 in tobacco, respectively, which were considered to be
+                                very low level (CHI < 10- 6). This study provides data on PAEs in tobacco and soils and their health risks which
+                                may provide valuable information to aid the management of tobacco cultivation and risk avoidance.
+
+1. Introduction                                                                 di-(2-ethylhexyl) phthalate (DEHP) is usually used as a plasticizer in the
+                                                                                manufacture of polyvinylchloride (PVC) which is used extensively as an
+    Phthalic acid esters (PAEs) are used in a large range of plastic con        agricultural mulch film. DEHP and di-n-butyl phthalate (DBP) have been
+sumer products including agricultural adjuvants, medical devices,               placed on the priority pollutant list by the European Union, the U.S.
+building materials, food packaging and personal care products (Ouyang           EPA, and the Chinese Environment Monitoring Center (Gao and Wen,
+et al., 2021; Rudel and Perovich, 2008; Xu et al., 2021). The compound          2016). More than 8 million tonnes of PAEs are produced and consumed
+
+  * Corresponding author.
+     E-mail addresses: junma2015@qq.com (J. Ma), chytan@hunnu.edu.cn (C. Tan).
+
+https://doi.org/10.1016/j.chemosphere.2022.135193
+Received 4 March 2022; Accepted 30 May 2022
+Available online 6 June 2022
+0045-6535/© 2022 Elsevier Ltd. All rights reserved.
+

@@ -1,0 +1,11 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+72145_s11356-014-3050-1,72145_s11356-014-3050-1_Spiked_soil,Spiked soil,OC_pct,3.56,Unknown,,high,table_p2_ri1_ci2,Table 2 Physicochemical properties of the tested soils
+72145_s11356-014-3050-1,72145_s11356-014-3050-1_Spiked_soil,Spiked soil,pH,6.73,Unknown,,high,table_p2_ri1_ci3,Table 2 Physicochemical properties of the tested soils
+72145_s11356-014-3050-1,72145_s11356-014-3050-1_Spiked_soil,Spiked soil,Sand_pct,27.2,Unknown,,high,table_p2_ri1_ci4,Table 2 Physicochemical properties of the tested soils
+72145_s11356-014-3050-1,72145_s11356-014-3050-1_Spiked_soil,Spiked soil,Silt_pct,39.5,Unknown,,high,table_p2_ri1_ci5,Table 2 Physicochemical properties of the tested soils
+72145_s11356-014-3050-1,72145_s11356-014-3050-1_Spiked_soil,Spiked soil,Clay_pct,34.3,Unknown,,high,table_p2_ri1_ci6,Table 2 Physicochemical properties of the tested soils
+72145_s11356-014-3050-1,72145_s11356-014-3050-1_Field_soil,Field soil,OC_pct,1.03,Unknown,,high,table_p2_ri2_ci2,Table 2 Physicochemical properties of the tested soils
+72145_s11356-014-3050-1,72145_s11356-014-3050-1_Field_soil,Field soil,pH,7.95,Unknown,,high,table_p2_ri2_ci3,Table 2 Physicochemical properties of the tested soils
+72145_s11356-014-3050-1,72145_s11356-014-3050-1_Field_soil,Field soil,Sand_pct,63.3,Unknown,,high,table_p2_ri2_ci4,Table 2 Physicochemical properties of the tested soils
+72145_s11356-014-3050-1,72145_s11356-014-3050-1_Field_soil,Field soil,Silt_pct,34.4,Unknown,,high,table_p2_ri2_ci5,Table 2 Physicochemical properties of the tested soils
+72145_s11356-014-3050-1,72145_s11356-014-3050-1_Field_soil,Field soil,Clay_pct,2.3,Unknown,,high,table_p2_ri2_ci6,Table 2 Physicochemical properties of the tested soils

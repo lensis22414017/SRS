@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11421,,,,,,,,"skip: 全国尺度调查(857土壤样/139点位/17省)，paper.md仅含Table 1全国Range/Mean/DR汇总(统计行须剔除)与Fig 2省级均值(区域均值禁作场地样本)，Fig 3为诊断比值散点(非原始浓度)；无采样点级(S1/村庄名)数据。Table S7/S8为省级均值与风险百分比且不在paper.md内。属第4条铁律：全国/全省均值不当场地样本"

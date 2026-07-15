@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00343,,,,,,,,"skip: 论文仅有统计汇总数据(Table 2为16种PAH单体的Min/Max/Mean/SD/CV; 正文仅报告6个功能区zone-level均值如IZ=954.33/BZ=561.63/RZ=488.63/CZ=458.11/UP=288.29/URF=147.81 ng/g; Fig 1-8为图表)。486个土壤样品但无任何采样点级(sample_id)原始浓度数据。全部为stat rows或区域均值，无采样点级数据可提取。"

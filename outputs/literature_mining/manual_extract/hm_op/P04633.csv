@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04633,,,,,,,,,skip: 论文仅有统计汇总(Mean/Min/Max/SD/CV/Kurtosis/Skewness)，无任何采样点级HM浓度表格;Table 4和Table 5为按深度/工厂聚合的描述性统计(铁律#2剔除);采样点S01-S10的垂直/空间分布仅在Figure 3和SI Figure S1/S2以图片展示无可解析数值;论文为纯HM研究无OP数据(rejected_literature_log注明HM-only无OP家族信号)

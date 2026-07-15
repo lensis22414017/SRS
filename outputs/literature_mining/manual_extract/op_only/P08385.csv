@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08385,,,,,,,,,"skip: PFAS pollutants not in target OP/HM list(PAHs/PCBs/DDT/HCH/PBDEs/antibiotics/PAEs/OCPs/HMs); Table 1 only summary statistics(Min/Max/Mean/SE/Median,n=147), no sample-point level data; no sample identifiers provided"

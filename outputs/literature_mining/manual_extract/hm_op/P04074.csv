@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04074,,,,,,soil,industrial,Beijing,"skip: 土壤PAH/HM浓度仅在Figure 4(PAHs)和Figure 5(HMs)图中无可解析数值,论文Table 1=原材料/煤/污泥, Table 2=烟气, Table 3=环境空气(ng/Nm³)均非土壤;正文仅给出年积累量(LMW/MMW/HMW PAH=5.5/14.9/18.1 µg/kg/yr, LV-HM=2.6 mg/kg/yr)为downwind均值非浓度。5个真实采样点(background 1500m W-by-S; downwind 500/1000/1500/2000m S-by-E)采集时间May2015/May2016但浓度值需OCR图才能获取"

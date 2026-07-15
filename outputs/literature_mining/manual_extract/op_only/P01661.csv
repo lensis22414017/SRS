@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01661,,,,,,,,"skip: 综述/Meta分析论文(无原始数据) - 全文为黄河三角洲POPs文献综述，Table 2浓度数据均来自其他已发表研究的区域级range/mean汇总(Chen 2011/Xie 2012/Zhang 2011/Da 2014/Tao 2008等)，无采样点级原始实测数据，无sample_id标识"

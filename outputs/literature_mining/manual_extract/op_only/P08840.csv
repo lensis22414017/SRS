@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08840,none,none,0,none,none,none,none,none,skip: 论文仅研究农药残留(除草剂/杀菌剂/杀虫剂/生长调节剂)不属目标OP类别(PAHs/PCBs/OCPs/PBDEs/PHC/抗生素/PAEs); Table2仅提供Min/Median/Max汇总统计无采样点级浓度值; 无HM数据

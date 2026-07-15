@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03092,,,,,,,,"skip: 江西某垃圾焚烧厂周边HM空间分布研究;表1(土壤/沉积物)和表2(地表水/地下水)均为描述性统计行(Min/Max/Mean/SD/背景值/风险筛选值/超标率/CV),无采样点级HM浓度表;采样点S1-S15(Soil)/SD(Sediment)/SW(Surface Water)的浓度值仅以IDW插值图(图3/图5/图6)和沿风向图(图4)形式呈现,为图片无法可靠数值化;论文仅测7种HM(As/Cd/Cr/Cu/Ni/Pb/Zn,无Hg),完全不含任何OP有机污染物(PAH/PCB/DDT/HCH/PBDE/PHC均无),不满足HM+OP真复合条件;铁律2/4/6/7均触发,0行"

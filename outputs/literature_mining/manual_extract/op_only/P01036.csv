@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01036,,,,,,,,"skip: bioremediation/microcosm experiment (Phomopsis liquidambari applied as microbial agent for ecological remediation of long-term cropping soil); phenols studied are natural phenolic allelochemicals from leaf litter decomposition, not target anthropogenic OP pollutants (PAH/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAEs/OCPs); lab/pot experimental design with no field sampling points; paper.md truncated at 33 lines (intro only) but abstract/keywords unambiguous"

@@ -1,0 +1,137 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_COUNT,COUNT,As_mgkg,93.0,Unknown,,high,table_p3_ri1_ci1,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_$\mathrm_{_I_}___{_\mathrm_{_g_e_o_}_}$,$\mathrm { I } _ { \mathrm { g e o } }$,As_mgkg,-0.68,Unknown,,high,table_p3_ri1_ci2,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_AVGa,AVGa,As_mgkg,11.83,Unknown,,high,table_p3_ri1_ci3,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_MAxa,MAxa,As_mgkg,36.35,Unknown,,high,table_p3_ri1_ci4,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_MINa,MINa,As_mgkg,0.13,Unknown,,high,table_p3_ri1_ci5,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Kurtosis,Kurtosis,As_mgkg,3.11,Unknown,,high,table_p3_ri1_ci6,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Skewness,Skewness,As_mgkg,1.57,Unknown,,high,table_p3_ri1_ci7,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Background_valuesa,Background valuesa,As_mgkg,11.2,Unknown,,high,table_p3_ri1_ci8,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,"1-s2.0-S0048969721053997_Control_standardsa,b","Control standardsa,b",As_mgkg,30.0,Unknown,,high,table_p3_ri1_ci9,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_COUNT,COUNT,Cd_mgkg,100.0,Unknown,,high,table_p3_ri2_ci1,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_$\mathrm_{_I_}___{_\mathrm_{_g_e_o_}_}$,$\mathrm { I } _ { \mathrm { g e o } }$,Cd_mgkg,0.55,Unknown,,high,table_p3_ri2_ci2,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_AVGa,AVGa,Cd_mgkg,0.275,Unknown,,high,table_p3_ri2_ci3,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_MAxa,MAxa,Cd_mgkg,1.52,Unknown,,high,table_p3_ri2_ci4,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_MINa,MINa,Cd_mgkg,0.04,Unknown,,high,table_p3_ri2_ci5,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Kurtosis,Kurtosis,Cd_mgkg,4.72,Unknown,,high,table_p3_ri2_ci6,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Skewness,Skewness,Cd_mgkg,2.18,Unknown,,high,table_p3_ri2_ci7,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Background_valuesa,Background valuesa,Cd_mgkg,0.097,Unknown,,high,table_p3_ri2_ci8,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,"1-s2.0-S0048969721053997_Control_standardsa,b","Control standardsa,b",Cd_mgkg,0.3,Unknown,,high,table_p3_ri2_ci9,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_COUNT,COUNT,Cr_mgkg,106.0,Unknown,,high,table_p3_ri3_ci1,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_$\mathrm_{_I_}___{_\mathrm_{_g_e_o_}_}$,$\mathrm { I } _ { \mathrm { g e o } }$,Cr_mgkg,-0.59,Unknown,,high,table_p3_ri3_ci2,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_AVGa,AVGa,Cr_mgkg,66.33,Unknown,,high,table_p3_ri3_ci3,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_MAxa,MAxa,Cr_mgkg,176.0,Unknown,,high,table_p3_ri3_ci4,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_MINa,MINa,Cr_mgkg,33.2,Unknown,,high,table_p3_ri3_ci5,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Kurtosis,Kurtosis,Cr_mgkg,3.69,Unknown,,high,table_p3_ri3_ci6,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Skewness,Skewness,Cr_mgkg,1.18,Unknown,,high,table_p3_ri3_ci7,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Background_valuesa,Background valuesa,Cr_mgkg,61.0,Unknown,,high,table_p3_ri3_ci8,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,"1-s2.0-S0048969721053997_Control_standardsa,b","Control standardsa,b",Cr_mgkg,250.0,Unknown,,high,table_p3_ri3_ci9,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_COUNT,COUNT,Cu_mgkg,76.0,Unknown,,high,table_p3_ri4_ci1,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_$\mathrm_{_I_}___{_\mathrm_{_g_e_o_}_}$,$\mathrm { I } _ { \mathrm { g e o } }$,Cu_mgkg,-0.42,Unknown,,high,table_p3_ri4_ci2,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_AVGa,AVGa,Cu_mgkg,29.94,Unknown,,high,table_p3_ri4_ci3,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_MAxa,MAxa,Cu_mgkg,75.6,Unknown,,high,table_p3_ri4_ci4,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_MINa,MINa,Cu_mgkg,17.81,Unknown,,high,table_p3_ri4_ci5,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Kurtosis,Kurtosis,Cu_mgkg,3.12,Unknown,,high,table_p3_ri4_ci6,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Skewness,Skewness,Cu_mgkg,1.65,Unknown,,high,table_p3_ri4_ci7,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Background_valuesa,Background valuesa,Cu_mgkg,22.6,Unknown,,high,table_p3_ri4_ci8,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,"1-s2.0-S0048969721053997_Control_standardsa,b","Control standardsa,b",Cu_mgkg,150.0,Unknown,,high,table_p3_ri4_ci9,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_COUNT,COUNT,Pb_mgkg,113.0,Unknown,,high,table_p3_ri5_ci1,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_$\mathrm_{_I_}___{_\mathrm_{_g_e_o_}_}$,$\mathrm { I } _ { \mathrm { g e o } }$,Pb_mgkg,-0.27,Unknown,,high,table_p3_ri5_ci2,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_AVGa,AVGa,Pb_mgkg,35.69,Unknown,,high,table_p3_ri5_ci3,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_MAxa,MAxa,Pb_mgkg,97.1,Unknown,,high,table_p3_ri5_ci4,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_MINa,MINa,Pb_mgkg,16.15,Unknown,,high,table_p3_ri5_ci5,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Kurtosis,Kurtosis,Pb_mgkg,1.11,Unknown,,high,table_p3_ri5_ci6,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Skewness,Skewness,Pb_mgkg,1.26,Unknown,,high,table_p3_ri5_ci7,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Background_valuesa,Background valuesa,Pb_mgkg,26.0,Unknown,,high,table_p3_ri5_ci8,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,"1-s2.0-S0048969721053997_Control_standardsa,b","Control standardsa,b",Pb_mgkg,80.0,Unknown,,high,table_p3_ri5_ci9,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_COUNT,COUNT,Hg_mgkg,85.0,Unknown,,high,table_p3_ri6_ci1,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_$\mathrm_{_I_}___{_\mathrm_{_g_e_o_}_}$,$\mathrm { I } _ { \mathrm { g e o } }$,Hg_mgkg,0.2,Unknown,,high,table_p3_ri6_ci2,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_AVGa,AVGa,Hg_mgkg,0.143,Unknown,,high,table_p3_ri6_ci3,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_MAxa,MAxa,Hg_mgkg,0.88,Unknown,,high,table_p3_ri6_ci4,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_MINa,MINa,Hg_mgkg,0.02,Unknown,,high,table_p3_ri6_ci5,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Kurtosis,Kurtosis,Hg_mgkg,8.54,Unknown,,high,table_p3_ri6_ci6,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Skewness,Skewness,Hg_mgkg,2.54,Unknown,,high,table_p3_ri6_ci7,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Background_valuesa,Background valuesa,Hg_mgkg,0.065,Unknown,,high,table_p3_ri6_ci8,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,"1-s2.0-S0048969721053997_Control_standardsa,b","Control standardsa,b",Hg_mgkg,0.5,Unknown,,high,table_p3_ri6_ci9,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_COUNT,COUNT,Zn_mgkg,61.0,Unknown,,high,table_p3_ri7_ci1,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_$\mathrm_{_I_}___{_\mathrm_{_g_e_o_}_}$,$\mathrm { I } _ { \mathrm { g e o } }$,Zn_mgkg,-0.54,Unknown,,high,table_p3_ri7_ci2,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_AVGa,AVGa,Zn_mgkg,80.1,Unknown,,high,table_p3_ri7_ci3,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_MAxa,MAxa,Zn_mgkg,169.26,Unknown,,high,table_p3_ri7_ci4,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_MINa,MINa,Zn_mgkg,52.16,Unknown,,high,table_p3_ri7_ci5,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Kurtosis,Kurtosis,Zn_mgkg,0.73,Unknown,,high,table_p3_ri7_ci6,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Skewness,Skewness,Zn_mgkg,0.96,Unknown,,high,table_p3_ri7_ci7,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Background_valuesa,Background valuesa,Zn_mgkg,74.2,Unknown,,high,table_p3_ri7_ci8,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,"1-s2.0-S0048969721053997_Control_standardsa,b","Control standardsa,b",Zn_mgkg,200.0,Unknown,,high,table_p3_ri7_ci9,Descriptive statistics of soil heavy metals in China.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_China,China,HM_total,11.83,Unknown,,low,table_p8_ri2_ci1,Comparisons of heavy metal content and regulatory standards in different research studies and regions.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_China,China,HM_total,10.4,Unknown,,low,table_p8_ri3_ci1,Comparisons of heavy metal content and regulatory standards in different research studies and regions.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_China,China,HM_total,22.24,Unknown,,low,table_p8_ri4_ci1,Comparisons of heavy metal content and regulatory standards in different research studies and regions.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_China,China,HM_total,10.8,Unknown,,low,table_p8_ri5_ci1,Comparisons of heavy metal content and regulatory standards in different research studies and regions.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_China,China,HM_total,13.39,Unknown,,low,table_p8_ri6_ci1,Comparisons of heavy metal content and regulatory standards in different research studies and regions.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_China,China,HM_total,12.98,Unknown,,low,table_p8_ri7_ci1,Comparisons of heavy metal content and regulatory standards in different research studies and regions.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_World,World,HM_total,7.2,Unknown,,low,table_p8_ri8_ci1,Comparisons of heavy metal content and regulatory standards in different research studies and regions.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_USA,USA,HM_total,5.2,Unknown,,low,table_p8_ri9_ci1,Comparisons of heavy metal content and regulatory standards in different research studies and regions.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Europe,Europe,HM_total,5.5,Unknown,,low,table_p8_ri10_ci1,Comparisons of heavy metal content and regulatory standards in different research studies and regions.
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_China,China,As_mgkg,30.0,Unknown,,high,table_p8_ri1_ci1,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_China,China,Cd_mgkg,0.3,Unknown,,high,table_p8_ri1_ci2,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_China,China,Cr_mgkg,250.0,Unknown,,high,table_p8_ri1_ci3,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_China,China,Cu_mgkg,150.0,Unknown,,high,table_p8_ri1_ci4,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_China,China,Pb_mgkg,80.0,Unknown,,high,table_p8_ri1_ci5,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_China,China,Hg_mgkg,0.5,Unknown,,high,table_p8_ri1_ci6,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_China,China,Zn_mgkg,200.0,Unknown,,high,table_p8_ri1_ci7,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_USA,USA,As_mgkg,0.11,Unknown,,high,table_p8_ri2_ci1,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_USA,USA,Cd_mgkg,0.48,Unknown,,high,table_p8_ri2_ci2,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_USA,USA,Cr_mgkg,11.0,Unknown,,high,table_p8_ri2_ci3,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_USA,USA,Cu_mgkg,270.0,Unknown,,high,table_p8_ri2_ci4,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_USA,USA,Pb_mgkg,200.0,Unknown,,high,table_p8_ri2_ci5,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_USA,USA,Hg_mgkg,1.0,Unknown,,high,table_p8_ri2_ci6,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_USA,USA,Zn_mgkg,1100.0,Unknown,,high,table_p8_ri2_ci7,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Japan,Japan,As_mgkg,150.0,Unknown,,high,table_p8_ri3_ci1,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Japan,Japan,Cd_mgkg,150.0,Unknown,,high,table_p8_ri3_ci2,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Japan,Japan,Cr_mgkg,250.0,Unknown,,high,table_p8_ri3_ci3,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Japan,Japan,Pb_mgkg,150.0,Unknown,,high,table_p8_ri3_ci5,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Japan,Japan,Hg_mgkg,150.0,Unknown,,high,table_p8_ri3_ci6,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Republic_of_Korea,Republic of Korea,As_mgkg,75.0,Unknown,,high,table_p8_ri4_ci1,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Republic_of_Korea,Republic of Korea,Cd_mgkg,12.0,Unknown,,high,table_p8_ri4_ci2,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Republic_of_Korea,Republic of Korea,Cr_mgkg,15.0,Unknown,,high,table_p8_ri4_ci3,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Republic_of_Korea,Republic of Korea,Cu_mgkg,450.0,Unknown,,high,table_p8_ri4_ci4,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Republic_of_Korea,Republic of Korea,Pb_mgkg,600.0,Unknown,,high,table_p8_ri4_ci5,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Republic_of_Korea,Republic of Korea,Hg_mgkg,12.0,Unknown,,high,table_p8_ri4_ci6,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Republic_of_Korea,Republic of Korea,Zn_mgkg,900.0,Unknown,,high,table_p8_ri4_ci7,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_UK,UK,As_mgkg,43.0,Unknown,,high,table_p8_ri5_ci1,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_UK,UK,Cd_mgkg,1.8,Unknown,,high,table_p8_ri5_ci2,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_UK,UK,Hg_mgkg,26.0,Unknown,,high,table_p8_ri5_ci6,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Canada,Canada,As_mgkg,20.0,Unknown,,high,table_p8_ri6_ci1,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Canada,Canada,Cd_mgkg,3.0,Unknown,,high,table_p8_ri6_ci2,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Canada,Canada,Cr_mgkg,250.0,Unknown,,high,table_p8_ri6_ci3,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Canada,Canada,Cu_mgkg,150.0,Unknown,,high,table_p8_ri6_ci4,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Canada,Canada,Pb_mgkg,200.0,Unknown,,high,table_p8_ri6_ci5,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Canada,Canada,Hg_mgkg,0.8,Unknown,,high,table_p8_ri6_ci6,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Canada,Canada,Zn_mgkg,500.0,Unknown,,high,table_p8_ri6_ci7,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Denmark,Denmark,As_mgkg,20.0,Unknown,,high,table_p8_ri7_ci1,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Denmark,Denmark,Cd_mgkg,0.5,Unknown,,high,table_p8_ri7_ci2,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Denmark,Denmark,Cr_mgkg,500.0,Unknown,,high,table_p8_ri7_ci3,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Denmark,Denmark,Cu_mgkg,500.0,Unknown,,high,table_p8_ri7_ci4,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Denmark,Denmark,Pb_mgkg,40.0,Unknown,,high,table_p8_ri7_ci5,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Denmark,Denmark,Hg_mgkg,0.5,Unknown,,high,table_p8_ri7_ci6,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Denmark,Denmark,Zn_mgkg,500.0,Unknown,,high,table_p8_ri7_ci7,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Australia,Australia,As_mgkg,20.0,Unknown,,high,table_p8_ri8_ci1,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Australia,Australia,Cd_mgkg,3.0,Unknown,,high,table_p8_ri8_ci2,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Australia,Australia,Cr_mgkg,50.0,Unknown,,high,table_p8_ri8_ci3,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Australia,Australia,Cu_mgkg,100.0,Unknown,,high,table_p8_ri8_ci4,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Australia,Australia,Pb_mgkg,300.0,Unknown,,high,table_p8_ri8_ci5,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Australia,Australia,Hg_mgkg,1.0,Unknown,,high,table_p8_ri8_ci6,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Australia,Australia,Zn_mgkg,200.0,Unknown,,high,table_p8_ri8_ci7,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Thailand,Thailand,As_mgkg,30.0,Unknown,,high,table_p8_ri9_ci1,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Thailand,Thailand,Cd_mgkg,0.15,Unknown,,high,table_p8_ri9_ci2,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Thailand,Thailand,Cr_mgkg,80.0,Unknown,,high,table_p8_ri9_ci3,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Thailand,Thailand,Cu_mgkg,45.0,Unknown,,high,table_p8_ri9_ci4,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Thailand,Thailand,Pb_mgkg,55.0,Unknown,,high,table_p8_ri9_ci5,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Thailand,Thailand,Hg_mgkg,0.15,Unknown,,high,table_p8_ri9_ci6,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Thailand,Thailand,Zn_mgkg,70.0,Unknown,,high,table_p8_ri9_ci7,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Russia,Russia,As_mgkg,4.5,Unknown,,high,table_p8_ri10_ci1,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Russia,Russia,Cd_mgkg,0.76,Unknown,,high,table_p8_ri10_ci2,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Russia,Russia,Cr_mgkg,3.8,Unknown,,high,table_p8_ri10_ci3,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Russia,Russia,Cu_mgkg,3.5,Unknown,,high,table_p8_ri10_ci4,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Russia,Russia,Pb_mgkg,55.0,Unknown,,high,table_p8_ri10_ci5,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Russia,Russia,Hg_mgkg,0.76,Unknown,,high,table_p8_ri10_ci6,Regulatory standards of heavy metal in agricultural soil (mg/kg).
+1-s2.0-S0048969721053997,1-s2.0-S0048969721053997_Russia,Russia,Zn_mgkg,16.0,Unknown,,high,table_p8_ri10_ci7,Regulatory standards of heavy metal in agricultural soil (mg/kg).

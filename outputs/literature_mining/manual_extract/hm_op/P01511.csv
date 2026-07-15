@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01511,,,,,,sludge,urban,,"skip: 研究对象为多源污泥(市政污泥+管道疏通污泥+河湖沉积物)非土壤; 所有HM和POPs浓度数据均以图片(Fig.3/Fig.5)呈现无文本可解析表格; 正文仅零散提及极端值(Zn=1823.98/Cr=2132.92/Ni=278.96 mg/kg镇江某WWTP样品; 总PAHs=15.368 mg/kg九江某脱水污泥样品)但无系统采样点标识(无S1/A/B等sample_id); 附录表S1-4仅含采样位置不含浓度; 无法提取采样点级数据"

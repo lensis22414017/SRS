@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+66211_s11270-020-04798-2,66211_s11270-020-04798-2_Phaeozem_soil,Phaeozem soil,pH,7.8,Unknown,,high,table_p2_ri4_ci1,Table 1 Basic physical and chemical properties of the tested soil
+66211_s11270-020-04798-2,66211_s11270-020-04798-2_Red_soil,Red soil,pH,4.92,Unknown,,high,table_p2_ri4_ci2,Table 1 Basic physical and chemical properties of the tested soil
+66211_s11270-020-04798-2,66211_s11270-020-04798-2_Phaeozem_soil,Phaeozem soil,V_mgkg,4.92,Unknown,,high,table_p2_ri7_ci1,Table 1 Basic physical and chemical properties of the tested soil
+66211_s11270-020-04798-2,66211_s11270-020-04798-2_Red_soil,Red soil,V_mgkg,3.95,Unknown,,high,table_p2_ri7_ci2,Table 1 Basic physical and chemical properties of the tested soil
+66211_s11270-020-04798-2,66211_s11270-020-04798-2_Phaeozem_soil,Phaeozem soil,V_mgkg,82.6,Unknown,,high,table_p2_ri8_ci1,Table 1 Basic physical and chemical properties of the tested soil
+66211_s11270-020-04798-2,66211_s11270-020-04798-2_Red_soil,Red soil,V_mgkg,40.0,Unknown,,high,table_p2_ri8_ci2,Table 1 Basic physical and chemical properties of the tested soil

@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+j.envpol.2021.116824,j.envpol.2021.116824_col3,col3,Al_mgkg,19.0,Unknown,,medium,table_p3_ri16_ci3,"Dissipation half-lives of g-HCH and p,p’-DDT in soils observed in this and other studies."
+j.envpol.2021.116824,j.envpol.2021.116824_col6,col6,Al_mgkg,0.27,Unknown,,medium,table_p3_ri16_ci6,"Dissipation half-lives of g-HCH and p,p’-DDT in soils observed in this and other studies."
+j.envpol.2021.116824,j.envpol.2021.116824_col7,col7,Al_mgkg,2.9,Unknown,,medium,table_p3_ri16_ci7,"Dissipation half-lives of g-HCH and p,p’-DDT in soils observed in this and other studies."

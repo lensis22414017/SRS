@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08137,,,,,,,"skip: 温室盆栽spiked lindane实验(非真实场地OP数据). Sec2.1原文: 原始农田土S1(嘉兴浙江)S2(鹰潭江西)均未检出lindane; lindane为人工添加50mg/kg(丙酮溶解→通风橱蒸发)→实测初始33.6/34.0 mg/kg. Sec2.2原文: Pot experiment conducted at greenhouse Zhejiang Univ. Table3所有lindane浓度(CK-S1-P/CK-S2-P/Ri-S1-P/Ri-S2-P)均来自温室盆栽处理. 无修复前真实场地OP本底值."

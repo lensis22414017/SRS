@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06746,,SKIP,,,Table 2 + Table 3,soil,background,Sichuan,"主文仅含区域汇总统计(Table 2: Mean/Range of PCBs/PBDEs, 非采样点级数据)和回归参数(Table 3: 海拔梯度回归m/R/p), 采样点级实测浓度在补充材料Tables S2/S3, 不在此paper.md解析范围内"

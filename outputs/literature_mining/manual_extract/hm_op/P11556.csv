@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11556,,,,,,soil,industrial,Anhui,"skip: 无采样点级数据;所有表格均为统计汇总(表3.1描述性统计n=304的Mean/SD/Min/Max/Median)/风险指数(表3.2地累积指数/表3.3富集因子/表3.4潜在生态风险指数MAX-MIN-AVE)/PCA载荷(表4.1-4.3)/健康风险HQ-HI-CR(表5.1-5.6)/GANN模型2050年预测(表6.1);论文虽采304个样品但未公布任何单点(S1/S2/A/B等)真实浓度;且论文仅测6种重金属(As/Cd/Cu/Pb/Hg/Ni)完全未测任何OP(PAH/PCB/DDT/HCH/PBDE/PHC),无HM+OP真复合;摘要中有机污染物仅为引言表述"

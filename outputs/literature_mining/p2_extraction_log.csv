@@ -1,0 +1,459 @@
+﻿paper_id,level,stem,tbl_idx,n_rows,n_cols,title,category,has_unit,is_conc_titled,has_hm,has_op,is_hm_op,extract_status,extract_note
+P00245,A,10_1007_s00244_019_00675_0,1,14,6,Table 2 Summary of OPFR concentrations in soils around the world,summary_conc,True,True,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P00408,A,10.1007_s10661-019-7476-2,0,11,10,Table 1 Distribution characteristics of heavy metals in Shanghai park green space and road,conc_like,True,False,True,False,False,no_pollutant_columns,无列可解析为污染物
+P11023,A,2018_任毅_土壤_null,2,18,14,表3 水泥窑协同处置重金属最大允许投加量限值,summary_conc,True,False,True,False,False,no_data_rows,type=sample samples=0
+P11023,A,2018_任毅_土壤_null,3,5,3,表4 硫、氟、氯投加量控制值,conc_like,True,False,False,False,False,no_header,未找到含污染物信号的表头行
+P04669,A,2024_Lu Y et al_Unknown_null,0,7,14,Table 1. Basic information on soil hydrogeological condition.,summary_conc,True,False,True,False,False,no_header,未找到含污染物信号的表头行
+P01182,A,2023_Zhang D et al_Chemosphere_10.1016-j.chemosphere.2023.140288,0,26,6,Table 1,conc_like,True,False,True,True,True,no_data_rows,type=sample samples=0
+P01595,A,2023_Hou Y et al_JHazardMater_10.1016-j.jhazmat.2023.130934,0,11,11,Table 1,summary_conc,True,False,True,True,True,no_data_rows,type=sample samples=0
+P11424,A,2023_Wu J et al_SciTotalEnviron_null,0,30,13,Table 1,summary_conc,True,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11439,A,2023_刘泽浩_土壤_null,1,2,8,表 2.1供试土壤基本理化性质,conc_like,True,False,True,False,False,skip_too_small,2x8
+P01177,A,2022_Hu T et al_Chemosphere_10.1016-j.chemosphere.2022.136788_1,0,17,21,"dle and lower Yangtze River (Li et al., 2020) and the Yellow Sea in South Korea (Tian et a",summary_conc,True,False,True,False,False,ok_samples,"sample 1点, 2条, type=HM"
+P01177,A,2022_Hu T et al_Chemosphere_10.1016-j.chemosphere.2022.136788_1,1,15,18,Note: N.D. stands for not detected or below the detection limit; SD is standard deviation;,conc_like,True,False,True,False,False,ok_samples,"sample 13点, 26条, type=HM"
+P01177,A,2022_Hu T et al_Chemosphere_10.1016-j.chemosphere.2022.136788_1,2,31,14,Table 3,summary_conc,True,False,False,True,False,no_header,未找到含污染物信号的表头行
+P03334,A,2025_龚庆碗_生物化工_10.20284-j.cnki.swhg.2025.06.033,3,9,6,表4 清挖后的基坑监测结果,conc_like,True,False,False,True,False,no_pollutant_columns,无列可解析为污染物
+P03780,A,10.3389_fenvs.2022.990471_CrossrefPage,3,7,7,TABLE 4 Distribution and ration of different kinds of PAHs content in sampling sites.,conc_like,True,False,False,True,False,ok_samples,"sample 5点, 5条, type=OP"
+P03780,A,10.3389_fenvs.2022.990471_CrossrefPage,4,27,5,"TABLE 5 Toxic equivalent factors (TEFs), and BaP equivalent concentration $( \mathsf { B a",sample_conc,True,True,False,True,False,ok_transposed,转置表 2污染物 × 4采样点 = 6条 family={'PAHs'}
+P11365,A,2022_陈驰_Unknown_null,1,3,2,表1.2 有机污染场地修复实例,conc_like,True,False,False,True,False,no_data_rows,type=unknown samples=0
+P11365,A,2022_陈驰_Unknown_null,4,7,2,Table1.4 Examples of remediation of common types of heavy metal contaminated sites,conc_like,True,False,True,False,False,no_header,未找到含污染物信号的表头行
+P11365,A,2022_陈驰_Unknown_null,6,2,6,Table2.1 Soil pollutants contents、physical and chemical properties,conc_like,True,False,True,False,False,skip_too_small,2x6
+P11365,A,2022_陈驰_Unknown_null,14,3,6,Table5.1 Morphological composition of Cd-contaminated soil,conc_like,True,False,True,False,False,no_header,未找到含污染物信号的表头行
+P11365,A,2022_陈驰_Unknown_null,16,2,6,Table5.3 Bap critical concentration corresponding to thermal desorptionat different temper,sample_conc,True,True,True,False,False,skip_too_small,2x6
+P11254,A,2021_PAHs et al_EnvironPollut_null_from_sub,2,42,10,"s mainly originate from man-made sources (Da et al., 2013; Nozar et al., 2014; Chai et al.",summary_conc,True,False,True,True,True,no_data_rows,type=sample samples=0
+P04105,A,2018_Metal RPT_EnvironRes_10.3390-ijerph15112595,4,7,7,Table 5. Leaching of toxic contaminants and the unconfined compressive strength (UCS) and ,conc_like,True,False,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P01301,A,10.1016_j.envpol.2017.08.003,0,9,11,Fig. 2. Unweighted Pair Group Method with Arithmetic mean (UPGMA) clustering based on phyl,conc_like,True,False,True,False,False,ok_samples,"sample 8点, 8条, type=HM"
+P00630,A,10.1007_s11356-015-5249-1,1,10,8,Table 2 Descriptive statistical summary of heavy metals in soils from storage area,summary_conc,True,False,True,False,False,ok_summary,"summary Mean, 7条, type=HM"
+P00753,A,2015_Chen R et al_JSoilsSediments_10.1007-s11368-015-1093-7,1,13,5,"Table 2 Mushroom yield (dry weight), total Cd accumulation, and the calculated BCFs in the",sample_conc,True,True,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P06607,A,2012_Cao L et al_Science_null,3,6,9,Table 4,summary_conc,True,False,True,False,False,ok_summary,"summary Mean, 6条, type=HM"
+P06607,A,2012_Cao L et al_Science_null,4,5,10,hancement is evident in the southeastern area near a big industrial site with a power plan,summary_conc,True,False,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P03082,A,2022_李怡佳_环境科学_10.13227-j.hjkx.202112006,3,10,5,2 2 8 9 \pm 0 . 0 1 4 9 \mathrm { a }$ </td><td> $1 . 7 8 1 0 \pm 0 . 0 2 7 1 \mathrm { a ,conc_like,True,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P00737,A,2010_Tang X et al_JSoilsSediments_10.1007-s11368-010-0252-0,3,22,7,Table 4 Means ± standard deviations of PCBs (μg/kg) and comparisons with those in referenc,summary_conc,True,True,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P00289,A,2006_Leung A et al_JMaterCyclesWasteManag_10.1007-s10163-005-0141-6,0,9,4,Table 1. Description of sampling sites,summary_conc,True,False,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P06949,A,2014_Ethers_EnvironHealth_10.1371-journal.pone.0113699,0,26,5,Table 1. Study Subjects Characteristics.,conc_like,True,False,True,True,True,ok_transposed,转置表 10污染物 × 4采样点 = 9条 family={'PBDEs'}
+P06288,A,2009_Zhang H et al_IntJEnvironSciTechnol_null,0,14,6,Table 1: Pyrene contents in the roots and shoots of maize,conc_like,True,False,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P06288,A,2009_Zhang H et al_IntJEnvironSciTechnol_null,1,14,8,Table 2: Cd concentration and accumulation in maize after 60 days culture,sample_conc,True,True,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11024,B,2018_任毅等_土壤_null,2,18,14,表3 水泥窑协同处置重金属最大允许投加量限值,summary_conc,True,False,True,False,False,no_data_rows,type=sample samples=0
+P11024,B,2018_任毅等_土壤_null,3,5,3,表4 硫、氟、氯投加量控制值,conc_like,True,False,False,False,False,no_header,未找到含污染物信号的表头行
+P11353,B,2022_作者姓名_土壤_null,2,5,8,表 2.3重金属土壤环境参考值,conc_like,True,False,True,False,False,ok_samples,"sample 4点, 24条, type=HM"
+P11353,B,2022_作者姓名_土壤_null,3,10,10,表2.4多环芳烃土壤环境参考值,conc_like,True,False,False,True,False,transposed_no_pollutant,转置表无可识别污染物行
+P11448,B,2023_谢臣臣_Unknown_null,7,2,5,表3.6£16PAHs含量分级,sample_conc,True,True,False,True,False,skip_too_small,2x5
+P03100,B,2023_李景铭_土壤_10.13292-j.1000-4890.202312.010_1,0,12,4,Table 1 Bacteria or fungi for bioremediation of PAHs and heavy metals co⁃contamination,conc_like,True,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P04324,B,10_3390_land13111798,2,9,12,"Table 2. Analysis methods (AM) and detection limits (DL) for PAHs, heavy metals, pH, N, Se",conc_like,True,False,True,True,True,transposed_no_pollutant,转置表无可识别污染物行
+P04324,B,10_3390_land13111798,4,6,14,Table 3. Cont.,conc_like,True,False,True,False,False,ok_samples,"sample 3点, 15条, type=HM"
+P09090,B,2024_Nie J et al_JEnvironChemEng_null,0,21,5,Table 1,conc_like,True,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P09913,B,10_13292_j_1000_4890_202312_010,0,12,4,Table 1 Bacteria or fungi for bioremediation of PAHs and heavy metals co⁃contamination,conc_like,True,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P11450,B,2023_王晴_土壤_null,0,8,7,表1-1PAHs和HMs复合污染土壤研究现状,conc_like,True,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P11450,B,2023_王晴_土壤_null,6,9,5,表 2-3功能基因所用的引物和PCR条件,conc_like,True,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P11450,B,2023_王晴_土壤_null,11,5,3,表 5-1热强化作用下的实验方案,conc_like,True,False,False,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P00829,B,2023_Apportionment IIS_Geomorphology_10.1007-s12403-023-00534-3,1,22,11,Table 2 PAHs and HMs in park soils worldwide,conc_like,True,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P04627,B,2023_Su Q_Toxics_10.3390-toxics11020143,0,7,2,Table 1. Basic soil physicochemical properties.,conc_like,True,False,True,True,True,no_header,未找到含污染物信号的表头行
+P04815,B,2023_Hou D et al_JGeosciEnvironProt_10.4236-gep.2023.115017,2,6,9,Table 3. The statistical features of concentrations of heavy metals on suburban farmland i,summary_conc,True,True,True,False,False,no_pollutant_columns,无列可解析为污染物
+P11368,B,2022_高康宁_Unknown_null,8,4,3,Table2-7 Concentration table of fluorene and pyrene in soil extracted by different extract,sample_conc,True,True,False,False,False,no_pollutant_columns,无列可解析为污染物
+P11368,B,2022_高康宁_Unknown_null,14,4,7,Table3-3 Table of fiting parameters for adsorption kinetics of heavy metals in soil soluti,conc_like,True,False,True,False,False,no_header,未找到含污染物信号的表头行
+P11543,B,2024_于颖_Unknown_null,4,8,9,表2HMs 和PAHs 的毒性参数推荐值,conc_like,True,False,True,True,True,no_header,未找到含污染物信号的表头行
+P03102,B,2024_廉梅花_土壤_10.13292-j.1000-4890.202409.030_1,0,11,10,Table 1 Contamination of heavy metals and PAHs in soil samples collected from different si,summary_conc,True,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P11359,B,2022_易盛炜_Unknown_null,3,4,10,Table 4-1 Soil for the experiment.,conc_like,True,False,True,False,False,ok_samples,"sample 2点, 2条, type=HM"
+P11362,B,2022_赵燊炜_Unknown_null,3,14,3,Table 2.4 Effects Range-Low and Effects Range-Median Values for Polycyclic Aromatic Hydroc,conc_like,True,False,False,True,False,no_data_rows,type=sample samples=0
+P11362,B,2022_赵燊炜_Unknown_null,9,7,7,"Table 3.3 Dry weight of plant roots, leaves in different groups after phytoremediation",sample_conc,True,True,False,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11362,B,2022_赵燊炜_Unknown_null,21,4,4,"Table 5.1 Dry weight of plant roots, leaves in different groups",sample_conc,True,True,False,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11362,B,2022_赵燊炜_Unknown_null,22,4,7,Table 5.2 Cr and As concentrations in plants,sample_conc,True,True,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11362,B,2022_赵燊炜_Unknown_null,26,4,5,Table 5.6 Fresh and dry weight of plants and concentration of Cr and As in plants,sample_conc,True,True,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P01360,B,10.1016_j.envpol.2020.116038,2,42,10,"s mainly originate from man-made sources (Da et al., 2013; Nozar et al., 2014; Chai et al.",summary_conc,True,False,True,True,True,no_data_rows,type=sample samples=0
+P01795,B,10.1016_j.scitotenv.2021.146282,0,13,11,"RDA was performed to quantify the influence of environmental variables, including soil phy",conc_like,True,False,True,True,True,no_pollutant_columns,无列可解析为污染物
+P01795,B,10.1016_j.scitotenv.2021.146282,1,53,4,"odules II and III may be associated with the degradation of PAHs and PBDEs. Similarly, mod",conc_like,True,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P02763,B,2021_Zhao S et al_EnvironEngSci_10.1089-ees.2020.0416,0,14,4,Table 1. Effects Range-Low and Effects Range-Median Values for Polycyclic Aromatic Hydroca,conc_like,True,False,False,True,False,ok_transposed,转置表 1污染物 × 2采样点 = 2条 family={'PAHs'}
+P02763,B,2021_Zhao S et al_EnvironEngSci_10.1089-ees.2020.0416,1,21,4,Table 2. Total Concentration of Polycyclic Aromatic Hydrocarbon in Soil Samples,sample_conc,True,True,False,True,False,ok_samples,"sample 20点, 20条, type=OP"
+P03279,B,2013_赵颖_环境科学_10.16258-j.cnki.1674-5906.2013.07.022,3,12,5,Table 4 The content of available As and total As in soil,conc_like,True,False,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P08598,B,2021_Xie T et al_SciTotalEnviron_null,2,9,16,"samples were situated between the warning limit boundaries for single pollution indexes, w",summary_conc,True,False,True,False,False,ok_summary,"summary Mean, 0条, type=HM"
+P11294,B,2021_李敏_Unknown_null,5,14,6,Table 4-2 Design of remediation treatments for contaminated soil,conc_like,True,False,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11447,B,2023_毛_Unknown_null,6,16,4,Table 3-1 Soil Sample Analysis and Testing Methods,conc_like,True,False,False,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11447,B,2023_毛_Unknown_null,7,10,8,Table 3-2 Statistical Table of Soil Samples Exceeding the Standard in the Detailed Investi,summary_conc,True,False,True,True,True,no_pollutant_columns,无列可解析为污染物
+P11447,B,2023_毛_Unknown_null,8,5,8,续表3-2 地块详细调查阶段土壤样品超标统计表 | Continued Table 3-2 Statistical Table of Soil Samples Exceeding ,summary_conc,True,False,True,False,False,no_pollutant_columns,无列可解析为污染物
+P11447,B,2023_毛_Unknown_null,17,6,5,Table 4-9 Statistics of concentration of soil pollutants of concern,summary_conc,True,True,True,False,False,no_header,未找到含污染物信号的表头行
+P11447,B,2023_毛_Unknown_null,18,2,5,Table 4-9 Statistics of concentration of soil pollutants of concern,summary_conc,True,True,False,False,False,skip_too_small,2x5
+P00707,B,2020_Liu X et al_EnvironSciPollutRes_10.1007-s11356-020-09934-3,0,14,4,Table 1 Physicochemical properties of rhizosphere soil,conc_like,True,False,False,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P01223,B,2020_Lietal_EcotoxicolEnvironSaf_10.1016-j.ecoenv.2020.111083,0,21,5,"hrm { C r } ^ { 6 + } \mathrm { Z n } ,$ , Cu, Pb, Ni, Mo and TPH; water-soluble contents ",conc_like,True,False,True,True,True,no_header,未找到含污染物信号的表头行
+P00217,B,2013_Contamination BE_BullEnvironContamToxicol_10.1007-s00128-018-2330-8,0,12,8,"Table 1 The concentrations of heavy metal, radionuclide and OCS of analyzed soil samples (",sample_conc,True,True,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P01127,B,2018_Wangetal_Chemosphere_10.1016-j.chemosphere.2018.06.177,0,19,8,"Table 1 PAH concentrations in fly ash, HW, SS, and $\mathsf { P M } _ { 2 }$ 5",sample_conc,True,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P01127,B,2018_Wangetal_Chemosphere_10.1016-j.chemosphere.2018.06.177,1,14,8,Table 2 Heavy metal concentrations in sampling soils,summary_conc,True,True,True,False,False,no_pollutant_columns,无列可解析为污染物
+P04074,B,2018_Lv D et al_EnvironRes_10.3390-ijerph15040698,0,29,4,Table 1. Polycyclic aromatic hydrocarbons and heavy metals concentrations in raw materials,sample_conc,True,True,True,False,False,ok_transposed,转置表 9污染物 × 3采样点 = 27条 family={'HM'}
+P11136,B,2020_Li Q et al_EcotoxicolEnvironSaf_null,0,21,5,"hrm { C r } ^ { 6 + } \mathrm { Z n } ,$ , Cu, Pb, Ni, Mo and TPH; water-soluble contents ",conc_like,True,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11293,B,2021_土壤中_土壤_null,0,14,8,Table 2.1 Current situation of PAHs-heavy metal co-contaminated soils,conc_like,True,False,True,True,True,no_pollutant_columns,无列可解析为污染物
+P11293,B,2021_土壤中_土壤_null,8,5,5,Table 3.5Recovery of PAHs by soxhlet extraction and ultrasonic extraction,conc_like,True,False,True,True,True,no_header,未找到含污染物信号的表头行
+P00764,B,2017_Wang Y et al_JSoilsSediments_10.1007-s11368-017-1762-9,2,6,2,Table 2 Basic properties of the untreated soil used for pot experiment before planting mus,conc_like,True,False,True,False,False,no_header,未找到含污染物信号的表头行
+P01102,B,10.1016_j.chemosphere.2016.12.047,0,17,7,"Table 1. Nitrogen, Phosphorous and salt concentrations in greenhouse vegetable soils (GS),",sample_conc,True,True,True,False,False,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P01102,B,10.1016_j.chemosphere.2016.12.047,1,3,5,50</td><td>1750</td><td></td><td></td></tr><tr><td>OFWS NS</td><td>147</td><td>1280</td><t,conc_like,True,False,True,False,False,no_header,未找到含污染物信号的表头行
+P00643,B,10.1007_s11356-016-6462-2,0,7,7,"## Quality control and quality assurance | Replicates, reagent blanks, and a standard refe",conc_like,True,False,True,False,False,no_header,未找到含污染物信号的表头行
+P00643,B,10.1007_s11356-016-6462-2,2,20,11,} K }$ contents in solar greenhouses were relative high and all above the vegetable soil n,summary_conc,True,False,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P00643,B,10.1007_s11356-016-6462-2,4,21,18,"The concentration of Pb was not very high than other heavy metals, suggesting a slight con",summary_conc,True,True,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P00650,B,2016_Hu S et al_EnvironSciPollutRes_10.1007-s11356-016-6701-6,0,4,5,Table 1 Experimental design testing combined chromium(VI) and phenanthrene pollution,conc_like,True,False,False,False,False,transposed_no_pollutant,转置表无可识别污染物行
+P01993,B,2015_Liu J et al_EnvironSciTechnol_10.1021-es5049804,0,14,14,Table 1 Physiochemical characteristics and total PCB s and PBDEs contents of the e-waste c,conc_like,True,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P03165,B,2015_Wan J et al_Land_10.1371-journal.pone.0129978,0,13,3,Table 1. Physiochemical properties of the tested soil.,conc_like,True,False,True,False,False,no_header,未找到含污染物信号的表头行
+P03328,B,2024_顾赟之_皮革制作与环保科技_10.20025-j.cnki.CN10-1679.2024-22-42,0,5,4,表1　检测方法,conc_like,True,False,True,True,True,no_header,未找到含污染物信号的表头行
+P03328,B,2024_顾赟之_皮革制作与环保科技_10.20025-j.cnki.CN10-1679.2024-22-42,1,5,5,表2　土壤污染监测指标超标情况,summary_conc,True,False,False,True,False,no_pollutant_columns,无列可解析为污染物
+P03328,B,2024_顾赟之_皮革制作与环保科技_10.20025-j.cnki.CN10-1679.2024-22-42,4,5,5,表5　土壤生物修复后结果,summary_conc,True,False,False,True,False,no_pollutant_columns,无列可解析为污染物
+P11554,B,2024_梁文煦_Unknown_null,4,9,2,表 2.3 降解中间体的毒理学数据,conc_like,True,False,False,False,False,no_header,未找到含污染物信号的表头行
+P01532,B,2013_Dong Z et al_JHazardMater_10.1016-j.jhazmat.2013.05.003,0,24,2,## Table 1 | Characteristics of the soil used for the experiments.,conc_like,True,False,True,True,True,no_header,未找到含污染物信号的表头行
+P06121,B,2008_Peng C et al_EnvironPollut_null,0,7,15,"## Table 1 | Statistical description of PAHs, heavy metals, and soil properties.",summary_conc,True,False,True,True,True,ok_summary,"summary Mean, 7条, type=HM_OP"
+P06840,B,2013_Peng C et al_EnvironPollut_null,0,7,15,"## Table 1 | Statistical description of PAHs, heavy metals, and soil properties.",summary_conc,True,False,True,True,True,ok_summary,"summary Mean, 7条, type=HM_OP"
+P06898,B,2013_Zhong M et al_EnvironPollut_null,2,40,9,Table 3.Statistic variants of the analytical results.,conc_like,True,False,False,False,False,no_pollutant_columns,无列可解析为污染物
+P00742,B,2012_Wang K et al_JSoilsSediments_10.1007-s11368-012-0471-7,0,20,2,Table 1 Selected physicochemical properties of the soil in this study,conc_like,True,False,True,True,True,no_header,未找到含污染物信号的表头行
+P01428,B,2012_Cui C et al_EnvironToxicol_10.1016-j.etap.2012.05.009,0,9,11,1 TAE running buffer and visualized under UV in a Gel Doc 2000 (Bio-Rad). | DGGE bands wer,conc_like,True,False,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P02268,B,10_1039_c2em30433c,1,12,6,Table 2 PAH concentration in soils compared to other studies in the world,summary_conc,True,True,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P11676,B,2014_英文并_土壤_null,0,12,6,表2-1部分地区PAHs污染情况,summary_conc,True,False,False,True,False,no_data_rows,type=sample samples=0
+P11676,B,2014_英文并_土壤_null,5,30,5,Table 4-2 Dry weight of the root、stem and leaf of sorghum×sudan grass,sample_conc,True,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,10,32,5,表4-7玉米根茎叶干重,sample_conc,True,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,15,31,4,表 4-12 黑麦草根及茎叶干重,sample_conc,True,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,20,4,4,Table4-17 Effects of diferent pollution treatment on the leaf pigments of sorghum×sudan gr,conc_like,True,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,22,29,5,Table 4-18 Effects of different pollution treatment on the leaf pigments of Zea mays.L,conc_like,True,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,23,29,5,Table 4-19 Effects of different pollution treatment on the leaf pigments of Ryegrass,conc_like,True,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,24,18,5,Table5-1 Cu contents in sorghum×sudan grass under diferent treatments （mg·kg-）,sample_conc,True,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,25,19,5,Table5-2 Cu contents in Zea mays.L under different treatments (mg·kg-'),sample_conc,True,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,26,5,3,Table5-3 Cu contents in Ryegrass under different treatments (mg·kg-1),sample_conc,True,True,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,28,19,5,Table5-4 Cd contents in sorghum×sudan grass under different treatments,conc_like,True,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,29,6,4,Table5-5 Cd contents in Zea mays.L under different treatments (mg·kg-'）,sample_conc,True,True,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,31,19,4,Table5-6 Cd contents in Ryegras under different treatments (mg:kg-'）,conc_like,True,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11191,B,2020_李婷_环境科学_null,21,6,2,Table 3-16 Classification of PAH pollution levels,conc_like,True,False,True,True,True,ok_samples,"sample 4点, 2条, type=OP"
+P00242,B,2011_Lopez B N et al_ArchEnvironContamToxicol_10.1007-s00244-010-9590-6,4,12,6,Table 5 Total heavy metal concentrations and quality guidelines for agricultural soil (mg/,sample_conc,True,True,True,False,False,ok_samples,"sample 11点, 30条, type=HM"
+P00242,B,2011_Lopez B N et al_ArchEnvironContamToxicol_10.1007-s00244-010-9590-6,6,11,8,Table 7 Comparison of total heavy metal concentrations between this study and other studie,summary_conc,True,True,True,False,False,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P01524,B,2010_Tangetal_JHazardMater_10.1016-j.jhazmat.2009.08.134,1,20,9,"s metal pollutant in Wenling area, with the Hg contents exceeding the Grade II value (0.3 ",summary_conc,True,True,True,False,False,ok_samples,"sample 18点, 67条, type=HM"
+P10441,B,2009_Zhang H. et al_IntJEnvironSciTechnol_null,0,14,6,Table 1: Pyrene contents in the roots and shoots of maize,conc_like,True,False,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P10441,B,2009_Zhang H. et al_IntJEnvironSciTechnol_null,1,14,8,Table 2: Cd concentration and accumulation in maize after 60 days culture,sample_conc,True,True,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P03281,B,2024_重金属_Science_10.16258-j.cnki.1674-5906.2024.12.011_1,0,21,2,Table 1 Basic physicochemical properties of the tested soil,conc_like,True,False,True,True,True,no_header,未找到含污染物信号的表头行
+P10369,B,2008_Khan S et al_JHazardMater_null,0,34,6,"ast 12 h, respectively, and then kept in a desiccator. Ten grams of freezedried soil and p",conc_like,True,False,True,True,True,ok_transposed,"转置表 7污染物 × 5采样点 = 25条 family={'PAHs', 'HM'}"
+P01083,B,2006_Gao Y et al_Chemosphere_10.1016-j.chemosphere.2006.04.030,0,13,5,which may be analogous to rubbery and glassy states of polymers. Rubbery states of humic s,conc_like,True,False,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P10229,B,2005_Chen Y et al_EnvironInt_null,0,17,8,of suspended matter containing PAHs and adsorption of dissolved PAHs. Main components of P,conc_like,True,False,True,True,True,ok_samples,"sample 16点, 12条, type=OP"
+P10229,B,2005_Chen Y et al_EnvironInt_null,1,2,11,Table 2,conc_like,True,False,False,True,False,skip_too_small,2x11
+P10229,B,2005_Chen Y et al_EnvironInt_null,3,15,6,Table 4,conc_like,True,False,False,True,False,ok_samples,"sample 14点, 22条, type=OP"
+P01075,B,10_1016_j_chemosphere_2004_08_070,4,8,8,Table 5,conc_like,True,False,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P10188,B,2004_Chen Y X et al_PlantSoil_null,0,3,8,Table 1. Selected soil characteristics,conc_like,True,False,True,False,False,ok_samples,"sample 2点, 4条, type=HM"
+P10188,B,2004_Chen Y X et al_PlantSoil_null,2,5,7,Table 3. Growth and heavy metal accumulation of ryegrass seedling in the presence and abse,conc_like,True,False,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P09271,B,2025_Cheng T et al_JWaterProcessEng_null,0,8,5,"nts in China reached 5858.34 ng/g, which is 40 times greater than the concentration of 147",sample_conc,True,True,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P09271,B,2025_Cheng T et al_JWaterProcessEng_null,1,5,5,## Table 2 | Immobilized biochar materials.,conc_like,True,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P09271,B,2025_Cheng T et al_JWaterProcessEng_null,4,50,8,Table 5,conc_like,True,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P01583,B,2021_Lin S et al_EnvironPollut_10.1016-j.jhazmat.2021.127792_1,0,63,6,Table 1,summary_conc,True,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P01583,B,2021_Lin S et al_EnvironPollut_10.1016-j.jhazmat.2021.127792_1,2,39,5,Table 2,conc_like,True,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P04385,B,10_3390_nano12111860,2,17,7,Table 3. The contents of target PAHs in real samples and recoveries.,conc_like,True,False,False,True,False,transposed_no_pollutant,转置表无可识别污染物行
+P04385,B,10_3390_nano12111860,3,8,7,Table 4. Comparison of the proposed method with other reported techniques for determinatio,conc_like,True,False,True,True,True,no_pollutant_columns,无列可解析为污染物
+P08697,B,2022_Lin S et al_JHazardMater_null,0,63,6,Table 1,summary_conc,True,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P08697,B,2022_Lin S et al_JHazardMater_null,2,39,5,Table 2,conc_like,True,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P11290,B,2021_刘瑞_Unknown_null,4,2,6,Table 5-1 Content of organic pollutants in sediment,conc_like,True,False,True,True,True,skip_too_small,2x6
+P11290,B,2021_刘瑞_Unknown_null,5,7,6,Table 5-2 Content of PAHs in sediment,conc_like,True,False,False,True,False,no_pollutant_columns,无列可解析为污染物
+P11290,B,2021_刘瑞_Unknown_null,6,12,9,Table 5-3Content of heavy metal in sediment,conc_like,True,False,True,False,False,no_pollutant_columns,无列可解析为污染物
+P01292,B,2013_Sneath HE et al_EnvironPollut_10.1016-j.envpol.2013.03.009,1,2,11,Table 1,conc_like,True,False,True,False,False,skip_too_small,2x11
+P01292,B,2013_Sneath HE et al_EnvironPollut_10.1016-j.envpol.2013.03.009,3,19,5,"sults are given as dry weight as mean standard error of the mean, $n = 4 ( n = 3$ for bioc",sample_conc,True,True,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P00118,B,2010_Qin X et al_EnvironToxicolChem_10.1002-etc.154,2,18,4,"Table 3. Polycyclic aromatic hydrocarbon (PAH) concentrations in crabs, biota-sediment acc",sample_conc,True,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P00118,B,2010_Qin X et al_EnvironToxicolChem_10.1002-etc.154,3,13,5,Table 4. Concentrations of polycyclic aromatic hydrocarbons (PAHs) in worldwide coastal/es,summary_conc,True,True,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P01072,B,2003_Saison C et al_Chemosphere_10.1016-j.chemosphere.2003.10.059,0,5,11,Table 1,conc_like,True,False,True,False,False,reject_landuse_aggregate,"土地利用类型汇总 (全国/全省均值, 非场地采样点)"
+P04081,B,2018_Occurrence_EnvironRes_10.3390-ijerph15071422,0,10,5,Table 1. Detailed descriptions of the sampling sites.,conc_like,True,False,True,False,False,no_header,未找到含污染物信号的表头行
+P03329,B,2021_张友峰等_中国油脂_10.19902-j.cnki.zgyz.1003-7969.2021.07.015,0,14,13,表1 油菜籽皮仁多环芳烃、重金属和硫苷含量,sample_conc,True,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P08445,B,2021_Kalkhajeh YK et al_AgricEcosystEnviron_null,2,20,11,"., 2017a). However, high DnBP levels in Chinese GVP and some other agricultural soils exce",conc_like,True,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P08445,B,2021_Kalkhajeh YK et al_AgricEcosystEnviron_null,3,20,12,"8 %, respectively, were estimated to be exported to the environment in forms of nitrate su",conc_like,True,False,True,False,False,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P08462,B,2021_Li G et al_EnvironTechnolInnov_null_1,0,13,3,"enix and M. sativa Linn were pot-cultured to remediate PAH-contaminated soil, with Fire Ph",summary_conc,True,False,True,True,True,no_header,未找到含污染物信号的表头行
+P08510,B,2021_PAHs et al_EnvironPollut_null,2,42,10,"s mainly originate from man-made sources (Da et al., 2013; Nozar et al., 2014; Chai et al.",summary_conc,True,False,True,True,True,no_data_rows,type=sample samples=0
+P09845,B,0000_Unknown_Unknown_null_11,4,7,5,Table 3-1 Soil background value,conc_like,True,False,True,False,False,no_header,未找到含污染物信号的表头行
+P09845,B,0000_Unknown_Unknown_null_11,6,15,4,Table 3-3 Contents of PAHs in soil,conc_like,True,False,True,True,True,no_pollutant_columns,无列可解析为污染物
+P07770,B,2018_Liu H et al_EcotoxicolEnvironSaf_null,0,18,6,Table 1,summary_conc,True,False,True,True,True,transposed_no_pollutant,转置表无可识别污染物行
+P07154,B,2015_Jiang J et al_EcotoxicolEnvironSaf_null,0,16,4,"e effects on P. cornucopiae growth, and the effect of Cd was higher than phenanthrene. Thi",conc_like,True,False,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P07154,B,2015_Jiang J et al_EcotoxicolEnvironSaf_null,1,10,6,"and microbial diversity, which might result in the enhanced removal of phenanthrene (Xiao ",conc_like,True,False,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P08442,B,2021_Kalkhajeh Y et al_AgricEcosystEnviron_null,2,20,11,"., 2017a). However, high DnBP levels in Chinese GVP and some other agricultural soils exce",conc_like,True,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P08442,B,2021_Kalkhajeh Y et al_AgricEcosystEnviron_null,3,20,12,"8 %, respectively, were estimated to be exported to the environment in forms of nitrate su",conc_like,True,False,True,False,False,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P09817,B,0000_Ren J et al_null,0,21,3,"[This supplement file includes the details about sampling, analysis methods, detection lim",summary_conc,True,False,True,True,True,no_header,未找到含污染物信号的表头行
+P09817,B,0000_Ren J et al_null,13,10,6,Table S9. Comparison of soil concentrations $\left( \mathbf { p g } \ \mathbf { g } ^ { - ,summary_conc,True,True,False,True,False,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P10228,B,2005_Chen Y_EnvironInt_null,0,17,8,of suspended matter containing PAHs and adsorption of dissolved PAHs. Main components of P,conc_like,True,False,True,True,True,ok_samples,"sample 16点, 12条, type=OP"
+P10228,B,2005_Chen Y_EnvironInt_null,1,2,11,Table 2,conc_like,True,False,False,True,False,skip_too_small,2x11
+P10228,B,2005_Chen Y_EnvironInt_null,3,15,6,Table 4,conc_like,True,False,False,True,False,ok_samples,"sample 14点, 22条, type=OP"
+P11184,B,2020_宋梓菡_Unknown_null,26,2,7,Table 6-1 Background values of soil heavy metals in Heilongjiang Province,conc_like,True,False,True,False,False,skip_too_small,2x7
+P11184,B,2020_宋梓菡_Unknown_null,27,21,8,Table 6-2 Heavy metals residue inventory in snowpack-soil system of Harbin,conc_like,True,False,True,False,False,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P05660,B,2002_Zhang G et al_EnvironSciTechnol_null,1,10,7,TABLE 2. Concentrations and Inventories of ∑DDT and ∑HCH,sample_conc,True,True,False,True,False,no_data_rows,type=sample samples=0
+P00137,A,2019_Wang C et al_LandDegradDev_10.1002-ldr.3456_3,0,24,11,TABLE 1 Comparison of polycyclic aromatic hydrocarbons and heavy metals concentrations in ,other,False,True,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P00694,A,2019_Zhang S H_EnvironSciPollutRes_10.1007-s11356-019-04669-2,0,17,7,Table 1 Concentrations of individual and total PAEs in Guiyu soil (ng $\mathrm { g } ^ { -,other,False,True,True,True,True,no_header,未找到含污染物信号的表头行
+P00694,A,2019_Zhang S H_EnvironSciPollutRes_10.1007-s11356-019-04669-2,1,18,10,Table 2 Comparison of concentrations of soil PAEs in different sampling areas $\begin{arra,other,False,True,True,True,True,no_header,未找到含污染物信号的表头行
+P11023,A,2018_任毅_土壤_null,0,11,6,表1 土壤中污染物污染情况,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11023,A,2018_任毅_土壤_null,7,7,10,表8 有机污染土壤异位氧化处置中试检测结果,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P01630,A,2024_Chen L et al_JHazardMater_10.1016-j.jhazmat.2024.136500,2,5,6,"ed was also explored, with four classifications considered: same source–same sink, same so",other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P04669,A,2024_Lu Y et al_Unknown_null,1,6,6,Table 2. Service time and maximum breaking concentration of cutoff walls.,other,False,True,True,True,True,ok_samples,"sample 4点, 8条, type=HM_OP"
+P11456,A,2023_魏晓莉_Unknown_null,1,10,10,表1多环芳烃污染物基本信息,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11456,A,2023_魏晓莉_Unknown_null,4,7,15,表3场地采样区PAHs含量 $\mathrm { ( \mu g \cdot k g ^ { - 1 } ) }$,other,False,True,True,True,True,no_header,未找到含污染物信号的表头行
+P11456,A,2023_魏晓莉_Unknown_null,5,7,10,表 4 场地采样区OPAHs含量 $\mathrm { ( \mu g \cdot k g ^ { - 1 } ) }$,other,False,True,True,True,True,ok_samples,"sample 6点, 24条, type=HM"
+P11456,A,2023_魏晓莉_Unknown_null,8,18,18,表 7葫芦岛场地土壤PAHs与HMs 相关性系数,other,False,False,True,True,True,ok_samples,"sample 17点, 6条, type=HM"
+P11456,A,2023_魏晓莉_Unknown_null,9,8,5,表 8 葫芦岛场地土壤 OPAHs与HMs 相关性系数,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P01182,A,2023_Zhang D et al_Chemosphere_10.1016-j.chemosphere.2023.140288,1,63,6,C | ![](images/1b2bfaac42c317928bf27a52f57c349d29690e96242730d5904f08a1edcafb4e.jpg),other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11424,A,2023_Wu J et al_SciTotalEnviron_null,1,61,23,"plant. Finally, factor 5 accounting for 17.29 % of the total variance is primarily weighte",other,False,False,True,True,True,no_data_rows,type=sample samples=0
+P11439,A,2023_刘泽浩_土壤_null,3,26,3,表2.3试剂药品,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P03780,A,10.3389_fenvs.2022.990471_CrossrefPage,2,26,8,TABLE 3 Concentration of 21 a-PAHs in samples of soil (ng/g).,other,False,True,True,True,True,no_header,未找到含污染物信号的表头行
+P03780,A,10.3389_fenvs.2022.990471_CrossrefPage,5,23,8,TABLE 6 Concentrations of PAHs in surface soils from different areas in China.,other,False,True,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P04243,A,10_3390_ijerph191912860,0,20,7,"Table 1. Concentrations of PCDD/Fs, PCBs, and PCNs of the soil samples and background (BKG",other,False,True,True,True,True,ok_samples,"sample 18点, 18条, type=OP"
+P04243,A,10_3390_ijerph191912860,1,17,6,Table 2. Soil POP concentrations (pg/g) and TEQ (pg WHO-TEQ/g) were reported in previous s,other,False,True,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P10958,A,2017_物联合修_土壤_null,5,17,4,Table2.6 Concentrations of PAHs in biochar aging soils $\left( \mu \mathbf { g } \cdot \ma,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P10958,A,2017_物联合修_土壤_null,10,16,3,Table2.11 Standard curves of the 15 PAHs,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P10958,A,2017_物联合修_土壤_null,13,2,14,Table3.2 Concentrations of PAHs of biochar $( \mu \ g \cdot \ k g ^ { - 1 } )$,other,False,True,True,True,True,skip_too_small,2x14
+P11365,A,2022_陈驰_Unknown_null,12,17,7,Table2.6 Characteristics and content of PAHs in contaminated soil in original soil,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P01219,A,10.1016_j.ecoenv.2020.110651,0,15,10,Table 1,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P01545,A,2018_Wu S et al_JHazardMater_10.1016-j.jhazmat.2018.09.082,1,7,23,n=1 colspan=1>PAHFact3</td><td rowspan=1 colspan=1>-0.3</td><td rowspan=1 colspan=1>0.0</t,other,False,False,True,True,True,ok_samples,"sample 6点, 12条, type=HM"
+P01547,A,2018_Wuetal_JHazardMater_10.1016-j.jhazmat.2018.09.094,1,7,22,td rowspan=1 colspan=1>0.2</td><td rowspan=1 colspan=1>0.2</td></tr><tr><td rowspan=1 cols,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P01301,A,10.1016_j.envpol.2017.08.003,2,4,11,biological toxicity. It is therefore foreseeable that soil properties have co-effects with,other,False,False,True,True,True,ok_samples,"sample 3点, 15条, type=HM_OP"
+P07518,A,2017_Distributions_EnvironRes_10.3390-ijerph14101179,1,11,4,Table 2. Diagnostic ratios reported for PAHs in soils.,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P01539,A,2015_Chen F et al_JHazardMater_10.1016-j.jhazmat.2015.09.068,0,19,7,"re exist many microbial species that are able to degrade PAHs [4]. However, it is difficul",other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P01539,A,2015_Chen F et al_JHazardMater_10.1016-j.jhazmat.2015.09.068,3,36,12,"bacterial strains. PAHs are the main source of toxicity to soil bacteria, whereas fungi/ye",other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P01539,A,2015_Chen F et al_JHazardMater_10.1016-j.jhazmat.2015.09.068,4,19,12,"Various growing plants, together with their associated microflora, have been demonstrated ",other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P01207,A,10.1016_j.ecoenv.2015.09.005,1,57,4,Table 2,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P06579,A,2011_Zhang Q et al_EnvironPollut_null,0,15,13,Samples in abandoned e-waste cycling | Descriptive statistical summary of PCBsa and metals,other,False,False,True,True,True,ok_samples,"sample 14点, 96条, type=HM_OP"
+P06579,A,2011_Zhang Q et al_EnvironPollut_null,2,13,13,Fig. 1. Composition of PCBs in six representative soil samples from the abandoned area (A),other,False,False,True,True,True,ok_transposed,"转置表 11污染物 × 1采样点 = 1条 family={'HM', 'PCBs'}"
+P10733,A,2014_Zhang Q et al_EnvironPollut_null,0,15,13,Samples in abandoned e-waste cycling | Descriptive statistical summary of PCBsa and metals,other,False,False,True,True,True,ok_samples,"sample 14点, 96条, type=HM_OP"
+P10733,A,2014_Zhang Q et al_EnvironPollut_null,2,13,13,Fig. 1. Composition of PCBs in six representative soil samples from the abandoned area (A),other,False,False,True,True,True,ok_transposed,"转置表 11污染物 × 1采样点 = 1条 family={'HM', 'PCBs'}"
+P11546,A,2024_冯博_土壤_null,0,114,3,参考文献... ..85 | ## 图清单,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11546,A,2024_冯博_土壤_null,1,43,3,"=""1"">不同冻融次数CK组土壤中菲迁移情况</td><td colspan=""1"" rowspan=""1"">80</td></tr><tr><td colspan=""1"" row",other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11546,A,2024_冯博_土壤_null,3,13,8,Table 1-1 Properties and molecular structures of 16 PAHs,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11546,A,2024_冯博_土壤_null,4,4,8,续表 1-2 16种 PAHs 的性质和分子结构 | Appendix Table 1-2 Properties and molecular structures of 16 PA,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11546,A,2024_冯博_土壤_null,21,7,7,Table 4-2 Basic properties of PAH derivatives,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11546,A,2024_冯博_土壤_null,26,20,13,"[191] 王展, 邹洪涛, 范庆锋, 等. 冻融作用对土壤胶体及胶体结合态铅迁移的影响[J]. 农业环境科学学报, 2019, 38(02):342-347. | 学位论文数据集",other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P03082,A,2022_李怡佳_环境科学_10.13227-j.hjkx.202112006,1,12,6,Table 2 Design of pollutant concentration in each treatment,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P03082,A,2022_李怡佳_环境科学_10.13227-j.hjkx.202112006,2,10,7,Table 3 PAHs concentration and removal rate in contaminated soil and PAHs absorbing capaci,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P03082,A,2022_李怡佳_环境科学_10.13227-j.hjkx.202112006,4,4,6,Table 4 Pearson correlation analysis of PAHs content in plants and contaminated soil,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P03082,A,2022_李怡佳_环境科学_10.13227-j.hjkx.202112006,5,10,5,Table 5 Diversity index of bacterial community in soil under different treatments,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P00737,A,2010_Tang X et al_JSoilsSediments_10.1007-s11368-010-0252-0,4,12,8,"Table 5 Pearson correlation matrix among pH, SOM, inorganic compounds, and organic compoun",other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P05791,A,2005_Chen L et al_Chemosphere_10.1016-j.chemosphere.2005.01.011,3,14,5,Table 4,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P04395,A,2024_Gao L et al_Plants_10.3390-plants13202839,0,13,5,Table 1. Effects of remediation methods on phenanthrene and naphthalene accumulation in co,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P04395,A,2024_Gao L et al_Plants_10.3390-plants13202839,1,16,6,Table 2. Effects of phenanthrene- and naphthalene-degrading bacteria on biomass yield of c,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P01389,A,10.1016_j.envpol.2022.119716,0,29,7,"average concentration of DDTs in crabs was 30.3 μg/kg, which was significantly higher than",other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11640,A,2025_李鹏淼_Unknown_null,0,9,13,Table 1-1 Physicochemical properties of 16 priority control PAHs,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11640,A,2025_李鹏淼_Unknown_null,1,8,13,续表 1-116 种优先控制 PAHs 的理化性质 | Continued table 1-1 Physicochemical properties of 16 priority ,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11640,A,2025_李鹏淼_Unknown_null,2,2,11,续表 1-116 种优先控制 PAHs 的理化性质 | Continued table 1-1 Physicochemical properties of 16 priority ,other,False,False,True,True,True,skip_too_small,2x11
+P11640,A,2025_李鹏淼_Unknown_null,13,19,6,Table 2-9 Content of PAHs in runoff rainwater in traffic areas,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11640,A,2025_李鹏淼_Unknown_null,14,10,6,Table 2-10 Content of PAHs in runoff rainwater from residential areas,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11640,A,2025_李鹏淼_Unknown_null,15,11,6,续表 2-10 居民区径流雨水中 PAHs 含量 | Continued table 2-10 Content of PAHs in runoff rainwater from r,other,False,True,True,True,True,no_header,未找到含污染物信号的表头行
+P11640,A,2025_李鹏淼_Unknown_null,16,16,6,Table 2-11 Content of PAHs in runoff rainwater from ecological zones,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P00289,A,2006_Leung A et al_JMaterCyclesWasteManag_10.1007-s10163-005-0141-6,3,70,7,Table 4. Concentrations of PCBs in sediment and soil collected from Guiyu (µg/kg dry wt),other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P00289,A,2006_Leung A et al_JMaterCyclesWasteManag_10.1007-s10163-005-0141-6,4,30,4,Table 5. Concentrations of PBDEs in sediment and soil collected from Guiyu (µg/kg dry wt),other,False,True,True,True,True,ok_transposed,转置表 8污染物 × 3采样点 = 24条 family={'PBDEs'}
+P06949,A,2014_Ethers_EnvironHealth_10.1371-journal.pone.0113699,1,21,11,"Table 2. PBDEs (ng/g lipids), Thyroid Hormone and Growth Hormone in Serum of Children, Gui",other,False,True,True,True,True,ok_transposed,转置表 1污染物 × 5采样点 = 5条 family={'PBDEs'}
+P06949,A,2014_Ethers_EnvironHealth_10.1371-journal.pone.0113699,2,9,10,Table 3. Spearman correlation coefficients between PBDEs and some investigated factors in ,other,False,False,True,True,True,ok_samples,"sample 8点, 7条, type=OP"
+P06949,A,2014_Ethers_EnvironHealth_10.1371-journal.pone.0113699,5,44,9,"Table 6. Multiple stepwise regression analysis between PBDEs, Lead, Cadmium, FT3, FT4, TSH",other,False,False,True,True,True,ok_transposed,转置表 1污染物 × 2采样点 = 1条 family={'PBDEs'}
+P08618,A,2021_Zhang T et al_Ecotoxicology_null,1,2,5,## Additional information | Publisher’s note Springer Nature remains neutral with regard t,other,False,False,True,True,True,skip_too_small,2x5
+P05168,A,10_1016_j_ecoenv_2020_110651,0,15,10,Table 1,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P00613,A,2014_Sun L et al_EnvironSciPollutRes_10.1007-s11356-014-3166-7,1,1,5,https://doi.org/10.1007/s11356-014-3171-6 | ## Keywords,other,False,False,True,True,True,skip_too_small,1x5
+P10376,A,2008_Tao S et al_EnvironSciTechnol_null,0,13,12,"4 , 5 , 6 - }$ tetrachloro-m-xylene (TCMX) and 4,4′-dichlorobiphenyl (J&K chemical Ltd., U",other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P01249,A,10.1016_j.ecoenv.2025.118925,1,30,8,Table 2,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P04678,B,10_3390_toxics14050406Toxics,0,18,6,Table 1. Environmental contamination of the Yangtze River Delta and relevant sources causi,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P11024,B,2018_任毅等_土壤_null,0,11,6,表1 土壤中污染物污染情况,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11024,B,2018_任毅等_土壤_null,7,7,10,表8 有机污染土壤异位氧化处置中试检测结果,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11353,B,2022_作者姓名_土壤_null,1,18,5,表2.2美国环境保护署优先控制的16种PAHs,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11353,B,2022_作者姓名_土壤_null,5,24,7,表2.6重金属和PAHs的RfD和SF参考值,other,False,False,True,True,True,ok_transposed,转置表 6污染物 × 6采样点 = 10条 family={'HM'}
+P11657,B,2026_Zhang K et al_EnvironPollut_null,0,18,3,Table 1,other,False,False,True,True,True,transposed_no_data,无有效数值 (rows=1 cols=2)
+P11448,B,2023_谢臣臣_Unknown_null,1,8,2,表2.1水样检测指标及方法,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11638,B,2025_周湘远_Unknown_null,0,89,3,参考文献.... ...71 | 图清单,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11638,B,2025_周湘远_Unknown_null,1,42,3,"olspan=""1"" rowspan=""1"">64</td></tr><tr><td colspan=""1"" rowspan=""1"">图5-14</td><td colspan=""",other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11638,B,2025_周湘远_Unknown_null,5,15,4,Table 1-4 Combined remediation methods for combined pollution in published literature,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11638,B,2025_周湘远_Unknown_null,6,12,4,Table 1-5 Fungal-bacterial remediation of PAHs in published literature,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P01244,B,10.1016_j.ecoenv.2024.116927,0,8,15,Table 1,other,False,False,True,True,True,ok_samples,"sample 6点, 32条, type=HM_OP"
+P03057,B,2017_杨悦锁等_化工学报_10.11949-j.issn.0438-1157.20161805,1,37,10,Table 2 Current situation of HMs and PAHs co-contaminations,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P03203,B,2025_刘晓英_土壤_10.13758-j.cnki.tr.2025.02.001_1,0,18,5,Table 1 Some microbial species and algae that can degrade polycyclic aromatic hydrocarbons,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P04324,B,10_3390_land13111798,0,12,8,Table 1. Types and detection limits (DL) of 53 organic pollutants.,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P09208,B,2024_Zhao L et al_JHazardMater_null,0,33,6,"absorption under 5 kinds of organic Cd stress. In addition, 5 kinds of PAHs were set as ex",other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P09208,B,2024_Zhao L et al_JHazardMater_null,2,6,6,Table 3,other,False,False,True,True,True,transposed_no_pollutant,转置表无可识别污染物行
+P09208,B,2024_Zhao L et al_JHazardMater_null,4,13,5,This study adopted the $\Delta \mathsf { G } _ { \mathrm { b } }$ values of PAHs with micr,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P09208,B,2024_Zhao L et al_JHazardMater_null,6,39,5,"e plant absorption of soil pollutants, when D coexisted with other soil conditioners. Yild",other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11450,B,2023_王晴_土壤_null,1,2,1,><td>[20]</td></tr><tr><td>2 3</td><td>Pb 44.70 Zn 143.52 As 10.29 As 24.3 Cd 2.65 Cr 105 ,other,False,False,True,True,True,skip_too_small,2x1
+P11484,B,2024_Li S et al_EnvironRes_null,0,9,5,Table 1,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P01826,B,10.1016_j.scitotenv.2022.160637,0,28,10,"s of the detection rate and level. These results could be explained by the distinct, but l",other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11360,B,2022_李程_Unknown_null,0,17,9,Table 2-1 Chemical properties of 16 priority-controlled PAHs,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11360,B,2022_李程_Unknown_null,1,9,5,Table 2-2 Compound pollution status of heavy metal Cd and PAHs in site and farmland soils,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P11360,B,2022_李程_Unknown_null,2,12,3,Table 3-1 Basic physical and chemical properties of the tested soil,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11360,B,2022_李程_Unknown_null,3,8,3,Table 3-2 The concentrations of Cd and PAHs in the site soil,other,False,True,True,True,True,no_data_rows,type=sample samples=0
+P11360,B,2022_李程_Unknown_null,4,5,3,Table 3-3 Experimental design of Cd and PAHs treatment (mgkg-1),other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11360,B,2022_李程_Unknown_null,5,18,3,Table 4-1 Experimental design of Cd and PAHs treatment (mgkg-1),other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11360,B,2022_李程_Unknown_null,6,10,4,Table 5-1 Definition of unique differential metabolites in compound pollution,other,False,False,True,True,True,no_data_rows,type=sample samples=0
+P11360,B,2022_李程_Unknown_null,9,13,9,Table 6-1 Sample sequencing data quality,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11421,B,2023_Unknown_SciTotalEnviron_null,0,28,10,"s of the detection rate and level. These results could be explained by the distinct, but l",other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11543,B,2024_于颖_Unknown_null,5,11,10,表2HMs 和PAHs 的毒性参数推荐值（续表）,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11543,B,2024_于颖_Unknown_null,8,16,9,表5 研究场地土壤PAHs 检出浓度范围和平均值（μg/kg),other,False,True,True,True,True,transposed_no_pollutant,转置表无可识别污染物行
+P11543,B,2024_于颖_Unknown_null,11,31,8,表8两种方法的PAHs生物可给性对比研究（%）,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11543,B,2024_于颖_Unknown_null,12,22,21,表9土壤多环芳烃与重金属相关性分析,other,False,False,True,True,True,ok_transposed,转置表 5污染物 × 1采样点 = 5条 family={'HM'}
+P11543,B,2024_于颖_Unknown_null,16,29,4,表 2.5-1污染场地土壤多环芳烃生物可给性研究,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P00418,B,2023_Lu Y et al_EnvironMonitAssess_10.1007-s10661-022-10747-9,1,13,13,Table 2 Correlation analysis between heavy metals and PAHs in soil,other,False,False,True,True,True,ok_samples,"sample 12点, 12条, type=HM_OP"
+P03345,B,2022_Lu Y et al_Unknown_10.21203-rs.3.rs-1769519-v1,1,14,13,Table 2,other,False,False,True,True,True,ok_samples,"sample 13点, 14条, type=HM_OP"
+P00303,B,2021_Zhang T et al_Ecotoxicology_10.1007-s10646-020-02320-2,1,18,11,Table 2 Concentration of PAHs in soil samples surrounding the chemical industry park (mg k,other,False,True,True,True,True,transposed_no_pollutant,转置表无可识别污染物行
+P00720,B,2018_Tian W et al_Nature_10.1007-s11356-021-15781-7,2,6,8,Table 3 Statistical analysis of the PAH pollutant content (mg·g−1 ),other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P00720,B,2018_Tian W et al_Nature_10.1007-s11356-021-15781-7,3,6,6,Table 4 Probability distribution of the PAH concentration (mg·g−1 ),other,False,True,True,True,True,transposed_no_pollutant,转置表无可识别污染物行
+P02402,B,2021_Wang D et al_EnvironTechnol_10.1080-09593330.2021.1946163,0,4,3,"ingle strain, the bioremediation of PAHs using a naturally enriched consortium is more pro",other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P03279,B,2013_赵颖_环境科学_10.16258-j.cnki.1674-5906.2013.07.022,0,11,3,Table 1 The enrichment coefficients and accumulation of PAHs of different tested pasture,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P03279,B,2013_赵颖_环境科学_10.16258-j.cnki.1674-5906.2013.07.022,1,13,8,Table 2 Effects of tested pastures on the degradation of ∑PAHs,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P04376,B,2021_Yin H et al_Molecules_10.3390-molecules26082169,0,24,7,Table 1. Summary of polybrominated diphenyl ether (PBDE) concentrations $\left( \mathrm { ,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P08598,B,2021_Xie T et al_SciTotalEnviron_null,3,9,19,/td><td>83.2</td><td>148.8</td><td></td><td></td><td></td><td></td><td></td><td></td><td><,other,False,False,True,True,True,ok_samples,"sample 4点, 9条, type=HM_OP"
+P11292,B,2021_卢晓丽_Unknown_null,1,16,2,Table 2-2 Toxic equivalent factors of 14 PAHs,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11292,B,2021_卢晓丽_Unknown_null,2,16,3,Table 2-3 Biotoxicity evaluation criteria for PAHs(μg·kg-1),other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11292,B,2021_卢晓丽_Unknown_null,5,17,9,Table 3-1 Descriptive statistic analysis for farmland soil PAHs contents(μg·kg-1),other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11292,B,2021_卢晓丽_Unknown_null,7,9,5,Table 3-3 Comparison of farmland soil ΣPAHs content in different domestic areas,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11292,B,2021_卢晓丽_Unknown_null,8,16,6,Table 3-4 Distribution feature of farmland soil PAHs content,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11292,B,2021_卢晓丽_Unknown_null,9,15,8,Table 3-5 Theoretical model and related parameters of farmland soil PAHs variation functio,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11292,B,2021_卢晓丽_Unknown_null,10,16,3,Table 3- 6 Rotation load matrix of each principal component factor of farmland soil PAHs,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11292,B,2021_卢晓丽_Unknown_null,11,20,6,Table 4-1 Statistic analysis characteristics for agricultural soil PAHs contents (μg ·kg-1,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11292,B,2021_卢晓丽_Unknown_null,12,21,6,100.00</td><td>0.3876~7.78</td><td>100.00</td></tr><tr><td>苯并[a]芘</td><td>5</td><td>0.28~3,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11292,B,2021_卢晓丽_Unknown_null,13,9,6,Table 4-2 Comparison of agricultural soil ΣPAHs content in different domestic areas $\left,other,False,False,True,True,True,ok_samples,"sample 8点, 8条, type=OP"
+P11292,B,2021_卢晓丽_Unknown_null,15,11,9,"Table 4-4 Correlations between the organic matter content,pH and PAHs",other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11292,B,2021_卢晓丽_Unknown_null,16,10,8,163</td><td>-0.045</td><td>-0.838**</td><td>-0.809*</td><td>-0.416</td><td>-0.728*</td><td,other,False,False,True,True,True,no_data_rows,type=sample samples=0
+P11292,B,2021_卢晓丽_Unknown_null,17,18,5,Table 5-1 Toxic equivalent concentration of PAHs in farmland soil,other,False,True,True,True,True,ok_transposed,转置表 1污染物 × 4采样点 = 4条 family={'PAHs'}
+P11292,B,2021_卢晓丽_Unknown_null,18,7,8,Table 5-2 Soil PAHs criterions of Netherland and Canada(μg·kg-1),other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11292,B,2021_卢晓丽_Unknown_null,20,17,7,Table 5-4 Toxicity assessment results of PAHs,other,False,False,True,True,True,ok_transposed,转置表 1污染物 × 4采样点 = 4条 family={'PAHs'}
+P11294,B,2021_李敏_Unknown_null,6,2,7,## 一、已发表（包括已接受待发表）的论文，以及已投稿、或已成文打算投稿、或拟成文投稿的 | ## 论文情况（只填写与学位论文内容相关的部分）：,other,False,False,True,True,True,skip_too_small,2x7
+P11294,B,2021_李敏_Unknown_null,7,5,2,李敏 | 2021年4月于华南理工大学,other,False,False,True,True,True,no_data_rows,type=sample samples=0
+P11447,B,2023_毛_Unknown_null,4,16,13,Table 2-5 Summary of Site Pollution Identification,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11447,B,2023_毛_Unknown_null,5,13,12,续表2-5场地污染识别汇总表 | Continued Table 2-5 Summary of Site Pollution Identification,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P00036,B,10.1002_ldr.3857,0,14,4,Table 1 Accumulation of Pb (mg kg−1) in I. balsamina tissues under different Pb and PCBs t,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P01272,B,10.1016_j.envint.2019.105421,0,7,4,oenix. The letter ${ } ^ { \mathfrak { s c } } \mathbf { S } \mathbf { P } ^ { \mathfrak {,other,False,False,True,True,True,no_data_rows,type=sample samples=0
+P03858,B,2020_Heetal_Agriculture_10.3390-agriculture10020047,1,15,9,"Table 2. Descriptive statistics (means ± (sd)) of pH, heavy metals (mg/kg) and pesticide r",other,False,True,True,True,True,no_header,未找到含污染物信号的表头行
+P03858,B,2020_Heetal_Agriculture_10.3390-agriculture10020047,4,8,7,Table 5. Pesticide residue pollution indices for each soil pesticide residue in the soil s,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P08155,B,2020_He H et al_Agriculture_null,1,15,9,"Table 2. Descriptive statistics (means ± (sd)) of pH, heavy metals (mg/kg) and pesticide r",other,False,True,True,True,True,no_header,未找到含污染物信号的表头行
+P08155,B,2020_He H et al_Agriculture_null,4,8,7,Table 5. Pesticide residue pollution indices for each soil pesticide residue in the soil s,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11155,B,2020_Shi J et al_EcotoxicolEnvironSaf_null,0,15,10,Table 1,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P11182,B,2020_何明江_Land_null,13,11,4,Table 5-2 TEFof16PAHs,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P11182,B,2020_何明江_Land_null,20,17,8,Table 6-1 Statistics of soil heavy metals and PAHs in combined sites,other,False,False,True,True,True,transposed_no_pollutant,转置表无可识别污染物行
+P01746,B,2019_Zeng S et al_SciTotalEnviron_10.1016-j.scitotenv.2019.05.291,1,11,11,Table 2,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P01746,B,2019_Zeng S et al_SciTotalEnviron_10.1016-j.scitotenv.2019.05.291,2,10,7,"proximately be 17.39% (Reimann and Caritat, 2012). Therefore, we believe that the stricter",other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P02495,B,2018_Jeelani N et al_Land_10.1080-15226514.2018.1425666,0,8,5,"ils treated with Cd or PAHs. Bars $( \mathsf { m e a n } \pm \mathsf { S E } , n = 3 )$ wi",other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P03275,B,2016_韩文辉_环境科学_10.16258-j.cnki.1674-5906.2016.09.021,1,17,6,Table 2 Content characteristics of soil pollutants and fertility indicators,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P03275,B,2016_韩文辉_环境科学_10.16258-j.cnki.1674-5906.2016.09.021,3,16,5,Table 4 Factor loading matrix of main components of the soil from sewage irrigation,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P03303,B,2018_Wan X et al_SoilWaterRes_10.17221-211-2017-SWR_3,0,25,12,Table 1. Concentrations of pollutants in soil under different land-use types (in mg/kg),other,False,True,True,True,True,reject_landuse_aggregate,"土地利用类型汇总 (全国/全省均值, 非场地采样点)"
+P03303,B,2018_Wan X et al_SoilWaterRes_10.17221-211-2017-SWR_3,1,11,6,Table 2. Over-standard rates of pollutants in soil under different land-use types (in %),other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P03303,B,2018_Wan X et al_SoilWaterRes_10.17221-211-2017-SWR_3,2,11,8,Table 3. Concentrations of pollutants in soil at different areas of China (in mg/kg),other,False,True,True,True,True,no_header,未找到含污染物信号的表头行
+P03303,B,2018_Wan X et al_SoilWaterRes_10.17221-211-2017-SWR_3,3,11,7,Table 4. Over-standard rate of pollutants in soil at different areas of China (in %),other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P03303,B,2018_Wan X et al_SoilWaterRes_10.17221-211-2017-SWR_3,4,10,10,Table 5. Correlation analysis of pollutants,other,False,False,True,True,True,ok_samples,"sample 9点, 25条, type=HM"
+P04085,B,2018_Metals_EnvironRes_10.3390-ijerph15081731,0,3,7,Table 1. Physicochemical properties of polycyclic aromatic hydrocarbons (PAHs).,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11293,B,2021_土壤中_土壤_null,7,4,4,Table 3.4Standard curve of PAHs measured by HPLC,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11293,B,2021_土壤中_土壤_null,13,6,5,Table 5.1Influence of the different co-solvents on the extracted fraction of PAHs and Cd.,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P04056,B,10_3390_ijerph14101198,1,11,4,Table 2. Diagnostic ratios reported for PAHs in soils.,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P02317,B,2016_Yan X et al_Radioprotection_10.1051-radiopro-2015022,0,8,10,"Table 1. The concentrations of radionuclides, heavy metals and OCPs of analyzed farmland s",other,False,True,True,True,True,ok_samples,"sample 7点, 7条, type=HM_OP"
+P02317,B,2016_Yan X et al_Radioprotection_10.1051-radiopro-2015022,1,10,10,Table 2. Correlation coefficients between soil pollutants.,other,False,False,True,True,True,ok_samples,"sample 9点, 26条, type=HM_OP"
+P02317,B,2016_Yan X et al_Radioprotection_10.1051-radiopro-2015022,3,10,5,"Table 3. Standards for radionuclides, heavy metals and OCPs in soil (mg kg−1).",other,False,True,True,True,True,no_header,未找到含污染物信号的表头行
+P05261,B,10_1080_10406638_2016_1143847,0,2,8,this study were taken in the summer of 2012 from the 0–10 cm surface layer of an agricultu,other,False,False,True,True,True,skip_too_small,2x8
+P10878,B,2016_Zeng J et al_Chemosphere_null,0,16,4,Table 1 Concentrations of 15 PAHs in reaction mixture.,other,False,True,True,True,True,transposed_no_pollutant,转置表无可识别污染物行
+P00761,B,10.1007_s11368-015-1341-x,2,10,15,Table 3,other,False,False,True,True,True,transposed_no_pollutant,转置表无可识别污染物行
+P00761,B,10.1007_s11368-015-1341-x,3,10,4,Table 4 Bond length (r) and interaction energy (G) between PAHs and heavy metal cations,other,False,False,True,True,True,transposed_no_pollutant,转置表无可识别污染物行
+P03076,B,2011_摘要_环境科学_10.13209-j.0479-8023.2011.022,3,18,4,Table 4 Principal component eigenvalues of PAHs in agricultural soils from Dongguan,other,False,True,True,True,True,no_header,未找到含污染物信号的表头行
+P03076,B,2011_摘要_环境科学_10.13209-j.0479-8023.2011.022,4,18,4,Table 5 Component Matrix of PAHs in agricultural soils from Dongguan,other,False,True,True,True,True,transposed_no_pollutant,转置表无可识别污染物行
+P03076,B,2011_摘要_环境科学_10.13209-j.0479-8023.2011.022,5,5,9,Table 6 Correlation between PAHs，heavy metals，pH and organic materials in agricultural soi,other,False,True,True,True,True,ok_samples,"sample 4点, 1条, type=HM_OP"
+P10812,B,2016_Chen F et al_JHazardMater_null,0,19,7,"re exist many microbial species that are able to degrade PAHs [4]. However, it is difficul",other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P10812,B,2016_Chen F et al_JHazardMater_null,3,36,12,"bacterial strains. PAHs are the main source of toxicity to soil bacteria, whereas fungi/ye",other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P10812,B,2016_Chen F et al_JHazardMater_null,4,19,12,"Various growing plants, together with their associated microflora, have been demonstrated ",other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P00612,B,2014_Sun L et al_EnvironSciPollutRes_10.1007-s11356-014-3171-6,0,11,8,"ntrations were relatively lower at coke power site; however, compared to the background, t",other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P00612,B,2014_Sun L et al_EnvironSciPollutRes_10.1007-s11356-014-3171-6,1,39,14,Table 2 Concentrations of heavy metal (mg/kg) and ∑16 PAHs (μg/kg) in plant and correspond,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P00612,B,2014_Sun L et al_EnvironSciPollutRes_10.1007-s11356-014-3171-6,2,14,4,Table 3 Correlation coefficients between heavy metal elements and ∑16 PAHs of soil and pla,other,False,False,True,True,True,ok_samples,"sample 12点, 6条, type=HM_OP"
+P00612,B,2014_Sun L et al_EnvironSciPollutRes_10.1007-s11356-014-3171-6,3,10,8,Table 4 Principal component analysis factors and loadings for heavy metal and ∑16 PAHs con,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P02376,B,2014_Tangetal_ChemEcol_10.1080-02757540.2013.844798,0,10,7,"Table 1. Concentrations of PBDEs in soil collected from Taizhou, China (μg/kg dry wt).",other,False,True,True,True,True,ok_transposed,转置表 1污染物 × 6采样点 = 6条 family={'PBDEs'}
+P02376,B,2014_Tangetal_ChemEcol_10.1080-02757540.2013.844798,2,15,15,"Table 3 . Pearson correlation matrix among pH, SOM, inorganic and organic compounds .",other,False,False,True,True,True,ok_samples,"sample 13点, 53条, type=HM_OP"
+P06121,B,2008_Peng C et al_EnvironPollut_null,1,13,12,"LMW PAHs denotes low-molecular-weight PAHs containing 2e3 rings (NAP, ACPY, ACP, FL, PHE, ",other,False,False,True,True,True,ok_samples,"sample 7点, 24条, type=HM_OP"
+P06840,B,2013_Peng C et al_EnvironPollut_null,1,13,12,"LMW PAHs denotes low-molecular-weight PAHs containing 2e3 rings (NAP, ACPY, ACP, FL, PHE, ",other,False,False,True,True,True,ok_samples,"sample 7点, 24条, type=HM_OP"
+P00742,B,2012_Wang K et al_JSoilsSediments_10.1007-s11368-012-0471-7,2,18,7,"Table 3 PAHs removal rate, dehydrogenase activity and microbial biomass C in soils influen",other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P02268,B,10_1039_c2em30433c,0,19,11,Table 1 Total PAHs concentrations of all samples with TEFs values from the Tiefa coal mini,other,False,True,True,True,True,no_header,未找到含污染物信号的表头行
+P02368,B,2012_Wang X S et al_IntJEnvironStud_10.1080-00207233.2012.702414,0,19,7,Table 1. Physicochemical properties of PAHs of interest [14].,other,False,False,True,True,True,transposed_no_data,无有效数值 (rows=1 cols=6)
+P03109,B,2015_叶昊_土壤_10.13421-j.cnki.hjwsxzz.2015.03.025,1,7,6,表2 不同电子垃圾拆解场土壤中有机污染物含量,other,False,True,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P11676,B,2014_英文并_土壤_null,2,37,4,表1-3土壤污染植物修复进展,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,4,24,4,Table 4-l The adding amount of pollutant under each treatment,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,7,5,4,Table4-4 Net change on dry weight of root、stem and leafunder different combinative level o,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,8,5,4,Table4-5 Net change on dry weight of root、stem and leaf under different combinative level ,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,9,5,4,Table4-6 Net change on dry weight of root、stem and leaf under different combinative level ,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,12,5,3,Table 4-9 Net change on dry weight of root、stem and leaf under different combinative level,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,13,5,3,Table 4-10 Net change on dry weight of root、stem and leaf under different combinative leve,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,14,5,4,Table4-ll Net change on dry weight of root、stem and leaf under different combinative level,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,16,4,4,Table 4-l3 Net change on dry weight of root and stem&leaf under different combinative leve,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,17,4,4,Table4-l4 Net change on dry weight of root and stem&leaf under different combinative level,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,18,4,4,Table4-15 Net change on dry weight of root and stem&leaf under different combinative level,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,19,4,4,Table4-16 Net change on dry weight of root and stem&leaf under different combinative level,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,21,27,5,Table4-17 Effects of diferent pollution treatment on the leaf pigments of sorghum×sudan gr,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,27,14,4,Table5-3 Cu contents in Ryegrass under different treatments (mg·kg-1),other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11676,B,2014_英文并_土壤_null,30,13,5,Table5-5 Cd contents in Zea mays.L under different treatments (mg·kg-'）,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11191,B,2020_李婷_环境科学_null,1,17,3,Table 2-2 Monitoring factors and analysis methods,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11191,B,2020_李婷_环境科学_null,3,35,3,Table 2-3 List of experimental reagents,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11191,B,2020_李婷_环境科学_null,20,14,6,Table 3-15 Contents of PAHs detected in soil (mg / kg),other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11191,B,2020_李婷_环境科学_null,23,9,5,Table 3-18 Contents of PAHs detected in soil (mg / kg),other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P00242,B,2011_Lopez B N et al_ArchEnvironContamToxicol_10.1007-s00244-010-9590-6,1,23,6,Table 2 Concentrations of PCB compounds (ng/g dw),other,False,True,True,True,True,transposed_no_data,无有效数值 (rows=2 cols=4)
+P00242,B,2011_Lopez B N et al_ArchEnvironContamToxicol_10.1007-s00244-010-9590-6,2,13,5,Table 3 Concentrations (ng/g dw) of PBDEs in soil,other,False,True,True,True,True,ok_transposed,转置表 1污染物 × 4采样点 = 2条 family={'PBDEs'}
+P00242,B,2011_Lopez B N et al_ArchEnvironContamToxicol_10.1007-s00244-010-9590-6,3,14,6,Table 4 Concentrations of PBDE congeners at e-waste sites in China (ng/g dw),other,False,True,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P00242,B,2011_Lopez B N et al_ArchEnvironContamToxicol_10.1007-s00244-010-9590-6,5,33,6,"Table 6 Comparison of total concentrations of PAHs, PCBs, and PBDEs between this study and",other,False,True,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P01524,B,2010_Tangetal_JHazardMater_10.1016-j.jhazmat.2009.08.134,3,15,13,Table 4,other,False,False,True,True,True,ok_transposed,转置表 2污染物 × 12采样点 = 24条 family={'PCBs'}
+P01524,B,2010_Tangetal_JHazardMater_10.1016-j.jhazmat.2009.08.134,4,15,7,Table 5,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P00258,B,2002_Chen G et al_EnvironManage_10.1007-s00267-008-9268-2,0,28,6,"Table 1 Basic soil properties, concentrations of PAHs and heavy metals (10-1 ppm, dry soil",other,False,True,True,True,True,ok_transposed,"转置表 12污染物 × 5采样点 = 1条 family={'PAHs', 'HM'}"
+P00258,B,2002_Chen G et al_EnvironManage_10.1007-s00267-008-9268-2,3,11,6,"Table 4 The relationships between metal population index (Pi), total heavy metals, PAHs, a",other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P10369,B,2008_Khan S et al_JHazardMater_null,1,18,5,Fig. 3. The profile of LMW-PAHs concentrations in root and shoot tissues on dry weight bas,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P00310,B,2006_Xing W_EnvironGeochemHealth_10.1007-s10653-005-9017-x,1,24,6,Table 2. Average concentrations of 16 PAHs in soils in a valley in southeast China $( \mu ,other,False,True,True,True,True,transposed_no_data,无有效数值 (rows=1 cols=0)
+P01085,B,2006_Song Y et al_Chemosphere_10.1016-j.chemosphere.2006.03.076,2,13,13,"Fig. 2. Percentage distributions of eight PCB congeners in soils (%): (a) from Shenyang, C",other,False,False,True,True,True,ok_samples,"sample 11点, 66条, type=HM"
+P03211,B,2012_于红艳_土壤_10.13961-j.cnki.stbctb.2012.05.022,2,10,8,表3 正交试验计算结果,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P03211,B,2012_于红艳_土壤_10.13961-j.cnki.stbctb.2012.05.022,3,13,5,表4 污染物降解率及残留率正交试验极差分析,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P10294,B,2006_Shen G et al_EcotoxicolEnvironSaf_null,2,11,7,O O } ) _ { 2 } ] .$ and then $\mathrm { C H } _ { 2 } \mathrm { C l } _ { 2 }$ solution o,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P01492,B,2005_Shenetal_JEnvironManage_10.1016-j.jenvman.2005.02.011,1,28,12,Table 2,other,False,False,True,True,True,ok_samples,"sample 10点, 31条, type=HM_OP"
+P01492,B,2005_Shenetal_JEnvironManage_10.1016-j.jenvman.2005.02.011,2,10,10,STD : Standard deviation; CV : Coefficients of variation (STD/mean ! 1 00%) . | Correlatio,other,False,False,True,True,True,ok_samples,"sample 9点, 36条, type=HM_OP"
+P01492,B,2005_Shenetal_JEnvironManage_10.1016-j.jenvman.2005.02.011,3,10,4,"e of the membership function, the membership degrees of each assessment parameter can be c",other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P03322,B,2018_周玉璇_环境科学_10.19741-j.issn.1673-4831.2018.0669,1,37,7,Table 2 Current situation of heavy metals and PAHs combined pollution,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P03322,B,2018_周玉璇_环境科学_10.19741-j.issn.1673-4831.2018.0669,2,6,3,Table 3 The research of interaction between heavy metals and PAHs,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P03322,B,2018_周玉璇_环境科学_10.19741-j.issn.1673-4831.2018.0669,3,9,5,Table 4 The effect of washing remediation by using mixed reagent and anionic chelating sur,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P03322,B,2018_周玉璇_环境科学_10.19741-j.issn.1673-4831.2018.0669,6,5,4,Table 7 The review of remediation technologies for heavy metals and PAHs combined pollutio,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P03323,B,2023_周宣辛_环境科学_10.19672-j.cnki.1003-6504.0346.23.338,0,17,5,Table 1 Types of PAHs determined,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P05700,B,2003_Shen G et al_Water_null,1,28,12,Table 2,other,False,False,True,True,True,ok_samples,"sample 10点, 31条, type=HM_OP"
+P05700,B,2003_Shen G et al_Water_null,2,10,10,STD : Standard deviation; CV : Coefficients of variation (STD/mean ! 1 00%) . | Correlatio,other,False,False,True,True,True,ok_samples,"sample 9点, 36条, type=HM_OP"
+P05700,B,2003_Shen G et al_Water_null,3,10,4,"e of the membership function, the membership degrees of each assessment parameter can be c",other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P10247,B,2005_Shen G et al_JEnvironManage_null,1,28,12,Table 2,other,False,False,True,True,True,ok_samples,"sample 10点, 31条, type=HM_OP"
+P10247,B,2005_Shen G et al_JEnvironManage_null,2,10,10,STD : Standard deviation; CV : Coefficients of variation (STD/mean ! 1 00%) . | Correlatio,other,False,False,True,True,True,ok_samples,"sample 9点, 36条, type=HM_OP"
+P10247,B,2005_Shen G et al_JEnvironManage_null,3,10,4,"e of the membership function, the membership degrees of each assessment parameter can be c",other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11637,B,2025_刘君博_Unknown_null,6,22,17,Table2-6 The concentrations of PAHs in dust from Chengdu and other or cities,other,False,True,True,True,True,transposed_no_pollutant,转置表无可识别污染物行
+P11637,B,2025_刘君博_Unknown_null,7,23,4,"Table2-7 Analysis of the influence of outdoor, kitchen dust and soil on the content of hea",other,False,False,True,True,True,ok_transposed,转置表 4污染物 × 3采样点 = 9条 family={'HM'}
+P00116,B,2025_Yan K et al_Unknown_10.1002-ep.70148,3,16,19,"TABLE 4 Contents, ecotoxicity, and TECi of PAHs in cooking solid wastes. ABLE 4",other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P03113,B,2020_刘瑞_环境科学_10.13651-j.cnki.fjnykj.2020.11.008,1,21,8,Table 2High-frequency keywords,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P03113,B,2020_刘瑞_环境科学_10.13651-j.cnki.fjnykj.2020.11.008,2,11,6,Table 3Top 1O literatures with the highest frequency of citation,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P01583,B,2021_Lin S et al_EnvironPollut_10.1016-j.jhazmat.2021.127792_1,1,2,6,Table 1 (continued ),other,False,False,True,True,True,skip_too_small,2x6
+P10991,B,2018_Liu J et al_EnvironPollut_null,0,24,13,ween the variable combination and bacterial community composition was further supported by,other,False,False,True,True,True,ok_samples,"sample 22点, 154条, type=HM_OP"
+P08697,B,2022_Lin S et al_JHazardMater_null,1,2,6,Table 1 (continued ),other,False,False,True,True,True,skip_too_small,2x6
+P01098,B,2016_Zeng J et al_Chemosphere_10.1016-j.chemosphere.2016.01.019,0,16,4,Table 1 Concentrations of 15 PAHs in reaction mixture.,other,False,True,True,True,True,transposed_no_pollutant,转置表无可识别污染物行
+P11290,B,2021_刘瑞_Unknown_null,0,17,7,Table 1Some physical and chemical properties of the 16 PAHs,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11290,B,2021_刘瑞_Unknown_null,2,11,5,Table 1-1 Removal experiment of TCS and PAHs by TCSdegB2 on solid medium,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11290,B,2021_刘瑞_Unknown_null,3,13,5,Table 3-2TCSdegB2 removal eficiency experiment of TCS and PAHs in an anaerobic pure cultur,other,False,False,True,True,True,no_data_rows,type=sample samples=0
+P00252,B,10.1007_s00248-013-0313-1,1,75,5,Table 2 Identification of bacteria in the sand batch with only artificial root exudates (A,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P02893,B,2013_Zhu X M et al_BiomedResInt_10.1155-2013-192986,1,18,3,"Table 2: Concentrations (mean ± SD, ng⋅g−1 DW, ?? = 10) of PAHs detected in the fronds of ",other,False,True,True,True,True,transposed_no_data,无有效数值 (rows=1 cols=2)
+P00118,B,2010_Qin X et al_EnvironToxicolChem_10.1002-etc.154,0,9,4,Table 1. Abbreviations for the 16 priority polycyclic aromatic hydrocarbons (PAHs) defined,other,False,False,True,True,True,transposed_no_pollutant,转置表无可识别污染物行
+P04895,B,2020_Elzein A et al_AtmosChemPhys_10.5194-acp-20-14303-2020,0,28,5,"Table 1. Minimum, maximum and mean concentrations of individual PAHs in $\mathrm { P M } _",other,False,True,True,True,True,transposed_no_data,无有效数值 (rows=6 cols=4)
+P01318,B,2019_Zheng X et al_EnvironPollut_10.1016-j.envpol.2018.12.055,0,13,6,Table 1. General characteristics of the study population in the exposed and reference grou,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P01318,B,2019_Zheng X et al_EnvironPollut_10.1016-j.envpol.2018.12.055,2,2,4,Fig. 2. | BPb£OHNap£OHFIu MOHPAHS100A8/A9 IL-6IL-12p70 IP-10 NeutrophilsMonocytesCD4,other,False,False,True,True,True,skip_too_small,2x4
+P01706,B,2018_Xu H et al_SciTotalEnviron_10.1016-j.scitotenv.2017.08.101,0,50,4,Table 1 Summary of VFPs mass concentrations and chemical compositions during the sampling ,other,False,True,True,True,True,no_header,未找到含污染物信号的表头行
+P01706,B,2018_Xu H et al_SciTotalEnviron_10.1016-j.scitotenv.2017.08.101,1,19,5,## Table 2 | Correlations of PAHs with OC and EC outdoors and indoors. (Indoor calculation,other,False,False,True,True,True,ok_transposed,转置表 1污染物 × 4采样点 = 4条 family={'PAHs'}
+P04081,B,2018_Occurrence_EnvironRes_10.3390-ijerph15071422,2,16,6,Table 3. List of sources of PAHs concentrations in source water and drinking water in the ,other,False,True,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P10444,B,2009_Zhao C et al_JChromatogrSci_null,0,22,6,Table I. Recovery and RSD\* of the Determination of the 12 OCPs and Catalpol in the Rehman,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P10444,B,2009_Zhao C et al_JChromatogrSci_null,1,5,5,Table II. Factors and Levels of SFE for OCP in Rehmannia glutinosa Libosch,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P10444,B,2009_Zhao C et al_JChromatogrSci_null,2,16,6,Table III. Orthogonal Array L9(34) and Decontamination of OCP Residue from Rehmannia gluti,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P10444,B,2009_Zhao C et al_JChromatogrSci_null,4,7,14,Table V. Results of OCP and Catalpol Determination in a Rehmannia glutinosa Libosch Sample,other,False,False,True,True,True,ok_samples,"sample 5点, 4条, type=OP"
+P10444,B,2009_Zhao C et al_JChromatogrSci_null,5,6,5,"n extraction time, and 35 kg/h flow rate. The SFE was used to remove the 12 OCP residues f",other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P04902,B,2021_Sun Y et al_AtmosChemPhys_10.5194-acp-21-6365-2021,0,19,3,Table 1. Error budget and degrees of freedom (DOFs) for the signal of the HCHO retrieval a,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P04902,B,2021_Sun Y et al_AtmosChemPhys_10.5194-acp-21-6365-2021,1,20,14,Table 2. Total emissions of all atmospheric compounds over China used in the GEOS-Chem mod,other,False,False,True,True,True,ok_samples,"sample 17点, 9条, type=HM_OP"
+P05091,B,10_1002_(SICI,1,2,5,## Additional information | Publisher’s note Springer Nature remains neutral with regard t,other,False,False,True,True,True,skip_too_small,2x5
+P08445,B,2021_Kalkhajeh YK et al_AgricEcosystEnviron_null,0,23,9,Table 1,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P09845,B,0000_Unknown_Unknown_null_11,11,16,15,"污染土壤中的5环多环芳烃，包括苯并i]荧蒽、苯并[e]芘、苯并[a]芘三种组分，6环多环芳烃只有芘并[1,2,3-cd]芘一种组分。苯并[i]荧蒽、苯并[e]芘在盆栽实验 90d后",other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P09845,B,0000_Unknown_Unknown_null_11,12,4,5,><td>£PAHs</td><td></td><td>151.56d</td><td>36.58</td><td>132.81e</td><td>44.42</td><td>13,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P07770,B,2018_Liu H et al_EcotoxicolEnvironSaf_null,1,7,4,Table 2,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P10347,B,2007_Unknown_Nature_null,0,18,4,Table 1 The coefficient of divergence (CD) of total and individual PAHs among the three di,other,False,False,True,True,True,transposed_no_pollutant,转置表无可识别污染物行
+P10347,B,2007_Unknown_Nature_null,1,20,9,"Table 2 Concentrations and Bap equivalent concentrations of PAHs in agriculture soil (AS),",other,False,True,True,True,True,transposed_no_pollutant,转置表无可识别污染物行
+P08442,B,2021_Kalkhajeh Y et al_AgricEcosystEnviron_null,0,23,9,Table 1,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P09817,B,0000_Ren J et al_null,4,27,16,Table S3. Concentrations of POPs in the field blanks (pg $\mathbf { m } ^ { - 3 } )$ and p,other,False,True,True,True,True,ok_samples,"sample 25点, 62条, type=OP"
+P09817,B,0000_Ren J et al_null,6,20,18,Table S5. Concentrations of atmospheric OCPs and PCBs (pg m-3) sampled by AAS,other,False,True,True,True,True,ok_samples,"sample 19点, 54条, type=OP"
+P09817,B,0000_Ren J et al_null,7,16,10,Table S6. Comparison of air concentrations (pg m-3) between the present study and others r,other,False,True,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P09817,B,0000_Ren J et al_null,8,7,5,Table S7. Ambient air concentrations in different seasons (summer vs. winter),other,False,True,True,True,True,ok_samples,"sample 6点, 8条, type=OP"
+P09817,B,0000_Ren J et al_null,9,4,5,Table S7. Ambient air concentrations in different seasons (summer vs. winter),other,False,True,True,True,True,ok_samples,"sample 3点, 9条, type=OP"
+P09817,B,0000_Ren J et al_null,14,4,5,Table S10. Results of the ANOVA test (p values) for the soil concentrations in different s,other,False,True,True,True,True,ok_samples,"sample 3点, 9条, type=OP"
+P09817,B,0000_Ren J et al_null,18,20,17,"Table S12. Measured soil-air partitioning coefficient (Log $K _ { \mathrm { S A } } , \mat",other,False,False,True,True,True,ok_samples,"sample 19点, 45条, type=OP"
+P09817,B,0000_Ren J et al_null,19,27,13,Table S13. Air-soil gas exchange fluxes $( \mathbf { p } \mathbf { g \ m } ^ { - 2 } \math,other,False,False,True,True,True,ok_samples,"sample 22点, 41条, type=OP"
+P10531,B,2011_Peng C et al_null_null,1,24,4,Table S2 Rotated component matrix for PAHs and heavy metals,other,False,False,True,True,True,ok_transposed,转置表 6污染物 × 3采样点 = 18条 family={'HM'}
+P03108,B,10.13421_j．cnki．hjwsxzz,1,7,6,表2 不同电子垃圾拆解场土壤中有机污染物含量,other,False,True,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P10518,B,2011_Fu J. et al_Chemosphere_null,0,34,11,"smantling region. In another intensive e-waste recycling site, Guiyu, Wu et al. (2008) fou",other,False,False,True,True,True,ok_transposed,转置表 1污染物 × 10采样点 = 7条 family={'PBDEs'}
+P09516,B,2026_Microplastics M et al_Science_10.3390-toxics14050406Toxics,0,18,6,Table 1. Environmental contamination of the Yangtze River Delta and relevant sources causi,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"
+P11628,B,2025_Wu J et al_EnvironPollut_null,1,30,8,Table 2,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P01482,B,2022_Zhang Z et al_JCleanProd_10.1016-j.jclepro.2022.135417,0,15,7,Table 1,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P01482,B,2022_Zhang Z et al_JCleanProd_10.1016-j.jclepro.2022.135417,1,5,7,ned load was the total amount of pollutant load which was retained in the bioretention sys,other,False,False,True,True,True,ok_samples,"sample 3点, 12条, type=HM_OP"
+P03118,B,2008_孙峰_环境科学_10.13671-j.hjkxxb.2008.12.004,2,18,10,Table3 ThecontentofPAHsindifferentsludges,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P07445,B,2016_Wang H et al_PolJEnvironStud_10.15244-pjoes-62904,0,28,5,"Table 1. Concentrations of heavy metals, PAHs, and PCBs in Taizi River surface in the floo",other,False,True,True,True,True,ok_transposed,"转置表 9污染物 × 4采样点 = 12条 family={'PAHs', 'HM', 'PCBs'}"
+P11184,B,2020_宋梓菡_Unknown_null,0,18,9,Table 1-1 Physical and chemical parameters of 16 PAHs of US EPA superior control,other,False,False,True,True,True,transposed_no_pollutant,转置表无可识别污染物行
+P11184,B,2020_宋梓菡_Unknown_null,2,8,3,Table 1-3 Main sources of PAHs and heavy metals in the atmospheric environment,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11184,B,2020_宋梓菡_Unknown_null,4,17,7,Table 3-1 Characteristic value of PAHs concentrations in snowpack of Harbin,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11184,B,2020_宋梓菡_Unknown_null,7,17,7,Table 3-4 Characteristic value of PAHs concentrations in dissolved phase in snowpack of Ha,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11184,B,2020_宋梓菡_Unknown_null,8,17,7,Table 3-5 Characteristic value of PAHs concentrations in particle phase in snowpack of Har,other,False,True,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11184,B,2020_宋梓菡_Unknown_null,10,17,17,Table 3-7 Pearson correlation of 16 PAHs of US EPA superior control in snowpack of Harbin,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11184,B,2020_宋梓菡_Unknown_null,12,7,17,Table 3-9 Pearson correlation of PAHs and heavy metals in snowpack of Harbin,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P11184,B,2020_宋梓菡_Unknown_null,13,7,3,Table 3-1O Range and source of PAHs characteristic ratio,other,False,False,True,True,True,no_header,未找到含污染物信号的表头行
+P11184,B,2020_宋梓菡_Unknown_null,16,17,6,Table 4-2 Characteristic value of PAHs residue inventory in snowpack of Harbin,other,False,False,True,True,True,reject_non_soil_matrix,非土壤基质 (植物/实验/生物/飞灰)
+P09972,B,1991_Ma J. et al_Water_null,2,10,10,Table III. Comparisons of Analytical Performance for PAHs Determination by Different Pretr,other,False,False,True,True,True,reject_reference_compilation,"有 References 列, 二手文献对比表"

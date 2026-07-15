@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11359,,N/A,,,淋洗实验研究，非目标OP数据（仅测Phe单体）,soil,agricultural,Hunan/Jiangsu,"skip: 淋洗实验(leaching study), 无目标OP(仅Phe单体不在Sum_PAH/BaP/PCB/DDT/HCH/PBDE/PHC列表中), Table 4-1有3采样点CD/Pb/Cu/Zn/Ni/Hg本底值但论文属淋洗剔除场景"

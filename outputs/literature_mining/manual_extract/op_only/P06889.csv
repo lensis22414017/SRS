@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06889,N/A,N/A,N/A,N/A,Table 1 (statistical summary only),soil,agricultural,China-wide (31 provinces),"skip: Table 1 contains only descriptive statistics (mean/median/max/min/percentiles/SD/CV/DF) for 123 nationwide sites; no sample-level concentration data in paper.md; supplementary Tables S2/S3/S5 (provincial averages) not included in parsed file; specific cities mentioned qualitatively without exact values"

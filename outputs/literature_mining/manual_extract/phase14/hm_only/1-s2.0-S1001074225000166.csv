@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+1-s2.0-S1001074225000166,1-s2.0-S1001074225000166_Jx,Jx,As_mgkg,2.67,Unknown,,high,table_p6_ri2_ci5,,,,,,,phase14
+1-s2.0-S1001074225000166,1-s2.0-S1001074225000166_hLj,hLj,As_mgkg,2.28,Unknown,,high,table_p6_ri3_ci5,,,,,,,phase14
+1-s2.0-S1001074225000166,1-s2.0-S1001074225000166_Sax,Sax,As_mgkg,2.67,Unknown,,high,table_p6_ri4_ci5,,,,,,,phase14

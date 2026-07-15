@@ -1,0 +1,27 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+70613_c9ra02333j,70613_c9ra02333j_Values,Values,Cd_mgkg,0.14,Unknown,,high,table_p2_ri10_ci3,Table 2The parameters used in the calculation of average daily intake (ADI)
+70613_c9ra02333j,70613_c9ra02333j_Values,Values,Cr_mgkg,0.04,Unknown,,high,table_p2_ri11_ci3,Table 2The parameters used in the calculation of average daily intake (ADI)
+70613_c9ra02333j,70613_c9ra02333j_Values,Values,As_mgkg,0.03,Unknown,,high,table_p2_ri12_ci3,Table 2The parameters used in the calculation of average daily intake (ADI)
+70613_c9ra02333j,70613_c9ra02333j_Values,Values,Hg_mgkg,0.05,Unknown,,high,table_p2_ri13_ci3,Table 2The parameters used in the calculation of average daily intake (ADI)
+70613_c9ra02333j,70613_c9ra02333j_Values,Values,Pb_mgkg,0.006,Unknown,,high,table_p2_ri14_ci3,Table 2The parameters used in the calculation of average daily intake (ADI)
+70613_c9ra02333j,70613_c9ra02333j_Values,Values,Cu_mgkg,0.1,Unknown,,high,table_p2_ri15_ci3,Table 2The parameters used in the calculation of average daily intake (ADI)
+70613_c9ra02333j,70613_c9ra02333j_Values,Values,Zn_mgkg,0.02,Unknown,,high,table_p2_ri16_ci3,Table 2The parameters used in the calculation of average daily intake (ADI)
+70613_c9ra02333j,70613_c9ra02333j_Values,Values,Ni_mgkg,0.35,Unknown,,high,table_p2_ri17_ci3,Table 2The parameters used in the calculation of average daily intake (ADI)
+70613_c9ra02333j,70613_c9ra02333j_Background,Background,Cr_mgkg,41.3,Unknown,,high,table_p3_ri6_ci1,Table 4 Statistics parameters (mg kg-1) of heavy metals in paddy soils of Jiulong River Basin
+70613_c9ra02333j,70613_c9ra02333j_Background,Background,Ni_mgkg,13.5,Unknown,,high,table_p3_ri6_ci2,Table 4 Statistics parameters (mg kg-1) of heavy metals in paddy soils of Jiulong River Basin
+70613_c9ra02333j,70613_c9ra02333j_Background,Background,Cu_mgkg,21.6,Unknown,,high,table_p3_ri6_ci3,Table 4 Statistics parameters (mg kg-1) of heavy metals in paddy soils of Jiulong River Basin
+70613_c9ra02333j,70613_c9ra02333j_Background,Background,Zn_mgkg,82.7,Unknown,,high,table_p3_ri6_ci4,Table 4 Statistics parameters (mg kg-1) of heavy metals in paddy soils of Jiulong River Basin
+70613_c9ra02333j,70613_c9ra02333j_Background,Background,As_mgkg,5.78,Unknown,,high,table_p3_ri6_ci5,Table 4 Statistics parameters (mg kg-1) of heavy metals in paddy soils of Jiulong River Basin
+70613_c9ra02333j,70613_c9ra02333j_Background,Background,Cd_mgkg,0.05,Unknown,,high,table_p3_ri6_ci6,Table 4 Statistics parameters (mg kg-1) of heavy metals in paddy soils of Jiulong River Basin
+70613_c9ra02333j,70613_c9ra02333j_Background,Background,Pb_mgkg,34.9,Unknown,,high,table_p3_ri6_ci7,Table 4 Statistics parameters (mg kg-1) of heavy metals in paddy soils of Jiulong River Basin
+70613_c9ra02333j,70613_c9ra02333j_Cr,Cr,Cr_mgkg,1.0,Unknown,,high,table_p5_ri1_ci1,Table 5 Pearson'scorrelations matrix between heavy metal concentrationsa
+70613_c9ra02333j,70613_c9ra02333j_Ni,Ni,Ni_mgkg,1.0,Unknown,,high,table_p5_ri2_ci2,Table 5 Pearson'scorrelations matrix between heavy metal concentrationsa
+70613_c9ra02333j,70613_c9ra02333j_Cu,Cu,Cu_mgkg,1.0,Unknown,,high,table_p5_ri3_ci3,Table 5 Pearson'scorrelations matrix between heavy metal concentrationsa
+70613_c9ra02333j,70613_c9ra02333j_Zn,Zn,Zn_mgkg,1.0,Unknown,,high,table_p5_ri4_ci4,Table 5 Pearson'scorrelations matrix between heavy metal concentrationsa
+70613_c9ra02333j,70613_c9ra02333j_As,As,As_mgkg,1.0,Unknown,,high,table_p5_ri5_ci5,Table 5 Pearson'scorrelations matrix between heavy metal concentrationsa
+70613_c9ra02333j,70613_c9ra02333j_As,As,Cd_mgkg,0.2291,Unknown,,high,table_p5_ri6_ci5,Table 5 Pearson'scorrelations matrix between heavy metal concentrationsa
+70613_c9ra02333j,70613_c9ra02333j_Ni,Ni,Pb_mgkg,0.058,Unknown,,high,table_p5_ri7_ci2,Table 5 Pearson'scorrelations matrix between heavy metal concentrationsa
+70613_c9ra02333j,70613_c9ra02333j_Pb,Pb,Pb_mgkg,1.0,Unknown,,high,table_p5_ri7_ci7,Table 5 Pearson'scorrelations matrix between heavy metal concentrationsa
+70613_c9ra02333j,70613_c9ra02333j_Cr,Cr,Hg_mgkg,-0.036,Unknown,,high,table_p5_ri8_ci1,Table 5 Pearson'scorrelations matrix between heavy metal concentrationsa
+70613_c9ra02333j,70613_c9ra02333j_Ni,Ni,Hg_mgkg,0.208,Unknown,,high,table_p5_ri8_ci2,Table 5 Pearson'scorrelations matrix between heavy metal concentrationsa
+70613_c9ra02333j,70613_c9ra02333j_As,As,Hg_mgkg,0.12,Unknown,,high,table_p5_ri8_ci5,Table 5 Pearson'scorrelations matrix between heavy metal concentrationsa

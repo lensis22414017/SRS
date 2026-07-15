@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01989,,,,"",,,,,,"skip: 正文仅报告总PAH浓度范围(456-598 ng/g和503-747 ng/g)无采样点级表格数据; 详细数据在SI Figure S2-S5(Supporting Information未随论文解析); 仅测10种PAH(非完整16 EPA PAH)故Sum_PAH_ngg不可计算; 论文核心为气-土分配fugacity研究非浓度调查"

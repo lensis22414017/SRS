@@ -1,0 +1,66 @@
+Total pages: 11
+
+=== Page 0: 26 items ===
+[0] keys=['type', 'content', 'bbox'] type=title
+[1] keys=['type', 'content', 'bbox'] type=image
+[2] keys=['type', 'content', 'bbox'] type=paragraph
+[3] keys=['type', 'content', 'bbox'] type=paragraph
+[4] keys=['type', 'content', 'bbox'] type=paragraph
+[5] keys=['type', 'content', 'bbox'] type=paragraph
+[6] keys=['type', 'content', 'bbox'] type=list
+[7] keys=['type', 'content', 'bbox'] type=title
+[8] keys=['type', 'content', 'bbox'] type=paragraph
+[9] keys=['type', 'content', 'bbox'] type=title
+[10] keys=['type', 'content', 'bbox'] type=paragraph
+[11] keys=['type', 'content', 'bbox'] type=paragraph
+[12] keys=['type', 'content', 'bbox'] type=paragraph
+[13] keys=['type', 'content', 'bbox'] type=page_footnote
+[14] keys=['type', 'content', 'bbox'] type=page_header
+[15] keys=['type', 'content', 'bbox'] type=page_header
+[16] keys=['type', 'content', 'bbox'] type=page_header
+  ... truncated at item 16 of 26
+
+=== Page 1: 16 items ===
+[0] keys=['type', 'content', 'bbox'] type=paragraph
+[1] keys=['type', 'content', 'bbox'] type=paragraph
+[2] keys=['type', 'content', 'bbox'] type=paragraph
+[3] keys=['type', 'content', 'bbox'] type=paragraph
+[4] keys=['type', 'content', 'bbox'] type=paragraph
+[5] keys=['type', 'content', 'bbox'] type=title
+[6] keys=['type', 'content', 'bbox'] type=title
+[7] keys=['type', 'content', 'bbox'] type=paragraph
+[8] keys=['type', 'content', 'bbox'] type=title
+[9] keys=['type', 'content', 'bbox'] type=paragraph
+[10] keys=['type', 'content', 'bbox'] type=title
+[11] keys=['type', 'content', 'bbox'] type=paragraph
+[12] keys=['type', 'content', 'bbox'] type=equation_interline
+[13] keys=['type', 'content', 'bbox'] type=page_header
+[14] keys=['type', 'content', 'bbox'] type=page_header
+[15] keys=['type', 'content', 'bbox'] type=page_number
+
+=== Page 2: 18 items ===
+[0] keys=['type', 'content', 'bbox'] type=paragraph
+[1] keys=['type', 'content', 'bbox'] type=equation_interline
+[2] keys=['type', 'content', 'bbox'] type=paragraph
+[3] keys=['type', 'content', 'bbox'] type=paragraph
+[4] keys=['type', 'content', 'bbox'] type=title
+[5] keys=['type', 'content', 'bbox'] type=paragraph
+[6] keys=['type', 'content', 'bbox'] type=title
+[7] keys=['type', 'content', 'bbox'] type=paragraph
+[8] keys=['type', 'content', 'bbox'] type=title
+[9] keys=['type', 'content', 'bbox'] type=title
+[10] keys=['type', 'content', 'bbox'] type=paragraph
+[11] keys=['type', 'content', 'bbox'] type=title
+[12] keys=['type', 'content', 'bbox'] type=paragraph
+[13] keys=['type', 'content', 'bbox'] type=paragraph
+[14] keys=['type', 'content', 'bbox'] type=table
+[15] keys=['type', 'content', 'bbox'] type=page_header
+[16] keys=['type', 'content', 'bbox'] type=page_header
+  ... truncated at item 16 of 18
+
+=== Page 3: 4 items ===
+[0] keys=['type', 'content', 'bbox'] type=image
+[1] keys=['type', 'content', 'bbox'] type=page_header
+[2] keys=['type', 'content', 'bbox'] type=page_header
+[3] keys=['type', 'content', 'bbox'] type=page_number
+... truncated pages

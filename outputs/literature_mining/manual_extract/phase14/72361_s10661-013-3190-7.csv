@@ -1,0 +1,13 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+72361_s10661-013-3190-7,72361_s10661-013-3190-7_Urban_(n=17),Urban (n=17),pH,7.865,Unknown,range_mean,high,table_p4_ri2_ci1,"Table 1
+The main characteristics of Bincheng District soils in Yellow River Delta"
+72361_s10661-013-3190-7,72361_s10661-013-3190-7_Rural_(n=37),Rural (n=37),pH,7.91,Unknown,,high,table_p4_ri2_ci3,"Table 1
+The main characteristics of Bincheng District soils in Yellow River Delta"
+72361_s10661-013-3190-7,72361_s10661-013-3190-7_Urban_(n=17),Urban (n=17),OC_pct,1.4100000000000001,Unknown,range_mean,high,table_p4_ri3_ci1,"Table 1
+The main characteristics of Bincheng District soils in Yellow River Delta"
+72361_s10661-013-3190-7,72361_s10661-013-3190-7_Rural_(n=37),Rural (n=37),OC_pct,1.13,Unknown,,high,table_p4_ri3_ci3,"Table 1
+The main characteristics of Bincheng District soils in Yellow River Delta"
+72361_s10661-013-3190-7,72361_s10661-013-3190-7_Urban_(n=17),Urban (n=17),SumPAE_ngg,5.2205,Unknown,range_mean,high,table_p5_ri13_ci1,Table 2 Summary of the individual concentrations of PAEs (in microgram per gram dry weight) in Bincheng District soils of Yellow River Delta <sub>centrations</sub> <sub>were</sub> <sub>corrected</sub>
+72361_s10661-013-3190-7,72361_s10661-013-3190-7_Rural_(n=37),Rural (n=37),SumPAE_ngg,4.722,Unknown,,high,table_p5_ri13_ci3,Table 2 Summary of the individual concentrations of PAEs (in microgram per gram dry weight) in Bincheng District soils of Yellow River Delta <sub>centrations</sub> <sub>were</sub> <sub>corrected</sub>
+72361_s10661-013-3190-7,72361_s10661-013-3190-7_Urban_(n=17),Urban (n=17),SumPAE_ngg,5.3115,Unknown,range_mean,high,table_p5_ri14_ci1,Table 2 Summary of the individual concentrations of PAEs (in microgram per gram dry weight) in Bincheng District soils of Yellow River Delta <sub>centrations</sub> <sub>were</sub> <sub>corrected</sub>
+72361_s10661-013-3190-7,72361_s10661-013-3190-7_Rural_(n=37),Rural (n=37),SumPAE_ngg,4.764,Unknown,,high,table_p5_ri14_ci3,Table 2 Summary of the individual concentrations of PAEs (in microgram per gram dry weight) in Bincheng District soils of Yellow River Delta <sub>centrations</sub> <sub>were</sub> <sub>corrected</sub>

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07612,,,,,,,,"skip: bench-scale laboratory remediation experiment (biosurfactant-enhanced electrokinetics + Fe/C-PRB on spiked soil columns); measures PHE/TCP removal efficiency not field concentrations; no real field sampling points; only HTML publisher landing page available (no full-text PDF or parsed paper.md); single PAH monomer PHE and TCP not target OP groups"

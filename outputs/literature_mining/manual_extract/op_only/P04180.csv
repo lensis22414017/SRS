@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04180,,,,,,,,"skip: 论文为宏观政策分析，分析中国及省份级农药与化肥施用强度(kg/hm2)和效率，数据来源于FAO/IFA/世界银行/国家统计局年鉴。无采样点级土壤有机污染物浓度数据，无PAHs/PCBs/DDT/HCH/PBDE/PHC/抗生素/PAEs/OCPs任何目标污染物。全文表格均为国家级或省级施用强度和效率指标，非土壤残留浓度。不涉及具体采样点(S1/S2/村庄名)的实测浓度值。"

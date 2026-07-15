@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07559,N/A,N/A,N/A,N/A,N/A,soil,chemical,Chongqing,"skip: 论文仅提供全场地聚合总量(14 PAH site-wide sums 如 Nap=8003.3 Phe=3727.7 mg/kg等)和统计汇总(range 0.7-4889.5 mg/kg mean 130 mg/kg)；91个钻孔各自浓度未在正文/表格中给出；Table 1仅含克里金插值模型体积和ME/RMSE误差；Fig2-5为空间分布图无可提取数值；无采样点级浓度数据可提取"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04676,NA,NA,NA,NA,NA,NA,NA,NA,"skip: 论文用LC-HRMS(ESI源)研究当前使用农药/药品/工业化学品等微污染物; Limitations段明确声明PAHs和DDTs等GC-MS化合物'were not captured in this study'; 未测量任何目标OP污染物(Sum_PAH/BaP/SumPCB/SumDDT/SumHCH/SumPBDE/TotalPHC); 正文仅有区域均值汇总(106-445 ng/g)和范围值(ND-2786 ng/g)无常量级采样点数据, 样点数据仅在补充材料Table S5"

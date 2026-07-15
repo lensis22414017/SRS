@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03146,,,,,,,soil,pipeline_Heilongjiang,"skip: 实验室spiked实验(30%v/w原油人工添加到10g土壤25°C培养8周研究细菌群落响应bioremediation); 论文无任何HM(Cd/Pb/Cr/As/Hg/Cu/Zn/Ni)或OP(PAH/PCB/DDT等)实测浓度; 所有Figure为16S rRNA测序相对丰度(Proteobacteria/Sphingomonadaceae/Caulobacteraceae等); PAH仅见于讨论微生物降解能力引文非浓度; 4采样点WN/WL/TY/JQ(黑龙江漠河-加格达奇中俄原油管道沿线)仅给坐标无化学浓度"

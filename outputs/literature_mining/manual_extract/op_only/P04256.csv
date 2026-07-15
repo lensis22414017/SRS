@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04256,,,,,,,,"skip: 仅区域汇总统计(Min/Max/Mean/CV of n=240 samples) 无采样点级数据; Table1为16单体统计汇总行(Min/Max/Mean/CV/Detection Rate) 非采样点; Table2为文献对比表(非本研究数据); 正文仅给出三个最高点浓度(5630/4940/3300 ng/g)无采样点ID; 图1/2为空间分布图无法读取采样点值"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11090,,,,,,,,"skip: 实验室批量吸附实验(batch adsorption/sorption isotherm)，研究生物炭对topramezone除草剂吸附等温线与动力学，无采样点级真实场地OP浓度数据。Table1=生物炭表面积孔隙，Table2=土壤理化性质(pH/Sand/Silt/Clay/EC/CEC/TOC)，Table3=Langmuir/Freundlich/D-R等温线参数，Table4=热力学参数(ΔG/ΔH/ΔS)，Table5=动力学模型参数。全部为实验模型参数非污染物实测浓度。"

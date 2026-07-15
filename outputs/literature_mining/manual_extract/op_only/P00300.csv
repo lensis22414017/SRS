@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00300,,,,,,,,,"skip: 活性污泥基质(wastewater treatment plant aeration basin activated sludge)非土壤; 论文为DNA-SIP微生物降解实验(13C-PHE spike 10mg/L lab microcosm+菌株分离培养); 无采样点级土壤OP浓度数据; Table S1虽提及baseline PAHs in activated sludge但基质为污泥非土壤且SI为.doc二进制无法解析; 触发多重reject: spiked experiment/biodegradation/non-soil matrix(wastewater)"

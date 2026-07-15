@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01544,,,,,,,,,skip: 实验室 spiked 土壤修复实验(ZVI/EDDS/Air 处理 PCB-5+Pb+Cu 人工配制污染土壤)。clean soil 采自武汉校园后人工添加 PCB-5/Pb/Cu 并 aged 6 个月(2.1节)；spiked 后浓度 PCB=22.9/Pb=184.4/Cu=122.3 mg/kg(line 105)为人工配制值非真实场地本底实测；无真实采样点级数据(S1/A/B 等)；引文 Guiyu e-waste 数据引自[3]非本研究实测。属铁律剔除场景(spiked lab experiment + 化学修复实验无非修复本底)

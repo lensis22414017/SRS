@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04141,,,,,,,,"skip: meta-analysis/bibliometric study aggregating 1833 sites from 306 published reports; all data are regional/national statistical means (IMIA 8800.70, urban 1479.97, suburban 523.34, rural 293.95 µg/kg) and Pearson correlation coefficients; no sampling-point-level concentration data in the paper body; original site-level data only in Supplementary Table S1/S2 (not available in paper.md)"

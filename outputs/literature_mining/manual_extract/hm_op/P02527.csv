@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02527,,,,,,,,"skip: 实验室batch sorption实验(Exps.1~7 spiked Pb(NO3)2 + phenanthrene-methanol),研究Pb/菲吸附相互作用;土壤仅作实验介质(Pearl River Delta地下4-5m饱和带混合土),无真实采样点;Table1仅土壤性质(Pb=19.25mg/kg为自然背景值,作者明确未受外源污染),无Cd/As/Hg/Cu/Zn/Ni/Cr场地实测,无OP场地浓度;Tables2-5全为吸附实验参数与平衡浓度/吸附量,非场地污染数据"

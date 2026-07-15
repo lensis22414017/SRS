@@ -1,0 +1,73 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02957,S1,Cd_mgkg,0.37,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取 S1=水稻田邻近拆解作坊
+P02957,S1,Pb_mgkg,93,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S1,Cr_mgkg,51,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S1,As_mgkg,6.11,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S1,Hg_mgkg,0.052,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S1,Cu_mgkg,48,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S1,Zn_mgkg,90,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S1,Ni_mgkg,22,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S2,Cd_mgkg,0.11,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取 S2=居住区街道无工业活动
+P02957,S2,Pb_mgkg,62,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S2,Cr_mgkg,12,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S2,As_mgkg,7.21,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S2,Hg_mgkg,0.10,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S2,Cu_mgkg,54,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S2,Zn_mgkg,67,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S2,Ni_mgkg,6.5,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S3,Cd_mgkg,0.16,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取 S3=邻近家庭PCB拆解作坊街道
+P02957,S3,Pb_mgkg,18,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S3,Cr_mgkg,16,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S3,As_mgkg,17.01,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S3,Hg_mgkg,0.097,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S3,Cu_mgkg,8.4,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S3,Zn_mgkg,69,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S3,Ni_mgkg,9.2,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S4,Cd_mgkg,1.21,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取 S4=废弃酸提取作坊场地
+P02957,S4,Pb_mgkg,150,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S4,Cr_mgkg,2600,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S4,As_mgkg,26.03,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S4,Hg_mgkg,0.21,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S4,Cu_mgkg,4800,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S4,Zn_mgkg,330,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S4,Ni_mgkg,480,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S5,Cd_mgkg,10.02,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取 S5=MSW(含电子废弃物)露天焚烧残渣
+P02957,S5,Pb_mgkg,480,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S5,Cr_mgkg,320,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S5,As_mgkg,52.10,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S5,Hg_mgkg,0.19,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S5,Cu_mgkg,12700,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S5,Zn_mgkg,3500,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S5,Ni_mgkg,1100,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S6,Cd_mgkg,1.60,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取 S6=邻近MSW露天焚烧点水稻田
+P02957,S6,Pb_mgkg,62,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S6,Cr_mgkg,48,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S6,As_mgkg,23.09,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S6,Hg_mgkg,0.27,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S6,Cu_mgkg,140,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S6,Zn_mgkg,130,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S6,Ni_mgkg,30,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S7,Cd_mgkg,0.16,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取 S7=邻近MSW露天焚烧点水稻田
+P02957,S7,Pb_mgkg,54,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S7,Cr_mgkg,42,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S7,As_mgkg,5.02,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S7,Hg_mgkg,0.12,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S7,Cu_mgkg,27,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S7,Zn_mgkg,96,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S7,Ni_mgkg,25,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S8,Cd_mgkg,6.01,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取 S8=河岸电子废弃物堆放场
+P02957,S8,Pb_mgkg,56,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S8,Cr_mgkg,7.20,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S8,As_mgkg,60.03,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S8,Hg_mgkg,0.26,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S8,Cu_mgkg,82,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S8,Zn_mgkg,770,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S8,Ni_mgkg,21,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S9,Cd_mgkg,0.10,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取 S9=河岸土壤邻近电子废弃物堆放(参照/blank点)
+P02957,S9,Pb_mgkg,32,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S9,Cr_mgkg,45,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S9,As_mgkg,22.06,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S9,Hg_mgkg,0.27,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S9,Cu_mgkg,66,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S9,Zn_mgkg,230,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取
+P02957,S9,Ni_mgkg,20,mg/kg,Table 3,soil,e_waste,Guangdong,Table3直接读取

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08824,,,,,,,,,skip: 论文研究对象为PFAS(PFOS/PFOA/PFBS/PFHxS等18种C4-C14 PFCAs和C4-C10 PFSAs)，不属于目标有机污染物类别(PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAE/OCP)。论文中未测量任何目标污染物。"福建省两座POSF/PFOS生产设施的土壤和地下水，目标污染物完全不匹配"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11221,,,, ,,,, ,"skip: 纯重金属论文(As/Cd/Cr/Cu/Pb/Zn)无任何OP数据; CSV误判op_groups=Pesticides因PCA源解析提及As来源与杀虫剂/除草剂相关但未实测农药浓度"

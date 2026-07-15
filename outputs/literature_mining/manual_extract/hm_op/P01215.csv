@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01215,,,,,,soil,e_waste,Tianjin,"skip: 无采样点级HM+OP浓度。paper.md主文仅Table1(alpha diversity); SI Table S1为采样点-分组映射(S1-S42→A/B/d1-d4/c1-c3); Table S2标题明确标注mean±S.E.且列为组名(A/d1/B/d2/d3/d4/c1/c2/c3)为组级统计汇总非采样点级; Tables S3-S14均为t-test/Pearson相关性/相对丰度矩阵。54样本(S1-S42+c1-c3)虽采集了Cd/As/Cu/Pb/Cr/Zn/Ni/Hg(8HM)+14PBDE同系物但仅以组级mean±SE披露。HM与OP同场地同论文但无采样点级数值可提取。"

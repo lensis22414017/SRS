@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+1-s2.0-S0269749122009307,1-s2.0-S0269749122009307_Crab,Crab,SumDDT_ngg,4.59,Unknown,,high,table_p3_ri10_ci2,"The range (μg/kg), mean levels (μg/kg) and the detection rates (DR,%) of OCPs in sediments and aquatic foods collected from the IFAPs."
+1-s2.0-S0269749122009307,1-s2.0-S0269749122009307_Crab,Crab,SumDDT_ngg,19.7,Unknown,,high,table_p3_ri11_ci2,"The range (μg/kg), mean levels (μg/kg) and the detection rates (DR,%) of OCPs in sediments and aquatic foods collected from the IFAPs."
+1-s2.0-S0269749122009307,1-s2.0-S0269749122009307_Crab,Crab,SumOCP_ngg,32.6,Unknown,,high,table_p3_ri28_ci2,"The range (μg/kg), mean levels (μg/kg) and the detection rates (DR,%) of OCPs in sediments and aquatic foods collected from the IFAPs."

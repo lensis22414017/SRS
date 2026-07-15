@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02901,,,,,,,"skip: 仅site-level Mean浓度(QBS=53.6/GBS=132.1/GPF=368.1 ng/g BDE-209)无采样点级单值; CGL为spiked模拟土壤(1μg/g BDE-209)剔除; 论文为方法验证(HPLC检测BDE-209)非场地调查"

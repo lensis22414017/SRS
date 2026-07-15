@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00336,,,,,,soil,urban,Liaoning,"skip: 仅统计汇总(Range/Mean/Median/SD)，无采样点级浓度数据。Table 2为74个样品的聚合统计(Nap~BghiP单体+LMW+HMW+∑PAHs均以Range/Mean/Median/SD呈现)，Fig.1空间分布为色彩地图无法量化提取逐点数值。正文仅以范围类别描述个别站点(如Site 63=最高21,821ng/g但无单体明细；Sites 25/38/44/47/50/52/63>5000;Sites 7/10/11/18/29/40/58/71<500)，无精确逐采样点PAH浓度表。"

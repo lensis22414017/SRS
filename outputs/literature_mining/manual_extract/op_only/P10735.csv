@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10735,T04,Sum_PAH_ngg,104,ng/g,正文3.1段,soil,industrial,Anhui,"河岸土壤最低值采样点,远离城市工业中心农田,摘要确认ng/g单位"
+P10735,T09,Sum_PAH_ngg,947,ng/g,正文3.1段,soil,industrial,Anhui,"河岸土壤最高值采样点,邻近城市中心点源污染,摘要确认ng/g单位"
+P10735,H04,Sum_PAH_ngg,83,ng/g,正文3.1段,sediment,industrial,Anhui,"河流交汇处沉积物最低值,远离城市工业中心,摘要确认ng/g单位"
+P10735,H05,Sum_PAH_ngg,88,ng/g,正文3.1段,sediment,industrial,Anhui,"河流交汇处沉积物次低值,远离城市工业中心,摘要确认ng/g单位"
+P10735,H26,Sum_PAH_ngg,2599,ng/g,正文3.1段,sediment,industrial,Anhui,"沉积物最高值采样点,邻近煤加工厂和燃煤电厂,摘要确认ng/g单位"
+P10735,H36,Sum_PAH_ngg,2054,ng/g,正文3.1段,sediment,industrial,Anhui,"沉积物次高值采样点,邻近煤加工厂和燃煤电厂,摘要确认ng/g单位"

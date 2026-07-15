@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01364,,"skip: 采样点级浓度数据在补充材料Table S1中,parse的paper.md仅含正文和Table 1(回归系数非浓度),正文中仅有CF/Igeo/NIPI/PERI等风险指数和PMF因子指纹(源贡献%),无实际mg/kg或ng/g浓度值,无法提取采样点级数据"

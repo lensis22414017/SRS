@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01207,NA,NA,NA,NA,Table 2,soil,agricultural,Jiangxi,"skip: 省级区域汇总数据(1758样本)，Table 2仅报告Range/Mean±SD统计量，无采样点级浓度数据，Figs 2-3为插值空间图非原始点位"

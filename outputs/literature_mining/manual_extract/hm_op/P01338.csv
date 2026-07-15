@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01338,,,,,,soil,urban,Guangdong,"skip: 论文为珠江三角洲HM时空区域研究，(1)所有数据按5km×5km/10km×10km网格汇总为均值(第115,147行)，非采样点级；(2)正文结果全部以风险指数Igeo/ESi/Pnm/ESnm呈现(第121-139行)，无原始HM浓度表；(3)仅有8种HM(As/Cr/Cd/Cu/Hg/Ni/Pb/Zn)，全文无任何OP(PAH/PCB/DDT/HCH/PBDE/PHC)数据，非HM+OP真复合；(4)唯一Table 1为SEM环境变量列表，原始数据归补充材料Table S1-S4不在正文。不满足裴总铁律剔除规则4,5"

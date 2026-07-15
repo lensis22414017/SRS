@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08700,NA,NA,NA,NA,NA,NA,NA,NA,"skip: 综述论文(Review Article，标题'Remediation of emerging contaminated sites due to uncontrolled e-waste recycling'，摘要明确'a comprehensive review')。Table 1a/1b/1c/Table 2均为文献二级汇总(行=Location+Time+浓度范围或均值+[Reference编号])，无采样点级原始数据(S1/A/B/点位名)；Table 1a末尾还含GB15618/New Dutch List标准阈值行。Table 2为修复技术实验汇总，含Spike pollutants=Yes/Pot trials/Removal efficiency列，属盆栽/spiked/bioremediation剔除场景。提取将违反'不跨论文拼接HM+OP'与'只用真实文献可追溯数值'铁律。"

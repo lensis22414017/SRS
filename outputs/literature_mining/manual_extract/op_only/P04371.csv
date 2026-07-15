@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04371,,,,,,,,,"skip: biosensor method development paper (CdSe/ZnS QDs for OPP detection); matrix=Panax ginseng plant tissue not soil; spiked recovery experiments only; no field soil/sediment sampling-point data; no China site-level OP concentration data"

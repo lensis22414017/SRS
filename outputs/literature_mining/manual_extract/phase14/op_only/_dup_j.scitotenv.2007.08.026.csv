@@ -1,0 +1,22 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_col3,col3,SumPCB_ngg,4.9399999999999995,Unknown,,medium,table_p5_ri12_ci3,,,,,,,phase14
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_col5,col5,SumPCB_ngg,7.15,Unknown,,medium,table_p5_ri12_ci5,,,,,,,phase14
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_col6,col6,SumPCB_ngg,6.5,Unknown,,medium,table_p5_ri12_ci6,,,,,,,phase14
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_col10,col10,SumPCB_ngg,0.39,Unknown,,medium,table_p5_ri12_ci10,,,,,,,phase14
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_col12,col12,SumPCB_ngg,1.0,Unknown,,medium,table_p5_ri12_ci12,,,,,,,phase14
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_Shenyang,Shenyang,SumPCB_ngg,6.4,Unknown,,high,table_p7_ri4_ci3,,,,,,,phase14
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_Shenyang,Shenyang,SumPCB_ngg,4.4,Unknown,,high,table_p7_ri5_ci3,,,,,,,phase14
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_Beijing,Beijing,SumPCB_ngg,0.39,Unknown,,high,table_p7_ri10_ci3,,,,,,,phase14
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_Qingdao,Qingdao,SumPCB_ngg,3.1,Unknown,,high,table_p7_ri12_ci3,,,,,,,phase14
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_Ya-Er_Lake_area,Ya-Er Lake area,SumPCB_ngg,7.1,Unknown,,high,table_p7_ri13_ci3,,,,,,,phase14
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_Zhejiang,Zhejiang,SumPCB_ngg,0.008,Unknown,,high,table_p7_ri14_ci3,,,,,,,phase14
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_Shanghai-Hangzhou,Shanghai-Hangzhou,SumPCB_ngg,0.41,Unknown,,high,table_p7_ri15_ci3,,,,,,,phase14
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_Yangtze_River_Delta,Yangtze River Delta,SumPCB_ngg,0.55,Unknown,,high,table_p7_ri17_ci3,,,,,,,phase14
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_Guizhou,Guizhou,SumPCB_ngg,8.9,Unknown,,high,table_p7_ri19_ci3,,,,,,,phase14
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_Guiyu_(Shantou),Guiyu (Shantou),SumPCB_ngg,23.0,Unknown,,high,table_p7_ri21_ci3,,,,,,,phase14
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_Hong_Kong,Hong Kong,SumPCB_ngg,0.07,Unknown,,high,table_p7_ri22_ci3,,,,,,,phase14
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_Taiwan_Across_China,Taiwan Across China,SumPCB_ngg,44.0,Unknown,,high,table_p7_ri25_ci3,,,,,,,phase14
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_S26,S26,SumPCB_ngg,0.14,Unknown,,high,table_p7_ri26_ci3,,,,,,,phase14
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_France,France,SumPCB_ngg,0.09,Unknown,,high,table_p7_ri28_ci3,,,,,,,phase14
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_Germany,Germany,SumPCB_ngg,0.95,Unknown,,high,table_p7_ri29_ci3,,,,,,,phase14
+_dup_j.scitotenv.2007.08.026,_dup_j.scitotenv.2007.08.026_Swiss,Swiss,SumPCB_ngg,0.86,Unknown,,high,table_p7_ri31_ci3,,,,,,,phase14

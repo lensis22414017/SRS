@@ -1,0 +1,26 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02272,EW1,Cu_mgkg,149,mg/kg,Table 2,soil,e_waste,Guangdong,EW1 dump site soil 单样点直接读取
+P02272,EW1,Zn_mgkg,140,mg/kg,Table 2,soil,e_waste,Guangdong,EW1 dump site soil 单样点直接读取
+P02272,EW1,Cr_mgkg,79.3,mg/kg,Table 2,soil,e_waste,Guangdong,EW1 dump site soil 单样点直接读取
+P02272,EW1,Ni_mgkg,22.4,mg/kg,Table 2,soil,e_waste,Guangdong,EW1 dump site soil 单样点直接读取
+P02272,EW1,Pb_mgkg,106,mg/kg,Table 2,soil,e_waste,Guangdong,EW1 dump site soil 单样点直接读取
+P02272,EW1,Cd_mgkg,0.69,mg/kg,Table 2,soil,e_waste,Guangdong,EW1 dump site soil 单样点直接读取
+P02272,EW1,Hg_mgkg,0.07,mg/kg,Table 2,soil,e_waste,Guangdong,EW1 dump site soil 单样点直接读取
+P02272,EW1,SumPCB_ngg,136.12,ng/g,Table 3,soil,e_waste,Guangdong,"Table 3 Total PCBs(38 congeners)直接读取; 表头标mg/kg实为μg/kg(正文median 15.2 μg/kg + Dutch action 1000 μg/kg未超标佐证); μg/kg=ng/g数值不变"
+P02272,EW1,SumPBDE_ngg,111.35,ng/g,Table 4,soil,e_waste,Guangdong,"Table 4 Total PBDEs(17 congeners)直接读取; 表头标mg/kg实为μg/kg(正文median 72.5 μg/kg佐证); μg/kg=ng/g数值不变"
+P02272,EW2,Zn_mgkg,469,mg/kg,Table 2,soil,e_waste,Guangdong,EW2 open burning site soil 单样点直接读取
+P02272,EW2,Cr_mgkg,61.3,mg/kg,Table 2,soil,e_waste,Guangdong,EW2 open burning site soil 单样点直接读取
+P02272,EW2,Ni_mgkg,27.3,mg/kg,Table 2,soil,e_waste,Guangdong,EW2 open burning site soil 单样点直接读取
+P02272,EW2,As_mgkg,11.2,mg/kg,Table 2,soil,e_waste,Guangdong,EW2 open burning site soil 单样点直接读取
+P02272,EW2,SumPCB_ngg,63.65,ng/g,Table 3,soil,e_waste,Guangdong,"Table 3 Total PCBs(38 congeners)直接读取; 表头标mg/kg实为μg/kg(正文佐证); μg/kg=ng/g数值不变"
+P02272,EW2,SumPBDE_ngg,1031.65,ng/g,Table 4,soil,e_waste,Guangdong,"Table 4 Total PBDEs(17 congeners)直接读取; 表头标mg/kg实为μg/kg(正文佐证); μg/kg=ng/g数值不变"
+P02272,EW3,Cu_mgkg,948,mg/kg,Table 2,soil,e_waste,Guangdong,EW3 acid leaching site soil 单样点直接读取
+P02272,EW3,Zn_mgkg,110,mg/kg,Table 2,soil,e_waste,Guangdong,EW3 acid leaching site soil 单样点直接读取
+P02272,EW3,Cr_mgkg,91.5,mg/kg,Table 2,soil,e_waste,Guangdong,EW3 acid leaching site soil 单样点直接读取
+P02272,EW3,Ni_mgkg,34.3,mg/kg,Table 2,soil,e_waste,Guangdong,EW3 acid leaching site soil 单样点直接读取
+P02272,EW3,Pb_mgkg,514,mg/kg,Table 2,soil,e_waste,Guangdong,EW3 acid leaching site soil 单样点直接读取
+P02272,EW3,Cd_mgkg,2.29,mg/kg,Table 2,soil,e_waste,Guangdong,EW3 acid leaching site soil 单样点直接读取
+P02272,EW3,Hg_mgkg,0.40,mg/kg,Table 2,soil,e_waste,Guangdong,EW3 acid leaching site soil 单样点直接读取
+P02272,EW3,As_mgkg,11.7,mg/kg,Table 2,soil,e_waste,Guangdong,EW3 acid leaching site soil 单样点直接读取
+P02272,EW3,SumPCB_ngg,5.78,ng/g,Table 3,soil,e_waste,Guangdong,"Table 3 Total PCBs(38 congeners)直接读取; 表头标mg/kg实为μg/kg(正文佐证); μg/kg=ng/g数值不变"
+P02272,EW3,SumPBDE_ngg,707.39,ng/g,Table 4,soil,e_waste,Guangdong,"Table 4 Total PBDEs(17 congeners)直接读取; 表头标mg/kg实为μg/kg(正文佐证); μg/kg=ng/g数值不变"

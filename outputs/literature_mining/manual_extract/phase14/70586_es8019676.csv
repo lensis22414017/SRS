@@ -1,0 +1,11 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+70586_es8019676,70586_es8019676_Gmean,Gmean,SumHCH_ngg,0.049,Unknown,,high,table_p1_ri2_ci2,
+70586_es8019676,70586_es8019676_percentiles,percentiles,SumHCH_ngg,0.002,Unknown,,high,table_p1_ri2_ci5,
+70586_es8019676,70586_es8019676_Gmean,Gmean,SumHCH_ngg,0.012,Unknown,,high,table_p1_ri5_ci2,
+70586_es8019676,70586_es8019676_percentiles,percentiles,SumHCH_ngg,0.0,Unknown,,high,table_p1_ri5_ci5,
+70586_es8019676,70586_es8019676_Gmean,Gmean,SumHCH_ngg,0.44,Unknown,,high,table_p1_ri9_ci2,
+70586_es8019676,70586_es8019676_$\mathrm_{_\bf_~_m_i_n_}_^_{_a_}$,$\mathrm { \bf ~ m i n } ^ { a }$,SumHCH_ngg,0.02,Unknown,,high,table_p1_ri9_ci3,
+70586_es8019676,70586_es8019676_percentiles,percentiles,SumHCH_ngg,0.084,Unknown,,high,table_p1_ri9_ci5,
+70586_es8019676,70586_es8019676_Gmean,Gmean,SumDDT_ngg,8.68,Unknown,,high,table_p1_ri10_ci2,
+70586_es8019676,70586_es8019676_$\mathrm_{_\bf_~_m_i_n_}_^_{_a_}$,$\mathrm { \bf ~ m i n } ^ { a }$,SumDDT_ngg,0.4,Unknown,,high,table_p1_ri10_ci3,
+70586_es8019676,70586_es8019676_percentiles,percentiles,SumDDT_ngg,0.964,Unknown,,high,table_p1_ri10_ci5,

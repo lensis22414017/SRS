@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07284,,,,,,,,,"skip: 地下水研究,非土壤。标题/摘要/采样方法均为groundwater(27口家庭井:10 Beijing+17 Tianjin)。单位=ng/L(水相浓度)。采样对象=井水(1 L raw groundwater)。论文测1300种有机微污染物筛查(PAHs/pesticides/PCBs等),但全部为水体浓度,无土壤ng/g数据。符合剔除场景:大气/水体→非土壤。"

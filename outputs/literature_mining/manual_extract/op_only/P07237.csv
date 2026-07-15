@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07237,,,,,,,,"skip: 论文研究三峡水库水体中SPMD虚拟生物体(VOs)和野生鱼类的OCP富集，matrix为鱼组织(lipid-based)和水体被动采样器，非土壤采样。论文无任何土壤采样点级数据。Keywords: Fish muscle; Virtual organism。Abstract明确: fish浓度225.7-1996.4 ng/g lw, VOs浓度17.3-112.4 ng/g lw。剔除原因: 水体/生物组织，非土壤"

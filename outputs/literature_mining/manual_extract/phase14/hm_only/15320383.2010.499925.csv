@@ -1,0 +1,9 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+15320383.2010.499925,15320383.2010.499925_Black_soil,Black soil,pH,6.3,Unknown,,high,table_p5_ri2_ci1, ,,,,,,phase14
+15320383.2010.499925,15320383.2010.499925_Black_soil,Black soil,Hg_mgkg,22.3,Unknown,,high,table_p5_ri2_ci5, ,,,,,,phase14
+15320383.2010.499925,15320383.2010.499925_Black_soil,Black soil,Fe_mgkg,186.1,Unknown,,high,table_p5_ri2_ci7, ,,,,,,phase14
+15320383.2010.499925,15320383.2010.499925_Black_soil,Black soil,Al_mgkg,29.61,Unknown,,high,table_p5_ri2_ci8, ,,,,,,phase14
+15320383.2010.499925,15320383.2010.499925_Red_soil,Red soil,pH,5.03,Unknown,,high,table_p5_ri3_ci1, ,,,,,,phase14
+15320383.2010.499925,15320383.2010.499925_Red_soil,Red soil,Hg_mgkg,39.7,Unknown,,high,table_p5_ri3_ci5, ,,,,,,phase14
+15320383.2010.499925,15320383.2010.499925_Red_soil,Red soil,Fe_mgkg,257.4,Unknown,,high,table_p5_ri3_ci7, ,,,,,,phase14
+15320383.2010.499925,15320383.2010.499925_Red_soil,Red soil,Al_mgkg,9.72,Unknown,,high,table_p5_ri3_ci8, ,,,,,,phase14

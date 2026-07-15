@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11356,,SKIP,,,,,,,"skip: 论文所有数据表格均为描述性统计(最大值/最小值/平均值/标准差/变异系数),无采样点级(sample_id如S1/S2/A/B/村庄名)浓度数据。HM:Cu/Zn/Pb/Cr/Cd仅提供片区级统计(Table 3-1至3-6)。PAHs:16种单体仅提供片区级统计(Table 4-1至4-6)。第5-6章所有表格均为污染指数/风险指数,非原始浓度。"

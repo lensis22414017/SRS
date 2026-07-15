@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09397,NOTES,,,Appendix A Table S6-S9,soil,industrial,Guangdong,"skip: 主论文仅提供4个场地的site-level Mean浓度(PAHs: BY=276/QL=353/DQ=266/ZS=88.6 ng/g dw均为统计汇总), 38个采样点级数据(BY n=6 QL n=12 DQ n=12 ZS n=8)全在Appendix A Supplementary Tables S6-S9中, SI未随PDF提供无法提取。论文测3类污染物: PAHs(15种可提取)、PCHs(6种氯苯类HCBD/PCA/HCB/PeCB/TeCB/TrCB非目标PCB/DDT/HCH)、OPFRs(12种有机磷酸酯阻燃剂非目标PBDE)。仅PAHs符合目标污染物。PDF仅1页可渲染经修复还原13页但SI不在内。"

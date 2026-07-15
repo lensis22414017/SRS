@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03800,,,,,,,,"skip: 微生物降解实验论文(Pseudomonas fulva P31菌株分离与D-phenothrin降解途径表征); 土壤取自华南农业大学从未施用D-phenothrin的农田, 实验室人工添加50 mg/kg D-phenothrin进行生物强化(bioaugmentation)降解实验; 全文无真实污染场地采样点级OP浓度数据; 亦无修复前场地本底值(因土壤从未受D-phenothrin污染)"

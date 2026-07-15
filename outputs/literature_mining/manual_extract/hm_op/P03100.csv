@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03100,,,,,,,,,"skip: 综述论文(Research progress)，无采样点级原始HM+OP浓度数据。表1=生物修复功能菌表(微生物/功能/参考文献)，表2=生物修复技术对比表(适用范围/优点/缺点)，均非采样点浓度表。正文数值均为引用他人文献(韩文辉2016/Chakraborty2019/Urionabarrenetxea2021等)或盆栽spiked实验浓度，不构成原始可追溯数据。"

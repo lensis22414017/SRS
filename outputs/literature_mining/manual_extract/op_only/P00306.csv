@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00306,0-10cm,Sum_PAH_ngg,798,ng/g,Table 2 / 正文line98,soil,other,Heilongjiang,"表层(0-10cm)深度段 Σ16PAHs浓度直接读取; 单一冻土岩芯38个深度段样品中唯一可从表格/正文提取的精确数值, 其余37个深度段浓度仅在Fig 5(图表无法提取精确值); Table 1仅含Average/Maximum统计汇总+ERL/ERM阈值"

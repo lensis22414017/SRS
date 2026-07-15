@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01379,NOTES,,,Section Soil (via ScienceDirect web),soil,other,Hubei,"skip: 本地PDF仅1页(首页), 无全文; 网页正文确认采样点级数据在Table S4(补充材料)中, 但SI未下载且Elsevier CDN 404; 正文仅给统计汇总(Σ16PAHs 15.2-4294 ng/g, mean 402±807 ng/g, CV=2.01)非采样点级, 按规则剔除"

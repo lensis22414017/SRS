@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03328,,,,,,soil,industrial,Shanghai,"无采样点级数据；表2为场地质统计汇总(超标率/最大值/平均值+GB36600-2018标准阈值)，按铁律2/3/4剔除；表1为检测方法表非浓度；表3为技术比选矩阵无浓度；表4表5为修复实验数据(淋洗/生物修复前后平均值+平均去除率)，按铁律7剔除；正文1.1仅述每个疑似污染区域布点表层/下层/饱和带但未给S1/A/B等点位标识；HM指标为Cr(VI)/Pb/Ni(Cr(VI)为六价铬形态非总Cr)、OP为石油烃(C10-C40,TotalPHC_mgkg)；论文确属HM+OP真复合污染场地但无可提取采样点级浓度"

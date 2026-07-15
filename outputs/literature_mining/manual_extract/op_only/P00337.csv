@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00337,I-2,SumPBDE_ngg,108,ng/g,Results text Concentrations of PBDEs in soils,soil,industrial,Tianjin,I-2 industrial area near plastics plant direct read from text Sigma18PBDEs
+P00337,M-21,SumPBDE_ngg,93.9,ng/g,Results text Concentrations of PBDEs in soils,soil,industrial,Tianjin,M-21 mixed area near plastics plant direct read from text Sigma18PBDEs
+P00337,L-1,SumPBDE_ngg,94.3,ng/g,Results text Concentrations of PBDEs in soils,soil,urban,Tianjin,L-1 living area near commercial activities direct read from text Sigma18PBDEs

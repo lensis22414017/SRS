@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03232,N/A,N/A,,,Table 2,soil,urban,Liaoning,"skip: 污染物为OPEs(organophosphate esters: TEP/TPrP/TiBP/TnBP/TEHP/TBEP/TCEP/TCPP/TDCP/TPhP/EHDPP/TCrPs/TPPO)，非目标OP类别(目标仅PAH/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAE/OCP)；Table2仅统计汇总行(Min/Mean/Median/Max/SD/CV)无采样点级数据，74个样点个体值仅见IDW空间插值图Fig2"

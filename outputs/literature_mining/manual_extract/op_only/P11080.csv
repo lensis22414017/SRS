@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11080,,,,,,soil,urban,Liaoning/Hebei/Shandong/Jiangsu/Tianjin,"仅区域/城市/距离带/地类统计汇总(Mean/SD/Percentile),无采样点级数据。Table 1含22城市均值+8距离带均值+6地类均值+整体M/SD/Kurtosis+阈值标准值,153采样点但未公开单点ID和浓度值"

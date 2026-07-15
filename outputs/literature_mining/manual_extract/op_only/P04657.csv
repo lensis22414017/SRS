@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04657,,,,,,,,,"skip: pot/greenhouse/spiked experiment — 土壤采自uncontaminated background points(背景点), artificially supplemented with 4 PAHs at 3 spiked concentrations(50/250/1000 mg/kg), ryegrass planted in pots for 56-day degradation study. No real site-level OP data; background soil PAH values below detection limits. 无修复前场地本底实测值"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01625,,,,,,soil,agricultural,Multi-province,"skip: 受控温室盆栽实验-从6省份采集原土(Guangzhou红土S1/Zhejiang黄棕土S2/Hunan黄壤S3/东北黑土S4/Beijing棕壤S5/Ningxia灰钙土S6)后装盆种萝卜+施堆肥培养Day0/7/14/28/58/84采ARGs样本(违反铁律#7盆栽/温室实验); 论文主题为抗生素抗性基因(ARGs)非传统HM/OP污染(不属PAHs/PCBs/OCPs/PBDE/PHC清单); SI四表(TableS1=384 PCR引物/TableS2=16S扩增程序/TableS3=PERMANOVA统计/TableS4=共现网络拓扑)与正文Fig均为ARGs/MGEs丰度无HM或OP浓度数据; 摘要提及土壤重金属浓度仅作环境驱动变量描述未给数值; 本地PDF仅含第1页(Elsevier preprint)经SI完整方法确认无场地实测HM+OP同论文数据"

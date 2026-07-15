@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02020,,,,,,,,"skip: 大气颗粒物(PM2.5/PM10)研究非土壤，基质为大气(atmosphere)；Meta分析/综述汇总89城市文献数据无独立场地采样；单位ng/m3非ng/g或mg/kg"

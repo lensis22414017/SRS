@@ -1,0 +1,48 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+10007768,10007768_Soil_sample_no_1_(mg/kgd.w.),Soil sample no 1 (mg/kgd.w.),As_mgkg,6.96,Unknown,,high,table_p1_ri1_ci1,TABLE II MEASURED CHEMICAL CONCENTRATIONS
+10007768,10007768_Soil_sample_2_(mg/kgd.w.),Soil sample 2 (mg/kgd.w.),As_mgkg,11.62,Unknown,,high,table_p1_ri1_ci2,TABLE II MEASURED CHEMICAL CONCENTRATIONS
+10007768,10007768_Soil_sample_no_1_(mg/kgd.w.),Soil sample no 1 (mg/kgd.w.),Cd_mgkg,0.08,Unknown,,high,table_p1_ri2_ci1,TABLE II MEASURED CHEMICAL CONCENTRATIONS
+10007768,10007768_Soil_sample_2_(mg/kgd.w.),Soil sample 2 (mg/kgd.w.),Cd_mgkg,1.0,Unknown,,high,table_p1_ri2_ci2,TABLE II MEASURED CHEMICAL CONCENTRATIONS
+10007768,10007768_Soil_sample_no_1_(mg/kgd.w.),Soil sample no 1 (mg/kgd.w.),Cr_mgkg,72.08,Unknown,,high,table_p1_ri3_ci1,TABLE II MEASURED CHEMICAL CONCENTRATIONS
+10007768,10007768_Soil_sample_2_(mg/kgd.w.),Soil sample 2 (mg/kgd.w.),Cr_mgkg,116.31,Unknown,,high,table_p1_ri3_ci2,TABLE II MEASURED CHEMICAL CONCENTRATIONS
+10007768,10007768_Soil_sample_no_1_(mg/kgd.w.),Soil sample no 1 (mg/kgd.w.),Cu_mgkg,35.3,Unknown,,high,table_p1_ri5_ci1,TABLE II MEASURED CHEMICAL CONCENTRATIONS
+10007768,10007768_Soil_sample_2_(mg/kgd.w.),Soil sample 2 (mg/kgd.w.),Cu_mgkg,64.91,Unknown,,high,table_p1_ri5_ci2,TABLE II MEASURED CHEMICAL CONCENTRATIONS
+10007768,10007768_Soil_sample_no_1_(mg/kgd.w.),Soil sample no 1 (mg/kgd.w.),Fe_mgkg,3.88,Unknown,,high,table_p1_ri6_ci1,TABLE II MEASURED CHEMICAL CONCENTRATIONS
+10007768,10007768_Soil_sample_2_(mg/kgd.w.),Soil sample 2 (mg/kgd.w.),Fe_mgkg,4.289,Unknown,,high,table_p1_ri6_ci2,TABLE II MEASURED CHEMICAL CONCENTRATIONS
+10007768,10007768_Soil_sample_no_1_(mg/kgd.w.),Soil sample no 1 (mg/kgd.w.),Mn_mgkg,921.35,Unknown,,high,table_p1_ri7_ci1,TABLE II MEASURED CHEMICAL CONCENTRATIONS
+10007768,10007768_Soil_sample_2_(mg/kgd.w.),Soil sample 2 (mg/kgd.w.),Mn_mgkg,921.38,Unknown,,high,table_p1_ri7_ci2,TABLE II MEASURED CHEMICAL CONCENTRATIONS
+10007768,10007768_Soil_sample_no_1_(mg/kgd.w.),Soil sample no 1 (mg/kgd.w.),Hg_mgkg,0.793,Unknown,,high,table_p1_ri8_ci1,TABLE II MEASURED CHEMICAL CONCENTRATIONS
+10007768,10007768_Soil_sample_2_(mg/kgd.w.),Soil sample 2 (mg/kgd.w.),Hg_mgkg,0.497,Unknown,,high,table_p1_ri8_ci2,TABLE II MEASURED CHEMICAL CONCENTRATIONS
+10007768,10007768_Soil_sample_no_1_(mg/kgd.w.),Soil sample no 1 (mg/kgd.w.),Ni_mgkg,37.0,Unknown,,high,table_p1_ri9_ci1,TABLE II MEASURED CHEMICAL CONCENTRATIONS
+10007768,10007768_Soil_sample_2_(mg/kgd.w.),Soil sample 2 (mg/kgd.w.),Ni_mgkg,42.46,Unknown,,high,table_p1_ri9_ci2,TABLE II MEASURED CHEMICAL CONCENTRATIONS
+10007768,10007768_Soil_sample_no_1_(mg/kgd.w.),Soil sample no 1 (mg/kgd.w.),Pb_mgkg,34.67,Unknown,,high,table_p1_ri10_ci1,TABLE II MEASURED CHEMICAL CONCENTRATIONS
+10007768,10007768_Soil_sample_2_(mg/kgd.w.),Soil sample 2 (mg/kgd.w.),Pb_mgkg,120.44,Unknown,,high,table_p1_ri10_ci2,TABLE II MEASURED CHEMICAL CONCENTRATIONS
+10007768,10007768_Soil_sample_no_1_(mg/kgd.w.),Soil sample no 1 (mg/kgd.w.),Zn_mgkg,108.32,Unknown,,high,table_p1_ri11_ci1,TABLE II MEASURED CHEMICAL CONCENTRATIONS
+10007768,10007768_Soil_sample_2_(mg/kgd.w.),Soil sample 2 (mg/kgd.w.),Zn_mgkg,320.6,Unknown,,high,table_p1_ri11_ci2,TABLE II MEASURED CHEMICAL CONCENTRATIONS
+10007768,10007768_Normal_value_(mg/kg_d.w.),Normal value (mg/kg d.w.),As_mgkg,5.0,Unknown,,high,table_p1_ri1_ci1,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Alert_thresholds_(mg/kg_d.w.),Alert thresholds (mg/kg d.w.),As_mgkg,25.0,Unknown,,high,table_p1_ri1_ci2,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Intervention_thresholds_(mg/kg_d.w.),Intervention thresholds (mg/kg d.w.),As_mgkg,50.0,Unknown,,high,table_p1_ri1_ci3,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Normal_value_(mg/kg_d.w.),Normal value (mg/kg d.w.),Cd_mgkg,1.0,Unknown,,high,table_p1_ri2_ci1,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Alert_thresholds_(mg/kg_d.w.),Alert thresholds (mg/kg d.w.),Cd_mgkg,5.0,Unknown,,high,table_p1_ri2_ci2,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Intervention_thresholds_(mg/kg_d.w.),Intervention thresholds (mg/kg d.w.),Cd_mgkg,10.0,Unknown,,high,table_p1_ri2_ci3,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Normal_value_(mg/kg_d.w.),Normal value (mg/kg d.w.),Cr_mgkg,30.0,Unknown,,high,table_p1_ri3_ci1,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Alert_thresholds_(mg/kg_d.w.),Alert thresholds (mg/kg d.w.),Cr_mgkg,300.0,Unknown,,high,table_p1_ri3_ci2,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Intervention_thresholds_(mg/kg_d.w.),Intervention thresholds (mg/kg d.w.),Cr_mgkg,600.0,Unknown,,high,table_p1_ri3_ci3,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Normal_value_(mg/kg_d.w.),Normal value (mg/kg d.w.),Cu_mgkg,20.0,Unknown,,high,table_p1_ri5_ci1,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Alert_thresholds_(mg/kg_d.w.),Alert thresholds (mg/kg d.w.),Cu_mgkg,250.0,Unknown,,high,table_p1_ri5_ci2,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Intervention_thresholds_(mg/kg_d.w.),Intervention thresholds (mg/kg d.w.),Cu_mgkg,500.0,Unknown,,high,table_p1_ri5_ci3,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Normal_value_(mg/kg_d.w.),Normal value (mg/kg d.w.),Mn_mgkg,900.0,Unknown,,high,table_p1_ri7_ci1,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Alert_thresholds_(mg/kg_d.w.),Alert thresholds (mg/kg d.w.),Mn_mgkg,2000.0,Unknown,,high,table_p1_ri7_ci2,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Intervention_thresholds_(mg/kg_d.w.),Intervention thresholds (mg/kg d.w.),Mn_mgkg,4000.0,Unknown,,high,table_p1_ri7_ci3,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Normal_value_(mg/kg_d.w.),Normal value (mg/kg d.w.),Hg_mgkg,0.1,Unknown,,high,table_p1_ri8_ci1,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Alert_thresholds_(mg/kg_d.w.),Alert thresholds (mg/kg d.w.),Hg_mgkg,4.0,Unknown,,high,table_p1_ri8_ci2,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Intervention_thresholds_(mg/kg_d.w.),Intervention thresholds (mg/kg d.w.),Hg_mgkg,10.0,Unknown,,high,table_p1_ri8_ci3,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Normal_value_(mg/kg_d.w.),Normal value (mg/kg d.w.),Ni_mgkg,20.0,Unknown,,high,table_p1_ri9_ci1,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Alert_thresholds_(mg/kg_d.w.),Alert thresholds (mg/kg d.w.),Ni_mgkg,200.0,Unknown,,high,table_p1_ri9_ci2,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Intervention_thresholds_(mg/kg_d.w.),Intervention thresholds (mg/kg d.w.),Ni_mgkg,500.0,Unknown,,high,table_p1_ri9_ci3,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Normal_value_(mg/kg_d.w.),Normal value (mg/kg d.w.),Pb_mgkg,20.0,Unknown,,high,table_p1_ri10_ci1,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Alert_thresholds_(mg/kg_d.w.),Alert thresholds (mg/kg d.w.),Pb_mgkg,250.0,Unknown,,high,table_p1_ri10_ci2,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Intervention_thresholds_(mg/kg_d.w.),Intervention thresholds (mg/kg d.w.),Pb_mgkg,1000.0,Unknown,,high,table_p1_ri10_ci3,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Normal_value_(mg/kg_d.w.),Normal value (mg/kg d.w.),Zn_mgkg,100.0,Unknown,,high,table_p1_ri11_ci1,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Alert_thresholds_(mg/kg_d.w.),Alert thresholds (mg/kg d.w.),Zn_mgkg,700.0,Unknown,,high,table_p1_ri11_ci2,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997
+10007768,10007768_Intervention_thresholds_(mg/kg_d.w.),Intervention thresholds (mg/kg d.w.),Zn_mgkg,1500.0,Unknown,,high,table_p1_ri11_ci3,Fig.2 Heavy metals concentrations in soil TABLE III THRESHOLD VALUES ACCORDING TO M.O.756/1997

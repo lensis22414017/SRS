@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+toxics-11-00941,toxics-11-00941_Med,Med,SumPCB_ngg,32.95,Unknown,,high,table_p5_ri2_ci1,"value of 8.19 ng/g in greenhouse soils, and ranged from <LOD to 20.19 ng/g with<sup>Table</sup> <sup>2.</sup> <sup>The</sup> <sup>concentrations</sup> <sup>and</sup> <sup>distribution</sup> <sup>of</s"
+toxics-11-00941,toxics-11-00941_Med,Med,SumPCB_ngg,23.05,Unknown,,high,table_p5_ri5_ci1,"value of 8.19 ng/g in greenhouse soils, and ranged from <LOD to 20.19 ng/g with<sup>Table</sup> <sup>2.</sup> <sup>The</sup> <sup>concentrations</sup> <sup>and</sup> <sup>distribution</sup> <sup>of</s"
+toxics-11-00941,toxics-11-00941_Med,Med,SumPCB_ngg,77.35,Unknown,,high,table_p6_ri2_ci1,Table 2. Cont.
+toxics-11-00941,toxics-11-00941_Med,Med,SumPCB_ngg,97.54,Unknown,,high,table_p6_ri5_ci1,Table 2. Cont.

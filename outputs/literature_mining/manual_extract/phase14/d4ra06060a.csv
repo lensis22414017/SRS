@@ -1,0 +1,11 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+d4ra06060a,d4ra06060a_OSR%,OSR%,TotalPHC_mgkg,9.945,Unknown,,high,table_p2_ri6_ci1,Table 1 Contents of TPH and HMs in soil of abandoned re<sup>fi</sup>nery (mg kg−<sup>1</sup>) (<sup>n</sup> = 2084)
+d4ra06060a,d4ra06060a_OSR%,OSR%,As_mgkg,0.492,Unknown,,high,table_p2_ri6_ci2,Table 1 Contents of TPH and HMs in soil of abandoned re<sup>fi</sup>nery (mg kg−<sup>1</sup>) (<sup>n</sup> = 2084)
+d4ra06060a,d4ra06060a_OSR%,OSR%,Co_mgkg,0.492,Unknown,,high,table_p2_ri6_ci3,Table 1 Contents of TPH and HMs in soil of abandoned re<sup>fi</sup>nery (mg kg−<sup>1</sup>) (<sup>n</sup> = 2084)
+d4ra06060a,d4ra06060a_OSR%,OSR%,Ni_mgkg,0.492,Unknown,,high,table_p2_ri6_ci4,Table 1 Contents of TPH and HMs in soil of abandoned re<sup>fi</sup>nery (mg kg−<sup>1</sup>) (<sup>n</sup> = 2084)
+d4ra06060a,d4ra06060a_OSR%,OSR%,Pb_mgkg,0.219,Unknown,,high,table_p2_ri6_ci5,Table 1 Contents of TPH and HMs in soil of abandoned re<sup>fi</sup>nery (mg kg−<sup>1</sup>) (<sup>n</sup> = 2084)
+d4ra06060a,d4ra06060a_Soil_reference_valueª,Soil reference valueª,TotalPHC_mgkg,826.0,Unknown,,high,table_p2_ri7_ci1,Table 1 Contents of TPH and HMs in soil of abandoned re<sup>fi</sup>nery (mg kg−<sup>1</sup>) (<sup>n</sup> = 2084)
+d4ra06060a,d4ra06060a_Soil_reference_valueª,Soil reference valueª,As_mgkg,40.0,Unknown,,high,table_p2_ri7_ci2,Table 1 Contents of TPH and HMs in soil of abandoned re<sup>fi</sup>nery (mg kg−<sup>1</sup>) (<sup>n</sup> = 2084)
+d4ra06060a,d4ra06060a_Soil_reference_valueª,Soil reference valueª,Co_mgkg,40.0,Unknown,,high,table_p2_ri7_ci3,Table 1 Contents of TPH and HMs in soil of abandoned re<sup>fi</sup>nery (mg kg−<sup>1</sup>) (<sup>n</sup> = 2084)
+d4ra06060a,d4ra06060a_Soil_reference_valueª,Soil reference valueª,Ni_mgkg,150.0,Unknown,,high,table_p2_ri7_ci4,Table 1 Contents of TPH and HMs in soil of abandoned re<sup>fi</sup>nery (mg kg−<sup>1</sup>) (<sup>n</sup> = 2084)
+d4ra06060a,d4ra06060a_Soil_reference_valueª,Soil reference valueª,Pb_mgkg,400.0,Unknown,,high,table_p2_ri7_ci5,Table 1 Contents of TPH and HMs in soil of abandoned re<sup>fi</sup>nery (mg kg−<sup>1</sup>) (<sup>n</sup> = 2084)

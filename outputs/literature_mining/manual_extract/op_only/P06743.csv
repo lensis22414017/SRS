@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06743,,,,,,,,,"skip: MinerU解析仅捕获第1页(摘要+引言), 缺少含采样点OCP浓度数据的表格(论文Chemosphere 90(9):2381-2387共7页); 原始PDF不在文件系统(G:/文献整理_最终/2012_Zhao C et al_Chemosphere_10.1016-j.chemosphere.2012.10.029/无paper.pdf); ScienceDirect/Europe PM仅摘要(Elsevier付费墙). 论文研究山东淄博农药厂周边土壤DDTs/HCHs/Endosulfan, 3层深度(0-20/20-40/40-60cm), 浓度范围DDTs 0.775-226.711/HCHs 0.248-42.838/ENDO 0.081-1.644 mg/kg. 需重新获取PDF或重新MinerU解析全文"

@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06276,,skip_reason,,,no_table,soil,source_apportionment,Dalian,"skip: PMF源解析论文,采样点PAH浓度数据均在配套论文Wang et al.,2008(JEM 10,1076)中;Table 1为源排放烟尘剖面(煤粉锅炉/柴油/汽油发动机)非土壤;Figures 4/5为因子贡献图非浓度值;无可提取的采样点级土壤浓度数据"

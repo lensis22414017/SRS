@@ -1,0 +1,72 @@
+
+=== PAGE 1 ===
+Pollution characteristics, ecological risk and microbial response to 
+combined heavy metals and polycyclic aromatic hydrocarbons in 
+soil-groundwater system of the blown-sand region
+Xiaobang Liu a,b, Lei Duan a,b
+, Yaqiao Sun a,b,*, Chenchen Xie a,b, Guobin Song a,b
+a School of Water and Environment, Chang’an University, Xi’an 710054, Shaanxi, China
+b Key Laboratory of Underground Hydrology and Ecological Effects in Arid Regions of the Ministry of Education, Chang’an University, Xi’an 710054, Shaanxi, China
+A R T I C L E  I N F O
+Keywords:
+Soil-groundwater system
+Multi-pollutants
+Pollution prevention
+Empirical Bayesian kriging (EBK) model
+Microbial stress
+A B S T R A C T
+Systematic revelation on the interaction relationships and environmental behavior of composite pollutants in 
+soil-groundwater systems is essential but still paucity. This paper integrated geochemistry, statistical analysis and 
+microbiology to progressively analyze the pollution characteristics of heavy metals (HMs) and polycyclic aro­
+matic hydrocarbons (PAHs), potential ecological risks and microbial response mechanisms in the blown-sand 
+region. The results indicate that the soil was compound-contaminated by HMs and PAHs. HMs primarily accu­
+mulated in the soil of 1~1.5 m, while PAHs were predominantly found in 0~0.5 m. Although HMs and PAHs 
+showed different sources, the spatial distribution of co-pollutants exhibited a marked correlation with the in­
+dustrial layout. The ecological risk in the soil was at a low level, and its spatial distribution corresponded to the 
+pollutants. The microbial community in soil and groundwater exhibited significant distress due to pollutants, as 
+evidenced by disparities in OTU abundance, diversity index, and microbial community composition. The natural 
+attenuation, encompassing aerobic biodegradation, photodegradation, chemical oxidation and volatilization, 
+plays an important role in controlling the environmental behavior of HMs and PAHs in the blown-sand areas. 
+Based on the above analysis, a technical framework was proposed to prevent and remediate soil-groundwater 
+pollution using sensitive microorganisms and tolerant microorganisms. This paper initially combines compos­
+ite pollutants and microbial community response and highlights the systematic research in the prevention and 
+remediation of soil-groundwater pollution.
+1. Introduction
+Accelerated urbanization and strategic industrial restructuring drive 
+the spatial clustering of industrial activities. Consequently, soil- 
+groundwater pollution caused by industrial parks is characterized by 
+localized hotspots, high concentrations and multiple pollutants (Peng 
+et al., 2021; Wu et al., 2023). Among them, heavy metals (HMs) and 
+polycyclic aromatic hydrocarbons (PAHs) are of significant concern due 
+to their high toxicity, bioaccumulation, and adverse effects on human 
+tissue (Li et al., 2024b; You et al., 2024). Despite their divergent 
+anthropogenic origins, HMs and PAHs frequently exhibit spatially 
+overlapping contamination patterns and have been detected in multiple 
+environmental compartments, such as indoor combustion (Fappiano 
+et al., 2024), urban soil (Amjadian et al., 2016), farmland soils (Xie 
+et al., 2024), street dust (Saeedi et al., 2012), contaminated sites (You 
+et al., 2024), and others (Wu et al., 2024). It is well-known that pol­
+lutants in soil frequently engage in interactions that can be synergistic, 
+antagonistic, or additive (Ashkanani et al., 2024). These processes not 
+only alter contaminant toxicity but also make their environmental 
+behavior more complex (Anjum et al., 2024; Jiang and Zhao, 2024). 
+Therefore, numerous studies have been conducted to investigate the 
+prevention, control and remediation technologies of combined HMs and 
+PAHs pollution (Wu et al., 2022; Zhao, 2023).
+Identifying contaminant distribution characteristics and pollution 
+levels is fundamental to deploying effective pollution prevention and 
+remediation strategies. Most recently, numerous research methods such 
+as multivariate statistics, geostatistics (Ma et al., 2025), chemical mass 
+balance (CMB) (Li et al., 2014a), and pollution index (Jin et al., 2021) 
+were used to analyze soil-groundwater contaminant levels. The inves­
+tigation revealed that the soil contamination is a complex, multifaceted 
+* Corresponding author. School of Water and Environment, Chang’an University, Xi’an 710054, Shaanxi, China.
+E-mail address: sunyaqiao@chd.edu.cn (Y. Sun). 
+Contents lists available at ScienceDirect
+Environmental Research
+journal homepage: www.elsevier.com/locate/envres
+https://doi.org/10.1016/j.envres.2025.122748
+Received 1 May 2025; Received in revised form 31 August 2025; Accepted 1 September 2025  
+Environmental Research 286 (2025) 122748 
+Available online 2 September 2025 
+0013-9351/© 2025 Elsevier Inc. All rights are reserved, including those for text and data mining, AI training, and similar technologies. 

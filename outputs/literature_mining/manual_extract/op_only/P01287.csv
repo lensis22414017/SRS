@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01287,,,,,,soil,agricultural,Tianjin,"skip: Table 1 soil antibiotics (OTC/TC/CTC/SMZ/SDO/SCP/CAP/OFL/CIP/LIN) reported only as concentration ranges (min-max) across 4 organic vegetable bases, no individual sample-level data with sample IDs; Table 2 is plant tissue (excluded); Table S4 is groundwater (excluded); SDZ not present (paper has SDO=sulfadoxine); ENRO not present"

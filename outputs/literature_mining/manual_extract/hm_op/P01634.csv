@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01634,,,,,,soil,industrial,Guangdong,"skip: paper.md仅含Abstract+Highlights(early access版 正文于'Owing to the easy accessibility'处截断 无完整正文/Tables/Figs) 采样点级浓度无法获取; 且据Abstract明确为HM-only 3D ML预测建模研究(four heavy metals R2>0.73 示范目标含As) 全文未提及任何OP(PAH/PCB/DDT/HCH/PBDE/PHC) 不满足HM+OP真复合要求; 该论文亦被rejected_literature_log标注HM-only无OP家族信号"

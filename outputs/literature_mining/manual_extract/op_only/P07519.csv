@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07519,,,,,,soil,,,skip: 综述文章无原始采样数据;研究对象为BTEX(VOCs)在大气中的分布(μg/m3)非土壤;BTEX不属于目标OP污染物(Sum_PAH/BaP/SumPCB/SumDDT/SumHCH/SumPBDE/TotalPHC);正文3.1节仅引述他人文献"benzene未检出"无实测值

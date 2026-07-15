@@ -1,0 +1,11 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+_dup_etc.1854,_dup_etc.1854_Soil,Sum_PAH_ngg,0.5,Unknown,table_p2_ri6_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_etc.1854,_dup_etc.1854_Soil,Sum_PAH_ngg,7.67,Unknown,table_p2_ri14_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_etc.1854,_dup_etc.1854_Soil,Sum_PAH_ngg,8.17,Unknown,table_p2_ri15_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_etc.1854,_dup_etc.1854_Soil,Flu_ngg,0.29,Unknown,table_p2_ri17_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_etc.1854,_dup_etc.1854_Soil,Phe_ngg,1.43,Unknown,table_p2_ri18_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_etc.1854,_dup_etc.1854_Fly_ash,Phe_ngg,0.01,Unknown,table_p2_ri18_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_etc.1854,_dup_etc.1854_Soil,Ant_ngg,0.23,Unknown,table_p2_ri19_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_etc.1854,_dup_etc.1854_Soil,BaA_ngg,0.9,Unknown,table_p2_ri21_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_etc.1854,_dup_etc.1854_Soil,Sum_PAH_ngg,4.34,Unknown,table_p2_ri22_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_etc.1854,_dup_etc.1854_Fly_ash,Sum_PAH_ngg,0.01,Unknown,table_p2_ri22_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,

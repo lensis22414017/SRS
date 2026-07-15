@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01678,,,,,,soil,agricultural,Chongqing,"skip: 论文仅测8种重金属(As/Cd/Cr/Cu/Hg/Ni/Pb/Zn)无任何有机污染物(OP)数据,非HM+OP真复合研究; Table1仅给337表层+80深层样本Max/Min/Mean/SD统计汇总,无采样点级原始浓度(铁律4剔除); Table2为PI污染指数/Table3为EF富集因子均为风险指数非浓度(铁律5剔除); Table4为Pearson相关系数/Table5为PCA载荷均非浓度值; 论文为重庆铜梁区县级网格化农业土壤HM区域调查无点位级数据公开"

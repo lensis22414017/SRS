@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+15320383.2012.712069,15320383.2012.712069_Lilliefors_normality_testb,Lilliefors normality testb,Fe_mgkg,1.67,Unknown,,high,table_p10_ri3_ci1,
+15320383.2012.712069,15320383.2012.712069_Lilliefors_normality_testb,Lilliefors normality testb,Fe_mgkg,12.16,Unknown,,high,table_p10_ri3_ci2,
+15320383.2012.712069,15320383.2012.712069_Lilliefors_normality_testb,Lilliefors normality testb,Cu_mgkg,90.0,Unknown,,high,table_p10_ri4_ci1,
+15320383.2012.712069,15320383.2012.712069_Lilliefors_normality_testb,Lilliefors normality testb,Cu_mgkg,3034.0,Unknown,,high,table_p10_ri4_ci2,

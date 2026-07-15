@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08677,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"skip: 仅处理组汇总数据(Mean±SD)，无采样点级浓度。Table 1为CK/N1/N2/N3四组理化性质均值±SD；PAH数据仅在Fig 2/Fig 3中以响应比(lnRR)呈现；Table S1为补充材料未包含在parsed文本中。12样地10表层土样混合为1复合样，无法取得单个采样点浓度。无HM数据。"

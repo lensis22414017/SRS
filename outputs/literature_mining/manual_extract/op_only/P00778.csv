@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00778,,,,,,,,"skip: 氯化石蜡(SCCPs/MCCPs)不在目标OP清单中(PAH/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAEs/OCPs); 且无采样点级数据(仅报告区域range/mean: e-waste 911-4726均值2689 ng/g, control 811-1359均值990 ng/g, background 192 ng/g)"

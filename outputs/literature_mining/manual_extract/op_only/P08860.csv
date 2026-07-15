@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08860,,,,,,,,,"skip: 仅均值汇总无采样点级数据表格; 正文仅给整体均值(Σ18PAHs=231.62ng/g等均为Mean), 15个site-level数据仅在Figure2c柱状图(图片)中无法从文本提取; 论文测Σ18PAHs(含BIP/BeP/COR)非标准16EPA PAHs; 衍生物NPAHs/OPAHs/BrPAHs/ClPAHs不在目标OP列表; 无补充材料SI"

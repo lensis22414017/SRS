@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00341,,,,,,,industrial,Beijing,"skip: 论文仅提供分区/分层统计汇总(Min/Max/Mean/CV/SD) 无采样点级数据; Table1为各子区域BbF的Min/Max/Mean/CV统计 Table3为四层Maximum/Average/SD汇总; 352个样本仅以图(Fig1/Fig4/Fig5)可视化展示 无法提取采样点级浓度; 场地类型=coking plant southeastern China"

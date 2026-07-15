@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09184,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"skip: 正文仅报告区域汇总统计量(Mean/Min/Max/SD/CV, Table S5),148个采样点个体浓度值未公布;补充材料Table S5为描述性统计行无采样点级数据;Table S6-S7为PMF因子贡献;Table S8为Nemerow指数;Table S9-S10为健康风险计算值;无可提取采样点级浓度数据"

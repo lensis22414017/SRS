@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11435,,,,,,,,"skip: 仅区域统计汇总(mean/range/SD)，687样品无采样点级数据；Table1为range范围值(如p,p'-DDE 0.01-5659)，正文3.1为mean+range统计量，Fig4按作物类型分组浓度图，Table S5亦为statistical data；无可追溯的单采样点标识与浓度"

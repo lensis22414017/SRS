@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09811,,,,,,,Beijing,"skip: parsed paper.md仅含Supporting Information(SI)，无主文正文；SI仅含Table S1方法回收率/检出限(非浓度)、Table S2风险模型参数、Table S3相关性矩阵、Table S4 ILCR百分位(风险指数，全部剔除)、Fig S1柱状图(图片非表格)；主文含采样点级PAH浓度数据的表格未在parsed目录中，无法提取"

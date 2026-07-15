@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01994,,,,,,,atmosphere,e_waste,Guangdong,"skip: 大气研究非土壤。论文采集1.5/5/20m高度空气颗粒物(MOUDI冲击器)测PBDEs，浓度单位pg/m3(大气体积)，估算干湿沉降通量ng/m2/d。无任何土壤或沉积物采样点级数据"

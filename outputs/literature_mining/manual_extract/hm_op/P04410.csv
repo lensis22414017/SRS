@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04410,,,,,,,soil,agricultural,"skip: 仅区域级统计汇总(Table 1为Max/Min/Average/SD/CV, Table S6为分位数Min/25th/50th/75th/Max), 无采样点级HM浓度数据; 298个样本仅报告统计量未公开个体值; 论文仅含HM(Cr/Ni/Cu/As/Pb/Zn/Cd)无任何OP(Sum_PAH/BaP/SumPCB/SumDDT/SumHCH/SumPBDE/TotalPHC)数据"

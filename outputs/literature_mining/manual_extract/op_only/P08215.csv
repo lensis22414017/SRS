@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08215,N/A,N/A,N/A,N/A,N/A,soil,agricultural,Hubei,"skip: 仅摘要级汇总统计(Σ6PAEs范围+SD)，论文全文表格(Tuanlin 24点位/Zhongxiang 16点位个点PAE浓度)未解析，无采样点级数据可用"

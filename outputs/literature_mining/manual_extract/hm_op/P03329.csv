@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03329,,,,,,,,"skip: 论文研究对象为油菜籽皮仁(plant tissue/作物籽实)非土壤，命中规则#7剔除场景(植物组织)。表1虽有12批样品的BaP/PAH4/Cd/As/Pb/硫苷数值，但matrix=rapeseed hull/kernel(μg/kg或μmol/g)，样品编号1-12对应12批油菜籽而非土壤采样点；产地:青海(1-2)/湖北(3-5)/甘肃(6-8)/四川(9-11)/山东(12)。论文属食品安全(油脂安全)领域非场地土壤污染；全文无任何土壤采样点级浓度数据。scan_sample_row_hmop.csv所标13行系误判(将作物籽实数据当作土壤采样点)。"

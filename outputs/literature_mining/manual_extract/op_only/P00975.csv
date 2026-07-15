@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00975,,,,,,,,,skip: 表格为图片，需OCR。论文30个采样点(焦化厂10+森林5+草地5+农田5+废弃地5)的8种HM(Cd/Pb/Cr/As/Hg/Cu/Zn/Ni)和16种PAHs浓度数据以柱状图/箱线图呈现在Fig.1a/Fig.1b/Fig.S3中，补充材料Table S1-S14均为多样性指数/风险指数/网络属性等衍生指标，无原始采样点浓度数值表。

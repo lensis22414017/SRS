@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00238,,,,,,,,"skip: paper.md is SI of nationwide PAH review (not Harbin PCB paper P00238); Tables S2/S3 contain only city-level mean concentrations from literature compilation with no sampling-point level data; Table S1 is emission inventory in tons (not soil concentration); no PCB data present; P00238 original paper cited as ref (Ma et al. 2009) within this review"

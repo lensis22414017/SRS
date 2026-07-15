@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00356,,,,,,,,Beijing,"skip: parsed paper.md is paywall preview only (abstract/references/metadata, no data tables). Only stat summaries in abstract (range 5.70-1512 ng/g, median 44.2 ng/g). No sample-level data extractable."

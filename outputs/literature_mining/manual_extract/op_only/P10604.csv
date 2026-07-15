@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10604,,,,,,soil,agricultural,Fujian,"skip: paper.md parsed truncated (only 26 lines/3794 bytes, abstract+intro only, no data tables). Original paper has 93 surface soil samples with DDTs (0.64-78.07 ng/g) and HCHs (0.72-30.16 ng/g) in Table 1-4 but tables not in parsed output. No PDF in directory to re-parse. Needs re-parsing."

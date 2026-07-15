@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07518,,,,,,,,,"skip: 论文Table 1仅报告AS/RS/PS三个功能区分组的Range/Mean/Median统计汇总(每单体PAH及Σ16PAHs/ΣBPAHs均只有范围/均值/中位数)，无单个采样点级数据(无sample_id标识、无单点浓度值)；66个样本的原始数据未列表，仅以分组统计和PCA图(Figure 6b)呈现"

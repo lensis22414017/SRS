@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04709,,,,,,soil,coking,Shanxi,"skip: 仅统计汇总级数据(Max/Min/Mean/SD/检测率)，无采样点级PAH浓度。Table1为16种PAH的土壤汇总(Max/Min/Mean/SD/VC/检出率)，Table2为地下水汇总，Table3/4为TEQ/MEQ风险指数。10个土壤点(SS1-SS10)+10个地下水点(GS1-GS10)的逐点PAH浓度仅在Figure3/5/7/8(图片)中展示，正文无可追溯的逐点数值。地下水数据为水质(matrix=water)不提取。"

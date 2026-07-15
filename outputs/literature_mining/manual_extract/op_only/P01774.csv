@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01774,,,,,,,,,"skip: MinerU解析截断至仅第1页(标题/摘要/Introduction开头)。middle.json确认仅1页0个table；paper.md共46行结尾于Introduction中段。G盘全盘搜索未找到源PDF(uploads目录为空)无法重新解析。论文主题为ARGs(抗生素抗性基因)相对丰度(标准化至16S rRNA, 1.01e-7~2.31e-1)非污染物浓度; 抗生素浓度(SMZ/SDZ/ENRO/CTC/OTC)作为共现协变量若存在于全文亦不可访问。无采样点级OP浓度数据可提取"

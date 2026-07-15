@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02583,,,,,,soil,agricultural,Tianjin,"仅统计汇总(Min/Max/Average/Median/STDEV)，无采样点级数据；Table2为跨城市对比；各点浓度仅在Figure 2/3/5图中展示无法读取"

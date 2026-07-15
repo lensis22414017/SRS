@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01360,,,,,,soil,urban/industrial,Jilin,"skip: 仅Table3按污染物汇总(Mean/CV/Minimum/Maximum+GB36600/Canadian/Netherlands标准阈值+Background),无采样点级数据;论文于长春采集61个topsoil实测13HMs+16PAHs+7PCBs+8OCPs但仅以统计量呈现;Fig2为EF箱图Fig3为CSI地理分布Fig4为预测;HM+OP研究设计为真复合但无可提取采样点级行"

@@ -1,0 +1,21 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02303,GS-1,SMZ_ngg,0.51,ng/g,Table 1,soil,agricultural,Shanxi,"Table 1 direct read; sulfamethazine; SW-1 sewage column excluded (ng/L water not soil)"
+P02303,GS-1,SDZ_ngg,0.44,ng/g,Table 1,soil,agricultural,Shanxi,Table 1 direct read; sulfdiazine
+P02303,GS-1,ENRO_ngg,323.02,ng/g,Table 1,soil,agricultural,Shanxi,"Table 1 direct read; enrofloxacin (ENR in paper)"
+P02303,GS-1,CTC_ngg,28.97,ng/g,Table 1,soil,agricultural,Shanxi,Table 1 direct read; chlortetracycline
+P02303,GS-2,SMZ_ngg,3.32,ng/g,Table 1,soil,agricultural,Shanxi,Table 1 direct read; sulfamethazine
+P02303,GS-2,SDZ_ngg,0.43,ng/g,Table 1,soil,agricultural,Shanxi,Table 1 direct read; sulfdiazine
+P02303,GS-2,ENRO_ngg,306.40,ng/g,Table 1,soil,agricultural,Shanxi,"Table 1 direct read; enrofloxacin (ENR in paper)"
+P02303,GS-2,CTC_ngg,36.30,ng/g,Table 1,soil,agricultural,Shanxi,Table 1 direct read; chlortetracycline
+P02303,GS-3,SMZ_ngg,0.64,ng/g,Table 1,soil,agricultural,Shanxi,Table 1 direct read; sulfamethazine
+P02303,GS-3,SDZ_ngg,1.39,ng/g,Table 1,soil,agricultural,Shanxi,Table 1 direct read; sulfdiazine
+P02303,GS-3,ENRO_ngg,283.25,ng/g,Table 1,soil,agricultural,Shanxi,"Table 1 direct read; enrofloxacin (ENR in paper)"
+P02303,GS-3,CTC_ngg,25.75,ng/g,Table 1,soil,agricultural,Shanxi,Table 1 direct read; chlortetracycline
+P02303,GS-4,SMZ_ngg,0.49,ng/g,Table 1,soil,agricultural,Shanxi,Table 1 direct read; sulfamethazine
+P02303,GS-4,SDZ_ngg,1.13,ng/g,Table 1,soil,agricultural,Shanxi,Table 1 direct read; sulfdiazine
+P02303,GS-4,ENRO_ngg,168.19,ng/g,Table 1,soil,agricultural,Shanxi,"Table 1 direct read; enrofloxacin (ENR in paper)"
+P02303,GS-5,SMZ_ngg,0.21,ng/g,Table 1,soil,agricultural,Shanxi,Table 1 direct read; sulfamethazine
+P02303,GS-5,SDZ_ngg,5.27,ng/g,Table 1,soil,agricultural,Shanxi,Table 1 direct read; sulfdiazine
+P02303,GS-5,ENRO_ngg,94.03,ng/g,Table 1,soil,agricultural,Shanxi,"Table 1 direct read; enrofloxacin (ENR in paper)"
+P02303,GS-5,CTC_ngg,8.62,ng/g,Table 1,soil,agricultural,Shanxi,Table 1 direct read; chlortetracycline
+P02303,GS-5,OTC_ngg,13.13,ng/g,Table 1,soil,agricultural,Shanxi,Table 1 direct read; oxytetracycline

@@ -1,0 +1,6 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01990,Y15,SumPBDE_ngg,3673,ng/g,正文Results段(PBDE Concentrations in Soils and Sediments),soil,industrial,Hebei,"正文明确给出Y15采样点ΣPBDE=3673 ng/g，塑料废物回收区"
+P01990,Y27,SumPBDE_ngg,3462,ng/g,正文Results段(PBDE Concentrations in Soils and Sediments),soil,industrial,Hebei,"正文明确给出Y27采样点ΣPBDE=3462 ng/g"
+P01990,Y22,SumPBDE_ngg,2824,ng/g,正文Results段(PBDE Concentrations in Soils and Sediments),soil,industrial,Hebei,"正文明确给出Y22采样点ΣPBDE=2824 ng/g"
+P01990,D20,SumPBDE_ngg,5504,ng/g,正文Results段+Table1,soil,industrial,Hebei,"正文称D20为全部土壤采样点中最高ΣPBDE，Table1 Daliu range max=5504对应"
+P01990,R2,SumPBDE_ngg,9889,ng/g,正文Results段(PBDE Concentrations in Soils and Sediments),sediment,industrial,Hebei,"正文明确给出R2沉积物采样点ΣPBDE=9889 ng/g，BDE-209=9816 ng/g"

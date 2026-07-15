@@ -1,0 +1,43 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P00008,WYT1,SumDDT_ngg,123.5,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.92304,116.79648
+P00008,WYT2,SumDDT_ngg,153.4,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.92241,116.78217
+P00008,WYT3,SumDDT_ngg,58.9,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.92575,116.80101
+P00008,WYT4,SumDDT_ngg,24.8,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.93099,116.86177
+P00008,WYT5,SumDDT_ngg,86.9,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.93279,116.8617
+P00008,WYT6,SumDDT_ngg,57.8,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.95981,116.91425
+P00008,WYT7,SumDDT_ngg,64.7,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.97548,116.95935
+P00008,WYT8,SumDDT_ngg,45.9,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.97117,117.0423
+P00008,WYT9,SumDDT_ngg,197.0,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.96941,117.06027
+P00008,WYT10,SumDDT_ngg,75.2,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.95994,117.09148
+P00008,WYT11,SumDDT_ngg,18.5,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.92143,117.08991
+P00008,WYT12,SumDDT_ngg,14.7,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.91231,117.03247
+P00008,WYT13,SumDDT_ngg,8.4,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.93303,117.00872
+P00008,WYT14,SumDDT_ngg,18.2,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.93293,117.00859
+P00008,WYT15,SumDDT_ngg,14.9,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.91915,116.96325
+P00008,WYT16,SumDDT_ngg,33.0,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.93113,116.94264
+P00008,WYT17,SumDDT_ngg,19.1,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.92304,116.79648
+P00008,WYT18,SumDDT_ngg,19.6,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.90768,116.88011
+P00008,WYT19,SumDDT_ngg,35.0,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.89111,116.87773
+P00008,WYT20,SumDDT_ngg,44.6,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.87919,116.83494
+P00008,WYT21,SumDDT_ngg,16.5,ng/g,Table 4,soil,agricultural,Shandong,"Table 4 DDTs列直接读取(p,p'-DDE+p,p'-DDD+p,p'-DDT+o,p'-DDT)",35.82018,117.09045
+P00008,WYT1,SumHCH_ngg,1.6,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=0.1+0.9+0.3+0.3,35.92304,116.79648
+P00008,WYT2,SumHCH_ngg,2.3,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=0.6+1.1+0.5+0.1,35.92241,116.78217
+P00008,WYT3,SumHCH_ngg,3.5,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=1.0+1.5+0.8+0.2,35.92575,116.80101
+P00008,WYT4,SumHCH_ngg,2.2,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=0.2+1.1+0.8+0.1,35.93099,116.86177
+P00008,WYT5,SumHCH_ngg,3.4,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=0.7+1.9+0.7+0.1,35.93279,116.8617
+P00008,WYT6,SumHCH_ngg,3.3,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=0.6+1.3+1.3+0.1,35.95981,116.91425
+P00008,WYT7,SumHCH_ngg,2.4,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=0.3+1.4+0.6+0.1,35.97548,116.95935
+P00008,WYT8,SumHCH_ngg,3.8,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=0.7+1.9+1.1+0.1,35.97117,117.0423
+P00008,WYT9,SumHCH_ngg,4.7,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=1.1+2.7+0.6+0.3,35.96941,117.06027
+P00008,WYT10,SumHCH_ngg,15.3,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=1.7+8.8+3.4+1.4,35.95994,117.09148
+P00008,WYT11,SumHCH_ngg,6.4,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=0.4+3.8+1.6+0.6,35.92143,117.08991
+P00008,WYT12,SumHCH_ngg,2.8,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=0.1+1.7+0.4+0.6,35.91231,117.03247
+P00008,WYT13,SumHCH_ngg,1.9,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=0.5+0.8+0.3+0.3,35.93303,117.00872
+P00008,WYT14,SumHCH_ngg,2.9,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=0.4+1.7+0.7+0.1,35.93293,117.00859
+P00008,WYT15,SumHCH_ngg,1.7,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=0.5+0.7+0.4+0.1,35.91915,116.96325
+P00008,WYT16,SumHCH_ngg,4.1,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=0.6+1.2+2.2+0.1,35.93113,116.94264
+P00008,WYT17,SumHCH_ngg,2.4,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=0.6+1.2+0.5+0.1,35.92304,116.79648
+P00008,WYT18,SumHCH_ngg,2.6,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=0.6+1.0+0.4+0.6,35.90768,116.88011
+P00008,WYT19,SumHCH_ngg,3.8,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=1.1+1.7+0.7+0.3,35.89111,116.87773
+P00008,WYT20,SumHCH_ngg,1.9,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=0.4+1.0+0.4+0.1,35.87919,116.83494
+P00008,WYT21,SumHCH_ngg,16.0,ng/g,Table 5,soil,agricultural,Shandong,Table 5四单体求和(α+β+γ+δ-HCH)=3.8+8.5+3.0+0.7,35.82018,117.09045

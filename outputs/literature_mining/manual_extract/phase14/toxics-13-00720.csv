@@ -1,0 +1,176 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+toxics-13-00720,toxics-13-00720_Mean_value,Mean value,Cd_mgkg,0.28,Unknown,,high,table_p5_ri1_ci1,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Mean_value,Mean value,Cu_mgkg,41.4,Unknown,,high,table_p5_ri1_ci3,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Mean_value,Mean value,Ni_mgkg,28.07,Unknown,,high,table_p5_ri1_ci4,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Mean_value,Mean value,Pb_mgkg,20.41,Unknown,,high,table_p5_ri1_ci5,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Mean_value,Mean value,Zn_mgkg,115.23,Unknown,,high,table_p5_ri1_ci6,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Mean_value,Mean value,As_mgkg,3.99,Unknown,,high,table_p5_ri1_ci7,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Maximum_value,Maximum value,Cd_mgkg,0.41,Unknown,,high,table_p5_ri2_ci1,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Maximum_value,Maximum value,Cu_mgkg,73.73,Unknown,,high,table_p5_ri2_ci3,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Maximum_value,Maximum value,Ni_mgkg,39.22,Unknown,,high,table_p5_ri2_ci4,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Maximum_value,Maximum value,Pb_mgkg,29.14,Unknown,,high,table_p5_ri2_ci5,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Maximum_value,Maximum value,Zn_mgkg,147.85,Unknown,,high,table_p5_ri2_ci6,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Maximum_value,Maximum value,As_mgkg,5.75,Unknown,,high,table_p5_ri2_ci7,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Minimum_value,Minimum value,Cd_mgkg,0.14,Unknown,,high,table_p5_ri3_ci1,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Minimum_value,Minimum value,Cu_mgkg,22.09,Unknown,,high,table_p5_ri3_ci3,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Minimum_value,Minimum value,Ni_mgkg,9.26,Unknown,,high,table_p5_ri3_ci4,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Minimum_value,Minimum value,Pb_mgkg,17.07,Unknown,,high,table_p5_ri3_ci5,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Minimum_value,Minimum value,Zn_mgkg,68.7,Unknown,,high,table_p5_ri3_ci6,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Minimum_value,Minimum value,As_mgkg,2.03,Unknown,,high,table_p5_ri3_ci7,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Standard_deviation,Standard deviation,Cd_mgkg,0.06,Unknown,,high,table_p5_ri4_ci1,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Standard_deviation,Standard deviation,Cu_mgkg,11.79,Unknown,,high,table_p5_ri4_ci3,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Standard_deviation,Standard deviation,Ni_mgkg,7.11,Unknown,,high,table_p5_ri4_ci4,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Standard_deviation,Standard deviation,Pb_mgkg,3.0,Unknown,,high,table_p5_ri4_ci5,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Standard_deviation,Standard deviation,Zn_mgkg,16.56,Unknown,,high,table_p5_ri4_ci6,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Standard_deviation,Standard deviation,As_mgkg,1.0,Unknown,,high,table_p5_ri4_ci7,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Background_value,Background value,Cd_mgkg,0.6,Unknown,,high,table_p5_ri5_ci1,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Background_value,Background value,Cu_mgkg,24.1,Unknown,,high,table_p5_ri5_ci3,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Background_value,Background value,Ni_mgkg,29.6,Unknown,,high,table_p5_ri5_ci4,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Background_value,Background value,Pb_mgkg,21.9,Unknown,,high,table_p5_ri5_ci5,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Background_value,Background value,Zn_mgkg,71.1,Unknown,,high,table_p5_ri5_ci6,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Background_value,Background value,As_mgkg,9.7,Unknown,,high,table_p5_ri5_ci7,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Coefficient_of_variation/%,Coefficient of variation/%,Cd_mgkg,21.64,Unknown,,high,table_p5_ri6_ci1,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Coefficient_of_variation/%,Coefficient of variation/%,Cu_mgkg,28.48,Unknown,,high,table_p5_ri6_ci3,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Coefficient_of_variation/%,Coefficient of variation/%,Ni_mgkg,25.32,Unknown,,high,table_p5_ri6_ci4,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Coefficient_of_variation/%,Coefficient of variation/%,Pb_mgkg,14.72,Unknown,,high,table_p5_ri6_ci5,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Coefficient_of_variation/%,Coefficient of variation/%,Zn_mgkg,14.37,Unknown,,high,table_p5_ri6_ci6,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Coefficient_of_variation/%,Coefficient of variation/%,As_mgkg,25.08,Unknown,,high,table_p5_ri6_ci7,Table 3. Statistical analysis of heavy metal content in sediment of Kaifeng West Lake (mg·kg<sup>−1</sup>).
+toxics-13-00720,toxics-13-00720_Points_1,Points 1,Cd_mgkg,0.97,Unknown,,high,table_p7_ri2_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_Points_1,Points 1,Ni_mgkg,1.0,Unknown,,high,table_p7_ri2_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_Points_1,Points 1,As_mgkg,-0.93,Unknown,,high,table_p7_ri2_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_2,2,Cd_mgkg,0.58,Unknown,,high,table_p7_ri3_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_2,2,Ni_mgkg,1.0,Unknown,,high,table_p7_ri3_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_2,2,As_mgkg,-0.3,Unknown,,high,table_p7_ri3_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_3,3,Cd_mgkg,0.91,Unknown,,high,table_p7_ri4_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_3,3,Ni_mgkg,0.0,Unknown,,high,table_p7_ri4_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_3,3,As_mgkg,-0.67,Unknown,,high,table_p7_ri4_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_4,4,Cd_mgkg,1.15,Unknown,,high,table_p7_ri5_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_4,4,Ni_mgkg,1.0,Unknown,,high,table_p7_ri5_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_4,4,As_mgkg,-0.5,Unknown,,high,table_p7_ri5_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_5,5,Cd_mgkg,1.44,Unknown,,high,table_p7_ri6_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_5,5,Ni_mgkg,1.0,Unknown,,high,table_p7_ri6_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_5,5,As_mgkg,-0.34,Unknown,,high,table_p7_ri6_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_6,6,Cd_mgkg,1.6,Unknown,,high,table_p7_ri7_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_6,6,Ni_mgkg,1.0,Unknown,,high,table_p7_ri7_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_6,6,As_mgkg,-0.2,Unknown,,high,table_p7_ri7_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_7,7,Cd_mgkg,1.03,Unknown,,high,table_p7_ri8_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_7,7,Ni_mgkg,0.0,Unknown,,high,table_p7_ri8_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_7,7,As_mgkg,-0.6,Unknown,,high,table_p7_ri8_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_8,8,Cd_mgkg,0.8,Unknown,,high,table_p7_ri9_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_8,8,Ni_mgkg,1.0,Unknown,,high,table_p7_ri9_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_8,8,As_mgkg,-0.6,Unknown,,high,table_p7_ri9_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_9,9,Cd_mgkg,1.05,Unknown,,high,table_p7_ri10_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_9,9,Ni_mgkg,0.0,Unknown,,high,table_p7_ri10_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_9,9,As_mgkg,-0.62,Unknown,,high,table_p7_ri10_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_10,10,Cd_mgkg,0.74,Unknown,,high,table_p7_ri11_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_10,10,Ni_mgkg,0.0,Unknown,,high,table_p7_ri11_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_10,10,As_mgkg,-0.74,Unknown,,high,table_p7_ri11_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_11,11,Cd_mgkg,0.83,Unknown,,high,table_p7_ri12_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_11,11,Ni_mgkg,0.0,Unknown,,high,table_p7_ri12_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_11,11,As_mgkg,-1.0,Unknown,,high,table_p7_ri12_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_12,12,Cd_mgkg,0.08,Unknown,,high,table_p7_ri13_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_12,12,Ni_mgkg,0.0,Unknown,,high,table_p7_ri13_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_12,12,As_mgkg,-2.19,Unknown,,high,table_p7_ri13_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_13,13,Cd_mgkg,1.11,Unknown,,high,table_p7_ri14_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_13,13,Ni_mgkg,1.0,Unknown,,high,table_p7_ri14_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_13,13,As_mgkg,-0.25,Unknown,,high,table_p7_ri14_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_14,14,Cd_mgkg,1.31,Unknown,,high,table_p7_ri15_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_14,14,Ni_mgkg,1.0,Unknown,,high,table_p7_ri15_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_14,14,As_mgkg,-0.11,Unknown,,high,table_p7_ri15_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_15,15,Cd_mgkg,0.8,Unknown,,high,table_p7_ri16_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_15,15,Ni_mgkg,0.0,Unknown,,high,table_p7_ri16_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_15,15,As_mgkg,-0.55,Unknown,,high,table_p7_ri16_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_16,16,Cd_mgkg,1.36,Unknown,,high,table_p7_ri17_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_16,16,Ni_mgkg,1.0,Unknown,,high,table_p7_ri17_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_16,16,As_mgkg,-0.1,Unknown,,high,table_p7_ri17_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_17,17,Cd_mgkg,1.17,Unknown,,high,table_p7_ri18_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_17,17,Ni_mgkg,0.0,Unknown,,high,table_p7_ri18_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_17,17,As_mgkg,-1.01,Unknown,,high,table_p7_ri18_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_18,18,Cd_mgkg,1.08,Unknown,,high,table_p7_ri19_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_18,18,Ni_mgkg,1.0,Unknown,,high,table_p7_ri19_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_18,18,As_mgkg,-0.73,Unknown,,high,table_p7_ri19_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_19,19,Cd_mgkg,0.93,Unknown,,high,table_p7_ri20_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_19,19,Ni_mgkg,1.0,Unknown,,high,table_p7_ri20_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_19,19,As_mgkg,-0.73,Unknown,,high,table_p7_ri20_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_20,20,Cd_mgkg,1.08,Unknown,,high,table_p7_ri21_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_20,20,Ni_mgkg,0.0,Unknown,,high,table_p7_ri21_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_20,20,As_mgkg,-0.94,Unknown,,high,table_p7_ri21_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_21,21,Cd_mgkg,1.39,Unknown,,high,table_p7_ri22_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_21,21,Ni_mgkg,0.0,Unknown,,high,table_p7_ri22_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_21,21,As_mgkg,-0.42,Unknown,,high,table_p7_ri22_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_average__$I___{_g_e_o_}$,average  $I _ { g e o }$,Cd_mgkg,1.02,Unknown,,high,table_p7_ri23_ci1,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_average__$I___{_g_e_o_}$,average  $I _ { g e o }$,Ni_mgkg,0.0,Unknown,,high,table_p7_ri23_ci4,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_average__$I___{_g_e_o_}$,average  $I _ { g e o }$,As_mgkg,-0.64,Unknown,,high,table_p7_ri23_ci7,Table 4. Geo-Accumulation Index of heavy metals in Kaifeng West Lake sediment.
+toxics-13-00720,toxics-13-00720_Cd,Cd,Cd_mgkg,1.0,Unknown,,high,table_p8_ri1_ci1,Table 5. Correlation relationships among heavy metals in sediment.
+toxics-13-00720,toxics-13-00720_Cd,Cd,Cr_mgkg,0.32,Unknown,,high,table_p8_ri2_ci1,Table 5. Correlation relationships among heavy metals in sediment.
+toxics-13-00720,toxics-13-00720_Cr,Cr,Cr_mgkg,1.0,Unknown,,high,table_p8_ri2_ci2,Table 5. Correlation relationships among heavy metals in sediment.
+toxics-13-00720,toxics-13-00720_Cr,Cr,Cu_mgkg,0.26,Unknown,,high,table_p8_ri3_ci2,Table 5. Correlation relationships among heavy metals in sediment.
+toxics-13-00720,toxics-13-00720_Cu,Cu,Cu_mgkg,1.0,Unknown,,high,table_p8_ri3_ci3,Table 5. Correlation relationships among heavy metals in sediment.
+toxics-13-00720,toxics-13-00720_Ni,Ni,Ni_mgkg,1.0,Unknown,,high,table_p8_ri4_ci4,Table 5. Correlation relationships among heavy metals in sediment.
+toxics-13-00720,toxics-13-00720_Cr,Cr,Pb_mgkg,0.19,Unknown,,high,table_p8_ri5_ci2,Table 5. Correlation relationships among heavy metals in sediment.
+toxics-13-00720,toxics-13-00720_Pb,Pb,Pb_mgkg,1.0,Unknown,,high,table_p8_ri5_ci5,Table 5. Correlation relationships among heavy metals in sediment.
+toxics-13-00720,toxics-13-00720_Cr,Cr,Zn_mgkg,0.42,Unknown,,high,table_p8_ri6_ci2,Table 5. Correlation relationships among heavy metals in sediment.
+toxics-13-00720,toxics-13-00720_Zn,Zn,Zn_mgkg,1.0,Unknown,,high,table_p8_ri6_ci6,Table 5. Correlation relationships among heavy metals in sediment.
+toxics-13-00720,toxics-13-00720_Cr,Cr,As_mgkg,0.36,Unknown,,high,table_p8_ri7_ci2,Table 5. Correlation relationships among heavy metals in sediment.
+toxics-13-00720,toxics-13-00720_Cu,Cu,As_mgkg,0.42,Unknown,,high,table_p8_ri7_ci3,Table 5. Correlation relationships among heavy metals in sediment.
+toxics-13-00720,toxics-13-00720_As,As,As_mgkg,1.0,Unknown,,high,table_p8_ri7_ci7,Table 5. Correlation relationships among heavy metals in sediment.
+toxics-13-00720,toxics-13-00720_West_Lake,West Lake,Cd_mgkg,0.28,Unknown,,high,table_p11_ri1_ci1,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_West_Lake,West Lake,Cr_mgkg,99.95,Unknown,,high,table_p11_ri1_ci2,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_West_Lake,West Lake,Cu_mgkg,41.4,Unknown,,high,table_p11_ri1_ci3,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_West_Lake,West Lake,Ni_mgkg,28.07,Unknown,,high,table_p11_ri1_ci4,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_West_Lake,West Lake,Pb_mgkg,20.41,Unknown,,high,table_p11_ri1_ci5,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_West_Lake,West Lake,Zn_mgkg,115.23,Unknown,,high,table_p11_ri1_ci6,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_West_Lake,West Lake,As_mgkg,3.99,Unknown,,high,table_p11_ri1_ci7,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Baogong_Lake,Baogong Lake,Cd_mgkg,0.43,Unknown,,high,table_p11_ri2_ci1,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Baogong_Lake,Baogong Lake,Cr_mgkg,65.82,Unknown,,high,table_p11_ri2_ci2,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Baogong_Lake,Baogong Lake,Cu_mgkg,117.6,Unknown,,high,table_p11_ri2_ci3,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Baogong_Lake,Baogong Lake,Ni_mgkg,31.14,Unknown,,high,table_p11_ri2_ci4,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Baogong_Lake,Baogong Lake,Pb_mgkg,81.96,Unknown,,high,table_p11_ri2_ci5,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Baogong_Lake,Baogong Lake,Zn_mgkg,173.99,Unknown,,high,table_p11_ri2_ci6,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Longting_Lake,Longting Lake,Cd_mgkg,0.34,Unknown,,high,table_p11_ri3_ci1,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Longting_Lake,Longting Lake,Cr_mgkg,46.01,Unknown,,high,table_p11_ri3_ci2,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Longting_Lake,Longting Lake,Cu_mgkg,30.7,Unknown,,high,table_p11_ri3_ci3,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Longting_Lake,Longting Lake,Ni_mgkg,24.66,Unknown,,high,table_p11_ri3_ci4,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Longting_Lake,Longting Lake,Pb_mgkg,60.29,Unknown,,high,table_p11_ri3_ci5,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Longting_Lake,Longting Lake,Zn_mgkg,95.03,Unknown,,high,table_p11_ri3_ci6,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Tieta_Lake,Tieta Lake,Cd_mgkg,0.27,Unknown,,high,table_p11_ri4_ci1,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Tieta_Lake,Tieta Lake,Cr_mgkg,42.27,Unknown,,high,table_p11_ri4_ci2,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Tieta_Lake,Tieta Lake,Cu_mgkg,29.15,Unknown,,high,table_p11_ri4_ci3,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Tieta_Lake,Tieta Lake,Ni_mgkg,20.0,Unknown,,high,table_p11_ri4_ci4,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Tieta_Lake,Tieta Lake,Pb_mgkg,55.92,Unknown,,high,table_p11_ri4_ci5,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Tieta_Lake,Tieta Lake,Zn_mgkg,68.33,Unknown,,high,table_p11_ri4_ci6,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Baiyun_Lake,Baiyun Lake,Cd_mgkg,4.9,Unknown,,high,table_p11_ri5_ci1,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Baiyun_Lake,Baiyun Lake,Cr_mgkg,143.1,Unknown,,high,table_p11_ri5_ci2,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Baiyun_Lake,Baiyun Lake,Cu_mgkg,275.9,Unknown,,high,table_p11_ri5_ci3,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Baiyun_Lake,Baiyun Lake,Ni_mgkg,117.3,Unknown,,high,table_p11_ri5_ci4,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Baiyun_Lake,Baiyun Lake,Pb_mgkg,89.5,Unknown,,high,table_p11_ri5_ci5,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Baiyun_Lake,Baiyun Lake,Zn_mgkg,594.4,Unknown,,high,table_p11_ri5_ci6,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Longyang_Lake,Longyang Lake,Cd_mgkg,0.58,Unknown,,high,table_p11_ri6_ci1,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Longyang_Lake,Longyang Lake,Cr_mgkg,59.2,Unknown,,high,table_p11_ri6_ci2,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Longyang_Lake,Longyang Lake,Cu_mgkg,55.61,Unknown,,high,table_p11_ri6_ci3,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Longyang_Lake,Longyang Lake,Pb_mgkg,33.2,Unknown,,high,table_p11_ri6_ci5,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Longyang_Lake,Longyang Lake,Zn_mgkg,176.94,Unknown,,high,table_p11_ri6_ci6,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Longyang_Lake,Longyang Lake,As_mgkg,14.27,Unknown,,high,table_p11_ri6_ci7,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Moshui_Lake,Moshui Lake,Cd_mgkg,0.62,Unknown,,high,table_p11_ri7_ci1,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Moshui_Lake,Moshui Lake,Cr_mgkg,85.53,Unknown,,high,table_p11_ri7_ci2,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Moshui_Lake,Moshui Lake,Cu_mgkg,53.67,Unknown,,high,table_p11_ri7_ci3,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Moshui_Lake,Moshui Lake,Pb_mgkg,41.69,Unknown,,high,table_p11_ri7_ci5,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Moshui_Lake,Moshui Lake,Zn_mgkg,266.64,Unknown,,high,table_p11_ri7_ci6,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Moshui_Lake,Moshui Lake,As_mgkg,19.26,Unknown,,high,table_p11_ri7_ci7,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Hulun_Lake,Hulun Lake,Cd_mgkg,0.19,Unknown,,high,table_p11_ri8_ci1,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Hulun_Lake,Hulun Lake,Cr_mgkg,37.07,Unknown,,high,table_p11_ri8_ci2,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Hulun_Lake,Hulun Lake,Cu_mgkg,25.36,Unknown,,high,table_p11_ri8_ci3,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Hulun_Lake,Hulun Lake,Pb_mgkg,21.84,Unknown,,high,table_p11_ri8_ci5,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Hulun_Lake,Hulun Lake,Zn_mgkg,50.56,Unknown,,high,table_p11_ri8_ci6,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Hulun_Lake,Hulun Lake,As_mgkg,21.44,Unknown,,high,table_p11_ri8_ci7,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Qinghai_Lake,Qinghai Lake,Cr_mgkg,80.07,Unknown,,high,table_p11_ri9_ci2,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Qinghai_Lake,Qinghai Lake,Cu_mgkg,27.21,Unknown,,high,table_p11_ri9_ci3,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Qinghai_Lake,Qinghai Lake,Ni_mgkg,11.62,Unknown,,high,table_p11_ri9_ci4,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Qinghai_Lake,Qinghai Lake,Pb_mgkg,24.84,Unknown,,high,table_p11_ri9_ci5,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Qinghai_Lake,Qinghai Lake,Zn_mgkg,110.39,Unknown,,high,table_p11_ri9_ci6,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Chenghai_Lake,Chenghai Lake,Cd_mgkg,0.68,Unknown,,high,table_p11_ri10_ci1,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Chenghai_Lake,Chenghai Lake,Cu_mgkg,56.2,Unknown,,high,table_p11_ri10_ci3,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Chenghai_Lake,Chenghai Lake,Ni_mgkg,47.6,Unknown,,high,table_p11_ri10_ci4,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Chenghai_Lake,Chenghai Lake,Pb_mgkg,28.1,Unknown,,high,table_p11_ri10_ci5,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Chenghai_Lake,Chenghai Lake,Zn_mgkg,109.0,Unknown,,high,table_p11_ri10_ci6,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.
+toxics-13-00720,toxics-13-00720_Chenghai_Lake,Chenghai Lake,As_mgkg,12.1,Unknown,,high,table_p11_ri10_ci7,Table 6. Comparison of heavy metal content in sediment of Kaifeng West Lake and other lakes.

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09189,,,,,,,,"skip: 论文仅提供207个样品的统计汇总(Max/Min/Median/Mean/SD/CV in Table 1)，无采样点级HM数据；Table 2为风险指数(AE)非浓度；论文无OP数据(虽CSV标记Petroleum_TPH但正文为纯HM机器学习研究，未涉及任何有机污染物)；Fig.3/5/7为散点图和空间分布图无法提取采样点级数值"

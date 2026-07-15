@@ -1,0 +1,6 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+s11356-019-05830-7,s11356-019-05830-7_PW_(%),PW (%),Sum_PAH_ngg,28.28,Unknown,,medium,table_p6_ri7_ci1,Table 3 Degradation rate of PAHs with different treatment
+s11356-019-05830-7,s11356-019-05830-7_Ryegrass,Ryegrass,Sum_PAH_ngg,21.6,Unknown,,medium,table_p6_ri7_ci2,Table 3 Degradation rate of PAHs with different treatment
+s11356-019-05830-7,s11356-019-05830-7_Alfalfa,Alfalfa,Sum_PAH_ngg,28.41,Unknown,,medium,table_p6_ri7_ci3,Table 3 Degradation rate of PAHs with different treatment
+s11356-019-05830-7,s11356-019-05830-7_col4,col4,Sum_PAH_ngg,22.64,Unknown,,medium,table_p6_ri7_ci4,Table 3 Degradation rate of PAHs with different treatment
+s11356-019-05830-7,s11356-019-05830-7_col5,col5,Sum_PAH_ngg,30.36,Unknown,,medium,table_p6_ri7_ci5,Table 3 Degradation rate of PAHs with different treatment

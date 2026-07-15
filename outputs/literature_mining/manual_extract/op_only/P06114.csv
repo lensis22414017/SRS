@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06114,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"skip: paper.md truncated at 33 lines (cuts off mid-sentence in Introduction); no tables/results/sampling-point data available; only abstract summary (S15PAEs 75.0-6369 mg/kg range) and 3 intro paragraphs present; PDF not found on disk; cannot extract sampling-point-level PAE data without complete tables"

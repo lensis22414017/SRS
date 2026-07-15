@@ -1,0 +1,10 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+72271_s12665-015-4512-6,72271_s12665-015-4512-6_Detection_frequency_(%),Detection frequency (%),SumHCH_ngg,100.0,Unknown,,high,table_p3_ri1_ci4,,,,,,,phase14
+72271_s12665-015-4512-6,72271_s12665-015-4512-6_Detection_frequency_(%),Detection frequency (%),SumHCH_ngg,94.0,Unknown,,high,table_p3_ri2_ci4,,,,,,,phase14
+72271_s12665-015-4512-6,72271_s12665-015-4512-6_Detection_frequency_(%),Detection frequency (%),SumHCH_ngg,94.0,Unknown,,high,table_p3_ri3_ci4,,,,,,,phase14
+72271_s12665-015-4512-6,72271_s12665-015-4512-6_Detection_frequency_(%),Detection frequency (%),SumHCH_ngg,100.0,Unknown,,high,table_p3_ri4_ci4,,,,,,,phase14
+72271_s12665-015-4512-6,72271_s12665-015-4512-6_Shanghai,Shanghai,SumHCH_ngg,21.41,Unknown,,high,table_p4_ri2_ci2,Table 2 Concentrations of ∑DDTs and ∑HCHs in soils of different areas in China $( \mathrm { n g ~ g ^ { - 1 } } )$,,,,,,phase14
+72271_s12665-015-4512-6,72271_s12665-015-4512-6_Northwest_China,Northwest China,SumHCH_ngg,12.52,Unknown,,high,table_p4_ri3_ci2,Table 2 Concentrations of ∑DDTs and ∑HCHs in soils of different areas in China $( \mathrm { n g ~ g ^ { - 1 } } )$,,,,,,phase14
+72271_s12665-015-4512-6,72271_s12665-015-4512-6_Guangzhou,Guangzhou,SumHCH_ngg,67.3,Unknown,,high,table_p4_ri4_ci2,Table 2 Concentrations of ∑DDTs and ∑HCHs in soils of different areas in China $( \mathrm { n g ~ g ^ { - 1 } } )$,,,,,,phase14
+72271_s12665-015-4512-6,72271_s12665-015-4512-6_Zhangzhou,Zhangzhou,SumHCH_ngg,3.86,Unknown,,high,table_p4_ri5_ci2,Table 2 Concentrations of ∑DDTs and ∑HCHs in soils of different areas in China $( \mathrm { n g ~ g ^ { - 1 } } )$,,,,,,phase14
+72271_s12665-015-4512-6,72271_s12665-015-4512-6_Three_Gorges_Dam_region,Three Gorges Dam region,SumHCH_ngg,1.8,Unknown,,high,table_p4_ri6_ci2,Table 2 Concentrations of ∑DDTs and ∑HCHs in soils of different areas in China $( \mathrm { n g ~ g ^ { - 1 } } )$,,,,,,phase14

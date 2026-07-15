@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05306,,,,,,,,"skip: Paper studies PFAS/PFCs (perfluorinated compounds: PFBA/PFPeA/PFHxA/PFHpA/PFOA/PFNA/PFDA/PFUdA/PFDoA/PFBS/PFHxS/PFOS) which are NOT among target OP categories (PAH/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAEs/OCPs). Soil sample-level data exists (Table 2 S1-S9) but no applicable target pollutants measured."

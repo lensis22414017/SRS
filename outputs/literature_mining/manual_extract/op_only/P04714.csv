@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04714,,,,,,,soil,agricultural,Shandong,"skip: 论文无采样点级表格数据。30个土壤采样点但仅以区域汇总统计呈现（Table 1为各地均值对比 nd~range(mean)），正文4.1.1-4.1.4仅报告区域range/mean/detection rate，Figures 4-13为等值线空间插值图和年份对比柱状图。无可追溯的采样点ID级浓度表。"

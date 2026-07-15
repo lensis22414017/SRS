@@ -1,0 +1,529 @@
+                                                                                 Environmental Toxicology and Chemistry
+                                                                                                                # 2012 SETAC
+
+                                                                                                             Printed in the USA
+                                                                                                        DOI: 10.1002/etc.1959
+
+Environmental Chemistry
+
+FACTORS AFFECTING SPATIAL VARIATION OF POLYCYCLIC AROMATIC
+       HYDROCARBONS IN SURFACE SOILS IN NORTH CHINA PLAIN
+
+            XILONG WANG,* QIAN ZUO, YONGHONG DUAN, WENXIN LIU, JUN CAO, and SHU TAO
+
+           Laboratory for Earth Surface Processes, College of Urban and Environmental Sciences, Peking University, Beijing, China
+
+                                 (Submitted 15 May 2012; Returned for Revision 5 June 2012; Accepted 15 June 2012)
+
+Abstract--The spatial variation in concentrations of 16 polycyclic aromatic hydrocarbons (PAHs) in surface soPils in the North China
+Plain and the influential factors were examined in the present study. High concentrations of the sum of 16 PAHs ( PAH16) appeared in
+cities and their surrounding areas. Emissions and soil organic carbon (SOC) content significantly regulated spatial differentiation of PAH
+contamination in soils in the study area. Compared with emissions, concentrations of individual and total PAHs in soils were more
+closely controlled by the SOC content. Furthermore, concentrations of PAH species with lower molecular weight (e.g., two- or three-
+ring) in surface soils were more strongly correlated with the SOC content in comparison with those of higher molecular weight (e.g., five-
+or six-ring), mainly because of their higher saturated vapor pressure, thus higher mobility. The spatial variation of PAH species in soils in
+the North China Plain tended to be larger with increasing benzene ring numbers, and the difference in physicochemical properties of
+PAH species determined their distinct spatial distribution characteristics. The present study highlights the relative importance of
+emissions and SOC content in spatial variation of PAHs and the dependence of the spatial distribution characteristics of PAH species in
+surface soils on their physicochemical properties at a regional scale. Results of the present work are helpful for regional risk assessment
+of the contaminants tested. Environ. Toxicol. Chem. # 2012 SETAC
+
+Keywords--PAHs Emission Soil organic carbon content Spatial distribution North China Plain
+
+                                 INTRODUCTION                                    Yangtze River Delta area, East China, ranged from 8,600 to
+                                                                                 3,881,000 mg/kg, with an average level of 397,000 mg/kg [7].
+   Polycyclic aromatic hydrocarbons (PAHs) are a class of                        The total concentrations of 16 PAHs in Ji'nan City, North
+chemicals with two or more fused benzene rings, and those with                   China, were 1,310 to 254,080 mg/kg, with an average value
+three or more benzene rings are viewed as persistent organic                     of 23,250 mg/kg. Vast differences in PAH concentrations in
+pollutants, originating mainly from incomplete combustion,                       surface soils have been observed in other countries as well [8,9].
+wildfires, and some anthropogenic sources (e.g., cooking and                     The PAH species with strikingly different physicochemical
+heating). Because of the carcinogenic and mutagenic character-                   properties (e.g., Henry's law constant, saturated vapor pressure,
+istics of PAHs, 16 species in this group of chemicals are listed as              hydrophobicity) might have dissimilar effects on their environ-
+priority contaminants by the U.S. Environmental Protection                       mental behaviors, resulting in spatial differentiation of their
+Agency (U.S. EPA).                                                               concentrations in soils. However, the underlying mechanisms
+                                                                                 for this are still unclear and should be investigated further.
+   It has been reported that 20% of the total global emissions of
+PAHs are contributed by China [1]. Previous fugacity model-                         The North China Plain is one of the major coastal areas in
+ing-based studies further showed that soil compartment served                    China experiencing rapid economic development, and the
+as the predominant accumulating sink of PAHs in the Pearl                        population in 2003 was 0.19 billion, with a population density
+River Delta and Tianjin areas [2,3]. Hence, much work has been                   4.88 times that of the whole country [10]. Accelerated indus-
+done to investigate the PAH contamination in soils in China                      trialization and urbanization have taken place in this area over
+[4,5]. The PAHs in soils are readily transported to human bodies                 the last decades, resulting in an increasing demand for energy.
+through consumption of crops and vegetables, inhalation of                       This led to the increasingly severe PAH contamination in soils,
+suspended particles, and dermal contact, exerting adverse effect                 and very high PAH concentrations were also detected in other
+on public health. Soil contamination with PAHs in China and                      environmental compartments (e.g., atmosphere, water, and
+other regions thus has been an increasing public health concern                  sediment) in this area [4,11,12]. Previous studies on PAH
+for soil and environmental scientists.                                           contamination in soils in this region have focused mainly on
+                                                                                 large cities and their surrounding areas, and the PAH contam-
+   Great spatial variation in PAH concentrations in surface soils                ination in surface soils and its spatial variation on a large
+in China, under the influence of multiple environmental factors,                 regional scale in this area remain poorly understood.
+has been observed. For instance, the maximum total PAH con-
+centrations in soils in the Beijing area reached 13,141 mg/kg,                      Based on these facts, the major objectives of the present
+equivalent to 141 times of the minimum value (93 mg/kg) [6].                     study were to: (1) examine the PAH concentrations in surface
+The total concentrations of 15 PAHs in surface soils in the                      soils in the North China Plain and their spatial variation; (2)
+                                                                                 probe the effect of emissions and soil organic carbon (SOC)
+   All Supplemental Data may be found in the online version of this article.     content on spatial distribution of soil PAH concentrations in this
+   * To whom correspondence may be addressed                                     area; and (3) investigate the mechanisms by which physico-
+(xilong@pku.edu.cn).                                                             chemical properties of PAHs affect the spatial differentiation of
+   Published online 30 July 2012 in Wiley Online Library                         their concentrations in surface soils.
+(wileyonlinelibrary.com).
+
+                                                                              1
+2 Environ. Toxicol. Chem. 31, 2012                                                                                                          X. Wang et al.
+
+                        MATERIALS AND METHODS                       silica gel had settled, anhydrous sodium sulfate (1 cm in thick-
+                                                                    ness) was added to the column, followed by releasing of excess
+Sample collection                                                   n-hexane until the solvent surface was at the top of the
+                                                                    anhydrous sodium sulfate. The extract was eluted with 25 ml
+   A total of 302 soil samples were collected from an area of       n-hexane (2 ml/min). The eluate was decanted and then eluted
+approximately 270,000 km2 in the North China Plain based on         with a 50-ml mixture (2:3, v/v) of dichloromethane and
+an equal longitude and latitude grid sampling mode design [13].     n-hexane (50 ml) at a flow rate of 2 ml/min. The eluate was
+The distance between the adjacent sampling sites was about          collected in an eggplant-shaped flask, and the extract was
+30 km, so a sampling site covered an area of 900 km2. The           concentrated to 1 ml with a rotary evaporator. The concentrated
+geographic location of this area and the sampling sites are         extract was transferred with n-hexane to a graduated test tube
+presented in Supplemental Data, Figure S1. To obtain repre-         and purged with N2, followed by fixation of the final volume to
+sentative samples, the sampling sites close to busy traffic lines,  1 ml with n-hexane. The samples were sealed in automatic
+industrial plants, and populous residential areas were moved        sampling vials for gas chromatography analysis and stored at
+slightly away from these areas to minimize the interference of      ­48C for PAH concentration determination.
+human activities with PAH concentrations in soil samples. In
+total, five subsamples of surface soil (0­10 cm) were collected     Sample analysis
+with stainless-steel scoops from a 100- Â 100-m2 plot (one at
+the center and the other four at the corners of this plot) at each     Quantitative analysis was conducted for 16 PAHs, including
+sampling site, and mixed well to obtain a composite sample of       naphthalene (NAP), acenaphthylene (ACY), acenaphthene
+about 200 g [13]. All samples were collected and sealed in          (ACE), fluorene (FLO), phenanthrene (PHE), anthracene
+polyethylene bags immediately after collection. The samples         (ANT), fluoranthene (FLA), pyrene (PYR), benz[a]anthracene
+after removal of plant roots were air dried, ground to pass         (BaA), chrysene (CHR), benzo[b]fluoranthene (BbF), benzo[k]-
+through a 70-mesh sieve to remove small stones as was per-          fluoranthene (BkF), benzo[a]pyrene (BaP), dibenz[a,h]anthra-
+formed by Wang et al. [14], and stored in a refrigerator at 48C     cene (DahA), benzo[ghi]perylene (BghiP), and indeno[1,2,3-
+before analysis. The 302 samples were collected as follows: 15      cd]pyrene (IcdP). All samples were analyzed on a gas
+from Tianjin in May, 2001; 19 from Beijing in July, 2003; and       chromatography-mass selective detector (GC-MSD) (Agilent
+the remaining 268 samples in the summer of 2004.                    GC6890/MSD 5973), coupled with an HP-5MS capillary
+                                                                    column (30 m Â 0.32 mm i.d. Â 0.25 mm film thickness; Agilent
+Reagents                                                            Technology) in splitless mode at a flow rate of 1.0 ml/min.
+                                                                    Helium was used as the carrier gas, and its flow rate was set as
+   The organic solvents n-hexane, acetone, and dichlorome-          1 ml/min. The head column pressure was 0.03 MPa, and the
+thane of analytical grade were purchased from the Beijing           injector port temperature was set at 3008C. The GC column
+Reagent Company and purified by distillation. A standard            temperature was programmed from 60 to 3008C at 68C/min,
+mixture containing 16 PAHs was from J&K Chemical. Silica            with a final isothermal stage held for 20 min. The mass spec-
+gel (60­80 mesh; Sinopharm Chemical Reagent Beijing Co.)            trometer was operated using a selected ion monitoring (SIM)
+was heated in a muffle furnace at 6508C for 10 h to remove          mode with an electron impact ionization of 70 eV, an electron
+impurities and then stored in a desiccator. It was reactivated at   multiplier voltage of 1,288 V, and an ion source temperature of
+1308C for 16 h immediately prior to use. Granular anhydrous         2308C. The total organic carbon content of soil samples was
+sodium sulfate (analytical grade) obtained from Beijing Chem-       determined with a TOC-5000A analyzer.
+ical Reagent was heated at 6508C in a furnace for 10 h and
+stored in a desiccator. All glassware was cleaned by soaking in a   Quality control
+mixture of K2Cr2O7 and concentrated H2SO4 overnight, rinsed
+with tap water, and finally rinsed with deionized water.               A procedural blank was analyzed after running 10 actual
+                                                                    samples to eliminate the environmental interference. Of the
+Sample extraction, cleanup, and concentration                       total samples, 25% were randomly selected for replicate meas-
+                                                                    urements. If the relative error between replicate measurements
+   A standard U.S. EPA 3545 method with slight modification         was below 30%, the analyzed results were accepted. Otherwise,
+was employed to extract 16 PAHs from soil samples using             the extraction, cleanup, and analysis of this series of all samples
+accelerated solvent extractor (Dionex ASE 300). A total of 10 g     were repeated. Recovery of 16 PAHs was tested by spiking
+of anhydrous sodium sulfate and 10 g of soil were sequentially      standard mixture to three soil samples, followed by extraction,
+added to 34-ml stainless-steel vessels filled with glass fiber      cleanup, and analysis as performed for the original samples. The
+filter. Extraction was performed with a mixture of dichloro-        concentrations of individual PAH species in blank samples
+methane and acetone (1:1 v/v) at 1408C at a pressure of             corresponding to the signals with a signal-to-noise ratio of
+10.3 MPa for 7 min of heating, followed by a 7-min static           10 were taken as the detection limits. Recoveries and detection
+extraction. The vessels were then rinsed to a vial with 21 ml       limits of the 16 PAHs are summarized in Supplemental Data,
+of the same solvent, and the extract was purged with high-          Table S1.
+purity N2 for 1 min. The extract was transferred to an eggplant-
+shaped flask, the vial was rinsed twice with 2 ml n-hexane, and     Emission estimation of PAHs in the study area
+the eluate was pooled into the same flask and concentrated to
+1 ml. The flask was rinsed twice with 2 ml n-hexane, and the           Ten major PAH emission sources, including straw and
+eluate was poured into the column for cleanup.                      firewood burning, agricultural waste combustion in the field,
+                                                                    coal burning for heating and some for cooking, combustion of
+   The U.S. EPA 3630C standard method using silica gel              fossil fuels for industrial activities, coal combustion for elec-
+column was adopted for sample cleanup. This involved placing        tricity generation and coke and aluminum production, and
+precleaned degreasing cotton wool at the bottom of the glass        petroleum combustion for transportation and other nontraffic
+cleanup column and filling with 10 ml n-hexane in the column.       purposes, were covered in the inventory estimation. Anthro-
+Silica gel of 60 to 80 mesh size was then uniformly added to the    pogenic emissions of 16 PAHs derived from consumption of
+column, with gentle tapping to remove air bubbles. After the
+Benzene ring number affects PAH spatial variation in soil                                    Environ. Toxicol. Chem. 31, 2012 3
+
+various fuels and their respective emission factors defined as the         Plain. Similarly, such a test result for SOC contents from 302
+amount of PAHs emitted from unit mass of fuel consumed from                sampling sites showed that the resulting p value was 2.5 Â 10À6,
+all 728 counties in the North China Plain in 2003 were reported
+in our previous articles [15­17]. Based on the county-level PAH            much lower than 0.05. This suggested that SOC contents also
+emissions, a up-bottom method was employed for spatial
+allocation of emissions to a 1- Â 1-km grid using a sum of                 did not follow a normal distribution. Trigonometric function
+secondary and tertiary gross domestic products (GDPs) and
+urban and rural populations as proxies for consumption of                  transformation has been proved to be an effective method for
+various fuels. Additionally, PAH emissions from forest and
+grass fires were taken from Yuan et al. [18]. Matlab and ArcGIS            normalization [19]. The statistical distributions of SOC content
+were used for data analysis and mapping. The PAH emission
+data corresponding to the geographic location of the sampling              in the study area before and after trigonometric function trans-
+sites of 302 surface soils were obtained with the aid of
+IDRISI32, and they were used for discussion and correlation                formation are presented in Supplemental Data, Figure S2. It is
+analysis.
+                                                                           evident that SOC contents in the North China Plain were
+
+                                                                           normally distributed after transforming with the trigonometric
+
+                                                                           function using the equation given below, because the resulting
+
+                                                                           p value (0.063) was greater than 0.05.
+
+                                                                                    x0j      ¼         pffiffiffi
+                                                                                                arcsin xj
+
+Statistical analysis                                                       Concentrations of PAH in surface soils and their spatial
+
+   To examine the effect of the emissions of individual PAH                distribution in the North China Plain
+species and SOC content on their concentrations in surface soils
+in the study area, we must know the statistical distribution of               The total concentrations of 16 PAHs in surface soils in the
+these two variables such that we are able to use the appropriate           North China Plain ranged from 27.9 to 8430 mg/kg, with a
+statistical analysis method. To achieve this, a Kolmogorov­                variation of two orders of magnitude (Table 1). Nam et al. [20]
+Smirnov test was performed to determine whether the emission               measured the total concentrations of 16 PAHs in 266 soil
+data derived from the interpolated emissions of individual                 samples collected from the whole of South Korea and reported
+PAHs at 1- Â 1-km resolution and SOC content followed the                  that their concentrations ranged from 23.3 to 2830 mg/kg, with a
+normal distribution.                                                       difference also of two orders of magnitude. Trapido [21],
+                                                                           however, reported that the total concentrations of 12 PAHs
+                         RESULTS AND DISCUSSION                            in 133 soil samples from rural, urban, and industrial areas in
+                                                                           Estonia were from 11.2 to 153,000 mg/kg, with a difference as
+Statistical distribution of PAH emissions and SOC content in               high as four orders of magnitude. These findings clearly show
+North China Plain                                                          the great spatial variations of PAHs in soils in China and in the
+                                                                           rest of the world.
+   The Kolmogorov­Smirnov test results revealed that all
+resulting p values were lower than 0.05, even though the                      Based on the experimentally determined concentrations of
+interpolated emission data were log-transformed, implying that             16 PAHs in surface soils from 302 sampling sites and the results
+emissions of individual PAHs in this area were not normally                of variation function regression, spatial distribution of these
+distributed (Supplemental Data, Table S2). Therefore, non-                 contaminants in the study area was obtained with the aid of a
+parametric Kendall's rank correlation analysis was employed                Kriging interpolation method. Using this approach, the whole
+to probe the correlation between emissions of individual PAHs              study area was divided into 525 (from east to west) Â 694 (from
+and their concentrations in surface soils in the North China               north to south) pixels, giving a surface area of 1 km2 (1 Â 1 km)
+                                                                           for each pixel for interpolation. The interpolated isogram of the
+
+         Table 1. Concentrations of polycyclic aromatic hydrocarbons (PAHs) in surface soils in the North China Plain (mg/kg; n ¼ 302)
+                                                                 Percentiles
+
+PAHs     Min   P5    P25                                   P50      P75    P95      Max         Meana                                   Gmeana
+
+NAP      ND    9.2   23.4                                  39.2     61.4   134.7    1,550.0     57.8 Æ 106.0                            37.5 Æ 2.5
+
+ACE      0.4   1.1   2.5                                   4.1      6.8    17.2     80.9        6.1 Æ 8.0                               4.1 Æ 2.3
+
+ACY      ND    0.5   1.2                                   2.5      4.4    10.9     69.0        3.9 Æ 5.9                               2.4 Æ 2.8
+
+FLO      1.1   2.7   7.0                                   11.6     17.0   38.9     97.5        14.5 Æ 12.5                             10.8 Æ 2.2
+
+PHE      5.4   11.0  33.3                                  56.8     89.0   196.2    843.3       75.8 Æ 83.5                             52.9 Æ 2.3
+
+ANT      0.8   1.6   3.4                                   5.3      9.2    24.4     145.7       9.0 Æ 14.2                              5.8 Æ 2.3
+
+FLA      3.1   9.0   19.1                                  30.4     53.1   166.5    1,035.8     54.9 Æ 91.2                             33.8 Æ 2.4
+
+PYR      1.2   6.6   13.5                                  21.6     39.3   133.8    784.2       41.9 Æ 70.7                             24.6 Æ 2.6
+
+BaA      0.6   1.9   4.5                                   9.6      22.4   97.8     494.3       23.8 Æ 46.7                             10.4 Æ 3.3
+
+CHR      3.1   7.8   13.5                                  24.5     49.3   155.6    628.9       46.1 Æ 67.6                             27.5 Æ 2.6
+
+BbF      1.2   3.2   7.9                                   17.6     42.8   193.8    721.0       46.0 Æ 83.6                             19.7 Æ 3.5
+
+BkF      2.8   8.0   15.4                                  27.9     56.9   184.6    970.6       53.0 Æ 85.2                             30.8 Æ 2.6
+
+BaP      ND    3.2   6.6                                   13.8     31.9   139.9    836.2       34.8 Æ 70.1                             15.8 Æ 3.2
+
+DahA     ND    0.4   0.6                                   1.8      4.8    24.2     113.9       6.0 Æ 13.7                              1.9 Æ 4.1
+
+IcdP     ND    1.3   4.4                                   10.4     27.4   149.2    1,051.7     34.9 Æ 85.9                             11.1 Æ 4.3
+
+P BghiP  ND    2.8   6.7                                   14.0     32.3   145.9    762.2       37.0 Æ 74.3                             15.6 Æ 3.5
+
+PAH16    27.9  76.6  177.5                                 291.9    566.2  1,659.9  8,427.8     545.5 Æ 853.9                           325.9 Æ 2.5
+
+a Mean and Gmean are, respectively, arithmetic and geometric means; standard deviations are of mean and Gmean, respectively.
+
+PAHs ¼ polycyclic aromatic hydrocarbons; NAP ¼ naphthalene; ACE ¼ acenaphthene; ACY ¼ acenaphthylene; FLO ¼ fluorine; PHE ¼ phenanthrene;
+ANT ¼ anthracene; FLA ¼ fluoranthene; PYR ¼ pyrene; BaA ¼ benz[a]anthracene; CHR ¼ chrysene; BbF ¼ benzo[b]fluoraP nthene; BkF ¼ benzo[k]fluoranthene;
+BaP ¼ benzo[a]pyrene; DahA ¼ dibenz[a,h]anthracene; IcdP ¼ indeno[1,2,3-cd]pyrene; BghiP ¼ benzo[ghi]perylene; PAH16 ¼ sum of 16 polycyclic
+aromatic hydrocarbons; ND ¼ not detected.
+4 Environ. Toxicol. Chem. 31, 2012                                                                                                            X. Wang et al.
+
+total concentrations of 16 PAHs in surface soils is presented in      decreased with an increase in the distance from urban areas
+Figure 1A. To help visualize the spatial differentiation of the       [23]. Heywood et al. [24] observed that concentrations of PAHs
+total concentrations of 16 PAHs in the study area, a point            in soils in the United Kingdom were generally higher at sites
+hierarchical graph was also plotted (Fig. 1B). Clearly, relatively    closer to large cities, which could be a result of their emissions
+high total concentrations of the 16 PAHs appeared in the              from urban areas being much higher than in the rural areas.
+following areas: (1) Beijing­Tianjin­Tangshan­Qinghuangdao,           Harrison and Johnston [25] found that most of traffic-origin
+(2) Zhangjiakou and its surroundings, (3) Jinan­Zibo, and (4)         PAHs would generally be deposited to the soil surface at a
+Xingtai­Handan­Shijiazhuang. These areas were exactly the             distance 3.8 m away from the roads, thereby giving high con-
+places where 41 samples were collected from large cities and          centrations in soils close to busy roads [26]. The PAH concen-
+their surrounding areas and 38 samples from the industrial and        trations in soils within 50 m around an oil refinery reached
+mining areas as shown in Supplemental Data, Figure S3. The            300,000 mg/kg, and those in soils 1.3 to 4.2 km away from the
+PAH emissions from these areas were also relatively higher than       plants decreased to 3,000 to 14,000 mg/kg [27]. Soils with high
+emissions elsewhere (Supplemental Data, Fig. S4). The Kriging         PAH concentrations were also detected from some industrial
+interpolated isogram of the SOC content of soils also demon-          point source (e.g., cooking furnace, gasworks, oil refinery) [28].
+strated the generally higher SOC content of these areas relative      These studies revealed that concentrations of PAHs in soils
+to others (Supplemental Data, Fig. S5). It is possible that the       were highly dependent on their emissions on a regional scale.
+spatial variation of PAH emissions and SOC content can greatly
+influence the spatial differentiation of its concentrations in        Effect of SOC content on the concentrations of PAHs in soils and
+surface soils in the North China Plain, which is discussed            their spatial variation in the North China Plain
+below. In contrast, relatively low concentrations of a sum of
+16 PAHs were observed in the mountain areas in Shijiazhuang              Because both trigonometric function-transformed SOC con-
+and Chengde as well as some areas in Shandong Plain. For a            tents and log-transformed PAH concentrations in these samples
+comprehensive understanding of the surface soil contamination         followed a normal distribution, as stated above, the Pearson
+by various PAH species, the interpolated isogram of their             correlation analysis was adopted to explore the correlation
+concentrations in surface soils of the North China Plain is           between these two parameters. Our observations showed that
+presented in Supplemental Data, Figure S6, as well. Because           concentrations of individual and total PAHs in soils were
+the log-transformed concentrations of 16 PAH species in 302           significantly positively correlated with SOC content in the
+sampling sites were significantly positively correlated, their        North China Plain (p < 0.001; Supplemental Data, Table S4).
+spatial variations were quite similar.                                A positive correlation between SOC content and the concen-
+                                                                      trations of organic pollutants has consistently been observed by
+Effect of PAH emissions on its spatial variation in surface soils in  other investigators [26,29,30]. These findings indicated that
+the North China Plain                                                 SOC content was an important factor governing the concen-
+                                                                      trations of organic contaminants in soils. One reason is that
+   The results of correlation analysis suggested that concen-         organic matter is a dominant sorption medium for organic
+trations of individual and total PAHs in surface soils in the study   compounds in soils, unless the organic carbon content is below
+area were significantly positively correlated with their emis-        0.1% by mass [31]. Sorption of organic chemicals to the organic
+sions ( p < 0.05; Supplemental Data, Table S3). This implies          matter would have a great influence on their concentrations and
+that PAH emission was an important factor regulating the              spatial distributions in the environment [26]. A portion of
+spatial differentiation in the North China Plain. It was reported     organic compounds would be sequestered in organic matter,
+that concentrations of polychorinated biphenyls (PCBs) in soils       thereby preventing the compounds from being degraded by
+were in good agreement with their usage amounts along an              microorganisms, which in turn has effects on their concentra-
+altitude transition [22]. A previous study also suggested that the    tions and spatial variations in soils [22,32].
+atmospheric bulk deposition of PAHs to soils in France
+
+Fig. 1. Interpolated isogram of the total concentrations of 16 polycyclic aromatic hydrocarbons (PAHs) in surface soils (mg/kg) in the North China Plain at log
+scale (A) and their point hierarchical graph (B). Note that the Universal Transverse Mercator (UTM) geographical coordinate system was used.
+Benzene ring number affects PAH spatial variation in soil           Environ. Toxicol. Chem. 31, 2012 5
+
+Table 2. Multivariate correlation analysis of the concentrations of polycyclic aromatic hydrocarbons in surface soils with their emissions and soil organic
+                                                            carbon (SOC) content in the North China Plain (n ¼ 302)
+
+                                                                                                                                                                                   P
+                        NAP ACE ACY FLO PHE ANT FLA PYR BaA CHR BbF BkF BaP DahA IcdP BghiP PAH16
+
+r (C-SOC, E)a 0.404 0.362 0.425 0.384 0.342 0.390 0.375 0.385 0.355 0.393 0.378 0.393 0.371 0.355 0.384 0.392    0.395
+r (C-E, SOC)b 0.164 0.143 0.181 0.105 0.116 0.132 0.206 0.188 0.180 0.210 0.188 0.170 0.214 0.174 0.173 0.184    0.171
+r (C, SOC & E)c 0.567 0.478 0.617 0.519 0.440 0.534 0.509 0.528 0.468 0.545 0.512 0.543 0.503 0.468 0.524 0.541  0.547
+
+a r (C-SOC, E) is the partial correlation coefficient between PAH concentrations in soils and SOC content without taking their emissions into account.
+b r (C-E, SOC) is the partial correlation coefficient between PAH concentrations in soils and their emissions without taking SOC content into account.
+c r (C, SOC&E) is the multiple correlation coefficient between PAH concentrations in soils with their emissions and SOC content.
+
+NAP ¼ naphthalene; ACE ¼ acenaphthene; ACY ¼ acenaphthylene; FLO ¼ fluorine; PHE ¼ phenanthrene; ANT ¼ anthracene; FLA ¼ fluoranthene;
+
+PYR ¼ pyrene; BaP ¼ benz[a]anthracene; CHR ¼ chrysene; BbF ¼ benzo[b]fluoranPthene; BkF ¼ benzo[k]fluoranthene; BaP ¼ benzo[a]pyrene; DahA ¼
+dibenz[a,h]anthracene; IcdP ¼ indeno[1,2,3-cd]pyrene; BghiP ¼ benzo[ghi]perylene; PAH16 ¼ sum of 16 polycyclic aromatic hydrocarbons.
+
+Multiple correlation analysis of the concentrations of PAHs in      differentiation of PAH concentrations in surface soils on their
+soils with their emissions and SOC content in the North China       physicochemical properties. Here, R95, R05, and R50 are the
+Plain                                                               95th, 5th, and 50th percentiles, respectively, of the original and
+                                                                    SOC content-normalized concentrations of PAHs in soils or
+   Although SOC content in the North China Plain can predict        their emissions derived from the 302 sampling sites.
+the concentrations of PAHs in soils in this area, there are still
+some places (i.e., the northwestern part of the stPudy area) where     The original and SOC content-normalized (R95­R05)/R50
+the SOC content is relatively high whereas the PAH16 is low.        values of PAHs in soils increased with an increase in their
+This is mostly because the PAH emissions in this area are           benzene ring number, but the increasing slope for the original
+relatively low. It is most likely that emissions, organic carbon    values was much more pronounced (Fig. 2). In contrast, no clear
+content of soils, and probably other environmental factors may      difference in the (R95­R05)/R50 values of the emissions of
+jointly determine concentrations of PAHs in soils. A multi-         various PAHs was observed. Interestingly, the original and
+variate correlation analysis was performed to gain insight into     SOC content-normalized (R95­R05)/R50 values of two- or
+the relative importance of these two parameters in total con-       three-ring PAHs were lower than the corresponding values of
+centrations of 16 PAHs in the North China Plain. The multiple       emissions, whereas the PAHs with four to six rings exhibited the
+correlation coefficients between PAH concentrations in soils        opposite trend. Such a difference in PAHs with different
+with their emissions and SOC content were all greater than the      benzene ring numbers could result from their distinct physi-
+boundary value of 0.101 derived from a sample size of 302           cochemical properties. Compared with PAHs with four to six
+associated with a significance level of 0.01, implying that PAH     benzene rings, those with two or three benzene rings had
+emissions and SOC content as a whole significantly affected         relatively higher Henry's law constant and saturated vapor
+the PAH concentrations in the North China Plain as shown in         pressure. They would more readily be transported to remote
+Table 2.                                                            areas away from their emission sources [33], and the PAHs with
+                                                                    two or three benzene rings deposited to soil matrix would be re-
+   Under conditions without considering the influence of emis-      evaporated and transported through air diffusion, thereby form-
+sion, SOC content was still significantly positively correlated     ing the secondary pollution [34]. These processes resulted in the
+with the concentrations of individual PAH species in surface        more homogeneous spatial distribution of PAHs with two or
+soils because their Kendall's rank correlation coefficients r       three benzene rings in soils as compared with PAHs with four to
+(C-SOC, E) were all above 0.101 (Table 2). Likewise, concen-        six benzene rings and the (R95­R05)/R50 values of the original
+trations of individual PAH species in surface soils were also       and SOC content-normalized concentrations of PAHs with two
+significantly positively correlated with their respective emis-     or three benzene rings lower than the corresponding values of
+sions if SOC content was taken as a controlling factor (Table 2).   their emissions. In contrast, the PAHs with four to six benzene
+However, r (C-SOC, E) was generally greater than r (C-E, SOC)       rings would more preferentially be deposited to the soil surface
+for individual and total PAHs (Table 2), suggesting that, relative  but would not readily be transported to remote areas [33].
+to emissions, SOC content had a greater influence on the
+concentrations of individual and total PAHs in surface soils        Fig. 2. Comparison of the (R95­R05)/R50 values of polycyclic aromatic
+in the North China Plain.                                           hydrocarbon (PAH) emissions and the original and soli organic carbon (SOC)
+                                                                    content-normalized concentrations of PAHs with different number of
+Effect of physicochemical properties of different PAHs on spatial   benzene rings in surface soils in the study area.
+differences of their concentrations in surface soils in the study
+area
+
+   The 16 PAHs have different physicochemical properties
+such as Henry's law constant, saturated vapor pressure, and
+octanol­water distribution coefficient (KOW). It is hypothesized
+that the physicochemical properties of different PAHs would
+have distinct effects on their regional environmental behaviors,
+leading to spatial variations of these compounds in surface
+soils in the study area. Concentrations of various PAHs and their
+variations in surface soils collected from 302 sampling sites
+were different. An index of (R95­R05)/R50 was employed to
+describe the relative variation of PAH emissions and their
+concentrations in soils as well as dependence of the spatial
+6 Environ. Toxicol. Chem. 31, 2012                                                                                                          X. Wang et al.
+
+In addition, the KOC (SOC content-normalized distribution           matter. Hence, their concentrations in soils are more closely
+coefficient) values of PAHs with four to six benzene rings          dependent on SOC content relative to those of higher molecular
+by soils could be much higher than those with two or three          weight (e.g., four to six ring) [33]. On the other hand, the PAHs
+benzene rings because of their higher KOW values. They would        with higher molecular weight (i.e., four to six ring) are more
+be more strongly protected and sequestrated in the soil organic     preferentially deposited to soils close to their emission sources
+matter because of their stronger interactions. It was thus evident  because of the diffusion limitation, thereby exhibiting lower
+that, aside from the influence of the spatial variation in emis-    mobility and poor correlation with SOC content. The difference
+sions, the spatial differentiation of PAHs with four to six         in correlation between the concentrations of PAHs with distinct
+benzene rings would also be affected by the spatial differ-         benzene ring numbers in soils and SOC content further indicates
+entiation of organic carbon content in soils, making their spatial  the dependence of the spatial variation of PAH concentrations
+differentiation less uniform in comparison with that of PAHs        in soils in the study area on their physicochemical properties.
+with two or three benzene rings. This also resulted in much         Likewise, Meijer et al. [35] reported that concentrations of
+higher (R95­R05)/R50 values of PAHs with four to six benzene        PCBs in 191 global background surface soils were positively
+rings in soils relative to the corresponding values of their        correlated with the SOC content. The correlation appeared to be
+emissions, and such values for PAHs with four to six benzene        poorer with increasing number of substituted chlorine atoms.
+rings in soils are markedly reduced after normalization with        Wilcke and Amelung [26] found that concentrations of PAHs of
+SOC content, close to those of their emissions (Fig. 2). The        relatively lower molecular weight (i.e., NAP, ACY, FLO, PHE,
+magnitude of the Kendall's rank correlation coefficient between     and ANT) in 18 soils in North America were significantly
+the concentrations of PAHs with different benzene ring num-         positively correlated with SOC content, but no correlation
+bers and their emissions can be also used to compare the            was observed for the higher molecular weight PAHs.
+closeness of their correlations, because the sample size for
+each PAH species was identical (n ¼ 302). It is clear that the                                        CONCLUSIONS
+correlation coefficient between emissions of PAHs with two or
+three benzene rings and their concentrations in soils was gen-         The spatial variation of 16 PAHs in surface soils in the North
+erally lower than that between emissions of PAHs with four to       China Plain and its influencing factors were investigated in the
+six benzene rings and their concentrations in soils (Supplemen-     present stuPdy. It was observed that concentrations of the sum of
+tal Data, Table S3), further supporting the idea that mobility and  16 PAHs ( PAH16) in cities were higher than in the surround-
+degradation had greater influence on concentrations of lower-       ing areas. Emissions and SOC content significantly governed
+molecular-weight PAHs in soils relative to those with higher        spatial variation of PAHs, as supported by the significantly
+molecular weight because they were more readily transported to      positive correlation of these two variables with the concen-
+remote areas and degraded.                                          trations of individual and total PAHs. The spatial variation in
+                                                                    emissions of PAHs with various benzene ring numbers was
+   The Pearson correlation coefficient between the concentra-       relatively small. However, spatial differentiation of PAHs in
+tions of PAHs with SOC content decreased from 0.580 for the         surface soils tended to be greater with increasing benzene ring
+species with two benzene rings to 0.482 for those with five or six  number, indicating the major role of physicochemical proper-
+benzene rings, and the associated p values increased from           ties of distinct PAH species in their spatial distribution char-
+1.49 Â 10À28 to 5.94 Â 10À19 (Fig. 3). This suggests that con-      acteristics. Compared with PAHs of higher molecular weight
+centrations of PAHs of lower molecular weight were more             (e.g., five or six ring), concentrations of those with lower
+closely correlated with SOC content compared with those of          molecular weight (e.g., two or three ring) in surface soils were
+higher molecular weight. Because PAHs of lower molecular            more strongly correlated with the SOC content, mainly because
+weight (i.e., two or three ring) have relatively higher saturated   of their higher saturated vapor pressure and thus greater mobi-
+vapor pressure relative to those of higher molecular weight (i.e.,  lity. Overall, the results of the present work demonstrate the
+four to six ring), they would have higher mobility and be more      relative importance of emissions and SOC content in regulating
+readily transported to remote areas and interact with soil organic
+
+          4                                                         3-ring
+
+lg(PAHs)    2-ring
+
+          3
+
+          2         r=0.580                                                   r=0.510
+
+          1         p=1.49h10-28                                              p=2.03h10-21
+                    n=302                                                     n=302
+          0
+          4                                                         5-6 ring
+
+lg(PAHs)    4-ring
+
+          3
+
+          2
+
+                    r=0.499                                                   r=0.482
+
+          1         p=1.98h10-20                                              p=5.94h10-19
+
+                    n=302                                                     n=302
+
+          0
+          0.00 0.05 0.10 0.15 0.20 0.25 0.00 0.05 0.10 0.15 0.20 0.25
+
+                    arcsin TOC(%)                                             arcsin TOC(%)
+
+Fig. 3. Comparison of the correlation between concentrations of polycyclic aromatic hydrocarbons (PAHs) with different benzene ring numbers in soils in the
+North China Plain with trigonometric function-transformed total organic carbon (TOC) content of soil.
+Benzene ring number affects PAH spatial variation in soil                                                                 Environ. Toxicol. Chem. 31, 2012 7
+
+concentrations of various PAH species in surface soils in the                     15. Zhang YX, Tao S, Cao J, Coveney RM. 2007. Emission of polycyclic
+North China Plain, and this is possibly applicable for other                           aromatic hydrocarbons in China by county. Environ Sci Technol 41:
+areas. The spatial variation of different PAH species in surface                       683­687.
+soils in a large area differed with the benzene ring numbers,
+illustrating dependence of the spatial distribution characteristics               16. Zhang YX, Dou H, Chang B, Wei ZC, Qiu WX, Liu SZ, Liu WX, Tao S.
+of PAH species in surface soils on their physicochemical                               2008. Emission of polycyclic aromatic hydrocarbons from indoor straw
+properties. Results of the present study are critical for prediction                   burning and emission inventory updating in China. Ann N Y Acad Sci
+of the environmental processes of organic pollutants on a                              1140:218­227.
+regional scale.
+                                                                                  17. Xu SS, Liu WX, Tao S. 2006. Emission of polycyclic aromatic
+                            SUPPLEMENTAL DATA                                          hydrocarbons in China. Environ Sci Technol 40:702­708.
+
+   Tables S1­S4.                                                                  18. Yuan HS, Tao S, Li BG, Lang C, Cao J, Coveney RM. 2008. Emission
+   Figs. S1­S6. (11.8 MB DOC)                                                          and outflow of polycyclic aromatic hydrocarbons from wildfires in
+                                                                                       China. Atmos Environ 42:6828­6835.
+Acknowledgement--This work was supported by the National Natural
+Science Foundation of China (41130754 and 41101490).                              19. Gong ZM, Wang XJ, Li BG, Cao J, Xu FL, Cui YH, Zhang WJ, Shen WR,
+                                                                                       Qin BP, Sun R, Tao S. 2003. The residues distribution of DDT and its
+                                   REFERENCES                                          metabolites in soils from Tianjin region, China. Acta Sci Circumstantiae
+                                                                                       23:447­451.
+ 1. Zhang YX, Tao S. 2009. Global atmospheric emission inventory of
+     polycyclic aromatic hydrocarbons (PAHs) for 2004. Atmos Environ              20. Nam JJ, Song BH, Eom KC, Lee SH, Smith A. 2003. Distribution of
+     43:812­819.                                                                       polycyclic aromatic hydrocarbons in agricultural soils in South Korea.
+                                                                                       Chemosphere 50:1281­1289.
+ 2. Lang C, Tao S, Wang XJ, Zhang G, Fu JM. 2008. Modeling polycyclic
+     aromatic hydrocarbon composition profiles of sources and receptors in        21. Trapido M. 1999. Polycyclic aromatic hydrocarbons in Estonian soil:
+     the Pear River Delta, China. Environ Toxicol Chem 27:4­9.                         Contamination and profiles. Environ Pollut 105:67­74.
+
+ 3. Zuo Q, Duan YH, Yang Y, Wang XJ, Tao S. 2007. Source apportionment            22. Ockenden WA, Breivik K, Meijer SN, Steinnes E, Sweetman AJ, Jones
+     of polycyclic aromatic hydrocarbons in surface soil in Tianjin, China.            KC. 2003. The global re-cycling of persistent organic pollutants is
+     Environ Pollut 147:303­310.                                                       strongly retarded by soils. Environ Pollut 121:75­80.
+
+ 4. Ma LL, Chu SG, Wang XT, Cheng HX, Liu XF, Xu XB. 2005. Polycyclic             23. Garban B, Blanchoud H, Motelay-Massei A, Chevreuil M, Ollivon D.
+     aromatic hydrocarbons in the surface soils from outskirts of Beijing,             2002. Atmospheric bulk deposition of PAHs onto France: Trends from
+     China. Chemosphere 58:1355­1363.                                                  urban to remote sites. Atmos Environ 36:5395­5403.
+
+ 5. Yin CQ, Jiang X, Yang XL, Bian YR, Wang F. 2008. Polycyclic aromatic          24. Heywood E, Wright J, Wienburg CL, Black HIJ, Long SM, Osborn D,
+     hydrocarbons in soils in the vicinity of Nanjing, China. Chemosphere              Spurgeon DJ. 2006. Factors influencing the national distribution of
+     73:389­394.                                                                       polycyclic aromatic hydrocarbons and polychlorinated biphenyls in
+                                                                                       British soils. Environ Sci Technol 40:7629­7635.
+ 6. Peng C, Chen WP, Liao XL, Wang M, Ouyang ZY, Jiao WT, Bai Y. 2011.
+     Polycyclic aromatic hydrocarbons in urban soils of Beijing: Status,          25. Harrison RM, Johnston WR. 1985. Deposition fluxes of lead, cadmium,
+     sources, distribution and potential risk. Environ Pollut 159:802­808.             copper, and polynuclear aromatic hydrocarbon (PAH) on the verges of a
+                                                                                       major highway. Sci Total Environ 46:121­135.
+ 7. Ping LF, Luo YM, Zhang HB, Li QB, Wu LH. 2007. Distribution of
+     polycyclic aromatic hydrocarbons in thirty typical soil profiles in the      26. Wilcke W, Amelung W. 2000. Persistent organic pollutants in native
+     Yangtze River Delta region, East China. Environ Pollut 147:358­365.               grassland soils along a climosequence in North America. Soil Sci Soc
+                                                                                       Am J 64:2140­2148.
+ 8. Agarwal T, Khillare PS, Shridhar V, Ray S. 2009. Pattern, sources and
+     toxic potential of PAHs in the agricultural soils of Delhi, India. J Hazard  27. Bakker MI, Casado B, Koerselman JW, Tolls J, Kollo¨ffel C. 2000.
+     Mater 163:­1039.                                                                  Polycyclic aromatic hydrocarbons in soil and plant samples from the
+                                                                                       vicinity of an oil refinery. Sci Total Environ 263:91­100.
+ 9. Maliszewska-Kordybach B, Smreczak B, Klimkowicz-Pawlas A. 2009.
+     Concentrations, sources, and spatial distribution of individual polycyclic   28. Wilson SC, Jones KC. 1993. Bioremediation of soil contaminated with
+     aromatic hydrocarbons (PAHs) in agricultural soils in the Eastern part of         polynunclear aromatic hydrocarbon (PAH): A review. Environ Pollut
+     the EU: Poland as a case study. Sci Total Environ 407:3746­3753.                  81:229­249.
+
+10. National Bureau of Statistics of China. 2004. China Statistical Yearbook      29. Jones KC, Stratford JA, Waterhouse KS, Vogt NB. 1989. Organic
+     2003. Beijing Statistical Press, Beijing, China.                                  contaminants in Welsh soils: Polynuclear aromatic hydrocarbons.
+                                                                                       Environ Sci Technol 23:540­550.
+11. Wu SP, Tao S, Liu WX. 2006. Particle size distributions of polycyclic
+     aromatic hydrocarbons in rural and urban atmosphere of Tianjin, China.       30. Bucheli TD, Blum F, Desaules A, Gustafsson O. 2004. Polycyclic
+     Chemosphere 62:357­367.                                                           aromatic hydrocarbons, black carbon, and molecular markers in soils of
+                                                                                       Switzerland. Chemosphere 56:1061­1076.
+12. Shi Z, Tao S, Pan B, Fan W, He XC, Zuo Q, Wu SP, Li BG, Cao J, Liu
+     WX, Xu FL, Wang XJ, Shen WR, Wong PK. 2005. Contamination of                 31. Schwarzenbach RP, Westall J. 1981. Transport of nonpolar organic
+     rivers in Tianjin, China, by polycyclic aromatic hydrocarbons. Environ            compounds from surface water to groundwater. Laboratory sorption
+     Pollut 134:97­111.                                                                studies. Environ Sci Technol 15:1360­1367.
+
+13. Tao S, Liu WX, Li Y, Yang Y, Zuo Q, Li BG, Cao J. 2008.                       32. Tao S, Cao HY, Liu WX, Li BG, Cao J, Xu FL, Wang XJ, Coveney
+     Organochlorine pesticides contaminated surface soil as reemission                 RM, Shen WR, Qin BP, Sun R. 2003. Fate modeling of phenanthrene
+     source in the Haihe Plain, China. Environ Sci Technol 42:8395­8400.               with regional variation in Tianjin, China. Environ Sci Technol 37:
+                                                                                       2453­2459.
+14. Wang XJ, Piao XY, Chen J, Hu JD, Xu FL, Tao S. 2006. Organochlorine
+     pesticides in soil profiles from Tianjin, China. Chemosphere 64:1514­        33. Wania F, Mackay D. 1996. Tracking the distribution of persistent organic
+     1520.                                                                             pollutants. Environ Sci Technol 30:390­396.
+
+                                                                                  34. Harner T, Bidleman TF, Jantunen LMM, Mackay D. 2001. Soil­air
+                                                                                       exchange model of persistent pesticides in the United States cotton belt.
+                                                                                       Environ Toxicol Chem 20:1612­1621.
+
+                                                                                  35. Meijer SN, Ockenden WA, Sweetman A, Breivik K, Grimalt JO, Jones
+                                                                                       KC. 2003. Global distribution and budget of PCBs and HCB in
+                                                                                       background surface soils: Implications for sources and environmental
+                                                                                       processes. Environ Sci Technol 37:667­672.
+

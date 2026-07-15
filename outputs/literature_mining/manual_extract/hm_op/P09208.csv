@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09208,,,,,,,,"skip: 纯计算模拟研究(in silico molecular dynamics/molecular docking study), 无任何真实场地采样数据。论文使用分子对接和分子动力学模拟计算PAHs-有机Cd与蛋白质的结合能(ΔGb kJ/mol)和归一化复合污染指数(0-1), 所有Tables均为实验设计正交表(0/1水平)、统计模型贡献率、结合能或修复效率指数, 无采样点级HM(mg/kg)或OP(ng/g)实测浓度。唯一提及的真实浓度(0.27 mg/kg Cd in Hunan)引自参考文献[27]非本文原始数据。"

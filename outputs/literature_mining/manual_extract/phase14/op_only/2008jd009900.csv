@@ -1,0 +1,8 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+2008jd009900,2008jd009900_Nighttime,Nighttime,SumPAE_ngg,0.77,Unknown,,high,table_p12_ri6_ci2,Table 4.Results of Principal Component Analysis with Varimax Rotation for the Data Set of the Organic Compound Classes Detected in the Daytime/Nighttime Mt.Tai Aerosols,,,,,,phase14
+2008jd009900,2008jd009900_Daytime,Daytime,Sum_PAH_ngg,0.43,Unknown,,high,table_p12_ri12_ci1,Table 4.Results of Principal Component Analysis with Varimax Rotation for the Data Set of the Organic Compound Classes Detected in the Daytime/Nighttime Mt.Tai Aerosols,,,,,,phase14
+2008jd009900,2008jd009900_Nighttime,Nighttime,Sum_PAH_ngg,0.6,Unknown,,high,table_p12_ri12_ci2,Table 4.Results of Principal Component Analysis with Varimax Rotation for the Data Set of the Organic Compound Classes Detected in the Daytime/Nighttime Mt.Tai Aerosols,,,,,,phase14
+2008jd009900,2008jd009900_Daytime,Daytime,Sum_PAH_ngg,14.6,Unknown,,high,table_p16_ri20_ci1,Table 5.Concentrations of Various Compound Classes and Groupsa,,,,,,phase14
+2008jd009900,2008jd009900_Nighttime,Nighttime,Sum_PAH_ngg,15.2,Unknown,,high,table_p16_ri20_ci2,Table 5.Concentrations of Various Compound Classes and Groupsa,,,,,,phase14
+2008jd009900,2008jd009900_Daytime,Daytime,SumPAE_ngg,170.0,Unknown,,high,table_p16_ri27_ci1,Table 5.Concentrations of Various Compound Classes and Groupsa,,,,,,phase14
+2008jd009900,2008jd009900_Nighttime,Nighttime,SumPAE_ngg,62.0,Unknown,,high,table_p16_ri27_ci2,Table 5.Concentrations of Various Compound Classes and Groupsa,,,,,,phase14

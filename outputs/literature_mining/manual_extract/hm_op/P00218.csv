@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00218,,,,,,soil,agricultural,Hunan,"skip: 盆栽spiked实验(pot experiment)，土壤装塑料盆2kg+人工添加atrazine 0/1.25/2.5/5/10 mg/kg梯度，研究sepiolite+biochar修复效果；Table1萌发率/Table2atrazine残留/Fig2植物Cd/Fig3 DTPA-Cd均为修复效果指标非真实采样点浓度；原始土壤仅单一混合样品Cd=2.16 mg/kg(无OP数据)；atrazine不在OP清单(PAH/PCB/DDT/HCH/PBDE/PHC)；无真实场地HM+OP采样点级数据"

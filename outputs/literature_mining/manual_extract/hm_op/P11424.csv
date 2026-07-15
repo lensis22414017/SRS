@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11424,,,,,,,,"skip: 吉林省1780个网格土壤样本仅Table 1统计汇总(Mean/SD/CV/Min/Max/分位数/Detection Frequency)+未编号表为PMF源解析ILCR癌症风险值(如7.73E-11非浓度);全文无采样点标识符(S1/A/B/点位名);铁律2/4/5触发(统计汇总+全省均值+风险指数);HM+OP虽同论文同省真复合但无采样点级数据"

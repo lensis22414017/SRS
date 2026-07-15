@@ -1,0 +1,11 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03780,S1,Sum_PAH_ngg,207.64,ng/g,Table 2 MPAHs row,soil,mining,Guizhou,"16 EPA p-PAHs sum (MPAHs row); S1=mining area soil no vegetation; 4-season avg per Table 2 footnote a"
+P03780,S2,Sum_PAH_ngg,136.67,ng/g,Table 2 MPAHs row,soil,mining,Guizhou,"16 EPA p-PAHs sum (MPAHs row); S2=abandoned soil with horsetail pine; 4-season avg per Table 2 footnote a"
+P03780,S3,Sum_PAH_ngg,196.04,ng/g,Table 2 MPAHs row,soil,mining,Guizhou,"16 EPA p-PAHs sum (MPAHs row); S3=slope soil perennial pepper; 4-season avg per Table 2 footnote a"
+P03780,S4,Sum_PAH_ngg,121.43,ng/g,Table 2 MPAHs row,soil,mining,Guizhou,"16 EPA p-PAHs sum (MPAHs row); S4=cultivated soil planting corn; 4-season avg per Table 2 footnote a"
+P03780,S5,Sum_PAH_ngg,224.66,ng/g,Table 2 MPAHs row,soil,mining,Guizhou,"16 EPA p-PAHs sum (MPAHs row); S5=forest soil; 4-season avg per Table 2 footnote a"
+P03780,S1,BaP_ngg,14.15,ng/g,Table 2 BaP row,soil,mining,Guizhou,"BaP monomer direct read; S1=mining area soil; 4-season avg per Table 2 footnote a"
+P03780,S2,BaP_ngg,9.89,ng/g,Table 2 BaP row,soil,mining,Guizhou,"BaP monomer direct read; S2=abandoned soil; 4-season avg per Table 2 footnote a"
+P03780,S3,BaP_ngg,15.20,ng/g,Table 2 BaP row,soil,mining,Guizhou,"BaP monomer direct read; S3=slope soil; 4-season avg per Table 2 footnote a"
+P03780,S4,BaP_ngg,7.82,ng/g,Table 2 BaP row,soil,mining,Guizhou,"BaP monomer direct read; S4=cultivated corn soil; 4-season avg per Table 2 footnote a"
+P03780,S5,BaP_ngg,15.30,ng/g,Table 2 BaP row,soil,mining,Guizhou,"BaP monomer direct read; S5=forest soil; 4-season avg per Table 2 footnote a"

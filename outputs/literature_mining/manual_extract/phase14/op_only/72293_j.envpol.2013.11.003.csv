@@ -1,0 +1,6 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+72293_j.envpol.2013.11.003,72293_j.envpol.2013.11.003_Tri,Tri,SumPCB_ngg,1.0,Unknown,,high,table_p3_ri8_ci8,Pearson correlation coefficient matrix between metals and PCBs.,,,,,,phase14
+72293_j.envpol.2013.11.003,72293_j.envpol.2013.11.003_Tetra,Tetra,SumPCB_ngg,1.0,Unknown,,high,table_p3_ri9_ci9,Pearson correlation coefficient matrix between metals and PCBs.,,,,,,phase14
+72293_j.envpol.2013.11.003,72293_j.envpol.2013.11.003_Penta,Penta,SumPCB_ngg,1.0,Unknown,,high,table_p3_ri10_ci10,Pearson correlation coefficient matrix between metals and PCBs.,,,,,,phase14
+72293_j.envpol.2013.11.003,72293_j.envpol.2013.11.003_Hexa,Hexa,SumPCB_ngg,1.0,Unknown,,high,table_p3_ri10_ci11,Pearson correlation coefficient matrix between metals and PCBs.,,,,,,phase14
+72293_j.envpol.2013.11.003,72293_j.envpol.2013.11.003_Hepta,Hepta,SumPCB_ngg,1.0,Unknown,,high,table_p3_ri12_ci12,Pearson correlation coefficient matrix between metals and PCBs.,,,,,,phase14

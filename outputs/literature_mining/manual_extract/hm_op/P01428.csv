@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01428,,,,,,,,,"skip: 实验室spiked添加实验(incubation/microcosm); 摘要明示studied under laboratory conditions; 2.2节Incubation experiment design: 上海华东理工大学校园取土→实验室混合→分装10mL组织培养瓶(5g/瓶)→用BDE-209+CuCl2 stock solution人工添加; S1-S15均为人为设计的treatment group(非真实采样点); Table1 spiked浓度设计/非实测; Table2 回归模型β系数(统计量); Table3 DGGE 16S rDNA序列BLAST比对(非浓度); Table4 Shannon-Weaver多样性指数H(非浓度). 全部31行无一为真实场地土壤采样点级HM+OP实测浓度. 裴总铁律#7剔除(盆栽/温室/实验室添加实验)"

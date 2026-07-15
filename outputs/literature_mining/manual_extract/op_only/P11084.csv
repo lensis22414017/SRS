@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11084,S1(0-2cm),Sum_PAH_ngg,3101,ng/g,正文3.1段,soil,other,Chongqing,"S1表面0~2cm土层16种PAH总和，正文3.1段直接读取"
+P11084,S4(0-2cm),Sum_PAH_ngg,806,ng/g,正文3.1段,soil,other,Chongqing,"S4表面0~2cm土层16种PAH总和，正文3.1段直接读取"
+P11084,S4(50cm),Sum_PAH_ngg,687,ng/g,正文3.1段,soil,other,Chongqing,"S4在50cm深度第二峰值16种PAH总和，正文3.1段直接读取"
+P11084,S5(40cm),Sum_PAH_ngg,2575,ng/g,正文3.1段,soil,other,Chongqing,"S5在40cm深度峰值16种PAH总和，正文3.1段直接读取"

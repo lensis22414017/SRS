@@ -1,0 +1,6 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11353,D1,Sum_PAH_ngg,409.82,ng/g,正文2.3.2.2段,soil,mining,Shanxi,堆积区雨季矸石山底(0m)16种EPA PAHs总和;论文原文"堆积区[矸石山底]为409.82μg/kg"
+P11353,D6,Sum_PAH_ngg,623.85,ng/g,正文2.3.2.2段,soil,mining,Shanxi,堆积区雨季农田(1100m)16种EPA PAHs总和;论文原文"堆积区[农田处]为623.85μg/kg";亦为堆积区范围上限
+P11353,H1,Sum_PAH_ngg,35.77,ng/g,正文2.3.2.2段,soil,mining,Shanxi,恢复区雨季矸石山底(0m)16种EPA PAHs总和;论文原文"恢复区矸石山底...为35.77μg/kg";亦为恢复区范围下限
+P11353,H5,Sum_PAH_ngg,108.81,ng/g,正文2.3.2.2段,soil,mining,Shanxi,恢复区雨季农田(1100m)16种EPA PAHs总和;论文原文"恢复区...农田处...108.81μg/kg"
+P11353,H4,Sum_PAH_ngg,1309,ng/g,正文2.3.2.2段,soil,mining,Shanxi,"恢复区雨季650m处16种EPA PAHs总和异常高值;论文原文""恢复区为35.77-158.17μg/kg(H4处1309μg/kg)"";正文标注受人为因素影响(居民楼后方/距交通主干道20m)"

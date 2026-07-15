@@ -1,0 +1,9 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07483,PY (c.1930),Sum_PAH_ngg,70,ng/g,正文Results-Historical trends段(Fig.2c),sediment,other,Jiangxi,"Poyang湖Core PY沉积物岩心，210Pb/137Cs定年~1930年层位，正文描述ΣPAHs记录起始值"
+P07483,PY (c.1979),Sum_PAH_ngg,4028,ng/g,正文Results-Historical trends段(Fig.2c),sediment,other,Jiangxi,"Poyang湖Core PY沉积物岩心，~1979年层位，正文描述为1930-1979增长期末值"
+P07483,PY (1989),Sum_PAH_ngg,6855,ng/g,正文Results-Historical trends段(Fig.2c),sediment,other,Jiangxi,"Poyang湖Core PY沉积物岩心，1989年层位，正文明确为PY岩心最高值"
+P07483,PY (2011),Sum_PAH_ngg,629,ng/g,正文Results-Historical trends段(Fig.2c),sediment,other,Jiangxi,"Poyang湖Core PY沉积物岩心，2011年(表层附近)层位，正文描述为1989年后下降期的最大值"
+P07483,LG (1912),Sum_PAH_ngg,231744,ng/g,正文Results-Historical trends段(Fig.2c),sediment,other,Anhui/Hubei,"Longgan湖Core LG沉积物岩心，1912年层位，正文描述为LG岩心第一峰；CAUTION:此值231744 ng/g与正文所述LG均值185 ng/g数学矛盾(单值远超均值×样本量)，疑为MinerU解析丢小数点所致(原始值可能为231.744或2317.44)，建议核对原PDF"
+P07483,LG (1932),Sum_PAH_ngg,6693,ng/g,正文Results-Historical trends段(Fig.2c),sediment,other,Anhui/Hubei,"Longgan湖Core LG沉积物岩心，1932年层位，正文描述为LG第二峰"
+P07483,LG (1963),Sum_PAH_ngg,4145,ng/g,正文Results-Historical trends段(Fig.2c),sediment,other,Anhui/Hubei,"Longgan湖Core LG沉积物岩心，1963年层位，正文描述为LG第三峰"
+P07483,LG (1971),Sum_PAH_ngg,2789,ng/g,正文Results-Historical trends段(Fig.2c),sediment,other,Anhui/Hubei,"Longgan湖Core LG沉积物岩心，1971年层位，正文描述为LG第四峰"

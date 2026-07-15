@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08465,,,,,,soil,greenhouse_facility,"Shandong; Jiangsu","skip: 所有采样点级PAE浓度仅在图中呈现(Fig.3各点Total PAE柱状图; Fig.4各点6种PAE单体柱状图)无可提取数值; 唯一表格Table1为Pearson相关系数(统计量应剔除); 正文仅给区域级range(SG 0.30-1.58 mg/kg; XZ 0.77-1.46 mg/kg)为汇总范围非采样点值; 6 PAEs(DMP/DEP/DBP/BBP/DEHP/DnOP)虽属可提取OP但数据仅存于figure bar charts; 34 samples(SG 5CK+12GH; XZ 7CK+10GH) site_ids SG1/CK3/X6/XZ1-XZ4等散见正文但无浓度对应"

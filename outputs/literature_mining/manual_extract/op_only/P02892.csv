@@ -1,0 +1,23 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02892,b1,Sum_PAH_ngg,2656.64,ng/g,Table 2,sediment,urban,Tianjin,"Table 2 ΣPAH16列直接读取, 16单体求和验证2656.65差0.01舍入"
+P02892,b2,Sum_PAH_ngg,1126.39,ng/g,Table 2,sediment,industrial,Tianjin,"Table 2 ΣPAH16列直接读取, Dagu waste discharge river"
+P02892,b3,Sum_PAH_ngg,2216.51,ng/g,Table 2,sediment,industrial,Tianjin,"Table 2 ΣPAH16列直接读取, mouth of Dagu waste discharge river"
+P02892,b4,Sum_PAH_ngg,721.98,ng/g,Table 2,sediment,urban,Tianjin,"Table 2 ΣPAH16列直接读取, offshore river"
+P02892,b5,Sum_PAH_ngg,291.63,ng/g,Table 2,sediment,industrial,Tianjin,"Table 2 ΣPAH16列直接读取, Du waste discharging river"
+P02892,b6,Sum_PAH_ngg,1808.79,ng/g,Table 2,sediment,industrial,Tianjin,"Table 2 ΣPAH16列直接读取, Bei waste discharging river"
+P02892,b7,Sum_PAH_ngg,392.88,ng/g,Table 2,sediment,urban,Tianjin,"Table 2 ΣPAH16列直接读取, offshore sea"
+P02892,b8,Sum_PAH_ngg,1139.40,ng/g,Table 2,sediment,industrial,Tianjin,"Table 2 ΣPAH16列直接读取, Yinghe reservoir (waste discharging lake)"
+P02892,b9,Sum_PAH_ngg,274.06,ng/g,Table 2,sediment,urban,Tianjin,"Table 2 ΣPAH16列直接读取, mouth of Yongding new river"
+P02892,b10,Sum_PAH_ngg,1356.86,ng/g,Table 2,sediment,industrial,Tianjin,"Table 2 ΣPAH16列直接读取, Beitang waste discharging river"
+P02892,b1,BaP_ngg,90.40,ng/g,Table 2,sediment,urban,Tianjin,Table 2 Benzo(a)pyrene单体行直接读取
+P02892,b2,BaP_ngg,6.72,ng/g,Table 2,sediment,industrial,Tianjin,Table 2 Benzo(a)pyrene单体行直接读取
+P02892,b3,BaP_ngg,105.78,ng/g,Table 2,sediment,industrial,Tianjin,Table 2 Benzo(a)pyrene单体行直接读取
+P02892,b4,BaP_ngg,6.29,ng/g,Table 2,sediment,urban,Tianjin,Table 2 Benzo(a)pyrene单体行直接读取
+P02892,b5,BaP_ngg,3.82,ng/g,Table 2,sediment,industrial,Tianjin,Table 2 Benzo(a)pyrene单体行直接读取
+P02892,b6,BaP_ngg,136.30,ng/g,Table 2,sediment,industrial,Tianjin,Table 2 Benzo(a)pyrene单体行直接读取
+P02892,b7,BaP_ngg,7.44,ng/g,Table 2,sediment,urban,Tianjin,Table 2 Benzo(a)pyrene单体行直接读取
+P02892,b8,BaP_ngg,30.10,ng/g,Table 2,sediment,industrial,Tianjin,Table 2 Benzo(a)pyrene单体行直接读取
+P02892,b9,BaP_ngg,4.27,ng/g,Table 2,sediment,urban,Tianjin,Table 2 Benzo(a)pyrene单体行直接读取
+P02892,b10,BaP_ngg,36.76,ng/g,Table 2,sediment,industrial,Tianjin,Table 2 Benzo(a)pyrene单体行直接读取
+P02892,b2,SumPCB_ngg,87.31,ng/g,正文3.2.2段,sediment,industrial,Tianjin,"正文3.2.2段b2(Dagu waste discharging river) ΣPCB35总量直接读取, 单体数据在Table S2补充材料"
+P02892,b2,SumPBDE_ngg,13.88,ng/g,正文3.2.2段,sediment,industrial,Tianjin,"正文3.2.2段b2(Dagu waste discharging river) ΣPBDE14总量直接读取, 单体数据在Table S3补充材料"

@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05286,,,,,,soil,coastal/industrial,Shandong,"skip: HM-only论文(8种重金属Co/Cr/Cu/Hg/Mn/Ni/Pb/Zn,无任何OP数据-PAH/PCB/DDT/HCH/PBDE/PHC全缺); 表格仅描述性统计汇总(Table 3: Min/Max/Mean/SD/Median/CV/Skewness/Kurtosis,无采样点级浓度); HM元素不匹配标准8项(缺Cd/As,多Co/Mn); 111个topsoil样本但论文未公开个体浓度值"

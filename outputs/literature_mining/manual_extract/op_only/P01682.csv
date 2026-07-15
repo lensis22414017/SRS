@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01682,,,,,,,,,"skip: 实验室动物毒理学实验，非土壤/场地实测。论文为4-壬基酚(4-Nonylphenol)对SD大鼠精子发生影响的体内实验，24只5周龄大鼠分4组(0/5/20/60 mg/kg体重/2天)腹腔注射30天。所有数据为生物终点(精子计数/激素FSH/LH/睾酮/果糖/氧化应激标志物MDA/SOD/GSH-Px/基因表达mRNA/蛋白Western blot)，无任何土壤/沉积物采样点级OP浓度数据。Table 1为精子参数(计数/活力/形态)，Table 2为睾丸基因mRNA表达量，均非环境污染物浓度。论文op_groups标注Phenols属误筛，4-NP为内分泌干扰物毒理研究非场地土壤污染调查"

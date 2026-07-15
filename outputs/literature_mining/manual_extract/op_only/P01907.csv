@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01907,,,,,,,,"skip: 实验室稀释毒性剂量-响应实验(dose-response)；从胜利油田采集一份混合土壤(TPH=10.57%)后用人工土壤稀释为0.5%-5%梯度做蚯蚓/植物/发光细菌毒性测试；无多采样点级OP数据；唯一TPH值单位为%(规则: %不提取)；HM在Table1但has_hm=False且非本任务范围"

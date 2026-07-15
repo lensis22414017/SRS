@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10493,,skip,,,,,,,补充材料Table S2含16个采样点42种BDE单体浓度与SumPBDE数据但未包含在解析paper.md中需另行获取SI

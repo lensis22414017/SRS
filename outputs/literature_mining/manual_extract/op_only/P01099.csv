@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01099,,,,,,,,"论文241个采样点PCB数据全在Table SI-1(补充材料)中，parsed paper.md未包含SI。正文仅有统计汇总(range/mean/detection rate)和风险指数(HI/TEQ)。OCPs/PAEs/PBDEs数据引用自Sun et al. 2016b(另一篇论文)。无可提取的采样点级浓度数据"

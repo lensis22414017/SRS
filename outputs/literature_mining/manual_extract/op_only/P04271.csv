@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04271,P1,SumPCB_ngg,0.0132,ng/g,Section 3.1 text,soil,industrial,Ningxia,orig Sigma19PCBs=13.2 pg/g (sum of 19 PCB congeners: 12 dl-PCBs+7 id-PCBs+CB-209) direct read; P1 landscaped green area in industrial park; pg/g/1000=ng/g
+P04271,P9,SumPCB_ngg,1.240,ng/g,Section 3.1 text,soil,industrial,Ningxia,orig Sigma19PCBs=1240 pg/g (sum of 19 PCB congeners) direct read; P9 surrounding farmland; pg/g/1000=ng/g
+P04271,P14,SumPCB_ngg,0.1722,ng/g,Section 3.1 text,soil,other,Ningxia,background site 25km away; three-component sum (dl-PCBs 2.5 + id-PCBs 70.4 + CB-209 99.3 = 172.2 pg/g)/1000; PCB-118 minor double-count risk

@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00829,SKIP,,,,,,,,"skip: 论文仅提供247样本汇总统计(Mean/Median/SD/Min/Max/CV/Skewness/Kurtosis/Range)，单表Table 1为全样本描述性统计，无任何单一公园或采样点级浓度数据。同时含PMF源解析分配(非实测值)、TEQ/RI风险指数(非浓度)、BCR形态提取(非总量)。无可提取的真实采样点级HM浓度或PAH浓度。"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02445,,,,,Table 2,soil,mining,Jiangsu,"skip: 仅区域级均值汇总(Mine area/Qixia scenic site/Village farmland 各为13-44样本均值), Table 2表头明确标注Mean concentration非采样点级; 无OP数据(HM-only仅As/Cd/Cr/Pb/Zn), 非HM+OP复合; 数据引自Chu and Luo 2010前期调查非本文实测"

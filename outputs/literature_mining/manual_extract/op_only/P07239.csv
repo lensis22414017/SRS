@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07239,,,,,,,,,skip: 论文为稻田PBDEs交换通量研究(agricultural paddy field Guangzhou Guangdong). 土壤PBDE浓度仅以range汇总给出(S7PBDE 0.24-0.37 ng/g; BDE209 40.4-133 ng/g跨生长阶段)，无个体采样点级数据表格; 个体数值仅在Fig 1b图片中; Table 1-3为通量(ng/m2/d)/输入输出(ug/m2)/省级估算(kg)非浓度数据

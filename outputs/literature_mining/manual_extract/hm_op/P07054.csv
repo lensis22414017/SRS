@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07054,,,,,,soil,agricultural,multi-province,"skip: 论文研究主题为抗生素抗性基因(ARGs: sul1/sul2/tetM/tetW/tetQ/tetO/tetT/tetB/P)分布,非HM+OP研究; 测了6种金属(Cu/Hg/Zn/Cr/Ca/Mg)仅作RDA/PCA环境协变量,采样点级浓度未在正文表格给出(仅在SI),且缺Cd/Pb/As/Ni; 全文无传统OP(PAH/PCB/DDT/HCH/PBDE/PHC)数据; ARG不属于OP提取清单; Table 2为ARG相对丰度统计汇总(Mean/Max/Min/GeoMean/SD/CV)非采样点级HM/OP浓度"

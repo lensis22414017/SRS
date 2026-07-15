@@ -1,0 +1,6 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+15320383.2013.772092,15320383.2013.772092_Black_soil,Black soil,CEC_cmolkg,22.3,Unknown,,high,table_p5_ri2_ci7, 
+15320383.2013.772092,15320383.2013.772092_Red_soil_Fluvo-,Red soil Fluvo-,CEC_cmolkg,39.7,Unknown,,high,table_p5_ri4_ci7, 
+15320383.2013.772092,15320383.2013.772092_Red_soil_Fluvo-,Red soil Fluvo-,Mn_mgkg,2.96,Unknown,,high,table_p5_ri4_ci11, 
+15320383.2013.772092,15320383.2013.772092_aquic_soil,aquic soil,CEC_cmolkg,28.3,Unknown,,high,table_p5_ri5_ci7, 
+15320383.2013.772092,15320383.2013.772092_aquic_soil,aquic soil,Mn_mgkg,1.64,Unknown,,high,table_p5_ri5_ci11, 

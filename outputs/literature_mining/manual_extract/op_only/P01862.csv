@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01862,Se2,Sum_PAH_ngg,1706.9,ng/g,正文3.1段,sediment,industrial,Sichuan,"正文明确值(Se2为沉积物PAHs最高值; 完整21样本单体数据在Table S8但SI不可用)"
+P01862,Se5,Sum_PAH_ngg,1652.0,ng/g,正文3.1段,sediment,industrial,Sichuan,"正文明确值(Se5为沉积物PAHs第二高值; 完整21样本单体数据在Table S8但SI不可用)"

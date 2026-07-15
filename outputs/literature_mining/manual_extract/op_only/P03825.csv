@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03825,,,,,,,,"skip: metagenomic study of antibiotic resistance genes (ARGs) under crop rotation regimes at Loess Plateau; measured soil properties (pH/SOC/MBC/MBN/C/N) and ARG abundance/resistance mechanisms via metagenomic sequencing; no OP concentration data (no PAH/PCB/DDT/HCH/PBDE/PHC/antibiotic residues/PAE/OCP); only Random Forest predictor importance tables for ARG-soil property correlations"

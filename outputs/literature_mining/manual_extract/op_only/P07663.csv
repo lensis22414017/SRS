@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07663,NOTES,,,Table 1,sediment,industrial,Shandong,"skip: 主文Table1仅含Range/Median统计汇总(非采样点级)；个体浓度数据在补充材料Table S1中但未解析可用；研究基质为水体(拒)和沉积物(保留但无sample-level数据)；污染物仅PBDEs/aBFRs/DPs无PAHs/PCBs/DDT等"

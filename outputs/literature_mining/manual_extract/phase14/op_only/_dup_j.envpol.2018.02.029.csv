@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+_dup_j.envpol.2018.02.029,_dup_j.envpol.2018.02.029_F1,F1,SumPBDE_ngg,0.655,Unknown,,high,table_p5_ri5_ci1,Factor loadings for environmental parameters and PBDEs,,,,,,phase14
+_dup_j.envpol.2018.02.029,_dup_j.envpol.2018.02.029_F2,F2,SumPBDE_ngg,0.723,Unknown,,high,table_p5_ri5_ci2,Factor loadings for environmental parameters and PBDEs,,,,,,phase14

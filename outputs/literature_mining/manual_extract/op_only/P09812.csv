@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09812,,,,,,,,,"skip: 论文仅含SI表格，分析的是商品化三氯杀螨醇(dicofol)农药制剂中的DDT杂质含量(单位g/kg dicofol产品)，非土壤/沉积物采样点级数据。样品A1-G为各厂家dicofol产品编号(采样地点为厂家所在地)，matrix为农药制剂而非环境样品。无任何土壤OP浓度数据。"

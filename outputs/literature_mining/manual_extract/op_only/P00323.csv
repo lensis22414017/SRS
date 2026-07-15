@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00323,,,,,,,,"skip: 仅统计汇总无采样点级数据。Table 2仅给16 PAH单体及总量(Nap/Acy/Ace/Flo/Phe/Ant/Fla/Pyr/BaA/Chr/BbF/BkF/BaP/DahA/IcdP/BghiP/16PAHs/L-PAHs/H-PAHs/7PAHs)的Min/Max/Mean/Median/SD/CV六列统计量(32样品汇总)，无S1/S2/村庄名等单点标识独立浓度值；Table 1为RfD/SF毒性参考值；Table 3为他城文献对比；Table 4为相关系数；Table 5/6为HI/CR风险指数。论文描述32个村庄32个样品但未公开单点原始数据"

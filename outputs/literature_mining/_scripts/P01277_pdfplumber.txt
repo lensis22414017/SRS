@@ -1,0 +1,56 @@
+EnvironmentalPollution156(2008)769–774
+ContentslistsavailableatScienceDirect
+Environmental Pollution
+journal homepage: www.elsevier.com/locate/envpol
+Characterization of extractable and non-extractable polycyclic aromatic
+hydrocarbons in soils and sediments from the Pearl River Delta, China
+Lulu Hea,b, Jianzhong Songa, Ping’an Penga,*
+aStateKeyLaboratoryofOrganicGeochemistry,GuangzhouInstituteofGeochemistry,ChineseAcademyofSciences,Wushan,P.O.Box1131,
+Guangzhou510640,China
+bGraduateSchoolofChineseAcademyofSciences,Shijingshan,Beijing100039,China
+Non-extractablePAHstooklargeproportionsoftotalPAHsinfieldsoilsandsediments.
+a r t i c l e i n f o a b s t r a c t
+Articlehistory: Formationofboundresiduesofpollutantsinsoilsandsedimentsisanimportantprocesstocontrolthe
+Received25January2008 fateofpollutantsintheenvironment.Themostofboundresidueisnotsolventextractable.Inthispaper,
+Receivedinrevisedform27May2008 wemeasuredbothextractableandnon-extractablepolycyclicaromatichydrocarbons(PAHs)indifferent
+Accepted2June2008
+organic matter fractions of samples from the Pearl River Delta, China. Non-extractable PAHs concen-
+trationwas234.45–1424.57mg/kgandaccountedfor33.78–57.44%oftotalPAHs.2–3RingPAHswerethe
+Keywords: dominantspeciesanddifferedinconcentrationsubstantiallybetweenthesamples.Theatomicratioof
+Polycyclicaromatichydrocarbons
+PAHsoverorganic-Cinthefractionsorderedassolventsolubleorganicmatter>humin>humicacids,
+ExtractablePAHs
+matchingthecontentofaliphaticmoietiesinthefractionsoforganicmatter.Theratioofextractableand
+Non-extractablePAHs
+non-extractablePAHsmayrelatetotheagingprocessofPAHsinsoilandsediment.
+Humicacids
+Humin (cid:2)2008ElsevierLtd.Allrightsreserved.
+1. Introduction proportion of totalPAHsand playan important role inPAHs’be-
+havior in natural systems. This may include diminishing bio-
+Polycyclic aromatic hydrocarbons (PAHs) are mainly produced availability, toxicity and mobility, or retarding of degradation
+during incomplete combustion, pyrolysis of organic materials by (ChungandAlexander,1998;NamandKim,2002).Thedefinitionof
+industry, agriculture and traffic, or in diagenetic alteration pro- boundresiduesofpollutantsvarieswithresearchersandtheirex-
+cesses of natural organic matter (Luo et al., 2004; Conte et al., traction methods (Kaufman and Blake, 1973). Fuhr et al. (1998)
+2001).Theyareubiquitousinambientair,water,sedimentandsoil, statedthatit‘‘representcompoundsinsoil,plantoranimal,which
+and some such as pyrene, benzo[a]pyrene and benzo[b]- persisted in the matrix form of the parent substance or its me-
+fluoranthenearerecognizedasmutagensandcarcinogens.Owing tabolite(s) after extraction, and the extraction method must not
+totheirtoxicityandwidespreadpresenceintheenvironment,PAHs substantiallychange the compounds themselves or the nature of
+have received much attention by environmental chemists, toxi- the matrix’’. In this paper, we use ‘‘non-extractable’’ instead of
+cologists and regulatory agencies for over three decades (Chen boundresiduetodescribe the pollutant fractionwhich isnotex-
+etal.,2005). tractable by solvent. It is similar to bound residue in scientific
+Moststudieshavefocusedonorganicsolvent-extractablePAHs meaning but more laboratory operative. Bound residues are
+insamplesbecausetheycanbereadilyconductedin laboratories thoughttobe formedfromchemicalbinding,entrapmentofpol-
+(Chen et al., 2005; Mai et al., 2001). However, non-extractable, lutants in micropores of an inorganic–organic matrix, and other
+namely, bound PAHs in literature are now thought to be as mixture sequestrationprocesses ofpollutants inamatrix. Gener-
+important as extractable PAHs because they may be a significant ally,thenon-extractablefractionofpollutantsincreaseswithresi-
+dence time in soils and sediments (Gevao et al., 2000; Northcott
+andJones,2001).
+The non-extractable hydrophobic pollutants in soils and sedi-
+* Corresponding author. Tel.: þ86 20 85290126/13318839751; fax: þ86 20
+ments are mostly present in recalcitrant organic matter such as
+85290117.
+humic acids, kerogens and black carbon etc. (Cornelissen et al.,
+E-mailaddresses:helulu122@126.com(L.He),songjzh@gig.ac.cn(J.Song),pin-
+ganp@gig.ac.cn(Ping’anPeng). 2005). These organic materials can be characterized or further
+0269-7491/$–seefrontmatter(cid:2)2008ElsevierLtd.Allrightsreserved.
+doi:10.1016/j.envpol.2008.06.003

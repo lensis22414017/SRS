@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11281,,,,,,soil,industrial,Zhejiang,"skip: 无采样点级浓度数据。Table1为PAH各化合物的统计汇总(Mean±SD/CV/Median/Min/Max按区域)，非逐样本值；Table2为每样本ILCR风险指数(非浓度，剔除)；Fig2热图与Fig4分布图均为图像不可解析。论文仅给出区域/方向级均值(工业区Σ16PAHs均值7680.4 ng/g，农村区213.5 ng/g)与方向均值(东27900.94/西1340.36/南585.48/北894.98 ng/g)，均为区域汇总非采样点级。BaP仅有区域Mean±SD(工业714.1±1513.6/农村15.2±14.2)统计行。"

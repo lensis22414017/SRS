@@ -1,0 +1,22 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P06725,01,Endosulfan_ngg,0.93,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取",33.703,118.9755
+P06725,02,Endosulfan_ngg,1.26,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取",33.704,118.849667
+P06725,03,Endosulfan_ngg,0.86,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取",33.8435,118.858
+P06725,04,Endosulfan_ngg,0.46,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取",33.841333,118.988833
+P06725,05,Endosulfan_ngg,0.31,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取",33.5575,118.824167
+P06725,06,Endosulfan_ngg,0.28,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取",33.4385,118.8325
+P06725,07,Endosulfan_ngg,0.38,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取",33.4485,118.970333
+P06725,08,Endosulfan_ngg,0.7,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取",33.683,119.099167
+P06725,09,Endosulfan_ngg,0.82,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取",33.617833,119.112167
+P06725,10,Endosulfan_ngg,1.68,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取",33.688333,119.264833
+P06725,11,Endosulfan_ngg,1.79,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取",33.458,119.1455
+P06725,12,Endosulfan_ngg,2.52,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取",33.359833,119.136333
+P06725,13,Endosulfan_ngg,4.14,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取",33.453167,119.269667
+P06725,14,Endosulfan_ngg,0.55,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取",33.440833,119.539667
+P06725,15,Endosulfan_ngg,0.63,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取",33.4725,119.401667
+P06725,16,Endosulfan_ngg,0.88,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取",33.553833,119.2925
+P06725,17,Endosulfan_ngg,2.27,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取",33.594167,119.413167
+P06725,18,Endosulfan_ngg,0.54,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取, 厂商周边点",33.581667,118.990333
+P06725,19,Endosulfan_ngg,0.85,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取, 厂商周边点",33.572333,118.969
+P06725,20,Endosulfan_ngg,44.81,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取, 南门外最高浓度点",33.575333,118.987667
+P06725,21,Endosulfan_ngg,1.58,ng/g,Table 1,soil,industrial,Jiangsu,"Σendosulfan=α+β+sulfate, Table1 Total列直接读取, 厂商周边点",33.578667,119.017

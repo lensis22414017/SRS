@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00246,,,,"","","Table 1","soil","reservoir farmland/riparian","Chongqing","skip: Table 1 only provides aggregate statistics (Range/Mean±SD/Median/DF) for farmland (n=32) and riparian (n=26) soil groups; no individual sampling-point level values in main text; per-site individual data only in supplementary Table S3 not available in parsed paper"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11484,SKIP,N/A,,N/A,N/A,N/A,N/A,N/A,skip: 综述论文(Review)无原始采样点级数据。标题"...The effects and mechanisms";摘要"This review examines...";Data availability原文"No data was used for the research described in the article"。Table1仅列地区/土地类型/HMs种类/参考文献(零浓度数值);Table2为作物实验效应汇总(Pot/Hydroponic Experiment,无土壤浓度)。全文数值均为区域级统计均值或实验设计投加量,非真实场地采样点实测浓度。符合剔除规则第22行"综述/Meta分析(无原始数据)"。

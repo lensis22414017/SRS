@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+15320383.2018.1525336,15320383.2018.1525336_Tested_soil,Tested soil,pH,4.97,Unknown,,high,table_p3_ri2_ci1,Table 1. Physicochemical properties and concentrations of nutrient elements and Cadmium of the tested soil
+15320383.2018.1525336,15320383.2018.1525336_OFA,OFA,pH,11.75,Unknown,,high,table_p3_ri2_ci2,Table 1. Physicochemical properties and concentrations of nutrient elements and Cadmium of the tested soil
+15320383.2018.1525336,15320383.2018.1525336_Rice_tissues,Rice tissues,pH,-0.366,Unknown,,medium,table_p9_ri2_ci2,"Table 3.Correlation analysis results between soil pH, ${ \mathsf { C a C l } } _ { 2 }$ extractable Cd, HCl extractable Cd,and total Cd concentrations in rice roots, straws,leaves, husks,and brown ric"
+15320383.2018.1525336,15320383.2018.1525336_col3,col3,pH,-0.034,Unknown,,medium,table_p9_ri2_ci3,"Table 3.Correlation analysis results between soil pH, ${ \mathsf { C a C l } } _ { 2 }$ extractable Cd, HCl extractable Cd,and total Cd concentrations in rice roots, straws,leaves, husks,and brown ric"

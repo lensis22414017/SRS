@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02495,,,,,,,,,"skip: 温室盆栽spiked实验(商业盆栽土Klasmann-Deilmann+人为添加CdCl2/PHN/PYR，9处理P1-P9×3重复/1kg盆栽Xanthium sibiricum 75天)，非真实场地；Table1=PAH去除率(%)非浓度，Table2=PHN/PYR/DHN/PPO相关系数矩阵非浓度；论文无任何采样点级HM/OP实测浓度表"

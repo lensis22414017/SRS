@@ -1,0 +1,12 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+ijerph-19-16449,ijerph-19-16449_S1,S1,pH,6.4,Unknown,,high,table_p3_ri1_ci1,Table 1. Physicochemical properties of the soil samples.
+ijerph-19-16449,ijerph-19-16449_S2,S2,pH,6.0,Unknown,,high,table_p3_ri1_ci2,Table 1. Physicochemical properties of the soil samples.
+ijerph-19-16449,ijerph-19-16449_S1,S1,V_mgkg,0.083,Unknown,,high,table_p3_ri7_ci1,Table 1. Physicochemical properties of the soil samples.
+ijerph-19-16449,ijerph-19-16449_S2,S2,V_mgkg,138.07,Unknown,,high,table_p3_ri7_ci2,Table 1. Physicochemical properties of the soil samples.
+ijerph-19-16449,ijerph-19-16449_GW1,GW1,pH,7.3,Unknown,,high,table_p4_ri1_ci1,Table 2. Physicochemical properties of the groundwater samples.
+ijerph-19-16449,ijerph-19-16449_GW2,GW2,pH,7.2,Unknown,,high,table_p4_ri1_ci2,Table 2. Physicochemical properties of the groundwater samples.
+ijerph-19-16449,ijerph-19-16449_GW2,GW2,Fe_mgkg,0.1,Unknown,,high,table_p4_ri7_ci2,Table 2. Physicochemical properties of the groundwater samples.
+ijerph-19-16449,ijerph-19-16449_GW1,GW1,Mn_mgkg,2.1,Unknown,,high,table_p4_ri8_ci1,Table 2. Physicochemical properties of the groundwater samples.
+ijerph-19-16449,ijerph-19-16449_GW2,GW2,Mn_mgkg,6.7,Unknown,,high,table_p4_ri8_ci2,Table 2. Physicochemical properties of the groundwater samples.
+ijerph-19-16449,ijerph-19-16449_GW1,GW1,V_mgkg,6.85,Unknown,,high,table_p4_ri10_ci1,Table 2. Physicochemical properties of the groundwater samples.
+ijerph-19-16449,ijerph-19-16449_GW2,GW2,V_mgkg,1355.27,Unknown,,high,table_p4_ri10_ci2,Table 2. Physicochemical properties of the groundwater samples.

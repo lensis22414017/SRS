@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01956,,,,,,,,,"skip: modeling/simulation study (GCAM-China+SESAMe v3.4 multimedia fate model), all BaP/PAH concentrations are model predictions at 0.5-degree grid cells, not field-measured sampling-point data; provincial emission inventories and ILCR risk indices also excluded per rules; no real site-level soil concentration tables in the paper"

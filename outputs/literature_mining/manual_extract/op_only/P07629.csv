@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07629,,,,,,,,"skip: no sample-level data; Table 1 = Mean±SD/Range for 16 PAHs across all 196 greenhouse + 27 field samples (stat rows only); Table 2 = BaP_eq risk indices by region RR/TR/IN (Mean±SD); Figs 2-3 = group-level Mean±SD by region/landscape/age; no individual sample IDs or per-point values reported"

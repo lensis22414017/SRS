@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01723,,,,,,,,"skip: 论文研究厦门沿海海水中PAHs(溶解相和颗粒相SPM)，非土壤/沉积物；沉积物仅分析微塑料无PAH数据；正文仅给range/mean统计汇总(18.13-247.8 ng/L dissolved, 6.16-57.93 ng/L particulate)，无采样点级数据；且为海水ng/L单位非ng/g；∑13PAHs(3-ring+4-ring+alkyl-PAH)非16 EPA PAH标准"

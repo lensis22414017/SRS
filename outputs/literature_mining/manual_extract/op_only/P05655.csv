@@ -1,0 +1,6 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05655,S49,SumPBDE_ngg,18451,ng/g,正文Results段/Table1,soil,industrial,Jiangsu,"S49为site C最高浓度采样点, 正文明确18451 ng/g dw"
+P05655,S15,SumPBDE_ngg,2.21,ng/g,正文Results段,soil,industrial,Jiangsu,"S15为site A最低浓度采样点, 仅检出BDE-209=2.21 ng/g"
+P05655,S46,SumPBDE_ngg,5.40,ng/g,正文Results段,soil,industrial,Jiangsu,S46为site B周边低浓度采样点
+P05655,S61,SumPBDE_ngg,11.1,ng/g,正文Results段,soil,industrial,Jiangsu,S61为site C周边低浓度采样点
+P05655,D11,SumPBDE_ngg,193,ng/g,正文Results段,sediment,industrial,Jiangsu,"D11为site C dust降尘样品最远点, matrix=dust按规则标sediment"

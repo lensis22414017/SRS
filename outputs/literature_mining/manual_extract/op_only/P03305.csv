@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03305,,,,,,soil,industrial,Anhui,"skip: Table1仅group统计汇总(range/mean/SD/detection frequency)无采样点级单点数据;正文仅4点(So11/So16/Se2/Se11)的SumOCP为非目标污染物;Table2 Present study仅range非点级;Table3为ISQG/PEL阈值对比须剔除"

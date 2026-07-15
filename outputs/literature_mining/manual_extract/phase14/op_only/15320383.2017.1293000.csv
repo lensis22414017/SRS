@@ -1,0 +1,6 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+15320383.2017.1293000,15320383.2017.1293000_Nansi_Lake,Nansi Lake,Sum_PAH_ngg,1051.98,Unknown,range_mean,high,table_p30_ri1_ci2,Table 2 TPAHs concentration in this study and the comparison with other agricultural soils in China,,,,,,phase14
+15320383.2017.1293000,15320383.2017.1293000_Jinan,Jinan,Sum_PAH_ngg,4620.0,Unknown,range_mean,high,table_p30_ri8_ci2,Table 2 TPAHs concentration in this study and the comparison with other agricultural soils in China,,,,,,phase14
+15320383.2017.1293000,15320383.2017.1293000_Henan,Henan,Sum_PAH_ngg,631.65,Unknown,range_mean,high,table_p30_ri9_ci2,Table 2 TPAHs concentration in this study and the comparison with other agricultural soils in China,,,,,,phase14
+15320383.2017.1293000,15320383.2017.1293000_Hunpu,Hunpu,Sum_PAH_ngg,1119.65,Unknown,range_mean,high,table_p30_ri10_ci2,Table 2 TPAHs concentration in this study and the comparison with other agricultural soils in China,,,,,,phase14
+15320383.2017.1293000,15320383.2017.1293000_Nanjing,Nanjing,Sum_PAH_ngg,277.875,Unknown,range_mean,high,table_p30_ri11_ci2,Table 2 TPAHs concentration in this study and the comparison with other agricultural soils in China,,,,,,phase14

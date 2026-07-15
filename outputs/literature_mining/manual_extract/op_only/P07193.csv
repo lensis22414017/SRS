@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07193,,,,,,,,"skip: Table 1 only provides Range/Mean/SD summary statistics by location×depth (Yangzhuang and Xieqiao coal mining subsidence areas in Huainan Anhui). Individual sampling point-level PAH concentrations (TR01-TR12) referenced in text but actual values only in supplementary tables (Table S1-S10) not available in paper.md. No sample-level Sum_PAH_ngg or BaP_ngg data extractable from main text."

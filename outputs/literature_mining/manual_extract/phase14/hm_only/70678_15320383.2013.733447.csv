@@ -1,0 +1,70 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+70678_15320383.2013.733447,70678_15320383.2013.733447_$C___{_n_}_{_}_^_{_i_}_(_\mathrm_{_m_g_}_\mathrm_{_k_g_}_^_{_-_1_}_)$,$C _ { n } { } ^ { i } ( \mathrm { m g } \mathrm { k g } ^ { - 1 } )$,Cu_mgkg,23.6,Unknown,,high,table_p5_ri1_ci1,Table 1 Natural background values $( C _ { n } ^ { i } )$ and toxic response factors $( T _ { r } ^ { i } )$ for heavy metals in the sampled soils,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_$C___{_n_}_{_}_^_{_i_}_(_\mathrm_{_m_g_}_\mathrm_{_k_g_}_^_{_-_1_}_)$,$C _ { n } { } ^ { i } ( \mathrm { m g } \mathrm { k g } ^ { - 1 } )$,Zn_mgkg,86.1,Unknown,,high,table_p5_ri1_ci2,Table 1 Natural background values $( C _ { n } ^ { i } )$ and toxic response factors $( T _ { r } ^ { i } )$ for heavy metals in the sampled soils,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_$C___{_n_}_{_}_^_{_i_}_(_\mathrm_{_m_g_}_\mathrm_{_k_g_}_^_{_-_1_}_)$,$C _ { n } { } ^ { i } ( \mathrm { m g } \mathrm { k g } ^ { - 1 } )$,Cd_mgkg,0.13,Unknown,,high,table_p5_ri1_ci3,Table 1 Natural background values $( C _ { n } ^ { i } )$ and toxic response factors $( T _ { r } ^ { i } )$ for heavy metals in the sampled soils,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_$C___{_n_}_{_}_^_{_i_}_(_\mathrm_{_m_g_}_\mathrm_{_k_g_}_^_{_-_1_}_)$,$C _ { n } { } ^ { i } ( \mathrm { m g } \mathrm { k g } ^ { - 1 } )$,Pb_mgkg,25.5,Unknown,,high,table_p5_ri1_ci4,Table 1 Natural background values $( C _ { n } ^ { i } )$ and toxic response factors $( T _ { r } ^ { i } )$ for heavy metals in the sampled soils,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_$C___{_n_}_{_}_^_{_i_}_(_\mathrm_{_m_g_}_\mathrm_{_k_g_}_^_{_-_1_}_)$,$C _ { n } { } ^ { i } ( \mathrm { m g } \mathrm { k g } ^ { - 1 } )$,Cr_mgkg,75.0,Unknown,,high,table_p5_ri1_ci5,Table 1 Natural background values $( C _ { n } ^ { i } )$ and toxic response factors $( T _ { r } ^ { i } )$ for heavy metals in the sampled soils,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_$\boldsymbol_{_T___{_r_}_^_{_i_}_}$,$\boldsymbol { T _ { r } ^ { i } }$,Cu_mgkg,5.0,Unknown,,high,table_p5_ri2_ci1,Table 1 Natural background values $( C _ { n } ^ { i } )$ and toxic response factors $( T _ { r } ^ { i } )$ for heavy metals in the sampled soils,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_$\boldsymbol_{_T___{_r_}_^_{_i_}_}$,$\boldsymbol { T _ { r } ^ { i } }$,Zn_mgkg,1.0,Unknown,,high,table_p5_ri2_ci2,Table 1 Natural background values $( C _ { n } ^ { i } )$ and toxic response factors $( T _ { r } ^ { i } )$ for heavy metals in the sampled soils,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_$\boldsymbol_{_T___{_r_}_^_{_i_}_}$,$\boldsymbol { T _ { r } ^ { i } }$,Cd_mgkg,30.0,Unknown,,high,table_p5_ri2_ci3,Table 1 Natural background values $( C _ { n } ^ { i } )$ and toxic response factors $( T _ { r } ^ { i } )$ for heavy metals in the sampled soils,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_$\boldsymbol_{_T___{_r_}_^_{_i_}_}$,$\boldsymbol { T _ { r } ^ { i } }$,Pb_mgkg,5.0,Unknown,,high,table_p5_ri2_ci4,Table 1 Natural background values $( C _ { n } ^ { i } )$ and toxic response factors $( T _ { r } ^ { i } )$ for heavy metals in the sampled soils,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_$\boldsymbol_{_T___{_r_}_^_{_i_}_}$,$\boldsymbol { T _ { r } ^ { i } }$,Cr_mgkg,2.0,Unknown,,high,table_p5_ri2_ci5,Table 1 Natural background values $( C _ { n } ^ { i } )$ and toxic response factors $( T _ { r } ^ { i } )$ for heavy metals in the sampled soils,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col5,col5,Cu_mgkg,26.1,Unknown,,medium,table_p6_ri3_ci5, ,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col6,col6,Cu_mgkg,34.0,Unknown,,medium,table_p6_ri3_ci6, ,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col7,col7,Cu_mgkg,30.45,Unknown,,medium,table_p6_ri3_ci7, ,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col5,col5,Zn_mgkg,20.9,Unknown,,medium,table_p6_ri4_ci5, ,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col6,col6,Zn_mgkg,99.5,Unknown,,medium,table_p6_ri4_ci6, ,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col7,col7,Zn_mgkg,95.44999999999999,Unknown,,medium,table_p6_ri4_ci7, ,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col5,col5,Cd_mgkg,39.4,Unknown,,medium,table_p6_ri5_ci5, ,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col6,col6,Cd_mgkg,0.2,Unknown,,medium,table_p6_ri5_ci6, ,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col7,col7,Cd_mgkg,0.23500000000000001,Unknown,,medium,table_p6_ri5_ci7, ,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col5,col5,Pb_mgkg,28.4,Unknown,,medium,table_p6_ri6_ci5, ,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col6,col6,Pb_mgkg,11.6,Unknown,,medium,table_p6_ri6_ci6, ,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col7,col7,Pb_mgkg,13.8,Unknown,,medium,table_p6_ri6_ci7, ,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col5,col5,Cr_mgkg,22.1,Unknown,,medium,table_p6_ri7_ci5, ,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col6,col6,Cr_mgkg,86.0,Unknown,,medium,table_p6_ri7_ci6, ,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col7,col7,Cr_mgkg,107.19999999999999,Unknown,,medium,table_p6_ri7_ci7, ,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col5,col5,pH,2.4,Unknown,,medium,table_p6_ri11_ci5, ,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col6,col6,pH,8.4,Unknown,,medium,table_p6_ri11_ci6, ,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col7,col7,pH,8.4,Unknown,,medium,table_p6_ri11_ci7, ,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_Cu,Cu,Cu_mgkg,1.0,Unknown,,high,table_p7_ri1_ci1,Table 4 Pearson’s correlation matrix between heavy metals and soil properties (n = 35),,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_Zn,Zn,Zn_mgkg,1.0,Unknown,,high,table_p7_ri2_ci2,Table 4 Pearson’s correlation matrix between heavy metals and soil properties (n = 35),,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_Cd,Cd,Cd_mgkg,1.0,Unknown,,high,table_p7_ri3_ci3,Table 4 Pearson’s correlation matrix between heavy metals and soil properties (n = 35),,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_Cu,Cu,Pb_mgkg,0.255,Unknown,,high,table_p7_ri4_ci1,Table 4 Pearson’s correlation matrix between heavy metals and soil properties (n = 35),,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_Pb,Pb,Pb_mgkg,1.0,Unknown,,high,table_p7_ri4_ci4,Table 4 Pearson’s correlation matrix between heavy metals and soil properties (n = 35),,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_Pb,Pb,Cr_mgkg,0.022,Unknown,,high,table_p7_ri5_ci4,Table 4 Pearson’s correlation matrix between heavy metals and soil properties (n = 35),,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_Cr,Cr,Cr_mgkg,1.0,Unknown,,high,table_p7_ri5_ci5,Table 4 Pearson’s correlation matrix between heavy metals and soil properties (n = 35),,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col6,col6,Cu_mgkg,29.0,Unknown,,medium,table_p10_ri5_ci6,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col7,col7,Cu_mgkg,71.0,Unknown,,medium,table_p10_ri5_ci7,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col8,col8,Cu_mgkg,30.0,Unknown,,medium,table_p10_ri5_ci8,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col5,col5,Zn_mgkg,1.1,Unknown,,medium,table_p10_ri6_ci5,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col6,col6,Zn_mgkg,17.0,Unknown,,medium,table_p10_ri6_ci6,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col7,col7,Zn_mgkg,69.0,Unknown,,medium,table_p10_ri6_ci7,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col5,col5,Cd_mgkg,0.55,Unknown,,medium,table_p10_ri7_ci5,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col5,col5,Pb_mgkg,0.55,Unknown,,medium,table_p10_ri7_ci5,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col6,col6,Cd_mgkg,100.0,Unknown,,medium,table_p10_ri7_ci6,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col6,col6,Pb_mgkg,100.0,Unknown,,medium,table_p10_ri7_ci6,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col7,col7,Cd_mgkg,0.0,Unknown,,medium,table_p10_ri7_ci7,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col7,col7,Pb_mgkg,0.0,Unknown,,medium,table_p10_ri7_ci7,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col8,col8,Cd_mgkg,140.0,Unknown,,medium,table_p10_ri7_ci8,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col8,col8,Pb_mgkg,140.0,Unknown,,medium,table_p10_ri7_ci8,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col5,col5,Cr_mgkg,1.4500000000000002,Unknown,,medium,table_p10_ri8_ci5,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col6,col6,Cr_mgkg,23.0,Unknown,,medium,table_p10_ri8_ci6,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col7,col7,Cr_mgkg,74.0,Unknown,,medium,table_p10_ri8_ci7,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col8,col8,Cr_mgkg,3.0,Unknown,,medium,table_p10_ri8_ci8,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col5,col5,Zn_mgkg,6.9,Unknown,,medium,table_p10_ri13_ci5,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col6,col6,Zn_mgkg,100100.0,Unknown,,medium,table_p10_ri13_ci6,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col7,col7,Zn_mgkg,0.0,Unknown,,medium,table_p10_ri13_ci7,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col8,col8,Zn_mgkg,0.0,Unknown,,medium,table_p10_ri13_ci8,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col5,col5,Cd_mgkg,53.1,Unknown,,medium,table_p10_ri14_ci5,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col6,col6,Cd_mgkg,17.0,Unknown,,medium,table_p10_ri14_ci6,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col7,col7,Cd_mgkg,69.0,Unknown,,medium,table_p10_ri14_ci7,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col8,col8,Cd_mgkg,0.0,Unknown,,medium,table_p10_ri14_ci8,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col5,col5,Pb_mgkg,2.75,Unknown,,medium,table_p10_ri15_ci5,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col6,col6,Pb_mgkg,100.0,Unknown,,medium,table_p10_ri15_ci6,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col7,col7,Pb_mgkg,0.0,Unknown,,medium,table_p10_ri15_ci7,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col8,col8,Pb_mgkg,14.0,Unknown,,medium,table_p10_ri15_ci8,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col5,col5,Cr_mgkg,2.8499999999999996,Unknown,,medium,table_p10_ri16_ci5,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col6,col6,Cr_mgkg,100.0,Unknown,,medium,table_p10_ri16_ci6,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col7,col7,Cr_mgkg,0.0,Unknown,,medium,table_p10_ri16_ci7,,,,,,,phase14
+70678_15320383.2013.733447,70678_15320383.2013.733447_col8,col8,Cr_mgkg,0.0,Unknown,,medium,table_p10_ri16_ci8,,,,,,,phase14

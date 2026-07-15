@@ -1,0 +1,30 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+land-14-00612,"land-14-00612_Kaifeng_City,_China","Kaifeng City, China",SumHCH_ngg,45.35,Unknown,,high,table_p7_ri1_ci1,Table 2. Concentration of HCHs and DDTs in other regions around the world.
+land-14-00612,"land-14-00612_Kaifeng_City,_China","Kaifeng City, China",SumDDT_ngg,119.76,Unknown,,high,table_p7_ri1_ci2,Table 2. Concentration of HCHs and DDTs in other regions around the world.
+land-14-00612,"land-14-00612_The_Three_Gorges_Dam_region,_China","The Three Gorges Dam region, China",SumHCH_ngg,1.27,Unknown,,high,table_p7_ri2_ci1,Table 2. Concentration of HCHs and DDTs in other regions around the world.
+land-14-00612,"land-14-00612_The_Three_Gorges_Dam_region,_China","The Three Gorges Dam region, China",SumDDT_ngg,1.8,Unknown,,high,table_p7_ri2_ci2,Table 2. Concentration of HCHs and DDTs in other regions around the world.
+land-14-00612,"land-14-00612_Qinghai_Province,_China","Qinghai Province, China",SumHCH_ngg,4.78,Unknown,,high,table_p7_ri3_ci1,Table 2. Concentration of HCHs and DDTs in other regions around the world.
+land-14-00612,"land-14-00612_Qinghai_Province,_China","Qinghai Province, China",SumDDT_ngg,7.76,Unknown,,high,table_p7_ri3_ci2,Table 2. Concentration of HCHs and DDTs in other regions around the world.
+land-14-00612,"land-14-00612_The_Pearl_River_Delta,_China","The Pearl River Delta, China",SumHCH_ngg,4.52,Unknown,,high,table_p7_ri4_ci1,Table 2. Concentration of HCHs and DDTs in other regions around the world.
+land-14-00612,"land-14-00612_The_Pearl_River_Delta,_China","The Pearl River Delta, China",SumDDT_ngg,34.2,Unknown,,high,table_p7_ri4_ci2,Table 2. Concentration of HCHs and DDTs in other regions around the world.
+land-14-00612,"land-14-00612_The_Yangtze_River_Basin,_China","The Yangtze River Basin, China",SumHCH_ngg,13.04,Unknown,,high,table_p7_ri5_ci1,Table 2. Concentration of HCHs and DDTs in other regions around the world.
+land-14-00612,"land-14-00612_The_Yangtze_River_Basin,_China","The Yangtze River Basin, China",SumDDT_ngg,8.9,Unknown,,high,table_p7_ri5_ci2,Table 2. Concentration of HCHs and DDTs in other regions around the world.
+land-14-00612,"land-14-00612_Yellow_River_basin,_China","Yellow River basin, China",SumHCH_ngg,6.23,Unknown,,high,table_p7_ri6_ci1,Table 2. Concentration of HCHs and DDTs in other regions around the world.
+land-14-00612,"land-14-00612_Yellow_River_basin,_China","Yellow River basin, China",SumDDT_ngg,16.78,Unknown,,high,table_p7_ri6_ci2,Table 2. Concentration of HCHs and DDTs in other regions around the world.
+land-14-00612,"land-14-00612_Mai_Mahiu,_Kenya","Mai Mahiu, Kenya",SumHCH_ngg,1.5,Unknown,,high,table_p7_ri7_ci1,Table 2. Concentration of HCHs and DDTs in other regions around the world.
+land-14-00612,"land-14-00612_Mai_Mahiu,_Kenya","Mai Mahiu, Kenya",SumDDT_ngg,3.51,Unknown,,high,table_p7_ri7_ci2,Table 2. Concentration of HCHs and DDTs in other regions around the world.
+land-14-00612,"land-14-00612_Narok,_Kenya","Narok, Kenya",SumHCH_ngg,1.62,Unknown,,high,table_p7_ri8_ci1,Table 2. Concentration of HCHs and DDTs in other regions around the world.
+land-14-00612,"land-14-00612_Narok,_Kenya","Narok, Kenya",SumDDT_ngg,4.71,Unknown,,high,table_p7_ri8_ci2,Table 2. Concentration of HCHs and DDTs in other regions around the world.
+land-14-00612,"land-14-00612_The_Indus_Basin,_Pakistan","The Indus Basin, Pakistan",SumHCH_ngg,15.41,Unknown,,high,table_p7_ri9_ci1,Table 2. Concentration of HCHs and DDTs in other regions around the world.
+land-14-00612,"land-14-00612_The_Indus_Basin,_Pakistan","The Indus Basin, Pakistan",SumDDT_ngg,142.26,Unknown,,high,table_p7_ri9_ci2,Table 2. Concentration of HCHs and DDTs in other regions around the world.
+land-14-00612,"land-14-00612_The_Campanian_Plain,_Italy","The Campanian Plain, Italy",SumHCH_ngg,1.38,Unknown,,high,table_p7_ri10_ci1,Table 2. Concentration of HCHs and DDTs in other regions around the world.
+land-14-00612,"land-14-00612_The_Campanian_Plain,_Italy","The Campanian Plain, Italy",SumDDT_ngg,107.0,Unknown,,high,table_p7_ri10_ci2,Table 2. Concentration of HCHs and DDTs in other regions around the world.
+land-14-00612,land-14-00612_Risk_Screening_Value_(μg·kg−1),Risk Screening Value (μg·kg−1),SumHCH_ngg,100.0,Unknown,,high,table_p9_ri1_ci2,Table 5. Environmental quality assessment of OCPs in soil.
+land-14-00612,land-14-00612_Pass_Rate_(%),Pass Rate (%),SumHCH_ngg,100.0,Unknown,,high,table_p9_ri1_ci3,Table 5. Environmental quality assessment of OCPs in soil.
+land-14-00612,land-14-00612_Risk_Screening_Value_(μg·kg−1),Risk Screening Value (μg·kg−1),SumDDT_ngg,100.0,Unknown,,high,table_p9_ri2_ci2,Table 5. Environmental quality assessment of OCPs in soil.
+land-14-00612,land-14-00612_Pass_Rate_(%),Pass Rate (%),SumDDT_ngg,100.0,Unknown,,high,table_p9_ri2_ci3,Table 5. Environmental quality assessment of OCPs in soil.
+land-14-00612,land-14-00612_$\mathbf_{_E_R_L_}_(_\mu_\mathbf_{_g_}_\cdot_\mathbf_{_k_g_}_^_{_-_1_}_)$,$\mathbf { E R L } ( \mu \mathbf { g } \cdot \mathbf { k g } ^ { - 1 } )$,SumDDT_ngg,1.58,Unknown,,medium,table_p10_ri4_ci1,Table 6. Ecological risk assessment of DDTs in soil.
+land-14-00612,land-14-00612_$\mathbf_{_E_R_M_}_(_\mathbf_{_\mu_g_}_\mathbf_{_\cdot_k_g_}_^_{_-_1_}_)$,$\mathbf { E R M } ( \mathbf { \mu g } \mathbf { \cdot k g } ^ { - 1 } )$,SumDDT_ngg,46.1,Unknown,,medium,table_p10_ri4_ci2,Table 6. Ecological risk assessment of DDTs in soil.
+land-14-00612,land-14-00612_&lt;ERL_(%),&lt;ERL (%),SumDDT_ngg,17.39,Unknown,,medium,table_p10_ri4_ci4,Table 6. Ecological risk assessment of DDTs in soil.
+land-14-00612,land-14-00612_ERL~ERM_(%),ERL~ERM (%),SumDDT_ngg,82.61,Unknown,,medium,table_p10_ri4_ci5,Table 6. Ecological risk assessment of DDTs in soil.
+land-14-00612,land-14-00612_&gt;ERM_(%),&gt;ERM (%),SumDDT_ngg,0.0,Unknown,,medium,table_p10_ri4_ci6,Table 6. Ecological risk assessment of DDTs in soil.

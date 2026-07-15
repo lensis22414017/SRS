@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07147,,,,,,soil,agricultural,Heilongjiang,"skip: 论文仅检测atrazine(莠去津, 三嗪类除草剂), 不在目标OP清单内(PAH/BaP/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAEs/Endosulfan均未检测); 且Table 1仅报告Mean±SD汇总值(PF 0.13±0.08 / SF 4.64±2.02 / FL 18.32±8.59 μg/kg), 无24个采样点的逐点数据"

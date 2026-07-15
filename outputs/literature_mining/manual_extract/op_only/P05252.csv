@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05252,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"skip: Table 2 only reports group-level Min/Max/Average by 5 land-use types (Roadside/Commercial/Park/Residential/Greenbelts), no individual sample-level data for 55 samples (A1-A17/B1-B12/C1-C12/D1-D8/E1-E6). Section 3.2 mentions specific sample IDs qualitatively (A6/A9/A11 >1000 ug/kg; B3/B7/D3/D4 <100 ug/kg) but no exact per-sample values. Figures 3-4 are TEF-weighted risk indices (reject)."

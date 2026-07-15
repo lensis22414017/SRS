@@ -1,0 +1,22 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_SZ1,SZ1,pH,7.26,Unknown,range_mean,high,table_p3_ri1_ci3,Table 1. Sampling zone description and sample basic properties.
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_SZ1,SZ1,OC_pct,2.295,Unknown,range_mean,high,table_p3_ri1_ci4,Table 1. Sampling zone description and sample basic properties.
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_SZ2,SZ2,pH,6.625,Unknown,range_mean,high,table_p3_ri3_ci3,Table 1. Sampling zone description and sample basic properties.
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_SZ2,SZ2,OC_pct,1.3900000000000001,Unknown,range_mean,high,table_p3_ri3_ci4,Table 1. Sampling zone description and sample basic properties.
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_SZ3,SZ3,pH,6.9350000000000005,Unknown,range_mean,high,table_p3_ri5_ci3,Table 1. Sampling zone description and sample basic properties.
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_SZ3,SZ3,OC_pct,3.7649999999999997,Unknown,range_mean,high,table_p3_ri5_ci4,Table 1. Sampling zone description and sample basic properties.
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_SZ4,SZ4,pH,6.89,Unknown,range_mean,high,table_p3_ri7_ci3,Table 1. Sampling zone description and sample basic properties.
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_SZ4,SZ4,OC_pct,1.5,Unknown,range_mean,high,table_p3_ri7_ci4,Table 1. Sampling zone description and sample basic properties.
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_SZ5,SZ5,pH,5.765000000000001,Unknown,range_mean,high,table_p3_ri9_ci3,Table 1. Sampling zone description and sample basic properties.
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_SZ5,SZ5,OC_pct,2.735,Unknown,range_mean,high,table_p3_ri9_ci4,Table 1. Sampling zone description and sample basic properties.
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_SZ6,SZ6,pH,6.779999999999999,Unknown,range_mean,high,table_p3_ri11_ci3,Table 1. Sampling zone description and sample basic properties.
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_SZ6,SZ6,OC_pct,1.99,Unknown,range_mean,high,table_p3_ri11_ci4,Table 1. Sampling zone description and sample basic properties.
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_SZ7,SZ7,pH,6.68,Unknown,range_mean,high,table_p3_ri13_ci3,Table 1. Sampling zone description and sample basic properties.
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_SZ7,SZ7,OC_pct,2.39,Unknown,range_mean,high,table_p3_ri13_ci4,Table 1. Sampling zone description and sample basic properties.
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_SZ8,SZ8,pH,6.64,Unknown,range_mean,high,table_p3_ri15_ci3,Table 1. Sampling zone description and sample basic properties.
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_SZ8,SZ8,OC_pct,6.5,Unknown,range_mean,high,table_p3_ri15_ci4,Table 1. Sampling zone description and sample basic properties.
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_Minimum,Minimum,HM_total,1.4,Unknown,,low,table_p6_ri2_ci1,Table 2. Statistical data for Sb and other heavy metals around Xikuangshan (n = 51).
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_Maximum,Maximum,HM_total,7226.67,Unknown,,low,table_p6_ri3_ci1,Table 2. Statistical data for Sb and other heavy metals around Xikuangshan (n = 51).
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_Skewness,Skewness,HM_total,6.11,Unknown,,low,table_p6_ri6_ci1,Table 2. Statistical data for Sb and other heavy metals around Xikuangshan (n = 51).
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_Kurtosis,Kurtosis,HM_total,40.43,Unknown,,low,table_p6_ri7_ci1,Table 2. Statistical data for Sb and other heavy metals around Xikuangshan (n = 51).
+70651_10807039.2017.1396531,70651_10807039.2017.1396531_Background_values*,Background values*,HM_total,2.98,Unknown,,low,table_p6_ri8_ci1,Table 2. Statistical data for Sb and other heavy metals around Xikuangshan (n = 51).

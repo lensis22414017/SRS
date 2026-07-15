@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11106,NOTES,skip,0,,paper.md全文,water,lab_experiment,Beijing,"skip: 实验室生物反应器实验(250mL jars+合成地下水+spiked V(V)/PCP)，非真实场地土壤/沉积物采样；研究V(V)生物还原与PCP还原脱氯的bioremediation机制；matrix=water/synthetic groundwater非soil；PCP不在目标OP污染物清单内(PAH/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAEs/OCPs)"

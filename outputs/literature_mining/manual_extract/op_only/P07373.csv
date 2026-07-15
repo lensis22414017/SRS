@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07373,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"skip: MinerU解析仅捕获第1页(摘要+引言)，无数据表格；原始PDF已损坏(ScienceDirect下载失败仅3页错误页)；在线访问ScienceDirect被TDM拦截/ResearchGate网络错误。论文内容为全国农业土壤OCPs(endosulfan/chlordane/heptachlor/aldrin/dieldrin/endrin)调查，疑似含采样点浓度数据但无法获取。需重新下载PDF后重新解析提取。"

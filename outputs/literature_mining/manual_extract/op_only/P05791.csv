@@ -1,0 +1,108 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05791,A006(0-20),Sum_PAH_ngg,76,ng/g,Table 1,soil,agricultural,Guangdong,"Table1直接读取ΣPAHs列 16 EPA PAH sum"
+P05791,A006(0-20),BaP_ngg,3,ng/g,Table 1,soil,agricultural,Guangdong,Table1 BaP列直接读取
+P05791,A006(0-20),SumHCH_ngg,0.19,ng/g,Table 3,soil,agricultural,Guangdong,"Table3 HCHs列 α+β+δ+γ-HCH sum"
+P05791,A006(0-20),SumDDT_ngg,23.86,ng/g,Table 3,soil,agricultural,Guangdong,"Table3 DDTs列 p,p'-DDE+DDD+DDT sum"
+P05791,A007(0-20),Sum_PAH_ngg,416,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,A007(0-20),BaP_ngg,21,ng/g,Table 1,soil,agricultural,Guangdong,Table1 BaP列
+P05791,A007(0-20),SumHCH_ngg,4.54,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,A007(0-20),SumDDT_ngg,112.64,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,A007(20-40),Sum_PAH_ngg,457,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,A007(20-40),BaP_ngg,22,ng/g,Table 1,soil,agricultural,Guangdong,Table1 BaP列
+P05791,A007(20-40),SumHCH_ngg,11.10,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,A007(20-40),SumDDT_ngg,152.33,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,A007(40-60),Sum_PAH_ngg,152,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,A007(40-60),BaP_ngg,6,ng/g,Table 1,soil,agricultural,Guangdong,Table1 BaP列
+P05791,A013(0-20),Sum_PAH_ngg,72,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,A013(0-20),BaP_ngg,2,ng/g,Table 1,soil,agricultural,Guangdong,Table1 BaP列
+P05791,A013(0-20),SumHCH_ngg,3.92,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,A013(0-20),SumDDT_ngg,25.47,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,A014(0-20),Sum_PAH_ngg,68,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,A014(0-20),BaP_ngg,3,ng/g,Table 1,soil,agricultural,Guangdong,Table1 BaP列
+P05791,A014(0-20),SumHCH_ngg,0.14,ng/g,Table 3,soil,agricultural,Guangdong,"Table3 HCHs列 A014第二行(DDT/(DDD+DDE)=14.36与正文吻合)"
+P05791,A014(0-20),SumDDT_ngg,44.25,ng/g,Table 3,soil,agricultural,Guangdong,"Table3 DDTs列 正文确认A014 ratio=14.36对应此行"
+P05791,A008(0-20),Sum_PAH_ngg,160,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,A008(0-20),BaP_ngg,7,ng/g,Table 1,soil,agricultural,Guangdong,Table1 BaP列
+P05791,A008(40-60),SumHCH_ngg,0.39,ng/g,Table 3,soil,agricultural,Guangdong,"Table3 A008为40-60cm深度 与Table1的A008(0-20)不同深度"
+P05791,A008(40-60),SumDDT_ngg,9.74,ng/g,Table 3,soil,agricultural,Guangdong,Table3 A008 DDTs列 40-60cm深度
+P05791,B001(0-20),Sum_PAH_ngg,216,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,B001(0-20),BaP_ngg,9,ng/g,Table 1,soil,agricultural,Guangdong,Table1 BaP列
+P05791,B001(0-20),SumHCH_ngg,4.79,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,B001(0-20),SumDDT_ngg,23.36,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,B002(0-20),Sum_PAH_ngg,159,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,B002(0-20),BaP_ngg,8,ng/g,Table 1,soil,agricultural,Guangdong,Table1 BaP列
+P05791,B002(0-20),SumHCH_ngg,0.25,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,B002(0-20),SumDDT_ngg,18.88,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,B002(20-40),Sum_PAH_ngg,68,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,B002(20-40),BaP_ngg,3,ng/g,Table 1,soil,agricultural,Guangdong,Table1 BaP列
+P05791,B002(20-40),SumHCH_ngg,0.22,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,B002(20-40),SumDDT_ngg,11.79,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,B002(40-60),Sum_PAH_ngg,52,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,B002(40-60),BaP_ngg,0,ng/g,Table 1,soil,agricultural,Guangdong,"Table1 BaP列 值为0(可能未检出或极低)"
+P05791,C001(0-20),Sum_PAH_ngg,312,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,C001(0-20),BaP_ngg,13,ng/g,Table 1,soil,agricultural,Guangdong,Table1 BaP列
+P05791,C001(0-20),SumHCH_ngg,1.01,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,C001(0-20),SumDDT_ngg,38.74,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,C001(20-40),Sum_PAH_ngg,245,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,C001(20-40),BaP_ngg,9,ng/g,Table 1,soil,agricultural,Guangdong,Table1 BaP列
+P05791,C001(20-40),SumHCH_ngg,0.90,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,C001(20-40),SumDDT_ngg,27.11,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,C001(40-60),Sum_PAH_ngg,229,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,C001(40-60),BaP_ngg,10,ng/g,Table 1,soil,agricultural,Guangdong,Table1 BaP列
+P05791,C001(40-60),SumHCH_ngg,0.99,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,C001(40-60),SumDDT_ngg,3.58,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,C002(0-20),Sum_PAH_ngg,346,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,C002(0-20),BaP_ngg,15,ng/g,Table 1,soil,agricultural,Guangdong,Table1 BaP列
+P05791,C002(0-20),SumHCH_ngg,2.62,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,C002(0-20),SumDDT_ngg,29.48,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,C003(0-20),Sum_PAH_ngg,612,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,C003(0-20),BaP_ngg,23,ng/g,Table 1,soil,agricultural,Guangdong,Table1 BaP列
+P05791,C003(0-20),SumHCH_ngg,2.66,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,C003(0-20),SumDDT_ngg,81.07,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,C004(0-20),Sum_PAH_ngg,186,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,C004(0-20),BaP_ngg,6,ng/g,Table 1,soil,agricultural,Guangdong,Table1 BaP列
+P05791,C004(0-20),SumHCH_ngg,0.81,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,C004(0-20),SumDDT_ngg,34.03,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,D001(0-20),SumHCH_ngg,6.16,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,D001(0-20),SumDDT_ngg,63.61,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,D002(0-20),Sum_PAH_ngg,782,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,D002(0-20),BaP_ngg,31,ng/g,Table 1,soil,agricultural,Guangdong,Table1 BaP列
+P05791,D002(0-20),SumHCH_ngg,42.31,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,D002(0-20),SumDDT_ngg,56.25,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,D002(20-40),Sum_PAH_ngg,791,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,D002(20-40),SumHCH_ngg,2.18,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,D002(20-40),SumDDT_ngg,98.68,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,D002(40-60),Sum_PAH_ngg,700,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,D002(40-60),SumHCH_ngg,4.78,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,D002(40-60),SumDDT_ngg,37.41,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,D003(0-20),Sum_PAH_ngg,3077,ng/g,Table 1,soil,agricultural,Guangdong,"Table1 D003 ΣPAHs=3077 正文确认highest value of 3077 lg/kg in Fangcun"
+P05791,D003(0-20),SumHCH_ngg,7.14,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,D003(0-20),SumDDT_ngg,46.27,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,D004(0-20),SumHCH_ngg,1.11,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,D004(0-20),SumDDT_ngg,7.60,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,D005(0-20),Sum_PAH_ngg,285,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,D005(0-20),BaP_ngg,9,ng/g,Table 1,soil,agricultural,Guangdong,Table1 BaP列
+P05791,D005(0-20),SumHCH_ngg,0.94,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,D005(0-20),SumDDT_ngg,7.64,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,HP04(0-20),Sum_PAH_ngg,296,ng/g,Table 1,soil,agricultural,Guangdong,Table1直接读取
+P05791,HP04(0-20),BaP_ngg,16,ng/g,Table 1,soil,agricultural,Guangdong,Table1 BaP列
+P05791,HP04(0-20),SumHCH_ngg,3.02,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,HP04(0-20),SumDDT_ngg,831.32,ng/g,Table 3,soil,agricultural,Guangdong,"Table3 DDTs列 正文确认HP04 0-20cm DDTs=831.32 lg/kg"
+P05791,HP04(20-40),SumHCH_ngg,3.20,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,HP04(20-40),SumDDT_ngg,54.03,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,HP04(40-60),SumHCH_ngg,18.98,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,HP04(40-60),SumDDT_ngg,41.04,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,HP05(0-20),SumHCH_ngg,20.56,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,HP05(0-20),SumDDT_ngg,71.04,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,HP05(20-40),SumHCH_ngg,6.35,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,HP05(20-40),SumDDT_ngg,119.53,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,HP05(40-60),SumHCH_ngg,1.48,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,HP05(40-60),SumDDT_ngg,14.68,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,HP06(0-20),SumHCH_ngg,4.34,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,HP06(0-20),SumDDT_ngg,465.98,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,HP06(20-40),SumHCH_ngg,3.65,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,HP06(20-40),SumDDT_ngg,243.38,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,HP06(40-60),SumHCH_ngg,0.40,ng/g,Table 3,soil,agricultural,Guangdong,Table3 HCHs列
+P05791,HP06(40-60),SumDDT_ngg,4.69,ng/g,Table 3,soil,agricultural,Guangdong,Table3 DDTs列
+P05791,HP101(0-20),SumHCH_ngg,1.84,ng/g,Table 3,soil,agricultural,Guangdong,"Table3 HCHs列 HP101行(与HP06 40-60合并显示)"
+P05791,HP101(0-20),SumDDT_ngg,42.77,ng/g,Table 3,soil,agricultural,Guangdong,"Table3 DDTs列 HP101行(与HP06 40-60合并显示)"

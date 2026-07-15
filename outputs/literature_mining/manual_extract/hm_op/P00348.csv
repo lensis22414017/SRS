@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00348,,,,,,soil,agricultural,Inner Mongolia,"skip: 论文仅测定10种HM(As/Cd/Co/Cr/Cu/Mn/Ni/Pb/V/Zn),完全无OP数据(PAH/PCB/DDT/HCH/PBDE/PHC均未测定);Table 1为100个样品的统计汇总(Min/Max/Mean/SD/Percentile/CV)+Background/CF/Risk screening value/USA/Germany/Canada标准阈值,无任何采样点级浓度值;100采样点仅在Fig.1地图标注位置,无S1/A/B/点位名对应浓度;不满足HM+OP复合且无采样点级数据,故输出0行"

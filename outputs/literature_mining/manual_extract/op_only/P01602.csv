@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01602,,,,,,,,,"skip: 无采样点级OP数据。论文Table1为按土地利用类型(建设用地/交通用地/林地草地)的统计汇总(Min/Max/Mean/CV)，非60个采样点的独立浓度值；Table2为CSI生态风险指数(拒)；SI TableS1-S4为ERL/ERM阈值/CSI权重/TEF因子/蒙特卡洛参数(拒)。仅分析12种PAH(缺Ace/Flu/Ant/DahA)。采样点仅见于FigS1位置图和FigS2/Fig3空间分布图，无表格化点级数据。paper.md解析截断(仅39行)，已从原始PDF全文核实。"

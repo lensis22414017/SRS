@@ -1,0 +1,25 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06722,Oryza sativa-RS,Sum_PAH_ngg,511,ng/g,Table 1,soil,e_waste,Guangdong,15 EPA PAH monomer sum (Nap not measured); verified by monomer summation
+P06722,Oryza sativa-RS,BaP_ngg,32,ng/g,Table 1,soil,e_waste,Guangdong,Direct read from Table 1 BaP row
+P06722,Oryza sativa-NRS,Sum_PAH_ngg,68,ng/g,Table 1,soil,e_waste,Guangdong,15 EPA PAH monomer sum (Nap not measured); verified by monomer summation
+P06722,Oryza sativa-NRS,BaP_ngg,3.7,ng/g,Table 1,soil,e_waste,Guangdong,Direct read from Table 1 BaP row
+P06722,Zea mays-RS,Sum_PAH_ngg,598,ng/g,Table 1,soil,e_waste,Guangdong,15 EPA PAH monomer sum (Nap not measured); verified by monomer summation
+P06722,Zea mays-RS,BaP_ngg,335,ng/g,Table 1,soil,e_waste,Guangdong,Direct read from Table 1 BaP row; anomalously high but verified by carcinogenic PAH cross-check
+P06722,Zea mays-NRS,Sum_PAH_ngg,355,ng/g,Table 1,soil,e_waste,Guangdong,15 EPA PAH monomer sum (Nap not measured); paper reports 355+/-41; monomer sum=358
+P06722,Zea mays-NRS,BaP_ngg,36,ng/g,Table 1,soil,e_waste,Guangdong,Direct read from Table 1 BaP row
+P06722,Arachis hypogaea-RS,Sum_PAH_ngg,409,ng/g,Table 1,soil,e_waste,Guangdong,15 EPA PAH monomer sum (Nap not measured); verified by monomer summation
+P06722,Arachis hypogaea-RS,BaP_ngg,11,ng/g,Table 1,soil,e_waste,Guangdong,Direct read from Table 1 BaP row
+P06722,Arachis hypogaea-NRS,Sum_PAH_ngg,397,ng/g,Table 1,soil,e_waste,Guangdong,15 EPA PAH monomer sum (Nap not measured); verified by monomer summation
+P06722,Arachis hypogaea-NRS,BaP_ngg,5.6,ng/g,Table 1,soil,e_waste,Guangdong,Direct read from Table 1 BaP row
+P06722,Glycine max-RS,Sum_PAH_ngg,133,ng/g,Table 1,soil,e_waste,Guangdong,15 EPA PAH monomer sum (Nap not measured); verified by monomer summation
+P06722,Glycine max-RS,BaP_ngg,16,ng/g,Table 1,soil,e_waste,Guangdong,Direct read from Table 1 BaP row
+P06722,Glycine max-NRS,Sum_PAH_ngg,115,ng/g,Table 1,soil,e_waste,Guangdong,15 EPA PAH monomer sum (Nap not measured); monomer sum=115.4
+P06722,Glycine max-NRS,BaP_ngg,3.4,ng/g,Table 1,soil,e_waste,Guangdong,Direct read from Table 1 BaP row
+P06722,Lactuca sativa-RS,Sum_PAH_ngg,216,ng/g,Table 1,soil,e_waste,Guangdong,15 EPA PAH monomer sum (Nap not measured); CHR estimated ~16 from leaked cell data; sum=216.3
+P06722,Lactuca sativa-RS,BaP_ngg,47,ng/g,Table 1,soil,e_waste,Guangdong,Direct read from Table 1 BaP row
+P06722,Lactuca sativa-NRS,Sum_PAH_ngg,186,ng/g,Table 1,soil,e_waste,Guangdong,15 EPA PAH monomer sum (Nap not measured); verified by monomer summation
+P06722,Lactuca sativa-NRS,BaP_ngg,8.4,ng/g,Table 1,soil,e_waste,Guangdong,Direct read from Table 1 BaP row
+P06722,Solanum melongena-RS,Sum_PAH_ngg,547,ng/g,Table 1,soil,e_waste,Guangdong,15 EPA PAH monomer sum (Nap not measured); verified by monomer summation
+P06722,Solanum melongena-RS,BaP_ngg,40.7,ng/g,Table 1,soil,e_waste,Guangdong,Direct read from Table 1 BaP row
+P06722,Solanum melongena-NRS,Sum_PAH_ngg,816,ng/g,Table 1,soil,e_waste,Guangdong,15 EPA PAH monomer sum (Nap not measured); verified by monomer summation
+P06722,Solanum melongena-NRS,BaP_ngg,23,ng/g,Table 1,soil,e_waste,Guangdong,Direct read from Table 1 BaP row

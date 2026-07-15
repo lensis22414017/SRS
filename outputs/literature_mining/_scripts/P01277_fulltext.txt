@@ -1,0 +1,64 @@
+                                                               Environmental Pollution 156 (2008) 769­774
+
+                                                       Contents lists available at ScienceDirect
+
+                                              Environmental Pollution
+
+                                      journal homepage: www.elsevier.com/locate/envpol
+
+Characterization of extractable and non-extractable polycyclic aromatic
+hydrocarbons in soils and sediments from the Pearl River Delta, China
+
+Lulu He a,b, Jianzhong Song a, Ping'an Peng a,*
+
+a State Key Laboratory of Organic Geochemistry, Guangzhou Institute of Geochemistry, Chinese Academy of Sciences, Wushan, P.O. Box 1131,
+Guangzhou 510640, China
+b Graduate School of Chinese Academy of Sciences, Shijingshan, Beijing 100039, China
+
+Non-extractable PAHs took large proportions of total PAHs in field soils and sediments.
+
+article info                          abstract
+
+Article history:                      Formation of bound residues of pollutants in soils and sediments is an important process to control the
+Received 25 January 2008              fate of pollutants in the environment. The most of bound residue is not solvent extractable. In this paper,
+Received in revised form 27 May 2008  we measured both extractable and non-extractable polycyclic aromatic hydrocarbons (PAHs) in different
+Accepted 2 June 2008                  organic matter fractions of samples from the Pearl River Delta, China. Non-extractable PAHs concen-
+
+Keywords:                             tration was 234.45­1424.57 mg/kg and accounted for 33.78­57.44% of total PAHs. 2­3 Ring PAHs were the
+Polycyclic aromatic hydrocarbons
+Extractable PAHs                      dominant species and differed in concentration substantially between the samples. The atomic ratio of
+Non-extractable PAHs                  PAHs over organic-C in the fractions ordered as solvent soluble organic matter > humin > humic acids,
+Humic acids                           matching the content of aliphatic moieties in the fractions of organic matter. The ratio of extractable and
+Humin                                 non-extractable PAHs may relate to the aging process of PAHs in soil and sediment.
+
+                                                                                                                                  Ó 2008 Elsevier Ltd. All rights reserved.
+
+1. Introduction                                                                      proportion of total PAHs and play an important role in PAHs' be-
+                                                                                     havior in natural systems. This may include diminishing bio-
+    Polycyclic aromatic hydrocarbons (PAHs) are mainly produced                      availability, toxicity and mobility, or retarding of degradation
+during incomplete combustion, pyrolysis of organic materials by                      (Chung and Alexander, 1998; Nam and Kim, 2002). The definition of
+industry, agriculture and traffic, or in diagenetic alteration pro-                  bound residues of pollutants varies with researchers and their ex-
+cesses of natural organic matter (Luo et al., 2004; Conte et al.,                    traction methods (Kaufman and Blake, 1973). Fuhr et al. (1998)
+2001). They are ubiquitous in ambient air, water, sediment and soil,                 stated that it ``represent compounds in soil, plant or animal, which
+and some such as pyrene, benzo[a]pyrene and benzo[b]-                                persisted in the matrix form of the parent substance or its me-
+fluoranthene are recognized as mutagens and carcinogens. Owing                       tabolite(s) after extraction, and the extraction method must not
+to their toxicity and widespread presence in the environment, PAHs                   substantially change the compounds themselves or the nature of
+have received much attention by environmental chemists, toxi-                        the matrix''. In this paper, we use ``non-extractable'' instead of
+cologists and regulatory agencies for over three decades (Chen                       bound residue to describe the pollutant fraction which is not ex-
+et al., 2005).                                                                       tractable by solvent. It is similar to bound residue in scientific
+                                                                                     meaning but more laboratory operative. Bound residues are
+    Most studies have focused on organic solvent-extractable PAHs                    thought to be formed from chemical binding, entrapment of pol-
+in samples because they can be readily conducted in laboratories                     lutants in micropores of an inorganic­organic matrix, and other
+(Chen et al., 2005; Mai et al., 2001). However, non-extractable,                     mixture sequestration processes of pollutants in a matrix. Gener-
+namely, bound PAHs in literature are now thought to be as                            ally, the non-extractable fraction of pollutants increases with resi-
+important as extractable PAHs because they may be a significant                      dence time in soils and sediments (Gevao et al., 2000; Northcott
+                                                                                     and Jones, 2001).
+  * Corresponding author. Tel.: þ86 20 85290126/13318839751; fax: þ86 20
+85290117.                                                                                The non-extractable hydrophobic pollutants in soils and sedi-
+                                                                                     ments are mostly present in recalcitrant organic matter such as
+     E-mail addresses: helulu122@126.com (L. He), songjzh@gig.ac.cn (J. Song), pin-  humic acids, kerogens and black carbon etc. (Cornelissen et al.,
+ganp@gig.ac.cn (Ping'an Peng).                                                       2005). These organic materials can be characterized or further
+
+0269-7491/$ ­ see front matter Ó 2008 Elsevier Ltd. All rights reserved.
+doi:10.1016/j.envpol.2008.06.003
+

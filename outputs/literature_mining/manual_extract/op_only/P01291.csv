@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01291,NOTES,,,,,,,"Tibet (Tibetan Plateau)","skip: 论文正文仅含浓度范围(Min-Max)和区域汇总(Table SI-7)等统计摘要，采样点级原始数据在补充信息Table SI-3至SI-6中但SI未被解析/不可用。摘要范围: DDTs 13-7700 pg/g dw; HCHs 64-847; HCB 24-564; Sum15PCBs 75-1021; Sum9PBDEs BDL-27。单位为pg/g需除1000转ng/g。无法提取采样点级数据。"

@@ -1,0 +1,116 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_SF_(mg__$\mathsf_{_k_g_}_^_{_-_1_}_\mathsf_{_d_}_^_{_-_1_}_)$,SF (mg  $\mathsf { k g } ^ { - 1 } \mathsf { d } ^ { - 1 } )$,As_mgkg,1.5,Unknown,,high,table_p5_ri2_ci1,Table 2. Slope factors for carcinogenic metals and reference doses for non- carcinogenic metals.
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_RfD_(mg__$\mathsf_{_k_g_}_^_{_-_1_}_\mathsf_{_d_}_^_{_-_1_}_)$,RfD (mg  $\mathsf { k g } ^ { - 1 } \mathsf { d } ^ { - 1 } )$,As_mgkg,1.5,Unknown,,high,table_p5_ri2_ci2,Table 2. Slope factors for carcinogenic metals and reference doses for non- carcinogenic metals.
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_SF_(mg__$\mathsf_{_k_g_}_^_{_-_1_}_\mathsf_{_d_}_^_{_-_1_}_)$,SF (mg  $\mathsf { k g } ^ { - 1 } \mathsf { d } ^ { - 1 } )$,Cd_mgkg,0.38,Unknown,,high,table_p5_ri3_ci1,Table 2. Slope factors for carcinogenic metals and reference doses for non- carcinogenic metals.
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_RfD_(mg__$\mathsf_{_k_g_}_^_{_-_1_}_\mathsf_{_d_}_^_{_-_1_}_)$,RfD (mg  $\mathsf { k g } ^ { - 1 } \mathsf { d } ^ { - 1 } )$,Cd_mgkg,0.38,Unknown,,high,table_p5_ri3_ci2,Table 2. Slope factors for carcinogenic metals and reference doses for non- carcinogenic metals.
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_RfD_(mg__$\mathsf_{_k_g_}_^_{_-_1_}_\mathsf_{_d_}_^_{_-_1_}_)$,RfD (mg  $\mathsf { k g } ^ { - 1 } \mathsf { d } ^ { - 1 } )$,Cr_mgkg,42.0,Unknown,,high,table_p5_ri4_ci2,Table 2. Slope factors for carcinogenic metals and reference doses for non- carcinogenic metals.
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Cele,Cele,As_mgkg,16.35,Unknown,range_mean,high,table_p7_ri1_ci2,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Cele,Cele,Cd_mgkg,0.115,Unknown,range_mean,high,table_p7_ri1_ci3,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Cele,Cele,Cr_mgkg,39.0,Unknown,range_mean,high,table_p7_ri1_ci4,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Cele,Cele,Cu_mgkg,17.75,Unknown,range_mean,high,table_p7_ri1_ci5,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Cele,Cele,Hg_mgkg,0.02,Unknown,range_mean,high,table_p7_ri1_ci6,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Cele,Cele,Ni_mgkg,41.85,Unknown,range_mean,high,table_p7_ri1_ci7,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Cele,Cele,Pb_mgkg,19.25,Unknown,range_mean,high,table_p7_ri1_ci8,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Cele,Cele,Zn_mgkg,59.099999999999994,Unknown,range_mean,high,table_p7_ri1_ci9,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S3,S3,As_mgkg,0.27,Unknown,,high,table_p7_ri3_ci2,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S3,S3,Cd_mgkg,0.15,Unknown,,high,table_p7_ri3_ci3,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S3,S3,Cr_mgkg,0.1,Unknown,,high,table_p7_ri3_ci4,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S3,S3,Cu_mgkg,0.15,Unknown,,high,table_p7_ri3_ci5,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S3,S3,Hg_mgkg,0.2,Unknown,,high,table_p7_ri3_ci6,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S3,S3,Ni_mgkg,0.3,Unknown,,high,table_p7_ri3_ci7,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S3,S3,Pb_mgkg,0.08,Unknown,,high,table_p7_ri3_ci8,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S3,S3,Zn_mgkg,0.14,Unknown,,high,table_p7_ri3_ci9,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Yutian,Yutian,As_mgkg,21.75,Unknown,range_mean,high,table_p7_ri4_ci2,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Yutian,Yutian,Cd_mgkg,0.17,Unknown,range_mean,high,table_p7_ri4_ci3,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Yutian,Yutian,Cr_mgkg,62.099999999999994,Unknown,range_mean,high,table_p7_ri4_ci4,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Yutian,Yutian,Cu_mgkg,23.9,Unknown,range_mean,high,table_p7_ri4_ci5,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Yutian,Yutian,Hg_mgkg,0.04,Unknown,range_mean,high,table_p7_ri4_ci6,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Yutian,Yutian,Ni_mgkg,42.0,Unknown,range_mean,high,table_p7_ri4_ci7,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Yutian,Yutian,Pb_mgkg,21.1,Unknown,range_mean,high,table_p7_ri4_ci8,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Yutian,Yutian,Zn_mgkg,65.3,Unknown,range_mean,high,table_p7_ri4_ci9,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S6,S6,As_mgkg,0.28,Unknown,,high,table_p7_ri6_ci2,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S6,S6,Cd_mgkg,0.19,Unknown,,high,table_p7_ri6_ci3,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S6,S6,Cr_mgkg,0.15,Unknown,,high,table_p7_ri6_ci4,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S6,S6,Cu_mgkg,0.15,Unknown,,high,table_p7_ri6_ci5,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S6,S6,Hg_mgkg,0.31,Unknown,,high,table_p7_ri6_ci6,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S6,S6,Ni_mgkg,0.17,Unknown,,high,table_p7_ri6_ci7,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S6,S6,Pb_mgkg,0.08,Unknown,,high,table_p7_ri6_ci8,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S6,S6,Zn_mgkg,0.15,Unknown,,high,table_p7_ri6_ci9,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Minfeng,Minfeng,As_mgkg,11.3,Unknown,range_mean,high,table_p7_ri7_ci2,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Minfeng,Minfeng,Cd_mgkg,0.145,Unknown,range_mean,high,table_p7_ri7_ci3,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Minfeng,Minfeng,Cr_mgkg,65.5,Unknown,range_mean,high,table_p7_ri7_ci4,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Minfeng,Minfeng,Cu_mgkg,27.8,Unknown,range_mean,high,table_p7_ri7_ci5,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Minfeng,Minfeng,Hg_mgkg,0.045,Unknown,range_mean,high,table_p7_ri7_ci6,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Minfeng,Minfeng,Ni_mgkg,33.85,Unknown,range_mean,high,table_p7_ri7_ci7,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Minfeng,Minfeng,Pb_mgkg,17.95,Unknown,range_mean,high,table_p7_ri7_ci8,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Minfeng,Minfeng,Zn_mgkg,67.1,Unknown,range_mean,high,table_p7_ri7_ci9,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S9,S9,As_mgkg,0.18,Unknown,,high,table_p7_ri9_ci2,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S9,S9,Cd_mgkg,0.2,Unknown,,high,table_p7_ri9_ci3,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S9,S9,Cr_mgkg,0.14,Unknown,,high,table_p7_ri9_ci4,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S9,S9,Cu_mgkg,0.16,Unknown,,high,table_p7_ri9_ci5,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S9,S9,Hg_mgkg,0.43,Unknown,,high,table_p7_ri9_ci6,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S9,S9,Ni_mgkg,0.15,Unknown,,high,table_p7_ri9_ci7,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S9,S9,Pb_mgkg,0.07,Unknown,,high,table_p7_ri9_ci8,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S9,S9,Zn_mgkg,0.15,Unknown,,high,table_p7_ri9_ci9,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Qiemo,Qiemo,As_mgkg,17.55,Unknown,range_mean,high,table_p7_ri10_ci2,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Qiemo,Qiemo,Cd_mgkg,0.22,Unknown,range_mean,high,table_p7_ri10_ci3,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Qiemo,Qiemo,Cr_mgkg,45.25,Unknown,range_mean,high,table_p7_ri10_ci4,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Qiemo,Qiemo,Cu_mgkg,19.0,Unknown,range_mean,high,table_p7_ri10_ci5,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Qiemo,Qiemo,Hg_mgkg,0.04,Unknown,range_mean,high,table_p7_ri10_ci6,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Qiemo,Qiemo,Ni_mgkg,22.5,Unknown,range_mean,high,table_p7_ri10_ci7,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Qiemo,Qiemo,Pb_mgkg,19.549999999999997,Unknown,range_mean,high,table_p7_ri10_ci8,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Qiemo,Qiemo,Zn_mgkg,60.85,Unknown,range_mean,high,table_p7_ri10_ci9,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S12,S12,As_mgkg,0.38,Unknown,,high,table_p7_ri12_ci2,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S12,S12,Cd_mgkg,0.26,Unknown,,high,table_p7_ri12_ci3,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S12,S12,Cr_mgkg,0.17,Unknown,,high,table_p7_ri12_ci4,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S12,S12,Cu_mgkg,0.2,Unknown,,high,table_p7_ri12_ci5,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S12,S12,Hg_mgkg,0.31,Unknown,,high,table_p7_ri12_ci6,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S12,S12,Ni_mgkg,0.17,Unknown,,high,table_p7_ri12_ci7,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S12,S12,Pb_mgkg,0.11,Unknown,,high,table_p7_ri12_ci8,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S12,S12,Zn_mgkg,0.2,Unknown,,high,table_p7_ri12_ci9,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Ruoqiang,Ruoqiang,As_mgkg,9.850000000000001,Unknown,range_mean,high,table_p7_ri13_ci2,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Ruoqiang,Ruoqiang,Cd_mgkg,0.12,Unknown,range_mean,high,table_p7_ri13_ci3,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Ruoqiang,Ruoqiang,Cr_mgkg,61.55,Unknown,range_mean,high,table_p7_ri13_ci4,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Ruoqiang,Ruoqiang,Cu_mgkg,29.0,Unknown,range_mean,high,table_p7_ri13_ci5,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Ruoqiang,Ruoqiang,Hg_mgkg,0.10500000000000001,Unknown,range_mean,high,table_p7_ri13_ci6,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Ruoqiang,Ruoqiang,Ni_mgkg,27.8,Unknown,range_mean,high,table_p7_ri13_ci7,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Ruoqiang,Ruoqiang,Pb_mgkg,15.45,Unknown,range_mean,high,table_p7_ri13_ci8,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Ruoqiang,Ruoqiang,Zn_mgkg,60.55,Unknown,range_mean,high,table_p7_ri13_ci9,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S15,S15,As_mgkg,0.33,Unknown,,high,table_p7_ri15_ci2,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S15,S15,Cd_mgkg,0.28,Unknown,,high,table_p7_ri15_ci3,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S15,S15,Cr_mgkg,0.3,Unknown,,high,table_p7_ri15_ci4,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S15,S15,Cu_mgkg,0.35,Unknown,,high,table_p7_ri15_ci5,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S15,S15,Hg_mgkg,1.26,Unknown,,high,table_p7_ri15_ci6,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S15,S15,Ni_mgkg,0.29,Unknown,,high,table_p7_ri15_ci7,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S15,S15,Pb_mgkg,0.16,Unknown,,high,table_p7_ri15_ci8,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_S15,S15,Zn_mgkg,0.2,Unknown,,high,table_p7_ri15_ci9,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Background_value_for_soils_in_Xinjiang,Background value for soils in Xinjiang,As_mgkg,0.12,Unknown,,high,table_p7_ri16_ci2,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Background_value_for_soils_in_Xinjiang,Background value for soils in Xinjiang,Cd_mgkg,49.3,Unknown,,high,table_p7_ri16_ci3,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Background_value_for_soils_in_Xinjiang,Background value for soils in Xinjiang,Cr_mgkg,26.7,Unknown,,high,table_p7_ri16_ci4,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Background_value_for_soils_in_Xinjiang,Background value for soils in Xinjiang,Cu_mgkg,0.017,Unknown,,high,table_p7_ri16_ci5,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Background_value_for_soils_in_Xinjiang,Background value for soils in Xinjiang,Hg_mgkg,26.6,Unknown,,high,table_p7_ri16_ci6,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Background_value_for_soils_in_Xinjiang,Background value for soils in Xinjiang,Ni_mgkg,19.4,Unknown,,high,table_p7_ri16_ci7,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Background_value_for_soils_in_Xinjiang,Background value for soils in Xinjiang,Pb_mgkg,68.8,Unknown,,high,table_p7_ri16_ci8,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Risk_control_standard_for_soil_contamination,Risk control standard for soil contamination,As_mgkg,0.6,Unknown,,high,table_p7_ri17_ci2,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Risk_control_standard_for_soil_contamination,Risk control standard for soil contamination,Cd_mgkg,250.0,Unknown,,high,table_p7_ri17_ci3,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Risk_control_standard_for_soil_contamination,Risk control standard for soil contamination,Cr_mgkg,100.0,Unknown,,high,table_p7_ri17_ci4,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Risk_control_standard_for_soil_contamination,Risk control standard for soil contamination,Cu_mgkg,3.4,Unknown,,high,table_p7_ri17_ci5,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Risk_control_standard_for_soil_contamination,Risk control standard for soil contamination,Hg_mgkg,190.0,Unknown,,high,table_p7_ri17_ci6,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Risk_control_standard_for_soil_contamination,Risk control standard for soil contamination,Ni_mgkg,170.0,Unknown,,high,table_p7_ri17_ci7,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Risk_control_standard_for_soil_contamination,Risk control standard for soil contamination,Pb_mgkg,300.0,Unknown,,high,table_p7_ri17_ci8,
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Cr,Cr,Cr_mgkg,1.0,Unknown,,high,table_p8_ri1_ci1,Table 4. Corelation coefficients of soil heavy metal contents.
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Hg,Hg,Hg_mgkg,1.0,Unknown,,high,table_p8_ri2_ci2,Table 4. Corelation coefficients of soil heavy metal contents.
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Ni,Ni,Ni_mgkg,1.0,Unknown,,high,table_p8_ri3_ci3,Table 4. Corelation coefficients of soil heavy metal contents.
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Pb,Pb,Pb_mgkg,1.0,Unknown,,high,table_p8_ri4_ci4,Table 4. Corelation coefficients of soil heavy metal contents.
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_As,As,As_mgkg,1.0,Unknown,,high,table_p8_ri5_ci5,Table 4. Corelation coefficients of soil heavy metal contents.
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Cu,Cu,Cu_mgkg,1.0,Unknown,,high,table_p8_ri6_ci6,Table 4. Corelation coefficients of soil heavy metal contents.
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Zn,Zn,Zn_mgkg,1.0,Unknown,,high,table_p8_ri7_ci7,Table 4. Corelation coefficients of soil heavy metal contents.
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Cd,Cd,Cd_mgkg,1.0,Unknown,,high,table_p8_ri8_ci8,Table 4. Corelation coefficients of soil heavy metal contents.
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Principal_component,Principal component,Cr_mgkg,0.849,Unknown,,high,table_p8_ri2_ci1,Table 5.Factor matrix of soil heavy metal elements.
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Principal_component,Principal component,Hg_mgkg,0.523,Unknown,,high,table_p8_ri3_ci1,Table 5.Factor matrix of soil heavy metal elements.
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Principal_component,Principal component,Ni_mgkg,0.847,Unknown,,high,table_p8_ri4_ci1,Table 5.Factor matrix of soil heavy metal elements.
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Principal_component,Principal component,Pb_mgkg,0.585,Unknown,,high,table_p8_ri5_ci1,Table 5.Factor matrix of soil heavy metal elements.
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Principal_component,Principal component,As_mgkg,0.75,Unknown,,high,table_p8_ri6_ci1,Table 5.Factor matrix of soil heavy metal elements.
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Principal_component,Principal component,Cu_mgkg,0.887,Unknown,,high,table_p8_ri7_ci1,Table 5.Factor matrix of soil heavy metal elements.
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Principal_component,Principal component,Zn_mgkg,0.892,Unknown,,high,table_p8_ri8_ci1,Table 5.Factor matrix of soil heavy metal elements.
+70628_09603123.2019.1691157,70628_09603123.2019.1691157_Principal_component,Principal component,Cd_mgkg,0.729,Unknown,,high,table_p8_ri9_ci1,Table 5.Factor matrix of soil heavy metal elements.

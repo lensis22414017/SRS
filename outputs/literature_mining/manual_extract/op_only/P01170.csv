@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01170,,skip,,,,,,,"无目标OP(HM数据为区域级Mean+SD聚合),非采样点级;论文检测PFAS(不在OP目标列表:PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAE/OCP);Table S3金属仅按Area A/B/C聚合Mean+SD,非A1/A2/B1等单点"

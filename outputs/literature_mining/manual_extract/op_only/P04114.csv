@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04114,,,,,,,,"skip: 仅统计汇总无采样点级浓度数据; Table2为40样本Max/Min/Mean/SD统计行; Table3为TEQ BaPeq风险指数; Table4为ILCR致癌风险指数; Table5为ng/kg bw/day日暴露估算值(非土壤浓度); Figure2/3为车间级柱状图图片不可提取数值"

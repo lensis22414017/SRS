@@ -1,0 +1,24 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_PC-1,PC-1,Clay_pct,-0.59,Unknown,,high,table_p5_ri13_ci1,Table 3 Principal component analysis of soil quality indicators.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_PC-2,PC-2,Clay_pct,0.11,Unknown,,high,table_p5_ri13_ci2,Table 3 Principal component analysis of soil quality indicators.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_PC-3,PC-3,Clay_pct,0.51,Unknown,,high,table_p5_ri13_ci3,Table 3 Principal component analysis of soil quality indicators.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_PC-4,PC-4,Clay_pct,0.28,Unknown,,high,table_p5_ri13_ci4,Table 3 Principal component analysis of soil quality indicators.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_PC-1,PC-1,Silt_pct,-0.72,Unknown,,high,table_p5_ri14_ci1,Table 3 Principal component analysis of soil quality indicators.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_PC-2,PC-2,Silt_pct,0.35,Unknown,,high,table_p5_ri14_ci2,Table 3 Principal component analysis of soil quality indicators.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_PC-3,PC-3,Silt_pct,0.22,Unknown,,high,table_p5_ri14_ci3,Table 3 Principal component analysis of soil quality indicators.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_PC-4,PC-4,Silt_pct,0.1,Unknown,,high,table_p5_ri14_ci4,Table 3 Principal component analysis of soil quality indicators.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_PC-1,PC-1,Sand_pct,0.81,Unknown,,high,table_p5_ri15_ci1,Table 3 Principal component analysis of soil quality indicators.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_PC-2,PC-2,Sand_pct,-0.3,Unknown,,high,table_p5_ri15_ci2,Table 3 Principal component analysis of soil quality indicators.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_PC-3,PC-3,Sand_pct,-0.39,Unknown,,high,table_p5_ri15_ci3,Table 3 Principal component analysis of soil quality indicators.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_PC-4,PC-4,Sand_pct,-0.18,Unknown,,high,table_p5_ri15_ci4,Table 3 Principal component analysis of soil quality indicators.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_TK,TK,Clay_pct,-0.053,Unknown,,high,table_p5_ri10_ci4,Correlation coefficients of soil properties determined for different vegetation types.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_AP,AP,Clay_pct,-0.111,Unknown,,high,table_p5_ri10_ci6,Correlation coefficients of soil properties determined for different vegetation types.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_Clay,Clay,Clay_pct,1.0,Unknown,,high,table_p5_ri10_ci10,Correlation coefficients of soil properties determined for different vegetation types.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_TK,TK,Silt_pct,0.066,Unknown,,high,table_p5_ri11_ci4,Correlation coefficients of soil properties determined for different vegetation types.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_AP,AP,Silt_pct,-0.025,Unknown,,high,table_p5_ri11_ci6,Correlation coefficients of soil properties determined for different vegetation types.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_Silt,Silt,Silt_pct,1.0,Unknown,,high,table_p5_ri11_ci11,Correlation coefficients of soil properties determined for different vegetation types.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_TK,TK,Sand_pct,-0.032,Unknown,,high,table_p5_ri12_ci4,Correlation coefficients of soil properties determined for different vegetation types.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_AP,AP,Sand_pct,0.068,Unknown,,high,table_p5_ri12_ci6,Correlation coefficients of soil properties determined for different vegetation types.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_Sand,Sand,Sand_pct,1.0,Unknown,,high,table_p5_ri12_ci12,Correlation coefficients of soil properties determined for different vegetation types.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_Average_(x0),Average (x0),Clay_pct,20.49,Unknown,,high,table_p6_ri1_ci5,Normalization equation of scoring curves.
+_dup_j.scitotenv.2018.09.372,_dup_j.scitotenv.2018.09.372_Weighting_value,Weighting value,Clay_pct,0.13,Unknown,,high,table_p6_ri4_ci5,Normalization equation of scoring curves.

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10617,NOTES,,,,,,,,"skip: 论文仅提供汇总统计(Table-1 Min/Max/SD/Mean per compound)和区域均值比较(Table-2); Table-3有S1-S25逐点数据但仅为源识别比值(DDT/DDE和HCH比值)非浓度值; 正文仅给range和avg; 无任何逐采样点OCP浓度数据"

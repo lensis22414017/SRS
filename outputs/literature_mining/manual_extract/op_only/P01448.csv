@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01448,,,,,,,soil,agricultural,Fujian,"skip: 论文仅有统计汇总(Range/Mean, Table 3 Ningde行: HCHs 0.45-151.21 mean 14.51; DDTs 0.51-241.30 mean 29.61; Endosulfans 0.14-453.96 mean 17.59 ng/g)，67个采样点无逐点浓度数据表；分布数据仅以箱线图(Fig.3)和散点图(Fig.4)呈现；Table 4为PCA载荷、Table 5为Spearman相关、Table 6为ILCR风险指数(均剔除)；无可提取的采样点级OCP浓度数据"

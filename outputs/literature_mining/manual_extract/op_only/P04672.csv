@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04672,NOTES,,,,,soil,agricultural,Jilin,"skip: 无采样点级数据。论文仅报告区域/城市级均值和范围（7种PCB均值 PCB28=1.61/PCB52=10.61/PCB101=0.37/PCB118=4.11/PCB138=0.70/PCB153=1.07/PCB180=2.09 μg/kg; 总PCB范围9.849-185.930均值20.556 μg/kg），59个采样点无单独标识与浓度对应。Table 1为全球文献对比(非本文数据)，Table 2为pH/OM统计汇总，Figure 2为空间插值图。无法提取sample_id级别的OP浓度数据"

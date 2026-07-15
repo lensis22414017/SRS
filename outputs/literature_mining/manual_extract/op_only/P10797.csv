@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10797,,,,,,,Guangdong,"skip: 正文仅含统计汇总(mean/median/range)和区域均值，无采样点级浓度表。229个土壤样本详细浓度数据在Supplementary Table S1(未获取)。唯一正文提及的采样点级数值(Huizhou医院花园 ∑7DDX=1750 ng/g, p,p'-DDT=1380 ng/g)无法映射到SumDDT_ngg(因∑7DDX含DDMU而SumDDT_ngg排除DDMU，DDMU分量未知)且被作者明确排除分析。Table 1为fugacity/flux区域汇总非浓度。Figures为Kriging插值图/boxplot非数据表"

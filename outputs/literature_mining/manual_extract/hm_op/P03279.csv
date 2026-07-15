@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03279,,,,,,,,,"skip: 盆栽实验 spiked soil。论文1.1节明确将山西太谷县石灰性褐土风干研磨后人工添加PAHs(2 mg/kg)+三氧化二砷(25 mg/kg)+氯化镉制备模拟污染土壤，每盆5kg。1.2节定苗前实测PAHs 2.01 mg/kg、As 28.3 mg/kg均为添加后初始值(非真实场地本底)。表1-4全部为盆栽修复效果/植物组织浓度/根际降解率，无任何修复前真实场地采样点级土壤实测。剔除全部数据。"

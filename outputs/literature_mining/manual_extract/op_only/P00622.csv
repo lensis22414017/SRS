@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00622,,,,,,,soil,petrochemical,Tianjin,"skip: 30个采样点(1-30)的TPH和Σ16-PAHs浓度数据仅在Fig.2和Fig.4条形图(图片)中，无法精确读取数值；Table 3为奇/偶正构烷烃(C23-C34)亚类总和非TPH总量(gravimetric)；Table 4为PAH诊断比(BaA/(BaA+Chr)和Flu/(Flu+Pyr))非浓度；Table 2为频率分布统计行；正文仅给range(Σ16-PAHs 1652.5-8217.3 ng/g, TPH 20ng/g-12.85%)和mean无per-site表格值；需OCR图片提取"

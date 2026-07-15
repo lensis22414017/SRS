@@ -1,0 +1,6 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07492,PS-02,Sum_PAH_ngg,279,ng/g,"正文4.1段",soil,mining,Inner Mongolia,16 EPA PAH总和(Σ16PAHs);采样点PS-02浓度直接读自论文正文;μg/kg=ng/g数值不变
+P07492,PS-18,Sum_PAH_ngg,567,ng/g,"正文4.1段",soil,mining,Inner Mongolia,16 EPA PAH总和;采样点PS-18直接读取
+P07492,PS-09,Sum_PAH_ngg,921,ng/g,"正文4.1段",soil,mining,Inner Mongolia,16 EPA PAH总和;采样点PS-09直接读取
+P07492,PS-17,Sum_PAH_ngg,929,ng/g,"正文4.1段",soil,mining,Inner Mongolia,16 EPA PAH总和;采样点PS-17直接读取
+P07492,PS-14,Sum_PAH_ngg,8258,ng/g,"正文4.1段",soil,mining,Inner Mongolia,16 EPA PAH总和;采样点PS-14直接读取(最大值)

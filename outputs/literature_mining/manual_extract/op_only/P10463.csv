@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10463,,,,,,,soil,urban,Beijing,"仅区域级统计汇总(Median/Mean±SD/Range)无采样点级PAH数据。Table 1为BC/TOC按区域统计(Mean±SD+Range)；Table 2为文献对比；Table 3为相关系数(非浓度)；摘要3.3仅给区域median PPAHs(urban=502/rural_plain=148/rural_mountain=146 ng/g)。94个采样点的单体PAH原始数据在Supplementary Table S1/S2未解析。site_type=urban/rural_plain/rural_mountain。"

@@ -1,0 +1,12 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+1-s2.0-S0045653524029515,1-s2.0-S0045653524029515_Fallen_pine_needles,SumHCH_ngg,93.0,Unknown,table_p3_ri4_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+1-s2.0-S0045653524029515,1-s2.0-S0045653524029515_Two-year-old_pine_needles,SumHCH_ngg,19.2,Unknown,table_p3_ri4_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+1-s2.0-S0045653524029515,1-s2.0-S0045653524029515_Soil,SumHCH_ngg,24.0,Unknown,table_p3_ri4_ci5,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+1-s2.0-S0045653524029515,1-s2.0-S0045653524029515_Fallen_pine_needles,SumHCH_ngg,34.0,Unknown,table_p3_ri5_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+1-s2.0-S0045653524029515,1-s2.0-S0045653524029515_Two-year-old_pine_needles,SumHCH_ngg,9.1,Unknown,table_p3_ri5_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+1-s2.0-S0045653524029515,1-s2.0-S0045653524029515_Soil,SumHCH_ngg,8.75,Unknown,table_p3_ri5_ci5,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+1-s2.0-S0045653524029515,1-s2.0-S0045653524029515_Fallen_pine_needles,SumHCH_ngg,4.7,Unknown,table_p3_ri6_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+1-s2.0-S0045653524029515,1-s2.0-S0045653524029515_Two-year-old_pine_needles,SumHCH_ngg,2.95,Unknown,table_p3_ri6_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+1-s2.0-S0045653524029515,1-s2.0-S0045653524029515_Fallen_pine_needles,SumDDT_ngg,15.2,Unknown,table_p3_ri18_ci1,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+1-s2.0-S0045653524029515,1-s2.0-S0045653524029515_Two-year-old_pine_needles,SumDDT_ngg,7.1,Unknown,table_p3_ri18_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+1-s2.0-S0045653524029515,1-s2.0-S0045653524029515_Soil,SumDDT_ngg,7.4,Unknown,table_p3_ri18_ci5,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,

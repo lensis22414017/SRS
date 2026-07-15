@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00310,,,,,,,,"skip: 表2仅提供Max/Min/Mean/SD/CV区域统计汇总,无任何采样点级实测数据(65个样品仅给统计量);论文仅测PAHs未测HM;所有图均为分组均值图"

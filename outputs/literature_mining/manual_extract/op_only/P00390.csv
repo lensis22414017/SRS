@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00390,,,,,,,,,skip: Table 2 only provides area-level summary statistics (Range/Mean±SD/Median/DF) for Urban(n=17)/Suburb(n=28)/Rural(n=37) groups; no individual sampling-point-level concentration data in any table; text references specific site numbers (67/72/75/76/80) without giving per-site values; Figs 4-5 are scatter plots not extractable; 82 samples exist but only as grouped stats

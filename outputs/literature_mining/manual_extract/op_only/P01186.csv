@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01186,,,,,,,,"skip: 温室(plastic greenhouse)研究被排除; 仅PAHs在目标OP中但正文只有range/mean汇总(109-1600 ng/g mean 345)无采样点级数据; 26个温室点位数据仅在Fig.1柱状图(图片)和SI Table S1/S6中; 不含PCB/DDT/HCH/PBDE/PHC"

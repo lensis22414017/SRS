@@ -1,0 +1,17 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+72254_07-105.1,"72254_07-105.1_Site_1_(28°50&#x27;57N,112°19&#x27;16E)","Site 1 (28°50&#x27;57N,112°19&#x27;16E)",OC_pct,1061.0,Unknown,,medium,table_p2_ri20_ci1,
+72254_07-105.1,"72254_07-105.1_Site_2_(28°48&#x27;52N,_112°24&#x27;17E)","Site 2 (28°48&#x27;52N, 112°24&#x27;17E)",OC_pct,91.5,Unknown,,medium,table_p2_ri20_ci2,
+72254_07-105.1,"72254_07-105.1_Site_3_(28°28&#x27;52N,112°24&#x27;13E)","Site 3 (28°28&#x27;52N,112°24&#x27;13E)",OC_pct,20.1,Unknown,,medium,table_p2_ri20_ci3,
+72254_07-105.1,"72254_07-105.1_Site_4_(28°49&#x27;48N,_112°21&#x27;59E)","Site 4 (28°49&#x27;48N, 112°21&#x27;59E)",OC_pct,287306.0,Unknown,,medium,table_p2_ri20_ci4,
+72254_07-105.1,72254_07-105.1_col5,col5,OC_pct,811929.0,Unknown,,medium,table_p2_ri20_ci5,
+72254_07-105.1,72254_07-105.1_col6,col6,OC_pct,175.0,Unknown,,medium,table_p2_ri20_ci6,
+72254_07-105.1,72254_07-105.1_col8,col8,OC_pct,332340.0,Unknown,,medium,table_p2_ri20_ci8,
+72254_07-105.1,72254_07-105.1_col9,col9,OC_pct,9551151.0,Unknown,,medium,table_p2_ri20_ci9,
+72254_07-105.1,72254_07-105.1_col10,col10,OC_pct,101123.0,Unknown,,medium,table_p2_ri20_ci10,
+72254_07-105.1,72254_07-105.1_col13,col13,OC_pct,1089110994.0,Unknown,,medium,table_p2_ri20_ci13,
+72254_07-105.1,72254_07-105.1_col14,col14,OC_pct,418445.0,Unknown,,medium,table_p2_ri20_ci14,
+72254_07-105.1,"72254_07-105.1_Site_1_(28°50&#x27;57N,112°19&#x27;16E)","Site 1 (28°50&#x27;57N,112°19&#x27;16E)",OC_pct,0.16,Unknown,,high,table_p5_ri12_ci1,"Table 2. Soil-to-plant bioconcentration factor (BCF) values for 2,3,7,8-substituted polychlorinated dibenzo-p-dioxins and dibenzofurans (PCDD/ Fs) from field-determined data a TCDF = tetrachlorodibenz"
+72254_07-105.1,"72254_07-105.1_Site_4_(28°49&#x27;48N,_112°21&#x27;59E)","Site 4 (28°49&#x27;48N, 112°21&#x27;59E)",OC_pct,0.07,Unknown,,high,table_p5_ri12_ci4,"Table 2. Soil-to-plant bioconcentration factor (BCF) values for 2,3,7,8-substituted polychlorinated dibenzo-p-dioxins and dibenzofurans (PCDD/ Fs) from field-determined data a TCDF = tetrachlorodibenz"
+72254_07-105.1,"72254_07-105.1_Site_1_(28°50&#x27;57N,112°19&#x27;16E)","Site 1 (28°50&#x27;57N,112°19&#x27;16E)",OC_pct,0.09,Unknown,,high,table_p5_ri19_ci1,"Table 2. Soil-to-plant bioconcentration factor (BCF) values for 2,3,7,8-substituted polychlorinated dibenzo-p-dioxins and dibenzofurans (PCDD/ Fs) from field-determined data a TCDF = tetrachlorodibenz"
+72254_07-105.1,"72254_07-105.1_Site_3_(28°28&#x27;52N,112°24&#x27;13E)","Site 3 (28°28&#x27;52N,112°24&#x27;13E)",OC_pct,0.29,Unknown,,high,table_p5_ri19_ci3,"Table 2. Soil-to-plant bioconcentration factor (BCF) values for 2,3,7,8-substituted polychlorinated dibenzo-p-dioxins and dibenzofurans (PCDD/ Fs) from field-determined data a TCDF = tetrachlorodibenz"
+72254_07-105.1,"72254_07-105.1_Site_4_(28°49&#x27;48N,_112°21&#x27;59E)","Site 4 (28°49&#x27;48N, 112°21&#x27;59E)",OC_pct,0.13,Unknown,,high,table_p5_ri19_ci4,"Table 2. Soil-to-plant bioconcentration factor (BCF) values for 2,3,7,8-substituted polychlorinated dibenzo-p-dioxins and dibenzofurans (PCDD/ Fs) from field-determined data a TCDF = tetrachlorodibenz"

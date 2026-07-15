@@ -1,0 +1,6 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+15320383.2017.1293000,15320383.2017.1293000_Nansi_Lake,Sum_PAH_ngg,1051.98,Unknown,table_p30_ri1_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+15320383.2017.1293000,15320383.2017.1293000_Jinan,Sum_PAH_ngg,4620.0,Unknown,table_p30_ri8_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+15320383.2017.1293000,15320383.2017.1293000_Henan,Sum_PAH_ngg,631.65,Unknown,table_p30_ri9_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+15320383.2017.1293000,15320383.2017.1293000_Hunpu,Sum_PAH_ngg,1119.65,Unknown,table_p30_ri10_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,
+15320383.2017.1293000,15320383.2017.1293000_Nanjing,Sum_PAH_ngg,277.875,Unknown,table_p30_ri11_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=range_mean,,

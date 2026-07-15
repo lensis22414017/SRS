@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01169,,,,,,,,"skip: 论文无任何Table,所有浓度数据仅在Fig.2-5柱状图中(bar chart),paper.md为图片占位符无法解析精确采样点级数值;且重金属(Pb/Cr/Ni/Cu/Cd)仅在TSP大气颗粒物中测定(2.3.1节/Fig.2b),土壤样品未分析重金属,违反铁律6(HM+OP须同论文同场地土壤);土壤OP仅正文给定性阈值(PAHs在点1>200 ng/g下限非精确值;PCBs约20-60 pg/m3论文单位typo且为范围;PBDEs<10 ng/m3单位typo且仅上限),其余5个土壤采样点完全无任何数值。6个土壤采样点位于废塑料回收工厂周边,中国东部(Eastern China)工业园区,作者单位上海交大/江西/四川但研究地点仅述Eastern China未明确省份。建议跳过此论文或回原始PDF对Fig.3d/4c/5c做OCR+图像数据提取"

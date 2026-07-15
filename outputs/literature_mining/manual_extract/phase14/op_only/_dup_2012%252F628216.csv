@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+_dup_2012%252F628216,_dup_2012%252F628216_Year,Year,SumHCH_ngg,2003.0,Unknown,,medium,table_p2_ri1_ci1,"Table 2: Composition of HCH and DDT in soil samples in 2003, 2007, and 2009.",,,,,,phase14
+_dup_2012%252F628216,_dup_2012%252F628216_Average,Average,SumHCH_ngg,1.35,Unknown,,medium,table_p2_ri1_ci2,"Table 2: Composition of HCH and DDT in soil samples in 2003, 2007, and 2009.",,,,,,phase14
+_dup_2012%252F628216,_dup_2012%252F628216_Minimum,Minimum,SumHCH_ngg,0.25,Unknown,,medium,table_p2_ri1_ci3,"Table 2: Composition of HCH and DDT in soil samples in 2003, 2007, and 2009.",,,,,,phase14
+_dup_2012%252F628216,_dup_2012%252F628216_Maximum,Maximum,SumHCH_ngg,3.35,Unknown,,medium,table_p2_ri1_ci4,"Table 2: Composition of HCH and DDT in soil samples in 2003, 2007, and 2009.",,,,,,phase14

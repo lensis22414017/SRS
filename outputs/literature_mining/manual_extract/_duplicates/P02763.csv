@@ -1,0 +1,21 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02763,S1,Sum_PAH_ngg,247520,ng/g,Table 2,soil,coking,Beijing,TPAH=16 EPA PAHs求和(Table2直接读取); mg/kg×1000=ng/g; Sample1距离0m深度0-20cm
+P02763,S2,Sum_PAH_ngg,4545880,ng/g,Table 2,soil,coking,Beijing,TPAH=16 EPA PAHs求和(Table2直接读取); mg/kg×1000=ng/g; Sample2距离0m深度40-70cm; 注意论文Results正文称TPAH范围799.39-1206.99mg/kg但Table2此样品4545.88mg/kg更高存在文表矛盾; 此值来自原表非bug
+P02763,S3,Sum_PAH_ngg,327590,ng/g,Table 2,soil,coking,Beijing,TPAH=16 EPA PAHs求和(Table2直接读取); mg/kg×1000=ng/g; Sample3距离0m深度70-100cm
+P02763,S4,Sum_PAH_ngg,394860,ng/g,Table 2,soil,coking,Beijing,TPAH=16 EPA PAHs求和(Table2直接读取); mg/kg×1000=ng/g; Sample4距离0m深度100-120cm
+P02763,S5,Sum_PAH_ngg,190220,ng/g,Table 2,soil,coking,Beijing,TPAH=16 EPA PAHs求和(Table2直接读取); mg/kg×1000=ng/g; Sample5距离50m深度0-20cm
+P02763,S6,Sum_PAH_ngg,2062320,ng/g,Table 2,soil,coking,Beijing,TPAH=16 EPA PAHs求和(Table2直接读取); mg/kg×1000=ng/g; Sample6距离50m深度40-70cm
+P02763,S7,Sum_PAH_ngg,96570,ng/g,Table 2,soil,coking,Beijing,TPAH=16 EPA PAHs求和(Table2直接读取); mg/kg×1000=ng/g; Sample7距离50m深度70-100cm
+P02763,S8,Sum_PAH_ngg,47170,ng/g,Table 2,soil,coking,Beijing,TPAH=16 EPA PAHs求和(Table2直接读取); mg/kg×1000=ng/g; Sample8距离50m深度100-120cm
+P02763,S9,Sum_PAH_ngg,1207000,ng/g,Table 2,soil,coking,Beijing,TPAH=16 EPA PAHs求和(Table2直接读取); mg/kg×1000=ng/g; Sample9距离100m深度0-20cm; 此值与论文Results正文所述最高值1206.99mg/kg一致
+P02763,S10,Sum_PAH_ngg,634850,ng/g,Table 2,soil,coking,Beijing,TPAH=16 EPA PAHs求和(Table2直接读取); mg/kg×1000=ng/g; Sample10距离100m深度40-70cm
+P02763,S11,Sum_PAH_ngg,799410,ng/g,Table 2,soil,coking,Beijing,TPAH=16 EPA PAHs求和(Table2直接读取); mg/kg×1000=ng/g; Sample11距离100m深度70-100cm
+P02763,S12,Sum_PAH_ngg,1053900,ng/g,Table 2,soil,coking,Beijing,TPAH=16 EPA PAHs求和(Table2直接读取); mg/kg×1000=ng/g; Sample12距离100m深度100-120cm
+P02763,S13,Sum_PAH_ngg,492620,ng/g,Table 2,soil,coking,Beijing,TPAH=16 EPA PAHs求和(Table2直接读取); mg/kg×1000=ng/g; Sample13距离150m深度0-20cm
+P02763,S14,Sum_PAH_ngg,139890,ng/g,Table 2,soil,coking,Beijing,TPAH=16 EPA PAHs求和(Table2直接读取); mg/kg×1000=ng/g; Sample14距离150m深度40-70cm
+P02763,S15,Sum_PAH_ngg,132400,ng/g,Table 2,soil,coking,Beijing,TPAH=16 EPA PAHs求和(Table2直接读取); mg/kg×1000=ng/g; Sample15距离150m深度70-100cm
+P02763,S16,Sum_PAH_ngg,51520,ng/g,Table 2,soil,coking,Beijing,TPAH=16 EPA PAHs求和(Table2直接读取); mg/kg×1000=ng/g; Sample16距离150m深度100-120cm
+P02763,S17,Sum_PAH_ngg,357630,ng/g,Table 2,soil,coking,Beijing,TPAH=16 EPA PAHs求和(Table2直接读取); mg/kg×1000=ng/g; Sample17距离200m深度0-20cm
+P02763,S18,Sum_PAH_ngg,175580,ng/g,Table 2,soil,coking,Beijing,TPAH=16 EPA PAHs求和(Table2直接读取); mg/kg×1000=ng/g; Sample18距离200m深度40-70cm
+P02763,S19,Sum_PAH_ngg,114300,ng/g,Table 2,soil,coking,Beijing,TPAH=16 EPA PAHs求和(Table2直接读取); mg/kg×1000=ng/g; Sample19距离200m深度70-100cm
+P02763,S20,Sum_PAH_ngg,11690,ng/g,Table 2,soil,coking,Beijing,TPAH=16 EPA PAHs求和(Table2直接读取); mg/kg×1000=ng/g; Sample20距离200m深度100-120cm

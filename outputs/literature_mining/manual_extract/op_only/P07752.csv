@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07752,,,,,,,,"skip: 实验室生物降解实验（halotolerant consortium LF降解DEHP），所有DEHP浓度均为人工添加的液体培养实验(50-2000 mg/l in MSM medium)，无真实场地土壤采样点级OP数据，属于剔除场景(bioremediation/spiked lab experiment)"

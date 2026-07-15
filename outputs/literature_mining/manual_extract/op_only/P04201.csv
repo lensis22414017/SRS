@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04201,,,,,,,,,"skip: paper.md主文仅含Mean/SD/Range统计汇总(eg Sum25OCPs 161-43100 mean6410SD9620 pg/g; p,p-DDT 1640SD5560; mirex 1410SD1720; orchard 9000SD11500; vegetable 5510SD9020), 无采样点级浓度表; 27个样品(S1-S27)逐点浓度数据仅在补充材料Table S1中未随paper.md解析获取; 正文唯一单点值heptachlor S13=4.02pg/g非目标污染物; 论文目标污染物SumDDT/SumHCH单位为pg/g(需除1000转ng/g)但无单点绝对浓度值可提取; Figures S1-S3为图片需OCR"

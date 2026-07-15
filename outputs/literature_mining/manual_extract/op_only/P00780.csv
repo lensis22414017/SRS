@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00780,,,,,,,,"skip: 土壤采样点级抗生素浓度数据仅在Supplementary Table S2(未随paper.md解析/无SI文件)。正文仅给range 0.1-205.1 μg/kg及CTC>100 μg/kg阈值比较(pear orchard+paddy field)。论文主体数据为manure(非土壤matrix)。4个农业土壤(pear orchard/tea plantation/bamboo forest/paddy field)的各抗生素单体浓度需Table S2方可提取"

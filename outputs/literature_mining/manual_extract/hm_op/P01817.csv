@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01817,,,,,,,,,"skip: 论文仅报告三类工业区(EDA/SSP/SCS)的Sigma16 PAHs和Sigma18 Br-PAHs区域级range/mean汇总(如EDA 146-2487 ng/g mean 1034)，无采样点级浓度表格; 无HM(Cd/Pb/Cr/As/Hg/Cu/Zn/Ni)数据; 无PCB/DDT/HCH/PBDE/PHC数据; 单样品ID(A1-A18/B1-B14/C1-C8)仅出现于PCA图(Figure 5)无对应浓度值; TEQ浓度(Table S4)为风险指数已剔除且在SI中"

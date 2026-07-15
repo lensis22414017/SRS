@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00775,,,,,Table 2,soil,other,Chongqing,"skip: Table 2 only provides Min/Max/Mean/SD of 16 PAH monomers across 10 sites (stat summary); no per-site (S1-S10) PAH concentration data; Figs 2-4 are speciation/ring percentage plots not concentrations"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00996,,,,,,,,"仅Table1为区域汇总统计(Average/Median/Max/Min/CV)+背景值+风险筛选值+全国均值，234采样点无个体级数据公开；纯HM论文无OP数据"

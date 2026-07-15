@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03779,NA,NA,NA,NA,NA,NA,NA,NA,"skip: 全国性Meta分析综述(标题 across China)。Table S1标题 '207 examined areas in China'——207行是207个研究区域(城市/省份)非207个采样点；每行只有 ∑16PAHs 的 Mean + Range 统计汇总 + 引用文献(Reference列 2004-2021年不同源文献)，违反铁律2(剔除Mean/Range统计行)+铁律4(不把区域均值当场地样本)；无任何单体浓度(Nap/BaP等)和采样点级数据(S1-S207格式不存在)；Table S2=TEF毒性等效因子(标准参数)；Table S3=ILCR模型参数(BW/EF/ED等)；Table S4=概率分布参数(Lognormal/Triangular)；Fig S1-S3=采样点位置图+风险分布图+诊断比值图均无数值。原始数据应追溯至Reference列的207篇源文献"

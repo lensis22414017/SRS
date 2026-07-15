@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04592,NOTES,,,,,,,"skip: 仅统计汇总(Mean/Median/SD/Range/CV in Table 4)，无采样点级数据；且仅测7种PAH(Chry/BaA/BbF/BkF/BaP/DahA/InP)非16种EPA PAHs，无法计算Sum_PAH_ngg；117样品浓度仅在Fig2空间分布图中呈现"

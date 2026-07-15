@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10612,,,,,,,,"skip: 论文仅提供20个采样点的Min~Max统计范围(如Nap 2.48~5.48, B[a]A 24.88-25.97, Sum_PAH 27.5-129 ng/g)和Fig.2空间分布图(图片), 无任何逐采样点级浓度表格数据; 采样点标签(Dy17/dy16等)仅在正文出现用于定性描述(2-3环占比), 无定量浓度值; Table 2的This area列为全区域汇总范围非单点值"

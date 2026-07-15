@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02952,NOT_APPLICABLE,SKIP,0,NA,NA,water,wastewater_treatment,NA,"skip: 论文研究城市污水处理厂EDCs(4-n-NP/BPA/E2/EE2)在水相中的分布与去除,非土壤/沉积物;污染物不属于目标OP类别(PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAE/OCP);基质为水体(ng/L);含实验室瓶式batch实验"

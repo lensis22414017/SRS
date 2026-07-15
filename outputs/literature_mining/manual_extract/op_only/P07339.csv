@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07339,,,,,,,,,"skip: greenhouse vegetable production bases study (reject per rules); paper also studies vegetable plant tissue and plastic film; paper.md incomplete (only abstract parsed, no tables); no sampling-point level data available"

@@ -1,0 +1,107 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P09817,2013.08.21A,SumHCH_ngg,633,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, summer, Sum_HCH=a+b+g+d-HCH; g-HCH=BDL; d-HCH=BDL; PCB180=BDL",29.77,94.73
+P09817,2013.08.21A,SumDDT_ngg,3242,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, summer, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; g-HCH=BDL; d-HCH=BDL; PCB180=BDL",29.77,94.73
+P09817,2013.08.21A,SumPCB_ngg,129,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, summer, SumPCB=PCB28+52+101+153+138+180; g-HCH=BDL; d-HCH=BDL; PCB180=BDL",29.77,94.73
+P09817,2013.08.21_B,SumHCH_ngg,286,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, summer, Sum_HCH=a+b+g+d-HCH; ",29.77,94.73
+P09817,2013.08.21_B,SumDDT_ngg,1786,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, summer, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; ",29.77,94.73
+P09817,2013.08.21_B,SumPCB_ngg,97,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, summer, SumPCB=PCB28+52+101+153+138+180; ",29.77,94.73
+P09817,2013.08.26_A,SumHCH_ngg,457,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, summer, Sum_HCH=a+b+g+d-HCH; g-HCH=BDL; d-HCH=BDL; PCB180=BDL",29.77,94.73
+P09817,2013.08.26_A,SumDDT_ngg,2573,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, summer, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; g-HCH=BDL; d-HCH=BDL; PCB180=BDL",29.77,94.73
+P09817,2013.08.26_A,SumPCB_ngg,95,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, summer, SumPCB=PCB28+52+101+153+138+180; g-HCH=BDL; d-HCH=BDL; PCB180=BDL",29.77,94.73
+P09817,2013.08.26_B,SumHCH_ngg,301,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, summer, Sum_HCH=a+b+g+d-HCH; PCB180=BDL",29.77,94.73
+P09817,2013.08.26_B,SumDDT_ngg,2261,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, summer, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; PCB180=BDL",29.77,94.73
+P09817,2013.08.26_B,SumPCB_ngg,98,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, summer, SumPCB=PCB28+52+101+153+138+180; PCB180=BDL",29.77,94.73
+P09817,2015.01.07_A,SumHCH_ngg,197,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, Sum_HCH=a+b+g+d-HCH; g-HCH=BDL; d-HCH=BDL; PCB180=BDL",29.77,94.73
+P09817,2015.01.07_A,SumDDT_ngg,623,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; g-HCH=BDL; d-HCH=BDL; PCB180=BDL",29.77,94.73
+P09817,2015.01.07_A,SumPCB_ngg,76,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, SumPCB=PCB28+52+101+153+138+180; g-HCH=BDL; d-HCH=BDL; PCB180=BDL",29.77,94.73
+P09817,2015.01.07_B,SumHCH_ngg,448,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, Sum_HCH=a+b+g+d-HCH; d-HCH=BDL",29.77,94.73
+P09817,2015.01.07_B,SumDDT_ngg,5320,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; d-HCH=BDL",29.77,94.73
+P09817,2015.01.07_B,SumPCB_ngg,108,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, SumPCB=PCB28+52+101+153+138+180; d-HCH=BDL",29.77,94.73
+P09817,2015.01.13_A,SumHCH_ngg,785,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, Sum_HCH=a+b+g+d-HCH; PCB180=BDL",29.77,94.73
+P09817,2015.01.13_A,SumDDT_ngg,1745,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; PCB180=BDL",29.77,94.73
+P09817,2015.01.13_A,SumPCB_ngg,198,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, SumPCB=PCB28+52+101+153+138+180; PCB180=BDL",29.77,94.73
+P09817,2015.01.13_B,SumHCH_ngg,362,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, Sum_HCH=a+b+g+d-HCH; g-HCH=BDL; PCB28=BDL",29.77,94.73
+P09817,2015.01.13_B,SumDDT_ngg,1535,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; g-HCH=BDL; PCB28=BDL",29.77,94.73
+P09817,2015.01.13_B,SumPCB_ngg,65,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, SumPCB=PCB28+52+101+153+138+180; g-HCH=BDL; PCB28=BDL",29.77,94.73
+P09817,2015.01.18_A,SumHCH_ngg,592,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, Sum_HCH=a+b+g+d-HCH; PCB180=BDL",29.77,94.73
+P09817,2015.01.18_A,SumDDT_ngg,2442,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; PCB180=BDL",29.77,94.73
+P09817,2015.01.18_A,SumPCB_ngg,239,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, SumPCB=PCB28+52+101+153+138+180; PCB180=BDL",29.77,94.73
+P09817,2015.01.18_B,SumHCH_ngg,326,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, Sum_HCH=a+b+g+d-HCH; PCB180=BDL",29.77,94.73
+P09817,2015.01.18_B,SumDDT_ngg,1152,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; PCB180=BDL",29.77,94.73
+P09817,2015.01.18_B,SumPCB_ngg,78,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, SumPCB=PCB28+52+101+153+138+180; PCB180=BDL",29.77,94.73
+P09817,2015.01.23_A,SumHCH_ngg,264,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, Sum_HCH=a+b+g+d-HCH; d-HCH=BDL; PCB28=N/A(PDF parse corrupt); PCB52=N/A(PDF parse corrupt); PCB180=N/A(PDF parse corrupt)",29.77,94.73
+P09817,2015.01.23_A,SumDDT_ngg,1391,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; d-HCH=BDL; PCB28=N/A(PDF parse corrupt); PCB52=N/A(PDF parse corrupt); PCB180=N/A(PDF parse corrupt)",29.77,94.73
+P09817,2015.01.23_A,SumPCB_ngg,23,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, SumPCB=PCB28+52+101+153+138+180; d-HCH=BDL; PCB28=N/A(PDF parse corrupt); PCB52=N/A(PDF parse corrupt); PCB180=N/A(PDF parse corrupt)",29.77,94.73
+P09817,2015.01.23_B,SumHCH_ngg,274,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, Sum_HCH=a+b+g+d-HCH; d-HCH=BDL",29.77,94.73
+P09817,2015.01.23_B,SumDDT_ngg,1074,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; d-HCH=BDL",29.77,94.73
+P09817,2015.01.23_B,SumPCB_ngg,53,ng/g,Table S8 Lulang,soil,other,Tibet,"Table S8 Part Lulang, winter, SumPCB=PCB28+52+101+153+138+180; d-HCH=BDL",29.77,94.73
+P09817,2013.08.03_A,SumHCH_ngg,49,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, summer, Sum_HCH=a+b+g+d-HCH; PCB180=BDL",29.77,94.73
+P09817,2013.08.03_A,SumDDT_ngg,836,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, summer, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; PCB180=BDL",29.77,94.73
+P09817,2013.08.03_A,SumPCB_ngg,43,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, summer, SumPCB=PCB28+52+101+153+138+180; PCB180=BDL",29.77,94.73
+P09817,2013.08.03_B,SumHCH_ngg,12,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, summer, Sum_HCH=a+b+g+d-HCH; a-HCH=BDL; g-HCH=BDL; HCB=BDL; o,p'-DDE=BDL; PCB180=BDL",29.77,94.73
+P09817,2013.08.03_B,SumDDT_ngg,204,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, summer, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; a-HCH=BDL; g-HCH=BDL; HCB=BDL; o,p'-DDE=BDL; PCB180=BDL",29.77,94.73
+P09817,2013.08.03_B,SumPCB_ngg,12,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, summer, SumPCB=PCB28+52+101+153+138+180; a-HCH=BDL; g-HCH=BDL; HCB=BDL; o,p'-DDE=BDL; PCB180=BDL",29.77,94.73
+P09817,2012.12.03_A,SumHCH_ngg,51,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, winter, Sum_HCH=a+b+g+d-HCH; d-HCH=BDL; PCB180=BDL",29.77,94.73
+P09817,2012.12.03_A,SumDDT_ngg,1224,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; d-HCH=BDL; PCB180=BDL",29.77,94.73
+P09817,2012.12.03_A,SumPCB_ngg,34,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, winter, SumPCB=PCB28+52+101+153+138+180; d-HCH=BDL; PCB180=BDL",29.77,94.73
+P09817,2012.12.03_B,SumDDT_ngg,85,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; a-HCH=BDL; b-HCH=BDL; g-HCH=BDL; d-HCH=BDL; HCB=BDL; PCB52=BDL; PCB153=BDL",29.77,94.73
+P09817,2012.12.03_B,SumPCB_ngg,7,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, winter, SumPCB=PCB28+52+101+153+138+180; a-HCH=BDL; b-HCH=BDL; g-HCH=BDL; d-HCH=BDL; HCB=BDL; PCB52=BDL; PCB153=BDL",29.77,94.73
+P09817,2012.12.06_A,SumHCH_ngg,40,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, winter, Sum_HCH=a+b+g+d-HCH; PCB180=BDL",29.77,94.73
+P09817,2012.12.06_A,SumDDT_ngg,260,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; PCB180=BDL",29.77,94.73
+P09817,2012.12.06_A,SumPCB_ngg,24,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, winter, SumPCB=PCB28+52+101+153+138+180; PCB180=BDL",29.77,94.73
+P09817,2012.12.06_B,SumHCH_ngg,56,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, winter, Sum_HCH=a+b+g+d-HCH; b-HCH=BDL; PCB52=BDL; PCB153=BDL",29.77,94.73
+P09817,2012.12.06_B,SumDDT_ngg,690,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; b-HCH=BDL; PCB52=BDL; PCB153=BDL",29.77,94.73
+P09817,2012.12.06_B,SumPCB_ngg,31,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, winter, SumPCB=PCB28+52+101+153+138+180; b-HCH=BDL; PCB52=BDL; PCB153=BDL",29.77,94.73
+P09817,2012.12.12_A,SumHCH_ngg,42,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, winter, Sum_HCH=a+b+g+d-HCH; d-HCH=BDL; PCB180=BDL",29.77,94.73
+P09817,2012.12.12_A,SumDDT_ngg,445,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; d-HCH=BDL; PCB180=BDL",29.77,94.73
+P09817,2012.12.12_A,SumPCB_ngg,29,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, winter, SumPCB=PCB28+52+101+153+138+180; d-HCH=BDL; PCB180=BDL",29.77,94.73
+P09817,2012.12.12_B,SumHCH_ngg,6,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, winter, Sum_HCH=a+b+g+d-HCH; a-HCH=BDL; b-HCH=BDL; g-HCH=BDL; PCB52=BDL; PCB153=BDL; PCB138=BDL",29.77,94.73
+P09817,2012.12.12_B,SumDDT_ngg,136,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; a-HCH=BDL; b-HCH=BDL; g-HCH=BDL; PCB52=BDL; PCB153=BDL; PCB138=BDL",29.77,94.73
+P09817,2012.12.12_B,SumPCB_ngg,16,ng/g,Table S8 Nam Co,soil,other,Tibet,"Table S8 Part Nam Co, winter, SumPCB=PCB28+52+101+153+138+180; a-HCH=BDL; b-HCH=BDL; g-HCH=BDL; PCB52=BDL; PCB153=BDL; PCB138=BDL",29.77,94.73
+P09817,2014.06.09_A,SumHCH_ngg,8,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, Sum_HCH=a+b+g+d-HCH; a-HCH=BDL; b-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.09_A,SumDDT_ngg,1844,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; a-HCH=BDL; b-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.09_A,SumPCB_ngg,54,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, SumPCB=PCB28+52+101+153+138+180; a-HCH=BDL; b-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.09_B,SumHCH_ngg,13,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, Sum_HCH=a+b+g+d-HCH; a-HCH=BDL; b-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB138=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.09_B,SumDDT_ngg,671,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; a-HCH=BDL; b-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB138=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.09_B,SumPCB_ngg,54,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, SumPCB=PCB28+52+101+153+138+180; a-HCH=BDL; b-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB138=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.14_A,SumHCH_ngg,21,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, Sum_HCH=a+b+g+d-HCH; a-HCH=BDL; d-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.14_A,SumDDT_ngg,2969,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; a-HCH=BDL; d-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.14_A,SumPCB_ngg,33,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, SumPCB=PCB28+52+101+153+138+180; a-HCH=BDL; d-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.14_B,SumHCH_ngg,10,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, Sum_HCH=a+b+g+d-HCH; a-HCH=BDL; b-HCH=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.14_B,SumDDT_ngg,1200,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; a-HCH=BDL; b-HCH=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.14_B,SumPCB_ngg,83,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, SumPCB=PCB28+52+101+153+138+180; a-HCH=BDL; b-HCH=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.19_A,SumHCH_ngg,63,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, Sum_HCH=a+b+g+d-HCH; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.19_A,SumDDT_ngg,2943,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.19_A,SumPCB_ngg,121,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, SumPCB=PCB28+52+101+153+138+180; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.19_B,SumHCH_ngg,22,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, Sum_HCH=a+b+g+d-HCH; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.19_B,SumDDT_ngg,1471,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.19_B,SumPCB_ngg,46,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, SumPCB=PCB28+52+101+153+138+180; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.24_A,SumHCH_ngg,35,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, Sum_HCH=a+b+g+d-HCH; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.24_A,SumDDT_ngg,784,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.24_A,SumPCB_ngg,34,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, SumPCB=PCB28+52+101+153+138+180; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.24_B,SumHCH_ngg,20,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, Sum_HCH=a+b+g+d-HCH; d-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.24_B,SumDDT_ngg,1401,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; d-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.06.24_B,SumPCB_ngg,23,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, summer, SumPCB=PCB28+52+101+153+138+180; d-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.07_A,SumHCH_ngg,23,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, Sum_HCH=a+b+g+d-HCH; a-HCH=BDL; d-HCH=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.07_A,SumDDT_ngg,887,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; a-HCH=BDL; d-HCH=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.07_A,SumPCB_ngg,38,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, SumPCB=PCB28+52+101+153+138+180; a-HCH=BDL; d-HCH=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.07_B,SumHCH_ngg,30,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, Sum_HCH=a+b+g+d-HCH; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.07_B,SumDDT_ngg,1286,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.07_B,SumPCB_ngg,25,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, SumPCB=PCB28+52+101+153+138+180; PCB153=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.12_A,SumHCH_ngg,24,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, Sum_HCH=a+b+g+d-HCH; a-HCH=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB138=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.12_A,SumDDT_ngg,905,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; a-HCH=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB138=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.12_A,SumPCB_ngg,116,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, SumPCB=PCB28+52+101+153+138+180; a-HCH=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB138=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.12_B,SumHCH_ngg,19,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, Sum_HCH=a+b+g+d-HCH; a-HCH=BDL; d-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB138=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.12_B,SumDDT_ngg,1755,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; a-HCH=BDL; d-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB138=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.12_B,SumPCB_ngg,48,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, SumPCB=PCB28+52+101+153+138+180; a-HCH=BDL; d-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB138=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.17_A,SumHCH_ngg,19,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, Sum_HCH=a+b+g+d-HCH; a-HCH=BDL; g-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB138=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.17_A,SumDDT_ngg,1394,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; a-HCH=BDL; g-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB138=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.17_A,SumPCB_ngg,21,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, SumPCB=PCB28+52+101+153+138+180; a-HCH=BDL; g-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB138=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.17_B,SumHCH_ngg,35,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, Sum_HCH=a+b+g+d-HCH; d-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB138=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.17_B,SumDDT_ngg,1167,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; d-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB138=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.17_B,SumPCB_ngg,39,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, SumPCB=PCB28+52+101+153+138+180; d-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB153=BDL; PCB138=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.22_A,SumDDT_ngg,460,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; a-HCH=BDL; b-HCH=BDL; g-HCH=BDL; d-HCH=BDL; o,p'-DDE=BDL; PCB153=BDL; PCB138=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.22_A,SumPCB_ngg,12,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, SumPCB=PCB28+52+101+153+138+180; a-HCH=BDL; b-HCH=BDL; g-HCH=BDL; d-HCH=BDL; o,p'-DDE=BDL; PCB153=BDL; PCB138=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.22_B,SumHCH_ngg,19,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, Sum_HCH=a+b+g+d-HCH; a-HCH=BDL; d-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB52=BDL; PCB138=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.22_B,SumDDT_ngg,633,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, SumDDT=o,p'-DDE+p,p'-DDE+o,p'-DDT+p,p'-DDT; a-HCH=BDL; d-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB52=BDL; PCB138=BDL; PCB180=BDL",29.77,94.73
+P09817,2014.10.22_B,SumPCB_ngg,12,ng/g,Table S8 Ngari,soil,other,Tibet,"Table S8 Part Ngari, winter, SumPCB=PCB28+52+101+153+138+180; a-HCH=BDL; d-HCH=BDL; o,p'-DDE=BDL; o,p'-DDT=BDL; PCB52=BDL; PCB138=BDL; PCB180=BDL",29.77,94.73

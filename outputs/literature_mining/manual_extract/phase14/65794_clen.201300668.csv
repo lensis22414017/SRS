@@ -1,0 +1,60 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+65794_clen.201300668,65794_clen.201300668_OM,OM,OM_pct,1.0,Unknown,,high,table_p4_ri2_ci2,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_Clay,Clay,Clay_pct,1.0,Unknown,,high,table_p4_ri3_ci3,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_OM,OM,pH,0.013,Unknown,,high,table_p4_ri4_ci2,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_pH,pH,pH,1.0,Unknown,,high,table_p4_ri4_ci4,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_Depth,Depth,Cd_mgkg,-0.015,Unknown,,high,table_p4_ri5_ci1,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_OM,OM,Cd_mgkg,0.05,Unknown,,high,table_p4_ri5_ci2,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_Clay,Clay,Cd_mgkg,-0.139,Unknown,,high,table_p4_ri5_ci3,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_pH,pH,Cd_mgkg,-0.156,Unknown,,high,table_p4_ri5_ci4,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_Cd,Cd,Cd_mgkg,1.0,Unknown,,high,table_p4_ri5_ci5,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_Depth,Depth,Cr_mgkg,-0.096,Unknown,,high,table_p4_ri6_ci1,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_Cd,Cd,Cr_mgkg,0.027,Unknown,,high,table_p4_ri6_ci5,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_Cr,Cr,Cr_mgkg,1.0,Unknown,,high,table_p4_ri6_ci6,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_Clay,Clay,Cu_mgkg,0.07,Unknown,,high,table_p4_ri7_ci3,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_Cd,Cd,Cu_mgkg,-0.025,Unknown,,high,table_p4_ri7_ci5,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_Cu,Cu,Cu_mgkg,1.0,Unknown,,high,table_p4_ri7_ci7,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_Depth,Depth,Pb_mgkg,-0.135,Unknown,,high,table_p4_ri8_ci1,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_Clay,Clay,Pb_mgkg,-0.151,Unknown,,high,table_p4_ri8_ci3,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_Cr,Cr,Pb_mgkg,0.038,Unknown,,high,table_p4_ri8_ci6,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_Cu,Cu,Pb_mgkg,0.08,Unknown,,high,table_p4_ri8_ci7,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_Pb,Pb,Pb_mgkg,1.0,Unknown,,high,table_p4_ri8_ci8,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_pH,pH,Zn_mgkg,0.051,Unknown,,high,table_p4_ri9_ci4,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_Cr,Cr,Zn_mgkg,0.05,Unknown,,high,table_p4_ri9_ci6,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_Zn,Zn,Zn_mgkg,1.0,Unknown,,high,table_p4_ri9_ci9,Table 1. Relationship between soil properties and heavy metals in the soil
+65794_clen.201300668,65794_clen.201300668_S2,S2,Cd_mgkg,0.007,Unknown,,high,table_p4_ri1_ci1,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S3,S3,Cd_mgkg,0.012,Unknown,,high,table_p4_ri1_ci2,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S4,S4,Cd_mgkg,0.009,Unknown,,high,table_p4_ri1_ci3,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S5,S5,Cd_mgkg,0.019,Unknown,,high,table_p4_ri1_ci4,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S6,S6,Cd_mgkg,1.0,Unknown,,high,table_p4_ri1_ci5,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S7,S7,Cd_mgkg,1.0,Unknown,,high,table_p4_ri1_ci6,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S8,S8,Cd_mgkg,0.017,Unknown,,high,table_p4_ri1_ci7,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S9,S9,Cd_mgkg,0.065,Unknown,,high,table_p4_ri1_ci8,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S10,S10,Cd_mgkg,1.0,Unknown,,high,table_p4_ri1_ci9,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S2,S2,Cu_mgkg,2.822,Unknown,,high,table_p4_ri2_ci1,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S3,S3,Cu_mgkg,1.0,Unknown,,high,table_p4_ri2_ci2,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S4,S4,Cu_mgkg,3.644,Unknown,,high,table_p4_ri2_ci3,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S5,S5,Cu_mgkg,1.812,Unknown,,high,table_p4_ri2_ci4,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S6,S6,Cu_mgkg,6.508,Unknown,,high,table_p4_ri2_ci5,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S7,S7,Cu_mgkg,1.253,Unknown,,high,table_p4_ri2_ci6,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S8,S8,Cu_mgkg,3.028,Unknown,,high,table_p4_ri2_ci7,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S9,S9,Cu_mgkg,0.555,Unknown,,high,table_p4_ri2_ci8,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S10,S10,Cu_mgkg,6.668,Unknown,,high,table_p4_ri2_ci9,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S2,S2,Pb_mgkg,1.0,Unknown,,high,table_p4_ri3_ci1,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S3,S3,Pb_mgkg,0.616,Unknown,,high,table_p4_ri3_ci2,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S4,S4,Pb_mgkg,0.941,Unknown,,high,table_p4_ri3_ci3,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S5,S5,Pb_mgkg,1.094,Unknown,,high,table_p4_ri3_ci4,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S6,S6,Pb_mgkg,1.173,Unknown,,high,table_p4_ri3_ci5,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S7,S7,Pb_mgkg,14.171,Unknown,,high,table_p4_ri3_ci6,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S8,S8,Pb_mgkg,1.0,Unknown,,high,table_p4_ri3_ci7,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S9,S9,Pb_mgkg,1.441,Unknown,,high,table_p4_ri3_ci8,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S10,S10,Pb_mgkg,2.991,Unknown,,high,table_p4_ri3_ci9,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S2,S2,Zn_mgkg,1.0,Unknown,,high,table_p4_ri4_ci1,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S3,S3,Zn_mgkg,2.637,Unknown,,high,table_p4_ri4_ci2,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S4,S4,Zn_mgkg,13.174,Unknown,,high,table_p4_ri4_ci3,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S5,S5,Zn_mgkg,1.788,Unknown,,high,table_p4_ri4_ci4,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S6,S6,Zn_mgkg,1.639,Unknown,,high,table_p4_ri4_ci5,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S7,S7,Zn_mgkg,1.0,Unknown,,high,table_p4_ri4_ci6,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S8,S8,Zn_mgkg,3.543,Unknown,,high,table_p4_ri4_ci7,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S9,S9,Zn_mgkg,7.854,Unknown,,high,table_p4_ri4_ci8,Table 2. Ml of the heavy metals in soil cores
+65794_clen.201300668,65794_clen.201300668_S10,S10,Zn_mgkg,2.307,Unknown,,high,table_p4_ri4_ci9,Table 2. Ml of the heavy metals in soil cores

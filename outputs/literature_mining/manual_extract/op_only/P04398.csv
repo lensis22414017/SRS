@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04398,,,,,,,,"skip: 实验室土柱迁移模拟实验(spiked PHE)，土壤采自胜利/南阳/延长油田周边但明确为uncontaminated soil无OP实测浓度；Table1仅理化性质(OM/TN/NO3-N/NH4-N/TP/粒径)，全文无Sum_PAH/BaP/PCB/DDT/HCH/PBDE/TPH等采样点级OP数据；结果为穿透曲线C/C0比值非浓度值"

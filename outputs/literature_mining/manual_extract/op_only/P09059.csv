@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09059,,,,,,,,"skip: Meta-analysis compiling ~100 literature PCBs data 2000-2020 for Taihu Basin; only regional Mean/Min/Max summary stats in Table 1 (soil Mean=14643.60 pg/g from 13 articles/788 samples); no sampling-point level data; Table 2=fish BAF (not soil); Table 3=AWQC criteria values (thresholds not measured concentrations)"

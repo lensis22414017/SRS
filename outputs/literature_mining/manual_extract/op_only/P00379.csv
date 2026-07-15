@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00379,,,,,,,,"skip: Table 3 only gives depth-aggregated Mean and Range across 8 sites (HU1-HU4/HP1-HP4) per depth layer (0-2/2-5/.../60-100cm), not per-site sample-level concentrations; individual site values only in Fig.2 and Fig.4 (non-extractable figures); text mentions scattered thresholds (HU4 above 500 / HU1 above 187.0 / HP3 Nap peak 239.9) but no systematic sample-level table; Table 2 is QC recovery/LOD; Table 4 is diagnostic source ratios"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06087,,,,,,,,"skip: 仅有区域汇总统计(Range/Mean/Min/Max/Median),无采样点级浓度数据。Table 2为全区域Mean+Range,Table 4为实验田Min/Max/Mean/Median,Table 3为作物组织非土壤。空间分布数据均在图片(Fig 5-10)中无法提取"

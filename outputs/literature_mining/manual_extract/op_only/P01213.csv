@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01213,,,,,,,,,"skip: 仅统计汇总（Table 1为42样本Min/Max/Average统计行）和分组均值（中心区/外围区/距离/深度组均值）；位置级Σ14PBDEs值（S4=58/S8=17/S13=6.4/S16=23）均为3层深度的均值（explicit average）；正文仅提及个别单体极值（S3 BDE209=2666/S10 BDE28=13/S7 BDE138=26/S18 BDE190=33）但单体congener非SumPBDE指标；完整采样点级数据在Table S1补充材料中但SI未获取"

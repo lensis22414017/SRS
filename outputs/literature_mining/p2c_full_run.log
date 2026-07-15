@@ -1,0 +1,57 @@
+C 级论文: 1055
+  进度 100/1055 | 已抽 45 观测 / 40 表 / 67 篇解析
+  进度 200/1055 | 已抽 116 观测 / 84 表 / 140 篇解析
+  进度 300/1055 | 已抽 196 观测 / 124 表 / 222 篇解析
+  进度 400/1055 | 已抽 264 观测 / 161 表 / 302 篇解析
+  进度 500/1055 | 已抽 299 观测 / 195 表 / 379 篇解析
+  进度 600/1055 | 已抽 351 观测 / 239 表 / 454 篇解析
+  进度 700/1055 | 已抽 472 观测 / 281 表 / 529 篇解析
+  进度 800/1055 | 已抽 513 观测 / 312 表 / 608 篇解析
+  进度 900/1055 | 已抽 588 观测 / 340 表 / 674 篇解析
+  进度 1000/1055 | 已抽 628 观测 / 375 表 / 750 篇解析
+
+=== P2C C 级抽取结果 ===
+统计: {'no_md': 27, 'no_table': 222, 'parse_err': 4, 'parsed_ok': 802, 'tables_seen': 2850, 'tables_conc_classified': 384, 'tables_extracted': 384, 'records_extracted': 633}
+总观测: 633, 论文: 54
+
+evidence_level:
+evidence_level
+A_sample_table    633
+
+pollutant_name_std top 15:
+pollutant_name_std
+Sum_PAH_ngg      342
+BaP_ngg          190
+SumPCB_ngg        43
+SumHCHs_ngg       23
+SumDDTs_ngg       16
+SumPBDE_ngg        9
+Cd_mgkg            2
+Cu_mgkg            2
+Pb_mgkg            2
+Zn_mgkg            1
+TotalPHC_mgkg      1
+Ni_mgkg            1
+Cr_mgkg            1
+
+pollution_type:
+pollution_type
+OP       623
+HM_OP      6
+HM         4
+
+extract_status 分布 (日志):
+extract_status
+reject_non_soil_matrix          83
+reject_reference_compilation    81
+no_header                       77
+ok_transposed                   47
+no_pollutant_columns            44
+no_data_rows                    30
+ok_samples                      18
+parse_err                        4
+transposed_no_data               3
+skip_too_small                   1
+
+输出: C:\Users\曾鸿\Desktop\SRS\outputs\literature_mining\c_level_observations.csv
+日志: C:\Users\曾鸿\Desktop\SRS\outputs\literature_mining\p2c_extraction_log.csv

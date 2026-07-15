@@ -1,0 +1,6 @@
+﻿paper_id,lat,lon,coord_source,n_coords_found,region,in_training_ready,in_op_only
+P01795,23.566666666666666,113.01666666666667,DMS_minute,1,China,False,False
+P01272,39.25,117.96666666666667,DMS_minute,2,China,False,False
+P01962,29.77,94.73,DMS_degree,1,China,False,False
+P04895,28.625,77.25,latlon_kw,1,China?mixed,False,False
+P09747,31.266666666666666,119.9,DMS_minute,1,China,False,False

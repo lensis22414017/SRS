@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05398,,,,,,,"skip: 论文研究抗生素抗性传播而非抗生素浓度。Table 1为E. coli MIC50/MIC90(细菌抗药性参数非环境浓度)，Table 2为MARI指数，Figure 5为ARG/MGE基因丰度。论文原文明确声明未分析土壤抗生素污染物(quote: did not analyze the antibiotic pollutants in the park soil)。无任何采样点级SMZ/SDZ/ENRO/CTC/OTC等抗生素浓度数据"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01389,N/A,N/A,N/A,N/A,N/A,sediment,aquaculture,N/A,"skip: 本地PDF仅1页(摘要+引言) 无完整数据表; ScienceDirect网页仅展示Section snippets含统计汇总值(Mean total OCP 32.6 ug/kg "detection rate 67.2%") 非采样点级; Table 1(逐OCP类型均值)和Table S1(45个采样点位置)均在付费墙后无法获取; SI目录为空; 论文研究养殖池塘沉积物中19种OCP(DDTs/HCHs/chlordanes/DRINs/endosulfans/HCB) matrix=sediment符合保留条件但无原始采样点数据可提取"

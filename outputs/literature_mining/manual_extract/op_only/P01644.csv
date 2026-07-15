@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01644,,,,,,,,"Guizhou","skip: paper.md仅提取到摘要就截断(Elsevier JS渲染PDF,MinerU/PyMuPDF无法提取正文表格), 所有扫描脚本score=0/p2_probe标记figure_only, 无采样点级数据可提取。摘要级: PAHs max 234.3 ug/kg, xanthate 0.1-89.2 ug/kg, Guizhou mercury mining tailings pond。待完整OCR或机构订阅获取完整正文后重新提取"

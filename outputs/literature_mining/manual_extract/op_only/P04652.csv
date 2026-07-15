@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04652,SKIP,SUMMARY_ONLY,,,,,,,"skip: 论文仅测57种当前使用农药(atrazine/acetochlor/chlorpyrifos等triazines/amides/azoles/carbamates/organophosphates),未测任何目标OP(PAH/PCB/DDT/HCH/PBDE/PHC); 且土壤浓度仅以Mean/range统计汇总和Figure2/3呈现,无采样点级表格数据"

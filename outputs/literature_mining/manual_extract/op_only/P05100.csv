@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05100,WS_2,TotalPHC_mgkg,473.50,mg/kg,Table 1,soil,oilfield,Hebei,"TPH直接读取,mean±SD为分析重复"
+P05100,WS_4,TotalPHC_mgkg,3878.75,mg/kg,Table 1,soil,oilfield,Hebei,"TPH直接读取,mean±SD为分析重复"
+P05100,WS_6,TotalPHC_mgkg,9538.34,mg/kg,Table 1,soil,oilfield,Hebei,"TPH直接读取,mean±SD为分析重复"
+P05100,WS_2,Sum_PAH_ngg,737.4,ng/g,Table 1,soil,oilfield,Hebei,"Nap(44.5)+Flu(58.6)+Phe(237.1)+Ant(293)+Pyr(104.2)求和,其余9种EPA PAH为ND"
+P05100,WS_4,Sum_PAH_ngg,68.3,ng/g,Table 1,soil,oilfield,Hebei,"Nap(56.4)+BaA(11.9)求和,其余14种EPA PAH为ND"
+P05100,WS_6,Sum_PAH_ngg,324.1,ng/g,Table 1,soil,oilfield,Hebei,"Nap(33.6)+Flu(162.1)+Phe(86.6)+Pyr(27.5)+Chr(14.3)求和,其余11种EPA PAH为ND"

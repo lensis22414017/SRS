@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00855,,,,,,,,,"skip: 模型估算研究非实测数据，全文基于塑料薄膜使用量×残留率×参数通过公式1-5估算省级PAE污染负荷(kg/ha/year)和污染水平(mg/kg)，无任何采样点级实测PAE浓度。Figure 2/3为省级模型预测值，Table 1为模型输入参数(薄膜用量/残留率/面积)，Figure 4对比数据引用自其他论文(Ma 2003/Hu 2003/Guan 2007/Zeng 2008)。违反铁律1(禁止估算/外推)和铁律4(不把省级均值当场地样本)"

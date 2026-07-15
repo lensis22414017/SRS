@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11492,,,,,,,,"仅按3种土地利用类型(construction/transportation/woodland&grassland)汇总统计量(Min/Max/Mean/CV)，60个采样点无个体浓度数据；Table1全部为统计行需拒绝；Table2为CSI风险指数需拒绝"

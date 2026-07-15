@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01595,,,,,,soil,steelworks,Anhui,skip: 论文仅有描述性统计(Table1全为Max/Min/Median/Mean/CV/Skewness/Kurtosis统计行)+分层均值(Fig4)+IDW插值结果(Fig2/3)+Moran's I(Fig5/6); 虽有5104钻孔/上万样品(6181PAH+1721VOC+13025HM)但未公开任何采样点级原始浓度; Data Availability明确声明'The authors do not have permission to share data'; HM仅As/Pb/Cd三元素非8元全集; PAH为L/M/H分组非16EPA单体; 正文3.3段的121.89/17.96/8.41/724.49/200.47均为分层Max或Mean统计量非采样点

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11552,,,,,,,,"skip: 微塑料对PAH吸附/迁移影响实验。实验室添加实验(spiked PE/PVC+Phe/Pyr于渭河沉积物)；非真实场地采样点级OP污染数据。所有PAH值为实验吸附容量(μg/g)，非环境浓度。兼属排除场景: 微塑料研究+吸附实验+沉积物矩阵+无场地级OP数据。"

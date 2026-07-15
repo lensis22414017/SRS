@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00743,,,,,,soil,agricultural,Beijing,"skip: Table 2仅有Min/Max/Mean统计汇总列"无采样点标识符(S1/S2等)"无法提取采样点级数据; Table 3为蔬菜植物组织数据(剔除); Table 4为生物富集系数(衍生指标); Table 5为DI-PAH风险指标"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01564,,,,,,,,"skip: 实验室热解实验(非场地土壤)。研究生物质慢热解(800°C马弗炉N2氛围)制备生物炭过程中金属氰化物(MCN/KCN/NaCN)的生成机制与抑制策略。18种生物质为生物炭原料(锯末/麦秸/畜禽粪便/食物废料等)，非田间土壤采样点；CN-含量测于炉制生物炭而非土壤；含模拟添加实验(小麦蛋白+K2CO3/Na2CO3/CaCO3/FeCl3/MgCl2)。无PAHs/PCBs/DDT/HCH/PBDE/PHC/抗生素/PAEs/OCPs任何目标有机污染物的采样点级浓度数据。CSV中OCPs标签系误分类。"

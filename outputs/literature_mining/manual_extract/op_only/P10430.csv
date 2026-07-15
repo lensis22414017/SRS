@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10430,,,,,,,,"skip: 仅有SI无主文; Table S3/S4均为按海拔分组(>2000m/500-2000m/<500m)和森林类型分组的Mean±SD/Min-Max统计汇总; Table S2为文献对比表(含This study总体均值222和168 ng/g); 无任何可识别个体采样点级数据(无S1/点位名等标识)"

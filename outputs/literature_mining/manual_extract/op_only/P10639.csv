@@ -1,0 +1,89 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10639,D01,SumHCH_ngg,0.05,ng/g,Table 1,soil,other,Guangxi,Dashiwei顶部; Table1直接读取HCHs行(alpha+beta+gamma+delta求和值)
+P10639,D01,SumDDT_ngg,0.07,ng/g,Table 1,soil,other,Guangxi,Dashiwei顶部; Table1直接读取DDTs行(p,p'-DDT+o,p'-DDT+p,p'-DDE+p,p'-DDD)
+P10639,D01,Endosulfan_ngg,0.03,ng/g,Table 1,soil,other,Guangxi,Dashiwei顶部; alpha-endosulfan(0.00)+beta-endosulfan(0.03)求和
+P10639,D01,OCP_total,1.25,ng/g,Table 1,soil,other,Guangxi,Dashiwei顶部; Table1直接读取SOCPs行(23种OCP总和)
+P10639,D02,SumHCH_ngg,0.00,ng/g,Table 1,soil,other,Guangxi,Dashiwei顶部; 所有HCH异构体ND(检出限0.01-0.18 ng/g); HCHs行标ND,取0
+P10639,D02,SumDDT_ngg,0.21,ng/g,Table 1,soil,other,Guangxi,Dashiwei顶部; Table1直接读取DDTs行
+P10639,D02,Endosulfan_ngg,0.01,ng/g,Table 1,soil,other,Guangxi,Dashiwei顶部; alpha-endosulfan(ND)+beta-endosulfan(0.01)求和
+P10639,D02,OCP_total,2.46,ng/g,Table 1,soil,other,Guangxi,Dashiwei顶部; Table1直接读取SOCPs行
+P10639,D03,SumHCH_ngg,0.03,ng/g,Table 1,soil,other,Guangxi,Dashiwei顶部; Table1直接读取HCHs行
+P10639,D03,SumDDT_ngg,0.36,ng/g,Table 1,soil,other,Guangxi,Dashiwei顶部; Table1直接读取DDTs行
+P10639,D03,Endosulfan_ngg,0.02,ng/g,Table 1,soil,other,Guangxi,Dashiwei顶部; alpha-endosulfan(0.01)+beta-endosulfan(0.01)求和
+P10639,D03,OCP_total,1.09,ng/g,Table 1,soil,other,Guangxi,Dashiwei顶部; Table1直接读取SOCPs行
+P10639,D04,SumHCH_ngg,0.00,ng/g,Table 1,soil,other,Guangxi,Dashiwei顶部; 所有HCH异构体ND; HCHs行标ND,取0
+P10639,D04,SumDDT_ngg,0.01,ng/g,Table 1,soil,other,Guangxi,Dashiwei顶部; Table1直接读取DDTs行
+P10639,D04,Endosulfan_ngg,0.00,ng/g,Table 1,soil,other,Guangxi,Dashiwei顶部; alpha-endosulfan(ND)+beta-endosulfan(ND)均为ND
+P10639,D04,OCP_total,0.03,ng/g,Table 1,soil,other,Guangxi,Dashiwei顶部; Table1直接读取SOCPs行(全表最低值)
+P10639,D0,SumHCH_ngg,0.14,ng/g,Table 1,soil,other,Guangxi,Dashiwei底部; Table1直接读取HCHs行
+P10639,D0,SumDDT_ngg,0.05,ng/g,Table 1,soil,other,Guangxi,Dashiwei底部; Table1直接读取DDTs行
+P10639,D0,Endosulfan_ngg,0.01,ng/g,Table 1,soil,other,Guangxi,Dashiwei底部; alpha-endosulfan(0.01)+beta-endosulfan(ND)求和
+P10639,D0,OCP_total,0.42,ng/g,Table 1,soil,other,Guangxi,Dashiwei底部; Table1直接读取SOCPs行(底部最低值)
+P10639,D1,SumHCH_ngg,0.22,ng/g,Table 1,soil,other,Guangxi,Dashiwei底部; Table1直接读取HCHs行(底部最高HCHs)
+P10639,D1,SumDDT_ngg,2.54,ng/g,Table 1,soil,other,Guangxi,Dashiwei底部; Table1直接读取DDTs行
+P10639,D1,Endosulfan_ngg,0.00,ng/g,Table 1,soil,other,Guangxi,Dashiwei底部; alpha-endosulfan(ND)+beta-endosulfan(ND)均为ND
+P10639,D1,OCP_total,3.13,ng/g,Table 1,soil,other,Guangxi,Dashiwei底部; Table1直接读取SOCPs行
+P10639,D2,SumHCH_ngg,0.11,ng/g,Table 1,soil,other,Guangxi,Dashiwei底部; Table1直接读取HCHs行
+P10639,D2,SumDDT_ngg,3.61,ng/g,Table 1,soil,other,Guangxi,Dashiwei底部; Table1直接读取DDTs行(全表最高DDTs)
+P10639,D2,Endosulfan_ngg,0.04,ng/g,Table 1,soil,other,Guangxi,Dashiwei底部; alpha-endosulfan(0.01)+beta-endosulfan(0.03)求和
+P10639,D2,OCP_total,5.13,ng/g,Table 1,soil,other,Guangxi,Dashiwei底部; Table1直接读取SOCPs行(全表最高值)
+P10639,D3,SumHCH_ngg,0.05,ng/g,Table 1,soil,other,Guangxi,Dashiwei底部; Table1直接读取HCHs行
+P10639,D3,SumDDT_ngg,0.14,ng/g,Table 1,soil,other,Guangxi,Dashiwei底部; Table1直接读取DDTs行
+P10639,D3,Endosulfan_ngg,0.07,ng/g,Table 1,soil,other,Guangxi,Dashiwei底部; alpha-endosulfan(0.01)+beta-endosulfan(0.06)求和
+P10639,D3,OCP_total,1.08,ng/g,Table 1,soil,other,Guangxi,Dashiwei底部; Table1直接读取SOCPs行
+P10639,D4,SumHCH_ngg,0.02,ng/g,Table 1,soil,other,Guangxi,Dashiwei底部; Table1直接读取HCHs行(底部最低HCHs)
+P10639,D4,SumDDT_ngg,0.51,ng/g,Table 1,soil,other,Guangxi,Dashiwei底部; Table1直接读取DDTs行
+P10639,D4,Endosulfan_ngg,0.04,ng/g,Table 1,soil,other,Guangxi,Dashiwei底部; alpha-endosulfan(0.01)+beta-endosulfan(0.03)求和
+P10639,D4,OCP_total,1.17,ng/g,Table 1,soil,other,Guangxi,Dashiwei底部; Table1直接读取SOCPs行
+P10639,L0,SumHCH_ngg,0.00,ng/g,Table 2,soil,other,Guangxi,Datuo顶部; 所有HCH异构体ND; HCHs行标ND,取0
+P10639,L0,SumDDT_ngg,0.03,ng/g,Table 2,soil,other,Guangxi,Datuo顶部; DDTs行直接读取(AA'剖面)
+P10639,L0,Endosulfan_ngg,0.01,ng/g,Table 2,soil,other,Guangxi,Datuo顶部; alpha-endosulfan(ND)+beta-endosulfan(0.01)求和
+P10639,L0,OCP_total,0.13,ng/g,Table 2+正文,soil,other,Guangxi,Datuo顶部; 正文L0=0.13 ng/g; 23单体求和0.13验证一致
+P10639,L1,SumHCH_ngg,0.02,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面; Table2直接读取HCHs行
+P10639,L1,SumDDT_ngg,0.02,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面; DDTs行直接读取
+P10639,L1,Endosulfan_ngg,0.00,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面; alpha-endosulfan(ND)+beta-endosulfan(ND)均为ND
+P10639,L1,OCP_total,0.36,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面; 23单体求和(OCR缺失SOCPs行)
+P10639,L2,SumHCH_ngg,0.11,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面; Table2直接读取HCHs行
+P10639,L2,SumDDT_ngg,0.05,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面; DDTs行直接读取
+P10639,L2,Endosulfan_ngg,0.01,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面; alpha-endosulfan(ND)+beta-endosulfan(0.01)求和
+P10639,L2,OCP_total,0.46,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面; 23单体求和(OCR缺失SOCPs行)
+P10639,L3,SumHCH_ngg,0.15,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面; Table2直接读取HCHs行
+P10639,L3,SumDDT_ngg,3.28,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面; DDTs行直接读取(全表最高DDTs)
+P10639,L3,Endosulfan_ngg,0.58,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面; alpha-endosulfan(0.18)+beta-endosulfan(0.40)求和
+P10639,L3,OCP_total,14.36,ng/g,Table 2+正文,soil,other,Guangxi,Datuo AA'剖面; 正文L3=14.36 ng/g; 23单体求和14.36验证一致(全表最高)
+P10639,L4,SumHCH_ngg,0.15,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面; Table2直接读取HCHs行
+P10639,L4,SumDDT_ngg,0.01,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面; DDTs行直接读取
+P10639,L4,Endosulfan_ngg,0.04,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面; alpha-endosulfan(0.02)+beta-endosulfan(0.02)求和
+P10639,L4,OCP_total,0.78,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面; 23单体求和(OCR缺失SOCPs行)
+P10639,L5,SumHCH_ngg,0.39,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面; Table2直接读取HCHs行(全表最高HCHs)
+P10639,L5,SumDDT_ngg,0.01,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面; DDTs行直接读取
+P10639,L5,Endosulfan_ngg,0.02,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面; alpha-endosulfan(0.01)+beta-endosulfan(0.01)求和
+P10639,L5,OCP_total,0.81,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面; 23单体求和(OCR缺失SOCPs行)
+P10639,L10_AA,SumHCH_ngg,0.02,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面L10; HCHs行写0.01,但单体求和alpha(0.01)+gamma(0.01)=0.02; 用单体求和值并标注原文HCHs行歧义
+P10639,L10_AA,SumDDT_ngg,0.03,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面L10; DDTs行直接读取
+P10639,L10_AA,Endosulfan_ngg,0.01,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面L10; alpha-endosulfan(0.01)+beta-endosulfan(ND)求和
+P10639,L10_AA,OCP_total,0.23,ng/g,Table 2,soil,other,Guangxi,Datuo AA'剖面L10; 23单体求和=0.23; 正文L10=最低0.23 ng/g验证一致
+P10639,L6,SumHCH_ngg,0.03,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面; Table2 HCHs行直接读取(BB'部分)
+P10639,L6,SumDDT_ngg,0.17,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面; DDTs行OCR截断; 由DDT单体求和p,p'-DDT(ND)+o,p'-DDT(0.14)+p,p'-DDE(0.02)+p,p'-DDD(0.01)=0.17
+P10639,L6,Endosulfan_ngg,0.01,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面; alpha-endosulfan(ND)+beta-endosulfan(0.01)求和
+P10639,L6,OCP_total,0.56,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面; 23单体求和(OCR缺失SOCPs行)
+P10639,L7,SumHCH_ngg,0.04,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面; Table2 HCHs行直接读取(BB'部分)
+P10639,L7,SumDDT_ngg,0.15,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面; DDTs行OCR截断; 由单体求和=0.15
+P10639,L7,Endosulfan_ngg,0.02,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面; alpha-endosulfan(0.01)+beta-endosulfan(0.01)求和
+P10639,L7,OCP_total,0.57,ng/g,Table 2+正文,soil,other,Guangxi,Datuo BB'剖面; 正文L7=0.57 ng/g(BB'最高值); 23单体求和=0.60存在舍入歧义取正文值
+P10639,L8,SumHCH_ngg,0.04,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面; Table2 HCHs行直接读取(BB'部分)
+P10639,L8,SumDDT_ngg,0.01,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面; DDTs行OCR截断; 由单体求和=0.01
+P10639,L8,Endosulfan_ngg,0.00,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面; alpha-endosulfan(ND)+beta-endosulfan(ND)均为ND
+P10639,L8,OCP_total,0.41,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面; 23单体求和(OCR缺失SOCPs行)
+P10639,L9,SumHCH_ngg,0.17,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面; Table2 HCHs行直接读取(BB'部分)
+P10639,L9,SumDDT_ngg,0.05,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面; DDTs行OCR截断; 由单体求和=0.05
+P10639,L9,Endosulfan_ngg,0.02,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面; alpha-endosulfan(0.01)+beta-endosulfan(0.01)求和
+P10639,L9,OCP_total,0.43,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面; 23单体求和(OCR缺失SOCPs行)
+P10639,L10_BB,SumHCH_ngg,0.02,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面L10; Table2 HCHs行直接读取(BB'部分)
+P10639,L10_BB,SumDDT_ngg,0.03,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面L10; DDTs行OCR截断; 由单体求和=0.03
+P10639,L10_BB,Endosulfan_ngg,0.01,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面L10; alpha-endosulfan(0.01)+beta-endosulfan(ND)求和
+P10639,L10_BB,OCP_total,0.23,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面L10; 23单体求和=0.23; 正文L10最低0.23 ng/g验证一致
+P10639,L11,SumHCH_ngg,0.01,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面; Table2 HCHs行直接读取(BB'部分)
+P10639,L11,SumDDT_ngg,0.01,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面; DDTs行OCR截断; 由单体求和=0.01
+P10639,L11,Endosulfan_ngg,0.03,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面; alpha-endosulfan(ND)+beta-endosulfan(0.03)求和
+P10639,L11,OCP_total,0.23,ng/g,Table 2,soil,other,Guangxi,Datuo BB'剖面; 23单体求和=0.23; 正文L11最低0.23 ng/g验证一致

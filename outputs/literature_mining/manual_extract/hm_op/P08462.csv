@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08462,,,,,,,,,skip: 典型盆栽spiked实验(郑州大学 cultivated field 土壤人为添加Cd(NO3)2+pyrene-in-acetone后置于4kg pot)+黑麦草植物修复研究;Table1原土本底仅Cd 2.40±0.12 mg/kg(单混合样n=3分析重复非采样点),pyrene未检出(Not detected)→非HM+OP真复合污染场地;实验浓度16.8/71 mg/kg是spiked目标值非场地实测;剔除场景命中铁律#7盆栽/spike+phytoremediation

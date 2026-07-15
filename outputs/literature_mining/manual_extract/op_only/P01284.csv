@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01284,,,,,,,,"skip: Paper main text/tables contain only statistical summaries (Table 1: AM/SD/Min/Max/GM/Median for 16 PAHs across n=40) and group-level means (Table 4: B/R/U arithmetic means). Individual sampling-point data (40 sites) is in Supplementary material Table S1 which is not accessible. No sample-level concentration data extractable from main paper."

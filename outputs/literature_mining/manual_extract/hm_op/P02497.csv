@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02497,NA,NA,NA,NA,NA,NA,NA,NA,"skip: 盆栽植物修复实验(pot experiment phytoremediation，Scirpus triqueter+HD-1菌株+化学增强剂去除pyrene)，非真实场地采样; paper.md全文仅含摘要/关键词/资助信息，无HTML表格、无采样点级HM/OP浓度数据"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06291,F9,SumHCH_ngg,595,ng/g,正文3.2段,soil,industrial,Jiangsu,"F9个体值; Table2仅报告按用地类型分组的mean±SD统计汇总(river bank: G1-G3+G15; roadside: F1-F8+G12; vegetable plot: G4-G5+G11; residential: G6-G9+G13-G14; factory gate: F9+G10)无法拆分到单个采样点; DDTs在F9未检出; HCB/chlordane无个体值仅有分组mean±SD"

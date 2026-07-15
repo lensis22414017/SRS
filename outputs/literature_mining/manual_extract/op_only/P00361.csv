@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00361,,,,,,,soil,Eastern China,"skip: 论文仅提供按深度分层(0/2/4/6/8/10m)的Average/Range/DF%统计汇总(Table S5 site1 n=19; Table S6 site2 n=9)，无采样点级原始浓度数据; Table S7有S1-S28个体样本ID但仅含TEQ_BaP/ILCR/CR风险指数(按规则剔除); 正文Fig.1a为箱型图无法提取个体值; 共28柱样152土样但浓度数据仅以深度统计汇总呈现"

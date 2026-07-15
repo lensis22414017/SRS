@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06579,NA,NA,,NA,Table1/2/3+Fig1,soil,e_waste,Zhejiang,"skip: 论文仅提供统计汇总(Mean/SD/Max/Min/Skewness/Kurtosis行,Table1按16abandoned+32nearby站点聚合);Table2为Nemerow风险指数(剔除);Table3为Pearson相关系数(非浓度);Fig1为6代表样本PCB占比图(非绝对浓度,且为图像不可精确读取);正文3.1段仅复述统计值。无采样点级(S1/A/B/点位名)HM+OP浓度表。论文研究设计本身为HM(Pb/Cd/Cr/Zn/As/Hg/Cu)+OP(16PCBs同系物)同场地真复合,e_waste abandoned site Taizhou Zhejiang,但无可追溯逐点数据。SI(FigS1/S2/S3+TableS1)在精读范围外。"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09520,,,,,,skip: figure_only，所有HM+PAH浓度数据仅以图表呈现,无表格数据,Shanxi,MinerU解析仅有摘要文本+正文无表格; HM(8元素Cd/Pb/Cr/As/Hg/Cu/Zn/Ni)和PAHs(16单体)浓度均在Fig 1a/1b/Fig S3条形图中; 采样30个土壤点(焦化厂10+森林5+草地5+农田5+废弃地5); 无SI附加表格文件

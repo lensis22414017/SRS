@@ -1,0 +1,34 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Cd,Cd,V_mgkg,55.83,Unknown,,high,table_p4_ri6_ci1,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Zn,Zn,V_mgkg,40.07,Unknown,,high,table_p4_ri6_ci2,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Cr,Cr,V_mgkg,29.64,Unknown,,high,table_p4_ri6_ci3,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Cu,Cu,V_mgkg,48.37,Unknown,,high,table_p4_ri6_ci4,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Pb,Pb,V_mgkg,15.77,Unknown,,high,table_p4_ri6_ci5,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Ni,Ni,V_mgkg,13.89,Unknown,,high,table_p4_ri6_ci6,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Hg,Hg,V_mgkg,67.54,Unknown,,high,table_p4_ri6_ci7,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_As,As,V_mgkg,37.07,Unknown,,high,table_p4_ri6_ci8,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_pH,pH,V_mgkg,18.11,Unknown,,high,table_p4_ri6_ci9,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_SOMg,SOMg,V_mgkg,55.96,Unknown,,high,table_p4_ri6_ci10,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Cd,Cd,V_mgkg,0.095,Unknown,,high,table_p4_ri7_ci1,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Zn,Zn,V_mgkg,62.0,Unknown,,high,table_p4_ri7_ci2,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Cr,Cr,V_mgkg,48.0,Unknown,,high,table_p4_ri7_ci3,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Cu,Cu,V_mgkg,15.0,Unknown,,high,table_p4_ri7_ci4,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Pb,Pb,V_mgkg,22.0,Unknown,,high,table_p4_ri7_ci5,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Ni,Ni,V_mgkg,20.0,Unknown,,high,table_p4_ri7_ci6,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Hg,Hg,V_mgkg,0.03,Unknown,,high,table_p4_ri7_ci7,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_As,As,V_mgkg,10.25,Unknown,,high,table_p4_ri7_ci8,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Cd,Cd,V_mgkg,0.3,Unknown,,high,table_p4_ri10_ci1,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Zn,Zn,V_mgkg,250.0,Unknown,,high,table_p4_ri10_ci2,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Cr,Cr,V_mgkg,200.0,Unknown,,high,table_p4_ri10_ci3,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Cu,Cu,V_mgkg,100.0,Unknown,,high,table_p4_ri10_ci4,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Pb,Pb,V_mgkg,120.0,Unknown,,high,table_p4_ri10_ci5,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Ni,Ni,V_mgkg,100.0,Unknown,,high,table_p4_ri10_ci6,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Hg,Hg,V_mgkg,0.5,Unknown,,high,table_p4_ri10_ci7,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_As,As,V_mgkg,30.0,Unknown,,high,table_p4_ri10_ci8,"Soil properties,TE concentrations,EF and CF of the soils.",,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Limit_level_a,Limit level a,Cd_mgkg,0.1,Unknown,,high,table_p5_ri4_ci1,TE concentrations in the maize grains (mg $\cdot \lg ^ { - 1 } ) .$,,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Limit_level_a,Limit level a,Zn_mgkg,50.0,Unknown,,high,table_p5_ri4_ci2,TE concentrations in the maize grains (mg $\cdot \lg ^ { - 1 } ) .$,,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Limit_level_a,Limit level a,Cu_mgkg,10.0,Unknown,,high,table_p5_ri4_ci4,TE concentrations in the maize grains (mg $\cdot \lg ^ { - 1 } ) .$,,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Limit_level_a,Limit level a,Pb_mgkg,0.2,Unknown,,high,table_p5_ri4_ci5,TE concentrations in the maize grains (mg $\cdot \lg ^ { - 1 } ) .$,,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Limit_level_a,Limit level a,Ni_mgkg,1.0,Unknown,,high,table_p5_ri4_ci6,TE concentrations in the maize grains (mg $\cdot \lg ^ { - 1 } ) .$,,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Limit_level_a,Limit level a,Hg_mgkg,0.02,Unknown,,high,table_p5_ri4_ci7,TE concentrations in the maize grains (mg $\cdot \lg ^ { - 1 } ) .$,,,,,,phase14
+66589_j.envpol.2020.114414,66589_j.envpol.2020.114414_Limit_level_a,Limit level a,As_mgkg,0.5,Unknown,,high,table_p5_ri4_ci8,TE concentrations in the maize grains (mg $\cdot \lg ^ { - 1 } ) .$,,,,,,phase14

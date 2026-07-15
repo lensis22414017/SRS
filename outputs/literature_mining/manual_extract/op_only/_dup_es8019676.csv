@@ -1,0 +1,11 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+_dup_es8019676,_dup_es8019676_Gmean,SumHCH_ngg,0.049,Unknown,table_p1_ri2_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_es8019676,_dup_es8019676_percentiies,SumHCH_ngg,0.002,Unknown,table_p1_ri2_ci5,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_es8019676,_dup_es8019676_Gmean,SumHCH_ngg,0.012,Unknown,table_p1_ri5_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_es8019676,_dup_es8019676_percentiies,SumHCH_ngg,0.0,Unknown,table_p1_ri5_ci5,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_es8019676,_dup_es8019676_Gmean,SumHCH_ngg,0.44,Unknown,table_p1_ri9_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_es8019676,_dup_es8019676_$\mathrm_{_\bf_~_m_i_n_}_^_{_a_}$,SumHCH_ngg,0.02,Unknown,table_p1_ri9_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_es8019676,_dup_es8019676_percentiies,SumHCH_ngg,0.084,Unknown,table_p1_ri9_ci5,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_es8019676,_dup_es8019676_Gmean,SumDDT_ngg,8.68,Unknown,table_p1_ri10_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_es8019676,_dup_es8019676_$\mathrm_{_\bf_~_m_i_n_}_^_{_a_}$,SumDDT_ngg,0.4,Unknown,table_p1_ri10_ci3,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+_dup_es8019676,_dup_es8019676_percentiies,SumDDT_ngg,0.964,Unknown,table_p1_ri10_ci5,soil,agricultural,,phase14_auto; confidence=high; flag=,,

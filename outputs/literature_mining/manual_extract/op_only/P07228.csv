@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07228,NA,NA,NA,NA,NA,NA,NA,NA,"skip: 论文研究对象为PFOA和PFOS (PFAS类) 在中国天然森林土壤中的分布, 不属于目标OP提取类别(PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAEs/OCPs), 论文无任何目标有机污染物浓度数据"

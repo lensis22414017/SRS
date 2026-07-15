@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01334,,,,,,,chemical,Jiangsu,"skip: 论文污染物为氯化石蜡(SCCPs和MCCPs)不属于目标OP类别(PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAE/OCP)中任何一种; Table1有S1-S20采样点级SCCP和MCCP浓度但污染物类型不符; 化工园区(Jiangsu Yangkou)真实场地土壤"

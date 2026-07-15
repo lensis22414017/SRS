@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01130,,,,,,,,"skip: 全国尺度汇总统计(Mean/Median/Min/Max, n=51温室+51露天)，无采样点级数据；Table1仅group-level统计，Section3.3仅省级均值(Hebei 1869/Shanxi 807等)，SI Tables S1-S6为方法参数和Spearman相关矩阵；无任何独立采样点ID及对应浓度值"

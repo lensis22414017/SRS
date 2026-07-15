@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00174,,,,,,,,"skip: 全文在Springer付费墙后，解析仅得摘要/参考文献/作者信息，无采样点级浓度表格。摘要仅提供ΣPACs范围为142.0-11400 ng/g (mean 1440)，属区域汇总无采样点级数据。补充材料(DOCX 207kb)含表格但未被解析"

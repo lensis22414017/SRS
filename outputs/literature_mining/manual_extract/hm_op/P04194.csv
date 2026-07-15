@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04194,,,,,,groundwater,landfill,Sichuan,"skip: 纯地下水研究-28样品全部为地下水/渗滤液(饮水井W1-W5/PW1/PW2+监测井BG1-BG2/MW1-MW5+钻孔BH1-BH4+2渗滤液)无任何土壤采样; 全文反复强调groundwater/aquifer/leachate; 重金属(Mn/Fe/Pb/Cd/As/Hg/Cu/Zn)单位μg/L为水浓度非mg/kg; 有机物仅检出dichloroethane/chlorobenzene/chloroform(μg/L,属VOCs非PAHs/PCBs/OCPs等目标OP); Table 4为统计汇总(Min/Max/Median/Over-Standard-Rate)非采样点级且为水; 论文标题明确Identification of Groundwater Pollution; CSV元数据26采样点系脚本对Table 4地下水统计行误读"

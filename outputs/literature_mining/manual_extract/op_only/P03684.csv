@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03684,NOTES,,,,"skip: 研究对象为实验性除草剂ZJ0702(pyrimidine salicylic herbicide),不在目标OP清单内(PAH/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAEs/OCP); 且为人工喷洒施药的dissipation field experiment(spiked-type),非真实场地背景污染调查; Table 2仅含回归方程和半衰期(统计汇总),无采样点级目标OP浓度数据",soil,agricultural,Zhejiang,"ZJ0702非目标OP; spiked field experiment; 仅dissipation kinetics+half-life无采样点级OP数据"

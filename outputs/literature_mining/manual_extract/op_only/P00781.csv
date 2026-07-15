@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00781,,,,,,soil,urban,Jiangsu,"仅统计汇总(Mean/Range)，无采样点级数据。Table1仅给出43个样本各PAH单体的Range和Mean；Fig1a为地图可视化散点无法读取数值；区域均值(LX=383.43/BH/XW)非场地样本；supplementary Table S1未在paper.md中"

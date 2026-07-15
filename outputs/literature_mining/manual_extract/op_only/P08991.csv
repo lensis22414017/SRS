@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08991,,,,,,,,,"skip: 论文为耕地质量评价(遥感+机器学习), 测量指标为SOM/pH/AP/AK/SBD等农业指标, 无任何OP(PAH/PCB/DDT/HCH/PBDE/PHC)数据; CSV中op_groups=PAHs系误标"

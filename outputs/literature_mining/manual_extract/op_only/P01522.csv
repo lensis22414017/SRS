@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01522,,,,,,,soil,agricultural,Jiangsu,"skip: 仅LUT分组统计汇总(Mean+Range)无采样点级数据; 132个样本按4种土地利用类型(PF53/VB56/VG13/VF16)聚合; Table1=18 PCB congeners全样本Mean/Range/Std/Occurrence; Table2=homologue groups按LUT分组mean(min-max); 无个体采样点浓度值"

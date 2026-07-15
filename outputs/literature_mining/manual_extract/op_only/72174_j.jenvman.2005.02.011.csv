@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+72174_j.jenvman.2005.02.011,72174_j.jenvman.2005.02.011_II_(pH&lt;6.5/6.5-7.5/&gt;7.5),SumDDT_ngg,0.5,Unknown,table_p4_ri8_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,
+72174_j.jenvman.2005.02.011,72174_j.jenvman.2005.02.011_II_(pH&lt;6.5/6.5-7.5/&gt;7.5),SumHCH_ngg,0.5,Unknown,table_p4_ri9_ci2,soil,agricultural,,phase14_auto; confidence=high; flag=,,

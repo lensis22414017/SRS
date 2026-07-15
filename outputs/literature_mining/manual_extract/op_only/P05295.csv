@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05295,BH07,SumHCH_ngg,0.32,ng/g,正文 soil section,soil,other,Shaanxi,"正文极值: BH07站点土壤HCHs最高值0.32 ng/g; 完整数据集在Fig.2C(图片未解析)"
+P05295,BH10,SumDDT_ngg,2.00,ng/g,正文 soil section,soil,other,Shaanxi,"正文极值: BH10站点土壤DDTs最高值2.00 ng/g; 完整数据集在Fig.2C(图片未解析)"
+P05295,BH04,SumHCH_ngg,0.02,ng/g,正文 soil section,soil,other,Shaanxi,"正文极值: BH04站点土壤HCHs最低值0.02 ng/g; 完整数据集在Fig.2C(图片未解析)"
+P05295,BH04,SumDDT_ngg,0.03,ng/g,正文 soil section,soil,other,Shaanxi,"正文极值: BH04站点土壤DDTs最低值0.03 ng/g; 完整数据集在Fig.2C(图片未解析)"
+P05295,BH06,SumHCH_ngg,1.02,ng/g,正文 sediment section,sediment,other,Shaanxi,"正文极值: BH06站点沉积物HCHs最高值1.02 ng/g; 完整数据集在Fig.2B(图片未解析)"
+P05295,BH08,SumDDT_ngg,0.29,ng/g,正文 sediment section,sediment,other,Shaanxi,"正文极值: BH08站点沉积物DDTs最高值0.29 ng/g; 完整数据集在Fig.2B(图片未解析)"

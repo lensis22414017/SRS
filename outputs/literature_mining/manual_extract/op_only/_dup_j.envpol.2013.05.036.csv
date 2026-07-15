@@ -1,0 +1,11 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+_dup_j.envpol.2013.05.036,_dup_j.envpol.2013.05.036_CK_(n_=_8),SumPAE_ngg,0.43899999999999995,Unknown,table_p4_ri8_ci1,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+_dup_j.envpol.2013.05.036,_dup_j.envpol.2013.05.036_GL_(n_=_39),SumPAE_ngg,0.43,Unknown,table_p4_ri8_ci3,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+_dup_j.envpol.2013.05.036,_dup_j.envpol.2013.05.036_SS_(n_=_27),SumPAE_ngg,1.0075,Unknown,table_p4_ri8_ci4,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+_dup_j.envpol.2013.05.036,_dup_j.envpol.2013.05.036_col6,SumPAE_ngg,0.748,Unknown,table_p4_ri8_ci6,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+_dup_j.envpol.2013.05.036,_dup_j.envpol.2013.05.036_col7,SumPAE_ngg,5.078,Unknown,table_p4_ri8_ci7,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+_dup_j.envpol.2013.05.036,_dup_j.envpol.2013.05.036_col9,SumPAE_ngg,2.571,Unknown,table_p4_ri8_ci9,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+_dup_j.envpol.2013.05.036,_dup_j.envpol.2013.05.036_col10,SumPAE_ngg,3.831,Unknown,table_p4_ri8_ci10,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+_dup_j.envpol.2013.05.036,_dup_j.envpol.2013.05.036_col12,SumPAE_ngg,1.645,Unknown,table_p4_ri8_ci12,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+_dup_j.envpol.2013.05.036,_dup_j.envpol.2013.05.036_col13,SumPAE_ngg,4.062,Unknown,table_p4_ri8_ci13,soil,agricultural,,phase14_auto; confidence=medium; flag=,,
+_dup_j.envpol.2013.05.036,_dup_j.envpol.2013.05.036_col15,SumPAE_ngg,3.128,Unknown,table_p4_ri8_ci15,soil,agricultural,,phase14_auto; confidence=medium; flag=,,

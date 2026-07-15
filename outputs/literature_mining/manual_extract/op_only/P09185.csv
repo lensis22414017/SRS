@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09185,,"skip_reason:no_sample_level_data",,,,,"","","采样点级HM+PAH浓度数据在Table S5(补充材料),parsed/paper.md仅含正文汇总统计量(Mean/Range/CV/风险指数);需获取补充PDF后OCR或人工录入"

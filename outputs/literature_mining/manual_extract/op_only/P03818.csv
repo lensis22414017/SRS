@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03818,,,,,,,,"skip: 实验室结合/吸附实验，菲为实验室添加标准品(0.5 mg/L)而非环境实测浓度；GRSP从南京紫金山森林土壤提取仅作为蛋白来源，论文无任何采样点级OP浓度数据(Sum_PAH/BaP/SumPCB/SumDDT/SumHCH/SumPBDE/TotalPHC均无)"

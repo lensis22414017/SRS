@@ -1,0 +1,56 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+72318_eesa.2002.2202,72318_eesa.2002.2202_0-10cm,0-10cm,OC_pct,2.09,Unknown,,high,table_p1_ri5_ci1,TABLE 1 PCDD/F Concentrations in Soil (Cotton Field) at Site 1
+72318_eesa.2002.2202,72318_eesa.2002.2202_10-20_cm,10-20 cm,OC_pct,4.82,Unknown,,high,table_p1_ri5_ci2,TABLE 1 PCDD/F Concentrations in Soil (Cotton Field) at Site 1
+72318_eesa.2002.2202,72318_eesa.2002.2202_20-30_cm,20-30 cm,OC_pct,6.18,Unknown,,high,table_p1_ri5_ci3,TABLE 1 PCDD/F Concentrations in Soil (Cotton Field) at Site 1
+72318_eesa.2002.2202,72318_eesa.2002.2202_30-40_cm_40-50_cm,30-40 cm 40-50 cm,OC_pct,3.52,Unknown,,high,table_p1_ri5_ci4,TABLE 1 PCDD/F Concentrations in Soil (Cotton Field) at Site 1
+72318_eesa.2002.2202,72318_eesa.2002.2202_0-10cm,0-10cm,OC_pct,0.14,Unknown,,high,table_p1_ri17_ci1,TABLE 1 PCDD/F Concentrations in Soil (Cotton Field) at Site 1
+72318_eesa.2002.2202,72318_eesa.2002.2202_10-20_cm,10-20 cm,OC_pct,0.25,Unknown,,high,table_p1_ri17_ci2,TABLE 1 PCDD/F Concentrations in Soil (Cotton Field) at Site 1
+72318_eesa.2002.2202,72318_eesa.2002.2202_20-30_cm,20-30 cm,OC_pct,0.23,Unknown,,high,table_p1_ri17_ci3,TABLE 1 PCDD/F Concentrations in Soil (Cotton Field) at Site 1
+72318_eesa.2002.2202,72318_eesa.2002.2202_30-40_cm_40-50_cm,30-40 cm 40-50 cm,OC_pct,0.28,Unknown,,high,table_p1_ri17_ci4,TABLE 1 PCDD/F Concentrations in Soil (Cotton Field) at Site 1
+72318_eesa.2002.2202,72318_eesa.2002.2202_0-10cm,0-10cm,OC_pct,0.47,Unknown,,high,table_p1_ri19_ci1,TABLE 1 PCDD/F Concentrations in Soil (Cotton Field) at Site 1
+72318_eesa.2002.2202,72318_eesa.2002.2202_0-10_cm,0-10 cm,OC_pct,14.6,Unknown,,high,table_p2_ri5_ci1,TABLE 2 PCDD/F Concentrations in Soil (Cotton Field) at Site 2
+72318_eesa.2002.2202,72318_eesa.2002.2202_10-20cm_20-30_cm_30-40cm_40-50_cm,10-20cm 20-30 cm 30-40cm 40-50 cm,OC_pct,37.34,Unknown,,high,table_p2_ri5_ci3,TABLE 2 PCDD/F Concentrations in Soil (Cotton Field) at Site 2
+72318_eesa.2002.2202,72318_eesa.2002.2202_0-10_cm,0-10 cm,OC_pct,0.15,Unknown,,high,table_p2_ri17_ci1,TABLE 2 PCDD/F Concentrations in Soil (Cotton Field) at Site 2
+72318_eesa.2002.2202,72318_eesa.2002.2202_10-20cm_20-30_cm_30-40cm_40-50_cm,10-20cm 20-30 cm 30-40cm 40-50 cm,OC_pct,1.2,Unknown,,high,table_p2_ri17_ci3,TABLE 2 PCDD/F Concentrations in Soil (Cotton Field) at Site 2
+72318_eesa.2002.2202,72318_eesa.2002.2202_0-10_cm,0-10 cm,OC_pct,24.25,Unknown,,high,table_p3_ri5_ci1,TABLE 3 PCDD/F Concentrations in Mud (Rice Field) at Site 1
+72318_eesa.2002.2202,72318_eesa.2002.2202_10-20_cm,10-20 cm,OC_pct,20.23,Unknown,,high,table_p3_ri5_ci2,TABLE 3 PCDD/F Concentrations in Mud (Rice Field) at Site 1
+72318_eesa.2002.2202,72318_eesa.2002.2202_20-30_cm_30-40cm_40-50_cm,20-30 cm 30-40cm 40-50 cm,OC_pct,45.48,Unknown,,high,table_p3_ri5_ci4,TABLE 3 PCDD/F Concentrations in Mud (Rice Field) at Site 1
+72318_eesa.2002.2202,72318_eesa.2002.2202_0-10_cm,0-10 cm,OC_pct,4.42,Unknown,,high,table_p3_ri17_ci1,TABLE 3 PCDD/F Concentrations in Mud (Rice Field) at Site 1
+72318_eesa.2002.2202,72318_eesa.2002.2202_10-20_cm,10-20 cm,OC_pct,0.39,Unknown,,high,table_p3_ri17_ci2,TABLE 3 PCDD/F Concentrations in Mud (Rice Field) at Site 1
+72318_eesa.2002.2202,72318_eesa.2002.2202_20-30_cm_30-40cm_40-50_cm,20-30 cm 30-40cm 40-50 cm,OC_pct,0.25,Unknown,,high,table_p3_ri17_ci4,TABLE 3 PCDD/F Concentrations in Mud (Rice Field) at Site 1
+72318_eesa.2002.2202,72318_eesa.2002.2202_0-10_cm,0-10 cm,OC_pct,16.85,Unknown,,high,table_p3_ri5_ci1,TABLE 4 PCDD/F Concentrations in Mud (Rice Field) at Site 2
+72318_eesa.2002.2202,72318_eesa.2002.2202_10-20_cm,10-20 cm,OC_pct,18.35,Unknown,,high,table_p3_ri5_ci2,TABLE 4 PCDD/F Concentrations in Mud (Rice Field) at Site 2
+72318_eesa.2002.2202,72318_eesa.2002.2202_h_20-30cm_30-40_cm_40-50cm,h 20-30cm 30-40 cm 40-50cm,OC_pct,31.22,Unknown,,high,table_p3_ri5_ci3,TABLE 4 PCDD/F Concentrations in Mud (Rice Field) at Site 2
+72318_eesa.2002.2202,72318_eesa.2002.2202_0-10_cm,0-10 cm,OC_pct,0.06,Unknown,,high,table_p3_ri7_ci1,TABLE 4 PCDD/F Concentrations in Mud (Rice Field) at Site 2
+72318_eesa.2002.2202,72318_eesa.2002.2202_10-20_cm,10-20 cm,OC_pct,0.04,Unknown,,high,table_p3_ri7_ci2,TABLE 4 PCDD/F Concentrations in Mud (Rice Field) at Site 2
+72318_eesa.2002.2202,72318_eesa.2002.2202_h_20-30cm_30-40_cm_40-50cm,h 20-30cm 30-40 cm 40-50cm,OC_pct,0.04,Unknown,,high,table_p3_ri7_ci3,TABLE 4 PCDD/F Concentrations in Mud (Rice Field) at Site 2
+72318_eesa.2002.2202,72318_eesa.2002.2202_0-10_cm,0-10 cm,OC_pct,0.32,Unknown,,high,table_p3_ri17_ci1,TABLE 4 PCDD/F Concentrations in Mud (Rice Field) at Site 2
+72318_eesa.2002.2202,72318_eesa.2002.2202_10-20_cm,10-20 cm,OC_pct,0.45,Unknown,,high,table_p3_ri17_ci2,TABLE 4 PCDD/F Concentrations in Mud (Rice Field) at Site 2
+72318_eesa.2002.2202,72318_eesa.2002.2202_h_20-30cm_30-40_cm_40-50cm,h 20-30cm 30-40 cm 40-50cm,OC_pct,0.88,Unknown,,high,table_p3_ri17_ci3,TABLE 4 PCDD/F Concentrations in Mud (Rice Field) at Site 2
+72318_eesa.2002.2202,72318_eesa.2002.2202_0-10_cm,0-10 cm,OC_pct,1.82,Unknown,,high,table_p3_ri19_ci1,TABLE 4 PCDD/F Concentrations in Mud (Rice Field) at Site 2
+72318_eesa.2002.2202,72318_eesa.2002.2202_10-20_cm,10-20 cm,OC_pct,2.03,Unknown,,high,table_p3_ri19_ci2,TABLE 4 PCDD/F Concentrations in Mud (Rice Field) at Site 2
+72318_eesa.2002.2202,72318_eesa.2002.2202_h_20-30cm_30-40_cm_40-50cm,h 20-30cm 30-40 cm 40-50cm,OC_pct,1.51,Unknown,,high,table_p3_ri19_ci3,TABLE 4 PCDD/F Concentrations in Mud (Rice Field) at Site 2
+72318_eesa.2002.2202,72318_eesa.2002.2202_Rice_1,Rice 1,OC_pct,1.19,Unknown,,high,table_p4_ri5_ci1,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Rice_2,Rice 2,OC_pct,2.46,Unknown,,high,table_p4_ri5_ci2,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Rice_3,Rice 3,OC_pct,1.07,Unknown,,high,table_p4_ri5_ci3,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Radish_1,Radish 1,OC_pct,4.73,Unknown,,high,table_p4_ri5_ci4,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Radish_2,Radish 2,OC_pct,5.93,Unknown,,high,table_p4_ri5_ci5,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Radish_3,Radish 3,OC_pct,8.38,Unknown,,high,table_p4_ri5_ci6,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Rice_1,Rice 1,OC_pct,2.28,Unknown,,high,table_p4_ri6_ci1,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Rice_2,Rice 2,OC_pct,4.12,Unknown,,high,table_p4_ri6_ci2,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Rice_3,Rice 3,OC_pct,2.32,Unknown,,high,table_p4_ri6_ci3,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Radish_1,Radish 1,OC_pct,13.76,Unknown,,high,table_p4_ri6_ci4,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Radish_2,Radish 2,OC_pct,13.82,Unknown,,high,table_p4_ri6_ci5,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Radish_3,Radish 3,OC_pct,16.86,Unknown,,high,table_p4_ri6_ci6,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Rice_1,Rice 1,OC_pct,0.55,Unknown,,high,table_p4_ri17_ci1,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Rice_2,Rice 2,OC_pct,0.79,Unknown,,high,table_p4_ri17_ci2,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Rice_3,Rice 3,OC_pct,0.68,Unknown,,high,table_p4_ri17_ci3,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Radish_1,Radish 1,OC_pct,1.77,Unknown,,high,table_p4_ri17_ci4,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Radish_2,Radish 2,OC_pct,2.6,Unknown,,high,table_p4_ri17_ci5,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Radish_3,Radish 3,OC_pct,2.51,Unknown,,high,table_p4_ri17_ci6,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Rice_1,Rice 1,OC_pct,3.48,Unknown,,high,table_p4_ri18_ci1,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Rice_2,Rice 2,OC_pct,4.39,Unknown,,high,table_p4_ri18_ci2,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Rice_3,Rice 3,OC_pct,3.01,Unknown,,high,table_p4_ri18_ci3,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Radish_1,Radish 1,OC_pct,13.08,Unknown,,high,table_p4_ri18_ci4,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Radish_2,Radish 2,OC_pct,19.37,Unknown,,high,table_p4_ri18_ci5,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)
+72318_eesa.2002.2202,72318_eesa.2002.2202_Radish_3,Radish 3,OC_pct,18.0,Unknown,,high,table_p4_ri18_ci6,TABLE 5 PCDD/F Concentrations in Rice and Radish (ng/kg)

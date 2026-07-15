@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11591,,,,,,,,,skip: 微宇宙盆栽spiked实验(标题"microcosm agrosystem"). 上海施兴蔬菜合作社未污染背景土壤(31.1542N 121.1155E 0-20cm)取回后人工添加Cd(1/5 mg/kg)+DBDPE(10/50 mg/kg)于盆栽温室(25±5C 42天). 处理组CK/Cd1/Cd5/D10/D50/C1D10/C1D50/C5D10/C5D50均为spiked设计非真实场地污染. 正文无HTML采样点级浓度表(土壤浓度在Table S8补充材料且为人工设定浓度0d/42d测定). DBDPE属NBFR非标准SumPBDE清单且为spiked. 命中剔除场景#1(pot/greenhouse/spiked/microcosm)与铁律#7. 无真实场地采样点级HM+OP浓度可提取

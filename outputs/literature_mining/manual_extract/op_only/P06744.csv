@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06744,,,,,,,,"skip: HBCDD is not a target OP pollutant. Target OP categories are PAH/BaP/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAEs/OCPs. HBCDD (hexabromocyclododecane) is a distinct brominated flame retardant unrelated to PBDE. Paper only reports city-level averages and ranges for 188 samples; sample-level data in SI Table S2 not in paper.md"

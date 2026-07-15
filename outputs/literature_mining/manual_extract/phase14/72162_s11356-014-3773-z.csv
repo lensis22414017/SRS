@@ -1,0 +1,13 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_A,A,SumPBDE_ngg,46600.0,Unknown,,high,table_p4_ri1_ci16, 
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_S2,S2,SumPBDE_ngg,9000.0,Unknown,,high,table_p4_ri2_ci16, 
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_B,B,SumPBDE_ngg,28500.0,Unknown,,high,table_p4_ri3_ci16, 
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_S4,S4,SumPBDE_ngg,5200.0,Unknown,,high,table_p4_ri4_ci16, 
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_C,C,SumPBDE_ngg,13100.0,Unknown,,high,table_p4_ri5_ci16, 
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_S6,S6,SumPBDE_ngg,2870.0,Unknown,,high,table_p4_ri6_ci16, 
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_D,D,SumPBDE_ngg,16100.0,Unknown,,high,table_p4_ri7_ci16, 
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_S8,S8,SumPBDE_ngg,8500.0,Unknown,,high,table_p4_ri8_ci16, 
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_A-D,A-D,SumPBDE_ngg,27400.0,Unknown,,high,table_p4_ri9_ci16, 
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_S10,S10,SumPBDE_ngg,7060.0,Unknown,,high,table_p4_ri10_ci16, 
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_E,E,SumPBDE_ngg,249.0,Unknown,,high,table_p4_ri11_ci16, 
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_S12,S12,SumPBDE_ngg,103.0,Unknown,,high,table_p4_ri12_ci16, 

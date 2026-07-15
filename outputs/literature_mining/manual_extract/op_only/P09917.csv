@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09917,,,,,,,,"skip: 批式吸附实验(batch sorption isotherm)，非场地采样。论文为DEP在四种土壤(黑土/潮土/水稻土/红壤)中的实验室吸附等温线研究，仅报告吸附参数(Koc/Kf/qm/n)和土壤理化性质(pH/CEC/SOC/Fe/Clay)，无任何采样点级OP浓度实测数据"

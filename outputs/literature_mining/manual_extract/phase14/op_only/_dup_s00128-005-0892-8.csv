@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+_dup_s00128-005-0892-8,_dup_s00128-005-0892-8_Table_3._Program_of_excitation_and_emission_wavelength_pairs.,Table 3. Program of excitation and emission wavelength pairs.,Phe_ngg,7.2,Unknown,,high,table_p4_ri2_ci1,,,,,,,phase14
+_dup_s00128-005-0892-8,_dup_s00128-005-0892-8_Table_3._Program_of_excitation_and_emission_wavelength_pairs.,Table 3. Program of excitation and emission wavelength pairs.,Ant_ngg,7.2,Unknown,,high,table_p4_ri2_ci1,,,,,,,phase14
+_dup_s00128-005-0892-8,_dup_s00128-005-0892-8_Table_3._Program_of_excitation_and_emission_wavelength_pairs.,Table 3. Program of excitation and emission wavelength pairs.,Pyr_ngg,10.0,Unknown,,high,table_p4_ri3_ci1,,,,,,,phase14
+_dup_s00128-005-0892-8,_dup_s00128-005-0892-8_Table_3._Program_of_excitation_and_emission_wavelength_pairs.,Table 3. Program of excitation and emission wavelength pairs.,BaA_ngg,10.0,Unknown,,high,table_p4_ri3_ci1,,,,,,,phase14
+_dup_s00128-005-0892-8,_dup_s00128-005-0892-8_Table_3._Program_of_excitation_and_emission_wavelength_pairs.,Table 3. Program of excitation and emission wavelength pairs.,Chr_ngg,10.0,Unknown,,high,table_p4_ri3_ci1,,,,,,,phase14
+_dup_s00128-005-0892-8,_dup_s00128-005-0892-8_Table_3._Program_of_excitation_and_emission_wavelength_pairs.,Table 3. Program of excitation and emission wavelength pairs.,BaP_ngg,17.0,Unknown,,high,table_p4_ri4_ci1,,,,,,,phase14

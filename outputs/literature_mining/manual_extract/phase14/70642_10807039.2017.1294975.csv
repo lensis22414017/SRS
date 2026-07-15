@@ -1,0 +1,24 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_col4,col4,Cd_mgkg,0.38,Unknown,,medium,table_p27_ri2_ci4,Table 2 Pollutants toxicology parameters
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_col5,col5,Cd_mgkg,0.38,Unknown,,medium,table_p27_ri2_ci5,Table 2 Pollutants toxicology parameters
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_col6,col6,Cd_mgkg,6.4,Unknown,,medium,table_p27_ri2_ci6,Table 2 Pollutants toxicology parameters
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_Site_A,Site A,Cd_mgkg,6.3,Unknown,,high,table_p28_ri1_ci2,Table 3 Heavy metals concentrations(mg/kg) in soil of each site
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_Site_N1,Site N1,Cd_mgkg,0.094,Unknown,,high,table_p28_ri1_ci3,Table 3 Heavy metals concentrations(mg/kg) in soil of each site
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_Site_N2,Site N2,Cd_mgkg,0.2,Unknown,,high,table_p28_ri1_ci4,Table 3 Heavy metals concentrations(mg/kg) in soil of each site
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_Site_Z,Site Z,Cd_mgkg,0.53,Unknown,,high,table_p28_ri1_ci5,Table 3 Heavy metals concentrations(mg/kg) in soil of each site
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_Site_A,Site A,Cu_mgkg,27.5,Unknown,,high,table_p28_ri5_ci2,Table 3 Heavy metals concentrations(mg/kg) in soil of each site
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_Site_N1,Site N1,Cu_mgkg,14.8,Unknown,,high,table_p28_ri5_ci3,Table 3 Heavy metals concentrations(mg/kg) in soil of each site
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_Site_N2,Site N2,Cu_mgkg,239.0,Unknown,,high,table_p28_ri5_ci4,Table 3 Heavy metals concentrations(mg/kg) in soil of each site
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_Site_Z,Site Z,Cu_mgkg,50.8,Unknown,,high,table_p28_ri5_ci5,Table 3 Heavy metals concentrations(mg/kg) in soil of each site
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_Site_A,Site A,Ni_mgkg,32.2,Unknown,,high,table_p28_ri9_ci2,Table 3 Heavy metals concentrations(mg/kg) in soil of each site
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_Site_N1,Site N1,Ni_mgkg,20.7,Unknown,,high,table_p28_ri9_ci3,Table 3 Heavy metals concentrations(mg/kg) in soil of each site
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_Site_N2,Site N2,Ni_mgkg,46.4,Unknown,,high,table_p28_ri9_ci4,Table 3 Heavy metals concentrations(mg/kg) in soil of each site
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_Site_Z,Site Z,Ni_mgkg,21.7,Unknown,,high,table_p28_ri9_ci5,Table 3 Heavy metals concentrations(mg/kg) in soil of each site
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_Site_A,Site A,Co_mgkg,11.8,Unknown,,high,table_p28_ri13_ci2,Table 3 Heavy metals concentrations(mg/kg) in soil of each site
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_Site_N1,Site N1,Co_mgkg,26.0,Unknown,,high,table_p28_ri13_ci3,Table 3 Heavy metals concentrations(mg/kg) in soil of each site
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_Site_N2,Site N2,Co_mgkg,344.0,Unknown,,high,table_p28_ri13_ci4,Table 3 Heavy metals concentrations(mg/kg) in soil of each site
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_Site_Z,Site Z,Co_mgkg,12.4,Unknown,,high,table_p28_ri13_ci5,Table 3 Heavy metals concentrations(mg/kg) in soil of each site
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_Site_A,Site A,Mn_mgkg,625.0,Unknown,,high,table_p28_ri17_ci2,Table 3 Heavy metals concentrations(mg/kg) in soil of each site
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_Site_N1,Site N1,Mn_mgkg,401.0,Unknown,,high,table_p28_ri17_ci3,Table 3 Heavy metals concentrations(mg/kg) in soil of each site
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_Site_N2,Site N2,Mn_mgkg,570.0,Unknown,,high,table_p28_ri17_ci4,Table 3 Heavy metals concentrations(mg/kg) in soil of each site
+70642_10807039.2017.1294975,70642_10807039.2017.1294975_Site_Z,Site Z,Mn_mgkg,608.0,Unknown,,high,table_p28_ri17_ci5,Table 3 Heavy metals concentrations(mg/kg) in soil of each site

@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11243,Site 7,Sum_PAH_ngg,720698.02,ng/g,正文3.1.1段+Table S4,soil,industrial,Shanghai,"正文明确给出site 7的Σ16PAHs=720698.02 ng/g; site 7位于闵行吴泾工业区近能源化工厂; 论文标注为极端异常值并排除于统计之外但为真实采样点实测值"
+P11243,Site 37,Sum_PAH_ngg,14289.30,ng/g,正文3.1.1段+Table S4,soil,urban,Shanghai,"正文明确给出site 37的Σ16PAHs=14289.30 ng/g; 位于主干道交叉路口近大型医院属重交通区"
+P11243,Site 6,Sum_PAH_ngg,12644.35,ng/g,正文3.1.1段+Table S4,soil,industrial,Shanghai,"正文明确给出site 6的Σ16PAHs=12644.35 ng/g; 位于吴泾工业区近加油站"
+P11243,Site 63,Sum_PAH_ngg,10316.09,ng/g,正文3.1.1段+Table S4,soil,urban,Shanghai,"正文明确给出site 63的Σ16PAHs=10316.09 ng/g; 位于苏州河岸边居住区"

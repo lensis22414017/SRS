@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03425,,,,,,soil,urban/industrial,Zhejiang,"skip: 纯HM论文(8重金属Zn/Pb/Cr/Cu/Ni/As/Cd/Hg, 宁波北仑区60点2015+2022), 全文无任何OP家族数据(PAH/PCB/DDT/HCH/PBDE/PHC均无), 非HM+OP复合论文不纳入hm_op集; 且paper.md中Table1-5均为正文文字引用(无HTML/markdown表格渲染), 关键Table2(60点位浓度矩阵)缺失不可读, 正文仅有统计汇总(Mean/CV%/median排序)属site-level summary须剔除, 无采样点级实测浓度可提取"

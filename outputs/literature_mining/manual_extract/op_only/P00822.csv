@@ -1,0 +1,26 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P00822,OS1,TotalPHC_mgkg,404300,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.4043 g/g ×1000000 = mg/kg; oil-contaminated surface 5-10cm,38.701389,117.495
+P00822,OD1,TotalPHC_mgkg,108000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.1080 g/g ×1000000 = mg/kg; oil-contaminated deep 35-40cm,38.701389,117.495
+P00822,OS2,TotalPHC_mgkg,320000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.3200 g/g ×1000000 = mg/kg; oil-contaminated surface,38.700834,117.494722
+P00822,OD2,TotalPHC_mgkg,188400,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.1884 g/g ×1000000 = mg/kg; orig label 0D2 typo for OD2,38.700834,117.494722
+P00822,OS3,TotalPHC_mgkg,50000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.0500 g/g ×1000000 = mg/kg; oil-contaminated surface,38.703889,117.483611
+P00822,OD3,TotalPHC_mgkg,36000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.0360 g/g ×1000000 = mg/kg; oil-contaminated deep,38.703889,117.483611
+P00822,OS4,TotalPHC_mgkg,46000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.0460 g/g ×1000000 = mg/kg; oil-contaminated surface,38.689722,117.503056
+P00822,OD4,TotalPHC_mgkg,25000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.0250 g/g ×1000000 = mg/kg; orig label 0D4 typo for OD4,38.689722,117.503056
+P00822,OS5,TotalPHC_mgkg,252000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.2520 g/g ×1000000 = mg/kg; oil-contaminated surface,38.686389,117.500556
+P00822,OD5,TotalPHC_mgkg,6000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.0060 g/g ×1000000 = mg/kg; oil-contaminated deep,38.686389,117.500556
+P00822,OS6,TotalPHC_mgkg,220000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.2200 g/g ×1000000 = mg/kg; oil-contaminated surface,38.691944,117.504167
+P00822,OD6,TotalPHC_mgkg,14000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.0140 g/g ×1000000 = mg/kg; orig label 0D6 typo for OD6,38.691944,117.504167
+P00822,OS7,TotalPHC_mgkg,40000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.0400 g/g ×1000000 = mg/kg; oil-contaminated surface,38.691667,117.506111
+P00822,OD7,TotalPHC_mgkg,9000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.0090 g/g ×1000000 = mg/kg; orig label 0D7 typo for OD7,38.691667,117.506111
+P00822,OS8,TotalPHC_mgkg,16000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.0160 g/g ×1000000 = mg/kg; oil-contaminated surface,38.656667,117.504444
+P00822,OD8,TotalPHC_mgkg,9000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.0090 g/g ×1000000 = mg/kg; orig label 0D8 typo for OD8,38.656667,117.504444
+P00822,OS9,TotalPHC_mgkg,45000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.0450 g/g ×1000000 = mg/kg; oil-contaminated surface,38.653611,117.506667
+P00822,OD9,TotalPHC_mgkg,18000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.0180 g/g ×1000000 = mg/kg; oil-contaminated deep,38.653611,117.506667
+P00822,OS10,TotalPHC_mgkg,26000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.0260 g/g ×1000000 = mg/kg; oil-contaminated surface,38.656389,117.505278
+P00822,OD10,TotalPHC_mgkg,11000,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.0110 g/g ×1000000 = mg/kg; oil-contaminated deep,38.656389,117.505278
+P00822,NS11,TotalPHC_mgkg,0,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.0000 g/g; nonpetroleum-contaminated surface control,38.655,117.504444
+P00822,ND11,TotalPHC_mgkg,0,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.0000 g/g; nonpetroleum-contaminated deep control,38.655,117.504444
+P00822,NS12,TotalPHC_mgkg,0,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.0000 g/g; nonpetroleum-contaminated surface control,38.656944,117.507222
+P00822,NS13,TotalPHC_mgkg,0,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.0000 g/g; nonpetroleum-contaminated surface control,38.673611,117.484167
+P00822,ND13,TotalPHC_mgkg,0,mg/kg,Table 1,soil,petrochemical,Tianjin,TPH 0.0000 g/g; nonpetroleum-contaminated deep control,38.673611,117.484167

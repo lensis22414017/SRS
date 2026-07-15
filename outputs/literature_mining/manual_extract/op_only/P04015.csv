@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04015,,,,,,,,"skip: Table 1 only reports Average/Min/Max per site group (Urban/Suburban/Rural) for 16 PAHs + ΣPAHs; 45 samples aggregated into 3 groups with no individual sample-level data; text reports mean±SD only; no sample IDs (S1/S2) with per-point concentrations"

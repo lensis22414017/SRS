@@ -1,0 +1,14 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+_dup_ijerph16132302,_dup_ijerph16132302_PAHs_(ng/g),PAHs (ng/g),Sum_PAH_ngg,160.66,Unknown,,high,table_p6_ri3_ci1,Table 4. Composition of PAHs in diferent depths of three land use types.
+_dup_ijerph16132302,_dup_ijerph16132302_Depth_(cm),Depth (cm),Sum_PAH_ngg,256.67,Unknown,,high,table_p6_ri3_ci2,Table 4. Composition of PAHs in diferent depths of three land use types.
+_dup_ijerph16132302,_dup_ijerph16132302_PAHs_(ng/g),PAHs (ng/g),Sum_PAH_ngg,261.33,Unknown,,high,table_p6_ri4_ci1,Table 4. Composition of PAHs in diferent depths of three land use types.
+_dup_ijerph16132302,_dup_ijerph16132302_Depth_(cm),Depth (cm),Sum_PAH_ngg,300.23,Unknown,,high,table_p6_ri4_ci2,Table 4. Composition of PAHs in diferent depths of three land use types.
+_dup_ijerph16132302,_dup_ijerph16132302_PAHs_(ng/g),PAHs (ng/g),Sum_PAH_ngg,87.77,Unknown,,high,table_p6_ri6_ci1,Table 4. Composition of PAHs in diferent depths of three land use types.
+_dup_ijerph16132302,_dup_ijerph16132302_Depth_(cm),Depth (cm),Sum_PAH_ngg,63.59,Unknown,,high,table_p6_ri6_ci2,Table 4. Composition of PAHs in diferent depths of three land use types.
+_dup_ijerph16132302,_dup_ijerph16132302_PAHs_(ng/g),PAHs (ng/g),Sum_PAH_ngg,95.05,Unknown,,high,table_p6_ri7_ci1,Table 4. Composition of PAHs in diferent depths of three land use types.
+_dup_ijerph16132302,_dup_ijerph16132302_Depth_(cm),Depth (cm),Sum_PAH_ngg,68.01,Unknown,,high,table_p6_ri7_ci2,Table 4. Composition of PAHs in diferent depths of three land use types.
+_dup_ijerph16132302,_dup_ijerph16132302_PAHs_(ng/g),PAHs (ng/g),Sum_PAH_ngg,21.22,Unknown,,high,table_p6_ri9_ci1,Table 4. Composition of PAHs in diferent depths of three land use types.
+_dup_ijerph16132302,_dup_ijerph16132302_Depth_(cm),Depth (cm),Sum_PAH_ngg,21.87,Unknown,,high,table_p6_ri9_ci2,Table 4. Composition of PAHs in diferent depths of three land use types.
+_dup_ijerph16132302,_dup_ijerph16132302_PAHs_(ng/g),PAHs (ng/g),Sum_PAH_ngg,12.41,Unknown,,high,table_p6_ri10_ci1,Table 4. Composition of PAHs in diferent depths of three land use types.
+_dup_ijerph16132302,_dup_ijerph16132302_Depth_(cm),Depth (cm),Sum_PAH_ngg,15.51,Unknown,,high,table_p6_ri10_ci2,Table 4. Composition of PAHs in diferent depths of three land use types.
+_dup_ijerph16132302,_dup_ijerph16132302_Weakly_contaminated,Weakly contaminated,Sum_PAH_ngg,400.0,Unknown,range_mean,high,table_p10_ri2_ci1,Table 6. Classification of soil contamination by PAHs [35].

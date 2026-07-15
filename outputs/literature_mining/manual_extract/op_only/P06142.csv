@@ -1,0 +1,12 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06142,GL4,SumPAE,6500,ng/g,Section 3.1 text,soil,agricultural,Jiangsu,"ΣPAEs=6 PAE sum (DMP+DEP+DnBP+BBP+DEHP+DnOP);原文6.50 mg/kg×1000=ng/g"
+P06142,GL12,SumPAE,7890,ng/g,Section 3.1 text,soil,agricultural,Jiangsu,"ΣPAEs=6 PAE sum;原文7.89 mg/kg×1000=ng/g"
+P06142,GL23,SumPAE,9680,ng/g,Section 3.1 text,soil,agricultural,Jiangsu,"ΣPAEs=6 PAE sum;原文9.68 mg/kg×1000=ng/g"
+P06142,GL34,SumPAE,5120,ng/g,Section 3.1 text,soil,agricultural,Jiangsu,"ΣPAEs=6 PAE sum;原文5.12 mg/kg×1000=ng/g"
+P06142,GL35,SumPAE,7290,ng/g,Section 3.1 text,soil,agricultural,Jiangsu,"ΣPAEs=6 PAE sum;原文7.29 mg/kg×1000=ng/g"
+P06142,GL39,SumPAE,5130,ng/g,Section 3.1 text,soil,agricultural,Jiangsu,"ΣPAEs=6 PAE sum;原文5.13 mg/kg×1000=ng/g"
+P06142,PK3,SumPAE,6310,ng/g,Section 3.1 text,soil,agricultural,Jiangsu,"ΣPAEs=6 PAE sum;原文6.31 mg/kg×1000=ng/g"
+P06142,PK15,SumPAE,5340,ng/g,Section 3.1 text,soil,agricultural,Jiangsu,"ΣPAEs=6 PAE sum;原文5.34 mg/kg×1000=ng/g"
+P06142,PK17,SumPAE,7490,ng/g,Section 3.1 text,soil,agricultural,Jiangsu,"ΣPAEs=6 PAE sum;原文7.49 mg/kg×1000=ng/g"
+P06142,PK18,SumPAE,7060,ng/g,Section 3.1 text,soil,agricultural,Jiangsu,"ΣPAEs=6 PAE sum;原文7.06 mg/kg×1000=ng/g"
+P06142,SS18,SumPAE,7140,ng/g,Section 3.1 text,soil,agricultural,Jiangsu,"ΣPAEs=6 PAE sum;原文7.14 mg/kg×1000=ng/g"

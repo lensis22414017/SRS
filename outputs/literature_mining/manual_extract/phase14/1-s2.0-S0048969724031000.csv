@@ -1,0 +1,6 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+1-s2.0-S0048969724031000,1-s2.0-S0048969724031000_Grain_mg/kg,Grain mg/kg,As_mgkg,30.0,Unknown,,high,table_p4_ri2_ci3,"Table 1 Mean and standard deviation of heavy metal contents in atmospheric depositions,soils,and rice grains."
+1-s2.0-S0048969724031000,1-s2.0-S0048969724031000_Grain_mg/kg,Grain mg/kg,Cd_mgkg,0.4,Unknown,,high,table_p4_ri3_ci3,"Table 1 Mean and standard deviation of heavy metal contents in atmospheric depositions,soils,and rice grains."
+1-s2.0-S0048969724031000,1-s2.0-S0048969724031000_Grain_mg/kg,Grain mg/kg,Cu_mgkg,50.0,Unknown,,high,table_p4_ri4_ci3,"Table 1 Mean and standard deviation of heavy metal contents in atmospheric depositions,soils,and rice grains."
+1-s2.0-S0048969724031000,1-s2.0-S0048969724031000_Grain_mg/kg,Grain mg/kg,Ni_mgkg,70.0,Unknown,,high,table_p4_ri5_ci3,"Table 1 Mean and standard deviation of heavy metal contents in atmospheric depositions,soils,and rice grains."
+1-s2.0-S0048969724031000,1-s2.0-S0048969724031000_Grain_mg/kg,Grain mg/kg,Pb_mgkg,100.0,Unknown,,high,table_p4_ri6_ci3,"Table 1 Mean and standard deviation of heavy metal contents in atmospheric depositions,soils,and rice grains."

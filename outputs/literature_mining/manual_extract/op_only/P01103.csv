@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P01103,PF2_Sf,Sum_PAH_ngg,1070.4,ng/g,Discussion Sec.4 text,soil,petrochemical,Jiangsu/Zhejiang/Shanghai,PF2 surface soil(0-20cm) Sum16 EPA PAHs from text; ug/kg=ng/g; PF2=max concentration site; rest 15 sites in Fig.2(image),39.9092,116.3974
+P01103,PF2_Sb,Sum_PAH_ngg,743.7,ng/g,Discussion Sec.4 text,soil,petrochemical,Jiangsu/Zhejiang/Shanghai,PF2 subsoil(20-40cm) Sum16 EPA PAHs from text; ug/kg=ng/g; individual site data only in Fig.2(image) and Suppl.Table S1,39.9092,116.3974

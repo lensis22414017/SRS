@@ -1,0 +1,34 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01342,A1,TotalPHC_mgkg,4.5,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=ND(below LOD); TotalPHC=SumPHCs(sv)=4500 ng/g dw; /1000->mg/kg
+P01342,A2,TotalPHC_mgkg,4.7,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=200+SumPHCs(sv)=4500=4700 ng/g dw; /1000->mg/kg
+P01342,A3,TotalPHC_mgkg,5.3,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=ND(below LOD); TotalPHC=SumPHCs(sv)=5300 ng/g dw; /1000->mg/kg
+P01342,A4,TotalPHC_mgkg,8.3,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=ND(below LOD); TotalPHC=SumPHCs(sv)=8300 ng/g dw; /1000->mg/kg
+P01342,B1,TotalPHC_mgkg,4.9,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=100+SumPHCs(sv)=4800=4900 ng/g dw; /1000->mg/kg
+P01342,B2,TotalPHC_mgkg,5.9,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=300+SumPHCs(sv)=5600=5900 ng/g dw; /1000->mg/kg
+P01342,B3,TotalPHC_mgkg,4.2,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=ND(below LOD); TotalPHC=SumPHCs(sv)=4200 ng/g dw; /1000->mg/kg
+P01342,B4,TotalPHC_mgkg,4.4,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=100+SumPHCs(sv)=4300=4400 ng/g dw; /1000->mg/kg
+P01342,B5,TotalPHC_mgkg,18.6,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=ND(below LOD); TotalPHC=SumPHCs(sv)=18600 ng/g dw; /1000->mg/kg
+P01342,C1,TotalPHC_mgkg,4.7,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=400+SumPHCs(sv)=4300=4700 ng/g dw; /1000->mg/kg
+P01342,C2,TotalPHC_mgkg,4.6,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=200+SumPHCs(sv)=4400=4600 ng/g dw; /1000->mg/kg
+P01342,C3,TotalPHC_mgkg,6.7,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=ND(below LOD); TotalPHC=SumPHCs(sv)=6700 ng/g dw; /1000->mg/kg
+P01342,C4,TotalPHC_mgkg,4.8,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=ND(below LOD); TotalPHC=SumPHCs(sv)=4800 ng/g dw; /1000->mg/kg
+P01342,D1,TotalPHC_mgkg,4.9,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=ND(below LOD); TotalPHC=SumPHCs(sv)=4900 ng/g dw; /1000->mg/kg
+P01342,D2,TotalPHC_mgkg,13.0,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=ND(below LOD); TotalPHC=SumPHCs(sv)=13000 ng/g dw; /1000->mg/kg
+P01342,D3,TotalPHC_mgkg,7.0,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=100+SumPHCs(sv)=6900=7000 ng/g dw; /1000->mg/kg
+P01342,D4,TotalPHC_mgkg,5.6,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=ND(below LOD); TotalPHC=SumPHCs(sv)=5600 ng/g dw; /1000->mg/kg
+P01342,D5,TotalPHC_mgkg,5.6,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=200+SumPHCs(sv)=5400=5600 ng/g dw; /1000->mg/kg
+P01342,E1,TotalPHC_mgkg,5.0,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=ND(below LOD); TotalPHC=SumPHCs(sv)=5000 ng/g dw; /1000->mg/kg
+P01342,E2,TotalPHC_mgkg,6.1,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=100+SumPHCs(sv)=6000=6100 ng/g dw; /1000->mg/kg
+P01342,E3,TotalPHC_mgkg,1200.4,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=400+SumPHCs(sv)=1200000=1200400 ng/g dw; /1000->mg/kg
+P01342,E4,TotalPHC_mgkg,7.8,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=200+SumPHCs(sv)=7600=7800 ng/g dw; /1000->mg/kg
+P01342,E5,TotalPHC_mgkg,21.1,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=400+SumPHCs(sv)=20700=21100 ng/g dw; /1000->mg/kg
+P01342,F1,TotalPHC_mgkg,24.5,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=ND(below LOD); TotalPHC=SumPHCs(sv)=24500 ng/g dw; /1000->mg/kg
+P01342,F2,TotalPHC_mgkg,7.2,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=100+SumPHCs(sv)=7100=7200 ng/g dw; /1000->mg/kg
+P01342,F3,TotalPHC_mgkg,11.0,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=100+SumPHCs(sv)=10900=11000 ng/g dw; /1000->mg/kg
+P01342,F4,TotalPHC_mgkg,7.3,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=100+SumPHCs(sv)=7200=7300 ng/g dw; /1000->mg/kg
+P01342,G1,TotalPHC_mgkg,3.9,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=ND(below LOD); TotalPHC=SumPHCs(sv)=3900 ng/g dw; /1000->mg/kg
+P01342,G2,TotalPHC_mgkg,3.6,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=ND(below LOD); TotalPHC=SumPHCs(sv)=3600 ng/g dw; /1000->mg/kg
+P01342,G3,TotalPHC_mgkg,5.6,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=100+SumPHCs(sv)=5500=5600 ng/g dw; /1000->mg/kg
+P01342,G4,TotalPHC_mgkg,4.6,mg/kg,Table S1 (SI),soil,industrial,Guangdong,SumPHCs(v)=100+SumPHCs(sv)=4500=4600 ng/g dw; /1000->mg/kg
+P01342,ck1,TotalPHC_mgkg,0.83,mg/kg,Table S1 (SI),soil,other,Guangdong,SumPHCs(v)=ND(below LOD); TotalPHC=SumPHCs(sv)=830 ng/g dw; /1000->mg/kg; reference soil outside brownfield
+P01342,ck2,TotalPHC_mgkg,0.6,mg/kg,Table S1 (SI),soil,other,Guangdong,SumPHCs(v)=100+SumPHCs(sv)=500=600 ng/g dw; /1000->mg/kg; reference soil outside brownfield

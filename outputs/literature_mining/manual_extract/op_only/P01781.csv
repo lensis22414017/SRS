@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01781,,,,,,,,"skip: 污染物为SCCPs/MCCPs(短链和中链氯化石蜡)，不在目标OP清单内(PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAEs/OCPs); 基质为水体和沉积物(非土壤); 研究对象为小清河-莱州湾河口系统"

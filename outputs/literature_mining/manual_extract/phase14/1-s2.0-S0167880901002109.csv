@@ -1,0 +1,12 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+1-s2.0-S0167880901002109,1-s2.0-S0167880901002109_$\mathrm_{_S_}_1_^_{_\mathrm_{_b_}_}$,$\mathrm { S } 1 ^ { \mathrm { b } }$,SumPCB_ngg,1101.4,Unknown,,medium,table_p4_ri45_ci1,"Concentrations of PCB congeners in soil and rice samples (ng/g DW) from the paddy field,WenTai area"
+1-s2.0-S0167880901002109,1-s2.0-S0167880901002109_S3,S3,SumPCB_ngg,920.08,Unknown,,medium,table_p4_ri45_ci2,"Concentrations of PCB congeners in soil and rice samples (ng/g DW) from the paddy field,WenTai area"
+1-s2.0-S0167880901002109,1-s2.0-S0167880901002109_S4,S4,SumPCB_ngg,568.15,Unknown,,medium,table_p4_ri45_ci3,"Concentrations of PCB congeners in soil and rice samples (ng/g DW) from the paddy field,WenTai area"
+1-s2.0-S0167880901002109,1-s2.0-S0167880901002109_S5,S5,SumPCB_ngg,7.34,Unknown,,medium,table_p4_ri45_ci4,"Concentrations of PCB congeners in soil and rice samples (ng/g DW) from the paddy field,WenTai area"
+1-s2.0-S0167880901002109,1-s2.0-S0167880901002109_S6,S6,SumPCB_ngg,2.01,Unknown,,medium,table_p4_ri45_ci5,"Concentrations of PCB congeners in soil and rice samples (ng/g DW) from the paddy field,WenTai area"
+1-s2.0-S0167880901002109,1-s2.0-S0167880901002109_Gaseous-phase,Gaseous-phase,SumPCB_ngg,440.37,Unknown,,medium,table_p7_ri18_ci1,The concentrations of PCB congeners in the gaseous-phase and particle-phase (ng/m)
+1-s2.0-S0167880901002109,1-s2.0-S0167880901002109_Particle-phase,Particle-phase,SumPCB_ngg,191.26,Unknown,,medium,table_p7_ri18_ci2,The concentrations of PCB congeners in the gaseous-phase and particle-phase (ng/m)
+1-s2.0-S0167880901002109,1-s2.0-S0167880901002109_col3,col3,SumPCB_ngg,641.05,Unknown,,medium,table_p7_ri18_ci3,The concentrations of PCB congeners in the gaseous-phase and particle-phase (ng/m)
+1-s2.0-S0167880901002109,1-s2.0-S0167880901002109_col4,col4,SumPCB_ngg,7.18,Unknown,,medium,table_p7_ri18_ci4,The concentrations of PCB congeners in the gaseous-phase and particle-phase (ng/m)
+1-s2.0-S0167880901002109,1-s2.0-S0167880901002109_col5,col5,SumPCB_ngg,0.97,Unknown,,medium,table_p7_ri18_ci5,The concentrations of PCB congeners in the gaseous-phase and particle-phase (ng/m)
+1-s2.0-S0167880901002109,1-s2.0-S0167880901002109_col6,col6,SumPCB_ngg,8.01,Unknown,,medium,table_p7_ri18_ci6,The concentrations of PCB congeners in the gaseous-phase and particle-phase (ng/m)

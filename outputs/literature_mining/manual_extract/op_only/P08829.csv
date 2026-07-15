@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08829,,,,,,,,"skip: 纯数值模拟/合成实验研究(无真实场地采样数据); 论文使用合成3D含水层(20m×20m×5m)模拟DNAPL(TCE)饱和度分布; 采用地球物理方法(DC电阻率+激发极化)联合反演; 所有borehole数据均为模型生成非实测; 无PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAE/OCP浓度数据"

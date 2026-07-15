@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04265,,,,,,,,"skip: HM数据仅在Figure9柱状图以处理组(RDC/CK/SSR/DSR)均值±SD呈现(统计汇总非采样点级); 预实验基线为mean±SD站点汇总; 无OP数据(论文虽归类Pesticides但未测PAH/PCB/DDT/HCH/PBDE/PHC，仅提及农药作为农业投入)"

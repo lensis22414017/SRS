@@ -1,0 +1,65 @@
+
+===== PAGE 1 =====
+Characterization of extractable and non-extractable polycyclic aromatic
+hydrocarbons in soils and sediments from the Pearl River Delta, China
+Lulu Hea,b, Jianzhong Songa, Ping’an Penga,*
+aState Key Laboratory of Organic Geochemistry, Guangzhou Institute of Geochemistry, Chinese Academy of Sciences, Wushan, P.O. Box 1131,
+Guangzhou 510640, China
+bGraduate School of Chinese Academy of Sciences, Shijingshan, Beijing 100039, China
+Non-extractable PAHs took large proportions of total PAHs in ﬁeld soils and sediments.
+article info
+Article history:
+Received 25 January 2008Received in revised form 27 May 2008Accepted 2 June 2008
+Keywords:
+Polycyclic aromatic hydrocarbonsExtractable PAHsNon-extractable PAHsHumic acidsHuminabstract
+Formation of bound residues of pollutants in soils and sediments is an important process to control the
+fate of pollutants in the environment. The most of bound residue is not solvent extractable. In this paper,we measured both extractable and non-extractable polycyclic aromatic hydrocarbons (PAHs) in different
+organic matter fractions of samples from the Pearl River Delta, China. Non-extractable PAHs concen-
+tration was 234.45–1424.57
+mg/kg and accounted for 33.78–57.44% of total PAHs. 2–3 Ring PAHs were the
+dominant species and differed in concentration substantially between the samples. The atomic ratio ofPAHs over organic-C in the fractions ordered as solvent soluble organic matter >humin >humic acids,
+matching the content of aliphatic moieties in the fractions of organic matter. The ratio of extractable andnon-extractable PAHs may relate to the aging process of PAHs in soil and sediment.
+/C2112008 Elsevier Ltd. All rights reserved.
+1. Introduction
+Polycyclic aromatic hydrocarbons (PAHs) are mainly produced
+during incomplete combustion, pyrolysis of organic materials by
+industry, agriculture and trafﬁc, or in diagenetic alteration pro-
+cesses of natural organic matter ( Luo et al., 2004; Conte et al.,
+2001 ). They are ubiquitous in ambient air, water, sediment and soil,
+and some such as pyrene, benzo[ a]pyrene and benzo[ b]-
+ﬂuoranthene are recognized as mutagens and carcinogens. Owing
+to their toxicity and widespread presence in the environment, PAHs
+have received much attention by environmental chemists, toxi-
+cologists and regulatory agencies for over three decades (Chen
+et al., 2005 ).
+Most studies have focused on organic solvent-extractable PAHs
+in samples because they can be readily conducted in laboratories(Chen et al., 2005; Mai et al., 2001 ). However, non-extractable,
+namely, bound PAHs in literature are now thought to be asimportant as extractable PAHs because they may be a signiﬁcantproportion of total PAHs and play an important role in PAHs’ be-
+havior in natural systems. This may include diminishing bio-
+availability, toxicity and mobility, or retarding of degradation
+(Chung and Alexander, 1998; Nam and Kim, 2002). The deﬁnition of
+bound residues of pollutants varies with researchers and their ex-traction methods (Kaufman and Blake, 1973 ).Fuhr et al. (1998)
+stated that it ‘‘represent compounds in soil, plant or animal, whichpersisted in the matrix form of the parent substance or its me-tabolite(s) after extraction, and the extraction method must not
+substantially change the compounds themselves or the nature of
+the matrix’’. In this paper, we use ‘‘non-extractable’’ instead of
+bound residue to describe the pollutant fraction which is not ex-
+tractable by solvent. It is similar to bound residue in scientiﬁc
+meaning but more laboratory operative. Bound residues are
+thought to be formed from chemical binding, entrapment of pol-
+lutants in micropores of an inorganic–organic matrix, and other
+mixture sequestration processes of pollutants in a matrix. Gener-
+ally, the non-extractable fraction of pollutants increases with resi-
+dence time in soils and sediments ( Gevao et al., 2000; Northcott
+and Jones, 2001 ).
+The non-extractable hydrophobic pollutants in soils and sedi-
+ments are mostly present in recalcitrant organic matter such ashumic acids, kerogens and black carbon etc. ( Cornelissen et al.,
+2005 ). These organic materials can be characterized or further
+*Corresponding author. Tel.: þ86 20 85290126/13318839751; fax: þ86 20
+85290117.
+E-mail addresses: helulu122@126.com (L. He), songjzh@gig.ac.cn (J. Song), pin-
+ganp@gig.ac.cn (Ping’an Peng).
+Contents lists available at ScienceDirect
+Environmental Pollution
+journal homepage: www.else vier.com/locate/envpol
+0269-7491/$ – see front matter /C2112008 Elsevier Ltd. All rights reserved.
+doi:10.1016/j.envpol.2008.06.003Environmental Pollution 156 (2008) 769–774

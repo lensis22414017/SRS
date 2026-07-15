@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04695,S5,Sum_PAH_ngg,16800,ng/g,正文3.1段,sediment,other,Jiangsu,Meiliang Lake bay gate control section (connects Liangxi river); total 16 EPA PAHs from text
+P04695,S14,Sum_PAH_ngg,43217.3,ng/g,正文3.1段,sediment,other,Jiangsu,Ferry Bridge on Dongshan River; total 16 EPA PAHs from text
+P04695,S15,Sum_PAH_ngg,30193.7,ng/g,正文3.1段,sediment,other,Jiangsu,Dingxianghu Lake bay; total 16 EPA PAHs from text
+P04695,S16,Sum_PAH_ngg,57573,ng/g,正文3.1段,sediment,other,Jiangsu,Gangdong Bridge on Dongshan River; total 16 EPA PAHs from text
+P04695,S17,Sum_PAH_ngg,33163.2,ng/g,正文3.1段,sediment,other,Jiangsu,Dashui Harbor; total 16 EPA PAHs from text
+P04695,S21,Sum_PAH_ngg,69362.8,ng/g,正文3.1段,sediment,other,Jiangsu,Dazuishan Bridge on Dongshan River (highest site); total 16 EPA PAHs from text

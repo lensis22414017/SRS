@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10666,,,,,,,,,,"skip: PDF仅含摘要页(1页,38KB),正文全篇未获取。论文仅报告致癌/非致癌风险因子(HQ/carcinogenic risk factor>10^-5),未提供采样点级HM/OP浓度数据,违反铁律5(不把风险指数当浓度)。128样本/60网格的风险值非原始浓度,无可提取采样点级数据。"

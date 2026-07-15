@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00199,,,,,,,,,"skip: 论文仅提供蚯蚓和土壤OCPs(HCHs/DDTs)的统计汇总(Min/Max/Mean/Median/Geometric mean/SD)，无采样点级土壤浓度数据。Table 1为蚯蚓统计描述，Table 2为生物富集因子(BAF)统计。正文提到公园名(TJH/BWS/LDG/XL)但未给出各采样点具体浓度值。论文主体为蚯蚓中OCPs，土壤数据仅作为对照以range+SD形式呈现。"

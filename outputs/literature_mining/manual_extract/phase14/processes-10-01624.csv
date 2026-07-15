@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+processes-10-01624,processes-10-01624_SL,SL,OM_pct,1.52,Unknown,,high,table_p4_ri2_ci4,Table 1. The physical and chemical properties of the three soils.
+processes-10-01624,processes-10-01624_YC,YC,OM_pct,1.48,Unknown,,high,table_p4_ri3_ci4,Table 1. The physical and chemical properties of the three soils.
+processes-10-01624,processes-10-01624_NY,NY,OM_pct,2.61,Unknown,,high,table_p4_ri4_ci4,Table 1. The physical and chemical properties of the three soils.

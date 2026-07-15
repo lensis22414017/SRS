@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01499,coking_plant_baseline,Sum_PAH_ngg,2011770,ng/g,Section 2.1 Specimen preparation,soil,coking,Hebei,"修复前场地本底值: 16 EPA PAHs 总量2011.77±37.23 mg/kg (homogenized topsoil of abandoned coking plant); 单位换算 mg/kg×1000→ng/g; 论文为过硫酸盐化学氧化修复实验但本行为修复前真实场地土壤本底; 论文未给原始采样点编号, soil 经homogenized 复合, 此为单一baseline值; SO4^2-(5055.85 mg/kg)与pH(8.56)非目标污染物未提取"

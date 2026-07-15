@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03334,,,,,,,industrial,Shanghai,"skip: 修复效果评估论文，无修复前采样点级本底数据。表1仅含修复前最大检出值(统计max非采样点级: Cu=10000,Hg=13.6,Co=69.5,BaA=5.6,BaP=3.9,DahA=0.96,TPH=3650 mg/kg)，无sample_id。表4(基坑清挖后)、表5(修复后堆体)均为修复后效果评估数据，按铁律剔除。正文第2节仅超标倍数summary。"

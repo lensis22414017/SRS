@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11348,NA,NA,NA,NA,NA,NA,NA,NA,"skip: 论文仅检测SCCPs和MCCPs(短链/中链氯化石蜡),不在目标OP(HM)清单内。Table 1虽有S1-S18共18个采样点级浓度数据,但均属SCCP/MCCP同系物组(∑C10/∑C11/∑C12/∑C13/∑SCCPs/∑C14/∑C15/∑C16/∑C17/∑MCCPs),非PAH/PCB/DDT/HCH/PBDE/石油烃/抗生素/PAE/OCP或HM(Cd/Pb/Cr/As/Hg/Cu/Zn/Ni)。论文属河北有色金属回收园区场地土壤实测(非盆栽/非修复),但无可提取目标污染物。"

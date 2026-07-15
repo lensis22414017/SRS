@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05273,,,,,,,,,"skip: 文献综述/Meta分析，汇编337个采样数据来自已发表论文，仅有区域级Mean/Range汇总（土壤878.5 μg/kg均值、各功能区均值如工业区2510/教育区1331等），无任何采样点级个体浓度数据，无sample_id标识。Table 1/2均为跨城市文献对比汇总。"

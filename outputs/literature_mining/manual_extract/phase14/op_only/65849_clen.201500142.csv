@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+65849_clen.201500142,65849_clen.201500142_WS_2,WS_2,pH,2.47,Unknown,,high,table_p2_ri1_ci5,,,,,,,phase14
+65849_clen.201500142,65849_clen.201500142_WS_2,WS_2,TotalPHC_mgkg,32.9,Unknown,,high,table_p2_ri7_ci5,,,,,,,phase14
+65849_clen.201500142,65849_clen.201500142_WS_2,WS_2,OC_pct,37.5,Unknown,,high,table_p2_ri8_ci5,,,,,,,phase14

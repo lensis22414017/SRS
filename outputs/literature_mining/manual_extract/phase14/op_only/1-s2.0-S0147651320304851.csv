@@ -1,0 +1,65 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Ring_number,Ring number,Nap_ngg,2.0,Unknown,,high,table_p3_ri2_ci1,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Molecular_weight,Molecular weight,Nap_ngg,128.2,Unknown,,high,table_p3_ri2_ci2,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Concentration_(ng/g),Concentration (ng/g),Nap_ngg,680.0,Unknown,,high,table_p3_ri2_ci3,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Detectable_ratio_(%),Detectable ratio (%),Nap_ngg,41.1,Unknown,,high,table_p3_ri2_ci4,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Carcinogenicity,Carcinogenicity,Nap_ngg,225.6,Unknown,,high,table_p3_ri2_ci5,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Ring_number,Ring number,Acy_ngg,2.0,Unknown,,high,table_p3_ri3_ci1,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Molecular_weight,Molecular weight,Acy_ngg,152.2,Unknown,,high,table_p3_ri3_ci2,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Concentration_(ng/g),Concentration (ng/g),Acy_ngg,107.1,Unknown,,high,table_p3_ri3_ci3,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Detectable_ratio_(%),Detectable ratio (%),Acy_ngg,13.2,Unknown,,high,table_p3_ri3_ci4,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Carcinogenicity,Carcinogenicity,Acy_ngg,41.4,Unknown,,high,table_p3_ri3_ci5,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Ring_number,Ring number,Ace_ngg,2.0,Unknown,,high,table_p3_ri4_ci1,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Molecular_weight,Molecular weight,Ace_ngg,154.2,Unknown,,high,table_p3_ri4_ci2,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Concentration_(ng/g),Concentration (ng/g),Ace_ngg,80.0,Unknown,,high,table_p3_ri4_ci3,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Detectable_ratio_(%),Detectable ratio (%),Ace_ngg,1.0,Unknown,,high,table_p3_ri4_ci4,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Carcinogenicity,Carcinogenicity,Ace_ngg,33.6,Unknown,,high,table_p3_ri4_ci5,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Ring_number,Ring number,Phe_ngg,3.0,Unknown,,high,table_p3_ri6_ci1,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Molecular_weight,Molecular weight,Phe_ngg,178.2,Unknown,,high,table_p3_ri6_ci2,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Concentration_(ng/g),Concentration (ng/g),Phe_ngg,1403.3,Unknown,,high,table_p3_ri6_ci3,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Detectable_ratio_(%),Detectable ratio (%),Phe_ngg,33.9,Unknown,,high,table_p3_ri6_ci4,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Carcinogenicity,Carcinogenicity,Phe_ngg,285.5,Unknown,,high,table_p3_ri6_ci5,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Ring_number,Ring number,Ant_ngg,3.0,Unknown,,high,table_p3_ri7_ci1,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Molecular_weight,Molecular weight,Ant_ngg,178.2,Unknown,,high,table_p3_ri7_ci2,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Concentration_(ng/g),Concentration (ng/g),Ant_ngg,474.0,Unknown,,high,table_p3_ri7_ci3,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Detectable_ratio_(%),Detectable ratio (%),Ant_ngg,21.3,Unknown,,high,table_p3_ri7_ci4,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Carcinogenicity,Carcinogenicity,Ant_ngg,85.7,Unknown,,high,table_p3_ri7_ci5,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Ring_number,Ring number,Flu_ngg,3.0,Unknown,,high,table_p3_ri8_ci1,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Molecular_weight,Molecular weight,Flu_ngg,202.3,Unknown,,high,table_p3_ri8_ci2,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Concentration_(ng/g),Concentration (ng/g),Flu_ngg,269.5,Unknown,,high,table_p3_ri8_ci3,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Detectable_ratio_(%),Detectable ratio (%),Flu_ngg,21.1,Unknown,,high,table_p3_ri8_ci4,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Carcinogenicity,Carcinogenicity,Flu_ngg,118.5,Unknown,,high,table_p3_ri8_ci5,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Ring_number,Ring number,Pyr_ngg,4.0,Unknown,,high,table_p3_ri9_ci1,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Molecular_weight,Molecular weight,Pyr_ngg,202.3,Unknown,,high,table_p3_ri9_ci2,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Concentration_(ng/g),Concentration (ng/g),Pyr_ngg,497.1,Unknown,,high,table_p3_ri9_ci3,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Detectable_ratio_(%),Detectable ratio (%),Pyr_ngg,19.4,Unknown,,high,table_p3_ri9_ci4,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Carcinogenicity,Carcinogenicity,Pyr_ngg,126.3,Unknown,,high,table_p3_ri9_ci5,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Ring_number,Ring number,BaA_ngg,4.0,Unknown,,high,table_p3_ri10_ci1,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Molecular_weight,Molecular weight,BaA_ngg,228.3,Unknown,,high,table_p3_ri10_ci2,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Concentration_(ng/g),Concentration (ng/g),BaA_ngg,169.2,Unknown,,high,table_p3_ri10_ci3,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Carcinogenicity,Carcinogenicity,BaA_ngg,66.9,Unknown,,high,table_p3_ri10_ci5,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Ring_number,Ring number,Chr_ngg,4.0,Unknown,,high,table_p3_ri11_ci1,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Molecular_weight,Molecular weight,Chr_ngg,228.3,Unknown,,high,table_p3_ri11_ci2,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Concentration_(ng/g),Concentration (ng/g),Chr_ngg,2006.7,Unknown,,high,table_p3_ri11_ci3,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Detectable_ratio_(%),Detectable ratio (%),Chr_ngg,19.1,Unknown,,high,table_p3_ri11_ci4,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Carcinogenicity,Carcinogenicity,Chr_ngg,207.0,Unknown,,high,table_p3_ri11_ci5,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Ring_number,Ring number,BbF_ngg,4.0,Unknown,,high,table_p3_ri12_ci1,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Molecular_weight,Molecular weight,BbF_ngg,252.3,Unknown,,high,table_p3_ri12_ci2,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Concentration_(ng/g),Concentration (ng/g),BbF_ngg,194.5,Unknown,,high,table_p3_ri12_ci3,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Detectable_ratio_(%),Detectable ratio (%),BbF_ngg,1.0,Unknown,,high,table_p3_ri12_ci4,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Carcinogenicity,Carcinogenicity,BbF_ngg,77.5,Unknown,,high,table_p3_ri12_ci5,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Ring_number,Ring number,BkF_ngg,4.0,Unknown,,high,table_p3_ri13_ci1,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Molecular_weight,Molecular weight,BkF_ngg,252.3,Unknown,,high,table_p3_ri13_ci2,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Concentration_(ng/g),Concentration (ng/g),BkF_ngg,300.1,Unknown,,high,table_p3_ri13_ci3,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Detectable_ratio_(%),Detectable ratio (%),BkF_ngg,30.2,Unknown,,high,table_p3_ri13_ci4,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Carcinogenicity,Carcinogenicity,BkF_ngg,103.4,Unknown,,high,table_p3_ri13_ci5,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Ring_number,Ring number,BaP_ngg,5.0,Unknown,,high,table_p3_ri14_ci1,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Molecular_weight,Molecular weight,BaP_ngg,252.3,Unknown,,high,table_p3_ri14_ci2,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Concentration_(ng/g),Concentration (ng/g),BaP_ngg,245.4,Unknown,,high,table_p3_ri14_ci3,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Detectable_ratio_(%),Detectable ratio (%),BaP_ngg,22.7,Unknown,,high,table_p3_ri14_ci4,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Carcinogenicity,Carcinogenicity,BaP_ngg,111.3,Unknown,,high,table_p3_ri14_ci5,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Ring_number,Ring number,Ind_ngg,5.0,Unknown,,high,table_p3_ri15_ci1,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Molecular_weight,Molecular weight,Ind_ngg,276.3,Unknown,,high,table_p3_ri15_ci2,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Concentration_(ng/g),Concentration (ng/g),Ind_ngg,340.1,Unknown,,high,table_p3_ri15_ci3,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Detectable_ratio_(%),Detectable ratio (%),Ind_ngg,33.9,Unknown,,high,table_p3_ri15_ci4,,,,,,,phase14
+1-s2.0-S0147651320304851,1-s2.0-S0147651320304851_Carcinogenicity,Carcinogenicity,Ind_ngg,101.7,Unknown,,high,table_p3_ri15_ci5,,,,,,,phase14

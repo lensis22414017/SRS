@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01945,,,,,,,,"skip: 论文仅研究PFAS(全氟和多氟烷基物质)在氟化工厂周边土壤中的浓度，不含目标OP污染物(PAH/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAEs/OCPs)中任何一类。全文(SI Tables S1-S8)均为PFAS单体数据，无可提取的目标OP采样点级数据。"

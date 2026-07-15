@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04711,,,,,,,,"skip: 论文仅提供15个采样点(O1-O15/A1-A15/B1-B15)的描述性统计汇总(Tables 3&4: Range/Mean/SD/CV/Detection Rate per PAH monomer)，无采样点级浓度数据表；单点浓度仅在Figure 2(图片)中展示无法精确提取数值；TEQ(Table 1)/ILCR(Tables 6-7)/ERL-ERM均为风险指数与阈值已剔除"

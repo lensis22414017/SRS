@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01091,,,,,,,,"skip: 仅区域级Mean/Median/Range汇总(Table 1按区县分组统计82个样品)，无个体采样点级数据; Table 2为跨研究对比; Table 3为TEQ风险指数(剔除); 全文无sample_id对应浓度"

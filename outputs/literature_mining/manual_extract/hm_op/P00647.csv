@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00647,NA,NA,NA,NA,NA,soil,other,Beijing,"skip: 仅HM(trace metals: Cd/Cr/As/Hg/Pb/Cu/Zn/Ni/Mn/Co/V)无任何OP(PAH/PCB/DDT/HCH/PBDE/PHC)数据，非HM+OP复合论文；且Table1仅统计汇总(Range/Mean±SD/c.v./Kurtosis/Skewness)+北京背景值ABC+GB15618 Grade II阈值，Table2为健康风险指数(HI/Carcinogenic risk)，Table3/4为合成数据验证和源廓线相关系数；全文34个表层土壤样品均无采样点级(S1/S2/A/B)浓度值，仅以site-level summary呈现"

@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10684,,,,,,,,"","paper.md仅有标题摘要(2.3KB),无正文表格/浓度数值数据,MinerU解析缺失正文,无法提取采样点级HM+OP浓度"

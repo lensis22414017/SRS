@@ -1,0 +1,13 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_A,SumPBDE_ngg,46600.0,Unknown,table_p4_ri1_ci16,dust,industrial,,phase14_auto; confidence=high; flag=,,
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_S2,SumPBDE_ngg,9000.0,Unknown,table_p4_ri2_ci16,dust,industrial,,phase14_auto; confidence=high; flag=,,
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_B,SumPBDE_ngg,28500.0,Unknown,table_p4_ri3_ci16,dust,industrial,,phase14_auto; confidence=high; flag=,,
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_S4,SumPBDE_ngg,5200.0,Unknown,table_p4_ri4_ci16,dust,industrial,,phase14_auto; confidence=high; flag=,,
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_C,SumPBDE_ngg,13100.0,Unknown,table_p4_ri5_ci16,dust,industrial,,phase14_auto; confidence=high; flag=,,
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_S6,SumPBDE_ngg,2870.0,Unknown,table_p4_ri6_ci16,dust,industrial,,phase14_auto; confidence=high; flag=,,
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_D,SumPBDE_ngg,16100.0,Unknown,table_p4_ri7_ci16,dust,industrial,,phase14_auto; confidence=high; flag=,,
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_S8,SumPBDE_ngg,8500.0,Unknown,table_p4_ri8_ci16,dust,industrial,,phase14_auto; confidence=high; flag=,,
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_A-D,SumPBDE_ngg,27400.0,Unknown,table_p4_ri9_ci16,dust,industrial,,phase14_auto; confidence=high; flag=,,
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_S10,SumPBDE_ngg,7060.0,Unknown,table_p4_ri10_ci16,dust,industrial,,phase14_auto; confidence=high; flag=,,
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_E,SumPBDE_ngg,249.0,Unknown,table_p4_ri11_ci16,dust,industrial,,phase14_auto; confidence=high; flag=,,
+72162_s11356-014-3773-z,72162_s11356-014-3773-z_S12,SumPBDE_ngg,103.0,Unknown,table_p4_ri12_ci16,dust,industrial,,phase14_auto; confidence=high; flag=,,

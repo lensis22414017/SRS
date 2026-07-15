@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00594,,,,,,soil,agricultural,Zhejiang,"skip: 论文为HM+四环素类抗生素(TCs: TC/OTC/CTC/DOC)研究，OP部分为兽药抗生素不在任务标准化OP字段(PAH/BaP/PCB/DDT/HCH/PBDE/PHC)内，无可提取HM+OP真复合数据。Table3(Cu/Zn/Cd mg/kg)和Table5(TC/OTC/CTC/DOC μg/kg)每行为按土地类型+栽培年限(Asparagus 8/13/23y, Vineyard 10/22y, Mustard 14y, Control 1/2/3)汇总的处理组均值(±SE, n=3-18复合样)，非采样点级个体值(S1/A/B/点位名)；论文仅有A/B/C三个粗略地点坐标无逐采样点数据；Table3末行Chinese standard Grade II为GB15618标准阈值须剔除。HM仅测Cu/Zn/Cd三元素(缺Pb/Cr/As/Hg/Ni)，OP(TCs)不匹配任务字段，不构成可训练的HM+OP复合数据集"

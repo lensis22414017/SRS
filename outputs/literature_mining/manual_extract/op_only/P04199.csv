@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04199,,,,,,,,"skip: 论文仅提供37个采样点的统计汇总(Mean/Median/Min/Max per PAE compound)，无采样点级浓度数据。Table 1(土壤)和Table 3(植物)均为跨站点描述性统计。37个站点详细信息在Supplementary Table S1(未包含在parsed paper.md中)。Figures 1-2为空间分布图无可读精确值，Figures 3-4为HQ/CR风险指数(剔除)。PAEs污染物(DBP/DEHP/DEP/DiBP/SumPAE)均无逐点数据可提取。"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02670,,,,,,,,"skip: Table1仅含分层统计汇总(Min/Max/Mean/SD)非采样点级数据; 单点浓度仅在Figure2柱状图(图片)中; 正文仅含范围值/均值/百分比无采样点级绝对浓度; 需OCR方可提取Figure2图像数据"

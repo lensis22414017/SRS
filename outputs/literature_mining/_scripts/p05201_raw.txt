@@ -1,0 +1,492 @@
+Available online at www.sciencedirect.com                              JOURNAL OF
+                                                                       ENVIRONMENTAL
+Journal of Environmental Sciences 2013, 25(3) 561­568                  SCIENCES
+
+                                                                       ISSN 1001-0742
+                                                                       CN 11-2629/X
+
+                                                                             www.jesc.ac.cn
+
+Factors influencing the contents of metals and As in soils around the watershed
+                               of Guanting Reservoir, China
+
+                         Li Xu1,2, Tieyu Wang1,, Wei Luo1, Kun Ni1,2, Shijie Liu1,2,
+                                 Lin Wang1,2, Qiushuang Li1,2, Yonglong Lu1,
+
+   1. Regional Ecological Risk Assessment and Environmental Management Group, State Key Laboratory of Urban and Regional Ecology, Research
+               Center for Eco-Environmental Sciences, Chinese Academy of Sciences, Beijing 100085, China. E-mail: xuliforever@163.com
+                                           2. Graduate University of Chinese Academy of Sciences, Beijing 100039, China
+
+                                             Received 01 June 2012; revised 13 August 2012; accepted 16 October 2012
+
+Abstract
+
+Topsoil samples from 61 sites around the Guanting Reservoir, China, were measured for Cu, Zn, Cr, Ni, Cd, Pb and As concentrations.
+The mean concentrations of Cu, Zn, Cr, Ni, Cd, Pb and As were 16.8, 59.4, 37.8, 18.3, 0.32, 20.1 and 8.67 mg/kg dry weight,
+respectively. Factors that influence the dynamics of these metals in soils around the watersheds of Beijing reservoirs were examined.
+The influence of atmospheric deposition, land use, soil texture, soil type and soil chemical parameters on metal contents in soils was
+investigated. Atmospheric deposition, land use and soil texture were the important factors affecting heavy metal residues. Soil type and
+soil chemical parameters were also involved in heavy metal retention in soils. The data provided in this study are considered crucial for
+reservoir remediation, especially since the Guanting Reservoir will serve as one of the main drinking water sources for Beijing in the
+foreseeable future.
+
+Key words: heavy metals; atmospheric deposition; land use; soil texture; watershed
+
+DOI: 10.1016/S1001-0742(12)60095-3
+
+Introduction                                                           Soil type and soil physical and chemical parameters can
+                                                                       also affect the residue levels of elements significantly.
+Over the past several decades, the presence of metals and              Comprehensive understanding of factors that affect metal
+As in the environment has been of world-wide concern                   and As residues in soils will help in understanding the fate
+because of their known environmental properties such as                of trace metals in soils and in the examination of possible
+ubiquity, persistence, and toxicity (Spry and Wiener, 1991;            methods of remediation of contaminated soils.
+Du Laing et al., 2009; Lee and Pandey, 2012). Heavy metal
+pollution not only degrades the quality of soil, aquatic and              Historically, the Guanting Reservoir was one of the five
+atmospheric environments, but also affects crop growth. It             major water systems used for agriculture, industry, and
+even enters the agricultural food chain through uptake by              municipalities in Beijing (Zhang et al., 2005). Because
+plants and thus affects human health (Li et al., 2008b).               of industrial pollution and intensive farming along its
+                                                                       watershed, the quality of water deteriorated. As a result,
+   Among all the environmental media, soil is the critical             the Guanting Reservoir has no longer been used as a source
+interface in the ecosystem, because it can be a source of              of drinking water for Beijing, since 1997. This is a serious
+pollution to surface and ground waters, living organisms,              issue because Beijing currently has a severe shortage of
+and sediments (Facchinelli et al., 2001). The metal and                water. Since the Beijing municipal government and the
+As pollution in soils could come from natural and an-                  national government have launched the Beijing water en-
+thropogenic sources, such as parent material, atmospheric              vironmental protection initiative, one of the plans has been
+deposition and agricultural activities (Xu et al., 2011). Dif-         the resumption of use of the Guanting Reservoir as a drink-
+ferent sources have different characteristics. For example,            ing water source (Hu et al., 2010). Over the past few years,
+patterns of heavy metal contamination in soils can vary                several investigations on metals in different media around
+depending on the land use pattern (Gaw et al., 2006).                  the Guanting Reservoir have been conducted (Zhang et
+                                                                       al., 2002; Luo et al., 2007a, 2007b). Earlier studies were
+* Corresponding author. E-mail: yllu@rcees.ac.cn (Yonglong Lu), wang-  focused on the spatial distribution and ecological risk of
+ty@rcees.ac.cn (Tieyu Wang)
+562  Journal of Environmental Sciences 2013, 25(3) 561­568 / Li Xu et al.                      Vol. 25
+
+heavy metals. However, there is limited information on         N                               Yanqing
+how various soil and environmental factors affect the metal                Huailai
+residues in the watershed of Guanting Reservoir. Thus,                              Guanting
+the elucidation of temporal trends of metal concentrations                          Reservoir
+and factors affecting metal and As residues in soils around
+the reservoir is important for developing strategies for                            Daziying
+reservoir conservation and management.
+                                                                                                                  Sampling site
+   The objectives of this research were to: (1) determine
+concentrations of cadmium (Cd), copper (Cu), nickel (Ni),              Fig. 1 Map of sampling sites around Guanting Reservoir.
+lead (Pb), chromium (Cr) and zinc (Zn) and the metalloid
+As (As) in surface soils around the Guanting Reservoir; (2)    through a nylon 100-mesh sieve, and then stored at 4°C in
+to identify the sources of metal and As residues; and (3) to   the dark before analysis.
+elucidate how the environmental factors affect metal and
+As contents in soils. The collected information will facil-    1.3 Soil sample analysis
+itate a better understanding of the residue characteristics
+and factors affecting metal and As contents in soils around    Soils were digested with a mixture of concentrated HCl-
+the watershed.                                                 HNO3-HF-HClO4. Concentrations of the metals Cd, Cu,
+                                                               Ni, Pb, Cr and Zn in the digestion solution were de-
+1 Materials and methods                                        termined by ICP-MS (7500CX, Agilent, USA). For As
+                                                               determination, samples were digested using aqua regia
+1.1 Study area                                                 (HCl:HNO3, V/V, 3:1), as recommended by the State
+                                                               Environmental Protection Administration of China (GB/T
+The Guanting Reservoir is located northwest of Beijing         22105-2008) (Liu et al., 2008). Standard reference mate-
+City (115.43­115.97E, 40.19­40.50N). The study site            rials, GSS-1 soils, obtained from the Center of National
+covers about 920 km2, including 98 km2 of water and 820        Standard Reference Material of China, were analyzed as
+km2 of surrounding land. The climate in the region is a cool   part of the quality assurance and quality control proce-
+temperature continental monsoon climate, with a mean           dures. Metal concentrations for GSS-1 were within the
+annual temperature between 3 and 9°C and an average an-        range of the certified values and the replicate analysis of
+nual precipitation between 370 and 480 mm. The primary         each batch of samples showed that the analytical preci-
+rock types are intermediate and acidic igneous; and the        sion was within 10% variability. Samples were carefully
+soil types are fluvo-aquic soil (FAS), calcareous-cinnamon     handled to avoid introduction or loss of trace elements
+soil (CCS), fluvo-cinnamon soil (FCS) and meadow-wind          during preparation and analysis. All materials used during
+sand soil (MWSS). The types of land use around the             analytical determinations were kept in Teflon or other
+Guanting Reservoir include woodland, orchard, farmland,        metal-free containers. Concentrations are expressed on a
+and fallow, which together account for about 90% of            dry weight (dw) basis. The pH and total organic carbon
+the total area. Agriculture is the major land-use in the       (TOC) values were measured using the standard methods
+area around the Guanting Reservoir. Agrochemicals are          (Liu, 2001). Soil pH was determined from a 1:2.5 water-
+applied to the farmland around this area, with an average      soil slurry by a Delta 320-s pH meter (Mettler-Toledo,
+chemical fertilizer application of approximately 107 kg/ha     Greifensee, Shanghai, China). Soil TOC was determined
+and pesticide usage of approximately 4.5 kg/ha. There are      by titration with FeSO4 after digestion with K2Cr2O7-
+also several highways across this area with heavy traffic      H2SO4 solution.
+flow in the past several years.
+                                                               1.4 Statistical analyses
+1.2 Soil sampling
+                                                               Statistical analyses were conducted using Microsoft Excel
+In May 2009, 61 soil samples were collected around             and SPSS 13.0 statistical software on a personal computer.
+the watershed of the Guanting Reservoir. Throughout the        The distribution of concentrations was tested with the
+survey, a global positioning system was used to locate the     Kolmogorov-Smirnov method to determine if they approx-
+sampling sites (Fig. 1). Each sample was made from a           imated the normal probability distribution. To evaluate the
+mixture of five sub-samples collected from the center and      relationships between concentrations of elements and soil
+at the four corners of an area of about 10 m × 10 m. All soil  chemical characteristics, correlation analysis was used.
+sub-samples were collected at a depth of 0­20 cm using a
+stainless steel shovel. Therefore, the 61 soil samples were
+composed from a total of 305 soil sub-samples collected.
+Grass and other sundries were removed from the surface
+of each sampling location before the sample was collected.
+Soil was air-dried, crushed in an agate mortar, passed
+No. 3       Factors influencing the contents of metals and As in soils around the watershed of Guanting Reservoir, China    563
+
+The Pearson correlation coefficient (for normally distribut-  corresponding reference value for both of them were 1.
+ed concentrations), r, was used to measure the strength       Thus, it can be concluded that Ni and Cr contaminations
+of a linear relationship between metals and soil chemical     in soils around the Guanting Reservoir are minimal.
+parameters.
+                                                                 The mean concentrations of Zn, Pb and As were 59.4,
+2 Results and discussion                                      20.1 and 8.67 mg/kg dw, respectively. The numbers of
+                                                              samples exceeding the corresponding reference values for
+2.1 Preliminary data description                              Zn, Pb and As were 12, 26 and 6, respectively. Thus, Zn,
+                                                              Pb and As contamination in soils around the watershed of
+The concentrations of metals and As in soils from the         the Guanting Reservoir should be given attention. Ratios
+vicinity of the Guanting Reservoir are shown in Table 1.      of the mean concentrations in soils around the watershed
+The soil pH in the study area was between 6.88 and            of the Guanting Reservoir divided by the corresponding
+8.03 with an average of 7.68. The TOC content in the          reference values decreased in the order of Cd > Pb >
+soil ranged from 0.38 to 1.90 g/kg with a mean of 0.95        Zn > Cu > As > Ni > Cr. Multiplying the ratios by the
+g/kg. The Kolmogorov-Smirnov test indicated that con-         number of values significantly exceeding the respective
+centrations of Cr, Cd, Pb, Ni, As and Zn followed normal      reference values provides a combined estimation of both
+distributions and that Cu was log-normally distributed (K-    the magnitude and extent of contamination around the
+S, P > 0.05). Because most of the Guanting Reservoir was      watershed of the Guanting Reservoir. This weighted result
+located in Hebei Province, the concentrations of metals and   suggested that the magnitude of heavy metal pollution
+As in our soils were compared with background values          in soils around the watershed of the Guanting Reservoir
+reported for Hebei Province. The mean concentration of        declines in the order of Cd > Pb > Zn > Cu > As > Ni >
+Cd (0.32 mg/kg dw) was greater than its background value      Cr.
+(0.08 mg/kg dw) as well as the recommended threshold
+limit value (0.30 mg/kg dw). It could thus be concluded       2.2 Metal concentrations affected by atmospheric depo-
+that surface soils in the vicinity of the Guanting Reservoir      sition
+were contaminated with Cd. Cd is relatively mobile in
+soils (Babic et al., 1998), and thus, could migrate to the    A comparison of the metal and As contents in 2009 (our
+Guanting Reservoir and degrade its water quality.             results) and 2003 (Luo et al., 2007b) is shown in Table 2.
+                                                              It is clear that levels of metal residues are mostly higher
+   The mean concentration of Cu in the soils was 16.8         in our study in 2009, although it should be noted that an
+mg/kg dw. The Cu concentration values had a coefficient       accurate comparison of metal residues cannot be made
+of variation of 64.1% and skewness of 3.11, which were        unless the sampling sites and points were all the same.
+the greatest of the elements studied. This observation is     One important reason for the increase in the concentration
+the result of the heterogeneity of Cu contents, with a        of elements was atmospheric deposition from sources
+few locations having elevated concentrations. The mean        originating from transportation, energy production, min-
+concentrations of Ni and Cr were 18.3 and 37.9 mg/kg          ing, metallurgical industries, manufacturing processes and
+dw, respectively. The numbers of samples exceeding the        waste incineration (Nriagu, 1990). The rate of atmospheric
+
+            Table 1 Descriptive statistics of heavy metal concentrations and soil properties from the Guanting Reservoir
+
+Metal       Mean Median Min. Max.        CV                   Skew Kurtosis K-S, P Background                               Number
+                                                                                                                            exceeding values
+                                         (%) -ness                                   valuea
+                                                                                                                            8
+Cu (mg/kg dw) 16.8   14.9     5.87 73.6  64.1 3.11            13.02    0.28b         21.7                                   12
+                                                                                                                            1
+Zn (mg/kg dw) 59.4   57.9     29.2 120.3 30.2 1.18            2.07     0.14          68.0                                   1
+                                                                                                                            61
+Cr (mg/kg dw) 37.9   38.5     23.4 98.4  29.5 2.65            13.51    0.22          63.9                                   26
+                                                                                                                            6
+Ni (mg/kg dw) 18.3   18.3     9.58 52.7  34.0 2.87            15.05    0.08          30.8                                   ­
+                                                                                                                            ­
+Cd (mg/kg dw) 0.32   0.30     0.15 0.74  31.3 1.59            4.15     0.15          0.08
+
+Pb (mg/kg dw) 20.1   19.2     12.7 34.6  19.9 1.25            2.77     0.27          20.0
+
+As (mg/kg dw) 8.67   8.76     4.63 15.9  26.5 0.51            0.61     0.97          12.0
+
+pH          7.68     7.65     7.25 8.03  0.02 ­0.03 ­0.10              0.72          ­
+
+TOC (g/kg)  0.95     0.87     0.38 1.90  36.8 0.78            0.29     0.28          ­
+
+CV: coefficient of variation.
+a Background values of soil heavy metals in Hebei Province (Wang and Wei, 1995); b dataset is ln-transformed. ­: no value.
+
+                              Table 2 Metals and As concentrations in 2009 and 2003
+
+Year        Cu       Zn       Cr         Ni                   Cd       Pb            As                                     Reference
+            (mg/kg)  (mg/kg)  (mg/kg)    (mg/kg)              (mg/kg)  (mg/kg)       (mg/kg)
+2009                                                                                                                        This study
+2003        16.80    59.40    37.80      18.28                0.32     20.13         8.67                                   Luo et al., 2007b
+            13.54    54.28    32.35      15.81                0.68     8.21          6.88
+564                 Journal of Environmental Sciences 2013, 25(3) 561­568 / Li Xu et al.                                    Vol. 25
+
+deposition depends on the proximity to point sources of         2.3 Metal concentrations affected by land use patterns
+pollution, such as heavy industry or major roads (Hu and
+Balasubramanian, 2003; Nicholson et al., 2003). Several         Land use is an important factor that could affect metal
+major freeways for coal transportation were distributed in      distributions because different land uses could contribute
+the study area. The total amount of coal transportation         to differences in metal sources, farming practices, and soil
+in this area increased greatly from 2003 to 2009 because        properties (Kim et al., 2003). Soils collected from different
+of the rapid economic development of China and the              land-use patterns were analyzed to determine the effects of
+discovery of coal mines in Inner Mongolia. Due to the large     land use on metal and As residues. Four types of land use
+volume of vehicular traffic for coal transportation, traffic    (woodland, fallow, farmland and orchard) were identified
+jams are a very common phenomenon. As a result, the             in the Guanting Reservoir area. Descriptive statistics of
+discharge of pollutants in vehicle exhaust has increased.       metal concentrations in soils from different land uses are
+                                                                shown in Table 3. In general, concentrations of metals and
+   One of the important sources of Pb was vehicle exhaust       As in soils under different land uses varied greatly.
+(Feng et al., 2011), which also contains Zn and Cu (Madrid
+et al., 2002). In addition, the braking system of vehicles         The results in Table 3 indicated that the largest average
+contains high concentrations of Zn and Cu (Mart´in et al.,      values for Zn (63.5 mg/kg dw), Cr (39.0 mg/kg dw), Ni
+1998; Lindstro¨m, 2001). The coal-related industries, such      (20.1 mg/kg dw), Cd (0.36 mg/kg dw), Pb (21.1 mg/kg dw)
+as iron and steel plants, power stations and coal yards, have   and As (9.67 mg/kg dw) were found in the farmland. This
+rapidly developed (including quantity and scale) during the     might be related to the large-scale application of phosphate
+past 7 years. Most of these companies were constructed          fertilizers and sludge that contained Cd, Zn and As (Taylor,
+along the major roads and distributed in the northwest          1997; Folkes et al., 2001; Nan et al., 2002) in farmlands.
+part and upstream of the Guanting Reservoir. Due to the         The elevated concentrations of As and Pb in farmland soils
+combustion of coal and smelting of iron and steel plants,       have been shown to be most likely due to the use of lead-
+metals including Cr, As, Pb and Ni could be discharged          arsenate insecticides to control insects (Kober et al., 1999;
+into the air (Dauvalter, 2003; Wang and Stuanes, 2003).         Wang et al., 2007). In addition, wastewater irrigation could
+Considering the role of wind and terrain, most of the           be mainly responsible for the great concentrations of Cr
+metals in the air were deposited onto the surface soil          and Ni in farmland soils around the Guanting Reservoir
+around the Guanting Reservoir and contribute to overall         (Sedlak et al., 1997; Sun and Hao, 2004).
+soil concentrations (Steinnes et al., 1997), because the
+north, east and south boundaries of the Guanting Reservoir         The largest average values for Cu (19.4 mg/kg dw) was
+are mountains and the long-term wind direction of this area     found in orchard soils. To identify which kind of fruit
+was from northwest to southeast.                                cultivation had the largest impact, the orchard soils were
+                                                                categorized into four types of cultivation patterns as vine-
+   Cadmium is the only metal whose concentration de-            yard, peach, apple and apricot. The mean concentrations
+creased 0.36 mg/kg dw from 2003 to 2009. This suggests          of Cu determined in vineyard, peach, apple and apricot
+that the output of Cd was much greater than the input.          were 29.4, 11.7, 13.7 and 15.1 mg/kg dw, respectively.
+One of the reasons could be that atmospheric deposition         In addition, the highest levels of Cu were all found
+contributes little to the accumulation of cadmium in soil.      in vineyard soil, which confirmed that grape cultivation
+Luo et al. (2007b) reported that the main source of Cd was      contributed to high levels of Cu. There are more than ten
+wastewater in the year of 2003. Presumably, the wastew-         large grape vine plantations (including the famous Great
+ater which contains Cd might have been controlled by the        Wall Grape Vine Plantation) located in this area. In recent
+local government in the past several years. Furthermore,        years, the grape cultivation area in the County has been
+Cd is relatively mobile in soils (Babic et al., 1998).          expanding. Cu pollution in some soils around the Guanting
+
+          Table 3 Concentrations (mg/kg dw) of heavy metals in soils from different land use around the Guanting Reservoir
+
+Land use  n   Parameter  Cu                               Zn    Cr    Ni                  Cd    Pb                          As
+
+              Mean       11.0                             42.8  37.1  17.0                0.27  18.0                        7.65
+
+Woodland  4   SD         4.48                             10.2  7.08  4.50                0.08  3.04                        1.68
+
+              Median     11.4                             42.8  39.3  17.7                0.27  17.5                        7.16
+
+              Mean       12.1                             56.5  33.0  15.7                0.28  18.7                        8.79
+
+Fallow    7   SD         2.86                             24.6  4.85  1.86                0.09  3.24                        3.17
+
+              Median     11.5                             49.5  32.1  15.2                0.26  18.6                        7.81
+
+              Mean       15.5                             63.5  39.0  20.1                0.36  21.1                        9.67
+
+Farmland  19  SD         3.58                             16.3  8.81  4.63                0.12  3.84                        1.81
+
+              Median     15.6                             58.4  40.7  19.9                0.31  19.4                        9.55
+
+              Mean       19.4                             59.7  36.0  17.9                0.31  20.1                        8.16
+
+Orchard   31  SD         14.2                             17.4  12.8  7.60                0.09  4.29                        2.30
+
+              Median     15.8                             58.5  35.7  18.2                0.30  19.2                        8.41
+
+n: the number of sampling sites; SD: standard deviation.
+No. 3  Factors influencing the contents of metals and As in soils around the watershed of Guanting Reservoir, China  565
+
+Reservoir might be the result of historical application of     Ustochrepts in the agricultural soils in Shunyi, Beijing,
+Cu-based fungicides in vineyards or orchards (Hollnd and       China.
+Solomona, 1999). This result is in agreement with those
+reported in the literature (Deluisa et al., 1996; Besnard et      Compared to FAS and FCS, the CCS has high concentra-
+al., 2001).                                                    tions of CaCO3, and calcium cations compete with metals
+                                                               ions and restrain the assimilation of metals by organisms,
+   Fallow land soils have the lowest mean values for Cr        and finally lessen the bioaccessibility of elements and
+(33.0 mg/kg dw) and Ni (15.7 mg/kg dw), while woodland         increase the contents of elements in the soil (El-Enany,
+soils have the lowest mean values for Cu (11.0 mg/kg dw),      1995; Li et al., 2008a). Moreover, metal contents in FAS
+Zn (42.8 mg/kg dw), Cd (0.27 mg/kg dw), Pb (18.0 mg/kg         and FCS are more or less affected by groundwater. The
+dw) and As (7.65 mg/kg dw). The lower values in both           groundwater table can change with season and weather
+fallow and woodland soils, as compared to farmland and         conditions. Because both soils are distributed on smooth
+orchard soils, may be due to less common application of        plains, the depth of groundwater is shallow, which makes
+fertilizers and pesticides. In addition, the lower metal con-  it easy for the groundwater to reach the surface by capillary
+centrations detected in fallow and woodland soils might        action (Zhang, 2002) and leach the metals.
+be due to the drift of metals and atmospheric deposition
+from the nearby areas (de Vries et al., 2003). Since metals       Soil texture is a classification tool used in both the
+and As in the woodland soils can be reduced by plant           field and laboratory to determine classes for soils based
+uptake (MacFarlane et al., 2003), most metal contents in       on their physical texture (Shirazi and Boersma, 1984).
+the woodland soils are lower than those in the fallow land     Soil textures are classified by the fractions of each soil
+soils.                                                         component present in a soil. In this study, soil samples
+                                                               were categorized into four types of textures (loam, light
+2.4 Metals concentrations affected by soil type and soil       loam, sandy loam, and sand) to explain the influence of soil
+    texture                                                    texture on metals and As residue levels. The concentrations
+                                                               of metals and As for different soil textures are given in
+Soil types are expected to influence heavy metal accumula-     Fig. 2b. The highest levels of As, Pb, Cd and Cr were
+tion in agricultural soils. Four general soil types dominated  found in loamy soil, and the largest concentrations of Ni,
+in the study area: CCS, FAS, FCS, and MWSS. However,           Zn and Cu were found in light loamy soil. The lowest levels
+because only two soil samples were collected for the           of As, Pb, Cd, Ni and Zn were found in sandy soil, and the
+MWSS, metal and As contents for this soil type are not         lowest contents of Cr and Cu existed in sandy loam soil.
+listed due to uncertainty. The concentrations of metals and
+As in different soil types are given in Fig. 2a. The highest      The differences may be explained as follows. Compared
+levels of As, Ni, Zn, Cu and Cr were found in the CCS.         to sandy and sandy loam soils, loam and light loamy soils
+The mean concentrations of Ni, Cr and Cu decrease in the       can have larger surface-area-to volume ratios and surface
+order of CCS > FCS > FAS, while the average contents           energy, which can have an effect on the ability of the
+of As and Zn decreased in the order of CCS > FAS >             soil particles to adsorb metals, as well as the ability to
+FCS. Different soil types were constituted by various soil     retard the bioavailability of these elements (Zibilske and
+parent matrixes, which were very important for the levels      Risser, 1986; Wang et al., 2006). Meanwhile, the inherent
+of metals and As. Navas and Mach´in (2002) found that soil     characteristics of metals play an important role in the
+type determined to some extent the variation of metal and      adsorptive capacity of soil as well. Of the seven elements,
+As concentrations in the soils of Arago´n Spain. Lu et al.     the lowest relative difference in concentrations among
+(2012) also found that there were significant differences      the four soil textures is for Cu and the biggest relative
+in As and Pb concentrations between the Ustalfs and the        difference value for Cd. This may be due to the high
+                                                               chelating ability of Cu, resulting in its low degradation and
+
+Fig. 2 Concentrations of metals and As in different soil types (a) and different textures (b). CCS: calcareous cinnamon soil; FCS: fluvo cinnamon soil;
+FAS: fluvo-aquic soil.
+566                   Journal of Environmental Sciences 2013, 25(3) 561­568 / Li Xu et al.  Vol. 25
+
+Table 4 Correlations between metals and As concentrations and soil            ± 10.77), (59.4 ± 17.94), (37.8 ± 11.17), (18.3 ± 6.21),
+        chemical parameters in soils around Guanting Reservoir                (0.32 ± 0.10), (20.1 ± 4.00) and (8.67 ± 2.30) mg/kg
+                                                                              dw, respectively. The magnitude of contamination in soil
+     Cu Zn     Cr Ni  Cd          Pb  As                                      declined in the order of Cd > Pb > Zn > Cu > As > Ni >
+                                                                              Cr.
+pH 0.05 ­0.37** 0.08 ­0.03 ­0.36** ­0.29* ­0.20
+                                                                                 Except for cadmium, an important source of metals
+TOC 0.14 0.63** 0.09 0.30* 0.58*  0.49** 0.50**                               in this area was atmospheric deposition. Land uses, soil
+                                                                              types and chemical parameters accounted for considerable
+** Correlation is significant at the 0.01 level (2-tailed); * correlation is  differences in metal and As accumulation in the soils.
+significant at the 0.05 level (2-tailed).                                     The metal residues in different land use categories varied
+                                                                              greatly. In general, metal pollution in the four land use
+bioavailability (Huang et al., 2009). The large variation in                  categories decreased in the order of farmland > orchard
+Cd contents may be explained by its high mobility and                         > fallow > woodland. Compared to sandy loam soil and
+relatively weak chelating capacity (Babic et al., 1998).                      sandy soil, metal and As levels were inclined to accumulate
+                                                                              more in loam and light loam soil. As, Ni, Zn, Cu and Cr
+2.5 Effects of pH and total organic carbon                                    residues were highest in calcareous cinnamon soil, while
+                                                                              Pb and Cd residues were highest in fluvo cinnamon soil.
+Correlation analysis was conducted to determine the extent                    There were significant correlations between TOC and Zn,
+of association between element concentrations and soil                        As and Pb suggesting a strong influence of organic matter
+chemical parameters around the watershed of the Guanting                      on these elements' residue levels. Soil pH levels were
+Reservoir (Table 4). TOC played an important role in                          significantly negatively correlated with concentrations of
+determining the concentrations of pollutants. Surface soil                    Zn and Cd, and had less or no obvious effect on the other
+rich in organic matter could offer much more functional                       metals.
+groups (like COO­ groups) that could complex and deposit
+metals ions (Baker et al., 1995). Hence, as the amount of                     Acknowledgments
+organic matter present in soil increased, the opportunity for
+forming stable metal-organic matter complexes increased.                      This work was supported by the National Natural Sci-
+The TOC values were significantly correlated (P < 0.01)                       ence Foundation of China (No. 41071355, 41171394),
+with concentrations of Zn, As and Pb, and less correlated                     the Environmental Protection Welfare Program (No.
+(P< 0.05) with concentrations of Ni and Cd. In this study,                    201009032), and International S&T Cooperation Project
+there was no positive correlation found between TOC and                       (No. 2012DFA91150). We thank the editor and reviewers
+concentrations of Cu and Cr. It is therefore impossible                       for their valuable comments and suggestions.
+to use a single soil geochemical factor to predict the
+distribution of metal and As residues in soils on a regional                  References
+scale.
+                                                                              Babic S, Kastelan-Macan M, Petrovic M, 1998. Determination of
+   The metal speciation, solubility and adsorption to solid                         agrochemical combinations in spiked soil samples. Water
+phases are intimately connected to the pH. Numerous                                 Science and Technology, 37(8): 243­250.
+studies have found a significant effect of soil pH on metal
+bioavailability (Cavallaro and Mcbride, 1984; Sauve´ et al.,                  Baker J F, Burrows N L, Keohane A E, Defilippis L F, 1995.
+2000). The pH values were significantly negatively corre-                           Chemical root pruning of kangaroo paw (Anigozanthos
+lated (P < 0.01) with concentrations of Zn and Cd, and less                         flavidus) by selected heavy metal carbonates. Scientia Hor-
+negatively correlated (P < 0.05) with concentrations of Pb.                         ticulturae, 62(4): 245­253.
+This could be explained by the fact that metals competed
+with H+ for positions on the exchange sites when soil pH                      Besnard E, Chenu C, Robert M, 2001. Influence of organic
+was low, thereby increasing the solubility of metals in the                         amendments on copper distribution among particle-size and
+soil solution (McBride et al., 1997; Sauve´ et al., 1997).                          density fractions in Champagne vineyard soils. Environ-
+This process increases the concentrations of metals in the                          mental Pollution, 112(3): 329­337.
+bioavailable fraction and ultimately reduces metal contents
+in soil. The soil pH had no significant correlations with the                 Cavallaro N, Mcbride M B, 1984. Zinc and copper sorption and
+rest of the elements studied, indicating that soil pH had no                        fixation by an acid soil clay: effect of selective dissolutions.
+obvious effect on Cu, Cr, Ni and As residues in the study                           Soil Science Society of America Journal, 48(5): 1050­1054.
+area.
+                                                                              Dauvalter V, 2003. Impact of mining and refining on the distribu-
+3 Conclusions                                                                       tion and accumulation of nickel and other heavy metals in
+                                                                                    sediments of subarctic Lake Kuetsja¨rvi, Murmansk Region,
+An extensive investigation of metals and As in the vicinity                         Russia. Journal of Environmental Monitoring, 5(2): 210­
+of the Guanting Reservoir was carried out. The average                              215.
+concentrations of Cu, Zn, Cr, Ni, Cd, Pb and As in soils
+around the Guanting Reservoir were found to be (16.8                          de Vries W, Reinds G J, Vel E, 2003. Intensive monitoring of
+                                                                                    forest ecosystems in Europe 2: Atmospheric deposition and
+                                                                                    its impacts on soil solution chemistry. Forest Ecology and
+                                                                                    Management, 174(1-3): 97­115.
+No. 3  Factors influencing the contents of metals and As in soils around the watershed of Guanting Reservoir, China  567
+
+Deluisa A, Giandon P, Aichner M, Bortolami P, Bruna L, Lupetti            of Environmental Sciences, 20(4): 449­455.
+      A et al., 1996. Copper pollution in Italian vineyard soils.   Lindstro¨m M, 2001. Urban land use influences on heavy metal
+      Communications in Soil Science and Plant Analysis, 27(5-
+      8): 1537­1548.                                                      fluxes and surface sediment concentrations of small lakes.
+                                                                          Water, Air, and Soil Pollution, 126(3-4): 363­383.
+Du Laing G, Rinklebe J, Vandecasteele B, Meers E, Tack F M          Liu F Z, 2001. Practical Handbook of Agricultural Environmental
+      G, 2009. Trace metal behaviour in estuarine and riverine            Monitoring. China Standard Press, Beijing.
+      floodplain soils and sediments: A review. Science of the      Liu F Z, Liu Y, Cai Y M, Liu M, Xu Y P, Zhan X H et al.,
+      Total Environment, 407(13): 3972­3985.                              2008. Environmental Quality Standard for Soils (GB22105-
+                                                                          2008), Determination of Total Hg, As and Pb in soil by
+El-Enany A E, 1995. Alleviation of cadmium toxicity on maize              Atomic Fluorescence Spectrometry. China Environmental
+      seedlings by calcium. Biologia Plantarum, 37(1): 93­99.             Science Press, Beijing.
+                                                                    Lu A X, Wang J H, Qin X Y, Wang K Y, Han P, Zhang S Z, 2012.
+Facchinelli A, Sacchi E, Mallen L, 2001. Multivariate statistical         Multivariate and geostatistical analyses of the spatial distri-
+      and GIS-based approach to identify heavy metal sources in           bution and origin of heavy metals in the agricultural soils in
+      soils. Environmental Pollution, 114(3): 313­324.                    Shunyi, Beijing, China. Science of the Total Environment,
+                                                                          425: 66­74.
+Feng J F, Wang Y X, Zhao J, Zhu L Q, Bian X M, Zhang W              Luo W, Lu Y L, Giesy J P, Wang T Y, Shi Y J, Wang G et al.,
+      J, 2011. Source attributions of heavy metals in rice plant          2007a. Effects of land use on concentrations of metals in
+      along highway in Eastern China. Journal of Environmental            surface soils and ecological risk around Guanting Reservoir,
+      Sciences, 23(7): 1158­1164.                                         China. Environmental Geochemistry and Health, 29(6):
+                                                                          459­471.
+Folkes D J, Kuehster T E, Litle R A, 2001. Contributions of         Luo W, Wang T Y, Lu Y L, Giesy J P, Shi Y J, Zheng Y M et
+      pesticide use to urban background concentrations of As              al., 2007b. Landscape ecology of the Guanting Reservoir,
+      in Denver, Colorado, USA. Environmental Forensics, 2(2):            Beijing, China: Multivariate and geostatistical analyses of
+      127­139.                                                            metals in soils. Environmental Pollution, 146(2): 567­576.
+                                                                    MacFarlane G R, Pulkownik A, Burchett M D, 2003. Accumula-
+Gaw S K, Wilkins A L, Kim N D, Palmer G T, Robinson P,                    tion and distribution of heavy metals in the grey mangrove,
+      2006. Trace element and Sigma DDT concentrations in                 Avicennia marina (Forsk.)Vierh.: biological indication po-
+      horticultural soils from the Tasman, Waikato and Auckland           tential. Environmental Pollution, 123(1): 139­151.
+      regions of New Zealand. Science of the Total Environment,     Madrid L, D´iaz-Barrientos E, Madrid F, 2002. Distribution of
+      355(1-3): 31­47.                                                    heavy metal contents of urban soils in parks of Seville.
+                                                                          Chemosphere, 49(10): 1301­1308.
+Hollnd P, Solomona S, 1999. Copper status of orchards. The          Mart´in A C, Rivero V C, Mar´in M T L, 1998. Contamination by
+      Orchardist, 72(4): 44­45.                                           heavy metals in soils in the neighbourhood of a scrapyard
+                                                                          of discarded vehicles. Science of the Total Environment,
+Hu G P, Balasubramanian R, 2003. Wet deposition of trace metals           212(2-3): 145­152.
+      in Singapore. Water, Air, and Soil Pollution, 144(1-4): 285­  Nan Z R, Li J J, Zhang J M, Cheng G D, 2002. Cadmium and
+      300.                                                                zinc interactions and their transfer in soil-crop system under
+                                                                          actual field conditions. Science of the Total Environment,
+Hu W Y, Lu Y L, Wang T Y, Luo W, Shi Y J, Giesy J P et al.,               285(1-3): 187­195.
+      2010. Spatial variability and temporal trends of HCH and      Navas A, Machln J, 2002. Spatial distribution of heavy metals
+      DDT in soils around Beijing Guanting Reservoir, China.              and As in soils of Arago´n (northeast Spain): controlling
+      Environmental Geochemistry and Health, 32(5): 441­449.              factors and environmental implications. Applied Geochem-
+                                                                          istry, 17(8): 961­973.
+Huang R X, Wen B, Pei Z G, Shan X Q, Zhang S Z, Williams P N,       Nicholson F A, Smith S R, Alloway B J, Carlton-Smith C,
+      2009. Accumulation, subcellular distribution and toxicity           Chambers B J, 2003. An inventory of heavy metals inputs
+      of copper in earthworm (Eisenia fetida) in the presence             to agricultural soils in England and Wales. Science of the
+      of Ciprofloxacin. Environmental Science & Technology,               Total Environment, 311(1-3): 205­219.
+      43(10): 3688­3693.                                            Nriagu J O, 1990. Global metal pollution: poisoning the bio-
+                                                                          sphere? Environment, 32(7): 6­8.
+Kim D S, An K G, Kim K H, 2003. Heavy metal pollution in            Sauve´ S, Hendershot W, Allen H E, 2000. Solid-solution par-
+      the soils of various land use types based on physicochem-           titioning of metals in contaminated soils: Dependence on
+      ical characteristics. Journal of Environmental Science and          pH, total metal burden, and organic matter. Environmental
+      Health Part A-Toxic/Hazardous Substances & Environmen-              Science & Technology, 34(7): 1125­1131.
+      tal Engineering, 38(5): 839­853.                              Sauve´ S, McBride M B, Norvell W A, Hendershot W H, 1997.
+                                                                          Copper solubility and speciation of in situ contaminated
+Kober B, Wessels M, Bollho¨fer A, Mangini A, 1999. Pb isotopes            soils: Effects of copper level, pH and organic matter. Water,
+      in sediments of Lake Constance, Central Europe constrain            Air, and Soil Pollution, 100(1-2): 133­149.
+      the heavy metal pathways and the pollution history of the     Sedlak D L, Phinney J T, Bedsworth W W, 1997. Strongly com-
+      catchment, the lake and the regional atmosphere. Geochim-           plexed Cu and Ni in wastewater effluents and surface runoff.
+      ica et Cosmochimica Acta, 63(9): 1293­1303.
+
+Lee J C, Pandey B D, 2012. Bio-processing of solid wastes and
+      secondary resources for metal extraction ­ A review. Waste
+      Management, 32(1): 3­18.
+
+Li L Z, Zhou D M, Wang P, Luo X S, 2008a. Subcellular
+      distribution of Cd and Pb in earthworm Eisenia fetida as
+      affected by Ca2+ ions and Cd-Pb interaction. Ecotoxicology
+      and Environmental Safety, 71(3): 632­637.
+
+Li P, Wang X X, Zhang T L, Zhou D M, He Y Q, 2008b.
+      Effects of several amendments on rice growth and uptake
+      of copper and cadmium from a contaminated soil. Journal
+568  Journal of Environmental Sciences 2013, 25(3) 561­568 / Li Xu et al.  Vol. 25
+
+      Environmental Science & Technology, 31(10): 3010­3016.                41(3): 309­321.
+Shirazi M A, Boersma L, 1984. A unifying quantitative analysis        Wang T Y, Lu Y L, Shi Y J, Giesy J P, Luo W,
+
+      of soil texture. Soil Science Society of America Journal,             2007. Organochlorine pesticides in soils around guanting
+      48(1): 142­147.                                                       reservoir, China. Environmental Geochemistry and Health,
+Spry D J, Wiener J G, 1991. Metal bioavailability and toxicity to           29(6): 491­501.
+      fish in low-alkalinity lakes: a critical-review. Environmental  Wang Y, Wei F, 1995. Soil Environment Element Chemistry.
+      Pollution, 71(2-4): 243­304.                                          China Environmental Science Press, Beijing.
+Steinnes E, Allen R O, Petersen H M, Rambæk J P, Varskog P,           Xu L, Luo W, Lu Y L, Wang T Y, Chen C L, Giesy J P et al., 2011.
+      1997. Evidence of large scale heavy-metal contamination of            Status and fuzzy comprehensive assessment of metals and
+      natural surface soils in Norway from long-range atmospher-            As contamination in farmland soils along the Yanghe River,
+      ic transport. Science of the Total Environment, 205(2-3):             China. Chemistry and Ecology, 27(5): 415­426.
+      255­266.                                                        Zhang F R, 2002. Soil Geography. China Agriculture Press,
+Sun F, Hao F F, 2004. The study of non-point pollution loadings             Beijing. 348.
+      around Guanting Reservoir based on GIS. Beijing Water           Zhang H, Lu Y L, Dawson R W, Shi Y J, Wang T Y, 2005.
+      Conservancy, 1: 16­18.                                                Classification and ordination of DDT and HCH in soil
+Taylor M D, 1997. Accumulation of cadmium derived from                      samples from the Guanting Reservoir, China. Chemosphere,
+      fertilisers in New Zealand soils. Science of the Total En-            60(6): 762­769.
+      vironment, 208(1-2): 123­126.                                   Zhang S Z, Wang S X, Shan X Q, 2002. Distribution and speci-
+Wang H Y, Stuanes A O, 2003. Heavy metal pollution in air-                  ation of heavy metals in surface sediments from Guanting
+      water-soil-plant system of Zhuzhou City, Hunan Province,              Reservoir, Beijing. Journal of Environmental Science and
+      China. Water, Air, and Soil Pollution, 147(1-4): 79­107.              Health Part A-Toxic/Hazardous Substances & Environmen-
+Wang T Y, Lu Y L, Dawson R W, Shi Y J, Zhang H, Xing Y,                     tal Engineering, 37(4): 465­478.
+      2006. Effects of environmental factors on organochlorine        Zibilske L M, Risser J A, 1986. Effects of soil texture on res-
+      pesticide residues in soils of the Guanting Reservoir area,           piration and metal solubility in heating oil-amended soils.
+      China. Journal of Environmental Science and Health Part               Bulletin of Environmental Contamination and Toxicology,
+      B ­ Pesticides Food Contaminants and Agricultural Wastes,             36(4): 540­547.
+

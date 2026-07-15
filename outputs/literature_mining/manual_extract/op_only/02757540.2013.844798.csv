@@ -1,0 +1,12 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+02757540.2013.844798,02757540.2013.844798_S1,SumPBDE_ngg,1195.1,Unknown,table_p4_ri9_ci1,soil,other,,phase14_auto; confidence=medium; flag=,,
+02757540.2013.844798,02757540.2013.844798_S2,SumPBDE_ngg,27.9,Unknown,table_p4_ri9_ci2,soil,other,,phase14_auto; confidence=medium; flag=,,
+02757540.2013.844798,02757540.2013.844798_S3,SumPBDE_ngg,131.1,Unknown,table_p4_ri9_ci3,soil,other,,phase14_auto; confidence=medium; flag=,,
+02757540.2013.844798,02757540.2013.844798_S4,SumPBDE_ngg,1889.1,Unknown,table_p4_ri9_ci4,soil,other,,phase14_auto; confidence=medium; flag=,,
+02757540.2013.844798,02757540.2013.844798_S5,SumPBDE_ngg,3128.4,Unknown,table_p4_ri9_ci5,soil,other,,phase14_auto; confidence=medium; flag=,,
+02757540.2013.844798,02757540.2013.844798_M,SumPBDE_ngg,64.4,Unknown,table_p4_ri9_ci6,soil,other,,phase14_auto; confidence=medium; flag=,,
+02757540.2013.844798,02757540.2013.844798_M,OC_pct,24.4,Unknown,table_p5_ri7_ci6,soil,other,,phase14_auto; confidence=high; flag=,,
+02757540.2013.844798,02757540.2013.844798_S1,OC_pct,45.3,Unknown,table_p5_ri18_ci1,soil,other,,phase14_auto; confidence=high; flag=,,
+02757540.2013.844798,02757540.2013.844798_S2,OC_pct,20.0,Unknown,table_p5_ri18_ci2,soil,other,,phase14_auto; confidence=high; flag=,,
+02757540.2013.844798,02757540.2013.844798_S3,OC_pct,12.0,Unknown,table_p5_ri18_ci3,soil,other,,phase14_auto; confidence=high; flag=,,
+02757540.2013.844798,02757540.2013.844798_M,OC_pct,0.0,Unknown,table_p5_ri18_ci6,soil,other,,phase14_auto; confidence=high; flag=,,

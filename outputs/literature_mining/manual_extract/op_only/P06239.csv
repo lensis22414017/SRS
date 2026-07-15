@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06239,,,,,,,,,Shandong,"parsed paper.md truncated at abstract+intro (4537 bytes, 35 lines); no tables/results/methods section available; no local PDF found; online access blocked; cannot extract sampling-point level TPH data; paper is microbiology/ecology study (rhizosphere vs bulk soil bacterial abundance) with TPH as environmental variable, not pollution monitoring"

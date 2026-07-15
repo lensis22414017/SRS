@@ -1,0 +1,25 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00258,A,Cd_mgkg,8.07,mg/kg,Table 1,soil,agricultural,Gansu,"Site A=白银市Xidagou ditch旁未耕地(工业生活污水汇集); Table 1直接读取; n=5子样本均值; Pi反推验证: 8.07/0.2(GB15618 Cd一级)=40.35=表中Cd Pi, 确证单位为mg/kg"
+P00258,A,Pb_mgkg,67.00,mg/kg,Table 1,soil,agricultural,Gansu,Table 1直接读取; n=5均值; 单位mg/kg经Pi反推确认(67.00/35=1.91=表中Pb Pi)
+P00258,A,Cr_mgkg,62.12,mg/kg,Table 1,soil,agricultural,Gansu,Table 1直接读取; n=5均值; 单位mg/kg经Pi反推确认(62.12/90=0.69=表中Cr Pi)
+P00258,A,Cu_mgkg,98.56,mg/kg,Table 1,soil,agricultural,Gansu,Table 1直接读取; n=5均值; 单位mg/kg经Pi反推确认(98.56/35=2.82=表中Cu Pi 2.85)
+P00258,A,Zn_mgkg,240.11,mg/kg,Table 1,soil,agricultural,Gansu,Table 1直接读取; n=5均值; 单位mg/kg经Pi反推确认(240.11/100=2.40=表中Zn Pi 2.10)
+P00258,B,Cd_mgkg,0.23,mg/kg,Table 1,soil,agricultural,Gansu,Site B=兰州西固区Matan Village农田(临近化工厂冶炼厂); Table 1直接读取; n=5均值
+P00258,B,Pb_mgkg,18.68,mg/kg,Table 1,soil,agricultural,Gansu,Table 1直接读取; n=5均值
+P00258,B,Cr_mgkg,57.24,mg/kg,Table 1,soil,agricultural,Gansu,Table 1直接读取; n=5均值
+P00258,B,Cu_mgkg,18.78,mg/kg,Table 1,soil,agricultural,Gansu,Table 1直接读取; n=5均值
+P00258,B,Zn_mgkg,190.00,mg/kg,Table 1,soil,agricultural,Gansu,Table 1直接读取; n=5均值
+P00258,C,Cd_mgkg,2.80,mg/kg,Table 1,soil,agricultural,Gansu,Site C=Qiangwan Village农田(Xidagou ditch污水灌溉); Table 1直接读取; n=5均值
+P00258,C,Pb_mgkg,38.90,mg/kg,Table 1,soil,agricultural,Gansu,Table 1直接读取; n=5均值
+P00258,C,Cr_mgkg,62.11,mg/kg,Table 1,soil,agricultural,Gansu,Table 1直接读取; n=5均值
+P00258,C,Cu_mgkg,39.36,mg/kg,Table 1,soil,agricultural,Gansu,Table 1直接读取; n=5均值
+P00258,C,Zn_mgkg,93.15,mg/kg,Table 1,soil,agricultural,Gansu,Table 1直接读取; n=5均值
+P00258,D,Cd_mgkg,0.21,mg/kg,Table 1,soil,agricultural,Gansu,Site D=兰州Qinbaishi Village农田(代表性对照点); Table 1直接读取; n=5均值
+P00258,D,Pb_mgkg,27.90,mg/kg,Table 1,soil,agricultural,Gansu,Table 1直接读取; n=5均值
+P00258,D,Cr_mgkg,58.21,mg/kg,Table 1,soil,agricultural,Gansu,Table 1直接读取; n=5均值
+P00258,D,Cu_mgkg,22.15,mg/kg,Table 1,soil,agricultural,Gansu,Table 1直接读取; n=5均值
+P00258,D,Zn_mgkg,88.05,mg/kg,Table 1,soil,agricultural,Gansu,Table 1直接读取; n=5均值
+P00258,E,Pb_mgkg,16.54,mg/kg,Table 1,soil,agricultural,Gansu,"Site E=永靖县Liujiaxia Village农田(清洁对照, 远离工业); Table 1直接读取; n=5均值"
+P00258,E,Cr_mgkg,49.13,mg/kg,Table 1,soil,agricultural,Gansu,Table 1直接读取; n=5均值
+P00258,E,Cu_mgkg,15.07,mg/kg,Table 1,soil,agricultural,Gansu,Table 1直接读取; n=5均值
+P00258,E,Zn_mgkg,55.10,mg/kg,Table 1,soil,agricultural,Gansu,Table 1直接读取; n=5均值

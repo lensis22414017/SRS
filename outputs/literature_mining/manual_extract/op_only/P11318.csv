@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11318,,,,,,,,"仅处理水平统计汇总(Mean±SD by CK/N1/N2/N3)，无个体采样点实测值。4处理×3重复=12个小区，每小区10子样混合为1综合样，论文仅报告处理均值+标准差，图1-5均柱状图无法读取精确单点值。Table 2为TEQ_BaP风险指数非实测浓度。无HM数据(screen表has_hm标注有误，论文仅PAHs)。"

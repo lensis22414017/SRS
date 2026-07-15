@@ -1,0 +1,12 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+s11356-020-10093-8,s11356-020-10093-8_July_2019_(n_=_12)1,SDZ_ngg,468.0,Unknown,table_p5_ri2_ci1,water,,,phase14_batch2; matrix=score=94:high; conf=medium; flag=,,
+s11356-020-10093-8,s11356-020-10093-8_December_2019_(n_=_12),SDZ_ngg,178.0,Unknown,table_p5_ri2_ci2,water,,,phase14_batch2; matrix=score=94:high; conf=medium; flag=,,
+s11356-020-10093-8,s11356-020-10093-8_col3,SDZ_ngg,281.0,Unknown,table_p5_ri2_ci3,water,,,phase14_batch2; matrix=score=94:high; conf=medium; flag=,,
+s11356-020-10093-8,s11356-020-10093-8_col4,SDZ_ngg,98.9,Unknown,table_p5_ri2_ci4,water,,,phase14_batch2; matrix=score=94:high; conf=medium; flag=,,
+s11356-020-10093-8,s11356-020-10093-8_col5,SDZ_ngg,789.0,Unknown,table_p5_ri2_ci5,water,,,phase14_batch2; matrix=score=94:high; conf=medium; flag=,,
+s11356-020-10093-8,s11356-020-10093-8_col6,SDZ_ngg,425.2,Unknown,table_p5_ri2_ci6,water,,,phase14_batch2; matrix=score=94:high; conf=medium; flag=,,
+s11356-020-10093-8,s11356-020-10093-8_col7,SDZ_ngg,596.0,Unknown,table_p5_ri2_ci7,water,,,phase14_batch2; matrix=score=94:high; conf=medium; flag=,,
+s11356-020-10093-8,s11356-020-10093-8_col8,SDZ_ngg,100.0,Unknown,table_p5_ri2_ci8,water,,,phase14_batch2; matrix=score=94:high; conf=medium; flag=,,
+s11356-020-10093-8,s11356-020-10093-8_col4,SDZ_ngg,0.6,Unknown,table_p11_ri2_ci4,water,,,phase14_batch2; matrix=score=94:high; conf=medium; flag=,,
+s11356-020-10093-8,s11356-020-10093-8_col5,SDZ_ngg,0.5,Unknown,table_p11_ri2_ci5,water,,,phase14_batch2; matrix=score=94:high; conf=medium; flag=,,
+s11356-020-10093-8,s11356-020-10093-8_col6,SDZ_ngg,0.05,Unknown,table_p11_ri2_ci6,water,,,phase14_batch2; matrix=score=94:high; conf=medium; flag=,,

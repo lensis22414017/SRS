@@ -1,0 +1,26 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05303,1,TotalPHC_mgkg,0,mg/kg,Table 1,soil,oilfield,Shaanxi,Table 1 oil content 0.0% converted to mg/kg (x10000); Changqing oil field; field baseline pre-remediation; below background level (0.002-0.015%)
+P05303,2,TotalPHC_mgkg,600,mg/kg,Table 1,soil,oilfield,Shaanxi,Table 1 oil content 0.06% converted to mg/kg (x10000); Changqing oil field; field baseline pre-remediation
+P05303,3,TotalPHC_mgkg,700,mg/kg,Table 1,soil,oilfield,Shaanxi,Table 1 oil content 0.07% converted to mg/kg (x10000); Changqing oil field; field baseline pre-remediation
+P05303,4,TotalPHC_mgkg,2600,mg/kg,Table 1,soil,oilfield,Shaanxi,Table 1 oil content 0.26% converted to mg/kg (x10000); Changqing oil field; field baseline pre-remediation
+P05303,5,TotalPHC_mgkg,3200,mg/kg,Table 1,soil,oilfield,Shaanxi,Table 1 oil content 0.32% converted to mg/kg (x10000); Changqing oil field; field baseline pre-remediation
+P05303,6,TotalPHC_mgkg,3600,mg/kg,Table 1,soil,oilfield,Shaanxi,Table 1 oil content 0.36% converted to mg/kg (x10000); Changqing oil field; field baseline pre-remediation
+P05303,7,TotalPHC_mgkg,4000,mg/kg,Table 1,soil,oilfield,Shaanxi,Table 1 oil content 0.4% converted to mg/kg (x10000); Changqing oil field; field baseline pre-remediation
+P05303,8,TotalPHC_mgkg,4300,mg/kg,Table 1,soil,oilfield,Shaanxi,Table 1 oil content 0.43% converted to mg/kg (x10000); Changqing oil field; field baseline pre-remediation
+P05303,9,TotalPHC_mgkg,50500,mg/kg,Table 1,soil,oilfield,Heilongjiang,Table 1 oil content 5.05% converted to mg/kg (x10000); Daqing oil field; field baseline pre-remediation
+P05303,10,TotalPHC_mgkg,46700,mg/kg,Table 1,soil,oilfield,Heilongjiang,"Table 1 oil content 4.67% converted to mg/kg (x10000); Daqing oil field; field baseline pre-remediation; parsed table merged samples 10-11 in one row, same value 4.67% assumed for both"
+P05303,11,TotalPHC_mgkg,46700,mg/kg,Table 1,soil,oilfield,Heilongjiang,"Table 1 oil content 4.67% converted to mg/kg (x10000); Daqing oil field; field baseline pre-remediation; parsed table merged samples 10-11 in one row, same value 4.67% assumed for both"
+P05303,12,TotalPHC_mgkg,55300,mg/kg,Table 1,soil,oilfield,Heilongjiang,Table 1 oil content 5.53% converted to mg/kg (x10000); Daqing oil field; field baseline pre-remediation
+P05303,14,TotalPHC_mgkg,15900,mg/kg,Table 1,soil,oilfield,Gansu,Table 1 oil content 1.59% converted to mg/kg (x10000); Yumen oil field; field baseline pre-remediation
+P05303,15,TotalPHC_mgkg,109300,mg/kg,Table 1,soil,oilfield,Gansu,Table 1 oil content 10.93% converted to mg/kg (x10000); Yumen oil field; field baseline pre-remediation
+P05303,16,TotalPHC_mgkg,151200,mg/kg,Table 1,soil,oilfield,Hubei,Table 1 oil content 15.12% converted to mg/kg (x10000); Jianghan oil field; field baseline pre-remediation
+P05303,17,TotalPHC_mgkg,123700,mg/kg,Table 1,soil,oilfield,Hubei,Table 1 oil content 12.37% converted to mg/kg (x10000); Jianghan oil field; field baseline pre-remediation
+P05303,18,TotalPHC_mgkg,174100,mg/kg,Table 1,soil,oilfield,Hubei,Table 1 oil content 17.41% converted to mg/kg (x10000); Jianghan oil field; field baseline pre-remediation
+P05303,19,TotalPHC_mgkg,55300,mg/kg,Table 1,soil,oilfield,Hubei,Table 1 oil content 5.53% converted to mg/kg (x10000); Jianghan oil field; field baseline pre-remediation
+P05303,20,TotalPHC_mgkg,60700,mg/kg,Table 1,soil,oilfield,Hebei,Table 1 oil content 6.07% converted to mg/kg (x10000); Huabei oil field; field baseline pre-remediation
+P05303,21,TotalPHC_mgkg,67100,mg/kg,Table 1,soil,oilfield,Hebei,Table 1 oil content 6.71% converted to mg/kg (x10000); Huabei oil field; field baseline pre-remediation
+P05303,23,TotalPHC_mgkg,102600,mg/kg,Table 1,soil,oilfield,Shandong,Table 1 oil content 10.26% converted to mg/kg (x10000); Shengli oil field; field baseline pre-remediation
+P05303,24,TotalPHC_mgkg,162200,mg/kg,Table 1,soil,oilfield,Shandong,Table 1 oil content 16.22% converted to mg/kg (x10000); Shengli oil field; field baseline pre-remediation
+P05303,25,TotalPHC_mgkg,211300,mg/kg,Table 1,soil,oilfield,Shandong,Table 1 oil content 21.13% converted to mg/kg (x10000); Shengli oil field; field baseline pre-remediation
+P05303,26,TotalPHC_mgkg,238300,mg/kg,Table 1,soil,oilfield,Shandong,Table 1 oil content 23.83% converted to mg/kg (x10000); Shengli oil field; field baseline pre-remediation
+P05303,27,TotalPHC_mgkg,60000,mg/kg,Table 1,soil,oilfield,Liaoning,Table 1 oil content 6.0% converted to mg/kg (x10000); Liaohe oil field; field baseline pre-remediation

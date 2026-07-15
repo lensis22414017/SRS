@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01630,NOT_AVAILABLE,NOT_AVAILABLE,,NOT_AVAILABLE,NOT_AVAILABLE,soil,urban,Guangdong,skip: 真实场地土壤研究(广州221个topsoil样品2021年1-3月);论文正文paper.md(483行5表)无采样点级HM+OP浓度;5表全部为风险表/统计表/相关系数表(Table1=源导向NCR/CR风险,Table2=MCS风险统计,Fig8a-c=相关系数);正文Line122仅给HMs全省均值(As18.2/Hg0.44/Cd1.46/Cr98.3/Cu64.2/Ni26.5/Pb68.6/Zn257.3_mg/kg)和Σ16PAH范围49.5-11235+均值654.8_μg/kg;Line133为区域均值(urban/suburban/rural);Line169为Pb单点最大值1794.3(无sample_id指向TableS1);221采样点原始浓度数据在Supplementary_TableS1(不在paper.md中)

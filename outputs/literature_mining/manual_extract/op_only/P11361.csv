@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11361,,,,,,,,,"skip: 论文仅提供统计汇总数据(Min/Max/Mean/SE/CV, Table 2-8覆盖全部样品), 无采样点级原始PAH数据; 正文提及3个样带均值(Y1=729.20/Y7=721.13/Y4=352.83 ng/g)但为site-level summary非个体采样点; 第3章为原位挂瓶实验(实验操作非自然采样); 第4章为加标菲淋溶实验(spiked); 图2-7/2-8为柱状图无数值表"

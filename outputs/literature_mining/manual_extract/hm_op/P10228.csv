@@ -1,0 +1,46 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10228,S1,Sum_PAH_ngg,297.02,ng/g,Table 1,soil,agricultural,Beijing,"Table 1 ∑PAHs列直接读取, 16 EPA PAHs总和"
+P10228,S1,BaP_ngg,45.63,ng/g,Table 1,soil,agricultural,Beijing,Table 1 BaP列直接读取
+P10228,S1,SumDDT_ngg,5.15,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 DDTs列直接读取, p,p'-DDT+DDE+DDD总和"
+P10228,S1,SumHCH_ngg,6.90,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 HCHs列直接读取, α+β+γ+δ-HCH总和"
+P10228,S2,Sum_PAH_ngg,156.5,ng/g,Table 1,soil,agricultural,Beijing,"Table 1 ∑PAHs列直接读取, 16 EPA PAHs总和"
+P10228,S2,BaP_ngg,20.79,ng/g,Table 1,soil,agricultural,Beijing,Table 1 BaP列直接读取
+P10228,S2,SumDDT_ngg,5.8,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 DDTs列直接读取, p,p'-DDT+DDE+DDD总和"
+P10228,S2,SumHCH_ngg,2.93,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 HCHs列直接读取, α+β+γ+δ-HCH总和"
+P10228,S3,Sum_PAH_ngg,61.01,ng/g,Table 1,soil,agricultural,Beijing,"Table 1 ∑PAHs列直接读取, 16 EPA PAHs总和"
+P10228,S3,BaP_ngg,12.47,ng/g,Table 1,soil,agricultural,Beijing,Table 1 BaP列直接读取
+P10228,S3,SumDDT_ngg,3.64,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 DDTs列直接读取, p,p'-DDT+DDE+DDD总和"
+P10228,S3,SumHCH_ngg,2.36,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 HCHs列直接读取, α+β+γ+δ-HCH总和"
+P10228,S4,Sum_PAH_ngg,80.72,ng/g,Table 1,soil,agricultural,Beijing,"Table 1 ∑PAHs列直接读取, 16 EPA PAHs总和"
+P10228,S4,BaP_ngg,37.65,ng/g,Table 1,soil,agricultural,Beijing,Table 1 BaP列直接读取
+P10228,S4,SumDDT_ngg,19.82,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 DDTs列直接读取, p,p'-DDT+DDE+DDD总和"
+P10228,S4,SumHCH_ngg,3.62,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 HCHs列直接读取, α+β+γ+δ-HCH总和"
+P10228,S5,Sum_PAH_ngg,39.95,ng/g,Table 1,soil,agricultural,Beijing,"Table 1 ∑PAHs列直接读取, 16 EPA PAHs总和"
+P10228,S5,BaP_ngg,7.79,ng/g,Table 1,soil,agricultural,Beijing,Table 1 BaP列直接读取
+P10228,S5,SumDDT_ngg,2.4,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 DDTs列直接读取, p,p'-DDT+DDE+DDD总和"
+P10228,S5,SumHCH_ngg,3.18,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 HCHs列直接读取, α+β+γ+δ-HCH总和"
+P10228,S6,Sum_PAH_ngg,44.24,ng/g,Table 1,soil,agricultural,Beijing,"Table 1 ∑PAHs列直接读取, 16 EPA PAHs总和"
+P10228,S6,BaP_ngg,8.19,ng/g,Table 1,soil,agricultural,Beijing,Table 1 BaP列直接读取
+P10228,S6,SumDDT_ngg,5.96,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 DDTs列直接读取, p,p'-DDT+DDE+DDD总和"
+P10228,S6,SumHCH_ngg,1.33,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 HCHs列直接读取, α+β+γ+δ-HCH总和"
+P10228,S7,Sum_PAH_ngg,57.89,ng/g,Table 1,soil,agricultural,Beijing,"Table 1 ∑PAHs列直接读取, 16 EPA PAHs总和"
+P10228,S7,BaP_ngg,15.77,ng/g,Table 1,soil,agricultural,Beijing,Table 1 BaP列直接读取
+P10228,S7,SumDDT_ngg,2.62,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 DDTs列直接读取, p,p'-DDT+DDE+DDD总和"
+P10228,S7,SumHCH_ngg,4.89,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 HCHs列直接读取, α+β+γ+δ-HCH总和"
+P10228,S8,Sum_PAH_ngg,36.09,ng/g,Table 1,soil,agricultural,Beijing,"Table 1 ∑PAHs列直接读取, 16 EPA PAHs总和"
+P10228,S8,BaP_ngg,7.37,ng/g,Table 1,soil,agricultural,Beijing,Table 1 BaP列直接读取
+P10228,S8,SumDDT_ngg,9.19,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 DDTs列直接读取, p,p'-DDT+DDE+DDD总和"
+P10228,S8,SumHCH_ngg,0.76,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 HCHs列直接读取, α+β+γ+δ-HCH总和"
+P10228,S9,Sum_PAH_ngg,5.14,ng/g,Table 1,soil,agricultural,Beijing,"Table 1 ∑PAHs列直接读取, 16 EPA PAHs总和; BaP=Nd未检出跳过"
+P10228,S9,SumDDT_ngg,4.54,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 DDTs列直接读取, p,p'-DDT+DDE+DDD总和"
+P10228,S9,SumHCH_ngg,0.94,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 HCHs列直接读取, α+β+γ+δ-HCH总和"
+P10228,R0,Sum_PAH_ngg,14.82,ng/g,Table 1,soil,agricultural,Beijing,"Table 1 ∑PAHs列直接读取, 16 EPA PAHs总和; R0为地下水灌溉对照"
+P10228,R0,BaP_ngg,2.89,ng/g,Table 1,soil,agricultural,Beijing,Table 1 BaP列直接读取
+P10228,R0,SumDDT_ngg,7.51,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 DDTs列直接读取, p,p'-DDT+DDE+DDD总和"
+P10228,R0,SumHCH_ngg,3.49,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 HCHs列直接读取, α+β+γ+δ-HCH总和"
+P10228,R1,Sum_PAH_ngg,19.19,ng/g,Table 1,soil,agricultural,Beijing,"Table 1 ∑PAHs列直接读取, 16 EPA PAHs总和; R1为停灌2年对照"
+P10228,R1,BaP_ngg,13.14,ng/g,Table 1,soil,agricultural,Beijing,Table 1 BaP列直接读取
+P10228,R1,SumDDT_ngg,25.83,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 DDTs列直接读取, p,p'-DDT+DDE+DDD总和"
+P10228,R1,SumHCH_ngg,1.56,ng/g,Table 4,soil,agricultural,Beijing,"Table 4 HCHs列直接读取, α+β+γ+δ-HCH总和"
+P10228,R2,Sum_PAH_ngg,23.35,ng/g,Table 1,soil,agricultural,Beijing,"Table 1 ∑PAHs列直接读取, 16 EPA PAHs总和; R2为停灌2年对照; Table 4缺R2的OCP数据"
+P10228,R2,BaP_ngg,4.01,ng/g,Table 1,soil,agricultural,Beijing,Table 1 BaP列直接读取

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07568,,,,,,,,,"skip: PFAAs论文(全氟烷基酸: PFBA/PFPeA/PFHxA/PFBS/PFHpA/PFOA/PFHxS/PFNA/PFDA/PFOS/PFUdA/PFDoA)，不在目标OP清单(PAH/PCB/DDT/HCH/PBDE/PHC/antibiotics/PAE/OCP)也不在目标HM清单中，完全不涉及目标污染物"

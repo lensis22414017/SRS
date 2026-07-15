@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P04039,px6,Sum_PAH_ngg,3412.64,ng/g,Section 3.1 text,soil,industrial,Jiangsu,Total 15 EPA PAHs (excl. acenaphthylene per HPLC-FLD method); µg/kg=ng/g value unchanged; explicit in text,34.820889,116.88986200000001
+P04039,yz3,Sum_PAH_ngg,3494.81,ng/g,Section 3.1 text,soil,industrial,Jiangsu,Total 15 EPA PAHs (excl. acenaphthylene per HPLC-FLD method); µg/kg=ng/g value unchanged; explicit in text; highest among all 23 samples,34.37809283333333,117.3964045

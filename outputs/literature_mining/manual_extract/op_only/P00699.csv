@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00699,,,,,,,background,Hubei,"skip: 仅统计汇总无采样点级数据。土壤PBDE浓度在Table S3(补充材料未含在paper.md中)，正文仅给Σ8PBDEs范围29-240 pg/g、BDE-209均值75±52 pg/g、其余7种PBDE均<20 pg/g(定性描述)，15个土壤样品个体值缺失，无可提取采样点级数据。"

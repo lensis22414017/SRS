@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11450,,,,,,,,,skip: 场地赋存数据(As/Cd/Pb/SumPAH)仅以柱状图(图3-2a/c)呈现，正文仅给浓度范围(As 4.40-1270/Cd 0.01-8.67/Pb 18-647/PAH 1.02-131.60 mg/kg)无法归属到S1-2至S3-6各采样点；第4-5章为生物刺激/热强化微宇宙修复实验(棕色瓶microcosm)按铁律剔除；无可追溯采样点级数值

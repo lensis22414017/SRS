@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03794,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"skip: 论文为微生物功能基因网络分析(GeoChip)，仅报告场地级石油污染浓度范围(12.1-168 mg/g)及石油组分百分比范围(引用自Liang et al. 2012)，无任何采样点级PAH单体/PCB/DDT/HCH/PBDE/TPH浓度数据。Table 1-4均为网络拓扑参数/基因信息/Pearson相关系数，非污染物浓度。"

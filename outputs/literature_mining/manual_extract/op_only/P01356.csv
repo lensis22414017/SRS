@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01356,,,,,,soil,,,skip: systematic review/Meta-analysis of 60 papers; no sampling-point level data in main text; only provincial/regional arithmetic mean concentrations and ranges reported; actual monitoring site data in Supplemental Material Table S2/S3/S4 (not available in parsed paper); excluded per rule "综述/Meta 分析（无原始数据）"

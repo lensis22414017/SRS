@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04630,,,,,,,,,"skip: 综述/Meta分析(Review)无原始采样点级数据; 标题含'A Review'; Table 1/2/3/4均为区域汇总(min-max范围或均值)引自外部文献[31][33][44-86]等; 无S1/A/B等采样点标识; Table 3(soil)按省份(Fujian/Shanghai/Zhejiang/Shenyang/Guangdong/Tianjin/Beijing/Guangzhou/Jiangsu)汇总TC/OTC/CTC/DC浓度范围; 非原始实测数据"

@@ -1,0 +1,4 @@
+﻿n_tables,hm_row_best,hm_col_best,hm_tables,paper_id,stem,pool,title,op_groups
+1,0,6,1,P01625,10.1016_j.jhazmat.2024.136372,OP-only 隐藏HM,Impacts of soil type on the temporal dynamics of antibiotic resistance gene profiles following application of composted manure,Antibiotics
+2,8,0,1,P08273,2020_Shi W et al_AgricEcosystEnviron_null,OP-only 隐藏HM,"Distribution pattern of antibiotic resistance genes and bacterial community in agricultural soil samples of Wuliangsuhai watershed, China",Antibiotics
+1,0,6,1,P01625,10.1016_j.jhazmat.2024.136372,HM+OP 弱候选,Impacts of soil type on the temporal dynamics of antibiotic resistance gene profiles following application of composted manure,Antibiotics

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01319,NOTES,,,,,,,"skip: 温室添加实验(greenhouse spiked experiment)。论文将8种OP(AN/PHEN/PY/FLUR/HCB/BDE-47/BaP/DDE)以L1-L5五个浓度水平人工添加到paddy soil/black soil/laterite soil中，置于温室培养200天后测定浓度(Table 1)。目的是验证植物吸收预测模型(partition-limited model)，非真实污染场地采样点级数据。"

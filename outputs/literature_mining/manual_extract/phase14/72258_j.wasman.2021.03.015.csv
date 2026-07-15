@@ -1,0 +1,8 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+72258_j.wasman.2021.03.015,72258_j.wasman.2021.03.015_Test2,Test2,SumDDT_ngg,0.32,Unknown,,high,table_p3_ri1_ci3,Organic pollutant concentrations in the flue gas emitted by the cement kiln.
+72258_j.wasman.2021.03.015,72258_j.wasman.2021.03.015_Test1,Test1,Co_mgkg,142.0,Unknown,,high,table_p4_ri5_ci2,Table 4 Pollutant concentrations in the flue gas emitted by the cement kiln.
+72258_j.wasman.2021.03.015,72258_j.wasman.2021.03.015_Test2,Test2,Co_mgkg,306.0,Unknown,,high,table_p4_ri5_ci3,Table 4 Pollutant concentrations in the flue gas emitted by the cement kiln.
+72258_j.wasman.2021.03.015,72258_j.wasman.2021.03.015_Test1,Test1,OC_pct,1.74,Unknown,,high,table_p4_ri6_ci2,Table 4 Pollutant concentrations in the flue gas emitted by the cement kiln.
+72258_j.wasman.2021.03.015,72258_j.wasman.2021.03.015_Test2,Test2,OC_pct,2.61,Unknown,,high,table_p4_ri6_ci3,Table 4 Pollutant concentrations in the flue gas emitted by the cement kiln.
+72258_j.wasman.2021.03.015,72258_j.wasman.2021.03.015_Limits,Limits,Hg_mgkg,0.05,Unknown,,high,table_p4_ri8_ci4,Table 4 Pollutant concentrations in the flue gas emitted by the cement kiln.
+72258_j.wasman.2021.03.015,72258_j.wasman.2021.03.015_Limits,Limits,V_mgkg,0.5,Unknown,,high,table_p4_ri10_ci4,Table 4 Pollutant concentrations in the flue gas emitted by the cement kiln.

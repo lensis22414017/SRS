@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03345,,,,,,,,"skip: 主文Table1仅含HM统计汇总(Range/Mean/Median/VC/Skewness)+背景值+GB15618触发值(全剔); Table2为Pearson相关矩阵(剔非浓度); 正文仅给区域汇总PAH(range 29.51-29601.09 ug/kg mean 3906.68 ug/kg)和HM6元素汇总; 采样点级PAH数据在补充材料Table S3(Supplymentaryinformation.doc未解析); 个别样点NO.SF08/SF60/SS29/SS32/SS39/SS42/FS10/FS18/FS21仅定性描述PI>10无具体浓度值; Fig3为boxplot统计图 Fig4/5为ArcGIS空间插值图非采样点级表格; HM仅测Cr/Ni/Cu/Zn/As/Pb(缺Cd/Hg); 66样点(3背景+29沈抚+15沈阳+19抚顺)0-20cm表层土壤辽宁省; 无任何采样点级HM/OP浓度数据可提取"

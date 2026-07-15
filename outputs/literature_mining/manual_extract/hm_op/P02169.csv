@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02169,NOTES,skip,no_data,—,Table 5 & 全文,soil,mining,Shaanxi,"仅统计汇总(Min/Max/Average/CV/Skewness/Kurtosis, n=79, Table 5), 无采样点级HM数据; 论文仅检测8种HM(Hg/Cd/As/Pb/Cr/Zn/Ni/Cu)无OP(PAH/PCB/DDT/HCH/PBDE/PHC未检测), 非HM+OP复合论文; 原始79点数据未公开(Data availability on request)"

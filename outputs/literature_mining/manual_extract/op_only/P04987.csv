@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04987,Sample 1,TotalPHC_mgkg,209,mg/kg,Table 1,soil,oilfield,Shaanxi,"bioremediation论文 修复前场地本底TPH值 采自陕西北部油田油井周边 Table1直接读取"
+P04987,Sample 2,TotalPHC_mgkg,148,mg/kg,Table 1,soil,oilfield,Shaanxi,"bioremediation论文 修复前场地本底TPH值 采自陕西北部油田油井周边 Table1直接读取"
+P04987,Sample 3,TotalPHC_mgkg,28100,mg/kg,Table 1,soil,oilfield,Shaanxi,"bioremediation论文 修复前场地本底TPH值 采自陕西北部油田油井周边 Table1直接读取"
+P04987,Sample 4,TotalPHC_mgkg,572,mg/kg,Table 1,soil,oilfield,Shaanxi,"bioremediation论文 修复前场地本底TPH值 采自陕西北部油田油井周边 Table1直接读取"

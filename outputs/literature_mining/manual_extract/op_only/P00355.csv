@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00355,,,,"","","",soil,agricultural,新疆,"skip: 论文仅提供乡镇级均值(Table 2 脚注明示'averages of all sample points in each township')，4乡镇(Anningqu/Qinggedahu/Liushihu/Sishihu)各为多个采样点的Mean，非采样点级数据；27个采样点个体数据在补充材料Table S1中但paper.md未包含；Table 3为蔬菜(plant tissue非土壤)且亦为乡镇均值；Table 4 TEQ为风险指数；Table 5-6 ILCRs为风险指数；均依规则2+4剔除"

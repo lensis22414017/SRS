@@ -1,0 +1,6 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06004,Reservoir,SumPBDE_ngg,3.8,ng/g,Table 2 total PBDEs row,soil,e_waste,Guangdong,"site-level mean of n=3 field replicates, reservoir control site in northern hills away from e-waste center; total PBDE range 2.0-6.2 ng/g across n=3"
+P06004,Acid_leaching,SumPBDE_ngg,3570,ng/g,Table 2 total PBDEs row,soil,e_waste,Guangdong,"site-level mean of n=3 field replicates, acid leaching of printed circuit boards at Yaocouwei riverbank; total PBDE range 2720-4250 ng/g"
+P06004,Printer_roller_dump,SumPBDE_ngg,1440,ng/g,Table 2 total PBDEs row,soil,e_waste,Guangdong,"site-level mean of n=3 field replicates, printer roller dump site Nanyang district; total PBDE range 893-2890 ng/g"
+P06004,Rice_field,SumPBDE_ngg,48.2,ng/g,Table 2 total PBDEs row,soil,e_waste,Guangdong,"site-level mean of n=3 field replicates, rice field with adjacent open burning of e-waste; total PBDE range 34.7-70.9 ng/g"
+P06004,Duck_pond,SumPBDE_ngg,398,ng/g,Table 2 total PBDEs row,soil,e_waste,Guangdong,"site-level mean of n=3 field replicates, duck pond beside village houses near Lianjiang River tributary; total PBDE range 263-604 ng/g"

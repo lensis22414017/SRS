@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00333,S49,SumPBDE_ngg,18451,ng/g,正文Results_PBDE levels段,soil,industrial,Jiangsu,"Plant C采样点S49;正文明确∑13PBDEs=18451 ng/g dw;Table1 C区soil范围上限;BDE-209单体=18450 ng/g"
+P00333,S15,SumPBDE_ngg,2.21,ng/g,正文Results_PBDE levels段,soil,industrial,Jiangsu,"Plant A外围~1km采样点S15;仅检出BDE-209=2.21 ng/g;Table1 A区soil范围下限"
+P00333,S46,SumPBDE_ngg,5.4,ng/g,正文Results_PBDE levels段,soil,industrial,Jiangsu,"Site B外围低浓度点S46;正文明确5.40 ng/g dw"
+P00333,S61,SumPBDE_ngg,11.1,ng/g,正文Results_PBDE levels段,soil,industrial,Jiangsu,"Site C外围低浓度点S61;正文明确11.1 ng/g dw"

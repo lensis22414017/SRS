@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02675,,,,,,soil,highway_agricultural,Jilin,"skip: 论文仅提供按距离分组(5m/30m/50m/100m/150m/200m/control)的range和mean统计汇总，无个体采样点(S1-S10/C1-C10)级浓度数据；Table 2为统计汇总表(range=Min~Max+mean)，Figure 2-3为箱线图，Figure 4为聚类树图，Figure 5-6为RQ风险指数和源解析图；正文3.3段提及S1-150m等具名点位但数值为RQ风险指数非浓度；无任何单体采样点级PAH浓度可提取"

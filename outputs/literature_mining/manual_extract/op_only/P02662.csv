@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02662,,,,,,,soil,other,Tianjin,"skip: plant-microbial remediation modeling study (HYDRUS simulation) on artificially spiked soil (crude oil sprayed + bacteria + nutrients added); no real sampling-point level field contamination data; simulation scenarios use designed initial concentrations (500/2000/5000/10000 mg/kg) not measured site baseline; no pre-remediation natural site baseline available"

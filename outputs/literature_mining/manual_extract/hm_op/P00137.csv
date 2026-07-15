@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00137,SKIP,,,,,soil,urban,Jiangsu,"skip: 论文为HM+OP真复合研究(69真实采样点PAHs+7HM)但仅公开按5类用地(RD/GB/PGS/CD/RSD)汇总的平均值，无采样点级逐点数据；Table1 Nanjing行为用地类型均值(RD平均PAHs=4.273mg/kg Cd=0.12 Cr=75.80等)属统计汇总非采样点；Fig2为箱型图；69点原始浓度未在正文/SI表格公开"

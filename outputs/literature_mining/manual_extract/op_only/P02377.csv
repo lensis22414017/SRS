@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02377,,,,,,soil,industrial,Tianjin,"skip: 论文105个采样点但无采样点级数据表。浓度仅以box-plot(Fig2)、汇总统计(均值814 ng/g dw; range 68.7-5990; max 48700 Tianjin Port)、区域级均值(Tanggu 1150/Hangu 657.67/Dagang 573.34 ng ΣPAHs/g dw)和克里金空间插值地图(Fig4)呈现。Table1为相关系数矩阵; Table2为PCA载荷; Table3为半变异函数模型参数。均非采样点级浓度数据。区域均值按规则剔除。"

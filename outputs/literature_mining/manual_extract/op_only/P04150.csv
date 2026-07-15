@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04150,,,,,,,,Shaanxi/Gansu,skip: 仅区域级Mean/Median/Range汇总（1980-1999 vs 2000-2019两个时段分组），无采样点级标识或个体样点浓度值；Table 1全为统计行（Mean/Median/Range）；Table 2为ILCR健康风险指数（需剔除）；Figure 2可能含个体样点但为图片不可提取数值；Supp Tables S1-S5为方法学参数

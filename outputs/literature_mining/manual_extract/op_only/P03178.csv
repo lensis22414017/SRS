@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03178,,,,,,,,,"skip: paper focuses on ARG gene copy numbers (22 ARGs) not OP concentrations. Antibiotics (TC/OTC/CTC/SDZ/SMZ/ENRO) and metals measured but only used as variables in Pearson correlation (Table 1) and RDA (Fig 6); no sample-level concentration tables. SI tables contain farm info/primers/standard curves only."

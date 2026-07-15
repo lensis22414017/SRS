@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07902,,,,,,,,,,"skip: 仅区域汇总统计(Table 2为40点Max/Min/Mean/SD)，无采样点级浓度数据; Table 5为日暴露摄入量(ng/kg bw/day)非土壤浓度; 无HM检测"

@@ -1,0 +1,6 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03187,s12,Sum_PAH_ngg,367.2,ng/g,Results text (PAHs in surface sediments),sediment,other,Jiangxi,"正文Results段直接读取"Total PAHs at site s12"为367.2 ng/g dw; Σ16 EPA PAHs; Table1仅有Min/Max/Mean/SD统计行已剔除"
+P03187,s1,Sum_PAH_ngg,297.3,ng/g,Results text (PAHs in surface sediments),sediment,other,Jiangxi,"正文Results段直接读取"Total PAHs at site s1"为297.3 ng/g dw; Σ16 EPA PAHs"
+P03187,s18,Sum_PAH_ngg,280.8,ng/g,Results text (PAHs in surface sediments),sediment,other,Jiangxi,"正文Results段直接读取"Total PAHs at site s18"为280.8 ng/g dw; Σ16 EPA PAHs"
+P03187,s22,Sum_PAH_ngg,254.5,ng/g,Results text (PAHs in surface sediments),sediment,other,Jiangxi,"正文Results段直接读取"Total PAHs at site s22"为254.5 ng/g dw; Σ16 EPA PAHs"
+P03187,s16,Sum_PAH_ngg,73.2,ng/g,Results text (PAHs in surface sediments),sediment,other,Jiangxi,"正文Results段直接读取"lowest was in site s16"为73.2 ng/g dw; Σ16 EPA PAHs"

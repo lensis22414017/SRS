@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01106,,,,,,,,"skip: 论文研究对象为短链(SCCPs)和中链氯化石蜡(MCCPs)，不在目标OP污染物清单内(无PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAEs/OCPs)；且Table 1仅提供101个样本的统计汇总(Range/Mean/Median/CV%/Skewness)，无采样点级数据"

@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+72220_acs.est.0c07983.s001,72220_acs.est.0c07983.s001_PX,PX,Sum_PAH_ngg,65.0,Unknown,,high,table_p8_ri21_ci4,Table S4.Detailed composition and number density of particle classin each sample.,,,,,,phase14
+72220_acs.est.0c07983.s001,72220_acs.est.0c07983.s001_BPIP,BPIP,Sum_PAH_ngg,5.3,Unknown,,high,table_p8_ri21_ci5,Table S4.Detailed composition and number density of particle classin each sample.,,,,,,phase14
+72220_acs.est.0c07983.s001,72220_acs.est.0c07983.s001_PP,PP,Sum_PAH_ngg,2.0,Unknown,,high,table_p8_ri21_ci6,Table S4.Detailed composition and number density of particle classin each sample.,,,,,,phase14

@@ -1,0 +1,20 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+_dup_j.chemosphere.2019.125467,_dup_j.chemosphere.2019.125467_Proportion_(%),Proportion (%),Sum_PAH_ngg,100.0,Unknown,,high,table_p21_ri15_ci3,Table 2 Concentration of PAHs in the contaminated soil sample,,,,,,phase14
+_dup_j.chemosphere.2019.125467,_dup_j.chemosphere.2019.125467_TEFs,TEFs,Nap_ngg,0.001,Unknown,,high,table_p23_ri1_ci1,Table 4 Toxicity equivalence factors (TEFs) of 16 PAHs,,,,,,phase14
+_dup_j.chemosphere.2019.125467,_dup_j.chemosphere.2019.125467_TEFs,TEFs,Nap_ngg,0.1,Unknown,,high,table_p23_ri1_ci3,Table 4 Toxicity equivalence factors (TEFs) of 16 PAHs,,,,,,phase14
+_dup_j.chemosphere.2019.125467,_dup_j.chemosphere.2019.125467_TEFs,TEFs,Acy_ngg,0.001,Unknown,,high,table_p23_ri2_ci1,Table 4 Toxicity equivalence factors (TEFs) of 16 PAHs,,,,,,phase14
+_dup_j.chemosphere.2019.125467,_dup_j.chemosphere.2019.125467_TEFs,TEFs,Acy_ngg,0.01,Unknown,,high,table_p23_ri2_ci3,Table 4 Toxicity equivalence factors (TEFs) of 16 PAHs,,,,,,phase14
+_dup_j.chemosphere.2019.125467,_dup_j.chemosphere.2019.125467_TEFs,TEFs,Ace_ngg,0.001,Unknown,,high,table_p23_ri3_ci1,Table 4 Toxicity equivalence factors (TEFs) of 16 PAHs,,,,,,phase14
+_dup_j.chemosphere.2019.125467,_dup_j.chemosphere.2019.125467_TEFs,TEFs,Ace_ngg,0.1,Unknown,,high,table_p23_ri3_ci3,Table 4 Toxicity equivalence factors (TEFs) of 16 PAHs,,,,,,phase14
+_dup_j.chemosphere.2019.125467,_dup_j.chemosphere.2019.125467_TEFs,TEFs,Flu_ngg,0.001,Unknown,,high,table_p23_ri4_ci1,Table 4 Toxicity equivalence factors (TEFs) of 16 PAHs,,,,,,phase14
+_dup_j.chemosphere.2019.125467,_dup_j.chemosphere.2019.125467_TEFs,TEFs,Flu_ngg,0.1,Unknown,,high,table_p23_ri4_ci3,Table 4 Toxicity equivalence factors (TEFs) of 16 PAHs,,,,,,phase14
+_dup_j.chemosphere.2019.125467,_dup_j.chemosphere.2019.125467_TEFs,TEFs,Phe_ngg,0.001,Unknown,,high,table_p23_ri5_ci1,Table 4 Toxicity equivalence factors (TEFs) of 16 PAHs,,,,,,phase14
+_dup_j.chemosphere.2019.125467,_dup_j.chemosphere.2019.125467_TEFs,TEFs,Phe_ngg,1.0,Unknown,,high,table_p23_ri5_ci3,Table 4 Toxicity equivalence factors (TEFs) of 16 PAHs,,,,,,phase14
+_dup_j.chemosphere.2019.125467,_dup_j.chemosphere.2019.125467_TEFs,TEFs,Ant_ngg,0.01,Unknown,,high,table_p23_ri6_ci1,Table 4 Toxicity equivalence factors (TEFs) of 16 PAHs,,,,,,phase14
+_dup_j.chemosphere.2019.125467,_dup_j.chemosphere.2019.125467_TEFs,TEFs,Ant_ngg,1.0,Unknown,,high,table_p23_ri6_ci3,Table 4 Toxicity equivalence factors (TEFs) of 16 PAHs,,,,,,phase14
+_dup_j.chemosphere.2019.125467,_dup_j.chemosphere.2019.125467_TEFs,TEFs,Flu_ngg,0.001,Unknown,,high,table_p23_ri7_ci1,Table 4 Toxicity equivalence factors (TEFs) of 16 PAHs,,,,,,phase14
+_dup_j.chemosphere.2019.125467,_dup_j.chemosphere.2019.125467_TEFs,TEFs,Flt_ngg,0.001,Unknown,,high,table_p23_ri7_ci1,Table 4 Toxicity equivalence factors (TEFs) of 16 PAHs,,,,,,phase14
+_dup_j.chemosphere.2019.125467,_dup_j.chemosphere.2019.125467_TEFs,TEFs,Flu_ngg,0.01,Unknown,,high,table_p23_ri7_ci3,Table 4 Toxicity equivalence factors (TEFs) of 16 PAHs,,,,,,phase14
+_dup_j.chemosphere.2019.125467,_dup_j.chemosphere.2019.125467_TEFs,TEFs,Flt_ngg,0.01,Unknown,,high,table_p23_ri7_ci3,Table 4 Toxicity equivalence factors (TEFs) of 16 PAHs,,,,,,phase14
+_dup_j.chemosphere.2019.125467,_dup_j.chemosphere.2019.125467_TEFs,TEFs,Pyr_ngg,0.001,Unknown,,high,table_p23_ri8_ci1,Table 4 Toxicity equivalence factors (TEFs) of 16 PAHs,,,,,,phase14
+_dup_j.chemosphere.2019.125467,_dup_j.chemosphere.2019.125467_TEFs,TEFs,Pyr_ngg,0.1,Unknown,,high,table_p23_ri8_ci3,Table 4 Toxicity equivalence factors (TEFs) of 16 PAHs,,,,,,phase14

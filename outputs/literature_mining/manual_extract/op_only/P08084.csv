@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08084,,,,,,,,"skip: 论文污染物为氯代烃VOCs/SVOCs(氯仿/四氯化碳/三氯乙烯/氯苯等)不在提取目标列表(PAH/PCB/DDT/HCH/PBDE/TPH/抗生素/PAE/OCP);仅有的4个绝对浓度值在地下水中(GW1:1,2-二氯丙烷19.5μg/L/四氯化碳193μg/L/氯仿63μg/L;GW2:1,2-二氯乙烷1.3μg/L)为水体基质须剔除;土壤污染物仅以标准倍数表述(4.3/26.6/207倍DB11/T811-2011)无绝对浓度;两表均为微生物多样性指数(Chao1/Shannon/Coverage)非污染物浓度;论文主题为微生物群落功能多样性非污染物定量"

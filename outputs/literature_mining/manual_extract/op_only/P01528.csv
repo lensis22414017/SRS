@@ -1,0 +1,33 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01528,M-1,SumHCH_ngg,3.49,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑HCH column (α+β+γ+δ-HCH)
+P01528,M-1,SumDDT_ngg,7.87,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑DDT column (p,p'-DDE+p,p'-DDD+o,p'-DDT+p,p'-DDT)
+P01528,M-2,SumHCH_ngg,4.19,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑HCH column
+P01528,M-2,SumDDT_ngg,9.15,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑DDT column
+P01528,M-3,SumHCH_ngg,1.95,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑HCH column
+P01528,M-3,SumDDT_ngg,4.07,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑DDT column
+P01528,M-4,SumHCH_ngg,6.23,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑HCH column
+P01528,M-4,SumDDT_ngg,17.04,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑DDT column
+P01528,M-5,SumHCH_ngg,4.23,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑HCH column
+P01528,M-5,SumDDT_ngg,9.19,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑DDT column
+P01528,M-6,SumHCH_ngg,3.76,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑HCH column
+P01528,M-6,SumDDT_ngg,7.68,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑DDT column
+P01528,M-7,SumHCH_ngg,3.99,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑HCH column
+P01528,M-7,SumDDT_ngg,9.10,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑DDT column
+P01528,T-1,SumHCH_ngg,2.53,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑HCH column; T-1=Shihe River
+P01528,T-1,SumDDT_ngg,5.96,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑DDT column; T-1=Shihe River
+P01528,T-2,SumHCH_ngg,8.04,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑HCH column; T-2=Zhugan River
+P01528,T-2,SumDDT_ngg,17.18,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑DDT column; T-2=Zhugan River
+P01528,T-3,SumHCH_ngg,5.60,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑HCH column; T-3=Lv River
+P01528,T-3,SumDDT_ngg,14.18,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑DDT column; T-3=Lv River
+P01528,T-4,SumHCH_ngg,11.05,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑HCH column; T-4=Huang River
+P01528,T-4,SumDDT_ngg,15.66,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑DDT column; T-4=Huang River
+P01528,T-5,SumHCH_ngg,4.02,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑HCH column
+P01528,T-5,SumDDT_ngg,11.04,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑DDT column
+P01528,T-6,SumHCH_ngg,3.72,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑HCH column; T-6=Bailu River
+P01528,T-6,SumDDT_ngg,10.48,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑DDT column; T-6=Bailu River
+P01528,T-7,SumHCH_ngg,3.81,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑HCH column; T-7=Shiguan River
+P01528,T-7,SumDDT_ngg,9.70,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑DDT column; T-7=Shiguan River
+P01528,L-1,SumHCH_ngg,2.10,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑HCH column; lake sediment
+P01528,L-1,SumDDT_ngg,4.91,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑DDT column; lake sediment
+P01528,L-2,SumHCH_ngg,3.77,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑HCH column; lake sediment
+P01528,L-2,SumDDT_ngg,23.89,ng/g,Table 1,sediment,other,Henan,Table1 direct read ∑DDT column; lake sediment

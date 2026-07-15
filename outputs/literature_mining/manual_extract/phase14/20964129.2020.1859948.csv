@@ -1,0 +1,199 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+20964129.2020.1859948,20964129.2020.1859948_Guiyang,Guiyang,Cu_mgkg,33.53,Unknown,,high,table_p3_ri1_ci6,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Guiyang,Guiyang,Zn_mgkg,116.5,Unknown,,high,table_p3_ri1_ci7,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Guiyang,Guiyang,Pb_mgkg,55.76,Unknown,,high,table_p3_ri1_ci8,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Guiyang,Guiyang,Cr_mgkg,73.11,Unknown,,high,table_p3_ri1_ci9,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Guiyang,Guiyang,Cd_mgkg,0.45,Unknown,,high,table_p3_ri1_ci10,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S2,S2,Hg_mgkg,0.69,Unknown,,high,table_p3_ri2_ci4,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S2,S2,As_mgkg,11.77,Unknown,,high,table_p3_ri2_ci5,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S2,S2,Cu_mgkg,51.6,Unknown,,high,table_p3_ri2_ci6,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S2,S2,Zn_mgkg,66.84,Unknown,,high,table_p3_ri2_ci7,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S2,S2,Pb_mgkg,25.2,Unknown,,high,table_p3_ri2_ci8,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S2,S2,Cr_mgkg,49.99,Unknown,,high,table_p3_ri2_ci9,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S2,S2,Cd_mgkg,0.17,Unknown,,high,table_p3_ri2_ci10,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S2,S2,Ni_mgkg,45.69,Unknown,,high,table_p3_ri2_ci11,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Anshun,Anshun,Hg_mgkg,0.25,Unknown,,high,table_p3_ri3_ci4,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Anshun,Anshun,As_mgkg,19.19,Unknown,,high,table_p3_ri3_ci5,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Anshun,Anshun,Pb_mgkg,67.5,Unknown,,high,table_p3_ri3_ci8,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Anshun,Anshun,Cr_mgkg,60.82,Unknown,,high,table_p3_ri3_ci9,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Anshun,Anshun,Cd_mgkg,0.49,Unknown,,high,table_p3_ri3_ci10,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S4,S4,Hg_mgkg,0.12,Unknown,,high,table_p3_ri4_ci4,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S4,S4,As_mgkg,1.51,Unknown,,high,table_p3_ri4_ci5,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S4,S4,Cu_mgkg,112.79,Unknown,,high,table_p3_ri4_ci6,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S4,S4,Pb_mgkg,22.15,Unknown,,high,table_p3_ri4_ci8,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S4,S4,Cd_mgkg,19.35,Unknown,,high,table_p3_ri4_ci10,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S5,S5,Hg_mgkg,0.21,Unknown,,high,table_p3_ri5_ci4,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S5,S5,As_mgkg,1.2,Unknown,,high,table_p3_ri5_ci5,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S5,S5,Cu_mgkg,89.49,Unknown,,high,table_p3_ri5_ci6,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S5,S5,Pb_mgkg,23.84,Unknown,,high,table_p3_ri5_ci8,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S5,S5,Cd_mgkg,9.08,Unknown,,high,table_p3_ri5_ci10,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S6,S6,Hg_mgkg,0.08,Unknown,,high,table_p3_ri6_ci4,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S6,S6,As_mgkg,15.14,Unknown,,high,table_p3_ri6_ci5,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S6,S6,Pb_mgkg,32.24,Unknown,,high,table_p3_ri6_ci8,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S6,S6,Cr_mgkg,93.11,Unknown,,high,table_p3_ri6_ci9,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S6,S6,Cd_mgkg,1.12,Unknown,,high,table_p3_ri6_ci10,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Zunyi,Zunyi,Hg_mgkg,0.21,Unknown,,high,table_p3_ri7_ci4,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Zunyi,Zunyi,As_mgkg,12.88,Unknown,,high,table_p3_ri7_ci5,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Zunyi,Zunyi,Pb_mgkg,53.2,Unknown,,high,table_p3_ri7_ci8,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Zunyi,Zunyi,Cr_mgkg,55.87,Unknown,,high,table_p3_ri7_ci9,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Zunyi,Zunyi,Cd_mgkg,0.43,Unknown,,high,table_p3_ri7_ci10,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S8,S8,Hg_mgkg,0.27,Unknown,,high,table_p3_ri8_ci4,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S8,S8,As_mgkg,25.28,Unknown,,high,table_p3_ri8_ci5,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S8,S8,Pb_mgkg,29.33,Unknown,,high,table_p3_ri8_ci8,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S8,S8,Cr_mgkg,39.71,Unknown,,high,table_p3_ri8_ci9,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S8,S8,Cd_mgkg,0.32,Unknown,,high,table_p3_ri8_ci10,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S9,S9,Hg_mgkg,0.1,Unknown,,high,table_p3_ri9_ci4,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S9,S9,As_mgkg,14.09,Unknown,,high,table_p3_ri9_ci5,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S9,S9,Cu_mgkg,53.0,Unknown,,high,table_p3_ri9_ci6,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S9,S9,Zn_mgkg,101.0,Unknown,,high,table_p3_ri9_ci7,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S9,S9,Pb_mgkg,34.0,Unknown,,high,table_p3_ri9_ci8,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S9,S9,Cr_mgkg,90.0,Unknown,,high,table_p3_ri9_ci9,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S9,S9,Cd_mgkg,0.33,Unknown,,high,table_p3_ri9_ci10,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S9,S9,Ni_mgkg,443.0,Unknown,,high,table_p3_ri9_ci11,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Liupanshui,Liupanshui,Cu_mgkg,115.7,Unknown,,high,table_p3_ri10_ci6,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Liupanshui,Liupanshui,Zn_mgkg,364.9,Unknown,,high,table_p3_ri10_ci7,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Liupanshui,Liupanshui,Pb_mgkg,47.22,Unknown,,high,table_p3_ri10_ci8,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Liupanshui,Liupanshui,Cr_mgkg,207.1,Unknown,,high,table_p3_ri10_ci9,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Liupanshui,Liupanshui,Ni_mgkg,45.9,Unknown,,high,table_p3_ri10_ci11,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Bijie,Bijie,As_mgkg,25.19,Unknown,,high,table_p3_ri11_ci5,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Bijie,Bijie,Cu_mgkg,29.48,Unknown,,high,table_p3_ri11_ci6,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Bijie,Bijie,Zn_mgkg,144.75,Unknown,,high,table_p3_ri11_ci7,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Bijie,Bijie,Pb_mgkg,45.33,Unknown,,high,table_p3_ri11_ci8,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Bijie,Bijie,Cr_mgkg,93.03,Unknown,,high,table_p3_ri11_ci9,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Bijie,Bijie,Ni_mgkg,45.08,Unknown,,high,table_p3_ri11_ci11,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S12,S12,Hg_mgkg,0.76,Unknown,,high,table_p3_ri12_ci4,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S12,S12,As_mgkg,12.7,Unknown,,high,table_p3_ri12_ci5,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S12,S12,Cu_mgkg,58.9,Unknown,,high,table_p3_ri12_ci6,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S12,S12,Zn_mgkg,134.22,Unknown,,high,table_p3_ri12_ci7,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S12,S12,Pb_mgkg,10.83,Unknown,,high,table_p3_ri12_ci8,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S12,S12,Cr_mgkg,33.98,Unknown,,high,table_p3_ri12_ci9,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S12,S12,Cd_mgkg,0.53,Unknown,,high,table_p3_ri12_ci10,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S12,S12,Ni_mgkg,59.79,Unknown,,high,table_p3_ri12_ci11,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Tongren,Tongren,Hg_mgkg,4.29,Unknown,,high,table_p3_ri13_ci4,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Tongren,Tongren,As_mgkg,117.6,Unknown,,high,table_p3_ri13_ci5,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Tongren,Tongren,Cu_mgkg,43.77,Unknown,,high,table_p3_ri13_ci6,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Tongren,Tongren,Zn_mgkg,29.13,Unknown,,high,table_p3_ri13_ci7,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Tongren,Tongren,Pb_mgkg,48.99,Unknown,,high,table_p3_ri13_ci8,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Tongren,Tongren,Cr_mgkg,59.06,Unknown,,high,table_p3_ri13_ci9,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Tongren,Tongren,Cd_mgkg,0.43,Unknown,,high,table_p3_ri13_ci10,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_Tongren,Tongren,Ni_mgkg,18.8,Unknown,,high,table_p3_ri13_ci11,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S14,S14,Hg_mgkg,14.15,Unknown,,high,table_p3_ri14_ci4,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S14,S14,As_mgkg,14.24,Unknown,,high,table_p3_ri14_ci5,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S14,S14,Cu_mgkg,41.45,Unknown,,high,table_p3_ri14_ci6,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S14,S14,Pb_mgkg,59.3,Unknown,,high,table_p3_ri14_ci8,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S14,S14,Cr_mgkg,353.22,Unknown,,high,table_p3_ri14_ci9,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S14,S14,Cd_mgkg,0.87,Unknown,,high,table_p3_ri14_ci10,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S14,S14,Ni_mgkg,33.58,Unknown,,high,table_p3_ri14_ci11,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_QNBM,QNBM,Hg_mgkg,0.31,Unknown,,high,table_p3_ri15_ci4,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_QNBM,QNBM,As_mgkg,18.5,Unknown,,high,table_p3_ri15_ci5,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_QNBM,QNBM,Cu_mgkg,27.5,Unknown,,high,table_p3_ri15_ci6,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_QNBM,QNBM,Pb_mgkg,74.5,Unknown,,high,table_p3_ri15_ci8,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_QNBM,QNBM,Cr_mgkg,52.8,Unknown,,high,table_p3_ri15_ci9,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_QNBM,QNBM,Cd_mgkg,0.214,Unknown,,high,table_p3_ri15_ci10,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S16,S16,Hg_mgkg,0.26,Unknown,,high,table_p3_ri16_ci4,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S16,S16,As_mgkg,12.6,Unknown,,high,table_p3_ri16_ci5,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S16,S16,Cu_mgkg,18.6,Unknown,,high,table_p3_ri16_ci6,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S16,S16,Pb_mgkg,64.9,Unknown,,high,table_p3_ri16_ci8,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S16,S16,Cr_mgkg,44.5,Unknown,,high,table_p3_ri16_ci9,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S16,S16,Cd_mgkg,0.23,Unknown,,high,table_p3_ri16_ci10,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_MMD,MMD,Hg_mgkg,0.26,Unknown,,high,table_p3_ri17_ci4,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_MMD,MMD,As_mgkg,8.55,Unknown,,high,table_p3_ri17_ci5,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_MMD,MMD,Pb_mgkg,25.1,Unknown,,high,table_p3_ri17_ci8,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_MMD,MMD,Cr_mgkg,54.8,Unknown,,high,table_p3_ri17_ci9,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_MMD,MMD,Cd_mgkg,0.29,Unknown,,high,table_p3_ri17_ci10,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S18,S18,Hg_mgkg,0.23,Unknown,,high,table_p3_ri18_ci4,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S18,S18,As_mgkg,3.32,Unknown,,high,table_p3_ri18_ci5,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S18,S18,Cu_mgkg,10.95,Unknown,,high,table_p3_ri18_ci6,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S18,S18,Pb_mgkg,21.18,Unknown,,high,table_p3_ri18_ci8,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S18,S18,Cr_mgkg,38.72,Unknown,,high,table_p3_ri18_ci9,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S18,S18,Cd_mgkg,0.29,Unknown,,high,table_p3_ri18_ci10,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S19,S19,Hg_mgkg,0.28,Unknown,,high,table_p3_ri19_ci4,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S19,S19,As_mgkg,38.0,Unknown,,high,table_p3_ri19_ci5,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S19,S19,Cu_mgkg,26.0,Unknown,,high,table_p3_ri19_ci6,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S19,S19,Zn_mgkg,97.0,Unknown,,high,table_p3_ri19_ci7,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S19,S19,Pb_mgkg,50.0,Unknown,,high,table_p3_ri19_ci8,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S19,S19,Cr_mgkg,65.0,Unknown,,high,table_p3_ri19_ci9,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S19,S19,Cd_mgkg,0.3,Unknown,,high,table_p3_ri19_ci10,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_S19,S19,Ni_mgkg,30.0,Unknown,,high,table_p3_ri19_ci11,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_QYBM,QYBM,Hg_mgkg,0.05,Unknown,,high,table_p3_ri20_ci4,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_QYBM,QYBM,As_mgkg,9.71,Unknown,,high,table_p3_ri20_ci5,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_QYBM,QYBM,Pb_mgkg,22.26,Unknown,,high,table_p3_ri20_ci8,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_QYBM,QYBM,Cr_mgkg,64.6,Unknown,,high,table_p3_ri20_ci9,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_QYBM,QYBM,Cd_mgkg,0.09,Unknown,,high,table_p3_ri20_ci10,"Table 1. Heavy metal concentrations in soils of Guizhou, mg/kg.Figure 1"
+20964129.2020.1859948,20964129.2020.1859948_col4,col4,As_mgkg,1.5,Unknown,,medium,table_p5_ri3_ci4,Table 4. RfD and SFH of heavy metals in soils with different exposures (Li et al. 2018; Fan et al. 2019; Cao et al.2020).
+20964129.2020.1859948,20964129.2020.1859948_col5,col5,As_mgkg,15.1,Unknown,,medium,table_p5_ri3_ci5,Table 4. RfD and SFH of heavy metals in soils with different exposures (Li et al. 2018; Fan et al. 2019; Cao et al.2020).
+20964129.2020.1859948,20964129.2020.1859948_col6,col6,As_mgkg,3.66,Unknown,,medium,table_p5_ri3_ci6,Table 4. RfD and SFH of heavy metals in soils with different exposures (Li et al. 2018; Fan et al. 2019; Cao et al.2020).
+20964129.2020.1859948,20964129.2020.1859948_Hg,Hg,pH,25.0,Unknown,,high,table_p5_ri9_ci2,"Table 5. Heavy metal concentrations in soils of Guizhou, along with related reference data."
+20964129.2020.1859948,20964129.2020.1859948_As,As,pH,100.0,Unknown,,high,table_p5_ri9_ci3,"Table 5. Heavy metal concentrations in soils of Guizhou, along with related reference data."
+20964129.2020.1859948,20964129.2020.1859948_Cu,Cu,pH,250.0,Unknown,,high,table_p5_ri9_ci4,"Table 5. Heavy metal concentrations in soils of Guizhou, along with related reference data."
+20964129.2020.1859948,20964129.2020.1859948_Zn,Zn,pH,700.0,Unknown,,high,table_p5_ri9_ci5,"Table 5. Heavy metal concentrations in soils of Guizhou, along with related reference data."
+20964129.2020.1859948,20964129.2020.1859948_Pb,Pb,pH,200.0,Unknown,,high,table_p5_ri9_ci6,"Table 5. Heavy metal concentrations in soils of Guizhou, along with related reference data."
+20964129.2020.1859948,20964129.2020.1859948_Cr,Cr,pH,0.3,Unknown,,high,table_p5_ri9_ci7,"Table 5. Heavy metal concentrations in soils of Guizhou, along with related reference data."
+20964129.2020.1859948,20964129.2020.1859948_cd,cd,pH,100.0,Unknown,,high,table_p5_ri9_ci8,"Table 5. Heavy metal concentrations in soils of Guizhou, along with related reference data."
+20964129.2020.1859948,20964129.2020.1859948_Hg,Hg,pH,120.0,Unknown,,high,table_p5_ri10_ci2,"Table 5. Heavy metal concentrations in soils of Guizhou, along with related reference data."
+20964129.2020.1859948,20964129.2020.1859948_Pb,Pb,pH,1000.0,Unknown,,high,table_p5_ri10_ci6,"Table 5. Heavy metal concentrations in soils of Guizhou, along with related reference data."
+20964129.2020.1859948,20964129.2020.1859948_Cr,Cr,pH,3.0,Unknown,,high,table_p5_ri10_ci7,"Table 5. Heavy metal concentrations in soils of Guizhou, along with related reference data."
+20964129.2020.1859948,20964129.2020.1859948_Ingestion,Ingestion,Hg_mgkg,1.67e-05,Unknown,,high,table_p7_ri4_ci1,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Inhalation,Inhalation,Hg_mgkg,5.7e-06,Unknown,,high,table_p7_ri4_ci2,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Dermal,Dermal,Hg_mgkg,2.42e-06,Unknown,,high,table_p7_ri4_ci3,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Ingestion,Ingestion,As_mgkg,0.000229,Unknown,,high,table_p7_ri5_ci1,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Inhalation,Inhalation,As_mgkg,7.8e-05,Unknown,,high,table_p7_ri5_ci2,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Dermal,Dermal,As_mgkg,3.31e-05,Unknown,,high,table_p7_ri5_ci3,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Ingestion,Ingestion,Cu_mgkg,0.000557,Unknown,,high,table_p7_ri6_ci1,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Inhalation,Inhalation,Cu_mgkg,0.00019,Unknown,,high,table_p7_ri6_ci2,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Dermal,Dermal,Cu_mgkg,8.06e-05,Unknown,,high,table_p7_ri6_ci3,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Ingestion,Ingestion,Zn_mgkg,0.00144,Unknown,,high,table_p7_ri7_ci1,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Inhalation,Inhalation,Zn_mgkg,0.000491,Unknown,,high,table_p7_ri7_ci2,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Dermal,Dermal,Zn_mgkg,0.000209,Unknown,,high,table_p7_ri7_ci3,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Ingestion,Ingestion,Pb_mgkg,0.000445,Unknown,,high,table_p7_ri8_ci1,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Inhalation,Inhalation,Pb_mgkg,0.000151,Unknown,,high,table_p7_ri8_ci2,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Dermal,Dermal,Pb_mgkg,6.43e-05,Unknown,,high,table_p7_ri8_ci3,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Ingestion,Ingestion,Cr_mgkg,0.000929,Unknown,,high,table_p7_ri9_ci1,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Inhalation,Inhalation,Cr_mgkg,0.000317,Unknown,,high,table_p7_ri9_ci2,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Dermal,Dermal,Cr_mgkg,0.000134,Unknown,,high,table_p7_ri9_ci3,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Ingestion,Ingestion,Cd_mgkg,2.12e-05,Unknown,,high,table_p7_ri10_ci1,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Inhalation,Inhalation,Cd_mgkg,7.23e-06,Unknown,,high,table_p7_ri10_ci2,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Dermal,Dermal,Cd_mgkg,3.07e-06,Unknown,,high,table_p7_ri10_ci3,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Ingestion,Ingestion,Ni_mgkg,0.000987,Unknown,,high,table_p7_ri11_ci1,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Inhalation,Inhalation,Ni_mgkg,0.000336,Unknown,,high,table_p7_ri11_ci2,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Dermal,Dermal,Ni_mgkg,0.000143,Unknown,,high,table_p7_ri11_ci3,Table 6. Children and adult exposure of soil heavy metals in three pathways in Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Ingestion,Ingestion,Hg_mgkg,0.0615,Unknown,,high,table_p8_ri2_ci1,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Inhalation,Inhalation,Hg_mgkg,0.00807,Unknown,,high,table_p8_ri2_ci2,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Dermal,Dermal,Hg_mgkg,5.94e-06,Unknown,,high,table_p8_ri2_ci3,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_CR,CR,Hg_mgkg,3.07e-06,Unknown,,high,table_p8_ri2_ci4,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_HQ,HQ,Hg_mgkg,0.00211,Unknown,,high,table_p8_ri2_ci5,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Ingestion,Ingestion,As_mgkg,0.117,Unknown,,high,table_p8_ri3_ci1,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Inhalation,Inhalation,As_mgkg,0.0354,Unknown,,high,table_p8_ri3_ci2,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Dermal,Dermal,As_mgkg,7.87e-06,Unknown,,high,table_p8_ri3_ci3,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_CR,CR,As_mgkg,4.09e-06,Unknown,,high,table_p8_ri3_ci4,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_HQ,HQ,As_mgkg,0.00174,Unknown,,high,table_p8_ri3_ci5,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Ingestion,Ingestion,Cu_mgkg,0.0154,Unknown,,high,table_p8_ri4_ci1,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Inhalation,Inhalation,Cu_mgkg,0.00201,Unknown,,high,table_p8_ri4_ci2,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Dermal,Dermal,Cu_mgkg,4.23e-07,Unknown,,high,table_p8_ri4_ci3,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_CR,CR,Cu_mgkg,2.19e-07,Unknown,,high,table_p8_ri4_ci4,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_HQ,HQ,Cu_mgkg,0.000123,Unknown,,high,table_p8_ri4_ci5,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Ingestion,Ingestion,Zn_mgkg,0.0053,Unknown,,high,table_p8_ri5_ci1,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Inhalation,Inhalation,Zn_mgkg,0.000695,Unknown,,high,table_p8_ri5_ci2,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Dermal,Dermal,Zn_mgkg,1.46e-07,Unknown,,high,table_p8_ri5_ci3,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_CR,CR,Zn_mgkg,7.57e-08,Unknown,,high,table_p8_ri5_ci4,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_HQ,HQ,Zn_mgkg,6.36e-05,Unknown,,high,table_p8_ri5_ci5,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Ingestion,Ingestion,Pb_mgkg,0.14,Unknown,,high,table_p8_ri6_ci1,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Inhalation,Inhalation,Pb_mgkg,0.0184,Unknown,,high,table_p8_ri6_ci2,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Dermal,Dermal,Pb_mgkg,3.86e-06,Unknown,,high,table_p8_ri6_ci3,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_CR,CR,Pb_mgkg,2e-06,Unknown,,high,table_p8_ri6_ci4,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_HQ,HQ,Pb_mgkg,0.00224,Unknown,,high,table_p8_ri6_ci5,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Ingestion,Ingestion,Cr_mgkg,0.0477,Unknown,,high,table_p8_ri7_ci1,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Inhalation,Inhalation,Cr_mgkg,0.0144,Unknown,,high,table_p8_ri7_ci2,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Dermal,Dermal,Cr_mgkg,0.000335,Unknown,,high,table_p8_ri7_ci3,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_CR,CR,Cr_mgkg,0.000174,Unknown,,high,table_p8_ri7_ci4,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_HQ,HQ,Cr_mgkg,0.0144,Unknown,,high,table_p8_ri7_ci5,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Ingestion,Ingestion,Cd_mgkg,0.00327,Unknown,,high,table_p8_ri8_ci1,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Inhalation,Inhalation,Cd_mgkg,0.000985,Unknown,,high,table_p8_ri8_ci2,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Dermal,Dermal,Cd_mgkg,2.19e-07,Unknown,,high,table_p8_ri8_ci3,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_CR,CR,Cd_mgkg,1.14e-07,Unknown,,high,table_p8_ri8_ci4,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_HQ,HQ,Cd_mgkg,0.00198,Unknown,,high,table_p8_ri8_ci5,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Ingestion,Ingestion,Ni_mgkg,0.0076,Unknown,,high,table_p8_ri9_ci1,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Inhalation,Inhalation,Ni_mgkg,0.00229,Unknown,,high,table_p8_ri9_ci2,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_Dermal,Dermal,Ni_mgkg,4.94e-07,Unknown,,high,table_p8_ri9_ci3,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_CR,CR,Ni_mgkg,2.57e-07,Unknown,,high,table_p8_ri9_ci4,Table 7. Health risk index of heavy metals in soils of Guizhou.
+20964129.2020.1859948,20964129.2020.1859948_HQ,HQ,Ni_mgkg,0.00017,Unknown,,high,table_p8_ri9_ci5,Table 7. Health risk index of heavy metals in soils of Guizhou.

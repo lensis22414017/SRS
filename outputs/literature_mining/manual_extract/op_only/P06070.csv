@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06070,NOTES,,,,,,,,"skip: Table 1 only has median+range (statistical summaries pooled across 25 samples/5 elevations) — rejected per stat-row rule. Individual sample-level concentrations are in SI Tables S1/S3/S4/S5 which are not available in the parsed paper directory. Real field soil study (Balang Mountain, Wolong Nature Reserve, Sichuan) with HCH/HCB/PCB-28/PCB-52/DDTs at ng/g; data exists but inaccessible without SI."

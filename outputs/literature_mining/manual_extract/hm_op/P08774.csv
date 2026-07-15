@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08774,,,,,,soil,other,"Hunan, Jiangsu","skip: 水淋溶/生物淋洗实验(leaching/bioleaching), 用HDS(羟肟酸铁载体)作bioeluant去除土壤HMs+PAHs, 属铁律剔除场景(line21 leaching); 正文所有数值为每mg HDS的淋溶去除量(mg/kg HDS)和去除率(%), 非土壤本底浓度; 仅Table 1为分子docking结合能(kcal/mol), 非浓度; 三场地(湘潭菜地/镇江农药厂/湘潭稻田)无S1/A/B采样点标识且无采样点级HM+OP浓度表; 本底浓度仅在正文不可见的Supplementary Table S1; HM与PAH分属不同场地不可拼接"

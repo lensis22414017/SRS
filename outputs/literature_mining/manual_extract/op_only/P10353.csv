@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10353,Q3,SumPBDE_ngg,28.12,ng/g,Table 1,soil,e_waste,Guangdong,point-source sample near e-waste site; SumPBDE=Sigma9PBDEs(2.42)+BDE209(25.7)
+P10353,Q4,SumPBDE_ngg,121.5,ng/g,Table 1,soil,e_waste,Guangdong,point-source sample near e-waste site; SumPBDE=Sigma9PBDEs(19.5)+BDE209(102)
+P10353,F3,SumPBDE_ngg,85.83,ng/g,Table 1,soil,e_waste,Guangdong,point-source sample near e-waste site; SumPBDE=Sigma9PBDEs(1.93)+BDE209(83.9)

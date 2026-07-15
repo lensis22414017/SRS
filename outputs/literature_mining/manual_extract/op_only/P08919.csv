@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08919,,,,,,,,,"skip: 论文测量污染物为PCDD/Fs(二噁英/呋喃)和TEQ值，不在目标OP提取范围内(Sum_PAH/BaP/SumPCB/SumDDT/SumHCH/SumPBDE/TotalPHC/抗生素/PAEs/OCPs)；论文核心是实验室王水消解实验研究二噁英生成机制(acid digestion experiment)，非真实场地污染调查；采样点详细数据位于SI Table S1/S2/S3而非主文"

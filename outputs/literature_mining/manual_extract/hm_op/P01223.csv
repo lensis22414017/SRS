@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01223,NOTES,,,,Table 1,soil,industrial,Hunan,"skip: 仅区域组级(C/HT1/HT2)mean±SD统计汇总，每组3采样点合并均值，无采样点级独立浓度数据。HM(Cr/Cr6+/Zn/Cu/Pb/Ni/Mo)+TPH均仅以组级mean±SD给出(共9采样点分3组)。论文为微生物群落研究非浓度调查"

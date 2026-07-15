@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01506,,,,,,,soil,industrial,Tianjin,skip: 温室盆栽植物修复实验(greenhouse pot experiment) 明确声明"Pot experiment was carried out in greenhouse of Nankai University"; 大港油田污染土与清洁土人工混合配制TPH浓度(0/10/30/50 g/kg)为设计值非场地实测; 全文仅有去除率(%)和植物/酶/微生物指标无采样点级OP浓度绝对值; 无修复前场地基线OP数据(Appendix A Table S1理化性质未含在parsed paper.md中)

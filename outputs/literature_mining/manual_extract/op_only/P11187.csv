@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11187,,,,,,,,"skip: spiked/实验室添加实验 — 模拟污染土壤(太原理工大学校园土壤经121°C蒸压30min灭菌，PHE目标浓度500mg/kg人工添加)，非真实场地采样；电动修复效果实验(remediation)，无修复前场地本底实测值。源: paper.md 2.2.1节"

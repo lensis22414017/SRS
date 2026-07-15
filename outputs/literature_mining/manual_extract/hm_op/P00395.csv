@@ -1,0 +1,87 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P00395,Riverbed_0-20cm,Cu_mgkg,287,mg/kg,Text Heavy metals as proxies,soil,other,Beijing,Riverbed topsoil Cu; text: exceeded GB15618 second criterion,39.9333,118.3333
+P00395,Riverbed_0-20cm,Zn_mgkg,820,mg/kg,Text Heavy metals as proxies,soil,other,Beijing,Riverbed topsoil Zn; text: exceeded GB15618 third criterion (500 mg/kg),39.9333,118.3333
+P00395,Plot2_0-20cm,SMZ_ngg,7.5,ng/g,Table 1,soil,agricultural,Beijing,footnote_b upper bound; unfertilized poplar control 9yr,39.9333,118.3333
+P00395,Plot2_20-60cm,SMZ_ngg,0.9,ng/g,Table 1,soil,agricultural,Beijing,Subsoil SMZ in unfertilized poplar; long-term persistence,39.9333,118.3333
+P00395,Plot7_0-20cm,ENRO_ngg,22,ng/g,Table 1,soil,agricultural,Beijing,Mineral-fertilised maize-wheat; ENRO detected despite no manure,39.9333,118.3333
+P00395,Plot14_0-20cm,SMZ_ngg,7.7,ng/g,Table 1,soil,agricultural,Beijing,Cattle manure; maize-Chinese cabbage,39.9333,118.3333
+P00395,Plot14_0-20cm,SDZ_ngg,8.1,ng/g,Table 1,soil,agricultural,Beijing,Cattle manure; maize-Chinese cabbage,39.9333,118.3333
+P00395,Plot14_20-60cm,SMZ_ngg,0.5,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot14_20-60cm,SDZ_ngg,0.6,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot16_0-20cm,SMZ_ngg,9.0,ng/g,Table 1,soil,agricultural,Beijing,Cattle/chicken manure 75 t/ha/yr 7yr; fruit trees,39.9333,118.3333
+P00395,Plot16_20-60cm,SMZ_ngg,4.1,ng/g,Table 1,soil,agricultural,Beijing,Subsoil SMZ depth profile,39.9333,118.3333
+P00395,Plot16_60-90cm,SMZ_ngg,1.9,ng/g,Table 1,soil,agricultural,Beijing,Subsoil SMZ depth profile,39.9333,118.3333
+P00395,Plot16_90-120cm,SMZ_ngg,0.6,ng/g,Table 1,soil,agricultural,Beijing,Subsoil SMZ depth profile,39.9333,118.3333
+P00395,Plot16_120-160cm,SMZ_ngg,0.6,ng/g,Table 1,soil,agricultural,Beijing,footnote_b upper bound partial quantification,39.9333,118.3333
+P00395,Plot16_160-200cm,SMZ_ngg,1.3,ng/g,Table 1,soil,agricultural,Beijing,Deepest subsoil 160-200cm,39.9333,118.3333
+P00395,Plot17_0-20cm,SMZ_ngg,90,ng/g,Table 1,soil,agricultural,Beijing,Chicken manure 37.5 t/ha/yr 15yr; vegetables,39.9333,118.3333
+P00395,Plot17_0-20cm,CTC_ngg,111,ng/g,Table 1,soil,agricultural,Beijing,Max CTC in agri fields; includes epimers CTC+4epi-CTC,39.9333,118.3333
+P00395,Plot17_0-20cm,OTC_ngg,20,ng/g,Table 1,soil,agricultural,Beijing,footnote_b upper bound; includes epimers OTC+4epi-OTC,39.9333,118.3333
+P00395,Plot17_0-20cm,ENRO_ngg,27,ng/g,Table 1,soil,agricultural,Beijing,Chicken manure; vegetables,39.9333,118.3333
+P00395,Plot17_20-60cm,SMZ_ngg,23,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot17_20-60cm,SDZ_ngg,2.0,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot17_60-90cm,SMZ_ngg,3.6,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot17_90-120cm,SMZ_ngg,2.1,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot17_120-160cm,SMZ_ngg,1.4,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot17_160-200cm,SDZ_ngg,0.6,ng/g,Table 1,soil,agricultural,Beijing,Deepest sample; SDZ only,39.9333,118.3333
+P00395,Plot18_0-20cm,SMZ_ngg,25,ng/g,Table 1,soil,agricultural,Beijing,Sheep/pig manure 45 t/ha; vegetables,39.9333,118.3333
+P00395,Plot18_20-60cm,SMZ_ngg,0.9,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot18_20-60cm,SDZ_ngg,0.5,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot19_0-20cm,SMZ_ngg,12,ng/g,Table 1,soil,agricultural,Beijing,Cattle/pig manure 67.5 t/ha 7yr; maize-Chinese cabbage,39.9333,118.3333
+P00395,Plot19_0-20cm,SDZ_ngg,5.4,ng/g,Table 1,soil,agricultural,Beijing,Cattle/pig manure,39.9333,118.3333
+P00395,Plot19_20-60cm,SMZ_ngg,5.1,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot19_20-60cm,SDZ_ngg,1.6,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot20_0-20cm,SMZ_ngg,7.3,ng/g,Table 1,soil,agricultural,Beijing,Chicken/pig manure 6.7 t/ha 7yr; fruit trees,39.9333,118.3333
+P00395,Plot20_20-60cm,SMZ_ngg,0.8,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot21_0-20cm,SMZ_ngg,110,ng/g,Table 1,soil,agricultural,Beijing,Max SMZ in study; nutrient-rich riverwater irrigation 6yr; vegetables,39.9333,118.3333
+P00395,Plot21_0-20cm,CTC_ngg,110,ng/g,Table 1,soil,agricultural,Beijing,Riverwater irrigation; includes epimers; near-max CTC,39.9333,118.3333
+P00395,Plot21_20-60cm,SMZ_ngg,38,ng/g,Table 1,soil,agricultural,Beijing,Subsoil SMZ depth profile,39.9333,118.3333
+P00395,Plot21_20-60cm,SDZ_ngg,1.4,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot21_60-90cm,SMZ_ngg,8.3,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot21_60-90cm,SDZ_ngg,0.6,ng/g,Table 1,soil,agricultural,Beijing,footnote_b upper bound partial quantification,39.9333,118.3333
+P00395,Plot21_90-120cm,SMZ_ngg,5.0,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot21_90-120cm,SDZ_ngg,0.6,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot21_120-160cm,SMZ_ngg,3.2,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot21_120-160cm,SDZ_ngg,0.7,ng/g,Table 1,soil,agricultural,Beijing,footnote_b upper bound partial quantification,39.9333,118.3333
+P00395,Plot21_160-200cm,SMZ_ngg,2.2,ng/g,Table 1,soil,agricultural,Beijing,Deepest subsoil,39.9333,118.3333
+P00395,Plot22_0-20cm,SMZ_ngg,28,ng/g,Table 1,soil,agricultural,Beijing,Pig manure 150 t/ha; maize-Chinese cabbage,39.9333,118.3333
+P00395,Plot22_0-20cm,ENRO_ngg,62,ng/g,Table 1,soil,agricultural,Beijing,Max ENRO in agricultural fields,39.9333,118.3333
+P00395,Plot22_20-60cm,SMZ_ngg,3.0,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot22_20-60cm,SDZ_ngg,0.8,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot22_90-120cm,SMZ_ngg,1.9,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot22_120-160cm,SMZ_ngg,0.4,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot22_160-200cm,SMZ_ngg,0.5,ng/g,Table 1,soil,agricultural,Beijing,footnote_b upper bound partial quantification,39.9333,118.3333
+P00395,Plot23_0-20cm,SMZ_ngg,79,ng/g,Table 1,soil,agricultural,Beijing,Pig manure 60 t/ha; maize-Chinese cabbage,39.9333,118.3333
+P00395,Plot23_0-20cm,CTC_ngg,23,ng/g,Table 1,soil,agricultural,Beijing,footnote_b upper bound; includes epimers,39.9333,118.3333
+P00395,Plot23_20-60cm,SMZ_ngg,8.2,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot23_60-90cm,SMZ_ngg,1.0,ng/g,Table 1,soil,agricultural,Beijing,footnote_b upper bound partial quantification,39.9333,118.3333
+P00395,Plot23_90-120cm,SMZ_ngg,0.9,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot23_120-160cm,SMZ_ngg,2.6,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot23_160-200cm,SMZ_ngg,1.2,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot24_0-20cm,SMZ_ngg,25,ng/g,Table 1,soil,agricultural,Beijing,Pig manure; fruit trees,39.9333,118.3333
+P00395,Plot24_0-20cm,ENRO_ngg,28,ng/g,Table 1,soil,agricultural,Beijing,Pig manure,39.9333,118.3333
+P00395,Plot24_20-60cm,SMZ_ngg,1.8,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot24_20-60cm,SDZ_ngg,0.7,ng/g,Table 1,soil,agricultural,Beijing,footnote_b upper bound partial quantification,39.9333,118.3333
+P00395,Plot24_60-90cm,SMZ_ngg,0.5,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot24_90-120cm,SMZ_ngg,2.0,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot24_120-160cm,SMZ_ngg,1.0,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Plot24_160-200cm,SMZ_ngg,1.1,ng/g,Table 1,soil,agricultural,Beijing,Subsoil,39.9333,118.3333
+P00395,Riverbed_0-20cm,SMZ_ngg,844,ng/g,Table 2,soil,other,Beijing,Pollution hotspot; max SMZ overall; pig farm+biogas effluent 20yr,39.9333,118.3333
+P00395,Riverbed_0-20cm,SDZ_ngg,5.2,ng/g,Table 2,soil,other,Beijing,Riverbed hotspot 0-20cm,39.9333,118.3333
+P00395,Riverbed_0-20cm,SMP_ngg,68,ng/g,Table 2,soil,other,Beijing,Sulfamethoxypyridazine; riverbed hotspot,39.9333,118.3333
+P00395,Riverbed_0-20cm,TC_ngg,80,ng/g,Table 2,soil,other,Beijing,Tetracycline; not detected at other sites,39.9333,118.3333
+P00395,Riverbed_0-20cm,CTC_ngg,2375,ng/g,Table 2,soil,other,Beijing,Max CTC overall; exceeds EMEA trigger 100 ug/kg by 20x; includes epimers,39.9333,118.3333
+P00395,Riverbed_0-20cm,OTC_ngg,81,ng/g,Table 2,soil,other,Beijing,Riverbed hotspot; includes epimers,39.9333,118.3333
+P00395,Riverbed_0-20cm,ENRO_ngg,84,ng/g,Table 2,soil,other,Beijing,Single measurement no replicates per caption,39.9333,118.3333
+P00395,Riverbed_0-20cm,DIF_ngg,56,ng/g,Table 2,soil,other,Beijing,Difloxacin; single measurement; not detected at other sites,39.9333,118.3333
+P00395,Riverbed_20-50cm,SMZ_ngg,36,ng/g,Table 2,soil,other,Beijing,Riverbed subsoil SMZ,39.9333,118.3333
+P00395,Riverbed_20-50cm,ENRO_ngg,1,ng/g,Table 2,soil,other,Beijing,Below typical FQ LOQ 15; single measurement; flagged uncertain,39.9333,118.3333
+P00395,Riverbed_50-90cm,SMZ_ngg,7.6,ng/g,Table 2,soil,other,Beijing,Riverbed subsoil SMZ,39.9333,118.3333
+P00395,Riverbed_90-130cm,SMZ_ngg,2.8,ng/g,Table 2,soil,other,Beijing,Riverbed subsoil SMZ,39.9333,118.3333
+P00395,Riverbed_130-170cm,SMZ_ngg,14,ng/g,Table 2,soil,other,Beijing,Riverbed subsoil SMZ,39.9333,118.3333
+P00395,Riverbed_170-210cm,SMZ_ngg,21,ng/g,Table 2,soil,other,Beijing,Riverbed subsoil SMZ,39.9333,118.3333
+P00395,Riverbed_210-250cm,SMZ_ngg,26,ng/g,Table 2,soil,other,Beijing,Riverbed subsoil SMZ,39.9333,118.3333
+P00395,Riverbed_250-290cm,SMZ_ngg,25,ng/g,Table 2,soil,other,Beijing,Riverbed subsoil SMZ,39.9333,118.3333
+P00395,Riverbed_290-340cm,SMZ_ngg,25,ng/g,Table 2,soil,other,Beijing,Riverbed subsoil SMZ,39.9333,118.3333
+P00395,Riverbed_340-370cm,SMZ_ngg,3.5,ng/g,Table 2,soil,other,Beijing,Riverbed subsoil SMZ,39.9333,118.3333
+P00395,Riverbed_370-400cm,SMZ_ngg,10,ng/g,Table 2,soil,other,Beijing,Deepest 370-400cm; SMZ throughout 4m profile,39.9333,118.3333

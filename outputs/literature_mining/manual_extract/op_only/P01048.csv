@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01048,,,,,,,,,"skip: 仅site-wide汇总(14 PAH site-total Nap 8003.3/BaP 1449.6 mg/kg等 + ∑PAHs 28355.1 mg/kg；borehole range 0.7-4889.5 avg 130 mg/kg)，91个borehole(S1...S91)无采样点级浓度数据表；浓度仅在Fig2/3/5空间分布图中(图片)；Table1仅含volume/ME/RMSE非浓度"

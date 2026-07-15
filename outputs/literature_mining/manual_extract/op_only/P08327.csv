@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P08327,NA,NA,NA,NA,NA,NA,NA,NA,"skip: plastic greenhouse study (greenhouse=explicit rejection criterion); all soil PAE data in Table 1 is district-level Min/Max/Mean statistical summaries only (Tianhe n=14/Zengcheng n=39/Baiyun n=25), no individual sampling-point level data with sample IDs anywhere in paper; Table 2 vegetable data is also stat-only summary + plant tissue (rejection); air data in Table S5 is supplementary + non-soil matrix"

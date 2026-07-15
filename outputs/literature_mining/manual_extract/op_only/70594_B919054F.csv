@@ -1,0 +1,9 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+70594_B919054F,70594_B919054F_Ref.,BaP_ngg,18.0,Unknown,table_p2_ri7_ci4,soil,industrial,,phase14_auto; confidence=high; flag=,,
+70594_B919054F,70594_B919054F_Ref.,BaP_ngg,18.0,Unknown,table_p2_ri8_ci4,soil,industrial,,phase14_auto; confidence=high; flag=,,
+70594_B919054F,70594_B919054F_$\mathrm_{_R_e_p_o_r_t_e_d_}_/_\mu_\mathrm_{_g_}_\mathrm_{_m_}_^_{_-_2_}_\mathrm_{_d_}_^_{_-_1_}$,BaP_ngg,0.082,Unknown,table_p2_ri9_ci3,soil,industrial,,phase14_auto; confidence=high; flag=,,
+70594_B919054F,70594_B919054F_Ref.,BaP_ngg,18.0,Unknown,table_p2_ri9_ci4,soil,industrial,,phase14_auto; confidence=high; flag=,,
+70594_B919054F,70594_B919054F_$\mathrm_{_R_e_p_o_r_t_e_d_}_/_\mu_\mathrm_{_g_}_\mathrm_{_m_}_^_{_-_2_}_\mathrm_{_d_}_^_{_-_1_}$,BaP_ngg,0.006,Unknown,table_p2_ri10_ci3,soil,industrial,,phase14_auto; confidence=high; flag=,,
+70594_B919054F,70594_B919054F_Ref.,BaP_ngg,19.0,Unknown,table_p2_ri10_ci4,soil,industrial,,phase14_auto; confidence=high; flag=,,
+70594_B919054F,70594_B919054F_$\mathrm_{_R_e_p_o_r_t_e_d_}_/_\mu_\mathrm_{_g_}_\mathrm_{_m_}_^_{_-_2_}_\mathrm_{_d_}_^_{_-_1_}$,BaP_ngg,0.023,Unknown,table_p2_ri11_ci3,soil,industrial,,phase14_auto; confidence=high; flag=,,
+70594_B919054F,70594_B919054F_Ref.,BaP_ngg,1516.0,Unknown,table_p2_ri11_ci4,soil,industrial,,phase14_auto; confidence=high; flag=,,

@@ -1,0 +1,5 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P07639,BS-Winter,SumPBDE_ngg,869,ng/g,Table 1,soil,e_waste,Guangdong,BS=abandoned e-waste open-burning site; winter (Dec 2011) composite topsoil 0-5cm; sum of 7 BDE congeners (BDE28/47/99/100/153/154/183) matches paper PBDEs total; BDE209 not detected per methods,23.57,113.01
+P07639,NBS-Winter,SumPBDE_ngg,611,ng/g,Table 1,soil,e_waste,Guangdong,NBS=nearby site ~50m from BS; winter (Dec 2011) composite topsoil 0-5cm; sum of 7 BDE congeners matches paper PBDEs total; BDE209 not detected,23.57,113.01
+P07639,BS-Summer,SumPBDE_ngg,2130,ng/g,Table 1,soil,e_waste,Guangdong,BS=abandoned e-waste open-burning site; summer (Jun 2012) composite topsoil 0-5cm; sum of 7 BDE congeners matches paper PBDEs total; BDE209 not detected,23.57,113.01
+P07639,NBS-Summer,SumPBDE_ngg,31.3,ng/g,Table 1,soil,e_waste,Guangdong,NBS=nearby site ~50m from BS; summer (Jun 2012) composite topsoil 0-5cm; sum of 7 BDE congeners matches paper PBDEs total; BDE209 not detected,23.57,113.01

@@ -1,0 +1,8 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+65911_etc.2646,65911_etc.2646_Background_soils_(ng/kg_dry_wt)_S1-S5_(n=25),Background soils (ng/kg dry wt) S1-S5 (n=25),OC_pct,1.495,Unknown,,medium,table_p4_ri20_ci2,  
+65911_etc.2646,65911_etc.2646_Northern_agricultural_soils_(ng/kg_dry_wt)_S6-S13_(n=_40),Northern agricultural soils (ng/kg dry wt) S6-S13 (n= 40),OC_pct,0.79,Unknown,,medium,table_p4_ri20_ci3,  
+65911_etc.2646,65911_etc.2646_col6,col6,OC_pct,1.26,Unknown,,medium,table_p4_ri20_ci6,  
+65911_etc.2646,65911_etc.2646_col7,col7,OC_pct,0.91,Unknown,,medium,table_p4_ri20_ci7,  
+65911_etc.2646,65911_etc.2646_col10,col10,OC_pct,12.5,Unknown,,medium,table_p4_ri20_ci10,  
+65911_etc.2646,65911_etc.2646_col11,col11,OC_pct,9.2,Unknown,,medium,table_p4_ri20_ci11,  
+65911_etc.2646,65911_etc.2646_col14,col14,OC_pct,419.0,Unknown,,medium,table_p4_ri20_ci14,  

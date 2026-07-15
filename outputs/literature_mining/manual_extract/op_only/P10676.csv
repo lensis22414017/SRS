@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10676,,,,,,,soil,wetland,Liaoning,"skip: 论文正文Table 1仅含SQG阈值(ERL/ERM/FCV)与统计汇总(Ave/Max)，无采样点级浓度数据；55个样品的个体浓度在补充材料Table S1中(未含于paper.md)；正文提及site编号仅关联PMF源贡献百分比和风险指数(BaPE/ERL quotient)非实测浓度值"

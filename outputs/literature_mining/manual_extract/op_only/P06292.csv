@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06292,,,,,,,,,"skip: 论文研究对象为PCDD/PCDF二噁英呋喃 不属于目标OP污染物列表(PAHs/PCBs/DDT/HCH/PBDE/石油烃/抗生素/PAEs/OCPs); 且paper.md解析不完整仅42行截至2.1节Sample collection处截断 无法获取数据表格"

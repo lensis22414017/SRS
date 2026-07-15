@@ -1,0 +1,24 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+70712_clen.201100269,70712_clen.201100269_Minimum,Minimum,pH,7.04,Unknown,,high,table_p1_ri1_ci1,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Maximum,Maximum,pH,8.96,Unknown,,high,table_p1_ri1_ci2,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Kurtosis,Kurtosis,pH,7.49,Unknown,,high,table_p1_ri1_ci8,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Minimum,Minimum,Cu_mgkg,0.52,Unknown,,high,table_p1_ri6_ci1,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Maximum,Maximum,Cu_mgkg,1.89,Unknown,,high,table_p1_ri6_ci2,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Variance,Variance,Cu_mgkg,0.09,Unknown,,high,table_p1_ri6_ci6,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Skewness,Skewness,Cu_mgkg,1.85,Unknown,,high,table_p1_ri6_ci7,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Kurtosis,Kurtosis,Cu_mgkg,6.2,Unknown,,high,table_p1_ri6_ci8,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Minimum,Minimum,Zn_mgkg,1.36,Unknown,,high,table_p1_ri7_ci1,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Maximum,Maximum,Zn_mgkg,8.12,Unknown,,high,table_p1_ri7_ci2,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Variance,Variance,Zn_mgkg,3.82,Unknown,,high,table_p1_ri7_ci6,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Skewness,Skewness,Zn_mgkg,1.05,Unknown,,high,table_p1_ri7_ci7,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Kurtosis,Kurtosis,Zn_mgkg,1.73,Unknown,,high,table_p1_ri7_ci8,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Minimum,Minimum,Fe_mgkg,3.35,Unknown,,high,table_p1_ri8_ci1,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Maximum,Maximum,Fe_mgkg,20.86,Unknown,,high,table_p1_ri8_ci2,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Variance,Variance,Fe_mgkg,7.49,Unknown,,high,table_p1_ri8_ci6,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Skewness,Skewness,Fe_mgkg,3.54,Unknown,,high,table_p1_ri8_ci7,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Kurtosis,Kurtosis,Fe_mgkg,15.31,Unknown,,high,table_p1_ri8_ci8,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Minimum,Minimum,Mn_mgkg,4.89,Unknown,,high,table_p1_ri9_ci1,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Maximum,Maximum,Mn_mgkg,14.46,Unknown,,high,table_p1_ri9_ci2,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Variance,Variance,Mn_mgkg,4.82,Unknown,,high,table_p1_ri9_ci6,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Skewness,Skewness,Mn_mgkg,0.69,Unknown,,high,table_p1_ri9_ci7,Table 1. Descriptive statistics of soil properties,,,,,,phase14
+70712_clen.201100269,70712_clen.201100269_Kurtosis,Kurtosis,Mn_mgkg,0.32,Unknown,,high,table_p1_ri9_ci8,Table 1. Descriptive statistics of soil properties,,,,,,phase14

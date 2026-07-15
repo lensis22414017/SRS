@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10777,,,,,,soil,chemical_industry,Shandong,"skip: 论文仅检测VOCs(氯仿/1,2-二氯乙烷/BTEX/MTBE/氯苯)，未测量任何目标OP污染物(Sum_PAH/BaP/SumPCB/SumDDT/SumHCH/SumPBDE/TotalPHC/抗生素/PAEs/OCPs)。Table 2为跨站点最大浓度汇总非采样点级数据"

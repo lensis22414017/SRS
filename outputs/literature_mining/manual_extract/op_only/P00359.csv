@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00359,,,,,,,,,"skip: 土壤HCH数据全为统计汇总(Table1站点级Mean/SD/Range/CV + Table2功能区级Mean/SD/Range/DF + Fig5深度层均值), 无个体采样点级数据; 唯一个体级数据为水样(Table3 SW01-04/GW01-10)但属water必须剔除"

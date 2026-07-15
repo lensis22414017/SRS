@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06936,ERS_0-10cm,SumPBDE_ngg,765,ng/g,"Section 3.1 + Abstract",soil,e_waste,Guangdong,"PBDEsexc209=297ng/g (7 congeners sum: BDE-28/47/99/100/153/154/183) + BDE-209=468ng/g; both explicitly stated in Section 3.1 for e-waste recycling site 0-10cm; total 765 confirmed by abstract (range 1.38-765 ng/g); remaining 31 site-depth samples only available in Fig.2 bar charts (images not text-parseable)"

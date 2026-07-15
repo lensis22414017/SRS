@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01269,,,,,,,agricultural,Zhejiang/Shanghai/Jiangsu/Anhui,"skip: 论文核心为crAssphage与ARGs相对丰度共存分析; Table1为6种ARGs+intl1+crAssphage相对丰度(copies/16S rRNA gene copies)统计汇总(Max/Min/Med/Mean+四省均值)非OP浓度且为统计行应剔除; 抗生素(tetracycline DC/OTC/CIP/ENR/NOR/OFL/SDM/SDX/SMX/SMZ)虽测定且Fig3空间分布图caption单位为ng antibiotics per gram dry soil,但仅以kriging插值地图呈现无采样点级数值表格; SI(Table S1-S6含抗生素理化/质控参数)si目录为空未获取; 187个土壤样品0-10cm采自长三角蔬菜地符合矩阵但无sample-level OP浓度数值可提取"

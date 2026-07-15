@@ -1,0 +1,25 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P00680,Oryza sativa-RS,Sum_PAH_ngg,511,ng/g,Table 1,soil,e_waste,Guangdong,"15单体求和验证=510.5 (NAP未测), 与表ΣPAHs行511±42一致",23.5667,113.0
+P00680,Oryza sativa-RS,BaP_ngg,32,ng/g,Table 1,soil,e_waste,Guangdong,Table 1 BaP行直接读取,23.5667,113.0
+P00680,Oryza sativa-NRS,Sum_PAH_ngg,68,ng/g,Table 1,soil,e_waste,Guangdong,"15单体求和验证=68.5, 与表ΣPAHs行68±4一致",23.5667,113.0
+P00680,Oryza sativa-NRS,BaP_ngg,3.7,ng/g,Table 1,soil,e_waste,Guangdong,Table 1 BaP行直接读取,23.5667,113.0
+P00680,Zea mays-RS,Sum_PAH_ngg,598,ng/g,Table 1,soil,e_waste,Guangdong,"15单体求和验证=598.0, 与表ΣPAHs行598±42一致; BaP=335占56%异常高但求和闭环",23.5667,113.0
+P00680,Zea mays-RS,BaP_ngg,335,ng/g,Table 1,soil,e_waste,Guangdong,"BaP行直接读取; 值异常高(电子废弃物露天燃烧点), 单体求和交叉验证一致",23.5667,113.0
+P00680,Zea mays-NRS,Sum_PAH_ngg,355,ng/g,Table 1,soil,e_waste,Guangdong,"15单体求和=358.3, 与表ΣPAHs行355±41一致",23.5667,113.0
+P00680,Zea mays-NRS,BaP_ngg,36,ng/g,Table 1,soil,e_waste,Guangdong,Table 1 BaP行直接读取,23.5667,113.0
+P00680,Arachis hypogaea-RS,Sum_PAH_ngg,409,ng/g,Table 1,soil,e_waste,Guangdong,"15单体求和=408.1, 与表ΣPAHs行409±35一致",23.5667,113.0
+P00680,Arachis hypogaea-RS,BaP_ngg,11,ng/g,Table 1,soil,e_waste,Guangdong,Table 1 BaP行直接读取,23.5667,113.0
+P00680,Arachis hypogaea-NRS,Sum_PAH_ngg,397,ng/g,Table 1,soil,e_waste,Guangdong,"15单体求和=395.7, 与表ΣPAHs行397±29一致",23.5667,113.0
+P00680,Arachis hypogaea-NRS,BaP_ngg,5.6,ng/g,Table 1,soil,e_waste,Guangdong,Table 1 BaP行直接读取,23.5667,113.0
+P00680,Glycine max-RS,Sum_PAH_ngg,133,ng/g,Table 1,soil,e_waste,Guangdong,"15单体求和=132.7, 与表ΣPAHs行133±9一致",23.5667,113.0
+P00680,Glycine max-RS,BaP_ngg,16,ng/g,Table 1,soil,e_waste,Guangdong,Table 1 BaP行直接读取,23.5667,113.0
+P00680,Glycine max-NRS,Sum_PAH_ngg,115,ng/g,Table 1,soil,e_waste,Guangdong,"15单体求和=115.4; 表ΣPAHs行该单元格garbled, 采用单体求和值",23.5667,113.0
+P00680,Glycine max-NRS,BaP_ngg,3.4,ng/g,Table 1,soil,e_waste,Guangdong,Table 1 BaP行直接读取,23.5667,113.0
+P00680,Lactuca sativa-RS,Sum_PAH_ngg,216,ng/g,Table 1,soil,e_waste,Guangdong,"15单体求和=216.3 (CHR=16从BbF单元格中溢出值恢复), 与表ΣPAHs行216±30一致",23.5667,113.0
+P00680,Lactuca sativa-RS,BaP_ngg,47,ng/g,Table 1,soil,e_waste,Guangdong,Table 1 BaP行直接读取,23.5667,113.0
+P00680,Lactuca sativa-NRS,Sum_PAH_ngg,186,ng/g,Table 1,soil,e_waste,Guangdong,"15单体求和=185.5, 与表ΣPAHs行186±12一致",23.5667,113.0
+P00680,Lactuca sativa-NRS,BaP_ngg,8.4,ng/g,Table 1,soil,e_waste,Guangdong,Table 1 BaP行直接读取,23.5667,113.0
+P00680,Solanum melongena-RS,Sum_PAH_ngg,547,ng/g,Table 1,soil,e_waste,Guangdong,"15单体求和=548.0, 与表ΣPAHs行547±24一致",23.5667,113.0
+P00680,Solanum melongena-RS,BaP_ngg,40.7,ng/g,Table 1,soil,e_waste,Guangdong,Table 1 BaP行直接读取,23.5667,113.0
+P00680,Solanum melongena-NRS,Sum_PAH_ngg,816,ng/g,Table 1,soil,e_waste,Guangdong,"15单体求和=817.4, 与表ΣPAHs行816±57一致; 为所有NRS最高值",23.5667,113.0
+P00680,Solanum melongena-NRS,BaP_ngg,23,ng/g,Table 1,soil,e_waste,Guangdong,Table 1 BaP行直接读取,23.5667,113.0

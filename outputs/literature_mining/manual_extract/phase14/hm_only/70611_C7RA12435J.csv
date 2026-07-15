@@ -1,0 +1,13 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+70611_C7RA12435J,70611_C7RA12435J_Moran&#x27;s_I,Moran&#x27;s I,Pb_mgkg,0.202,Unknown,,high,table_p4_ri1_ci1,Table 2 The global autocorrelation analysis of the ESR of the 8 soil heavy metals in Hunan province,,,,,,phase14
+70611_C7RA12435J,70611_C7RA12435J_Moran&#x27;s_I,Moran&#x27;s I,Cu_mgkg,0.3649,Unknown,,high,table_p4_ri1_ci3,Table 2 The global autocorrelation analysis of the ESR of the 8 soil heavy metals in Hunan province,,,,,,phase14
+70611_C7RA12435J,70611_C7RA12435J_Moran&#x27;s_I,Moran&#x27;s I,Cd_mgkg,0.0986,Unknown,,high,table_p4_ri1_ci4,Table 2 The global autocorrelation analysis of the ESR of the 8 soil heavy metals in Hunan province,,,,,,phase14
+70611_C7RA12435J,70611_C7RA12435J_Moran&#x27;s_I,Moran&#x27;s I,As_mgkg,0.3138,Unknown,,high,table_p4_ri1_ci5,Table 2 The global autocorrelation analysis of the ESR of the 8 soil heavy metals in Hunan province,,,,,,phase14
+70611_C7RA12435J,70611_C7RA12435J_Moran&#x27;s_I,Moran&#x27;s I,Hg_mgkg,0.3071,Unknown,,high,table_p4_ri1_ci6,Table 2 The global autocorrelation analysis of the ESR of the 8 soil heavy metals in Hunan province,,,,,,phase14
+70611_C7RA12435J,70611_C7RA12435J_Moran&#x27;s_I,Moran&#x27;s I,Cr_mgkg,0.2139,Unknown,,high,table_p4_ri1_ci7,Table 2 The global autocorrelation analysis of the ESR of the 8 soil heavy metals in Hunan province,,,,,,phase14
+70611_C7RA12435J,70611_C7RA12435J_Z(1),Z(1),Pb_mgkg,1.6938,Unknown,,high,table_p4_ri2_ci1,Table 2 The global autocorrelation analysis of the ESR of the 8 soil heavy metals in Hunan province,,,,,,phase14
+70611_C7RA12435J,70611_C7RA12435J_Z(1),Z(1),Cu_mgkg,2.6341,Unknown,,high,table_p4_ri2_ci3,Table 2 The global autocorrelation analysis of the ESR of the 8 soil heavy metals in Hunan province,,,,,,phase14
+70611_C7RA12435J,70611_C7RA12435J_Z(1),Z(1),Cd_mgkg,2.0204,Unknown,,high,table_p4_ri2_ci4,Table 2 The global autocorrelation analysis of the ESR of the 8 soil heavy metals in Hunan province,,,,,,phase14
+70611_C7RA12435J,70611_C7RA12435J_Z(1),Z(1),As_mgkg,2.5082,Unknown,,high,table_p4_ri2_ci5,Table 2 The global autocorrelation analysis of the ESR of the 8 soil heavy metals in Hunan province,,,,,,phase14
+70611_C7RA12435J,70611_C7RA12435J_Z(1),Z(1),Hg_mgkg,2.1811,Unknown,,high,table_p4_ri2_ci6,Table 2 The global autocorrelation analysis of the ESR of the 8 soil heavy metals in Hunan province,,,,,,phase14
+70611_C7RA12435J,70611_C7RA12435J_Z(1),Z(1),Cr_mgkg,1.8202,Unknown,,high,table_p4_ri2_ci7,Table 2 The global autocorrelation analysis of the ESR of the 8 soil heavy metals in Hunan province,,,,,,phase14

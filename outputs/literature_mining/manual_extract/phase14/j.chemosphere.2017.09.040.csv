@@ -1,0 +1,10 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+j.chemosphere.2017.09.040,j.chemosphere.2017.09.040_Frequency_(%),Frequency (%),SMZ_ngg,3.0,Unknown,,high,table_p28_ri2_ci1,"Table 1. Concentrations (ng/g) of antibiotics in the agricultural soil samples in the YRD region, China"
+j.chemosphere.2017.09.040,j.chemosphere.2017.09.040_Mean_(ng/g),Mean (ng/g),SMZ_ngg,0.01,Unknown,,high,table_p28_ri2_ci2,"Table 1. Concentrations (ng/g) of antibiotics in the agricultural soil samples in the YRD region, China"
+j.chemosphere.2017.09.040,j.chemosphere.2017.09.040_Max_(ng/g),Max (ng/g),SMZ_ngg,0.63,Unknown,,high,table_p28_ri2_ci5,"Table 1. Concentrations (ng/g) of antibiotics in the agricultural soil samples in the YRD region, China"
+j.chemosphere.2017.09.040,j.chemosphere.2017.09.040_Frequency_(%),Frequency (%),SDZ_ngg,5.0,Unknown,,high,table_p28_ri6_ci1,"Table 1. Concentrations (ng/g) of antibiotics in the agricultural soil samples in the YRD region, China"
+j.chemosphere.2017.09.040,j.chemosphere.2017.09.040_Mean_(ng/g),Mean (ng/g),SDZ_ngg,0.03,Unknown,,high,table_p28_ri6_ci2,"Table 1. Concentrations (ng/g) of antibiotics in the agricultural soil samples in the YRD region, China"
+j.chemosphere.2017.09.040,j.chemosphere.2017.09.040_Max_(ng/g),Max (ng/g),SDZ_ngg,0.91,Unknown,,high,table_p28_ri6_ci5,"Table 1. Concentrations (ng/g) of antibiotics in the agricultural soil samples in the YRD region, China"
+j.chemosphere.2017.09.040,j.chemosphere.2017.09.040_Frequency_(%),Frequency (%),OTC_ngg,68.0,Unknown,,high,table_p28_ri9_ci1,"Table 1. Concentrations (ng/g) of antibiotics in the agricultural soil samples in the YRD region, China"
+j.chemosphere.2017.09.040,j.chemosphere.2017.09.040_Mean_(ng/g),Mean (ng/g),OTC_ngg,18.9,Unknown,,high,table_p28_ri9_ci2,"Table 1. Concentrations (ng/g) of antibiotics in the agricultural soil samples in the YRD region, China"
+j.chemosphere.2017.09.040,j.chemosphere.2017.09.040_Max_(ng/g),Max (ng/g),OTC_ngg,530.0,Unknown,,high,table_p28_ri9_ci5,"Table 1. Concentrations (ng/g) of antibiotics in the agricultural soil samples in the YRD region, China"

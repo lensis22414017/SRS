@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P07247,,,,,,,,"skip: 论文仅测量PCNs(多氯萘)，不在目标污染物列表中(PAH/PCB/DDT/HCH/PBDE/石油烃/抗生素/PAE/OCP)；正文仅提供统计汇总(range/mean)，无采样点级数据；si目录为空无法获取Table S1"

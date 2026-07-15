@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11676,,,,,,soil,greenhouse_pot,Shanxi,"skip: 典型盆栽spiked植物修复实验(PAHs+Cu+Cd单一/复合)。实验用土采自山西农业大学实验站大田(清洁母土,Cu本底25.63mg/kg,Cd本底0.532mg/kg,原土壤未受PAHs污染),人为添加菲芘(0/10/100/200mg/kg)+Cu(0/100/400/700mg/kg)+Cd(0/5/20/50mg/kg)配制污染土壤(表4-1各处理添加量),大棚盆栽60天种植高丹草/玉米/黑麦草。所有表格(表4-2至表6-x)均为盆栽处理组数据(植物干重/叶绿素/植物体内Cu-Cd富集量/PAHs降解率/去除率),非真实场地采样点级浓度。无修复前场地本底实测数据(清洁母土背景值非污染场地本底)。符合剔除场景:盆栽/温室/spiked/植物修复实验。"

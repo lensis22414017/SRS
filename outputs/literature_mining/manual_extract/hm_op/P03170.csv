@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03170,,,,,,,,,skip: 论文研究对象为灌溉废水(irrigative wastewater)非土壤。HM(Pb=0.285/Cr=0.178/Mn=0.128/Ni=0.047/As=0.028/Cd=0.002 mg/L)单位为mg/L水样非mg/kg土壤; 30+有机化合物经GC-MS检出全为邻苯二甲酸酯(phthalates: DBP/DEHP/DiBP/DHEP等)+杂环化合物(benzothiazole/indole)+苯乙酸+1-甲基芴, 无标准OP类别(无16EPA PAHs求和/无PCB/无OCP/DDT/HCH/无PBDE); 核心实验为生物毒性测试(Salmonella突变/微核/SCGE彗星)在小鼠体内非土壤实测; 仅3个采样点为河道上中下游废水复合样非场地土壤; 按铁律剔除水样+无标准OP

@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11653,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"skip:数据以图片形式呈现(Fig.1a/1b/HM和PAH浓度直方图, Fig.S2/S3补充图), 正文仅提及草地Hg=0.54mg/kg单值, 补充表格S2-S14均为多样性/风险指数/多功能性指标, 无采样点级原始浓度数值表, 需OCR提取"

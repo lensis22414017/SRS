@@ -1,0 +1,21 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+70569_es071956d,70569_es071956d_Q_district,Q district,SumPBDE_ngg,2.3970000000000002,Unknown,,medium,table_p2_ri11_ci1,TABLE 1.PBDEs and BDE2O9 (ng/g Dry Weight) in the Surface Soils and Point-Source Soils,,,,,,phase14
+70569_es071956d,70569_es071956d_F_district,F district,SumPBDE_ngg,2.4,Unknown,,medium,table_p2_ri11_ci2,TABLE 1.PBDEs and BDE2O9 (ng/g Dry Weight) in the Surface Soils and Point-Source Soils,,,,,,phase14
+70569_es071956d,70569_es071956d_G_district,G district,SumPBDE_ngg,0.4465,Unknown,,medium,table_p2_ri11_ci3,TABLE 1.PBDEs and BDE2O9 (ng/g Dry Weight) in the Surface Soils and Point-Source Soils,,,,,,phase14
+70569_es071956d,70569_es071956d_D_district,D district,SumPBDE_ngg,0.454,Unknown,,medium,table_p2_ri11_ci4,TABLE 1.PBDEs and BDE2O9 (ng/g Dry Weight) in the Surface Soils and Point-Source Soils,,,,,,phase14
+70569_es071956d,70569_es071956d_point-source,point-source,SumPBDE_ngg,1.3615,Unknown,,medium,table_p2_ri11_ci5,TABLE 1.PBDEs and BDE2O9 (ng/g Dry Weight) in the Surface Soils and Point-Source Soils,,,,,,phase14
+70569_es071956d,70569_es071956d_col6,col6,SumPBDE_ngg,0.841,Unknown,,medium,table_p2_ri11_ci6,TABLE 1.PBDEs and BDE2O9 (ng/g Dry Weight) in the Surface Soils and Point-Source Soils,,,,,,phase14
+70569_es071956d,70569_es071956d_col7,col7,SumPBDE_ngg,1.0615,Unknown,,medium,table_p2_ri11_ci7,TABLE 1.PBDEs and BDE2O9 (ng/g Dry Weight) in the Surface Soils and Point-Source Soils,,,,,,phase14
+70569_es071956d,70569_es071956d_col8,col8,SumPBDE_ngg,0.889,Unknown,,medium,table_p2_ri11_ci8,TABLE 1.PBDEs and BDE2O9 (ng/g Dry Weight) in the Surface Soils and Point-Source Soils,,,,,,phase14
+70569_es071956d,70569_es071956d_col9,col9,SumPBDE_ngg,2.42,Unknown,,medium,table_p2_ri11_ci9,TABLE 1.PBDEs and BDE2O9 (ng/g Dry Weight) in the Surface Soils and Point-Source Soils,,,,,,phase14
+70569_es071956d,70569_es071956d_col10,col10,SumPBDE_ngg,19.5,Unknown,,medium,table_p2_ri11_ci10,TABLE 1.PBDEs and BDE2O9 (ng/g Dry Weight) in the Surface Soils and Point-Source Soils,,,,,,phase14
+70569_es071956d,70569_es071956d_col11,col11,SumPBDE_ngg,1.93,Unknown,,medium,table_p2_ri11_ci11,TABLE 1.PBDEs and BDE2O9 (ng/g Dry Weight) in the Surface Soils and Point-Source Soils,,,,,,phase14
+70569_es071956d,70569_es071956d_UK_and_Norway_7,UK and Norway 7,SumPBDE_ngg,1.36,Unknown,,medium,table_p2_ri12_ci1,TABLE 2. Comparison of Average PBDE Levels (ng/g Dry Weight) in Soils,,,,,,phase14
+70569_es071956d,"70569_es071956d_Guiyu,_China","Guiyu, China",SumPBDE_ngg,1086.0,Unknown,,medium,table_p2_ri12_ci2,TABLE 2. Comparison of Average PBDE Levels (ng/g Dry Weight) in Soils,,,,,,phase14
+70569_es071956d,70569_es071956d_U.S._12,U.S. 12,SumPBDE_ngg,940.0,Unknown,,medium,table_p2_ri12_ci3,TABLE 2. Comparison of Average PBDE Levels (ng/g Dry Weight) in Soils,,,,,,phase14
+70569_es071956d,70569_es071956d_Sweden,Sweden,SumPBDE_ngg,29.9,Unknown,,medium,table_p2_ri12_ci4,TABLE 2. Comparison of Average PBDE Levels (ng/g Dry Weight) in Soils,,,,,,phase14
+70569_es071956d,70569_es071956d_PRD,PRD,SumPBDE_ngg,0.127,Unknown,,medium,table_p2_ri12_ci5,TABLE 2. Comparison of Average PBDE Levels (ng/g Dry Weight) in Soils,,,,,,phase14
+70569_es071956d,70569_es071956d_col6,col6,SumPBDE_ngg,284.0,Unknown,,medium,table_p2_ri12_ci6,TABLE 2. Comparison of Average PBDE Levels (ng/g Dry Weight) in Soils,,,,,,phase14
+70569_es071956d,70569_es071956d_col7,col7,SumPBDE_ngg,20.0,Unknown,,medium,table_p2_ri12_ci7,TABLE 2. Comparison of Average PBDE Levels (ng/g Dry Weight) in Soils,,,,,,phase14
+70569_es071956d,70569_es071956d_col8,col8,SumPBDE_ngg,1.02,Unknown,,medium,table_p2_ri12_ci8,TABLE 2. Comparison of Average PBDE Levels (ng/g Dry Weight) in Soils,,,,,,phase14
+70569_es071956d,70569_es071956d_col9,col9,SumPBDE_ngg,7.95,Unknown,,medium,table_p2_ri12_ci9,TABLE 2. Comparison of Average PBDE Levels (ng/g Dry Weight) in Soils,,,,,,phase14

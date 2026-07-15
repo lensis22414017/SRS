@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02983,,,,,,dust,urban,,skip: 论文研究对象为室内灰尘(indoor dust)中邻苯二甲酸酯PAEs，非土壤/沉积物基质；且仅报告七大区域级统计汇总(median/range/geometric mean)，无采样点级原始数据

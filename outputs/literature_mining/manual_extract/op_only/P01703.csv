@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01703,,,,,,,soil,greenhouse,Beijing,"skip: Table 1 only has Mean/Median/Max stat summaries across 60 soil samples (no sample-level data); per-sample data in SI Tables S2-S4 not parsed/available; study is greenhouse GVP bases (greenhouse in reject list)"

@@ -1,0 +1,35 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10369,T1,Cd_mgkg,2.58,mg/kg,Table 1,soil,agricultural,Tianjin,XiaoDian污水灌溉场地;温室盆栽前土壤本底值
+P10369,T1,Cr_mgkg,77.5,mg/kg,Table 1,soil,agricultural,Tianjin,XiaoDian污水灌溉场地;温室盆栽前土壤本底值
+P10369,T1,Cu_mgkg,41.5,mg/kg,Table 1,soil,agricultural,Tianjin,XiaoDian污水灌溉场地;温室盆栽前土壤本底值
+P10369,T1,Ni_mgkg,38.5,mg/kg,Table 1,soil,agricultural,Tianjin,XiaoDian污水灌溉场地;温室盆栽前土壤本底值
+P10369,T1,Pb_mgkg,35.0,mg/kg,Table 1,soil,agricultural,Tianjin,XiaoDian污水灌溉场地;温室盆栽前土壤本底值
+P10369,T1,Sum_PAH_ngg,3370.3,ng/g,Table 1,soil,agricultural,Tianjin,16单体求和(全部检出);XiaoDian污水灌溉场地
+P10369,T1,BaP_ngg,94.6,ng/g,Table 1,soil,agricultural,Tianjin,XiaoDian污水灌溉场地;单体直接读取
+P10369,T2,Cd_mgkg,1.24,mg/kg,Table 1,soil,agricultural,Tianjin,DaGu污水灌溉场地;温室盆栽前土壤本底值
+P10369,T2,Cr_mgkg,75.5,mg/kg,Table 1,soil,agricultural,Tianjin,DaGu污水灌溉场地;温室盆栽前土壤本底值
+P10369,T2,Cu_mgkg,36.0,mg/kg,Table 1,soil,agricultural,Tianjin,DaGu污水灌溉场地;温室盆栽前土壤本底值
+P10369,T2,Ni_mgkg,35.8,mg/kg,Table 1,soil,agricultural,Tianjin,DaGu污水灌溉场地;温室盆栽前土壤本底值
+P10369,T2,Pb_mgkg,38.4,mg/kg,Table 1,soil,agricultural,Tianjin,DaGu污水灌溉场地;温室盆栽前土壤本底值
+P10369,T2,Sum_PAH_ngg,2879.0,ng/g,Table 1,soil,agricultural,Tianjin,16单体求和(InP ND按0计);DaGu污水灌溉场地
+P10369,T2,BaP_ngg,49.2,ng/g,Table 1,soil,agricultural,Tianjin,DaGu污水灌溉场地;单体直接读取
+P10369,T3,Cd_mgkg,1.35,mg/kg,Table 1,soil,agricultural,Tianjin,HanGu污水灌溉场地;温室盆栽前土壤本底值
+P10369,T3,Cr_mgkg,76.6,mg/kg,Table 1,soil,agricultural,Tianjin,HanGu污水灌溉场地;温室盆栽前土壤本底值
+P10369,T3,Cu_mgkg,61.8,mg/kg,Table 1,soil,agricultural,Tianjin,HanGu污水灌溉场地;温室盆栽前土壤本底值
+P10369,T3,Ni_mgkg,33.8,mg/kg,Table 1,soil,agricultural,Tianjin,HanGu污水灌溉场地;温室盆栽前土壤本底值
+P10369,T3,Pb_mgkg,97.9,mg/kg,Table 1,soil,agricultural,Tianjin,HanGu污水灌溉场地;温室盆栽前土壤本底值
+P10369,T3,Sum_PAH_ngg,1505.6,ng/g,Table 1,soil,agricultural,Tianjin,16单体求和(BaP+DBA+InP+BghiP ND按0计);HanGu污水灌溉场地
+P10369,T4,Cd_mgkg,1.28,mg/kg,Table 1,soil,agricultural,Tianjin,NingHe污水灌溉场地;温室盆栽前土壤本底值
+P10369,T4,Cr_mgkg,67.6,mg/kg,Table 1,soil,agricultural,Tianjin,NingHe污水灌溉场地;温室盆栽前土壤本底值
+P10369,T4,Cu_mgkg,25.3,mg/kg,Table 1,soil,agricultural,Tianjin,NingHe污水灌溉场地;温室盆栽前土壤本底值
+P10369,T4,Ni_mgkg,33.0,mg/kg,Table 1,soil,agricultural,Tianjin,NingHe污水灌溉场地;温室盆栽前土壤本底值
+P10369,T4,Pb_mgkg,52.1,mg/kg,Table 1,soil,agricultural,Tianjin,NingHe污水灌溉场地;温室盆栽前土壤本底值
+P10369,T4,Sum_PAH_ngg,2004.9,ng/g,Table 1,soil,agricultural,Tianjin,16单体求和(DBA+InP+BghiP ND按0计);NingHe污水灌溉场地
+P10369,T4,BaP_ngg,69.3,ng/g,Table 1,soil,agricultural,Tianjin,NingHe污水灌溉场地;单体直接读取
+P10369,T5,Cd_mgkg,0.80,mg/kg,Table 1,soil,agricultural,Tianjin,XinAn对照场地(河水灌溉);温室盆栽前土壤本底值
+P10369,T5,Cr_mgkg,64.2,mg/kg,Table 1,soil,agricultural,Tianjin,XinAn对照场地(河水灌溉);温室盆栽前土壤本底值
+P10369,T5,Cu_mgkg,22.8,mg/kg,Table 1,soil,agricultural,Tianjin,XinAn对照场地(河水灌溉);温室盆栽前土壤本底值
+P10369,T5,Ni_mgkg,28.1,mg/kg,Table 1,soil,agricultural,Tianjin,XinAn对照场地(河水灌溉);温室盆栽前土壤本底值
+P10369,T5,Pb_mgkg,29.7,mg/kg,Table 1,soil,agricultural,Tianjin,XinAn对照场地(河水灌溉);温室盆栽前土壤本底值
+P10369,T5,Sum_PAH_ngg,1203.8,ng/g,Table 1,soil,agricultural,Tianjin,16单体求和(DBA+InP ND按0计);XinAn对照场地(河水灌溉)
+P10369,T5,BaP_ngg,70.5,ng/g,Table 1,soil,agricultural,Tianjin,XinAn对照场地(河水灌溉);单体直接读取

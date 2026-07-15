@@ -1,0 +1,8 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+72166_es0102888,72166_es0102888_ZJ-2,ZJ-2,SumHCH_ngg,1965.0,Unknown,,high,table_p3_ri2_ci1,TABLE3.Main Features of Sedimentary Records of Fluxes of ∑DDT and ∑HCH,,,,,,phase14
+72166_es0102888,72166_es0102888_ZJ-3,ZJ-3,SumHCH_ngg,1961.5,Unknown,range_mean,high,table_p3_ri3_ci1,TABLE3.Main Features of Sedimentary Records of Fluxes of ∑DDT and ∑HCH,,,,,,phase14
+72166_es0102888,72166_es0102888_ZJ-6,ZJ-6,SumHCH_ngg,1964.0,Unknown,,high,table_p3_ri4_ci1,TABLE3.Main Features of Sedimentary Records of Fluxes of ∑DDT and ∑HCH,,,,,,phase14
+72166_es0102888,72166_es0102888_ZJ-D,ZJ-D,SumHCH_ngg,1964.0,Unknown,,high,table_p3_ri6_ci1,TABLE3.Main Features of Sedimentary Records of Fluxes of ∑DDT and ∑HCH,,,,,,phase14
+72166_es0102888,72166_es0102888_ZJ-9,ZJ-9,SumHCH_ngg,1963.0,Unknown,,high,table_p3_ri7_ci1,TABLE3.Main Features of Sedimentary Records of Fluxes of ∑DDT and ∑HCH,,,,,,phase14
+72166_es0102888,72166_es0102888_ZJ-10,ZJ-10,SumHCH_ngg,1969.0,Unknown,range_mean,high,table_p3_ri8_ci1,TABLE3.Main Features of Sedimentary Records of Fluxes of ∑DDT and ∑HCH,,,,,,phase14
+72166_es0102888,72166_es0102888_ZJ-7,ZJ-7,SumHCH_ngg,1962.5,Unknown,range_mean,high,table_p3_ri9_ci1,TABLE3.Main Features of Sedimentary Records of Fluxes of ∑DDT and ∑HCH,,,,,,phase14

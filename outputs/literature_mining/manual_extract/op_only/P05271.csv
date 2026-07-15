@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05271,,,,,,,,,"skip: Table 2 only provides aggregate descriptive statistics (Min/Max/Mean/SD/CV) across 50 samples; no individual sample-level OCP concentrations; RV column = Netherlands reference values (thresholds); Table 1 = QA/QC LODs/recoveries; Table 3 = correlation matrix"

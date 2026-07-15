@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11136,NA,NA,NA,NA,Table 1,soil,industrial,Hunan,"skip: Table 1为组级mean±SD汇总(C/HT1/HT2三组)，每组3个采样点共9点被压缩为3个统计值；论文2.1节明确9采样点但未提供单点级HM/OP浓度表；铁律#2+#4触发，无采样点级真实数值可提取；Supplementary Table S1/S2为测序reads/OTUs数据非污染物浓度"

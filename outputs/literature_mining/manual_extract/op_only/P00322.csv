@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00322,,,,,,,,"skip: 论文仅检测atrazine(三嗪类除草剂)"不在目标OP类别中(PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAE/Endosulfan);且无采样点级数据"仅有区域汇总统计(range<1.0-113 ng/g; mean=5.7; median=2.0; n=241)及按土地利用类型均值(rice=1.9/corn=7.7/mulberry=15.1);Fig1为空间分布图;Table1为相关系数矩阵"

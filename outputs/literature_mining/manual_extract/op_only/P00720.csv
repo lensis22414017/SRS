@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00720,NOTES,,,,"Table 3 (按污染物汇总: BaA/BbF/BaP/InP/DBA 各一行, 列为 Min/Max/Detection rate%/Over-limit ratio%) + Table 4 (Monte Carlo Lognormal 分布参数 Mean/SD); 429 个样本被压缩成 5 行污染物级统计汇总, 无任何采样点标识 (S1/A/B/村庄名) 级实测浓度; Fig 3 为垂直分布图片非表格; skip: 仅污染物级统计汇总, 无采样点级数据",soil,industrial,Beijing,skip-no-sample-level-data

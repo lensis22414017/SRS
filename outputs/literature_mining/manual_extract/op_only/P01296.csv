@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01296,,,,,,soil,agricultural,China,"skip: 全国级描述性统计汇总(Table1仅Mean/Min/Max/Median/SD/CV/DF)，123样品31省无采样点级浓度数据表;空间分布仅GIS地图Fig.1;无单体求和条件(无per-sample值);SI未解析无TableS1-S3"

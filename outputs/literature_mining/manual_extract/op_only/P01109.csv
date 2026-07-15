@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01109,NOTES,,,,,,,,"skip: 论文仅提供按土壤类型(板栗/核桃/松子)汇总的浓度范围(n.d.-X格式)"",""非采样点级数据；38个土壤样本无独立sample_id，Tables 1-3均为min-max range汇总"",""属Range统计行""，无法提取采样点级数据"

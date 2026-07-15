@@ -1,0 +1,11 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01516,RS12,SumPAE_ngg,322000,ng/g,Section 3.2,soil,urban,Guangdong,"Σ16PAEs=322 μg/g dw from text, ×1000→ng/g, refuse transfer station site (highest)"
+P01516,RS11,SumPAE_ngg,216000,ng/g,Section 3.2,soil,urban,Guangdong,"Σ16PAEs=216 μg/g dw from text, ×1000→ng/g, electronic/electrical commercial town"
+P01516,RS13,SumPAE_ngg,181000,ng/g,Section 3.2,soil,urban,Guangdong,"Σ16PAEs=181 μg/g dw from text, ×1000→ng/g, largest industrial complex of Guangzhou"
+P01516,PA3,SumPAE_ngg,169000,ng/g,Section 3.2,soil,urban,Guangdong,"Σ16PAEs=169 μg/g dw from text, ×1000→ng/g, near amusement park/hospitals/commercial streets"
+P01516,RS10,SumPAE_ngg,159000,ng/g,Section 3.2,soil,urban,Guangdong,"Σ16PAEs=159 μg/g dw from text, ×1000→ng/g, near amusement park/hospitals/commercial streets"
+P01516,RE7,SumPAE_ngg,2420,ng/g,Section 3.2,soil,urban,Guangdong,"Σ16PAEs=2.42 μg/g dw from text, ×1000→ng/g, new residential/suburban region"
+P01516,RS7,SumPAE_ngg,2440,ng/g,Section 3.2,soil,urban,Guangdong,"Σ16PAEs=2.44 μg/g dw from text, ×1000→ng/g, new residential/suburban region"
+P01516,RS17,SumPAE_ngg,2770,ng/g,Section 3.2,soil,urban,Guangdong,"Σ16PAEs=2.77 μg/g dw from text, ×1000→ng/g, new residential/suburban region"
+P01516,PA1,SumPAE_ngg,2820,ng/g,Section 3.2,soil,urban,Guangdong,"Σ16PAEs=2.82 μg/g dw from text, ×1000→ng/g, new residential/suburban region"
+P01516,PA7,SumPAE_ngg,1670,ng/g,Section 3.2,soil,urban,Guangdong,"Σ16PAEs=1.67 μg/g dw from text, ×1000→ng/g, Baiyun Mountain hilltop 350m (lowest)"

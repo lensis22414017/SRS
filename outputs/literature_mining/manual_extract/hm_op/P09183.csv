@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09183,,,,,Section 3.1; Table S5 (SI not parsed),soil,mining/farmland,Guizhou,"skip: 正文仅给区域级统计汇总——HM为Mean(Pb=632,Zn=1110,Hg=0.21,Cd=3.3,Cu=164,As=194,Cr=112,Ni=64.0 mg/kg)+CV;PAH为Range(8.99-2231 μg/kg)+Mean(267 μg/kg)+LMW Mean(94.1)+HMW Mean(172.4);TEQ为风险指数;采样点级数据全部在Table S5(SI未解析/不可得);Fig.2为箱线图图片无可读数值;Nemerow/HQ/HI/CR均为风险指数;无可用采样点级HM+OP浓度数据"

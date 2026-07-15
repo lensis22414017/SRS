@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04715,,,,,,,,"skip: 论文研究对象为无机土壤氟(total fluoride + water-soluble fluoride，离子选择性电极法测定)，非任何有机污染物OP类别; 全文无PAH/PCB/DDT/HCH/PBDE/PHC/抗生素/PAE/OCP数据; screen CSV中op_groups=PFAS系误分类(本文为无机F-离子非PFAS有机氟化物); 所有表格(Table1/4/5/6/7/8/9)均为氟含量统计汇总或ANOVA分组均值，无采样点级OP数据可提取"

@@ -1,0 +1,29 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption
+10807039.2012.688697,10807039.2012.688697_Mine_area,Mine area,As_mgkg,543.01,Unknown,,high,table_p8_ri1_ci2,Table 2. Mean concentration in soil (mg/kg) samples collected at different locations in/around the Qixia mining area (Chu and Luo 2010).
+10807039.2012.688697,10807039.2012.688697_Mine_area,Mine area,Cd_mgkg,17.56,Unknown,,high,table_p8_ri1_ci3,Table 2. Mean concentration in soil (mg/kg) samples collected at different locations in/around the Qixia mining area (Chu and Luo 2010).
+10807039.2012.688697,10807039.2012.688697_Mine_area,Mine area,Cr_mgkg,90.4,Unknown,,high,table_p8_ri1_ci4,Table 2. Mean concentration in soil (mg/kg) samples collected at different locations in/around the Qixia mining area (Chu and Luo 2010).
+10807039.2012.688697,10807039.2012.688697_Mine_area,Mine area,Pb_mgkg,3128.87,Unknown,,high,table_p8_ri1_ci5,Table 2. Mean concentration in soil (mg/kg) samples collected at different locations in/around the Qixia mining area (Chu and Luo 2010).
+10807039.2012.688697,10807039.2012.688697_Mine_area,Mine area,Zn_mgkg,2873.49,Unknown,,high,table_p8_ri1_ci6,Table 2. Mean concentration in soil (mg/kg) samples collected at different locations in/around the Qixia mining area (Chu and Luo 2010).
+10807039.2012.688697,10807039.2012.688697_Qixia_scenic_site,Qixia scenic site,As_mgkg,487.11,Unknown,,high,table_p8_ri2_ci2,Table 2. Mean concentration in soil (mg/kg) samples collected at different locations in/around the Qixia mining area (Chu and Luo 2010).
+10807039.2012.688697,10807039.2012.688697_Qixia_scenic_site,Qixia scenic site,Cd_mgkg,8.39,Unknown,,high,table_p8_ri2_ci3,Table 2. Mean concentration in soil (mg/kg) samples collected at different locations in/around the Qixia mining area (Chu and Luo 2010).
+10807039.2012.688697,10807039.2012.688697_Qixia_scenic_site,Qixia scenic site,Cr_mgkg,89.22,Unknown,,high,table_p8_ri2_ci4,Table 2. Mean concentration in soil (mg/kg) samples collected at different locations in/around the Qixia mining area (Chu and Luo 2010).
+10807039.2012.688697,10807039.2012.688697_Qixia_scenic_site,Qixia scenic site,Pb_mgkg,2090.95,Unknown,,high,table_p8_ri2_ci5,Table 2. Mean concentration in soil (mg/kg) samples collected at different locations in/around the Qixia mining area (Chu and Luo 2010).
+10807039.2012.688697,10807039.2012.688697_Qixia_scenic_site,Qixia scenic site,Zn_mgkg,1116.81,Unknown,,high,table_p8_ri2_ci6,Table 2. Mean concentration in soil (mg/kg) samples collected at different locations in/around the Qixia mining area (Chu and Luo 2010).
+10807039.2012.688697,10807039.2012.688697_Village_farmland,Village farmland,As_mgkg,92.78,Unknown,,high,table_p8_ri3_ci2,Table 2. Mean concentration in soil (mg/kg) samples collected at different locations in/around the Qixia mining area (Chu and Luo 2010).
+10807039.2012.688697,10807039.2012.688697_Village_farmland,Village farmland,Cd_mgkg,3.66,Unknown,,high,table_p8_ri3_ci3,Table 2. Mean concentration in soil (mg/kg) samples collected at different locations in/around the Qixia mining area (Chu and Luo 2010).
+10807039.2012.688697,10807039.2012.688697_Village_farmland,Village farmland,Cr_mgkg,86.58,Unknown,,high,table_p8_ri3_ci4,Table 2. Mean concentration in soil (mg/kg) samples collected at different locations in/around the Qixia mining area (Chu and Luo 2010).
+10807039.2012.688697,10807039.2012.688697_Village_farmland,Village farmland,Pb_mgkg,637.15,Unknown,,high,table_p8_ri3_ci5,Table 2. Mean concentration in soil (mg/kg) samples collected at different locations in/around the Qixia mining area (Chu and Luo 2010).
+10807039.2012.688697,10807039.2012.688697_Village_farmland,Village farmland,Zn_mgkg,684.91,Unknown,,high,table_p8_ri3_ci6,Table 2. Mean concentration in soil (mg/kg) samples collected at different locations in/around the Qixia mining area (Chu and Luo 2010).
+10807039.2012.688697,10807039.2012.688697_Distribution,Distribution,As_mgkg,0.03,Unknown,,high,table_p10_ri10_ci3,
+10807039.2012.688697,10807039.2012.688697_Distribution,Distribution,Cd_mgkg,0.14,Unknown,,high,table_p10_ri11_ci3,
+10807039.2012.688697,10807039.2012.688697_Distribution,Distribution,Cr_mgkg,0.04,Unknown,,high,table_p10_ri12_ci3,
+10807039.2012.688697,10807039.2012.688697_Distribution,Distribution,Pb_mgkg,0.006,Unknown,,high,table_p10_ri13_ci3,
+10807039.2012.688697,10807039.2012.688697_Distribution,Distribution,Zn_mgkg,0.02,Unknown,,high,table_p10_ri14_ci3,
+10807039.2012.688697,10807039.2012.688697_Farmland,Farmland,As_mgkg,1.58e-06,Unknown,,high,table_p11_ri3_ci4,
+10807039.2012.688697,10807039.2012.688697_Qixia_scenic_site,Qixia scenic site,Cd_mgkg,2.4e-06,Unknown,,high,table_p11_ri6_ci3,
+10807039.2012.688697,10807039.2012.688697_Farmland,Farmland,Cd_mgkg,2.71e-08,Unknown,,high,table_p11_ri6_ci4,
+10807039.2012.688697,10807039.2012.688697_Mine,Mine,Cr_mgkg,5.66e-05,Unknown,,high,table_p11_ri9_ci2,
+10807039.2012.688697,10807039.2012.688697_Farmland,Farmland,Cr_mgkg,2.89e-07,Unknown,,high,table_p11_ri9_ci4,
+10807039.2012.688697,10807039.2012.688697_Mine,Mine,Pb_mgkg,0.00196,Unknown,,high,table_p11_ri12_ci2,
+10807039.2012.688697,10807039.2012.688697_Qixia_scenic_site,Qixia scenic site,Pb_mgkg,0.000428,Unknown,,high,table_p11_ri12_ci3,
+10807039.2012.688697,10807039.2012.688697_Farmland,Farmland,Zn_mgkg,3.61e-06,Unknown,,high,table_p11_ri15_ci4,

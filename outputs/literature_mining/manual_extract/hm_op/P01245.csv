@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01245,,,,,,,,,skip: 主文无采样点级HM+OP浓度数据。所有原始数据在SI(Table S5-S10未提供)。主文3.1节仅给统计汇总(average contents: Pb=632/Zn=1110/Hg=0.21/Cd=3.3/Cu=164/As=194/Cr=112/Ni=64.0 mg/kg; PAH range 8.99-2231 mean=267 ug/kg; LMW mean=94.1; HMW mean=172.4)按铁律第2/4条剔除。TEQ/HQ/HI/CR/Nemerow P为风险指数按第5条剔除。Table1=风险分类规则; Table2=PMF源贡献率(32/40/28/12/14/53/22%); Table3=风险区面积占比(50.3/37.4/16.6%). Fig2=boxplot统计图非采样点表. 场地=贵州赫章县铅锌矿冶炼农田(真实场地但缺SI原始数据)

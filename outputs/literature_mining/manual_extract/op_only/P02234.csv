@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02234,,,,,,,,"skip: 建模研究论文(大气传输模型CanMETOP+食物网模型+健康风险评估模型)，无采样点级实测浓度数据。Table 1全部为模型模拟的癌症风险值(CR dimensionless)和高风险人口统计，属于风险指数非浓度值。论文研究对象为2,3,7,8-TCDD二恶英的饮食暴露风险评估，无PAH/PCB/DDT/HCH/PBDE/PHC等目标OP的土壤实测数据。"

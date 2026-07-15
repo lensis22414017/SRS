@@ -1,0 +1,415 @@
+﻿paper_id,level,stem,md_exists,n_html_tables,n_tr_rows,has_html_table,n_images,si_dir_exists,n_si_pdfs,total_md_lines,extract_strategy
+P01646,A,10.1016_j.jhazmat.2025.140728,True,0,0,False,2,True,1,550,si_available
+P03103,A,2025_狄楠楠_环境科学_10.13358-j.issn.2096-9309.2025.0120.02,True,3,29,True,18,False,0,220,html_table
+P00137,A,2019_Wang C et al_LandDegradDev_10.1002-ldr.3456_3,True,1,24,True,7,False,0,246,html_table
+P00245,A,10_1007_s00244_019_00675_0,True,2,24,True,14,False,0,255,html_table
+P00408,A,10.1007_s10661-019-7476-2,True,5,49,True,19,True,0,289,html_table
+P00694,A,2019_Zhang S H_EnvironSciPollutRes_10.1007-s11356-019-04669-2,True,3,51,True,8,False,0,209,html_table
+P11648,A,2026_Kang Y et al_Unknown_null,True,0,0,False,2,False,0,45,figure_only
+P00411,A,2019_Monitoring HE_EnvironMonitAssess_10.1007-s10661-019-7514-7,True,1,2,False,6,False,0,294,figure_only
+P11023,A,2018_任毅_土壤_null,True,8,76,True,9,False,0,164,html_table
+P01630,A,2024_Chen L et al_JHazardMater_10.1016-j.jhazmat.2024.136500,True,5,92,True,26,True,0,483,html_table
+P03291,A,2023_俞明等_现代化工_10.16606-j.cnki.issn0253-4320.2023.07.043,True,2,12,True,6,False,0,180,html_table
+P03823,A,2025_Song Q et al_FrontMicrobiol_10.3389-fmicb.2025.1544233,True,2,11,True,32,False,0,540,html_table
+P01245,A,2024_Xie X et al_EcotoxicolEnvironSaf_10.1016-j.ecoenv.2024.116965,True,3,71,True,20,True,0,323,html_table
+P03838,A,2024_Wang Y et al_FrontPlantSci_10.3389-fpls.2024.1505670,True,2,24,True,12,False,0,350,html_table
+P04669,A,2024_Lu Y et al_Unknown_null,True,3,15,True,36,False,0,318,html_table
+P11456,A,2023_魏晓莉_Unknown_null,True,21,253,True,104,False,0,1158,html_table
+P01182,A,2023_Zhang D et al_Chemosphere_10.1016-j.chemosphere.2023.140288,True,2,89,True,34,False,0,406,html_table
+P01511,A,2023_Tan YGHGWSNFY et al_JEnvironSci_10.1016-j.jes.2022.04.038,True,0,0,False,23,False,0,250,figure_only
+P01595,A,2023_Hou Y et al_JHazardMater_10.1016-j.jhazmat.2023.130934,True,1,11,True,30,True,0,342,html_table
+P01603,A,10.1016_j.jhazmat.2023.132408,True,0,0,False,23,True,0,44,figure_only
+P01836,A,10.1016_j.scitotenv.2023.167337,True,0,0,False,12,True,0,44,figure_only
+P09065,A,2024_Liu Y et al_JHazardMater_null_2,True,2,19,True,17,False,0,241,html_table
+P11424,A,2023_Wu J et al_SciTotalEnviron_null,True,2,91,True,29,False,0,385,html_table
+P11439,A,2023_刘泽浩_土壤_null,True,13,97,True,93,False,0,1293,html_table
+P01169,A,2022_PAHs E et al_Chemosphere_10.1016-j.chemosphere.2022.133734_1,True,0,0,False,17,False,0,276,figure_only
+P01177,A,2022_Hu T et al_Chemosphere_10.1016-j.chemosphere.2022.136788_1,True,4,81,True,19,False,0,369,html_table
+P01587,A,2022_Wang X et al_EnvironPollut_10.1016-j.jhazmat.2022.129727,True,1,3,True,18,True,0,323,html_table
+P03334,A,2025_龚庆碗_生物化工_10.20284-j.cnki.swhg.2025.06.033,True,5,45,True,8,False,0,182,html_table
+P03780,A,10.3389_fenvs.2022.990471_CrossrefPage,True,6,111,True,19,False,0,332,html_table
+P04243,A,10_3390_ijerph191912860,True,3,39,True,14,False,0,264,html_table
+P04258,A,10.3390_ijerph192416930,True,2,36,True,17,True,0,327,html_table
+P10958,A,2017_物联合修_土壤_null,True,16,115,True,93,False,0,1295,html_table
+P11323,A,2022_Liang T et al_SciTotalEnviron_null,True,0,0,False,2,False,0,52,figure_only
+P11365,A,2022_陈驰_Unknown_null,True,22,157,True,76,False,0,1416,html_table
+P01783,A,2021_Zhouetal_SciTotalEnviron_10.1016-j.scitotenv.2020.141924,True,2,29,True,8,False,0,348,html_table
+P01936,A,2021_Hu J et al_EnvironPollut_10.1021-acs.est.0c07983,True,0,0,False,13,False,0,285,figure_only
+P08407,A,2021_Fan G et al_Chemosphere_null,True,1,5,True,15,False,0,262,html_table
+P08851,A,2023_Lu X et al_EcotoxicolEnvironSaf_null,True,4,53,True,56,False,0,414,html_table
+P09544,A,2026_Zhang X et al_JEnvironManage_null,True,0,0,False,1,False,0,30,figure_only
+P11214,A,2021_Fan G et al_Chemosphere_null_1,True,1,5,True,15,False,0,262,html_table
+P11241,A,2021_Liu Q et al_EnvironPollut_null,True,0,0,False,1,False,0,37,figure_only
+P11254,A,2021_PAHs et al_EnvironPollut_null_from_sub,True,3,56,True,20,False,0,376,html_table
+P01219,A,10.1016_j.ecoenv.2020.110651,True,2,30,True,9,True,0,236,html_table
+P08569,A,2021_Unknown_SciTotalEnviron_null_from_sub,True,2,29,True,14,False,0,348,html_table
+P00689,A,2019_Hu E et al_EnvironSciPollutRes_10.1007-s11356-019-04308-w,True,1,8,True,20,False,0,318,html_table
+P01215,A,10.1016_j.ecoenv.2019.05.027,True,1,9,True,14,True,0,337,html_table
+P01545,A,2018_Wu S et al_JHazardMater_10.1016-j.jhazmat.2018.09.082,True,3,20,True,16,False,0,295,html_table
+P01547,A,2018_Wuetal_JHazardMater_10.1016-j.jhazmat.2018.09.094,True,3,20,True,27,True,0,395,html_table
+P04119,A,2019_Hydrocarbons_EnvironRes_10.3390-ijerph16071155,True,1,2,False,12,False,0,218,figure_only
+P08060,A,2019_Wu Z et al_EcotoxicolEnvironSaf_null,True,1,9,True,14,False,0,337,html_table
+P04105,A,2018_Metal RPT_EnvironRes_10.3390-ijerph15112595,True,5,24,True,16,False,0,310,html_table
+P01301,A,10.1016_j.envpol.2017.08.003,True,4,22,True,11,True,0,322,html_table
+P02099,A,2017_Zhangetal_SciRep_10.1038-s41598-017-12437-w,True,0,0,False,17,False,0,351,figure_only
+P07518,A,2017_Distributions_EnvironRes_10.3390-ijerph14101179,True,2,30,True,18,False,0,322,html_table
+P11556,A,2024_桂衍瑾_Unknown_null,True,20,200,True,80,False,0,1183,html_table
+P01539,A,2015_Chen F et al_JHazardMater_10.1016-j.jhazmat.2015.09.068,True,6,139,True,17,False,0,330,html_table
+P00630,A,10.1007_s11356-015-5249-1,True,3,42,True,8,True,0,227,html_table
+P00753,A,2015_Chen R et al_JSoilsSediments_10.1007-s11368-015-1093-7,True,2,21,True,10,False,0,292,html_table
+P01207,A,10.1016_j.ecoenv.2015.09.005,True,3,99,True,16,True,0,340,html_table
+P06607,A,2012_Cao L et al_Science_null,True,6,46,True,19,False,0,317,html_table
+P06579,A,2011_Zhang Q et al_EnvironPollut_null,True,3,41,True,10,False,0,282,html_table
+P10733,A,2014_Zhang Q et al_EnvironPollut_null,True,3,41,True,10,False,0,282,html_table
+P11546,A,2024_冯博_土壤_null,True,27,397,True,191,False,0,2034,html_table
+P03082,A,2022_李怡佳_环境科学_10.13227-j.hjkx.202112006,True,6,53,True,11,False,0,256,html_table
+P00737,A,2010_Tang X et al_JSoilsSediments_10.1007-s11368-010-0252-0,True,6,97,True,10,False,0,276,html_table
+P03115,A,2018_田晶_土壤_10.13560-j.cnki.biotech.bull.1985.2018-0125,True,0,0,False,14,False,0,235,figure_only
+P06283,A,2009_Xiao J et al_JHazardMater_null,True,4,34,True,13,False,0,204,html_table
+P05791,A,2005_Chen L et al_Chemosphere_10.1016-j.chemosphere.2005.01.011,True,4,118,True,8,False,0,284,html_table
+P04395,A,2024_Gao L et al_Plants_10.3390-plants13202839,True,2,29,True,14,False,0,286,html_table
+P01389,A,10.1016_j.envpol.2022.119716,True,2,57,True,41,True,0,388,html_table
+P11640,A,2025_李鹏淼_Unknown_null,True,44,407,True,148,False,0,1431,html_table
+P05186,A,2020_Xie Z et al_EnvironSciPollutRes_null,True,0,0,False,6,False,0,416,figure_only
+P00289,A,2006_Leung A et al_JMaterCyclesWasteManag_10.1007-s10163-005-0141-6,True,6,180,True,10,False,0,287,html_table
+P01788,A,2020_Se C et al_SciTotalEnviron_10.1016-j.scitotenv.2020.143233,True,1,14,True,9,False,0,304,html_table
+P00407,A,2019_Liu J et al_EnvironMonitAssess_10.1007-s10661-019-7441-0,True,0,0,False,28,False,0,375,figure_only
+P04372,A,2019_Selective H et al_Science_10.3390-molecules24152745,True,0,0,False,12,False,0,205,figure_only
+P06949,A,2014_Ethers_EnvironHealth_10.1371-journal.pone.0113699,True,7,141,True,8,False,0,335,html_table
+P04614,A,2022_Xue Q et al_Toxics_10.3390-toxics10010032,True,1,30,True,24,False,0,341,html_table
+P01268,A,10.1016_j.envint.2020.106162,True,0,0,False,22,True,0,340,figure_only
+P00096,A,2018_Wang C Q et al_AIChEJ_10.1002-aic.16519,True,0,0,False,39,False,0,392,figure_only
+P01124,A,2018_Li Z et al_Chemosphere_10.1016-j.chemosphere.2018.05.064,True,0,0,False,14,False,0,282,figure_only
+P09520,A,2026_Ren Y et al_JHazardMater_10.1016-j.jhazmat.2026.141922_1,True,0,0,False,2,True,0,40,figure_only
+P09447,A,"2025_TPHs, CP et al_EnvironRes_null",True,0,0,False,1,False,0,30,figure_only
+P08801,A,2023_Cui X et al_SciTotalEnviron_null,True,0,0,False,2,False,0,36,figure_only
+P09370,A,2025_Ma J et al_EcotoxicolEnvironSaf_null,True,3,15,True,29,False,0,401,html_table
+P00975,A,10.1016_22,True,0,0,False,0,False,0,529,text_only
+P05184,A,10_1016_j_envpol_2025_126365,True,0,0,False,41,False,0,25,figure_only
+P01509,A,2021_Li M et al_JEnvironSci_10.1016-j.jes.2021.02.002,True,1,13,True,19,False,0,321,html_table
+P05201,A,10_1016_j_jhazmat_2026_141922,True,0,0,False,23,False,0,40,figure_only
+P08435,A,2021_Hu J et al_EnvironPollut_null,True,0,0,False,13,False,0,285,figure_only
+P08461,A,2021_Li G et al_EnvironTechnolInnov_null,True,0,0,False,1,False,0,36,figure_only
+P08618,A,2021_Zhang T et al_Ecotoxicology_null,True,3,12,True,7,False,0,427,html_table
+P08705,A,2022_Liu Q et al_EnvironPollut_null_1,True,0,0,False,1,False,0,28,figure_only
+P05168,A,10_1016_j_ecoenv_2020_110651,True,2,30,True,9,False,0,236,html_table
+P07920,A,2019_Elyamine AM et al_IntJMolSci_null,True,2,23,True,13,False,0,330,html_table
+P11100,A,2019_Wu Z et al_EcotoxicolEnvironSaf_null_2,True,1,9,True,14,False,0,337,html_table
+P00613,A,2014_Sun L et al_EnvironSciPollutRes_10.1007-s11356-014-3166-7,True,2,3,True,7,False,0,325,html_table
+P06288,A,2009_Zhang H et al_IntJEnvironSciTechnol_null,True,2,28,True,6,False,0,194,html_table
+P09583,A,2008_Tao S et al_EnvironSciTechnol_10.1021-es8019676ccc,False,0,0,False,11,False,0,0,figure_only
+P10376,A,2008_Tao S et al_EnvironSciTechnol_null,True,1,13,True,11,False,0,154,html_table
+P01249,A,10.1016_j.ecoenv.2025.118925,True,2,52,True,4,True,0,279,html_table
+P01501,B,10.1016_j.jenvman.2025.128321,True,2,34,True,1,True,0,414,html_table
+P04678,B,10_3390_toxics14050406Toxics,True,4,53,True,12,False,0,527,html_table
+P09521,B,2026_Ren Y et al_JHazardMater_10.1016-22,True,0,0,False,53,False,0,529,figure_only
+P11024,B,2018_任毅等_土壤_null,True,8,76,True,9,False,0,163,html_table
+P11353,B,2022_作者姓名_土壤_null,True,13,188,True,70,False,0,1215,html_table
+P11657,B,2026_Zhang K et al_EnvironPollut_null,True,1,18,True,21,False,0,357,html_table
+P01404,B,10.1016_j.envpol.2025.126365,True,0,0,False,41,True,0,374,figure_only
+P01422,B,10.1016_j.envres.2025.122748,True,0,0,False,16,True,0,28,figure_only
+P01514,B,2025_Duan L et al_JEnvironSci_10.1016-j.jes.2023.09.037,True,0,0,False,18,False,0,246,figure_only
+P01641,B,10.1016_j.jhazmat.2025.139303,True,0,0,False,23,True,0,41,figure_only
+P01868,B,10.1016_j.scitotenv.2025.178384,True,0,0,False,12,True,0,39,figure_only
+P03271,B,2014_张倩等_山西师范大学学报自然科学版_10.16207-j.cnki.1009-4490.2014.02.014,True,3,25,True,8,False,0,200,html_table
+P03274,B,2016_陈希超_环境科学_10.16241-j.cnki.1001-5914.2016.09.025,True,4,39,True,4,False,0,195,html_table
+P03876,B,1957_Bioaccumulation_Land_10.3390-agriculture15181957,True,1,5,True,24,False,0,344,html_table
+P09363,B,2025_Liu X et al_EnvironRes_10.1016-61,True,0,0,False,1,False,0,28,figure_only
+P11448,B,2023_谢臣臣_Unknown_null,True,26,183,True,119,False,0,1422,html_table
+P11592,B,2025_Liu X et al_EnvironRes_null,True,0,0,False,29,False,0,596,figure_only
+P11625,B,2025_Wang T et al_EcotoxicolEnvironSaf_null,True,1,10,True,27,False,0,323,html_table
+P11638,B,2025_周湘远_Unknown_null,True,23,335,True,104,False,0,1361,html_table
+P01010,B,10.1016_61,True,0,0,False,0,False,0,28,text_only
+P01184,B,2024_Li M et al_Chemosphere_10.1016-j.chemosphere.2023.140954,True,0,0,False,5,False,0,46,figure_only
+P01244,B,10.1016_j.ecoenv.2024.116927,True,2,18,True,4,True,0,350,html_table
+P01421,B,10.1016_j.envres.2024.119185,True,0,0,False,16,True,0,30,figure_only
+P01612,B,2024_Long X et al_JHazardMater_10.1016-j.jhazmat.2024.134345,True,0,0,False,2,False,0,38,figure_only
+P01619,B,10.1016_j.jhazmat.2024.135547,True,0,0,False,2,True,0,474,figure_only
+P01624,B,10.1016_j.jhazmat.2024.136315,True,0,0,False,23,True,0,36,figure_only
+P01626,B,2024_Liu Y et al_JHazardMater_10.1016-j.jhazmat.2024.136456,True,2,19,True,17,False,0,241,html_table
+P01674,B,10.1016_j.pedsph.2023.06.001,True,0,0,False,0,True,0,358,text_only
+P01858,B,2024_Zhou M et al_SciTotalEnviron_10.1016-j.scitotenv.2024.175364,True,0,0,False,7,False,0,411,figure_only
+P03057,B,2017_杨悦锁等_化工学报_10.11949-j.issn.0438-1157.20161805,True,3,62,True,19,False,0,404,html_table
+P03100,B,2023_李景铭_土壤_10.13292-j.1000-4890.202312.010_1,True,2,20,True,2,False,0,303,html_table
+P03203,B,2025_刘晓英_土壤_10.13758-j.cnki.tr.2025.02.001_1,True,1,18,True,4,False,0,282,html_table
+P03286,B,2021_江澜_环境化学_10.16581-j.cnki.issn1671-3206.20210416.003,True,0,0,False,0,False,0,155,text_only
+P04324,B,10_3390_land13111798,True,6,63,True,19,False,0,411,html_table
+P09090,B,2024_Nie J et al_JEnvironChemEng_null,True,2,41,True,8,False,0,582,html_table
+P09092,B,2024_Ouyang K_JHazardMater_null,True,0,0,False,45,False,0,474,figure_only
+P09208,B,2024_Zhao L et al_JHazardMater_null,True,9,230,True,29,False,0,580,html_table
+P09362,B,2025_Liu X et al_EnvironPollut_null,True,0,0,False,29,False,0,596,figure_only
+P09913,B,10_13292_j_1000_4890_202312_010,True,2,20,True,0,False,0,303,html_table
+P11450,B,2023_王晴_土壤_null,True,14,108,True,71,False,0,1079,html_table
+P11484,B,2024_Li S et al_EnvironRes_null,True,2,15,True,9,False,0,468,html_table
+P11528,B,2024_Unknown_土壤_null,True,20,200,True,3,False,0,1183,html_table
+P00829,B,2023_Apportionment IIS_Geomorphology_10.1007-s12403-023-00534-3,True,2,51,True,40,False,0,565,html_table
+P01484,B,10.1016_j.jclepro.2022.135380,True,1,8,True,15,True,0,274,html_table
+P01826,B,10.1016_j.scitotenv.2022.160637,True,2,56,True,12,True,0,397,html_table
+P03062,B,2023_史鹏飞_环境科学_10.12153-j.issn.1674-991X.20220841,True,0,0,False,5,False,0,238,figure_only
+P03123,B,2021_王汉宇_环境科学_10.13671-j.hjkxxb.2021.0531,True,0,0,False,25,False,0,307,figure_only
+P04627,B,2023_Su Q_Toxics_10.3390-toxics11020143,True,4,37,True,25,False,0,297,html_table
+P04815,B,2023_Hou D et al_JGeosciEnvironProt_10.4236-gep.2023.115017,True,6,48,True,21,False,0,296,html_table
+P08800,B,2023_Cui X et al_SciTotalEnviron_null_1,True,0,0,False,2,False,0,36,figure_only
+P09183,B,2024_Xie X et al_EcotoxicolEnvironSaf_null,True,3,71,True,20,False,0,323,html_table
+P11185,B,2020_孙超男_Unknown_null,True,17,133,True,141,False,0,1386,html_table
+P11360,B,2022_李程_Unknown_null,True,12,198,True,84,False,0,1434,html_table
+P11368,B,2022_高康宁_Unknown_null,True,19,123,True,99,False,0,1555,html_table
+P11421,B,2023_Unknown_SciTotalEnviron_null,True,2,56,True,14,False,0,397,html_table
+P11543,B,2024_于颖_Unknown_null,True,17,268,True,72,False,0,1056,html_table
+P00353,B,10_1007_s10653_022_01306_9,True,1,15,True,26,False,0,360,html_table
+P00418,B,2023_Lu Y et al_EnvironMonitAssess_10.1007-s10661-022-10747-9,True,2,21,True,27,True,0,295,html_table
+P01174,B,10.1016_j.chemosphere.2022.136084,True,0,0,False,7,True,0,39,figure_only
+P01384,B,10.1016_j.envpol.2022.118925,True,0,0,False,37,True,0,373,figure_only
+P01584,B,2022_Wang P et al_JHazardMater_10.1016-j.jhazmat.2022.128301,True,0,0,False,2,False,0,44,figure_only
+P01589,B,10.1016_j.jhazmat.2022.129338,True,0,0,False,23,True,0,47,figure_only
+P01880,B,2022_Jiang L et al_EnvironPollut_10.1016-j.soilbio.2022.108726_1,True,0,0,False,1,False,0,35,figure_only
+P02156,B,10_1038_s41598_022_07577_7,True,8,64,True,38,False,0,411,html_table
+P03102,B,2024_廉梅花_土壤_10.13292-j.1000-4890.202409.030_1,True,3,37,True,3,False,0,289,html_table
+P03104,B,2025_摘要_土壤_10.13338-j.issn.1674-649x.2025.03.012,True,4,32,True,25,False,0,394,html_table
+P03345,B,2022_Lu Y et al_Unknown_10.21203-rs.3.rs-1769519-v1,True,2,24,True,6,False,0,285,html_table
+P05165,B,2022_Gao AJ et al_Environments_10.1016-j.chemosphere.2022.133654_2,True,2,12,True,12,True,0,319,html_table
+P08696,B,2022_Liang T et al_SciTotalEnviron_null_1,True,0,0,False,2,False,0,52,figure_only
+P08774,B,2022_Yi S et al_JHazardMater_null,True,1,9,True,27,False,0,330,html_table
+P11319,B,2022_Jiao A et al_Chemosphere_null_1,True,2,12,True,12,False,0,319,html_table
+P11359,B,2022_易盛炜_Unknown_null,True,4,39,True,89,False,0,980,html_table
+P11362,B,2022_赵燊炜_Unknown_null,True,27,305,True,106,False,0,1861,html_table
+P00303,B,2021_Zhang T et al_Ecotoxicology_10.1007-s10646-020-02320-2,True,3,65,True,17,False,0,347,html_table
+P00720,B,2018_Tian W et al_Nature_10.1007-s11356-021-15781-7,True,6,44,True,32,False,0,388,html_table
+P01360,B,10.1016_j.envpol.2020.116038,True,3,56,True,20,True,0,376,html_table
+P01364,B,10.1016_j.envpol.2021.116518,True,1,9,True,31,True,0,444,html_table
+P01370,B,2021_Liu Q et al_EnvironPollut_10.1016-j.envpol.2021.117191,True,0,0,False,21,False,0,303,figure_only
+P01793,B,2021_Xie T et al_SciTotalEnviron_10.1016-j.scitotenv.2021.146263,True,0,0,False,2,False,0,46,figure_only
+P01795,B,10.1016_j.scitotenv.2021.146282,True,2,66,True,12,True,0,339,html_table
+P02402,B,2021_Wang D et al_EnvironTechnol_10.1080-09593330.2021.1946163,True,2,28,True,21,False,0,326,html_table
+P02763,B,2021_Zhao S et al_EnvironEngSci_10.1089-ees.2020.0416,True,3,60,True,10,False,0,269,html_table
+P03279,B,2013_赵颖_环境科学_10.16258-j.cnki.1674-5906.2013.07.022,True,4,47,True,7,False,0,192,html_table
+P03319,B,2021_车凯_环境科学_10.19672-j.cnki.1003-6504.2021.S1.019_1,True,4,39,True,13,False,0,184,html_table
+P04359,B,2021_Wang X et al_Science_10.3390-microorganisms9071417,True,0,0,False,16,False,0,282,figure_only
+P04376,B,2021_Yin H et al_Molecules_10.3390-molecules26082169,True,2,39,True,10,False,0,437,html_table
+P08528,B,2021_Qiao P et al_EnvironPollut_null,True,1,9,True,31,False,0,444,html_table
+P08598,B,2021_Xie T et al_SciTotalEnviron_null,True,5,59,True,23,False,0,485,html_table
+P11292,B,2021_卢晓丽_Unknown_null,True,22,276,True,48,False,0,1002,html_table
+P11294,B,2021_李敏_Unknown_null,True,8,62,True,58,False,0,1270,html_table
+P11447,B,2023_毛_Unknown_null,True,32,278,True,107,False,0,1310,html_table
+P00036,B,10.1002_ldr.3857,True,1,14,True,0,False,0,330,html_table
+P00707,B,2020_Liu X et al_EnvironSciPollutRes_10.1007-s11356-020-09934-3,True,1,14,True,8,False,0,240,html_table
+P01223,B,2020_Lietal_EcotoxicolEnvironSaf_10.1016-j.ecoenv.2020.111083,True,1,21,True,16,True,0,288,html_table
+P01272,B,10.1016_j.envint.2019.105421,True,1,7,True,22,True,0,403,html_table
+P01348,B,10.1016_j.envpol.2020.114612,True,3,42,True,15,True,0,251,html_table
+P01770,B,2020_Li W et al_SciTotalEnviron_10.1016-j.scitotenv.2020.139745,True,3,121,True,7,False,0,442,html_table
+P03858,B,2020_Heetal_Agriculture_10.3390-agriculture10020047,True,5,46,True,11,True,0,224,html_table
+P04524,B,10_3390_su12176804,True,9,94,True,18,False,0,312,html_table
+P08155,B,2020_He H et al_Agriculture_null,True,5,46,True,11,False,0,224,html_table
+P08640,B,2022_Ali M_EnvironPollut_null,True,0,0,False,1,False,0,30,figure_only
+P11155,B,2020_Shi J et al_EcotoxicolEnvironSaf_null,True,2,30,True,9,False,0,236,html_table
+P11182,B,2020_何明江_Land_null,True,23,272,True,81,False,0,1930,html_table
+P01728,B,2019_Shen T et al_SciTotalEnviron_10.1016-j.scitotenv.2018.07.223,True,0,0,False,2,False,0,56,figure_only
+P01746,B,2019_Zeng S et al_SciTotalEnviron_10.1016-j.scitotenv.2019.05.291,True,3,36,True,23,False,0,468,html_table
+P01962,B,2019_Ren J et al_EnvironSciTechnol_10.1021-acs.est.9b00698,True,1,14,True,20,False,0,340,html_table
+P02497,B,2019_Environment HAJ_Sustainability_10.1080-15226514.2019.1612846,True,0,0,False,9,False,0,115,figure_only
+P02753,B,2019_Earth ICS_EnvironPollut_10.1088-1755-1315-384-1-012212,True,3,17,True,3,False,0,80,html_table
+P03119,B,2020_陈建_环境科学_10.13671-j.hjkxxb.2020.0218_1,True,2,14,True,16,False,0,255,html_table
+P03948,B,2019_Yang X et al_ApplSci_10.3390-app9071365,True,8,86,True,9,False,0,433,html_table
+P04293,B,10_3390_ijms20092189,True,2,23,True,13,False,0,330,html_table
+P00217,B,2013_Contamination BE_BullEnvironContamToxicol_10.1007-s00128-018-2330-8,True,3,38,True,8,False,0,148,html_table
+P01127,B,2018_Wangetal_Chemosphere_10.1016-j.chemosphere.2018.06.177,True,2,33,True,15,False,0,402,html_table
+P01211,B,2018_Liu X et al_EcotoxicolEnvironSaf_10.1016-j.ecoenv.2018.02.028,True,2,10,True,8,False,0,240,html_table
+P01544,B,10.1016_j.jhazmat.2018.06.056,True,0,0,False,2,True,0,350,figure_only
+P01715,B,2018_Zhu X et al_SciTotalEnviron_10.1016-j.scitotenv.2017.11.159,True,0,0,False,2,False,0,43,figure_only
+P02495,B,2018_Jeelani N et al_Land_10.1080-15226514.2018.1425666,True,2,13,True,11,False,0,279,html_table
+P03275,B,2016_韩文辉_环境科学_10.16258-j.cnki.1674-5906.2016.09.021,True,5,52,True,14,False,0,245,html_table
+P03303,B,2018_Wan X et al_SoilWaterRes_10.17221-211-2017-SWR_3,True,6,73,True,10,False,0,221,html_table
+P04074,B,2018_Lv D et al_EnvironRes_10.3390-ijerph15040698,True,3,102,True,13,False,0,200,html_table
+P04085,B,2018_Metals_EnvironRes_10.3390-ijerph15081731,True,5,32,True,12,False,0,181,html_table
+P10994,B,2018_Liu X et al_EcotoxicolEnvironSaf_null,True,0,0,False,1,False,0,27,figure_only
+P11136,B,2020_Li Q et al_EcotoxicolEnvironSaf_null,True,1,21,True,16,False,0,288,html_table
+P11293,B,2021_土壤中_土壤_null,True,14,113,True,79,False,0,1245,html_table
+P00764,B,2017_Wang Y et al_JSoilsSediments_10.1007-s11368-017-1762-9,True,3,60,True,11,False,0,302,html_table
+P01102,B,10.1016_j.chemosphere.2016.12.047,True,2,20,True,7,True,0,525,html_table
+P01540,B,10.1016_j.jhazmat.2016.12.009,True,3,16,True,23,True,0,329,html_table
+P04056,B,10_3390_ijerph14101198,True,2,30,True,18,False,0,322,html_table
+P07406,B,2016_Song M_EnvironPollut_null,True,0,0,False,10,False,0,328,figure_only
+P09000,B,2024_Environment CR et al_EnvironRes_null_1,True,0,0,False,0,False,0,24,text_only
+P00643,B,10.1007_s11356-016-6462-2,True,5,75,True,20,True,0,272,html_table
+P00650,B,2016_Hu S et al_EnvironSciPollutRes_10.1007-s11356-016-6701-6,True,5,34,True,18,False,0,253,html_table
+P02317,B,2016_Yan X et al_Radioprotection_10.1051-radiopro-2015022,True,4,33,True,8,False,0,109,html_table
+P05261,B,10_1080_10406638_2016_1143847,True,2,11,True,12,False,0,198,html_table
+P07409,B,2016_Song M_JHazardMater_null,True,2,20,True,7,False,0,275,html_table
+P10878,B,2016_Zeng J et al_Chemosphere_null,True,1,16,True,13,False,0,244,html_table
+P00755,B,2008_Zhang Weihua et al_Nature_10.1007-s11368-015-1112-8,True,2,24,True,6,False,0,226,html_table
+P00761,B,10.1007_s11368-015-1341-x,True,4,27,True,15,True,0,299,html_table
+P01993,B,2015_Liu J et al_EnvironSciTechnol_10.1021-es5049804,True,1,14,True,11,False,0,290,html_table
+P03076,B,2011_摘要_环境科学_10.13209-j.0479-8023.2011.022,True,7,88,True,19,False,0,256,html_table
+P03165,B,2015_Wan J et al_Land_10.1371-journal.pone.0129978,True,4,29,True,19,False,0,285,html_table
+P03328,B,2024_顾赟之_皮革制作与环保科技_10.20025-j.cnki.CN10-1679.2024-22-42,True,5,29,True,5,False,0,154,html_table
+P08601,B,2021_Xu Y et al_JHazardMater_null,True,0,0,False,20,False,0,333,figure_only
+P10666,B,2014_2015 EEMJF et al_Water_null,True,0,0,False,0,False,0,15,text_only
+P10684,B,2014_Hou Wei et al_Water_null,True,0,0,False,0,False,0,15,text_only
+P10812,B,2016_Chen F et al_JHazardMater_null,True,6,139,True,17,False,0,330,html_table
+P11554,B,2024_梁文煦_Unknown_null,True,10,102,True,145,False,0,1256,html_table
+P00612,B,2014_Sun L et al_EnvironSciPollutRes_10.1007-s11356-014-3171-6,True,4,74,True,18,False,0,238,html_table
+P03120,B,2017_顾平_环境科学_10.13671-j.hjkxxb.2017.0404,True,2,9,True,5,False,0,233,html_table
+P04017,B,2014_Tang X et al_EnvironRes_10.3390-ijerph110303118,True,3,21,True,12,False,0,239,html_table
+P00751,B,2013_Fan B et al_JSoilsSediments_10.1007-s11368-013-0705-3,True,1,2,False,33,False,0,356,figure_only
+P00906,B,2013_Wei H et al_IntJEnvironSciTechnol_10.1007-s13762-013-0216-1,True,1,15,True,8,False,0,222,html_table
+P01294,B,10.1016_j.envpol.2013.03.058,True,5,42,True,10,True,1,267,si_available
+P01532,B,2013_Dong Z et al_JHazardMater_10.1016-j.jhazmat.2013.05.003,True,5,51,True,25,False,0,366,html_table
+P02272,B,10.1039_c3em00043e,True,4,68,True,12,True,1,229,si_available
+P02376,B,2014_Tangetal_ChemEcol_10.1080-02757540.2013.844798,True,3,47,True,5,False,0,138,html_table
+P02414,B,2013_Feng S et al_polycyclicaromaticcomp_10.1080-10476544.2013.835555,False,0,0,False,18,False,0,0,figure_only
+P06121,B,2008_Peng C et al_EnvironPollut_null,True,5,42,True,10,False,0,267,html_table
+P06840,B,2013_Peng C et al_EnvironPollut_null,True,5,42,True,10,False,0,267,html_table
+P06898,B,2013_Zhong M et al_EnvironPollut_null,True,5,99,True,23,False,0,292,html_table
+P10616,B,2013_Dong Z Y et al_JHazardMater_null,True,0,0,False,0,False,0,52,text_only
+P00742,B,2012_Wang K et al_JSoilsSediments_10.1007-s11368-012-0471-7,True,3,49,True,9,False,0,259,html_table
+P01428,B,2012_Cui C et al_EnvironToxicol_10.1016-j.etap.2012.05.009,True,4,74,True,11,False,0,313,html_table
+P02268,B,10_1039_c2em30433c,True,2,31,True,13,False,0,226,html_table
+P02368,B,2012_Wang X S et al_IntJEnvironStud_10.1080-00207233.2012.702414,True,4,32,True,11,False,0,204,html_table
+P03109,B,2015_叶昊_土壤_10.13421-j.cnki.hjwsxzz.2015.03.025,True,2,18,True,2,False,0,165,html_table
+P11676,B,2014_英文并_土壤_null,True,32,457,True,102,False,0,1646,html_table
+P02270,B,10.1039_c0em00633e,True,2,52,True,9,True,1,210,si_available
+P03287,B,2009_杨传杰_环境科学_10.16507-j.issn.1006-6055.2009.02.042,True,1,5,True,1,False,0,267,html_table
+P11191,B,2020_李婷_环境科学_null,True,26,263,True,116,False,0,1346,html_table
+P00242,B,2011_Lopez B N et al_ArchEnvironContamToxicol_10.1007-s00244-010-9590-6,True,7,136,True,11,False,0,332,html_table
+P01520,B,2009_Xiao Jiajun et al_JHazardMater_10.1016-j.jhazmat.2009.09.123,True,4,34,True,13,False,0,204,html_table
+P01524,B,2010_Tangetal_JHazardMater_10.1016-j.jhazmat.2009.08.134,True,5,89,True,8,False,0,262,html_table
+P00258,B,2002_Chen G et al_EnvironManage_10.1007-s00267-008-9268-2,True,4,96,True,7,False,0,237,html_table
+P06239,B,2009_Nie M et al_SoilBiolBiochem_null,True,0,0,False,0,False,0,35,text_only
+P06287,B,2009_Zhang H et al_GlobalNESTJ_null,True,2,28,True,8,False,0,176,html_table
+P10441,B,2009_Zhang H. et al_IntJEnvironSciTechnol_null,True,2,28,True,6,False,0,194,html_table
+P03281,B,2024_重金属_Science_10.16258-j.cnki.1674-5906.2024.12.011_1,True,4,49,True,32,False,0,406,html_table
+P06154,B,2008_Zhang C et al_EnvironPollut_null,True,3,17,True,5,False,0,226,html_table
+P10369,B,2008_Khan S et al_JHazardMater_null,True,4,66,True,23,False,0,283,html_table
+P00255,B,2008_Cao L et al_EnvironGeol_10.1007-s00254-007-0934-0,True,2,16,True,8,False,0,158,html_table
+P00310,B,2006_Xing W_EnvironGeochemHealth_10.1007-s10653-005-9017-x,True,2,31,True,8,False,0,177,html_table
+P01083,B,2006_Gao Y et al_Chemosphere_10.1016-j.chemosphere.2006.04.030,True,2,23,True,13,False,0,225,html_table
+P01085,B,2006_Song Y et al_Chemosphere_10.1016-j.chemosphere.2006.03.076,True,4,51,True,13,False,0,280,html_table
+P03211,B,2012_于红艳_土壤_10.13961-j.cnki.stbctb.2012.05.022,True,5,44,True,11,False,0,152,html_table
+P10294,B,2006_Shen G et al_EcotoxicolEnvironSaf_null,True,4,36,True,7,False,0,196,html_table
+P01492,B,2005_Shenetal_JEnvironManage_10.1016-j.jenvman.2005.02.011,True,4,55,True,27,False,0,278,html_table
+P03322,B,2018_周玉璇_环境科学_10.19741-j.issn.1673-4831.2018.0669,True,7,73,True,9,False,0,374,html_table
+P03323,B,2023_周宣辛_环境科学_10.19672-j.cnki.1003-6504.0346.23.338,True,4,44,True,27,False,0,300,html_table
+P05700,B,2003_Shen G et al_Water_null,True,4,55,True,27,False,0,278,html_table
+P10229,B,2005_Chen Y et al_EnvironInt_null,True,4,36,True,5,False,0,176,html_table
+P10247,B,2005_Shen G et al_JEnvironManage_null,True,4,55,True,27,False,0,278,html_table
+P01075,B,10_1016_j_chemosphere_2004_08_070,True,5,39,True,13,False,0,211,html_table
+P10188,B,2004_Chen Y X et al_PlantSoil_null,True,3,14,True,10,False,0,175,html_table
+P05518,B,1998_Ding Aizhong et al_EnvironPollut_10.3184-095422902782775353,True,5,90,True,14,False,0,216,html_table
+P00969,B,2026_Jin T et al_JHazardMater_10.1016-18,True,0,0,False,2,False,0,33,figure_only
+P11637,B,2025_刘君博_Unknown_null,True,22,258,True,140,False,0,2234,html_table
+P00116,B,2025_Yan K et al_Unknown_10.1002-ep.70148,True,5,51,True,36,False,0,350,html_table
+P03113,B,2020_刘瑞_环境科学_10.13651-j.cnki.fjnykj.2020.11.008,True,4,54,True,9,False,0,165,html_table
+P09271,B,2025_Cheng T et al_JWaterProcessEng_null,True,5,120,True,12,False,0,534,html_table
+P01241,B,10.1016_j.ecoenv.2023.115052,True,0,0,False,0,True,0,32,text_only
+P01167,B,10.1016_j.chemosphere.2021.132259,True,0,0,False,7,True,0,42,figure_only
+P01583,B,2021_Lin S et al_EnvironPollut_10.1016-j.jhazmat.2021.127792_1,True,3,104,True,6,False,0,452,html_table
+P03773,B,2022_Yu H et al_FrontEnvironSci_10.3389-fenvs.2022.855292,True,4,147,True,6,False,0,601,html_table
+P03990,B,10_3390_f13030406,True,2,23,True,13,False,0,271,html_table
+P04385,B,10_3390_nano12111860,True,4,38,True,39,False,0,377,html_table
+P01227,B,10.1016_j.ecoenv.2020.111756,True,2,42,True,9,True,0,486,html_table
+P01760,B,2019_Peng F et al_SciTotalEnviron_10.1016-j.scitotenv.2019.136281,True,0,0,False,7,False,0,330,figure_only
+P04353,B,2020_Medium CL_Science_10.3390-microorganisms8060946,True,4,53,True,19,False,0,318,html_table
+P02933,B,2018_Wang H et al_Science_10.1155-2018-9264259,True,3,40,True,31,False,0,315,html_table
+P10991,B,2018_Liu J et al_EnvironPollut_null,True,1,24,True,7,False,0,252,html_table
+P00112,B,10.1002_eap.1494,True,2,30,True,0,True,1,260,si_available
+P00270,B,2017_Qin W et al_BioprocessBiosystEng_10.1007-s00449-017-1836-5,True,0,0,False,13,False,0,276,figure_only
+P08697,B,2022_Lin S et al_JHazardMater_null,True,3,104,True,6,False,0,452,html_table
+P01098,B,2016_Zeng J et al_Chemosphere_10.1016-j.chemosphere.2016.01.019,True,1,16,True,13,False,0,244,html_table
+P01696,B,10.1016_j.scitotenv.2016.01.164,True,1,4,True,12,True,0,286,html_table
+P04610,B,2016_Duan W et al_Sustainability_10.3390-su8020133,True,6,96,True,27,False,0,283,html_table
+P00640,B,2013_Chen Chen et al_Water_10.1007-s11356-015-5926-0,True,2,18,True,24,False,0,314,html_table
+P09621,B,2015_Wang J等_soilandsedimentcontam_10.1080-15320386.2014.965555,False,0,0,False,12,False,0,0,figure_only
+P11290,B,2021_刘瑞_Unknown_null,True,8,67,True,59,False,0,1111,html_table
+P06953,B,2014_Fu J et al_JHazardMater_10.1016-j.jhazmat.2014.01.044,True,0,0,False,0,True,0,48,text_only
+P10679,B,2014_Fu J_JHazardMater_null,True,1,10,True,10,False,0,296,html_table
+P00252,B,10.1007_s00248-013-0313-1,True,4,114,True,7,True,0,318,html_table
+P01292,B,2013_Sneath HE et al_EnvironPollut_10.1016-j.envpol.2013.03.009,True,4,26,True,10,False,0,191,html_table
+P02893,B,2013_Zhu X M et al_BiomedResInt_10.1155-2013-192986,True,2,27,True,5,False,0,142,html_table
+P00118,B,2010_Qin X et al_EnvironToxicolChem_10.1002-etc.154,True,4,45,True,14,False,0,289,html_table
+P01072,B,2003_Saison C et al_Chemosphere_10.1016-j.chemosphere.2003.10.059,True,1,5,True,8,False,0,219,html_table
+P01256,B,2026_Wang M et al_Water_10.1016-j.eehl.2026.100230,True,0,0,False,42,True,0,417,figure_only
+P03788,B,2024_Su Y et al_FrontMarSci_10.3389-fmars.2024.1450208,True,2,23,True,19,False,0,393,html_table
+P09538,B,2026_Wang M et al_Water_null,True,0,0,False,42,False,0,417,figure_only
+P04194,B,2021_Wang F et al_IntJEnvironResPublicHealth_10.3390-ijerph18147690,True,6,70,True,26,False,0,354,html_table
+P03003,B,2020_Li L et al_BMCBiotechnol_10.1186-s12896-020-00613-2,True,1,9,True,13,False,0,352,html_table
+P04895,B,2020_Elzein A et al_AtmosChemPhys_10.5194-acp-20-14303-2020,True,2,32,True,11,False,0,414,html_table
+P11171,B,2020_Wu Q et al_EnvironRes_null_1,True,0,0,False,7,False,0,200,figure_only
+P11172,B,2020_Wu Q et al_EnvironRes_null,True,0,0,False,7,False,0,200,figure_only
+P01318,B,2019_Zheng X et al_EnvironPollut_10.1016-j.envpol.2018.12.055,True,3,30,True,9,False,0,423,html_table
+P01706,B,2018_Xu H et al_SciTotalEnviron_10.1016-j.scitotenv.2017.08.101,True,3,76,True,19,False,0,387,html_table
+P03288,B,2013_ZHANG H et al_Science_10.1631-jzus.B1700123,True,3,43,True,11,False,0,260,html_table
+P04081,B,2018_Occurrence_EnvironRes_10.3390-ijerph15071422,True,5,57,True,13,False,0,277,html_table
+P08559,B,2021_Sun Y et al_EnvironInt_null,True,0,0,False,32,False,0,340,figure_only
+P00611,B,2014_Deng G et al_EnvironSciPollutRes_10.1007-s11356-014-2995-4,True,5,50,True,10,False,0,191,html_table
+P03154,B,2014_Lu X et al_PLoSONE_10.1371-journal.pone.0111664,True,0,0,False,36,False,0,455,figure_only
+P06863,B,2013_Sneath HE et al_EnvironPollut_null,True,0,0,False,10,False,0,31,figure_only
+P06351,B,2010_Ji L et al_Water_10.1002-etc.350,True,2,20,True,11,False,0,190,html_table
+P10444,B,2009_Zhao C et al_JChromatogrSci_null,True,9,108,True,14,False,0,201,html_table
+P01362,B,10.1016_j.envpol.2020.116162,True,0,0,False,41,True,0,37,figure_only
+P03329,B,2021_张友峰等_中国油脂_10.19902-j.cnki.zgyz.1003-7969.2021.07.015,True,1,14,True,5,False,0,202,html_table
+P04902,B,2021_Sun Y et al_AtmosChemPhys_10.5194-acp-21-6365-2021,True,4,61,True,30,False,0,542,html_table
+P02906,B,2014_Ding S et al_JNanomater_10.1155-2014-678489_1,True,1,4,True,10,False,0,171,html_table
+P00971,B,2026_Zhang K et al_EnvironPollut_10.1016-16,True,0,0,False,1,False,0,32,figure_only
+P09509,B,2026_Jin T et al_JHazardMater_null,True,2,17,True,35,False,0,462,html_table
+P11653,B,2026_Ren Y et al_JHazardMater_null,True,0,0,False,53,False,0,529,figure_only
+P01644,B,10.1016_j.jhazmat.2025.140371,True,0,0,False,23,True,0,42,figure_only
+P02313,B,2025_Yijing Du_Unknown_10.1051-e3sconf-202562801015,True,4,48,True,17,False,0,283,html_table
+P05436,B,10_3390_su11030556,True,0,0,False,0,False,0,386,text_only
+P09050,B,2024_Li D et al_EnvironGeochemHealth_null,True,0,0,False,1,False,0,386,figure_only
+P11485,B,2024_Li S et al_EnvironRes_null_1,True,0,0,False,0,False,0,24,text_only
+P00830,B,2023_Exposure H_ExposHealth_10.1007-s12403-022-00520-3,True,1,3,True,6,False,0,612,html_table
+P05053,B,10.61173_vcvnzr96_OpenAlexOA,True,0,0,False,0,False,0,161,text_only
+P09184,B,2024_Xie X et al_EcotoxicolEnvironSaf_null_1,True,3,71,True,20,False,0,323,html_table
+P09185,B,2024_Xie X et al_EcotoxicolEnvironSaf_null_2,True,3,71,True,20,False,0,323,html_table
+P11405,B,2023_Lu X et al_EcotoxicolEnvironSaf_null_1,True,4,53,True,56,False,0,414,html_table
+P03075,B,2016_熊惠磊等_环境工程_10.13205-j.hjgc.201607037,True,4,41,True,7,False,0,264,html_table
+P03078,B,2021_吴志远_土壤_10.13227-j.hjkx.201910152,True,0,0,False,0,False,0,21,text_only
+P03244,B,2023_Tan T et al_PolJEnvironStud_10.15244-pjoes-155966,True,3,62,True,17,False,0,338,html_table
+P08682,B,2022_Jiao A et al_Chemosphere_null,True,0,0,False,2,False,0,36,figure_only
+P05091,B,10_1002_(SICI,True,3,12,True,0,False,0,427,html_table
+P08445,B,2021_Kalkhajeh YK et al_AgricEcosystEnviron_null,True,5,98,True,14,False,0,476,html_table
+P08462,B,2021_Li G et al_EnvironTechnolInnov_null_1,True,2,17,True,15,False,0,266,html_table
+P00073,B,0000_Yang M et al_ApplSoilEcol_null,True,1,18,True,10,False,0,159,html_table
+P08168,B,2020_Huo Z et al_Sustainability_null,True,9,94,True,18,False,0,312,html_table
+P08510,B,2021_PAHs et al_EnvironPollut_null,True,3,56,True,20,False,0,376,html_table
+P08704,B,2022_Liu Q et al_EnvironPollut_null,True,0,0,False,37,False,0,373,figure_only
+P08109,B,2020_Chen H et al_JEnvironManage_null,True,0,0,False,10,False,0,286,figure_only
+P09747,B,0000_Golicz K et al_SciRep_null,True,1,22,True,11,False,0,192,html_table
+P09845,B,0000_Unknown_Unknown_null_11,True,14,165,True,32,False,0,993,html_table
+P10996,B,2018_Ma Y et al_ChemEngJ_null,True,0,0,False,1,False,0,42,figure_only
+P07606,B,2017_Shen ZJ et al_EcotoxicolEnvironSaf_null,True,6,78,True,22,False,0,304,html_table
+P07770,B,2018_Liu H et al_EcotoxicolEnvironSaf_null,True,2,25,True,14,False,0,260,html_table
+P10347,B,2007_Unknown_Nature_null,True,2,38,True,13,False,0,477,html_table
+P07473,B,2016_Zhiqun Chen_EnvironSciPollutRes_null,True,0,0,False,5,False,0,373,figure_only
+P00633,B,2013_Zhang Q et al_EnvironSciPollutRes_10.1007-s11356-015-5319-0,True,0,0,False,6,False,0,283,figure_only
+P07111,B,2015_Chen C et al_EnvironSciPollutRes_null,True,0,0,False,6,False,0,383,figure_only
+P07154,B,2015_Jiang J et al_EcotoxicolEnvironSaf_null,True,2,26,True,10,False,0,303,html_table
+P07224,B,2015_Teng Y et al_EcotoxicolEnvironSaf_null,True,0,0,False,1,False,0,35,figure_only
+P11356,B,2022_刘霖_Unknown_null,True,53,387,True,118,False,0,1336,html_table
+P08442,B,2021_Kalkhajeh Y et al_AgricEcosystEnviron_null,True,5,98,True,14,False,0,478,html_table
+P08447,B,2021_Kalkhajeh YK et al_AgricEcosystEnviron_null_1,True,0,0,False,1,False,0,30,figure_only
+P09817,B,0000_Ren J et al_null,True,21,305,True,34,False,0,195,html_table
+P10531,B,2011_Peng C et al_null_null,True,2,31,True,6,False,0,62,html_table
+P03108,B,10.13421_j．cnki．hjwsxzz,True,2,18,True,2,False,0,165,html_table
+P05069,B,2021_孔颖_环境科学_10.7524-j.issn.0254-6108.2020050603,True,2,12,True,4,False,0,357,html_table
+P10518,B,2011_Fu J. et al_Chemosphere_null,True,1,34,True,7,False,0,202,html_table
+P10228,B,2005_Chen Y_EnvironInt_null,True,4,36,True,5,False,0,176,html_table
+P09516,B,2026_Microplastics M et al_Science_10.3390-toxics14050406Toxics,True,4,53,True,12,False,0,527,html_table
+P11622,B,2025_Unknown_Unknown_null_4,True,1,24,True,3,False,0,57,html_table
+P11582,B,2025_Jin W et al_MarPollutBull_null,True,0,0,False,49,False,0,426,figure_only
+P11628,B,2025_Wu J et al_EnvironPollut_null,True,2,52,True,22,False,0,279,html_table
+P01482,B,2022_Zhang Z et al_JCleanProd_10.1016-j.jclepro.2022.135417,True,2,20,True,27,True,0,343,html_table
+P09298,B,2025_Fan QX et al_EnvironPollut_null,True,0,0,False,1,False,0,31,figure_only
+P03118,B,2008_孙峰_环境科学_10.13671-j.hjkxxb.2008.12.004,True,5,56,True,10,False,0,234,html_table
+P07566,B,2017_Liu X et al_SciRep_null,True,4,51,True,38,False,0,346,html_table
+P07445,B,2016_Wang H et al_PolJEnvironStud_10.15244-pjoes-62904,True,1,28,True,16,False,0,244,html_table
+P11184,B,2020_宋梓菡_Unknown_null,True,32,387,True,80,False,0,1202,html_table
+P09972,B,1991_Ma J. et al_Water_null,True,3,61,True,8,False,0,194,html_table
+P05660,B,2002_Zhang G et al_EnvironSciTechnol_null,True,3,30,True,21,False,0,212,html_table
+P11449,B,2023_资产信息网_Unknown_null,True,2,4,True,19,False,0,374,html_table
+P01585,B,10.1016_j.jhazmat.2022.129175,True,0,0,False,23,True,0,49,figure_only
+P08108,B,2020_Chen J et al_SciRep_null,True,0,0,False,9,False,0,232,figure_only
+P08053,B,2019_Wang Q et al_EnvironSciPollutRes_10.1007-s11356-019-05355-z,True,2,38,True,15,False,0,325,html_table
+P07668,B,2017_Zhou Y et al_SciRep_null,True,0,0,False,16,False,0,289,figure_only
+P02760,B,2015_Li Y et al_EnvironEngSci_10.1089-ees.2014.0489,True,7,52,True,24,False,0,315,html_table
+P07554,B,2017_Li Q et al_SciTotalEnviron_null,True,1,27,True,22,False,0,551,html_table

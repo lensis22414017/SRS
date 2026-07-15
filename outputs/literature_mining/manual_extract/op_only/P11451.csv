@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11451,,,,,,,,"skip: 论文仅提供40个采样点的统计汇总(表3.1=16单体Max/Min/Mean/SD/CV+GB36600-2018筛选值/管控值标准阈值)+Maliszewska分级(表3.3)+荷兰土壤PAHs质量标准(表3.4)+超标率统计(表3.7)+RQ标准值(表4.1);表5.1仅含pH/电导率/容重/有机质等理化性质无PAH浓度列;图3.3为微塑料丰度图片非PAH表;全文未列出任何采样点级(EL1-EL5/IL1-IL7/WL1-WL5/PG1-PG6/RL1-RL5/FL1-FL6/RDL1-RDL6共40点)的PAH单体或Σ16PAHs浓度值。扫描CSV标记的'18采样点行'系启发式误抽表3.1统计行(16单体+Σ+汇总)。符合空输出规则第1条:仅区域汇总(无采样点级)"

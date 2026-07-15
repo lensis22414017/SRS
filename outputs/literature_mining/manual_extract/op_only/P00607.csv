@@ -1,0 +1,6 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00607,ZY-R,SumHCH_ngg,9.38,ng/g,正文Spatial distribution段,soil,agricultural,Gansu,"正文提及 highest ΣHCH at ZY-R (rural Zhangye); 全文仅5个采样点级极值可从正文提取，完整32站点数据在Fig.2柱状图(图片)无法解析"
+P00607,C-U,SumHCH_ngg,0.17,ng/g,正文Spatial distribution段,soil,urban,unknown,"正文提及 lowest ΣHCH at C-U (urban area of Chen); 城市名Chen疑为OCR误读，省份无法确定"
+P00607,HM-B,SumHCH_ngg,6.95,ng/g,正文Spatial distribution段,soil,other,Xinjiang,"正文提及 second highest ΣHCH at HM-B (background site of Hami covered by forest); 背景点实测值非背景参考值"
+P00607,QY-U,SumDDT_ngg,120.49,ng/g,正文Spatial distribution段,soil,urban,Gansu,"正文提及 highest ΣDDT at QY-U (urban Qingyang); 周边有庆阳石化等工业源"
+P00607,LZ-U,SumDDT_ngg,53.69,ng/g,正文Spatial distribution段,soil,urban,Gansu,"正文提及 second highest ΣDDT at LZ-U (urban Lanzhou); 周边有兰州石化等工业源"

@@ -1,0 +1,6 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05276,W8,Sum_PAH_ngg,4621,ng/g,正文3.1段,soil,coking,Shandong,"∑16PAHs最高值，正文直接读取，W8位于主导风向1.5km处"
+P05276,W9,Sum_PAH_ngg,3418,ng/g,正文3.1段,soil,coking,Shandong,"∑16PAHs，正文直接读取，W9位于主导风向2.0km处"
+P05276,W11,Sum_PAH_ngg,3886,ng/g,正文3.1段,soil,coking,Shandong,"∑16PAHs，正文直接读取，W11位于主导风向3.0km处"
+P05276,W4,Sum_PAH_ngg,2074,ng/g,正文3.1段,soil,coking,Shandong,"∑16PAHs最低值之一，正文直接读取，W4位于上风向2.0km处"
+P05276,W5,Sum_PAH_ngg,1774,ng/g,正文3.1段,soil,coking,Shandong,"∑16PAHs最低值，正文直接读取，W5位于南侧1.2km处"

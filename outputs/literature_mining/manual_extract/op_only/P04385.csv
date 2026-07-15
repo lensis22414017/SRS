@@ -1,0 +1,3 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P04385,Campus soil (Henan University),Sum_PAH_ngg,290.2,ng/g,Table 3,soil,urban,Henan,"Partial sum: only 5 of 16 EPA PAHs measured (ACE/FLU/PHE/ANC/PYR); ACE=N.D.; sum=FLU16.2+PHE12.0+ANC6.4+PYR255.6; methods paper SPME coating validation; native unspiked soil concentrations from Found column"
+P04385,Zhengkai Avenue soil,Sum_PAH_ngg,284.0,ng/g,Table 3,soil,urban,Henan,"Partial sum: only 5 of 16 EPA PAHs measured (ACE/FLU/PHE/ANC/PYR); ACE=N.D.; sum=FLU15.2+PHE12.2+ANC5.6+PYR251.0; methods paper SPME coating validation; native unspiked soil concentrations from Found column"

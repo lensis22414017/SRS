@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P03823,,,,,,,,"skip: 主文无采样点级HM/OP浓度数据表，重金属浓度仅在图3a/4b中以图片形式呈现（不可解析），完整47项指标浓度全在Supplementary Tables 2/3（SI不可获取）；唯一正文数值T5石油烃15.0 mg/kg为特征描述引用非系统表格数据；地下水PHs/As/NO3/SO4均为water matrix按规则剔除；论文核心是微生物群落与原位生物修复策略研究"

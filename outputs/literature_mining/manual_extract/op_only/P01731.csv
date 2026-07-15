@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01731,,,,,,soil/sediment,e_waste,Zhejiang,"skip: 论文研究SCCPs(短链氯化石蜡)+MCCPs(中链氯化石蜡)，非PCNs/PCBs/PAHs/DDT/HCH/PBDE/PHC任何已定义OP类别。扫描器将polychlorinated误判为PCNs(多氯萘)。CPs=多氯烷烃(C10-30HxCly)≠PCNs(多氯萘C10H8-nCln)≠PCBs(多氯联苯)。Table 1有9土壤+21沉积物采样点真实浓度但污染物不在提取schema中。e-waste dismantling area Taizhou"

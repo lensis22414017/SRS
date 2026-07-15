@@ -1,0 +1,19 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00298,RS,Sum_PAH_ngg,299.4,ng/g,Table 2,soil,e_waste,Guangdong,Total PAHs direct read from Table 2 (ug/kg=ng/g); reservoir reference site
+P00298,RS,SumPCB_ngg,7.2,ng/g,Table 2,soil,e_waste,Guangdong,Total PCBs direct read from Table 2
+P00298,RS,SumPBDE_ngg,10.6,ng/g,Table 2,soil,e_waste,Guangdong,Total PBDEs direct read from Table 2
+P00298,RF,Sum_PAH_ngg,486.9,ng/g,Table 2,soil,e_waste,Guangdong,Total PAHs direct read from Table 2 (ug/kg=ng/g); rice field 250m from burning area
+P00298,RF,SumPCB_ngg,9.2,ng/g,Table 2,soil,e_waste,Guangdong,Total PCBs direct read from Table 2
+P00298,RF,SumPBDE_ngg,45.1,ng/g,Table 2,soil,e_waste,Guangdong,Total PBDEs direct read from Table 2
+P00298,NOBS,Sum_PAH_ngg,567.9,ng/g,Table 2,soil,e_waste,Guangdong,Total PAHs direct read from Table 2 (ug/kg=ng/g); near open burning site 200m
+P00298,NOBS,SumPCB_ngg,15.9,ng/g,Table 2,soil,e_waste,Guangdong,Total PCBs direct read from Table 2
+P00298,NOBS,SumPBDE_ngg,85.0,ng/g,Table 2,soil,e_waste,Guangdong,Total PBDEs direct read from Table 2
+P00298,OBS1,Sum_PAH_ngg,1066,ng/g,Table 2,soil,e_waste,Guangdong,Total PAHs direct read from Table 2 (ug/kg=ng/g); open burning site 1
+P00298,OBS1,SumPCB_ngg,162,ng/g,Table 2,soil,e_waste,Guangdong,Total PCBs direct read from Table 2
+P00298,OBS1,SumPBDE_ngg,2.906,ng/g,Table 2,soil,e_waste,Guangdong,"Total PBDEs direct read; value anomalously low for open burning site - possible OCR/typo (may be 2906)"
+P00298,OBS2,Sum_PAH_ngg,899.9,ng/g,Table 2,soil,e_waste,Guangdong,Total PAHs direct read from Table 2 (ug/kg=ng/g); open burning site 2
+P00298,OBS2,SumPCB_ngg,174,ng/g,Table 2,soil,e_waste,Guangdong,Total PCBs direct read from Table 2
+P00298,OBS2,SumPBDE_ngg,36215,ng/g,Table 2,soil,e_waste,Guangdong,Total PBDEs direct read from Table 2; among highest reported in literature
+P00298,OBS3,Sum_PAH_ngg,2777,ng/g,Table 2,soil,e_waste,Guangdong,Total PAHs direct read from Table 2 (ug/kg=ng/g); open burning site 3
+P00298,OBS3,SumPCB_ngg,61.7,ng/g,Table 2,soil,e_waste,Guangdong,Total PCBs direct read from Table 2
+P00298,OBS3,SumPBDE_ngg,200,ng/g,Table 2,soil,e_waste,Guangdong,Total PBDEs direct read from Table 2

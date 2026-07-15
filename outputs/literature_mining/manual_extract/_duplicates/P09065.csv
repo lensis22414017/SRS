@@ -1,0 +1,10 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09065,Taizhou_ewaste_site,Cu_mgkg,9600,mg/kg,Section 2.1,soil,e_waste,Zhejiang,"pre-remediation baseline; fine soil d50=37.4um;原文:Cu 9600 mg/kg"
+P09065,Taizhou_ewaste_site,Ni_mgkg,289,mg/kg,Section 2.1,soil,e_waste,Zhejiang,"pre-remediation baseline; fine soil d50=37.4um;原文:Ni 289 mg/kg"
+P09065,Taizhou_ewaste_site,Pb_mgkg,570,mg/kg,Section 2.1,soil,e_waste,Zhejiang,"pre-remediation baseline; fine soil d50=37.4um;原文:Pb 570 mg/kg"
+P09065,Taizhou_ewaste_site,Cd_mgkg,76,mg/kg,Section 2.1,soil,e_waste,Zhejiang,"pre-remediation baseline; fine soil d50=37.4um;原文:Cd 76 mg/kg"
+P09065,Taizhou_ewaste_site,As_mgkg,26.5,mg/kg,Section 2.1,soil,e_waste,Zhejiang,"pre-remediation baseline; fine soil d50=37.4um;原文:As 26.5 mg/kg"
+P09065,Taizhou_ewaste_site,Hg_mgkg,16.9,mg/kg,Section 2.1,soil,e_waste,Zhejiang,"pre-remediation baseline; fine soil d50=37.4um;原文:Hg 16.9 mg/kg"
+P09065,Taizhou_ewaste_site,SumPCB_ngg,2600,ng/g,Section 2.1,soil,e_waste,Zhejiang,"pre-remediation baseline; PCBs=2.6 mg/kg x1000=2600 ng/g; fine soil d50=37.4um"
+P09065,Taizhou_ewaste_bulk,Cd_mgkg,58.5,mg/kg,Section 3.4,soil,e_waste,Zhejiang,"pre-remediation baseline; bulk soil d50=370um;连续实验进料土壤"
+P09065,Taizhou_ewaste_bulk,SumPCB_ngg,2200,ng/g,Section 3.4,soil,e_waste,Zhejiang,"pre-remediation baseline; PCBs=2.2 mg/kg x1000=2200 ng/g; bulk soil d50=370um"

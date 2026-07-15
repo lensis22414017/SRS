@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11650,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"skip: 论文研究对象为短链/中链氯化石蜡(SCCPs/MCCPs) 不属于目标OP清单(PAH/PCB/DDT/HCH/PBDE/PHC); 且为Meta分析汇编53个研究案例的文献数据(Table 1仅给range+mean汇总) 无采样点级原始数据"

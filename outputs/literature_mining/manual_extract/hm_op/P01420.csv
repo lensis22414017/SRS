@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01420,,,,,,,,"skip: 论文仅报告三个大区域(NX/XS/LA 覆盖10500-19700ha)的区域级描述统计量(Mean/SD/Min/Max) for 5 HM(Cd/Pb/Cr/As/Hg) mg/kg; 无个体采样点级数据(无S1/S2等点位标识); 仅5种HM无OP数据(PAH/PCB/DDT等均未测量); Table 1为regional Mean比较且与GB15618阈值对照; PDF仅1页(解析截断31行)但ScienceDirect全文确认数据为区域汇总统计"

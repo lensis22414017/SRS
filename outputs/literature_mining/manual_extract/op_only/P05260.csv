@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05260,,,,,,,"skip: 论文无采样点级PAH浓度表格。正文仅提供range/mean统计汇总（bank soil ΣPAH 36.9-377.6 ng/g mean 141.4; sediment ΣPAH 20.9-287 ng/g mean 115.3）。Table1为跨河流range对比非per-site数据。各站点具体浓度仅在Figure3空间分布图（图片）中呈现，无可提取sample-level数值。S1/S8/S9值仅为range端点描述。研究区为河北滦河流域，bank soil+sediment均可接受但无表格数据。"

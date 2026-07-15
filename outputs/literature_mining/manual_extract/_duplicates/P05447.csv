@@ -1,0 +1,11 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P05447,0m,Sum_PAH_ngg,164800,ng/g,Table 6,soil,coking,Beijing,MPAHs为16种EPA PAHs总和;Table 6 Average content列mg/kg×1000→ng/g;采样点=距厂区边缘水平距离(m);论文有深度分层但Table 6仅给出每采样点单一浓度(平行实验均值)
+P05447,0m,BaP_ngg,8480,ng/g,Table 6,soil,coking,Beijing,Bap单体直接读取;Table 6 Average content列mg/kg×1000→ng/g;平行实验均值
+P05447,50m,Sum_PAH_ngg,599070,ng/g,Table 6,soil,coking,Beijing,MPAHs为16种EPA PAHs总和;mg/kg×1000→ng/g;平行实验均值
+P05447,50m,BaP_ngg,11450,ng/g,Table 6,soil,coking,Beijing,Bap单体直接读取;mg/kg×1000→ng/g;平行实验均值
+P05447,100m,Sum_PAH_ngg,1378900,ng/g,Table 6,soil,coking,Beijing,100m处浓度峰值;MPAHs总和;mg/kg×1000→ng/g
+P05447,100m,BaP_ngg,91490,ng/g,Table 6,soil,coking,Beijing,100m处浓度峰值;Bap单体;mg/kg×1000→ng/g
+P05447,150m,Sum_PAH_ngg,923790,ng/g,Table 6,soil,coking,Beijing,MPAHs总和;mg/kg×1000→ng/g;平行实验均值
+P05447,150m,BaP_ngg,58020,ng/g,Table 6,soil,coking,Beijing,Bap单体直接读取;mg/kg×1000→ng/g;平行实验均值
+P05447,200m,Sum_PAH_ngg,204110,ng/g,Table 6,soil,coking,Beijing,MPAHs总和;mg/kg×1000→ng/g;平行实验均值
+P05447,200m,BaP_ngg,14390,ng/g,Table 6,soil,coking,Beijing,Bap单体直接读取;mg/kg×1000→ng/g;平行实验均值

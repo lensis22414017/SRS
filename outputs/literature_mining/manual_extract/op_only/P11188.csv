@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P11188,,,,,,,soil,coking,Shandong,"skip: 场地采样点PAHs数据仅在图2.5/2.6/2.8(柱状图)中呈现无表列数值;表2.7/2.8仅含733样品的max/mean/median统计汇总须剔除;论文仅测5种致癌PAH(BaP/BaA/BbF/IPY/DBA)非16 EPA PAHs无法求Sum_PAH_ngg;第3章为室内spiked试验(标准品BaP配制污染土)须剔除"

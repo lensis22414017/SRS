@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01314,,,,,,,,"skip: 实验室批量吸附/等温线实验(microplastic polystyrene foam为吸附剂研究OTC吸附动力学与等温线)，非真实场地土壤/沉积物采样。无采样点级OP浓度数据。论文仅报告吸附模型系数(Kd/Kf/Qmax)。属microplastic研究+sorption isotherm实验，双重剔除场景。文中引用的OTC环境浓度(15163 ng/L海水/4695 ng/g沉积物)来自其他文献(Chen 2015b/Liu 2016)非本研究实测。"

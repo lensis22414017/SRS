@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P06046,,,,,,,,,skip: 仅区域汇总无采样点级数据 Table_1土壤和Table_2植物均只报告Mean+Range(5组分组统计n=39) 无单个采样点浓度 仅PBDEs无HM实测数据 PCBs在companion_paper非本文

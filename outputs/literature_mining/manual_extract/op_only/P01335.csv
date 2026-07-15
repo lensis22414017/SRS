@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01335,,,,,,,,"skip: lab-scale soil microcosm experiment with penicillin fermentation dreg (PFD) application = spiked/lab experiment; abstract states HT-qPCR lab-scale soil experiment studying ARG dynamics, not field OP concentrations; target antibiotic is penicillin (not in extractable list SMZ/SDZ/ENRO/CTC/OTC); paper.md truncated at 40 lines (abstract+intro only, no data tables)"

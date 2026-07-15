@@ -1,0 +1,22 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes,latitude,longitude
+P07067,Burnt_site,Cd_mgkg,6.82,mg/kg,Table 1,soil,e_waste,Guangdong,site级mean±SE(n=5采样点)贵屿废弃电子废弃物焚烧点,23.336944,116.352222
+P07067,Burnt_site,Cr_mgkg,318,mg/kg,Table 1,soil,e_waste,Guangdong,site级mean±SE(n=5),23.336944,116.352222
+P07067,Burnt_site,Cu_mgkg,1568,mg/kg,Table 1,soil,e_waste,Guangdong,site级mean±SE(n=5),23.336944,116.352222
+P07067,Burnt_site,Ni_mgkg,362,mg/kg,Table 1,soil,e_waste,Guangdong,site级mean±SE(n=5),23.336944,116.352222
+P07067,Burnt_site,Pb_mgkg,1423,mg/kg,Table 1,soil,e_waste,Guangdong,site级mean±SE(n=5),23.336944,116.352222
+P07067,Burnt_site,Zn_mgkg,2978,mg/kg,Table 1,soil,e_waste,Guangdong,site级mean±SE(n=5),23.336944,116.352222
+P07067,Burnt_site,SumPBDE_ngg,17930,ng/g,Table 1,soil,e_waste,Guangdong,论文∑PBDEs直接读取(15单体BDE28+47+66+99+100+138+153+154+196+197+203+206+207+208+209求和)原μg/kg=ng/g,23.336944,116.352222
+P07067,Paddy_field,Cd_mgkg,3.15,mg/kg,Table 1,soil,e_waste,Guangdong,水稻田土壤site级mean±SE(n=5)距burnt_site约50m,23.336944,116.352222
+P07067,Paddy_field,Cr_mgkg,66.5,mg/kg,Table 1,soil,e_waste,Guangdong,site级mean±SE(n=5),23.336944,116.352222
+P07067,Paddy_field,Cu_mgkg,154,mg/kg,Table 1,soil,e_waste,Guangdong,site级mean±SE(n=5),23.336944,116.352222
+P07067,Paddy_field,Ni_mgkg,25.4,mg/kg,Table 1,soil,e_waste,Guangdong,site级mean±SE(n=5),23.336944,116.352222
+P07067,Paddy_field,Pb_mgkg,490,mg/kg,Table 1,soil,e_waste,Guangdong,site级mean±SE(n=5),23.336944,116.352222
+P07067,Paddy_field,Zn_mgkg,3126,mg/kg,Table 1,soil,e_waste,Guangdong,site级mean±SE(n=5),23.336944,116.352222
+P07067,Paddy_field,SumPBDE_ngg,4735,ng/g,Table 1,soil,e_waste,Guangdong,论文∑PBDEs直接读取15单体求和,23.336944,116.352222
+P07067,Stream,Cd_mgkg,1.54,mg/kg,Table 1,sediment,e_waste,Guangdong,溪流沉积物site级mean±SE(n=5)距burnt_site约50m,23.336944,116.352222
+P07067,Stream,Cr_mgkg,48.5,mg/kg,Table 1,sediment,e_waste,Guangdong,site级mean±SE(n=5),23.336944,116.352222
+P07067,Stream,Cu_mgkg,167,mg/kg,Table 1,sediment,e_waste,Guangdong,site级mean±SE(n=5),23.336944,116.352222
+P07067,Stream,Ni_mgkg,48.2,mg/kg,Table 1,sediment,e_waste,Guangdong,site级mean±SE(n=5),23.336944,116.352222
+P07067,Stream,Pb_mgkg,121,mg/kg,Table 1,sediment,e_waste,Guangdong,site级mean±SE(n=5),23.336944,116.352222
+P07067,Stream,Zn_mgkg,215,mg/kg,Table 1,sediment,e_waste,Guangdong,site级mean±SE(n=5),23.336944,116.352222
+P07067,Stream,SumPBDE_ngg,93476,ng/g,Table 1,sediment,e_waste,Guangdong,论文∑PBDEs直接读取15单体求和(溪流沉积物偏高归因水流长距传输),23.336944,116.352222

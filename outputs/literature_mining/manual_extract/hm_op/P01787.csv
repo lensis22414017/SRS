@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01787,,,,,,,,,"skip: 论文研究Organophosphorus pesticides(OPP, 8种单体 o,o,o-triethylphosphorothioate/thionazin/sulfotep/phorate/disulfoton/methyl-parathion/parathion/famphur), 不在标准OP提取类别(Sum_PAH/BaP/SumPCB/SumDDT/SumHCH/SumPBDE/TotalPHC)内; HM数据(Cu/Cd/Zn/Pb)来自Sun et al. 2018另一论文跨论文拼接违背铁律6; 正文3.1节仅给区域均值统计(温室22.1-435 mean96.2/露天9.93-303 mean66.6 ng/g)+空间分布图Fig1, 无采样点级表格数据"

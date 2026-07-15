@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01646,,,,,,soil,other,,"skip: Meta分析(Newcastle-Ottawa文献质量评价Table S1+selected papers); 标题OCR纠正=Chinese water level fluctuation zones(中国水位波动区WLFZ非水淋溶实验); WLFZ土壤本身是真实场地(如三峡库区消落带)非水实验; Table S3/S4虽有HM/PAHs浓度但数据来源为多个原始文献汇总非P01646原创实测,与铁律第6条(HM+OP同论文同场地)和第22条(Meta分析剔除)冲突; SI文本不全(43行vs87页)需MinerU完整解析SI确认; 若坚持提取须溯源各WLFZ站点原始文献(见Table S2)"

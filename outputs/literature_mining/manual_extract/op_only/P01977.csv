@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01977,Q3,SumPBDE_ngg,28.12,ng/g,Table 1,soil,e_waste,Guangdong,"Σ9PBDEs(2.42)+BDE209(25.7) summed from Table 1 point-source column Q3; 9 congeners(BDE28/47/66/100/99/154/153/138/183) summed per paper then +BDE209"
+P01977,Q4,SumPBDE_ngg,121.5,ng/g,Table 1,soil,e_waste,Guangdong,"Σ9PBDEs(19.5)+BDE209(102) summed from Table 1 point-source column Q4; same method as Q3"
+P01977,F3,SumPBDE_ngg,85.83,ng/g,Table 1,soil,e_waste,Guangdong,"Σ9PBDEs(1.93)+BDE209(83.9) summed from Table 1 point-source column F3; BDE138=nd(excluded from sum); note Q/F/G/D district columns only have range+mean(rejected as stat summaries)"

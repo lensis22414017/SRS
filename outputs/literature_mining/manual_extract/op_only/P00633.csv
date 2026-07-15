@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00633,,,,,,,,"skip: paper.md仅含Springer付费墙摘要页(12KB),正文Table 1(PCB各采样点浓度)和Table 2(重金属浓度)不可访问。摘要仅给出Σ24PCB均值6902.90 ng/g(范围1937.26-14936.21 ng/g)均为统计汇总非采样点级数据。Cr/Pb/Hg仅定性描述无个体点位值。需获取PDF全文后重新解析提取"

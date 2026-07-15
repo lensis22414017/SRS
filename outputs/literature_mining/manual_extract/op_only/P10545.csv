@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10545,NOTES,,,,"skip: 模型模拟研究(dynamic fugacity model)，无采样点级实测数据。论文仅有区域/省级均值(Haihe Plain平均394 ng/g, 山西平均1259 ng/g, 河北西南794 ng/g, 河北东南112 ng/g)，均为模型输出值或统计汇总。302个土壤采样点实测数据来自引用文献Zuo(2007)博士论文，本论文未提供采样点级数据表。空间分布结果以图片呈现(Fig 3A)无表格。"

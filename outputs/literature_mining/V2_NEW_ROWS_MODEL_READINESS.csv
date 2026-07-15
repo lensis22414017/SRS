@@ -1,0 +1,4 @@
+﻿subset,source_id,rows,model_feature_count,overlap_feature_count,mean_row_feature_coverage,min_row_feature_coverage,has_prod_and_eco_targets,training_decision
+op,PFAS_SURFACE_SOILS_CHINA_SI_TABLE2,124,110,4,0.0,0.0,False,holdout_external_validation
+op,coal_mining_east_china_pah_si,27,110,4,0.0091,0.0091,False,holdout_external_validation
+hm_op,industrial_sites_hm_pah_si,5,110,11,0.0727,0.0727,False,holdout_external_validation

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P02575,,,,,,,,"skip: thermal desorption remediation modeling paper; all data from lab experiments (Fu et al. 2012 PBDEs cinnamon/black soil; Wang et al. 2011 DDTs particle size; Zhang et al. 2012 nitrobenzene moisture); Tables 1-5 contain model fitting parameters (b/n/R2/Adj.R-Square) not pollutant concentrations; no real field sampling points or site locations; no pre-remediation site baseline values"

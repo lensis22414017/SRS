@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01345,,,,,,soil,agricultural,Anhui,"skip: 论文仅区域汇总(Table 1为5207表层+1311底层样本的25%/50%/75%/IQR百分位统计),无采样点级单点数据(S1/A/B等);且只测HM(As/Cd/Cr/Cu/Hg/Ni/Pb/Zn 8 PTE),无任何OP(PAH/PCB/DDT/HCH/PBDE/PHC),不满足HM+OP同论文同场地铁律"

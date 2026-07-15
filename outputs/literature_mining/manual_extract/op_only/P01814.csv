@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01814,,,,,,,,,"skip: 论文仅研究大气样品(gas/PM2.5/frost)，无土壤采样点级OP数据。采样地点为河北保定望都县，但所有样品均为大气基质（气相、PM2.5颗粒物、霜沉降物），非土壤实测。Table 1仅含Range/Mean/Median统计行。论文推测霜融化后PAHs可能渗入土壤但无实测土壤浓度。"

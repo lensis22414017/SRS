@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P09103,,,,,,,,,,"skip: 论文研究NPAHs(硝基PAH)和OPAHs(含氧PAH)而非16EPA PAH规则要求的Sum_PAH_ngg/BaP_ngg等目标OP; MinerU仅解析第0页(标题+摘要)正文表格缺失; 无HM数据(has_hm=False)"

@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10502,,,,,,soil,agricultural,Shanghai,"skip: Table 1仅含区域级统计汇总(Min/Max/Average/SD/CV/Kurtosis/Skewness)无采样点级数据; 238个样品仅报告汇总统计无个体采样点浓度表; 空间分布仅以Kriging插值地图(Fig.3)呈现无可追溯数值"

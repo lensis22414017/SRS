@@ -1,0 +1,7 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P10549,GR44,Sum_PAH_ngg,26.66,ng/g,Table 1 + 正文3.1段,soil,other,Tibet,"Table 1直接读取; 距拉萨6km; 44样中Σ16PAHs最高值"
+P10549,GR43,Sum_PAH_ngg,22.64,ng/g,正文3.1段,soil,other,Tibet,"正文3.1段引用为sub-area II第二高值(GR44/GR43/GR18三高值)"
+P10549,GR18,Sum_PAH_ngg,21.19,ng/g,Table 1 + 正文3.1段,soil,other,Tibet,"Table 1直接读取; 近第二大城镇日喀则"
+P10549,GR42,Sum_PAH_ngg,6.37,ng/g,Table 1 + 正文3.1段,soil,other,Tibet,"Table 1直接读取; 近Nam Co"
+P10549,GR25,Sum_PAH_ngg,5.96,ng/g,Table 1 + 正文3.1段,soil,other,Tibet,"Table 1直接读取; 近Changwengluozha冰川"
+P10549,GR33,Sum_PAH_ngg,0.97,ng/g,正文3.5段,soil,other,Tibet,"正文3.5段直接读取; 距拉萨约600km沿轨迹; Σ16PAHs最低值之一"

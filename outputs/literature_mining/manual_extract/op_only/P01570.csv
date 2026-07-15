@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01570,无采样点级数据,无采样点级数据,无采样点级数据,无采样点级数据,无采样点级数据,无采样点级数据,无采样点级数据,无采样点级数据,"skip: 本文专注抗生素抗性基因(ARGs)生物地理分布,非传统OP污染物浓度调查; OP目标物(Sum16PAHs/BaP/SumPCB/SumDDT/SumHCH/SumPBDE/TotalPHC/PAEs/OCPs)均未检测; 抗生素(SDZ/SMZ/OTC/ENRO等)仅以Fig2箱线图呈现全站分布摘要(n=24),无各采样点具体浓度数值; HM数据(Cd/Cr/Pb/Cu)存储于Table S1(支持信息),未包含于当前解析的paper.md文本中"

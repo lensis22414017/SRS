@@ -1,0 +1,2 @@
+paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00689,,,,,,soil,industrial,Liaoning,"skip: 实验室spiked实验(商业石英砂Damao+丙酮人工添加Phe/Pyr各400 mg/kg,非真实场地土壤,原文line37/41); 化学修复实验(Fenton-like氧化BOF slag催化); Table1为修复后可溶性HM浓度(行标识=实验处理条件'100g/kg slag'/'30% H2O2'非采样点; 且post-treatment非本底); Table1含Risk screening values标准阈值行; 作者自述line174'An extended research on the real soil...would be conducted'证实非真实土壤; 无采样点标识(S1/A/B)无OP单体无HM+OP同场地复合"

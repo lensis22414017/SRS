@@ -1,0 +1,4 @@
+﻿paper_id,sample_id,site_label,pollutant_std,value,unit,value_flag,confidence,evidence_location,source_caption,matrix,site_type,province,latitude,longitude,source_pool
+1-s2.0-S0048969723006307,1-s2.0-S0048969723006307_Carcinogenic_GAC,Carcinogenic GAC,SumPCB_ngg,8.69,Unknown,,high,table_p6_ri4_ci1,The derived generic assessment criteria for dioxin-like PCBs and total PCBs (∑PCBs).,,,,,,phase14
+1-s2.0-S0048969723006307,1-s2.0-S0048969723006307_Carcinogenic_GAC,Carcinogenic GAC,SumPCB_ngg,2.44,Unknown,,high,table_p6_ri5_ci1,The derived generic assessment criteria for dioxin-like PCBs and total PCBs (∑PCBs).,,,,,,phase14
+1-s2.0-S0048969723006307,1-s2.0-S0048969723006307_Integrated_GAC,Integrated GAC,SumPCB_ngg,3.05,Unknown,,high,table_p6_ri7_ci3,The derived generic assessment criteria for dioxin-like PCBs and total PCBs (∑PCBs).,,,,,,phase14

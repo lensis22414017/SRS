@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P01699,,,,,,,,"skip: TPC/China soil data only available as regional summary statistics (Min-Max/Mean±SD for n=65 Tibetan Plateau samples in Table 2); Table 1 individual sample-level data (IDs 1-9) are from Nepal far-western mountains (non-China site rejected); no sample-level PAH data for Chinese sites"

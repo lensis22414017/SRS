@@ -1,0 +1,2 @@
+﻿paper_id,sample_id,pollutant_std,value,unit,evidence_location,matrix,site_type,province,extract_notes
+P00119,,,,,,,,"skip: 论文仅分析水产养殖产品（鱼/虾/蟹/贝类/龟）可食用组织中的PAHs，matrix为生物体（biota/aquatic food tissue），非土壤也非沉积物。主文仅报告summary ranges/means（42-600 ng/g d.w.），无采样点级土壤数据。单体数据在Supplementary Table S12（未含于paper.md）。按规则剔除非土壤matrix"
