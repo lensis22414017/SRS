@@ -842,7 +842,7 @@ function AboutSystem() {
         <Descriptions bordered size="small" column={2}>
           <Descriptions.Item label="后端">FastAPI + SQLAlchemy</Descriptions.Item>
           <Descriptions.Item label="前端">React + Ant Design + ECharts</Descriptions.Item>
-          <Descriptions.Item label="算法">双轨防泄漏 RF + SHAP (CV AUC 0.83)</Descriptions.Item>
+          <Descriptions.Item label="算法">双轨防泄漏 RF + SHAP (CV Spearman 0.85+)</Descriptions.Item>
           <Descriptions.Item label="协变量">GEE (MODIS/WorldClim/SRTM/SoilGrids2.0)</Descriptions.Item>
           <Descriptions.Item label="报告">Jinja2 + WeasyPrint/xhtml2pdf</Descriptions.Item>
           <Descriptions.Item label="数据库">SQLite (桌面) / PostgreSQL (生产)</Descriptions.Item>
@@ -861,7 +861,7 @@ function AboutSystem() {
 
       <Card size="small">
         <Text type="secondary" style={{ fontSize: 12 }}>
-          本系统基于真实文献数据训练, 双轨 RF 防泄漏(剔除污染物浓度列), CV AUC 0.8-0.95 区间为可信诊断。
+          本系统基于真实文献数据训练, 双轨 RF 防泄漏(剔除污染物浓度列), CV Spearman 0.85+ 为可信诊断。
           所有结论可追溯到检测值与标准来源, 详见追溯报告。
         </Text>
       </Card>

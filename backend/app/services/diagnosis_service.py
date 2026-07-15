@@ -495,7 +495,7 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
     calc_trace = [
         f"① 取场地长表透视为 {len(X)} 个采样点 × {len(bundle['feature_list'])} 特征矩阵。",
         f"② 特征对齐: 场地实测因子映射到训练特征; {len(imputed)} 项无实测者以训练集中位数填充并标记(不参与结论排名)。",
-        f"③ 加载 RF 模型 {bundle['version']}(训练集 {bundle.get('data_version')}, AUC={bundle['metrics'].get('auc')}, F1={bundle['metrics'].get('f1')})对各点预测高风险概率, 均值 {float(proba.mean()):.4f}。",
+        f"③ 加载诊断模型 {bundle['version']}(训练集 {bundle.get('data_version')}, Spearman={bundle['metrics'].get('cv_spearman_mean') or bundle['metrics'].get('test_spearman', '-')})对各点预测高风险概率, 均值 {float(proba.mean()):.4f}。",
         "④ TreeExplainer 计算 SHAP 值, 全局重要性=各特征 |SHAP| 跨样本均值。",
         "⑤ 仅在有实测数据的特征中按 |SHAP| 降序取 RF Top, 同时叠加生产阈值短板筛查(规则项不冒充 SHAP): "
         + ", ".join(

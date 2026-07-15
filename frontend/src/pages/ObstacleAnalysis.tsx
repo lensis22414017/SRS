@@ -15,18 +15,14 @@ import { SVG_OPTS } from "../theme/echarts";
 
 const { Text, Paragraph } = Typography;
 
-const AUC_GUIDE = `AUC 值含义（0-1 范围）:
-≥ 0.90 → 优秀 — 模型能很好地区分障碍因子
-0.80-0.90 → 良好 — 模型有较好的区分能力
+const AUC_GUIDE = `Spearman 秩相关系数含义（0-1 范围）:
+≥ 0.90 → 优秀 — 模型排序能力极强
+0.80-0.90 → 良好 — 模型有较好的排序能力
 0.70-0.80 → 一般 — 模型有一定参考价值
 0.60-0.70 → 偏低 — 建议人工复核
-< 0.60 → 低 — 结果不可靠，需检查数据`;
+< 0.60 → 低 — 结果仅供参考，需检查数据`;
 
-const F1_GUIDE = `F1 值含义（0-1 范围）:
-≥ 0.85 → 优秀 — 诊断结论精准可靠
-0.70-0.85 → 良好 — 诊断结论较为可靠
-0.50-0.70 → 一般 — 存在一定误判风险
-< 0.50 → 偏低 — 误判风险较高`;
+const F1_GUIDE = ``; // 已废弃，保留空串避免引用错误
 
 export default function ObstacleAnalysis() {
   const { message } = App.useApp();
@@ -168,10 +164,11 @@ export default function ObstacleAnalysis() {
     </Card>
   ) : null;
 
-  // 诊断分低时警告
-  const aucVal = diag?.model?.metrics?.auc;
-  const f1Val = diag?.model?.metrics?.f1;
-  const aucNum = typeof aucVal === "string" ? parseFloat(aucVal) : aucVal;
+  // 诊断置信度: 改用 Spearman 秩相关(回归模型), 不再用 AUC(分类指标)
+  const spearmanVal = diag?.model?.metrics?.cv_spearman_mean ?? diag?.model?.metrics?.test_spearman;
+  const aucVal = spearmanVal; // 兼容旧变量名
+  const f1Val = undefined; // 废弃
+  const aucNum = typeof spearmanVal === "string" ? parseFloat(spearmanVal) : spearmanVal;
   const lowConfidence = aucNum != null && aucNum < 0.7;
   const veryLowConfidence = aucNum != null && aucNum < 0.5;
 
@@ -238,7 +235,7 @@ export default function ObstacleAnalysis() {
                 style={{ marginBottom: 12 }} />
             )}
             {lowConfidence && !veryLowConfidence && (
-              <Alert type="warning" showIcon message={`当前诊断结果置信度偏低（AUC: ${aucNum?.toFixed(2)}），建议人工复核关键因子`}
+              <Alert type="warning" showIcon message={`当前诊断结果置信度偏低（Spearman: ${aucNum?.toFixed(2)}），建议人工复核关键因子`}
                 style={{ marginBottom: 12 }} />
             )}
             <Descriptions size="small" column={2}>
@@ -260,18 +257,18 @@ export default function ObstacleAnalysis() {
                 )}
               </Descriptions.Item>
             </Descriptions>
-            {/* AUC/F1 等开发验证指标默认折叠, 避免甲方误读为法规结论 */}
+            {/* 模型验证指标默认折叠, 避免甲方误读为法规结论 */}
             <Collapse size="small" style={{ marginTop: 8 }} items={[{
-              key: "tech", label: "技术详情（开发验证指标 AUC/F1，点击展开）",
+              key: "tech", label: "技术详情（模型验证指标，点击展开）",
               children: (
                 <Descriptions size="small" column={1}>
                   <Descriptions.Item label="诊断模型">{diag?.model?.name || "—"}</Descriptions.Item>
-                  <Descriptions.Item label="AUC / F1">
-                    AUC={aucVal ?? "—"}，F1={f1Val ?? "—"}
-                    <Tooltip title={<pre style={{ fontSize: 11, margin: 0, whiteSpace: "pre-line" }}>{AUC_GUIDE + "\n\n" + F1_GUIDE}</pre>}>
+                  <Descriptions.Item label="Spearman 秩相关">
+                    {aucVal != null ? Number(aucVal).toFixed(4) : "—"}
+                    <Tooltip title={<pre style={{ fontSize: 11, margin: 0, whiteSpace: "pre-line" }}>{AUC_GUIDE}</pre>}>
                       <InfoCircleOutlined style={{ marginLeft: 6, color: "#888", cursor: "help" }} />
                     </Tooltip>
-                    <Tag style={{ marginLeft: 6, fontSize: 10 }} color="processing">开发验证指标，非法规判定</Tag>
+                    <Tag style={{ marginLeft: 6, fontSize: 10 }} color="processing">交叉验证指标，非法规判定</Tag>
                   </Descriptions.Item>
                 </Descriptions>
               ),

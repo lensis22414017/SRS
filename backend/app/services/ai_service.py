@@ -27,6 +27,8 @@ SYSTEM_PROMPT = (
     "你必须严格基于下方【知识库检索结果】与【场地数据】回答, 不得编造标准条文、阈值或文献。"
     "若检索结果不足以回答, 明确说明'资料不足, 建议人工复核', 不要臆测。"
     "你不能替代 RF/SHAP 诊断或阈值规则做最终达标判定, 只能解释与辅助。用简体中文、专业、简洁作答。"
+    "输出格式要求: 用纯文本自然段表达, 禁止使用 markdown 加粗(**)、标题(#)、列表标记(-/*)、"
+    "中文装饰引号("")、无意义的重复标点。直接陈述事实, 不加修饰性符号。"
 )
 
 
@@ -279,6 +281,34 @@ def _quality_issue(reply: str) -> bool:
     return reply.count("\ufffd") >= 1
 
 
+def _clean_markdown_punct(text: str) -> str:
+    """剥离 LLM 输出中的 markdown 装饰和多余标点, 产出纯文本。
+    清理: **加粗**、##标题、列表标记、中文装饰引号、连续重复标点。
+    """
+    import re
+    if not text:
+        return text
+    # 去除 markdown 加粗 **text** 或 __text__
+    text = re.sub(r'\*\*(.+?)\*\*', r'\1', text)
+    text = re.sub(r'__(.+?)__', r'\1', text)
+    # 去除 markdown 标题前缀 ## ###
+    text = re.sub(r'^#{1,6}\s*', '', text, flags=re.MULTILINE)
+    # 去除 markdown 列表标记 - * 或 1. 2.
+    text = re.sub(r'^[\s]*[-*]\s+', '', text, flags=re.MULTILINE)
+    text = re.sub(r'^[\s]*\d+\.\s+', '', text, flags=re.MULTILINE)
+    # 中文装饰引号 → 去掉(保留内容)
+    text = text.replace('\u201c', '').replace('\u201d', '')  # ""
+    text = text.replace('\u2018', '').replace('\u2019', '')  # ''
+    # 去除行首行尾多余空格
+    text = re.sub(r'[ \t]+', ' ', text)
+    # 连续句号/逗号压缩为单个
+    text = re.sub(r'[。]{2,}', '。', text)
+    text = re.sub(r'[，]{2,}', '，', text)
+    # 多余空行压缩
+    text = re.sub(r'\n{3,}', '\n\n', text)
+    return text.strip()
+
+
 def _rag_fallback_reply(ctx: dict, reason: str) -> str:
     """模型不可用时的结构化 RAG 答案, 只复述已检索到的证据。"""
     lines = [f"{reason}。以下为知识库检索结果, 建议结合人工复核使用。"]
@@ -349,6 +379,7 @@ def chat(db: Session, message: str, site_id: int | None = None,
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             data = json.loads(resp.read().decode("utf-8"))
         reply = data["choices"][0]["message"]["content"]
+        reply = _clean_markdown_punct(reply)
         if _quality_issue(reply):
             return {"reply": _rag_fallback_reply(ctx, "AI 模型返回内容存在乱码或质量异常, 已自动降级"),
                     "context": ctx, "model": model, "configured": True,
@@ -379,6 +410,8 @@ DIAGNOSIS_POLISH_PROMPT = (
     "4. 如果诊断置信度偏低, 要坦诚说明, 不要掩盖。\n"
     "5. 保持专业严谨, 不要编造数据。\n"
     "6. 字数控制在 200-400 字, 使用简体中文。\n"
+    "7. 输出纯文本, 禁止使用 markdown 加粗(**)、标题(#)、列表编号(1. 2.)、"
+    "中文装饰引号。用自然段落陈述, 不加多余标点修饰。\n"
 )
 
 
@@ -406,6 +439,7 @@ def polish_diagnosis(db: Session, diagnosis_text: str) -> str | None:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             data = json.loads(resp.read().decode("utf-8"))
         reply = data["choices"][0]["message"]["content"]
+        reply = _clean_markdown_punct(reply)
         if _quality_issue(reply):
             return None
         return reply.strip()
