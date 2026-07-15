@@ -41,7 +41,8 @@ def test_workflow_five_stages():
         assert len(stages) == 5
         assert [s["stage"] for s in stages] == \
             ["survey", "approval", "construction", "effect", "maintenance"]
-        # 更新调查评估阶段
+        # 更新调查评估阶段(状态机要求 not_started → in_progress → completed)
+        W.update_stage(db, sid, "survey", status="in_progress")
         W.update_stage(db, sid, "survey", status="completed",
                        review_comment="调查报告齐全", is_completed=True, advance=True)
         s0 = [s for s in W.get_stages(db, sid) if s["stage"] == "survey"][0]
@@ -96,6 +97,7 @@ def test_report_generation_full_chain():
         run_evaluation(db, sid)
         run_recommendation(db, sid, top_k=5)
         W.init_stages(db, sid)
+        W.update_stage(db, sid, "survey", status="in_progress")
         W.update_stage(db, sid, "survey", status="completed", is_completed=True)
         res = report_service.generate(db, sid)
         assert res["version"] == "v1"

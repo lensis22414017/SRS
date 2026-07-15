@@ -16,6 +16,18 @@ GEJIU = os.path.join(ROOT, "data", "raw",
 
 
 # ---------- 纯 pandas ----------
+# 旧 RF 训练数据(data/raw/真实训练集_GB15618.csv, 模拟特征表_F127_n11690.csv)
+# 已在迁移到 KOS+p3_alpha 模型注册表路径后移除; 这两个测试覆盖的是已废弃的
+# ml/models/data_prep.py + rf_barrier.py 旧路径, 生产代码不再引用。
+_LEGACY_DATA_EXISTS = os.path.exists(
+    os.path.join(ROOT, "data", "raw", "真实训练集_GB15618.csv")) or os.path.exists(
+    os.path.join(ROOT, "data", "raw", "模拟特征表_F127_n11690.csv"))
+needs_legacy_data = pytest.mark.skipif(
+    not _LEGACY_DATA_EXISTS,
+    reason="旧 RF 训练数据已移除(迁移至 KOS+p3_alpha); 此测试覆盖废弃路径")
+
+
+@needs_legacy_data
 def test_prepare_dataset():
     from data_prep import prepare
     X, y, meta = prepare()
@@ -100,6 +112,7 @@ needs_ml = pytest.mark.skipif(not _has_ml(), reason="需 sklearn/shap (venv)")
 
 
 @needs_ml
+@needs_legacy_data
 def test_train_metrics_reasonable():
     from rf_barrier import train
     res = train()

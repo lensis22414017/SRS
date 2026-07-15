@@ -17,6 +17,8 @@ RULES = {
     ("hm", "eco"):   ("approved_alpha", True, "重金属生态用途场景"),
     ("op", "prod"):  ("exploratory", False, "OP 模型 Spearman 偏低且 GEE 主导,仅探索参考"),
     ("op", "eco"):   ("exploratory", False, "OP 模型 Spearman 偏低且 GEE 主导,仅探索参考"),
+    ("hm_op", "prod"): ("exploratory", False, "HM+OP生产轨,仅限规则辅助与人工复核"),
+    ("hm_op", "eco"):  ("exploratory", False, "HM+OP生态轨,仅限规则辅助与人工复核"),
 }
 
 LIMITATIONS = {
@@ -37,6 +39,7 @@ for mf in sorted(glob.glob(f"{ART}/*_Full_*_metrics.json")):
         "subset": subset,
         "track": track,
         "target": m.get("target_col", f"OI_{track}_formal"),
+        "algorithm": m.get("model_name", "RandomForest"),
         "model_file": f"{ART}/{model_id}.joblib",
         "metrics_file": mf,
         "shap_global_file": f"{ART}/{model_id}_shap_global.parquet" if os.path.exists(f"{ART}/{model_id}_shap_global.parquet") else None,

@@ -86,10 +86,10 @@ def retrieve(db: Session, query: str, site_id: int | None = None, k: int = 8) ->
     for v in vctx["thresholds"]:
         if v["名称"] not in existing_t:
             ctx["thresholds"].append({"因子": v["名称"], "相似度": v["相似度"], "来源": "向量检索"})
-    existing_tech = {t.get("name") or t.get("名称") for t in ctx["technologies"]}
+    existing_tech = {t.get("技术") or t.get("name") or t.get("名称") for t in ctx["technologies"]}
     for v in vctx["technologies"]:
         if v["名称"] not in existing_tech:
-            ctx["technologies"].append({"名称": v["名称"], "相似度": v["相似度"], "来源": "向量检索"})
+            ctx["technologies"].append({"技术": v["名称"], "相似度": v["相似度"], "来源": "向量检索"})
     return ctx
 
 
@@ -121,9 +121,17 @@ def _build_tfidf_index(db: Session) -> dict | None:
         text = " ".join(filter(None, [fd.factor_name, tr.land_type, tr.threshold_original, tr.standard_source]))
         docs.append(text); names.append(fd.factor_name); types.append("threshold")
     for t in db.query(TechnologyLibrary).all():
-        text = " ".join(filter(None, [t.name, getattr(t, "applicable_pollutants", ""),
-                                       getattr(t, "description", "")]))
-        docs.append(text); names.append(t.name); types.append("technology")
+        # applicable_pollutants 是 JSON 字段(list/dict/None), 需安全展平为字符串
+        poll = t.applicable_pollutants
+        if isinstance(poll, (list, dict)):
+            poll = " ".join(str(p) for p in (poll.values() if isinstance(poll, dict) else poll))
+        elif poll is not None:
+            poll = str(poll)
+        else:
+            poll = ""
+        adv = t.advantages or ""
+        text = " ".join(filter(None, [t.tech_name, poll, adv]))
+        docs.append(text); names.append(t.tech_name); types.append("technology")
     if not docs:
         return None
 
@@ -331,7 +339,8 @@ def chat(db: Session, message: str, site_id: int | None = None,
         messages.append({"role": "user", "content": message})
 
     payload = json.dumps({"model": model, "messages": messages,
-                          "temperature": 0.3}).encode("utf-8")
+                          "temperature": 0.3,
+                          "thinking": {"type": "disabled"}}).encode("utf-8")
     req = urllib.request.Request(
         base_url.rstrip("/") + "/chat/completions", data=payload,
         headers={"Content-Type": "application/json",
@@ -386,7 +395,8 @@ def polish_diagnosis(db: Session, diagnosis_text: str) -> str | None:
         {"role": "user", "content": f"原始诊断结果:\n{diagnosis_text}"},
     ]
     payload = json.dumps({"model": model, "messages": messages,
-                          "temperature": 0.3, "max_tokens": 800}).encode("utf-8")
+                          "temperature": 0.3, "max_tokens": 800,
+                          "thinking": {"type": "disabled"}}).encode("utf-8")
     req = urllib.request.Request(
         base_url.rstrip("/") + "/chat/completions", data=payload,
         headers={"Content-Type": "application/json",

@@ -319,10 +319,16 @@ export default function SiteMap({
 
     if (pts.length) {
       // v1.0 P0: requestAnimationFrame 确保 fitBounds 在容器已完成渲染后执行, 避免点位挤在边缘
-      requestAnimationFrame(() => {
+      // 修复 _leaflet_pos undefined: 需等地图 _loaded 且有 pane pos 后才 fitBounds
+      const doFit = () => {
         map.invalidateSize();
-        map.fitBounds(L.latLngBounds(pts).pad(0.3), { maxZoom: 13, animate: false });
-      });
+        if (map._loaded && (map as any)._mapPane) {
+          map.fitBounds(L.latLngBounds(pts).pad(0.3), { maxZoom: 13, animate: false });
+        }
+      };
+      requestAnimationFrame(doFit);
+      // 兜底: rAF 仍可能早于 leaflet 初始化, 延迟再试一次
+      setTimeout(doFit, 300);
     }
     return () => { layer.remove(); };
   }, [sites, layerData]);

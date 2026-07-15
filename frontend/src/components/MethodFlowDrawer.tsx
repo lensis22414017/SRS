@@ -157,7 +157,7 @@ export default function MethodFlowDrawer({ open, onClose, config }: Props) {
       width={680}
       open={open}
       onClose={onClose}
-      destroyOnClose
+      destroyOnHidden
       footer={
         <Text type="secondary" style={{ fontSize: 11 }}>
           本流程说明仅供理解系统逻辑，实际执行以系统内数据为准。

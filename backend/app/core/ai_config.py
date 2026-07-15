@@ -21,11 +21,11 @@ DEFAULT_MODEL = "GLM-4.7-Flash"
 
 # 预设服务商(均为 OpenAI 兼容 /chat/completions 端点), 供前端下拉选择。
 PROVIDER_PRESETS = [
-    {"id": "zhipu", "name": "智谱 GLM(默认·免费)",
+    {"id": "zhipu", "name": "智谱 GLM-5.2(官网·推荐)",
      "base_url": "https://open.bigmodel.cn/api/paas/v4",
-     "model": "GLM-4.7-Flash",
+     "model": "glm-5.2",
      "apply_url": "https://open.bigmodel.cn/usercenter/apikeys",
-     "note": "官方免费 Flash 模型, 推荐默认。"},
+     "note": "智谱最新旗舰模型, OpenAI兼容, 思考模式已默认关闭以控延迟。"},
     {"id": "deepseek", "name": "DeepSeek 深度求索",
      "base_url": "https://api.deepseek.com", "model": "deepseek-chat",
      "apply_url": "https://platform.deepseek.com/api_keys", "note": "性价比高。"},

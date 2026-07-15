@@ -153,10 +153,10 @@ def test_api_batch_import_and_overview_badges():
 @needs_db
 @needs_data
 def test_import_skip_duplicate_and_new_version():
-    """裴总 P1-3: 同文件二次导入默认 skip(不造新场地); new_version 建新 site_code。"""
+    """裴总 P1-3: 同文件二次导入默认 skip(不造新场地); new_version 复用同 site 并建 DatasetVersion(v1.0 P0-2 变更)。"""
     from app.db.bootstrap import main as bootstrap
     from app.db.session import SessionLocal
-    from app.models import Site
+    from app.models import Site, DatasetVersion
     from app.services.pipeline import run_import
     bootstrap()
     db = SessionLocal()
@@ -169,10 +169,12 @@ def test_import_skip_duplicate_and_new_version():
         assert r2["action"] == "skipped", f"应 skip, 实际 {r2.get('action')}"
         assert r2["site_id"] == r1["site_id"]
         assert db.query(Site).count() == n1, "skip 不应新增场地"
-        # new_version → 建新场地
+        # new_version → v1.0 P0-2: 复用同一 site, 创建新 DatasetVersion 记录
         r3 = run_import(db, GEJIU, "yunnan_gejiu", on_conflict="new_version")
         assert r3["action"] == "new_version"
-        assert r3["site_id"] != r1["site_id"]
-        assert db.query(Site).count() == n1 + 1, "new_version 应新增 1 个场地"
+        assert r3["site_id"] == r1["site_id"], "new_version 复用同一 site(P0-2 变更)"
+        assert db.query(Site).count() == n1, "new_version 不新增 site, 改用 DatasetVersion"
+        dv_count = db.query(DatasetVersion).filter_by(site_id=r1["site_id"]).count()
+        assert dv_count >= 1, "new_version 应创建 DatasetVersion 记录"
     finally:
         db.close()

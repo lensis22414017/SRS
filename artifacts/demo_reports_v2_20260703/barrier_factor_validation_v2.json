@@ -1,0 +1,255 @@
+{
+  "validations": [
+    {
+      "site": "测试场地-个旧重金属",
+      "site_id": 1,
+      "type": "heavy_metal",
+      "subset": "hm",
+      "top5": [
+        "cdmgkg",
+        "cdmgkg"
+      ],
+      "hits": [
+        "cd",
+        "cd"
+      ],
+      "recall": 0.12,
+      "passed": false,
+      "model_status": "approved_alpha",
+      "review_required": true
+    },
+    {
+      "site": "site_广东_HM_200点",
+      "site_id": 6,
+      "type": "heavy_metal",
+      "subset": "hm",
+      "top5": [
+        "cdmgkg",
+        "pbmgkg",
+        "cumgkg",
+        "znmgkg",
+        "asmgkg"
+      ],
+      "hits": [
+        "cd",
+        "cd",
+        "pb",
+        "pb",
+        "cu",
+        "cu"
+      ],
+      "recall": 0.35,
+      "passed": true,
+      "model_status": "approved_alpha",
+      "review_required": true
+    },
+    {
+      "site": "site_新疆_HM_200点",
+      "site_id": 8,
+      "type": "heavy_metal",
+      "subset": "hm",
+      "top5": [
+        "hgmgkg",
+        "cdmgkg",
+        "ph",
+        "hgmgkg",
+        "cdmgkg"
+      ],
+      "hits": [
+        "cd",
+        "cd",
+        "ph",
+        "hg",
+        "hg"
+      ],
+      "recall": 0.29,
+      "passed": false,
+      "model_status": "approved_alpha",
+      "review_required": true
+    },
+    {
+      "site": "site_江西_HM_200点",
+      "site_id": 11,
+      "type": "heavy_metal",
+      "subset": "hm",
+      "top5": [
+        "cdmgkg",
+        "cumgkg",
+        "asmgkg",
+        "pbmgkg",
+        "nimgkg"
+      ],
+      "hits": [
+        "cd",
+        "cd",
+        "as",
+        "as",
+        "cu",
+        "cu"
+      ],
+      "recall": 0.35,
+      "passed": true,
+      "model_status": "approved_alpha",
+      "review_required": true
+    },
+    {
+      "site": "site_北京_OP_200点",
+      "site_id": 2,
+      "type": "organic",
+      "subset": "op",
+      "top5": [],
+      "hits": [],
+      "recall": 0.0,
+      "passed": false,
+      "model_status": "exploratory",
+      "review_required": true
+    },
+    {
+      "site": "site_山东_OP_92点",
+      "site_id": 4,
+      "type": "organic",
+      "subset": "op",
+      "top5": [],
+      "hits": [],
+      "recall": 0.0,
+      "passed": false,
+      "model_status": "exploratory",
+      "review_required": true
+    },
+    {
+      "site": "site_广东_OP_200点",
+      "site_id": 7,
+      "type": "organic",
+      "subset": "op",
+      "top5": [
+        "ph",
+        "ph"
+      ],
+      "hits": [],
+      "recall": 0.0,
+      "passed": false,
+      "model_status": "exploratory",
+      "review_required": true
+    },
+    {
+      "site": "site_江苏_OP_155点",
+      "site_id": 10,
+      "type": "organic",
+      "subset": "op",
+      "top5": [],
+      "hits": [],
+      "recall": 0.0,
+      "passed": false,
+      "model_status": "exploratory",
+      "review_required": true
+    },
+    {
+      "site": "site_山东_HM+OP_24点",
+      "site_id": 3,
+      "type": "composite",
+      "subset": "hm_op",
+      "top5": [
+        "cdmgkg",
+        "pbmgkg",
+        "znmgkg",
+        "ph",
+        "cdmgkg"
+      ],
+      "hits": [
+        "cd",
+        "cd",
+        "pb",
+        "pb"
+      ],
+      "recall": 0.5,
+      "passed": true,
+      "model_status": "exploratory",
+      "review_required": true
+    },
+    {
+      "site": "site_广东_HM+OP_64点",
+      "site_id": 5,
+      "type": "composite",
+      "subset": "hm_op",
+      "top5": [
+        "cdmgkg",
+        "pbmgkg",
+        "cumgkg",
+        "znmgkg",
+        "hgmgkg"
+      ],
+      "hits": [
+        "cd",
+        "cd",
+        "pb",
+        "pb"
+      ],
+      "recall": 0.5,
+      "passed": true,
+      "model_status": "exploratory",
+      "review_required": true
+    },
+    {
+      "site": "site_江苏_HM+OP_32点",
+      "site_id": 9,
+      "type": "composite",
+      "subset": "hm_op",
+      "top5": [
+        "cdmgkg",
+        "cumgkg",
+        "znmgkg",
+        "pbmgkg",
+        "crmgkg"
+      ],
+      "hits": [
+        "cd",
+        "cd"
+      ],
+      "recall": 0.25,
+      "passed": false,
+      "model_status": "exploratory",
+      "review_required": true
+    },
+    {
+      "site": "site_浙江_HM+OP_15点",
+      "site_id": 12,
+      "type": "composite",
+      "subset": "hm_op",
+      "top5": [
+        "cdmgkg",
+        "pbmgkg",
+        "cumgkg",
+        "znmgkg",
+        "hgmgkg"
+      ],
+      "hits": [
+        "cd",
+        "cd",
+        "pb",
+        "pb"
+      ],
+      "recall": 0.5,
+      "passed": true,
+      "model_status": "exploratory",
+      "review_required": true
+    }
+  ],
+  "summary": {
+    "HM": {
+      "avg_recall": 0.28,
+      "n_sites": 4,
+      "min_recall_threshold": 0.3
+    },
+    "OP": {
+      "avg_recall": 0.0,
+      "n_sites": 4,
+      "min_recall_threshold": 0.25
+    },
+    "HM+OP": {
+      "avg_recall": 0.44,
+      "n_sites": 4,
+      "min_recall_threshold": 0.3
+    },
+    "overall": "5/12 场地达标"
+  }
+}

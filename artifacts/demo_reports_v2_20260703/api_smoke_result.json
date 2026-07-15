@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "name": "登录 admin/Demo@2026",
+      "pass": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTc4NDE1ODQ3Mywicm9sZXMiOlsiYWRtaW4iXX0.7pSHH5iifEcKAUaqjnyEA7zB5cDkucrzM6UW_fErFGA",
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "场地列表",
+      "pass": true,
+      "detail": "19 个场地"
+    },
+    {
+      "name": "KOS诊断 HM 生产轨",
+      "pass": true,
+      "detail": "HTTP 200, key_obstacles=1"
+    },
+    {
+      "name": "KOS诊断 HM+OP(探索性+强制复核)",
+      "pass": true,
+      "detail": "HTTP 200, status=exploratory, review=True"
+    },
+    {
+      "name": "AI配置=GLM-5.2智谱官网",
+      "pass": true,
+      "detail": "HTTP 200, provider=zhipu, model=glm-5.2"
+    },
+    {
+      "name": "AI对话 GLM-5.2 真实调用",
+      "pass": true,
+      "detail": "HTTP 200, reply长度=336, model=glm-5.2"
+    }
+  ],
+  "summary": {
+    "hm_top3": [
+      "Cd_mgkg"
+    ],
+    "hm_model_status": "approved_alpha",
+    "hm_review_required": true,
+    "ai_reply_sample": "根据场地数据与知识库，该场地镉污染风险较高，具体表现如下：\n\n1. **风险水平高**：镉是场地Top3关键障碍因子之一（按全局|SHAP|排名第一），且场地整体高风险概率均值为0.58。\n2. **阈值标准**：场地为“生产用地”，依据《农用土壤污染风险管控标准GB15618-2018》，镉的风险管控值随pH变化（pH≤5.5时≤0.3mg/kg；5.5<pH≤6.5时≤0.3mg/kg；6.5",
+    "ai_configured": true,
+    "passed": 6,
+    "total": 6
+  }
+}

@@ -154,7 +154,7 @@ def latest_diagnosis(site_id: int, user: User = Depends(get_current_user),
 # ──────────────────────────────────────────────────────────────
 @router.post("/sites/{site_id}/kos-diagnosis")
 def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(prod|eco)$"),
-                          subset: str = Query("all", pattern="^(all|hm|op)$"),
+                          subset: str = Query("all", pattern="^(all|hm|op|hm_op)$"),
                           top_n: int = Query(10, ge=3, le=30),
                           user: User = Depends(get_current_user), db: Session = Depends(get_db)):
     """运行 KOS 诊断(三层输出:明确障碍 + 关键障碍 KOS + 补测建议)。"""

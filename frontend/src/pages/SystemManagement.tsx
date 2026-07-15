@@ -623,7 +623,7 @@ function TechLibrary() {
           ) },
         ]} />
       <Modal title={modal?.mode === "create" ? "新增修复技术" : "编辑修复技术"}
-        open={!!modal} onCancel={() => setModal(null)} footer={null} width={720} destroyOnClose>
+        open={!!modal} onCancel={() => setModal(null)} footer={null} width={720} destroyOnHidden>
         <Form form={form} layout="vertical" onFinish={save}>
           <Form.Item name="tech_name" label="技术名称" rules={[{ required: true, message: "请填写技术名称" }]}>
             <Input placeholder="如: 固化/稳定化" />

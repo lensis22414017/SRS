@@ -111,7 +111,7 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
     """运行完整 KOS 诊断。
     site_values: {因子名(各种格式): 浓度值}
     track: prod / eco
-    subset: all / hm / op (决定用哪个模型)
+    subset: all / hm / op / hm_op (决定用哪个模型)
     """
     # 归一化
     factors = normalize_factors(site_values)
@@ -123,7 +123,7 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
     if model_info is None:
         return {"error": f"模型 {model_id} 未注册"}
 
-    is_op = subset == "op"
+    is_op = subset in {"op", "hm_op"}
     is_exploratory = model_info["status"] == "exploratory"
 
     # 加载 SHAP measured 贡献(清洗后的)
