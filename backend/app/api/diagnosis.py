@@ -220,7 +220,17 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
             f"skipped_rejected_measurements: {n_rejected} 条 qa_status=rejected 数据被跳过")
     data_quality_flags_pre.extend(extreme_warnings)
 
-    result = run_kos_diagnosis(site_values, track=track, subset=subset, top_n=top_n)
+    # M0-2: 提取场地 pH 和土地用途, 传入动态阈值解析
+    site_pH = site_values.get("pH") or site_values.get("pH值") or site_values.get("酸碱度")
+    if site_pH is not None:
+        try:
+            site_pH = float(site_pH)
+        except (TypeError, ValueError):
+            site_pH = None
+    land_use_type = getattr(site, "land_use_type", None)
+
+    result = run_kos_diagnosis(site_values, track=track, subset=subset, top_n=top_n,
+                                site_pH=site_pH, land_use_type=land_use_type, db_session=db)
     # 把每条 key_obstacle 合入对应的统计量 + aggregation_method
     stats_map = {fn: s for fn, s in factor_stats.items()}
     for k in result.get("key_obstacles", []):

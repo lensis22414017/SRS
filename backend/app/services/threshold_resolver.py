@@ -207,11 +207,8 @@ def resolve_threshold_from_db(
                 "note": f"因子 {factor_canonical} 需要 pH 确定阈值档，场地缺 pH"}
 
     if len(matched) > 1:
-        # eco 轨道默认第二类用地
-        if track == "eco":
-            lu2 = [r for r in matched if "第二类" in (r.land_use_type or "")]
-            if len(lu2) == 1:
-                matched = lu2
+        # M0-2: 删除生态轨"默认第二类用地"的隐式默认;
+        # 土地用途不明确时必须 ambiguous, 不得猜测
         if land_use_type:
             lu_m = [r for r in matched if land_use_type in (r.land_use_type or "")]
             if len(lu_m) == 1:
@@ -220,7 +217,7 @@ def resolve_threshold_from_db(
             return {**not_found_result,
                     "threshold_resolution_status": "ambiguous",
                     "threshold_standard": matched[0].standard_code,
-                    "note": f"因子 {factor_canonical} 匹配 {len(matched)} 条阈值，无法唯一确定"}
+                    "note": f"因子 {factor_canonical} 匹配 {len(matched)} 条阈值，土地用途不明确，无法唯一确定"}
 
     r = matched[0]
     limit = float(r.screening_value) if r.screening_value is not None else None

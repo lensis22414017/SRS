@@ -71,10 +71,14 @@ class TestP02DynamicThreshold:
         assert r["review_required"] is True
 
     def test_eco_track_second_class(self, db):
-        """eco 轨道 → 第二类用地 (Cd=65 mg/kg)"""
-        r = resolve_threshold_from_db(db, "Cd_mgkg", track="eco")
+        """eco 轨道, 指定第二类用地 → resolved; 不指定 → ambiguous (M0-2)"""
+        # 指定第二类用地
+        r = resolve_threshold_from_db(db, "Cd_mgkg", track="eco", land_use_type="第二类用地")
         assert r["threshold_resolution_status"] == "resolved"
         assert r["threshold_value"] == 65.0  # GB36600 第二类用地
+        # M0-2: 不指定土地用途 → ambiguous (不再隐式默认第二类)
+        r2 = resolve_threshold_from_db(db, "Cd_mgkg", track="eco")
+        assert r2["threshold_resolution_status"] == "ambiguous"
 
     def test_as_pH_grading(self, db):
         """As 的 pH 分级: pH<=5.5→40, 6.5<pH<=7.5→30, pH>7.5→25"""
