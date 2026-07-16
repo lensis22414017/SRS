@@ -12,6 +12,8 @@
 
 因此不能直接用 threshold_min/max 比较浓度, 必须解析文本 + 结合样点 pH。
 本模块从 threshold_original 解析出 (pH 区间, 浓度限值, 用地子类), 供校验/分等使用。
+
+P0-2 新增: resolve_threshold_from_db — 从 StandardThreshold 数据库表按 pH/land_use 动态查询。
 """
 from __future__ import annotations
 
@@ -86,7 +88,7 @@ def build_pollutant_limits(kb_csv: str) -> dict:
         parsed = parse_threshold_original(r.get("threshold_original"))
         if not parsed:
             continue
-        out.setdefault(name, {}).setdefault(scope, {}).setdefault(sub, []).append({
+        out.setdefault(name, {}).setdefault(scope, {}).set_default(sub, []).append({
             "ph_min": parsed["ph_min"], "ph_max": parsed["ph_max"],
             "limit": parsed["limit"], "limit_max": parsed["limit_max"],
             "source": (r.get("standard_source") or "").strip(),
@@ -110,3 +112,127 @@ def resolve_limit(limits: dict, factor: str, ph: float | None,
                 return s
     # 回退: 第一段
     return segs[0]
+
+
+# ── P0-2: 从 StandardThreshold 数据库表动态查询 ──────────────────────────
+
+def _match_pH_condition_db(pH_condition: str, site_pH: float | None) -> bool:
+    """检查场地 pH 是否匹配数据库阈值记录的 pH_condition。
+
+    GB15618 的 pH 分档格式(数据库 pH_condition 列):
+      pH<=5.5 / 5.5<pH<=6.5 / 6.5<pH<=7.5 / pH>7.5
+    GB36600: not_applicable (建设用地不分 pH)
+    """
+    if not pH_condition or pH_condition == "not_applicable":
+        return True
+    if site_pH is None:
+        return False  # 阈值有 pH 条件但场地无 pH → 不匹配
+
+    cond = pH_condition.strip().replace(" ", "")
+
+    if cond.startswith("pH<="):
+        return site_pH <= float(cond.replace("pH<=", ""))
+    elif cond.startswith("pH>"):
+        return site_pH > float(cond.replace("pH>", "").replace("=", ""))
+    elif "<pH<=" in cond:
+        parts = cond.split("<pH<=")
+        return float(parts[0]) < site_pH <= float(parts[1])
+    elif "<pH<" in cond:
+        parts = cond.split("<pH<")
+        return float(parts[0]) < site_pH < float(parts[1])
+    return False
+
+
+_CANONICAL_TO_DB_NAME = {
+    "Cd_mgkg": "Cd", "Pb_mgkg": "Pb", "As_mgkg": "As",
+    "Cr_mgkg": "Cr", "Cr6_mgkg": "Cr(VI)",
+    "Hg_mgkg": "Hg", "Cu_mgkg": "Cu", "Zn_mgkg": "Zn",
+    "Ni_mgkg": "Ni", "pH": "pH",
+}
+
+
+def resolve_threshold_from_db(
+    db,
+    factor_canonical: str,
+    track: str = "prod",
+    site_pH: float | None = None,
+    land_use_type: str | None = None,
+) -> dict:
+    """从 StandardThreshold 表按 pH/land_use 动态查询阈值（P0-2）。
+
+    track: "prod"(GB15618农用地) / "eco"(GB36600建设用地)
+    返回 status: resolved / ambiguous / not_found
+    """
+    from app.models import StandardThreshold
+
+    standards = (["GB 15618-2018", "GB15618-2018"] if track == "prod"
+                 else ["GB 36600-2018", "GB36600-2018"])
+    db_factor_name = _CANONICAL_TO_DB_NAME.get(factor_canonical, factor_canonical)
+
+    rows = (db.query(StandardThreshold)
+            .filter(StandardThreshold.factor_name == db_factor_name,
+                    StandardThreshold.standard_code.in_(standards))
+            .all()) if standards else []
+
+    not_found_result = {
+        "threshold": None, "threshold_value": None, "threshold_unit": "mg/kg",
+        "threshold_standard": "", "threshold_version": "",
+        "pH_condition": "", "land_use_type": land_use_type or "",
+        "threshold_source_id": None,
+        "threshold_resolution_status": "not_found", "review_required": True,
+    }
+
+    if not rows:
+        return not_found_result
+
+    # pH 特殊处理（固定区间）
+    if factor_canonical == "pH":
+        return {
+            "threshold": {"type": "interval",
+                          "min": 5.5 if track == "prod" else 5.0,
+                          "max": 8.5 if track == "prod" else 8.3},
+            "threshold_value": None, "threshold_unit": "无量纲",
+            "threshold_standard": standards[0], "threshold_version": "2018",
+            "pH_condition": "", "land_use_type": land_use_type or "",
+            "threshold_source_id": rows[0].id if rows else None,
+            "threshold_resolution_status": "resolved", "review_required": False,
+        }
+
+    # 按 pH 条件筛选
+    matched = [r for r in rows if _match_pH_condition_db(r.pH_condition, site_pH)]
+
+    if len(matched) == 0:
+        return {**not_found_result,
+                "threshold_resolution_status": "ambiguous",
+                "note": f"因子 {factor_canonical} 需要 pH 确定阈值档，场地缺 pH"}
+
+    if len(matched) > 1:
+        # eco 轨道默认第二类用地
+        if track == "eco":
+            lu2 = [r for r in matched if "第二类" in (r.land_use_type or "")]
+            if len(lu2) == 1:
+                matched = lu2
+        if land_use_type:
+            lu_m = [r for r in matched if land_use_type in (r.land_use_type or "")]
+            if len(lu_m) == 1:
+                matched = lu_m
+        if len(matched) > 1:
+            return {**not_found_result,
+                    "threshold_resolution_status": "ambiguous",
+                    "threshold_standard": matched[0].standard_code,
+                    "note": f"因子 {factor_canonical} 匹配 {len(matched)} 条阈值，无法唯一确定"}
+
+    r = matched[0]
+    limit = float(r.screening_value) if r.screening_value is not None else None
+    return {
+        "threshold": {"type": "upper", "limit": limit},
+        "threshold_value": limit,
+        "threshold_unit": r.unit or "mg/kg",
+        "threshold_standard": r.standard_code,
+        "threshold_version": str(r.version),
+        "pH_condition": r.pH_condition or "",
+        "land_use_type": r.land_use_type or "",
+        "threshold_source_id": r.id,
+        "threshold_resolution_status": "resolved",
+        "review_required": False,
+    }
