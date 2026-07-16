@@ -125,18 +125,20 @@ class TestPOpenSetRecognition:
     def test_14_mixed_four_layers(self):
         """14. 一个文件同时含正式、候选、族群、未知四类因子"""
         raw = {
-            "镉": 0.5,           # formal (有阈值)
+            "镉": 0.5,           # formal_eligible (有阈值, 未超标→formal_eligible)
             "苯并芘": 0.8,       # model_candidate 或 family
             "荧蒽": 3.0,         # family_alert (PAH)
             "某神秘化合物": 2.0,  # unknown_measured
         }
         result = classify_open_set(raw, KNOWN_CANONICAL, MODEL_FEATURES, KNOWN_THRESHOLDS)
         summary = result["open_set_summary"]
-        assert summary["n_formal"] >= 1, f"应有 formal, 实际={summary}"
+        # M0-3: 区分 formal_eligible/formal_obstacle
+        assert summary["n_formal_eligible"] >= 1, f"应有 formal_eligible, 实际={summary}"
         assert summary["n_family_alert"] >= 1 or summary["n_model_candidate"] >= 1
         assert summary["n_unknown"] >= 1
-        # 四层都有数据(formal + 候选/族群 + unknown)
-        total = summary["n_formal"] + summary["n_model_candidate"] + summary["n_family_alert"] + summary["n_unknown"]
+        # 四层都有数据
+        total = (summary["n_formal_eligible"] + summary["n_model_candidate"] +
+                 summary["n_family_alert"] + summary["n_unknown"])
         assert total >= 4
 
     def test_15_unknown_no_crash(self):

@@ -247,6 +247,7 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
 
     # P0-OPEN-4: 开放集分层识别 — 对所有实测因子做四层分类(formal/candidate/family/unknown)
     # 不丢弃任何因子, 未收录因子进入 candidate/family_alert/unknown_measured
+    # M0-3: 开放集分层识别 — 删除 except pass, 失败时返回 open_set_status="failed"
     try:
         from app.services.open_set_classifier import classify_open_set
         from app.services.factor_normalizer import _ALIAS_TO_CANONICAL
@@ -255,18 +256,39 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
         model_features = set()
         for mc in result.get("model_contribution", []):
             model_features.add(mc.get("factor", ""))
-        # 有阈值的 canonical(从 kos_service 的阈值表)
-        from app.services.kos_service import PROD_THRESHOLDS, ECO_THRESHOLDS, PH_THRESHOLD
-        thr_map = PROD_THRESHOLDS if track == "prod" else ECO_THRESHOLDS
-        thr_map = {**thr_map, "pH": PH_THRESHOLD.get(track, {})}
+        # M0-2: 用本次诊断的动态阈值结果(而非硬编码), 从 key_obstacles 提取已解析阈值
+        thr_map = {}
+        for k in result.get("key_obstacles", []):
+            fac = k.get("factor")
+            tv = k.get("threshold_value")
+            if fac and tv is not None:
+                thr_map[fac] = {"type": "upper", "limit": tv}
+        # pH 阈值
+        from app.services.kos_service import PH_THRESHOLD
+        thr_map["pH"] = PH_THRESHOLD.get(track, {})
+
         open_set = classify_open_set(site_values, known_canonical, model_features, thr_map)
         result["open_set"] = open_set
         result["open_set_summary"] = open_set["open_set_summary"]
         result["unknown_measured_factors"] = open_set["unknown_measured"]
         result["family_alerts"] = open_set["family_alerts"]
         result["model_candidates"] = open_set["model_candidates"]
-    except Exception:
-        pass  # 开放集识别失败不影响主诊断流程
+        result["open_set_status"] = "ok"
+        result["review_required"] = result.get("review_required", False) or open_set["open_set_summary"]["n_unknown"] > 0
+    except Exception as e:
+        # M0-3: 不静默吞异常, 返回失败状态
+        result["open_set_status"] = "failed"
+        result["open_set_error_code"] = type(e).__name__
+        result["open_set_error_message"] = str(e)[:200]
+        result["unknown_measured_factors"] = []
+        result["family_alerts"] = []
+        result["model_candidates"] = []
+        result["open_set_summary"] = {"n_formal": 0, "n_model_candidate": 0,
+                                       "n_family_alert": 0, "n_unknown": 0,
+                                       "n_unit_conflict": 0, "n_mapping_conflict": 0}
+        result.setdefault("data_quality_flags", []).append(
+            f"open_set_failed: {type(e).__name__}: {str(e)[:100]}")
+        result["review_required"] = True
 
     result["site_id"] = site_id
     result["site_name"] = site.name

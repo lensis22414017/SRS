@@ -1,4 +1,4 @@
-"""open_set_classifier.py — 开放集障碍因子分层识别（P0-OPEN-1/2/3）
+"""open_set_classifier.py — 开放集障碍因子分层识别（P0-OPEN-1/2/3, M0-3/4 修订）
 
 把甲方上传的每一个实测因子分到四种状态:
   A. formal_obstacle: 精确匹配+单位兼容+有阈值+规则判障碍 → 进正式KOS
@@ -6,10 +6,16 @@
   C. family_alert: 未收录但可归入化学族群 → 族群级预警(人工复核)
   D. unknown_measured: 无法识别 → 保留原始数据(不丢弃)
 
+M0-4 修订(纠正虚假声明):
+- 族群归类算法正式命名为"规则型族群归类"(非ML聚类)
+- 不声称 CAS 优先查询/最近簇距离/参考分布相似度
+- FAMILY_CLUSTER_MAX_DISTANCE 已删除(未实际使用)
+- 族群匹配基于受控关键词字典,非机器学习
+
 设计原则(遵守 GPT 审计):
 - 不丢弃任何实测因子
 - 不强行映射到已有因子
-- 最近簇识别优先 CAS/族群/单位, 字符串相似度仅低权重辅助
+- 族群识别基于受控关键词字典(规则型),字符串包含仅辅助
 - 族群匹配需可解释理由+置信度
 - candidate_attention_score 不得与正式 KOS 混用
 """
@@ -26,8 +32,8 @@ import yaml
 _ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 # ── 配置项(GPT 要求可配置,不得声称已有科学外部校准) ──
-FAMILY_MATCH_MIN_CONFIDENCE = 0.5       # 族群匹配最低置信度
-FAMILY_CLUSTER_MAX_DISTANCE = 0.7       # 最近簇最大距离(超过则降级unknown)
+FAMILY_MATCH_MIN_CONFIDENCE = 0.5       # 族群匹配最低置信度(规则型,非ML)
+# M0-4: FAMILY_CLUSTER_MAX_DISTANCE 已删除(未实际参与计算, 属于虚假声明)
 # candidate_attention_score 的启发式权重(标注 heuristic,非科学验证)
 HEURISTIC_WEIGHTS = {
     "empirical_anomaly": 0.35,
@@ -188,7 +194,11 @@ def classify_factor(
 
 
 def _try_family_match(raw_name: str, value: float, unit: str | None) -> dict:
-    """尝试族群级匹配(P0-OPEN-2)。优先 CAS/族群关键词,字符串相似度仅辅助。"""
+    """规则型族群归类(M0-4: 非ML聚类,基于受控关键词字典)。
+
+    优先级: 族群关键词精确包含 → 单位维度兼容 → 形态冲突检查
+    不使用 CAS 查询/最近簇距离/参考分布相似度(这些是未实现的虚假声明,已删除)。
+    """
     name_norm = _norm(raw_name)
     best_family = None
     best_confidence = 0.0
@@ -266,7 +276,8 @@ def classify_open_set(
         formal_eligible / model_candidates / family_alerts / unknown_measured
     """
     units = units or {}
-    formal_eligible = []
+    formal_eligible = []      # 有阈值身份明确(不论是否超标)
+    formal_obstacles = []     # formal_eligible 中规则确认超标的子集
     model_candidates = []
     family_alerts = []
     unknown_measured = []
@@ -280,10 +291,31 @@ def classify_open_set(
         layer = result.get("layer", "unknown_measured")
         if layer == "formal_eligible":
             formal_eligible.append(result)
+            # M0-3: 检查是否规则确认超标 → formal_obstacle
+            thr = result.get("threshold")
+            canonical = result.get("canonical")
+            if thr and canonical and value is not None:
+                ttype = thr.get("type", "upper")
+                limit = thr.get("limit")
+                is_obstacle = False
+                if ttype == "upper" and limit and value > limit:
+                    is_obstacle = True
+                elif ttype == "lower" and limit and value < limit:
+                    is_obstacle = True
+                elif ttype == "interval":
+                    lo, hi = thr.get("min"), thr.get("max")
+                    if lo is not None and hi is not None and not (lo <= value <= hi):
+                        is_obstacle = True
+                result["is_formal_obstacle"] = is_obstacle
+                if is_obstacle:
+                    formal_obstacles.append(result)
+            else:
+                result["is_formal_obstacle"] = False
         elif layer == "model_candidate":
             model_candidates.append(result)
         elif layer == "family_alert":
             family_alerts.append(result)
+            # M0-3: 单位不兼容导致置信度降低 → 真实计数
             if result.get("family_match_confidence", 1.0) < FAMILY_MATCH_MIN_CONFIDENCE:
                 n_unit_conflict += 1
         elif layer == "unknown_measured":
@@ -297,13 +329,23 @@ def classify_open_set(
         elif layer == "skipped":
             continue
 
+    # M0-3: mapping_conflict 真实计数(同一 canonical 多来源)
+    canonical_sources: dict[str, int] = {}
+    for r in formal_eligible + model_candidates:
+        c = r.get("canonical")
+        if c:
+            canonical_sources[c] = canonical_sources.get(c, 0) + 1
+    n_mapping_conflict = sum(1 for c, n in canonical_sources.items() if n > 1)
+
     return {
         "formal_eligible": formal_eligible,
+        "formal_obstacles": formal_obstacles,
         "model_candidates": model_candidates,
         "family_alerts": family_alerts,
         "unknown_measured": unknown_measured,
         "open_set_summary": {
-            "n_formal": len(formal_eligible),
+            "n_formal_eligible": len(formal_eligible),
+            "n_formal_obstacle": len(formal_obstacles),
             "n_model_candidate": len(model_candidates),
             "n_family_alert": len(family_alerts),
             "n_unknown": len(unknown_measured),
