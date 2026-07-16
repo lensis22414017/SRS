@@ -1,66 +1,66 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" font-family="'Helvetica Neue','Arial','Microsoft YaHei',sans-serif">
   <defs>
-    <linearGradient id="bgR" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
-    <marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#64748b"/></marker>
-    <filter id="shR" x="-5%" y="-5%" width="110%" height="115%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/></filter>
+    <linearGradient id="bgR2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <marker id="arR2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#64748b"/></marker>
+    <filter id="shR2" x="-5%" y="-5%" width="110%" height="115%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
   </defs>
-  <rect width="900" height="420" fill="url(#bgR)" rx="12"/>
-  <text x="450" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1e293b">功能重构可行性评价 — 生态 + 生产双维度量化</text>
-  <line x1="100" y1="48" x2="800" y2="48" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect width="900" height="440" fill="url(#bgR2)" rx="12"/>
+  <text x="450" y="36" text-anchor="middle" font-size="19" font-weight="700" fill="#1e293b">功能重构可行性评价 — 生态 + 生产双维度量化</text>
+  <line x1="80" y1="50" x2="820" y2="50" stroke="#cbd5e1" stroke-width="1.5"/>
 
-  <!-- Input section -->
-  <rect x="30" y="65" width="170" height="300" rx="8" fill="#dbeafe" opacity="0.25"/>
-  <text x="115" y="85" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">输入数据</text>
-  <rect x="40" y="98" width="150" height="40" rx="6" fill="#bfdbfe" filter="url(#shR)"/><text x="115" y="123" text-anchor="middle" font-size="11" fill="#1e3a5f">障碍因子诊断结果</text>
-  <rect x="40" y="148" width="150" height="40" rx="6" fill="#bfdbfe" filter="url(#shR)"/><text x="115" y="173" text-anchor="middle" font-size="11" fill="#1e3a5f">场地理化指标</text>
-  <rect x="40" y="198" width="150" height="40" rx="6" fill="#bfdbfe" filter="url(#shR)"/><text x="115" y="223" text-anchor="middle" font-size="11" fill="#1e3a5f">评价指标体系</text>
-  <rect x="40" y="248" width="150" height="40" rx="6" fill="#bfdbfe" filter="url(#shR)"/><text x="115" y="273" text-anchor="middle" font-size="11" fill="#1e3a5f">权重配置</text>
+  <!-- Input -->
+  <rect x="30" y="65" width="150" height="200" rx="8" fill="#dbeafe" opacity="0.25" stroke="#3b82f6" stroke-width="1.5" filter="url(#shR2)"/>
+  <text x="105" y="87" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">输入</text>
+  <text x="105" y="110" text-anchor="middle" font-size="10" fill="#1e3a5f">障碍因子诊断</text>
+  <text x="105" y="130" text-anchor="middle" font-size="10" fill="#1e3a5f">场地理化指标</text>
+  <text x="105" y="150" text-anchor="middle" font-size="10" fill="#1e3a5f">评价指标体系</text>
+  <text x="105" y="170" text-anchor="middle" font-size="10" fill="#1e3a5f">权重配置</text>
+  <text x="105" y="200" text-anchor="middle" font-size="9" fill="#64748b">AHP + 熵值法</text>
+  <text x="105" y="214" text-anchor="middle" font-size="9" fill="#64748b">组合赋权</text>
 
-  <!-- Arrow to process -->
-  <path d="M200 200 L240 200" stroke="#64748b" stroke-width="2" marker-end="url(#arrR)" fill="none"/>
+  <path d="M180 165 L215 165" stroke="#64748b" stroke-width="2" marker-end="url(#arR2)" fill="none"/>
 
-  <!-- Dual track: Production & Ecology -->
   <!-- Production track -->
-  <rect x="245" y="65" width="230" height="145" rx="8" fill="#fef3c7" opacity="0.3" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="360" y="85" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">生产功能维度</text>
-  <rect x="260" y="98" width="200" height="26" rx="4" fill="#fde68a"/><text x="360" y="115" text-anchor="middle" font-size="10" fill="#78350f">肥力指标（有机质·N·P·K）</text>
-  <rect x="260" y="128" width="200" height="26" rx="4" fill="#fde68a"/><text x="360" y="145" text-anchor="middle" font-size="10" fill="#78350f">结构指标（容重·质地·团聚体）</text>
-  <rect x="260" y="158" width="200" height="26" rx="4" fill="#fde68a"/><text x="360" y="175" text-anchor="middle" font-size="10" fill="#78350f">水分指标（持水量·渗透性）</text>
-  <rect x="260" y="188" width="200" height="20" rx="4" fill="#fbbf24"/><text x="360" y="202" text-anchor="middle" font-size="10" font-weight="600" fill="#78350f">污染胁迫（超标因子）→ 加权得分</text>
+  <rect x="220" y="65" width="250" height="95" rx="8" fill="#dbeafe" opacity="0.25" stroke="#3b82f6" stroke-width="1.5" filter="url(#shR2)"/>
+  <text x="345" y="87" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">生产功能维度</text>
+  <text x="235" y="108" font-size="10" fill="#1e3a5f">肥力（有机质·N·P·K）</text>
+  <text x="235" y="124" font-size="10" fill="#1e3a5f">结构（容重·质地·团聚体）</text>
+  <text x="235" y="140" font-size="10" fill="#1e3a5f">水分（持水量·渗透性）</text>
+  <text x="235" y="156" font-size="10" fill="#1e3a5f">污染胁迫（超标因子）</text>
 
   <!-- Ecology track -->
-  <rect x="245" y="225" width="230" height="145" rx="8" fill="#d1fae5" opacity="0.3" stroke="#10b981" stroke-width="1.5"/>
-  <text x="360" y="245" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">生态功能维度</text>
-  <rect x="260" y="258" width="200" height="26" rx="4" fill="#a7f3d0"/><text x="360" y="275" text-anchor="middle" font-size="10" fill="#064e3b">生物多样性指标</text>
-  <rect x="260" y="288" width="200" height="26" rx="4" fill="#a7f3d0"/><text x="360" y="305" text-anchor="middle" font-size="10" fill="#064e3b">栖息地功能</text>
-  <rect x="260" y="318" width="200" height="26" rx="4" fill="#a7f3d0"/><text x="360" y="335" text-anchor="middle" font-size="10" fill="#064e3b">缓冲与自净能力</text>
-  <rect x="260" y="348" width="200" height="20" rx="4" fill="#34d399"/><text x="360" y="362" text-anchor="middle" font-size="10" font-weight="600" fill="#064e3b">综合评价 → 加权得分</text>
+  <rect x="220" y="170" width="250" height="95" rx="8" fill="#d1fae5" opacity="0.25" stroke="#10b981" stroke-width="1.5" filter="url(#shR2)"/>
+  <text x="345" y="192" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">生态功能维度</text>
+  <text x="235" y="213" font-size="10" fill="#064e3b">生物多样性</text>
+  <text x="235" y="229" font-size="10" fill="#064e3b">栖息地功能</text>
+  <text x="235" y="245" font-size="10" fill="#064e3b">缓冲与自净能力</text>
+  <text x="235" y="261" font-size="10" fill="#064e3b">生态服务功能</text>
 
-  <!-- Arrows to convergence -->
-  <path d="M475 137 L520 180" stroke="#64748b" stroke-width="2" marker-end="url(#arrR)" fill="none"/>
-  <path d="M475 297 L520 250" stroke="#64748b" stroke-width="2" marker-end="url(#arrR)" fill="none"/>
+  <path d="M470 112 L515 180" stroke="#64748b" stroke-width="2" marker-end="url(#arR2)" fill="none"/>
+  <path d="M470 217 L515 195" stroke="#64748b" stroke-width="2" marker-end="url(#arR2)" fill="none"/>
 
-  <!-- Convergence: comprehensive score -->
-  <rect x="510" y="190" width="120" height="60" rx="30" fill="#8b5cf6" filter="url(#shR)"/>
-  <text x="570" y="215" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">综合得分</text>
-  <text x="570" y="233" text-anchor="middle" font-size="11" fill="#e0e7ff">加权合成</text>
+  <!-- Convergence -->
+  <circle cx="550" cy="187" r="35" fill="#7c3aed" filter="url(#shR2)"/>
+  <text x="550" y="184" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">综合</text>
+  <text x="550" y="200" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">得分</text>
 
-  <!-- Arrow to grade -->
-  <path d="M630 220 L670 220" stroke="#64748b" stroke-width="2" marker-end="url(#arrR)" fill="none"/>
+  <path d="M585 187 L620 187" stroke="#64748b" stroke-width="2" marker-end="url(#arR2)" fill="none"/>
 
-  <!-- Grade outputs -->
-  <rect x="670" y="120" width="200" height="245" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
-  <text x="770" y="140" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">可行性等级判定</text>
-  <rect x="685" y="152" width="170" height="30" rx="6" fill="#10b981" opacity="0.2"/><text x="770" y="171" text-anchor="middle" font-size="11" font-weight="600" fill="#065f46">高可行（≥75分）</text>
-  <rect x="685" y="188" width="170" height="30" rx="6" fill="#3b82f6" opacity="0.2"/><text x="770" y="207" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">中可行（50-74分）</text>
-  <rect x="685" y="224" width="170" height="30" rx="6" fill="#f59e0b" opacity="0.2"/><text x="770" y="243" text-anchor="middle" font-size="11" font-weight="600" fill="#92400e">低可行（25-49分）</text>
-  <rect x="685" y="260" width="170" height="30" rx="6" fill="#ef4444" opacity="0.2"/><text x="770" y="279" text-anchor="middle" font-size="11" font-weight="600" fill="#991b1b">不可行（&lt;25分）</text>
-  <line x1="685" y1="305" x2="855" y2="305" stroke="#cbd5e1"/>
-  <text x="770" y="322" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">限制因子清单</text>
-  <text x="770" y="340" text-anchor="middle" font-size="10" fill="#64748b">单项低于阈值的瓶颈因子</text>
-  <text x="770" y="356" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">双维度雷达图 + PDF报告</text>
+  <!-- Output -->
+  <rect x="625" y="65" width="245" height="200" rx="8" fill="#f1f5f9" stroke="#cbd5e1" filter="url(#shR2)"/>
+  <text x="747" y="87" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">可行性等级</text>
+  <line x1="640" y1="95" x2="855" y2="95" stroke="#e2e8f0"/>
+  <rect x="640" y="102" width="215" height="26" rx="4" fill="#d1fae5" opacity="0.4"/><text x="747" y="120" text-anchor="middle" font-size="11" font-weight="600" fill="#065f46">高可行 ≥ 75 分</text>
+  <rect x="640" y="132" width="215" height="26" rx="4" fill="#dbeafe" opacity="0.4"/><text x="747" y="150" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">中可行 50-74 分</text>
+  <rect x="640" y="162" width="215" height="26" rx="4" fill="#fef3c7" opacity="0.4"/><text x="747" y="180" text-anchor="middle" font-size="11" font-weight="600" fill="#92400e">低可行 25-49 分</text>
+  <rect x="640" y="192" width="215" height="26" rx="4" fill="#fee2e2" opacity="0.4"/><text x="747" y="210" text-anchor="middle" font-size="11" font-weight="600" fill="#991b1b">不可行 &lt; 25 分</text>
+  <line x1="640" y1="228" x2="855" y2="228" stroke="#e2e8f0"/>
+  <text x="747" y="244" text-anchor="middle" font-size="10" font-weight="600" fill="#334155">限制因子清单</text>
+  <text x="747" y="258" text-anchor="middle" font-size="9" fill="#64748b">单项 &lt; 阈值 + 雷达图 + PDF</text>
 
-  <!-- Bottom standard -->
-  <rect x="30" y="385" width="840" height="25" rx="6" fill="#f1f5f9"/>
-  <text x="450" y="402" text-anchor="middle" font-size="10" fill="#64748b">依据：HJ 25.5-2018 风险管控与修复效果评估 · GB 15618-2018 农用地标准 · 指标归一化极差法 + 熵权法/专家权重</text>
+  <!-- Bottom -->
+  <rect x="30" y="320" width="840" height="56" rx="8" fill="#fff" stroke="#e2e8f0"/>
+  <text x="50" y="340" font-size="11" font-weight="600" fill="#334155">权重体系</text>
+  <text x="50" y="358" font-size="10" fill="#64748b">W = Normalize(0.5 × 准则层权重 + 0.4 × 指标层权重 + 0.1 × 标准优先级修正) — 锚定课题二 AHP/熵值组合赋权</text>
+  <text x="450" y="400" text-anchor="middle" font-size="10" fill="#64748b">依据：HJ 25.5-2018 · GB 15618-2018 · 极差归一化 + 熵权法 · 课题二功能重构评价体系</text>
 </svg>
