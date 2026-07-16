@@ -85,6 +85,22 @@ std_dir = PROJECT_ROOT / "data" / "standards"
 if std_dir.is_dir() and any(std_dir.glob("*.csv")):
     added_files.append((str(std_dir), "data/standards"))
 
+# M0-9: 开放集识别运行时必需的知识库文件(别名表 / 单位转换 / 族群库 / 化合物别名)
+# 这些文件由 factor_normalizer.py + open_set_classifier.py 在运行时按需读取,
+# 单独追加(非整目录打包)以避免把 data/knowledge 全量分发(部分文件仅开发态使用)。
+_knowledge_dir = PROJECT_ROOT / "data" / "knowledge"
+if _knowledge_dir.is_dir():
+    # 别名与单位转换(factor_normalizer 必读)
+    for _kn in ("factor_aliases_v0.8.yaml", "unit_conversion_rules_v0.8.yaml"):
+        _kf = _knowledge_dir / _kn
+        if _kf.is_file():
+            added_files.append((str(_kf), "data/knowledge"))
+    # 族群库 + 化合物别名(open_set_classifier 必读)
+    for _kn in ("family_factor_library_v0.8.csv", "compound_aliases_v0.8.yaml"):
+        _kf = _knowledge_dir / _kn
+        if _kf.is_file():
+            added_files.append((str(_kf), "data/knowledge"))
+
 # ML 源码子目录: 后端服务运行时 sys.path.insert(resource_root()/ml/<sub>) 后再 import,
 # 这些 .py 必须随包分发, 否则打包后 诊断/评价/推荐/知识库入库 会 ImportError。
 for _sub in ("etl", "models", "explain", "recommend", "evaluation", "cleaning", "eda", "params", "covariates"):
@@ -127,8 +143,9 @@ hidden_imports = [
     "webview.platforms.gtk",
     # pkg_resources 运行时依赖(weasyprint/reportlab 间接引入)
     "jaraco", "jaraco.text", "jaraco.functools", "jaraco.context",
-    # 内置 API key(打包版预配, 开发版不存在则静默跳过)
-    "builtin_keys",
+    # M0-9: builtin_keys 已移除(hiddenimports + launcher inject_builtin_keys)
+    # builtin_keys.py 仍保留在 packaging/ 供开发态使用, .gitignore 已排除,
+    # 不再随包分发也不再自动注入; 用户需在「系统管理页」手动配置 AI/高德 key。
 ]
 
 # ── 排除模块 ────────────────────────────────────────────────────

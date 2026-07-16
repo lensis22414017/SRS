@@ -446,6 +446,13 @@ def collect(db: Session, site_id: int, version: str) -> dict:
         "standard_versions": _standard_versions(db),
         "workflow": workflow,
         "attachments": attachments, "audit_logs": audit_ctx,
+        # M0-5: 开放集识别结果(辅助识别 · 非法规超标)
+        # 来自 KOS 诊断时的开放集四层分类; 报告生成路径尚未实时调用 classify_open_set,
+        # 因此默认为空列表(模板会渲染为"无"), 后续如持久化开放集结果可在此注入。
+        "formal_obstacles": [],
+        "model_candidates": [],
+        "family_alerts": [],
+        "unknown_measured": [],
         "report": {"version": version, "template_version": TEMPLATE_VERSION,
                    "data_version": diag.data_version if diag else f"site{site_id}",
                    "standard_version": "GB15618/GB36600/HJ25.5-2018",

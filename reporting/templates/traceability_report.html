@@ -166,6 +166,56 @@
   <div class="muted">{{ diagnosis.summary }}</div>
   {% else %}<div class="muted">本场地的障碍因子诊断尚未运行。请在「障碍因子诊断」页面执行生产轨/生态轨诊断后，重新生成本报告以获取 KOS 关键障碍因子排名、超标分析等完整内容。</div>{% endif %}
 
+  <h2>八.5 开放集识别结果（辅助识别 · 非法规超标结论）</h2>
+  <div class="muted">本节列出三类辅助识别结果：模型候选障碍、族群级预警、未知实测因子。这些结果与第八章「关键障碍因子 Top-N」严格区分，不属于法规超标判定，仅供人工复核与补测决策参考。</div>
+
+  <h3 style="margin-top:8pt">① 模型候选障碍（{{ model_candidates|length if model_candidates else 0 }}）</h3>
+  <div class="muted" style="margin-bottom:4pt">模型或文献数据提示其值得关注，但不属于法规超标结论。</div>
+  {% if model_candidates and model_candidates|length > 0 %}
+  <table>
+    <tr><th>原始名称</th><th>规范名称</th><th>候选原因</th><th>模型贡献</th><th>需复核</th></tr>
+    {% for c in model_candidates %}
+    <tr><td>{{ c.original_name }}</td><td>{{ c.canonical or '—' }}</td>
+        <td class="muted">{{ c.reason or '—' }}</td>
+        <td>{% set _att = c.candidate_attention %}{% if _att is mapping %}{{ (_att.candidate_attention_score if _att.candidate_attention_score is not none else '—') }}{% elif _att is not none %}{{ _att }}{% else %}—{% endif %}</td>
+        <td>{{ '是' if c.review_required else '否' }}</td></tr>
+    {% endfor %}
+  </table>
+  {% else %}<div class="muted">无</div>{% endif %}
+
+  <h3 style="margin-top:8pt">② 族群级预警（{{ family_alerts|length if family_alerts else 0 }}）</h3>
+  <div class="muted" style="margin-bottom:4pt">族群归类属于规则型辅助识别，不等同于具体化合物确认或法规判定。</div>
+  {% if family_alerts and family_alerts|length > 0 %}
+  <table>
+    <tr><th>原始名称</th><th>匹配族群</th><th>置信度</th><th>匹配理由</th><th>原始单位</th><th>需复核</th></tr>
+    {% for f in family_alerts %}
+    <tr><td>{{ f.original_name }}</td>
+        <td>{{ f.matched_family or '—' }}</td>
+        <td>{{ f.family_match_confidence if f.family_match_confidence is not none else '—' }}</td>
+        <td class="muted">{{ (f.family_match_reasons|join('；')) if f.family_match_reasons else '—' }}</td>
+        <td>{{ f.original_unit or '—' }}</td>
+        <td>{{ '是' if f.review_required else '否' }}</td></tr>
+    {% endfor %}
+  </table>
+  {% else %}<div class="muted">无</div>{% endif %}
+
+  <h3 style="margin-top:8pt">③ 未知实测因子（{{ unknown_measured|length if unknown_measured else 0 }}）</h3>
+  <div class="muted" style="margin-bottom:4pt">系统已保留该项实测数据，但目前无法可靠映射，建议补充 CAS、单位或检测方法。</div>
+  {% if unknown_measured and unknown_measured|length > 0 %}
+  <table>
+    <tr><th>原始名称</th><th>单位</th><th>最大值</th><th>中位数</th><th>P95</th><th>点位数</th><th>未识别原因</th></tr>
+    {% for u in unknown_measured %}
+    <tr><td>{{ u.original_name }}</td>
+        <td>{{ u.original_unit or '—' }}</td>
+        <td>{{ u.max if u.max is not none else '—' }}</td>
+        <td>{{ u.median if u.median is not none else '—' }}</td>
+        <td>{{ u.p95 if u.p95 is not none else '—' }}</td>
+        <td>{{ u.n_points if u.n_points is not none else '—' }}</td>
+        <td class="muted">{{ u.unknown_reason or '—' }}</td></tr>
+    {% endfor %}
+  </table>
+  {% else %}<div class="muted">无</div>{% endif %}
+
   <h2>九、功能重构可行性评价</h2>
   {% for ev in reconstruction %}
   <table class="kv">

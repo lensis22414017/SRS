@@ -39,3 +39,42 @@ def _srs_reset_engine():
     except Exception:
         pass
     yield
+
+
+@pytest.fixture(autouse=True)
+def _srs_isolate_db_per_test():
+    """M0-8: 每个测试函数独立 DB 隔离。
+
+    问题: 所有测试共用 srs_test_session.db, 测试间数据残留 + SQLite WAL 锁竞争
+    导致全量混跑 71 个失败(单独跑全过)。
+
+    方案: 每个测试前 drop+create+seed, 确保干净状态。
+    只对需要 DB 的测试生效(纯算法测试无副作用)。
+    """
+    # 测试前: 重置 DB 到干净种子状态
+    try:
+        from app.db.session import reset_engine_for_tests, SessionLocal
+        from app.db.init_db import create_all
+        from app.db.seed_db import seed_if_empty
+        from sqlalchemy import inspect as sa_inspect
+
+        # drop all + recreate + seed
+        from app.db import session as _session_mod
+        from app.models import Base
+        Base.metadata.drop_all(bind=_session_mod.engine)
+        Base.metadata.create_all(bind=_session_mod.engine)
+        db = SessionLocal()
+        try:
+            seed_if_empty(db)
+            db.close()
+        except Exception:
+            pass
+    except Exception:
+        pass  # 无 SQLAlchemy 环境跳过(纯算法测试)
+    yield
+    # 测试后: 清理 session 连接(释放 SQLite WAL 锁)
+    try:
+        from app.db.session import SessionLocal
+        SessionLocal.remove() if hasattr(SessionLocal, 'remove') else None
+    except Exception:
+        pass
