@@ -842,7 +842,7 @@ function AboutSystem() {
         <Descriptions bordered size="small" column={2}>
           <Descriptions.Item label="后端">FastAPI + SQLAlchemy</Descriptions.Item>
           <Descriptions.Item label="前端">React + Ant Design + ECharts</Descriptions.Item>
-          <Descriptions.Item label="算法">双轨防泄漏 RF + SHAP (CV Spearman 0.85+)</Descriptions.Item>
+          <Descriptions.Item label="算法">KOS 关键障碍因子综合评分 (规则主导 + 模型辅助, CV Spearman 0.85+)</Descriptions.Item>
           <Descriptions.Item label="协变量">GEE (MODIS/WorldClim/SRTM/SoilGrids2.0)</Descriptions.Item>
           <Descriptions.Item label="报告">Jinja2 + WeasyPrint/xhtml2pdf</Descriptions.Item>
           <Descriptions.Item label="数据库">SQLite (桌面) / PostgreSQL (生产)</Descriptions.Item>

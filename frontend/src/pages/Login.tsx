@@ -16,7 +16,7 @@ const ROLE_CARDS = [
     desc: "全功能访问，用户审核，系统配置", color: "#2c5282",
     username: "admin", roleCode: "admin" },
   { icon: <TeamOutlined />, label: "企业用户",
-    desc: "场地数据录入，方案生成，流程上传", color: "#1B7837",
+    desc: "方案上传与审批，场地修复施工，监理数据录入", color: "#1B7837",
     username: "", roleCode: "enterprise" },
   { icon: <ExperimentOutlined />, label: "第三方机构",
     desc: "检测/评估，授权项目数据上传", color: "#3680ae",
@@ -120,8 +120,8 @@ export default function Login() {
                 onClick={() => handleRoleCardClick(r)}
               >
                 <div style={{ fontSize: 18, color: r.color, marginBottom: 2 }}>{r.icon}</div>
-                <div style={{ fontSize: 11, fontWeight: 600, color: "#333", lineHeight: 1.3 }}>{r.label}</div>
-                <div style={{ fontSize: 9, color: "#999", lineHeight: 1.2, marginTop: 2 }}>{r.desc}</div>
+                <div style={{ fontSize: 11, fontWeight: 600, color: "#333", lineHeight: 1.3, whiteSpace: "nowrap" }}>{r.label}</div>
+                <div style={{ fontSize: 9, color: "#999", lineHeight: 1.4, marginTop: 2 }}>{r.desc}</div>
               </div>
             </Col>
           ))}
