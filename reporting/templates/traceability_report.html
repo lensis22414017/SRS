@@ -130,10 +130,17 @@
     <tr><td>超标提示</td><td>{{ validation.n_exceed }} 项，涉及因子：{{ validation.exceed_factors|join('、') or '无' }}</td></tr>
   </table>
 
+  <h2>七.5、报告口径与结果范围说明</h2>
+  <table class="kv">
+    <tr><td>正式超标结论范围</td><td>正式超标结论仅限于身份明确、单位兼容且阈值适用的因子。对没有适用阈值或未被正式因子库收录的实测指标，系统仍通过模型候选识别、族群级近邻分析和未知因子预警进行辅助识别，不会丢弃数据或强行套用标准。探索性识别结果不等同于法规超标判定，需结合检测方法和专家复核。</td></tr>
+    <tr><td>验证范围</td><td>当前完成 3 个原始场地的工程回归验证 + 15 个合成数据演示，尚未开展跨区域大规模独立验证。报告结论作为辅助决策依据，不构成监管级科学可信判定。</td></tr>
+    <tr><td>方法学口径</td><td>采用规则、模型和开放集识别相结合的混合策略（非纯数据驱动）。AI 润色文本经事实校验但仍有降级回退机制；任何 AI 生成的描述均以原始检测数据为准。</td></tr>
+  </table>
+
   <h2>八、关键障碍因子识别（KOS 综合评分 · 规则主导 + 模型辅助）</h2>
   {% if map_summary.shap_image %}
   <img src="{{ map_summary.shap_image }}" alt="障碍因子排名图" style="width:92%;max-width:560px;margin:6pt 0;border:1px solid #eee"/>
-  <div class="muted" style="margin-bottom:6pt">图: Top-N 障碍因子排名(红=正向加重, 蓝=负向缓解, nature 顶刊配色)。</div>
+  <div class="muted" style="margin-bottom:6pt">图: Top-N 障碍因子模型全局贡献份额(红=正向加重, 蓝=负向缓解)。</div>
   {% endif %}
   {% if diagnosis %}
   <table class="kv">
@@ -247,7 +254,7 @@
 
   <div class="footer">
     报告版本 {{ report.version }}｜模板 {{ report.template_version }}｜数据版本快照 {{ report.data_version }}｜
-    生成时间 {{ report.generated_at }}｜本报告由"污染场地土壤生态-生产功能重构监管系统"自动生成，结论基于上述实测数据与标注参数，可追溯、可重复生成。<br/>
+    生成时间 {{ report.generated_at }}｜本报告由"污染场地土壤生态-生产功能重构监管系统"自动生成，结论基于上述实测数据与标注参数，过程可追溯、可重复生成；正式超标判定仅限于身份明确、单位兼容且阈值适用的因子，其余识别结果为辅助决策参考，需结合检测方法和专家复核。<br/>
     Copyright © 2026 生态环境部土壤与农业农村生态环境监管技术中心
   </div>
 </body>

@@ -1,4 +1,4 @@
-"""障碍因子诊断: 取数 -> 特征对齐 -> RF 预测 -> SHAP -> 入库。
+"""障碍因子诊断: 取数 -> 特征对齐 -> RF 预测 -> SHAP(模型全局贡献份额) -> 入库。
 
 特征对齐策略(已确认"重标化/诚实标注"原则):
   - 场地因子经 feature_mapping.json 映射到训练特征;
@@ -483,14 +483,16 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
 
     model_rec = ensure_model_record(db, bundle)
     summary = (
-        f"基于 RF({bundle['version']}) + SHAP 对 {len(X)} 个采样点分析: "
+        f"基于 RF({bundle['version']}) + 模型全局贡献份额(SHAP) 对 {len(X)} 个采样点分析: "
         f"高风险概率均值 {float(proba.mean()):.2f}。"
-        f"Top{len(ranked)} 关键障碍因子(按全局|SHAP|): "
+        f"Top{len(ranked)} 关键障碍因子(按模型全局贡献份额 |SHAP|): "
         + ", ".join(_resolve_factor_name(g['feature'], feat2factor, fd_by_code)
                     for g in ranked)
         + "。注: 训练特征中 "
         + (f"{len(imputed)} 项在本场地无实测(以训练中位数填充, 未参与结论排名)。"
-           if imputed else "全部有实测。"))
+           if imputed else "全部有实测。")
+        + " 正式超标结论仅限身份明确、单位兼容且阈值适用因子；未收录因子进入候选/族群/未知分析, 探索性结果非法规判定。"
+    )
 
     calc_trace = [
         f"① 取场地长表透视为 {len(X)} 个采样点 × {len(bundle['feature_list'])} 特征矩阵。",
@@ -504,6 +506,7 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
             for g in ranked[:5])
         + ("…" if len(ranked) > 5 else "") + "。",
         f"⑥ 局部解释取风险概率最高采样点, SHAP 值绑定该样本入库, 全程可追溯到检测值。",
+        "⑦ 口径声明: 正式超标结论仅限于身份明确、单位兼容且阈值适用的因子；未收录因子进入候选/族群/未知因子分析(不丢弃、不强行套用阈值)。模型全局贡献份额(SHAP)为辅助参考, 非因果、非法规判定。当前完成 3 个原始场地工程回归验证 + 15 个合成数据演示, 结论作为辅助决策依据。",
     ]
     diag = DiagnosisResult(
         site_id=site_id, model_id=model_rec.id,

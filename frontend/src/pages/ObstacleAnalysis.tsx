@@ -252,7 +252,7 @@ export default function ObstacleAnalysis() {
                   style={{ marginBottom: 4, whiteSpace: "pre-wrap" }}>{diag?.summary || "—"}</Paragraph>
                 {diag?.polish_model && (
                   <Text type="secondary" style={{ fontSize: 11 }}>
-                    ⓘ 此结论由 AI 辅助生成（{diag?.polish_model}），仅供参考，以原始数据为准。
+                    ⓘ 此结论由 AI 辅助生成（{diag?.polish_model}），经事实校验但仍有降级回退机制，仅供参考，以原始数据为准。
                   </Text>
                 )}
               </Descriptions.Item>
@@ -443,7 +443,7 @@ export default function ObstacleAnalysis() {
               {kosData.organic_guardrails && (kosData.organic_guardrails.n_family_warning > 0 || kosData.organic_guardrails.n_unknown > 0) && (
                 <Alert type="warning" showIcon style={{ marginTop: 0 }}
                   message={`检测到 ${kosData.organic_guardrails.n_family_warning} 个族群未收录物质,${kosData.organic_guardrails.n_unknown} 个完全未知物质`}
-                  description={`这些物质无法自动判定障碍风险,已归入族群预警/送检建议。系统不会假装识别未知物质。请参考「建议补测」或安排深度检测。`} />
+                  description={`未收录因子不会丢失, 已进入模型候选识别、族群级近邻分析和未知因子预警(不强行套用阈值)。系统不会假装识别未知物质, 仅作为辅助识别参考, 非法规超标判定。请参考「建议补测」或安排深度检测。`} />
               )}
             </>
           )}
