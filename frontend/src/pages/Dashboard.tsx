@@ -138,9 +138,47 @@ export default function Dashboard() {
     color: POLLUTION_TYPE[s.pollution_type] || "#dc2626",  // 地图点位用语义色
   }));
 
-  // Round7 追加: 区域分布横向条形图(按省份统计场地数, 与超标排行并列展示)
+  // 区域分布(按省份统计场地数) — 去掉"省/自治区"后缀, 未知省份通过坐标反查
+  const cleanProvince = (p: string | null | undefined): string => {
+    if (!p || p === "unknown") return "";
+    return p.replace(/(省|自治区|维吾尔自治区|壮族自治区|回族自治区|特别行政区|市)$/g, "");
+  };
+  const coordToProvince = (lng: number | null, lat: number | null): string => {
+    if (lng == null || lat == null) return "";
+    const P = [
+      ["云南",[97.5,106.2],[21.1,29.2]],["广东",[109.7,117.2],[20.2,25.5]],
+      ["广西",[104.5,112.1],[20.9,26.4]],["福建",[115.8,120.6],[23.5,28.3]],
+      ["江西",[113.5,118.5],[24.5,30.1]],["湖南",[108.8,114.3],[24.6,30.1]],
+      ["贵州",[103.6,109.6],[24.6,29.2]],["四川",[97.3,108.5],[26.0,34.3]],
+      ["重庆",[105.3,110.2],[28.2,32.2]],["湖北",[108.4,116.1],[29.0,33.3]],
+      ["安徽",[114.9,119.7],[29.4,34.7]],["浙江",[118.0,122.9],[27.0,31.2]],
+      ["江苏",[116.3,121.9],[30.7,35.2]],["河南",[110.3,116.6],[31.4,36.4]],
+      ["山东",[114.8,122.7],[34.4,38.4]],["山西",[110.2,114.6],[34.5,40.7]],
+      ["河北",[113.4,119.8],[36.0,42.6]],["北京",[115.4,117.5],[39.4,41.1]],
+      ["辽宁",[118.8,125.8],[38.7,43.5]],["吉林",[121.6,131.2],[40.8,46.3]],
+      ["黑龙江",[121.2,135.1],[43.4,53.6]],["内蒙古",[97.2,126.0],[37.4,53.4]],
+      ["陕西",[105.5,111.2],[31.7,39.6]],["甘肃",[92.5,108.7],[32.3,42.8]],
+      ["宁夏",[104.3,107.7],[35.1,39.2]],["新疆",[73.5,96.4],[34.4,49.2]],
+      ["青海",[89.4,103.1],[31.6,39.2]],["西藏",[78.4,99.1],[26.8,36.5]],
+      ["海南",[108.6,111.3],[18.1,20.2]],
+    ] as const;
+    for (const [name,[a,b],[c,d]] of P) {
+      if (lng>=a&&lng<=b&&lat>=c&&lat<=d) return name as string;
+    }
+    return "";
+  };
+  const REGION_GRADIENT: [string,string][] = [
+    ["#0c4a6e","#0ea5e9"],["#134e4a","#14b8a6"],["#164e63","#0891b2"],
+    ["#1e3a5f","#3b82f6"],["#1a2e4f","#4f7cc8"],["#1e293b","#64748b"],
+    ["#334155","#7c8ba5"],["#3f4a5f","#8e9ab0"],["#475569","#94a3b8"],["#4b5563","#9ca3af"],
+  ];
   const regionCount: Record<string, number> = {};
-  sites.forEach((s) => { const p = s.province || "未知"; regionCount[p] = (regionCount[p] || 0) + 1; });
+  sites.forEach((s) => {
+    let p = cleanProvince(s.province);
+    if (!p) p = coordToProvince(s.longitude, s.latitude);
+    if (!p) return; // 跳过无法确定的, 不显示"未知"
+    regionCount[p] = (regionCount[p] || 0) + 1;
+  });
   const regionSorted = Object.entries(regionCount).sort((a, b) => b[1] - a[1]).slice(0, 10);
   const regionBarOption = {
     tooltip: { trigger: "axis", formatter: (p: any) => `<b>${p[0].name}</b><br/>场地数: <b>${p[0].value} 个</b>` },
@@ -150,12 +188,17 @@ export default function Dashboard() {
       axisLabel: { fontSize: 11, color: "#374151" } },
     series: [{
       type: "bar",
-      data: regionSorted.map((r) => r[1]).reverse(),
-      itemStyle: {
-        color: { type: "linear" as const, x: 0, y: 0, x2: 1, y2: 0,
-          colorStops: [{ offset: 0, color: "#1a5276" }, { offset: 1, color: "#2e86c1" }] },
-        borderRadius: [0, 4, 4, 0],
-      },
+      data: regionSorted.map((r, i) => ({
+        value: r[1],
+        itemStyle: {
+          color: { type: "linear" as const, x: 0, y: 0, x2: 1, y2: 0,
+            colorStops: [
+              { offset: 0, color: REGION_GRADIENT[i % REGION_GRADIENT.length][0] },
+              { offset: 1, color: REGION_GRADIENT[i % REGION_GRADIENT.length][1] },
+            ] },
+          borderRadius: [0, 4, 4, 0],
+        },
+      })).reverse(),
       label: { show: true, position: "right", fontSize: 10, color: "#374151" },
     }],
   };
@@ -294,8 +337,8 @@ export default function Dashboard() {
 
       {/* ── Round7 追加: 区域分布条形图 ──────────────────────── */}
       <Card
-        title="区域分布（场地数 Top10 省份）"
-        extra={<Text type="secondary" style={{ fontSize: 12 }}>展示场地在全国各省份的分布情况</Text>}
+        title="区域分布（场地数 Top10）"
+        extra={<Text type="secondary" style={{ fontSize: 12 }}>展示场地在全国各地的分布情况</Text>}
         style={{ borderRadius: 8 }}
         data-testid="dashboard-region-bar"
       >
