@@ -17,9 +17,11 @@ from app.models import StandardThreshold
 from app.services.threshold_resolver import resolve_threshold_from_db
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="function")
 def db():
-    """共享一个 DB 连接。确保 StandardThreshold 种子数据存在。"""
+    """每测试独立 DB 连接。确保 StandardThreshold 种子数据存在。
+    M0-8: scope改为function(配合conftest的per-test DB隔离)。
+    """
     from app.db.init_db import create_all
     create_all()
     d = SessionLocal()
