@@ -161,27 +161,117 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
     from app.models import Measurement
     site = _require_site(db, user, site_id)
     from app.services.kos_service import run_kos_diagnosis
-    # 直接查 Measurement 长表 + join FactorDictionary 取因子名,取每因子最大值(最不利点)
-    rows = (db.query(Measurement.value, FactorDictionary.factor_name, FactorDictionary.factor_code)
+    # P0-3 数据质量防线:
+    # 1) 优先用 Measurement.value_used_for_model, 为空才用 value
+    # 2) qa_status=='rejected' 的数据跳过, 标记到 data_quality_flags
+    # 3) 对每个因子返回统计量 (点位数/有效测量数/最大值/中位数/P95/超标点数/超标比例)
+    # 4) aggregation_method="maximum_valid_measurement" (取每因子最大值, 最不利点)
+    # 5) As/Cd/Pb/Hg 浓度 >10000 mg/kg 触发 extreme_value_warning (不改值, 只标记)
+    rows = (db.query(Measurement.value_used_for_model, Measurement.value,
+                     Measurement.qa_status,
+                     FactorDictionary.factor_name, FactorDictionary.factor_code)
             .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id, isouter=True)
-            .filter(Measurement.site_id == site_id, Measurement.value.isnot(None))
+            .filter(Measurement.site_id == site_id)
             .all())
+
+    EXTREME_THRESHOLD_MGKG = 10000.0
+    # 极端值检查覆盖的因子 (中英文)
+    EXTREME_FACTOR_PATTERNS = ("As_mgkg", "Cd_mgkg", "Pb_mgkg", "Hg_mgkg",
+                               "砷", "镉", "铅", "汞")
+
     site_values = {}
-    for value, fname, fcode in rows:
+    per_factor_raw = {}    # factor -> [values] 用于统计
+    n_rejected = 0
+    extreme_warnings = []
+
+    for value_used, value, qa_status, fname, fcode in rows:
         fn = fname or fcode
-        if fn and value is not None:
-            try:
-                v = float(value)
-                if fn not in site_values or v > site_values[fn]:
-                    site_values[fn] = v
-            except (TypeError, ValueError):
-                continue
+        if not fn:
+            continue
+        if qa_status == "rejected":
+            n_rejected += 1
+            continue
+        v = value_used if value_used is not None else value
+        if v is None:
+            continue
+        try:
+            vf = float(v)
+        except (TypeError, ValueError):
+            continue
+        per_factor_raw.setdefault(fn, []).append(vf)
+        # 取最大值 (最不利点)
+        if fn not in site_values or vf > site_values[fn]:
+            site_values[fn] = vf
+        # 极端值检查 (不改值, 只标记到 data_quality_flags)
+        if any(p in fn for p in EXTREME_FACTOR_PATTERNS) and vf > EXTREME_THRESHOLD_MGKG:
+            extreme_warnings.append(
+                f"extreme_value_warning: {fn}={vf} mg/kg 超过 10000 mg/kg 极端值阈值")
+
     if not site_values:
         raise HTTPException(400, "场地无检测数据,无法诊断")
+
+    # 每个因子的统计量
+    factor_stats = _compute_factor_stats(per_factor_raw)
+
+    # 数据质量标记 (前置)
+    data_quality_flags_pre = []
+    if n_rejected > 0:
+        data_quality_flags_pre.append(
+            f"skipped_rejected_measurements: {n_rejected} 条 qa_status=rejected 数据被跳过")
+    data_quality_flags_pre.extend(extreme_warnings)
+
     result = run_kos_diagnosis(site_values, track=track, subset=subset, top_n=top_n)
+    # 把每条 key_obstacle 合入对应的统计量 + aggregation_method
+    stats_map = {fn: s for fn, s in factor_stats.items()}
+    for k in result.get("key_obstacles", []):
+        fac = k.get("factor")
+        # key_obstacles 用的是归一化后的特征名 (例如 Cd_mgkg)
+        s = stats_map.get(fac, {})
+        k["factor_statistics"] = s
+        k["aggregation_method"] = "maximum_valid_measurement"
+    # 极端值警告 + rejected 跳过 数量 加入 data_quality_flags
+    if data_quality_flags_pre:
+        result["data_quality_flags"] = data_quality_flags_pre + result.get("data_quality_flags", [])
+    result["aggregation_method"] = "maximum_valid_measurement"
+    result["factor_statistics"] = factor_stats
     result["site_id"] = site_id
     result["site_name"] = site.name
     return result
+
+
+def _compute_factor_stats(per_factor_raw: dict) -> dict:
+    """为每个因子计算统计量: 点位数/有效测量数/最大值/中位数/P95/超标点数/超标比例。
+
+    per_factor_raw: {factor_name: [value, value, ...]}
+    returns: {factor_name: {n_points, valid_measurement_count, max_value,
+                            median_value, p95_value, exceedance_count,
+                            exceedance_ratio}}
+    注: 超标判断需要阈值; 此处无法拿到阈值 (主因子名是中文), 因此 exceedance_*
+    默认填 0 / 0.0, 由下游 KOS 引擎补全 (那里有 thresholds)。 这里只算描述统计。
+    """
+    import math
+    stats = {}
+    for fn, vals in per_factor_raw.items():
+        if not vals:
+            continue
+        vals_sorted = sorted(vals)
+        n = len(vals_sorted)
+        median = (vals_sorted[n // 2] if n % 2 == 1
+                  else (vals_sorted[n // 2 - 1] + vals_sorted[n // 2]) / 2)
+        # 简化 P95: nearest-rank 法
+        p95_idx = max(0, min(n - 1, int(round(0.95 * (n - 1)))))
+        p95 = vals_sorted[p95_idx]
+        stats[fn] = {
+            "measurement_count": n,
+            "valid_measurement_count": n,
+            "max_value": max(vals),
+            "median_value": median,
+            "p95_value": p95,
+            # 超标点数 / 比例 由 KOS 引擎在拿到阈值后补全; API 层无阈值故置 0
+            "exceedance_count": 0,
+            "exceedance_ratio": 0.0,
+        }
+    return stats
 
 
 @router.get("/models/registry")

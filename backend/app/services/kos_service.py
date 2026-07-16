@@ -31,6 +31,8 @@ def _load_module(path, name):
 _kos_engine = _load_module(os.path.join(ROOT, "ml", "ranking", "kos_engine_v0.8.py"), "kos_engine")
 compute_kos = _kos_engine.compute_kos
 compute_severity = _kos_engine.compute_severity
+compute_severity_detail = getattr(_kos_engine, "compute_severity_detail", None)
+KOS_SEVERITY_CAP_RATIO = getattr(_kos_engine, "KOS_SEVERITY_CAP_RATIO", 10)
 EVIDENCE_SCORE = _kos_engine.EVIDENCE_SCORE
 KOS_W = _kos_engine.KOS_W
 _guardrails = _load_module(os.path.join(ROOT, "ml", "rules", "unknown_organic_guardrails.py"), "guardrails")
@@ -156,6 +158,8 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
     organic_result = guardrail_check(factors, known_factors)
 
     # 模型贡献度(只取 measured,前端用) — 口径与 kos_engine 的 m_map 一致(mean_abs_shap/total), 避免双源不一致
+    # P0-5 SHAP 口径修复: model_contribution 是"全局模型贡献度"(global_model scope),
+    # 不得描述为局部/障碍/因果类口径(详见 interpretation_note 字段)
     model_contribution = []
     if len(shap_measured) > 0:
         total_shap = float(shap_measured["mean_abs_shap"].sum()) if "mean_abs_shap" in shap_measured.columns else 0.0
@@ -165,6 +169,8 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
                 "factor": r["group"],
                 "contribution": round(raw / total_shap, 6) if total_shap > 0 else 0.0,
                 "direction": r.get("direction", "positive"),
+                # P0-5: 显式口径标记, 防止前端误读为局部/因果类口径
+                "contribution_scope": "global_model",
             })
 
     # 四层输出(裴总 P0 规则)
@@ -180,7 +186,15 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
         "key_obstacles": [
             {"rank": k["rank"], "factor": k["factor"], "KOS": k["KOS"],
              "components": {"R": k["R"], "W": k["W"], "M": k["M"], "S": k["S"], "E": k["E"]},
-             "value": k["value"], "evidence": k["E"]}
+             "value": k["value"], "evidence": k["E"],
+             # P0-4 透明化字段 (向后兼容, 只新增)
+             "exceedance_ratio": k.get("exceedance_ratio", 0.0),
+             "severity_cap_ratio": k.get("severity_cap_ratio", KOS_SEVERITY_CAP_RATIO),
+             "severity_saturated": k.get("severity_saturated", False),
+             "stability_is_constant": k.get("stability_is_constant", True),
+             "stability_note": k.get("stability_note",
+                                     "当前无重复样稳定性数据,S为固定占位参数"),
+             "ranking_difference_small": k.get("ranking_difference_small", False)}
             for k in kos_result["key_obstacles"]
         ],
         # 第三层: 模型关注因子(实测+模型见过+无阈值或未超标,需专家复核)
