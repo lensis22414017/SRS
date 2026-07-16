@@ -24,8 +24,8 @@ export interface FlowConfig {
   references: FlowRef[];
 }
 
-// SVG 文件路径 — 指向 assets/flows/ 目录, 若文件不存在 Drawer 显示友好占位
-const svg = (name: string) => `/src/assets/flows/${name}.svg`;
+// SVG 文件路径 — 指向 public/assets/flows/ 目录, 若文件不存在 Drawer 显示友好占位
+const svg = (name: string) => `/assets/flows/${name}.svg`;
 
 export const METHOD_FLOWS: Record<string, FlowConfig> = {
   obstacle_analysis: {

@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fa fc"/><stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <linearGradient id="inputG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#dbeafe"/><stop offset="1" stop-color="#bfdbfe"/>
+    </linearGradient>
+    <linearGradient id="procG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fef3c7"/><stop offset="1" stop-color="#fde68a"/>
+    </linearGradient>
+    <linearGradient id="outG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d1fae5"/><stop offset="1" stop-color="#a7f3d0"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#64748b"/>
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="520" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#1e293b">障碍因子分析流程 — RF + SHAP 双轨综合诊断</text>
+  <line x1="120" y1="50" x2="780" y2="50" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- Column headers -->
+  <rect x="30" y="64" width="200" height="28" rx="6" fill="#3b82f6" opacity="0.15"/>
+  <text x="130" y="83" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">输入</text>
+  <rect x="290" y="64" width="340" height="28" rx="6" fill="#f59e0b" opacity="0.15"/>
+  <text x="460" y="83" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">处理流程</text>
+  <rect x="690" y="64" width="180" height="28" rx="6" fill="#10b981" opacity="0.15"/>
+  <text x="780" y="83" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">输出</text>
+
+  <!-- Input boxes -->
+  <rect x="30" y="105" width="200" height="56" rx="8" fill="url(#inputG)" filter="url(#shadow)"/>
+  <text x="130" y="128" text-anchor="middle" font-size="12" font-weight="600" fill="#1e3a5f">场地检测数据</text>
+  <text x="130" y="146" text-anchor="middle" font-size="10" fill="#475569">污染物浓度·理化性质</text>
+
+  <rect x="30" y="175" width="200" height="56" rx="8" fill="url(#inputG)" filter="url(#shadow)"/>
+  <text x="130" y="198" text-anchor="middle" font-size="12" font-weight="600" fill="#1e3a5f">GEE 空间协变量</text>
+  <text x="130" y="216" text-anchor="middle" font-size="10" fill="#475569">NDVI·降水·SOC 等14项</text>
+
+  <rect x="30" y="245" width="200" height="56" rx="8" fill="url(#inputG)" filter="url(#shadow)"/>
+  <text x="130" y="268" text-anchor="middle" font-size="12" font-weight="600" fill="#1e3a5f">障碍因子知识库</text>
+  <text x="130" y="286" text-anchor="middle" font-size="10" fill="#475569">GB15618 / GB36600 阈值</text>
+
+  <rect x="30" y="315" width="200" height="56" rx="8" fill="url(#inputG)" filter="url(#shadow)"/>
+  <text x="130" y="338" text-anchor="middle" font-size="12" font-weight="600" fill="#1e3a5f">修复后用途</text>
+  <text x="130" y="356" text-anchor="middle" font-size="10" fill="#475569">生产用地 / 生态用地</text>
+
+  <!-- Arrow input→process -->
+  <path d="M230 133 L280 133" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+
+  <!-- Process boxes -->
+  <rect x="290" y="105" width="150" height="44" rx="8" fill="url(#procG)" filter="url(#shadow)"/>
+  <text x="365" y="132" text-anchor="middle" font-size="12" font-weight="600" fill="#78350f">① 数据预处理</text>
+
+  <rect x="290" y="165" width="150" height="44" rx="8" fill="url(#procG)" filter="url(#shadow)"/>
+  <text x="365" y="192" text-anchor="middle" font-size="12" font-weight="600" fill="#78350f">② 特征空间对齐</text>
+
+  <rect x="290" y="225" width="150" height="44" rx="8" fill="url(#procG)" filter="url(#shadow)"/>
+  <text x="365" y="252" text-anchor="middle" font-size="12" font-weight="600" fill="#78350f">③ RF 双轨预测</text>
+
+  <rect x="480" y="105" width="150" height="44" rx="8" fill="url(#procG)" filter="url(#shadow)"/>
+  <text x="555" y="132" text-anchor="middle" font-size="12" font-weight="600" fill="#78350f">④ TreeSHAP 解释</text>
+
+  <rect x="480" y="165" width="150" height="44" rx="8" fill="url(#procG)" filter="url(#shadow)"/>
+  <text x="555" y="192" text-anchor="middle" font-size="12" font-weight="600" fill="#78350f">⑤ 影响方向判定</text>
+
+  <rect x="480" y="225" width="150" height="44" rx="8" fill="url(#procG)" filter="url(#shadow)"/>
+  <text x="555" y="252" text-anchor="middle" font-size="12" font-weight="600" fill="#78350f">⑥ LLM 报告润色</text>
+
+  <!-- Process internal arrows -->
+  <path d="M365 149 L365 165" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M365 209 L365 225" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M440 127 L480 127" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M440 187 L480 187" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M440 247 L480 247" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+
+  <!-- Dual track indicator -->
+  <rect x="290" y="295" width="340" height="50" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1" opacity="0.6"/>
+  <text x="460" y="318" text-anchor="middle" font-size="11" font-weight="600" fill="#5b21b6">生产轨模型（GB15618 阈值）  |  生态轨模型（GB36600 阈值）</text>
+  <text x="460" y="335" text-anchor="middle" font-size="10" fill="#6d28d9">同一套输入，按修复后用途切换模型，输出不同阈值标准下的障碍判定</text>
+
+  <!-- Arrow process→output -->
+  <path d="M630 127 L690 127" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+
+  <!-- Output boxes -->
+  <rect x="690" y="105" width="180" height="50" rx="8" fill="url(#outG)" filter="url(#shadow)"/>
+  <text x="780" y="127" text-anchor="middle" font-size="12" font-weight="600" fill="#064e3b">关键障碍因子排序</text>
+  <text x="780" y="143" text-anchor="middle" font-size="10" fill="#047857">按 |SHAP| 降序</text>
+
+  <rect x="690" y="170" width="180" height="50" rx="8" fill="url(#outG)" filter="url(#shadow)"/>
+  <text x="780" y="192" text-anchor="middle" font-size="12" font-weight="600" fill="#064e3b">Spearman 秩相关指标</text>
+  <text x="780" y="208" text-anchor="middle" font-size="10" fill="#047857">交叉验证可靠性</text>
+
+  <rect x="690" y="235" width="180" height="50" rx="8" fill="url(#outG)" filter="url(#shadow)"/>
+  <text x="780" y="257" text-anchor="middle" font-size="12" font-weight="600" fill="#064e3b">影响方向分布</text>
+  <text x="780" y="273" text-anchor="middle" font-size="10" fill="#047857">正向加重 / 负向缓解</text>
+
+  <rect x="690" y="300" width="180" height="50" rx="8" fill="url(#outG)" filter="url(#shadow)"/>
+  <text x="780" y="322" text-anchor="middle" font-size="12" font-weight="600" fill="#064e3b">诊断报告 (PDF)</text>
+  <text x="780" y="338" text-anchor="middle" font-size="10" fill="#047857">含因子排序与可视化</text>
+
+  <!-- Bottom: standards reference -->
+  <rect x="30" y="400" width="840" height="50" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="50" y="422" font-size="11" font-weight="600" fill="#334155">依据标准</text>
+  <text x="50" y="438" font-size="10" fill="#64748b">Lundberg &amp; Lee (2017) SHAP · Breiman (2001) Random Forests · GB 15618-2018 农用地 · GB 36600-2018 建设用地</text>
+
+  <!-- Bottom: key insight -->
+  <rect x="30" y="465" width="840" height="40" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1" opacity="0.5"/>
+  <text x="450" y="490" text-anchor="middle" font-size="11" font-weight="600" fill="#92400e">核心逻辑：规则短板筛查（法规阈值超标）+ 模型贡献度（SHAP）= 综合障碍因子排序，非单一指标判定</text>
+</svg>
