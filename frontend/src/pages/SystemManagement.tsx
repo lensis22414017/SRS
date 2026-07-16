@@ -76,10 +76,10 @@ function SystemOverview() {
             生态环境部土壤与农业农村生态环境监管技术中心
           </Descriptions.Item>
           <Descriptions.Item label="技术支持">
-            浙江大学王玮课题组
+            生态环境部土壤与农业农村生态环境监管技术中心
           </Descriptions.Item>
           <Descriptions.Item label="数据支持">
-            浙江大学王玮课题组
+            生态环境部土壤与农业农村生态环境监管技术中心
           </Descriptions.Item>
         </Descriptions>
       </Card>
@@ -825,9 +825,6 @@ function AboutSystem() {
           <Descriptions.Item label="系统名称">污染场地土壤生态-生产功能重构监管系统</Descriptions.Item>
           <Descriptions.Item label="英文名称">Soil Remediation Supervision System (SRS)</Descriptions.Item>
           <Descriptions.Item label="版本">v1.0.0 (2026-07-01)</Descriptions.Item>
-          <Descriptions.Item label="开源协议">
-            <Tag color="green">MIT License</Tag> 允许商用/修改/分发, 保留版权声明即可
-          </Descriptions.Item>
           <Descriptions.Item label="开发者">
             生态环境部土壤与农业农村生态环境监管技术中心<br/>
             <Text type="secondary" style={{ fontSize: 12 }}>

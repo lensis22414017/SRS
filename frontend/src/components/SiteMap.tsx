@@ -319,7 +319,7 @@ export default function SiteMap({
       // 修复 _leaflet_pos undefined: 需等地图 _loaded 且有 pane pos 后才 fitBounds
       const doFit = () => {
         map.invalidateSize();
-        if (map._loaded && (map as any)._mapPane) {
+        if ((map as any)._loaded && (map as any)._mapPane) {
           map.fitBounds(L.latLngBounds(pts).pad(0.3), { maxZoom: 13, animate: false });
         }
       };
@@ -400,29 +400,16 @@ export default function SiteMap({
         {curLevel === "province" ? "省级" : curLevel === "prefecture" ? "地市级" : "县级"}
       </div>
 
-      {/* 图例 — 左下角, 双列: 污染类型 + 超标倍数色阶 */}
+      {/* 图例 — 左下角, 污染类型（首页场地按污染类型着色，不展示超标倍数色阶以免误导） */}
       {hasCoords && layerData?.legend?.length ? (
         <Legend items={layerData.legend} />
       ) : hasCoords ? (
         <Legend items={[]}>
-          <div style={{ display: "flex", gap: 16 }}>
-            <div>
-              <div style={{ fontSize: 10, color: "#888", marginBottom: 4, fontWeight: 600 }}>污染类型</div>
-              <LegendRow color={POLLUTION_TYPE.heavy_metal} label="重金属" />
-              <LegendRow color={POLLUTION_TYPE.organic} label="有机污染" />
-              <LegendRow color={POLLUTION_TYPE.composite} label="复合污染" />
-            </div>
-            <div style={{ borderLeft: "1px solid #e2e8f0", paddingLeft: 8 }}>
-              <div style={{ fontSize: 10, color: "#888", marginBottom: 4, fontWeight: 600 }}>超标倍数</div>
-              <LegendRow color="#16a34a" label="未超标" />
-              <LegendRow color="#facc15" label="1-3× 轻度" />
-              <LegendRow color="#f59e0b" label="3-10× 中度" />
-              <LegendRow color="#ea580c" label="10-30× 偏重" />
-              <LegendRow color="#dc2626" label="30-80× 重度" />
-              <LegendRow color="#9f1239" label="80-200× 极重" />
-              <LegendRow color="#6b0f1a" label="≥200× 超极重" />
-              <LegendRow color="#64748b" label="无阈值/无数据" />
-            </div>
+          <div>
+            <div style={{ fontSize: 10, color: "#888", marginBottom: 4, fontWeight: 600 }}>污染类型</div>
+            <LegendRow color={POLLUTION_TYPE.heavy_metal} label="重金属" />
+            <LegendRow color={POLLUTION_TYPE.organic} label="有机污染" />
+            <LegendRow color={POLLUTION_TYPE.composite} label="复合污染" />
           </div>
         </Legend>
       ) : null}

@@ -54,7 +54,7 @@ function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRi
       return d.indicator + "<br/>贡献分: " + (d.contribution ?? 0);
     } },
     grid: { left: 110, right: 30, top: 16, bottom: 24 },
-    xAxis: { type: "category", data: sortedDims.map((d: any) => d.indicator), axisLabel: { rotate: 35, fontSize: 10 } },
+    xAxis: { type: "category", data: sortedDims.map((d: any) => d.indicator), axisLabel: { rotate: 45, fontSize: 10, interval: 0 } },
     yAxis: { type: "value", name: "累计贡献" },
     series: [{ type: "bar", barMaxWidth: 28,
       data: sortedDims.map((d: any, i: number) => {
@@ -129,14 +129,14 @@ function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRi
               {waterfallOption && (
                 <Col span={14}>
                   <Card size="small" title="指标贡献瀑布图（累计叠加 · 识别主导因子）">
-                    <ReactECharts option={waterfallOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 240 }} />
+                    <ReactECharts option={waterfallOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 320 }} />
                   </Card>
                 </Col>
               )}
               {gaugeOption && (
                 <Col span={10}>
                   <Card size="small" title="短板仪表盘（最低得分维度 · 木桶效应）">
-                    <ReactECharts option={gaugeOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 240 }} />
+                    <ReactECharts option={gaugeOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 320 }} />
                   </Card>
                 </Col>
               )}
@@ -230,33 +230,6 @@ export default function ReconstructionAnalysis() {
       {hasRun && (prod || eco) ? (
         <Card title="功能重构可行性评价"
           extra={<span style={{ fontSize: 12, color: "#888" }}>本次运行 ｜ 数据版本 {prod?.data_version ?? eco?.data_version} ｜ {prod?.created_at ?? eco?.created_at}</span>}>
-          {/* Round7 追加: 生产×生态四象限结论(双轨得分定位) */}
-          {prod?.score != null && eco?.score != null && (
-            <Row style={{ marginBottom: 16 }}>
-              <Col span={24}>
-                <Card size="small" title="生产×生态功能重构四象限（场地定位）">
-                  <ReactECharts option={{
-                    tooltip: { trigger: "item", formatter: (p: any) => "生产得分: " + p.data[0] + "<br/>生态得分: " + p.data[1] },
-                    grid: { left: 50, right: 30, top: 30, bottom: 40 },
-                    xAxis: { name: "生产功能重构得分", min: 0, max: 100, splitLine: { show: true, lineStyle: { color: "#eee" } } },
-                    yAxis: { name: "生态功能重构得分", min: 0, max: 100, splitLine: { show: true, lineStyle: { color: "#eee" } } },
-                    series: [
-                      { type: "scatter", symbolSize: 28,
-                        data: [[prod.score, eco.score]],
-                        itemStyle: { color: prod.score >= 50 && eco.score >= 50 ? "#15803d" : prod.score >= 50 ? "#722ed1" : eco.score >= 50 ? "#52c41a" : "#dc2626" },
-                        label: { show: true, formatter: "本场地", position: "right", fontSize: 11 } },
-                    ],
-                    graphic: [
-                      { type: "text", right: "8%", top: "12%", style: { text: "双轨可行\n(理想区)", fill: "#15803d", fontSize: 10 } },
-                      { type: "text", right: "8%", bottom: "12%", style: { text: "仅生产可行\n(需生态修复)", fill: "#722ed1", fontSize: 10 } },
-                      { type: "text", left: "8%", top: "12%", style: { text: "仅生态可行\n(需生产修复)", fill: "#52c41a", fontSize: 10 } },
-                      { type: "text", left: "8%", bottom: "12%", style: { text: "双轨受限\n(深度修复)", fill: "#dc2626", fontSize: 10 } },
-                    ],
-                  }} theme="srs-light" opts={SVG_OPTS} style={{ height: 280 }} />
-                </Card>
-              </Col>
-            </Row>
-          )}
           <EvalBlock title="生产功能重构可行性" e={prod} organicRisk={data?.results?.organic_risk?.dimensions} />
           <EvalBlock title="生态功能重构可行性" e={eco} organicRisk={data?.results?.organic_risk?.dimensions} />
         </Card>

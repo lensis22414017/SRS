@@ -263,16 +263,16 @@ export default function RecommendationPage() {
       ) : items.length ? (
         <>
         {/* Round7 追加: 匹配分横向条形对比卡(保留下方 RecommendCard 文本卡) */}
-        <Card size="small" title="方案匹配分对比（横向条形 · 一眼看出最优方案）" style={{ marginBottom: 16 }}>
+        <Card size="small" title="方案综合评分对比（横向条形图）" style={{ marginBottom: 16 }}>
           <ReactECharts option={{
             tooltip: { trigger: "axis", formatter: (p: any) => {
               const it = items[p[0].dataIndex];
               return "<b>" + (it.technology || it.tech_name) + "</b><br/>匹配分: " + p[0].value + "<br/>覆盖率: " + ((it.reason_struct?.score_breakdown?.coverage) ?? 0).toFixed(2);
             } },
-            grid: { left: 120, right: 60, top: 16, bottom: 24 },
+            grid: { left: 180, right: 60, top: 16, bottom: 24 },
             xAxis: { type: "value", name: "综合匹配分", max: 1 },
             yAxis: { type: "category", inverse: true, data: items.map((it) => it.technology || it.tech_name),
-              axisLabel: { fontSize: 11 } },
+              axisLabel: { fontSize: 11, width: 170, overflow: "truncate", interval: 0 } },
             series: [{ type: "bar", barMaxWidth: 22,
               data: items.map((it, i) => ({ value: it.match_score ?? 0,
                 itemStyle: { color: i === 0 ? "#E64B35" : "#4DBBD5", borderRadius: [0, 4, 4, 0] } })),

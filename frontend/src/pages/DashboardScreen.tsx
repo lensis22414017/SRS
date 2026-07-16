@@ -251,9 +251,9 @@ export default function DashboardScreen() {
     return {
       tooltip: { trigger: "item" as const },
       series: [{
-        type: "funnel", left: "10%", right: "10%", top: 4, bottom: 4,
-        width: "80%", minSize: "30%", maxSize: "100%", sort: "descending", gap: 2,
-        label: { color: DARK_TEXT, fontSize: 10, formatter: "{b} {c}" },
+        type: "funnel", left: 4, right: 50, top: 4, bottom: 4,
+        minSize: "20%", maxSize: "100%", sort: "descending", gap: 2,
+        label: { color: DARK_TEXT, fontSize: 10, formatter: "{b}\n{c}", position: "outside" },
         labelLine: { length: 8, lineStyle: { color: DARK_AXIS_LINE } },
         itemStyle: { borderColor: "rgba(10,16,36,0.6)", borderWidth: 1 },
         data: data.length ? data : [{ name: "暂无工作流数据", value: 0 }],
@@ -505,7 +505,7 @@ export default function DashboardScreen() {
             {/* Round7 追加: 阶段流转漏斗 */}
             <div data-testid="screen-trace-funnel" style={{ marginTop: 8, borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 6 }}>
               <div style={{ color: DARK_TEXT, fontSize: 10, marginBottom: 2 }}>阶段场地流转漏斗</div>
-              <ReactECharts option={funnelOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 130 }} />
+              <ReactECharts option={funnelOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 170 }} />
             </div>
           </div>
 

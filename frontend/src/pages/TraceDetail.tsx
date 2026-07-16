@@ -62,7 +62,7 @@ export default function TraceDetail() {
 
   const setStatus = async (stage: string, status: string) => {
     setBusy(true);
-    try { await api.updateStage(sid, stage, { status, review_comment: comment || undefined, is_completed: status === "completed" }); message.success("已更新"); setComment(""); await load(); }
+    try { await api.updateStage(sid, stage, { status, review_comment: comment || undefined, is_completed: status === "completed", is_returned: status === "returned" ? true : undefined }); message.success("已更新"); setComment(""); await load(); }
     catch (e: any) { message.error(e?.response?.data?.detail || "更新失败"); }
     finally { setBusy(false); }
   };

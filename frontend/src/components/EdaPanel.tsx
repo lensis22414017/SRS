@@ -19,6 +19,8 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
   const [loading, setLoading] = useState(true);
   const [scatterX, setScatterX] = useState<string>();
   const [scatterY, setScatterY] = useState<string>();
+  const [statsPage, setStatsPage] = useState(1);
+  const [outlierPage, setOutlierPage] = useState(1);
 
   useEffect(() => {
     setLoading(true);
@@ -64,15 +66,25 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
             <Card title="各因子统计体检（真实数据，未插补）" size="small">
               <Text type="secondary">各因子基于真实检测值的描述统计：N=有效样本数，CV=变异系数（标准差/均值），偏度反映分布对称性，IQR 法判定异常点。形态标签「近似对称」=|偏度|≤0.5。数据来源：场地导入的原始检测长表 measurements。</Text>
               <div style={{ marginTop: 8 }}>
-              <Table rowKey="factor" size="small" dataSource={rows} pagination={{ pageSize: 8 }} scroll={{ x: "max-content" }}
+              <Table rowKey="factor" size="small" dataSource={rows}
+                pagination={{ pageSize: 8, current: statsPage, onChange: setStatsPage, showSizeChanger: true, showTotal: (t) => `共 ${t} 条` }}
+                scroll={{ x: "max-content" }}
                 columns={[
-                  seqCol(56), textCol("因子", "factor"),
-                  numCol("有效数", "count"), numCol("缺失%", "missing_pct"),
-                  numCol("均值", "mean"), numCol("中位数", "median"),
-                  numCol("标准差", "std"), numCol("CV", "cv"), numCol("偏度", "skew"),
+                  { title: "序号", key: "__seq", width: 56, align: "center",
+                    render: (_: any, __: any, i: number) => (statsPage - 1) * 8 + i + 1 },
+                  textCol("因子", "factor"),
+                  numCol("有效数", "count", { sorter: (a: any, b: any) => (a.count ?? 0) - (b.count ?? 0) }),
+                  numCol("缺失%", "missing_pct", { sorter: (a: any, b: any) => (a.missing_pct ?? 0) - (b.missing_pct ?? 0) }),
+                  numCol("均值", "mean", { sorter: (a: any, b: any) => (a.mean ?? 0) - (b.mean ?? 0) }),
+                  numCol("中位数", "median", { sorter: (a: any, b: any) => (a.median ?? 0) - (b.median ?? 0) }),
+                  numCol("标准差", "std", { sorter: (a: any, b: any) => (a.std ?? 0) - (b.std ?? 0) }),
+                  numCol("CV", "cv", { sorter: (a: any, b: any) => (a.cv ?? 0) - (b.cv ?? 0) }),
+                  numCol("偏度", "skew", { sorter: (a: any, b: any) => (a.skew ?? 0) - (b.skew ?? 0) }),
                   { title: "形态", dataIndex: "skew_flag", align: "center",
                     render: (v: string) => <Tag color={v === "近似对称" ? "green" : "orange"}>{v || "—"}</Tag> },
-                  numCol("异常点", "outliers"), numCol("最小", "min"), numCol("最大", "max"),
+                  numCol("异常点", "outliers", { sorter: (a: any, b: any) => (a.outliers ?? 0) - (b.outliers ?? 0) }),
+                  numCol("最小", "min", { sorter: (a: any, b: any) => (a.min ?? 0) - (b.min ?? 0) }),
+                  numCol("最大", "max", { sorter: (a: any, b: any) => (a.max ?? 0) - (b.max ?? 0) }),
                 ]} />
               </div>
             </Card>
@@ -257,12 +269,15 @@ export default function EdaPanel({ siteId }: { siteId: number }) {
               <b>看什么</b>：哪些采样点×因子被标记为异常。<b>发现了什么</b>：单点极高值可能是局部污染热点或检测异常。<b>对诊断的影响</b>：异常点需现场复核，区分真污染与检测误差。<b>下一步</b>：对异常点位复测。</Text>
               <div style={{ marginTop: 8 }}>
                 {data?.outlier_detail?.items?.length ? (
-                  <Table rowKey={(r: any) => `${r.factor}-${r.point_id}-${r.value}`} size="small"
-                    pagination={{ pageSize: 10 }}
+                  <Table rowKey={(_r: any, i: number | undefined) => String(i ?? 0)} size="small"
+                    pagination={{ pageSize: 10, current: outlierPage, onChange: setOutlierPage, showSizeChanger: true, showTotal: (t) => `共 ${t} 条` }}
                     dataSource={data.outlier_detail.items}
                     columns={[
-                      seqCol(50), textCol("因子", "factor"), numCol("采样点", "point_id"),
-                      numCol("实测值", "value"), numCol("Z分", "z_score"),
+                      { title: "序号", key: "__seq", width: 50, align: "center",
+                        render: (_: any, __: any, i: number) => (outlierPage - 1) * 10 + i + 1 },
+                      textCol("因子", "factor"), numCol("采样点", "point_id"),
+                      numCol("实测值", "value", { sorter: (a: any, b: any) => (a.value ?? 0) - (b.value ?? 0) }),
+                      numCol("Z分", "z_score", { sorter: (a: any, b: any) => (a.z_score ?? 0) - (b.z_score ?? 0) }),
                       textCol("检测法", "method"), textCol("阈值", "threshold"),
                     ]} />
                 ) : <Empty description="未检测到异常值（IQR 与 Z>3 均未命中）" />}

@@ -82,21 +82,22 @@ export default function SSUIAnalysis() {
   const econScore = econPart ? (econPart.normalized ?? 0) : (s?.score ?? 0);
   const seScatterOption = s ? {
     tooltip: { trigger: "item", formatter: (p: any) => "安全性: " + p.data[0].toFixed(3) + "<br/>经济性: " + p.data[1].toFixed(3) },
-    grid: { left: 50, right: 30, top: 30, bottom: 40 },
-    xAxis: { name: "安全性", min: 0, max: 1 }, yAxis: { name: "经济性", min: 0, max: 1 },
+    grid: { left: 60, right: 50, top: 50, bottom: 50 },
+    xAxis: { name: "安全性", min: 0, max: 1, nameLocation: "middle", nameGap: 28 },
+    yAxis: { name: "经济性", min: 0, max: 1, nameLocation: "middle", nameGap: 28 },
     series: [{ type: "scatter", symbolSize: 28, data: [[safetyScore, econScore]],
       itemStyle: { color: safetyScore >= 0.6 && econScore >= 0.6 ? "#15803d" : "#f59e0b" },
       label: { show: true, formatter: "本场地", position: "right" } }],
     graphic: [
-      { type: "text", right: "10%", top: "12%", style: { text: "安全+经济\n双优", fill: "#15803d", fontSize: 10 } },
-      { type: "text", left: "10%", bottom: "12%", style: { text: "双弱区\n(需重点修复)", fill: "#dc2626", fontSize: 10 } },
+      { type: "text", left: "62%", top: "30%", style: { text: "安全+经济\n双优", fill: "#15803d", fontSize: 10 } },
+      { type: "text", left: "15%", top: "62%", style: { text: "双弱区\n(需重点修复)", fill: "#dc2626", fontSize: 10 } },
     ],
   } : null;
   // 趋势面积: f(t)=1+0.03t × SSUI score, 模拟修复后 0~10 年可持续性演变
   const trendAreaOption = s ? {
     tooltip: { trigger: "axis", formatter: (p: any) => "修复后 " + p[0].axisValue + " 年<br/>SSUI: " + p[0].value.toFixed(3) },
-    grid: { left: 50, right: 20, top: 24, bottom: 30 },
-    xAxis: { type: "category", data: ["0", "1", "2", "3", "5", "7", "10"], name: "修复后年数" },
+    grid: { left: 50, right: 20, top: 40, bottom: 40 },
+    xAxis: { type: "category", data: ["0", "1", "2", "3", "5", "7", "10"], name: "修复后年数", nameLocation: "middle", nameGap: 25, axisLabel: { interval: 0 } },
     yAxis: { type: "value", name: "SSUI", min: 0, max: 1.3 },
     series: [{ type: "line", smooth: true, symbolSize: 6,
       data: ["0", "1", "2", "3", "5", "7", "10"].map((t) => Math.min(1.29, (s.score ?? 0) * (1 + 0.03 * Number(t)))),
@@ -108,13 +109,14 @@ export default function SSUIAnalysis() {
   const otherW = parts.reduce((s2: number, p: any) => s2 + (p.weight ?? 0), 0) - safetyW - econW;
   const costBenefitOption = parts.length ? {
     tooltip: { trigger: "axis", formatter: (p: any) => p[0].name + ": " + (p[0].value * 100).toFixed(1) + "%" },
-    grid: { left: 100, right: 30, top: 16, bottom: 24 },
+    legend: { data: ["安全性", "经济性", "其他"], top: 0, itemWidth: 12, itemHeight: 8, textStyle: { fontSize: 10 } },
+    grid: { left: 70, right: 30, top: 32, bottom: 24 },
     xAxis: { type: "value", name: "权重占比", max: 1 },
     yAxis: { type: "category", data: ["权重分布"] },
     series: [
-      { name: "安全性", type: "bar", stack: "w", color: "#3b82f6", data: [safetyW] },
-      { name: "经济性", type: "bar", stack: "w", color: "#f59e0b", data: [econW] },
-      { name: "其他", type: "bar", stack: "w", color: "#94a3b8", data: [otherW] },
+      { name: "安全性", type: "bar", stack: "w", color: "#3b82f6", barMaxWidth: 40, data: [safetyW || 0.001] },
+      { name: "经济性", type: "bar", stack: "w", color: "#f59e0b", barMaxWidth: 40, data: [econW || 0.001] },
+      { name: "其他", type: "bar", stack: "w", color: "#94a3b8", barMaxWidth: 40, data: [otherW || 0.001] },
     ],
   } : null;
 
@@ -213,21 +215,21 @@ export default function SSUIAnalysis() {
             {seScatterOption && (
               <Col span={8}>
                 <Card size="small" title="安全性-经济性二维象限">
-                  <ReactECharts option={seScatterOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 240 }} />
+                  <ReactECharts option={seScatterOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 280 }} />
                 </Card>
               </Col>
             )}
             {trendAreaOption && (
               <Col span={8}>
                 <Card size="small" title="长期利用趋势（f(t) 修正 · 修复后 0~10 年）">
-                  <ReactECharts option={trendAreaOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 240 }} />
+                  <ReactECharts option={trendAreaOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 300 }} />
                 </Card>
               </Col>
             )}
             {costBenefitOption && (
               <Col span={8}>
                 <Card size="small" title="成本效益权重堆叠（安全/经济/其他）">
-                  <ReactECharts option={costBenefitOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 240 }} />
+                  <ReactECharts option={costBenefitOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 280 }} />
                 </Card>
               </Col>
             )}

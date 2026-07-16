@@ -764,9 +764,13 @@ def site_eda(site_id: int,
         "distribution", "correlation", "qq", "boxplot", "grouped",
         "hypothesis_test", "effect_size", "pca", "outlier_detail"}
 
+    # 非因子列兜底过滤: 误把"深度上限/下限/筛选值/管制值"等映射为因子的情形
+    NON_FACTOR_KEYWORDS = ("上限", "下限", "筛选值", "管制值", "标准值", "限值", "阈值")
     factors = []
     for fc, sub in df.groupby("factor"):
         if factor and fc != factor:
+            continue
+        if any(kw in str(fc) for kw in NON_FACTOR_KEYWORDS):
             continue
         st = column_stats(sub["value"])
         item = {"factor": fc, "category": sub["category"].iloc[0] if len(sub) else None,

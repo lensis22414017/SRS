@@ -60,13 +60,17 @@ async def upload_attachment(site_id: int, stage: str, file: UploadFile = File(..
                            user: User = Depends(get_current_user),
                            db: Session = Depends(get_db)):
     _require_site(db, user, site_id)
-    fo = save_upload(db, file.file, file.filename, file.content_type,
-                     uploaded_by=user.id)
-    db.commit()
+    try:
+        fo = save_upload(db, file.file, file.filename, file.content_type,
+                         uploaded_by=user.id)
+    except ValueError as e:
+        raise HTTPException(400, str(e))
     try:
         stages = workflow_service.attach_file(db, site_id, stage, fo.id,
                                               file_role=file_role, operator_id=user.id)
+        db.commit()
     except ValueError as e:
+        db.rollback()
         raise HTTPException(404, str(e))
     return {"site_id": site_id, "file_object_id": fo.id, "stages": stages}
 

@@ -392,8 +392,13 @@ export default function ObstacleAnalysis() {
                     tooltip: { trigger: "axis", axisPointer: { type: "shadow" },
                       formatter: (params: any) => {
                         const d = barrierStackData[params[0].dataIndex];
+                        const weightMap: any = { "R规则严重度": 0.30, "W用途权重": 0.25, "M模型贡献度": 0.15, "S稳定性": 0.20, "E证据等级": 0.10 };
                         return "<b>" + d.factor + "</b><br/>" +
-                          params.map((p: any) => p.marker + p.seriesName + ": " + p.value.toFixed(3)).join("<br/>");
+                          params.map((p: any) => {
+                            const w = weightMap[p.seriesName] || 0;
+                            const raw = (p.value / w).toFixed(3);
+                            return p.marker + p.seriesName + ": " + p.value.toFixed(3) + " (分量" + raw + "×权重" + w + ")";
+                          }).join("<br/>");
                       } },
                     legend: { top: 0, data: ["R规则严重度", "W用途权重", "M模型贡献度", "S稳定性", "E证据等级"] },
                     grid: { left: 90, right: 24, top: 40, bottom: 30 },
@@ -430,24 +435,6 @@ export default function ObstacleAnalysis() {
                   }} theme="srs-light" opts={SVG_OPTS} style={{ height: 300 }} />
                   <Paragraph type="secondary" style={{ fontSize: 11, margin: "8px 0 0 0" }}>
                     ⓘ 模型贡献度表示该因子对当前用途障碍指数的模型解释贡献,非因果,非障碍高度。
-                  </Paragraph>
-                </Card>
-              )}
-
-              {/* 第三层: 建议补测 */}
-              {kosData.recommended_tests?.length > 0 && (
-                <Card title={<Space><span>建议补测因子</span><Tag color="orange">{kosData.recommended_tests.length} 项</Tag></Space>}>
-                  <Table rowKey="factor" size="small" pagination={false}
-                    dataSource={kosData.recommended_tests}
-                    columns={[
-                      seqCol(50),
-                      { title: "建议补测因子", dataIndex: "factor" },
-                      { title: "原因", dataIndex: "reason" },
-                      { title: "证据等级", dataIndex: "evidence", width: 80, align: "center",
-                        render: (v: string) => <Tag color={v === "C" ? "orange" : "red"}>{v}</Tag> },
-                    ]} />
-                  <Paragraph type="secondary" style={{ fontSize: 11, marginTop: 8, marginBottom: 0 }}>
-                    未检测但重要的因子不会被系统伪装成结论,而是列为补测建议。
                   </Paragraph>
                 </Card>
               )}

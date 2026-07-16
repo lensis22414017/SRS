@@ -155,13 +155,15 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
     known_factors = set(thresholds.keys())
     organic_result = guardrail_check(factors, known_factors)
 
-    # 模型贡献度(只取 measured,前端用)
+    # 模型贡献度(只取 measured,前端用) — 口径与 kos_engine 的 m_map 一致(mean_abs_shap/total), 避免双源不一致
     model_contribution = []
     if len(shap_measured) > 0:
+        total_shap = float(shap_measured["mean_abs_shap"].sum()) if "mean_abs_shap" in shap_measured.columns else 0.0
         for _, r in shap_measured.head(10).iterrows():
+            raw = float(r.get("mean_abs_shap", 0))
             model_contribution.append({
                 "factor": r["group"],
-                "contribution": float(r.get("contribution_share_normalized", r.get("contribution_share", 0))),
+                "contribution": round(raw / total_shap, 6) if total_shap > 0 else 0.0,
                 "direction": r.get("direction", "positive"),
             })
 

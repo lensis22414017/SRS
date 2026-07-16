@@ -406,7 +406,8 @@ DIAGNOSIS_POLISH_PROMPT = (
     "要求:\n"
     "1. 用通俗语言解释障碍因子的含义和影响, 避免 SHAP、AUC、特征重要性等技术术语。\n"
     "2. 突出最关键的 2-3 个障碍因子, 说明它们在场地中的具体影响。\n"
-    "3. 给出一个总体评价(优/良/中/差), 不用具体分数。\n"
+    "3. 只如实复述超标因子、浓度水平、KOS 排名等客观事实。禁止给出优/良/中/差等"
+    "整体评价档次, 禁止使用安全/低风险/无风险/状况良好等整体安全性结论。\n"
     "4. 如果诊断置信度偏低, 要坦诚说明, 不要掩盖。\n"
     "5. 保持专业严谨, 不要编造数据。\n"
     "6. 字数控制在 200-400 字, 使用简体中文。\n"
@@ -442,6 +443,11 @@ def polish_diagnosis(db: Session, diagnosis_text: str) -> str | None:
         reply = _clean_markdown_punct(reply)
         if _quality_issue(reply):
             return None
+        # 事实校验: 原始诊断含超标事实但 AI 生成安全性结论则视为幻觉, 回退模板
+        if diagnosis_text and ("超标" in diagnosis_text or "障碍" in diagnosis_text):
+            hallucination_kw = ("安全", "低风险", "无风险", "状况良好", "风险很低", "整体状况")
+            if any(kw in reply for kw in hallucination_kw):
+                return None
         return reply.strip()
     except Exception:
         return None  # 静默降级, 不影响诊断主流程

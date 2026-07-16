@@ -130,19 +130,19 @@
     <tr><td>超标提示</td><td>{{ validation.n_exceed }} 项，涉及因子：{{ validation.exceed_factors|join('、') or '无' }}</td></tr>
   </table>
 
-  <h2>八、关键障碍因子识别（RF + SHAP）</h2>
+  <h2>八、关键障碍因子识别（KOS 综合评分 · 规则主导 + 模型辅助）</h2>
   {% if map_summary.shap_image %}
-  <img src="{{ map_summary.shap_image }}" alt="SHAP障碍因子排名图" style="width:92%;max-width:560px;margin:6pt 0;border:1px solid #eee"/>
-  <div class="muted" style="margin-bottom:6pt">图: Top-N 障碍因子 SHAP 排名(红=正向加重, 蓝=负向缓解, nature 顶刊配色)。</div>
+  <img src="{{ map_summary.shap_image }}" alt="障碍因子排名图" style="width:92%;max-width:560px;margin:6pt 0;border:1px solid #eee"/>
+  <div class="muted" style="margin-bottom:6pt">图: Top-N 障碍因子排名(红=正向加重, 蓝=负向缓解, nature 顶刊配色)。</div>
   {% endif %}
   {% if diagnosis %}
   <table class="kv">
-    <tr><td>模型</td><td>{{ diagnosis.model_name }} {{ diagnosis.model_version }}（AUC={{ diagnosis.metrics.auc }}, F1={{ diagnosis.metrics.f1 }}）</td></tr>
+    <tr><td>模型</td><td>{{ diagnosis.model_name }} {{ diagnosis.model_version }}（Spearman={{ diagnosis.metrics.cv_spearman_mean | default('—') }}）</td></tr>
     <tr><td>数据版本</td><td>{{ diagnosis.data_version }}</td></tr>
   </table>
   {% set maximp = diagnosis.top_factors|map(attribute='importance')|max %}
   <table>
-    <tr><th>排名</th><th>障碍因子</th><th>类别</th><th>|SHAP| 相对重要性</th><th>方向</th></tr>
+    <tr><th>排名</th><th>障碍因子</th><th>类别</th><th>相对重要性</th><th>方向</th></tr>
     {% for t in diagnosis.top_factors %}
     <tr><td>{{ t.rank }}</td><td>{{ t.factor }}</td><td>{{ t.category or '—' }}</td>
         <td>
