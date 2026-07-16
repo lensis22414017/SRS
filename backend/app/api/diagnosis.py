@@ -231,12 +231,37 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
 
     result = run_kos_diagnosis(site_values, track=track, subset=subset, top_n=top_n,
                                 site_pH=site_pH, land_use_type=land_use_type, db_session=db)
-    # 把每条 key_obstacle 合入对应的统计量 + aggregation_method
+    # M0-6: 按 canonical key 保存统计量, 用动态阈值计算 exceedance_count/ratio
+    # 建立 canonical→原始因子名 映射(从 normalize_factors_v2 的 mapping_details)
+    canonical_to_raw = {}
+    for md in result.get("mapping_details", []):
+        c = md.get("canonical")
+        if c:
+            canonical_to_raw.setdefault(c, []).append(md["original_name"])
+
     stats_map = {fn: s for fn, s in factor_stats.items()}
     for k in result.get("key_obstacles", []):
-        fac = k.get("factor")
-        # key_obstacles 用的是归一化后的特征名 (例如 Cd_mgkg)
-        s = stats_map.get(fac, {})
+        fac = k.get("factor")  # canonical 名 (如 Cd_mgkg)
+        # 通过 mapping 找到原始中文名, 取对应统计
+        raw_names = canonical_to_raw.get(fac, [])
+        s = {}
+        for rn in raw_names:
+            if rn in stats_map:
+                s = stats_map[rn]
+                break
+        if not s and fac in stats_map:
+            s = stats_map[fac]
+        # M0-6: 用本次动态阈值计算 exceedance_count/ratio(不再永远为0)
+        thr_val = k.get("threshold_value")
+        if thr_val and raw_names:
+            all_vals = []
+            for rn in raw_names:
+                all_vals.extend(per_factor_raw.get(rn, []))
+            if all_vals:
+                exceed_n = sum(1 for v in all_vals if v > thr_val)
+                s = dict(s)  # 复制避免修改原引用
+                s["exceedance_count"] = exceed_n
+                s["exceedance_ratio"] = round(exceed_n / len(all_vals), 4) if all_vals else 0.0
         k["factor_statistics"] = s
         k["aggregation_method"] = "maximum_valid_measurement"
     # 极端值警告 + rejected 跳过 数量 加入 data_quality_flags
