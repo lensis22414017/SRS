@@ -163,7 +163,7 @@ export default function SiteMap({
     const initCenter: [number, number] = scope === "site" && firstPt
       ? [firstPt.latitude as number, firstPt.longitude as number]
       : [34, 104];
-    const map = L.map(ref.current, { center: initCenter, zoom, minZoom: 3, maxZoom: 18 });
+    const map = L.map(ref.current, { center: initCenter, zoom, minZoom: 3, maxZoom: 18, zoomControl: false });
     mapRef.current = map;
 
     if (scope !== "site") {

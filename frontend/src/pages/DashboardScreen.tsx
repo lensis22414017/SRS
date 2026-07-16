@@ -447,12 +447,12 @@ export default function DashboardScreen() {
         {/* 右栏 — 扩展为 320px */}
         <div className={styles.rightCol}>
           {/* 预警 TOP10 */}
-          <div className={styles.panel} data-testid="screen-alert-top10" style={{ flex: 1, overflow: "hidden", display: "flex", flexDirection: "column" }}>
+          <div className={styles.panel} data-testid="screen-alert-top10">
             <div className={styles.panelTitle}>
               <span className={styles.panelTitleBar} style={{ background: "linear-gradient(180deg, #ff6b6b, #ee5a24)" }} />
               重点场地预警 TOP10
             </div>
-            <div style={{ flex: 1, overflow: "auto" }}>
+            <div>
               {topAlerts.length ? topAlerts.map((s, i) => (
                 <div key={s.id} className={styles.alertItem} onClick={() => nav(`/sites/${s.id}`)}>
                   <span className={styles.alertRank} style={{ color: i < 3 ? ["#ff6b6b","#f0b429","#f39c12"][i] : "#6b8db5" }}>
