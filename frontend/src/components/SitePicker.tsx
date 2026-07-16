@@ -21,8 +21,10 @@ export default function SitePicker({ value, onChange }: { value?: number; onChan
   return (
     <Space>
       <span>选择场地：</span>
-      <Select style={{ width: 320 }} value={value} onChange={setSite}
-        options={sites.map((s) => ({ value: s.id, label: `${s.name}（${s.site_code}）` }))}
+      <Select style={{ width: 380 }} value={value} onChange={setSite}
+        showSearch
+        optionFilterProp="label"
+        options={sites.map((s) => ({ value: s.id, label: s.name, title: `${s.name}（${s.site_code}）` }))}
         placeholder="请选择场地" />
     </Space>
   );

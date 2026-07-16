@@ -106,7 +106,7 @@ export default function TraceDetail() {
 
   return (
     <Space direction="vertical" style={{ width: "100%" }} size={16}>
-      <Card title={`全流程追溯 — ${site.name}（${site.site_code}）`}
+      <Card title={`全流程追溯 — ${site.name}`}
         extra={<Space>
           <Button onClick={() => nav("/trace")}>返回列表</Button>
           {stages.length === 0 && <Button type="primary" loading={busy} onClick={init}>初始化五阶段</Button>}
