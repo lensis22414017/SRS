@@ -31,6 +31,8 @@ def _load_module(path, name):
 _kos_engine = _load_module(os.path.join(ROOT, "ml", "ranking", "kos_engine_v0.8.py"), "kos_engine")
 compute_kos = _kos_engine.compute_kos
 compute_severity = _kos_engine.compute_severity
+compute_severity_detail = getattr(_kos_engine, "compute_severity_detail", None)
+KOS_SEVERITY_CAP_RATIO = getattr(_kos_engine, "KOS_SEVERITY_CAP_RATIO", 10)
 EVIDENCE_SCORE = _kos_engine.EVIDENCE_SCORE
 KOS_W = _kos_engine.KOS_W
 _guardrails = _load_module(os.path.join(ROOT, "ml", "rules", "unknown_organic_guardrails.py"), "guardrails")
@@ -107,14 +109,41 @@ def normalize_factors(raw_values: dict) -> dict:
 
 
 def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all",
-                      top_n: int = 10) -> dict:
+                      top_n: int = 10, site_pH: float | None = None,
+                      land_use_type: str | None = None, db_session=None) -> dict:
     """运行完整 KOS 诊断。
     site_values: {因子名(各种格式): 浓度值}
     track: prod / eco
     subset: all / hm / op / hm_op (决定用哪个模型)
+    site_pH: 场地 pH 值(用于动态阈值选择, M0-2)
+    land_use_type: 土地用途(用于动态阈值选择)
+    db_session: 数据库 session(用于查询 StandardThreshold, M0-2)
     """
-    # 归一化
-    factors = normalize_factors(site_values)
+    # M0-1: 归一化使用 normalize_factors_v2(精确匹配, 替代旧 substring)
+    from app.services.factor_normalizer import normalize_factors_v2
+    norm_result = normalize_factors_v2(site_values)
+    factors = norm_result["factors"]
+    mapping_details = norm_result["mapping_details"]
+    mapping_conflicts = norm_result["mapping_conflicts"]
+    unmapped = norm_result["unmapped"]
+    data_quality_flags = list(norm_result["data_quality_flags"])
+
+    # 冲突因子不进正式 KOS(M0-1 要求)
+    conflict_factors = set()
+    for c in mapping_conflicts:
+        conflict_factors.add(c["canonical"])
+        factors.pop(c["canonical"], None)
+    if mapping_conflicts:
+        data_quality_flags.append(
+            f"mapping_conflicts: {len(mapping_conflicts)} 个因子有来源冲突, 已排除出正式KOS, 需人工选择")
+
+    # 单位转换详情
+    unit_conversion_details = [
+        {"original_name": d["original_name"], "canonical": d.get("canonical"),
+         "unit_raw": d.get("unit_raw"), "unit_converted": d.get("unit_converted"),
+         "conversion_factor": d.get("conversion_factor", 1.0)}
+        for d in mapping_details
+    ]
 
     # 选模型
     model_id = f"{subset}_{track}_Full_RandomForest"
@@ -136,10 +165,41 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
         sg = pd.read_parquet(f"{ART}/{model_id}_shap_global.parquet")
         shap_measured = sg[~sg["group"].str.contains("缺失指示", na=False)].copy()
 
-    # 选阈值/权重
-    thresholds = PROD_THRESHOLDS if track == "prod" else ECO_THRESHOLDS
-    thresholds = dict(thresholds)
-    thresholds["pH"] = PH_THRESHOLD[track]
+    # M0-2: 动态阈值选择 — 优先从数据库查询(pH+land_use), 静态仅 emergency fallback(默认关闭)
+    thresholds = {}
+    threshold_meta = {}  # 每个因子的阈值元数据
+    ambiguous_factors = []
+    USE_STATIC_FALLBACK = False  # 静态 fallback 默认关闭(M0-2 要求)
+
+    if db_session is not None:
+        from app.services.threshold_resolver import resolve_threshold_from_db
+        for fac in list(factors.keys()):
+            if fac == "pH":
+                thresholds["pH"] = PH_THRESHOLD[track]
+                continue
+            thr_result = resolve_threshold_from_db(
+                db_session, fac, track=track, site_pH=site_pH, land_use_type=land_use_type)
+            if thr_result["threshold_resolution_status"] == "resolved":
+                thresholds[fac] = thr_result["threshold"]
+                threshold_meta[fac] = thr_result
+            elif thr_result["threshold_resolution_status"] == "ambiguous":
+                ambiguous_factors.append(fac)
+                data_quality_flags.append(
+                    f"threshold_ambiguous: {fac} 无法唯一确定阈值(pH或土地类型缺失), 不进正式KOS")
+                factors.pop(fac, None)  # ambiguous 因子不进 KOS
+            # not_found 的因子不进 KOS(无阈值)
+
+    # emergency fallback(默认关闭): 仅当 db_session 为 None 或无数据时
+    if not thresholds and USE_STATIC_FALLBACK:
+        thresholds = dict(PROD_THRESHOLDS if track == "prod" else ECO_THRESHOLDS)
+        thresholds["pH"] = PH_THRESHOLD[track]
+        data_quality_flags.append("WARNING: 使用静态硬编码阈值(emergency fallback), 非数据库动态查询")
+    elif not thresholds and db_session is None:
+        # 无 db_session 时用静态(兼容旧调用方式, 但标记)
+        thresholds = dict(PROD_THRESHOLDS if track == "prod" else ECO_THRESHOLDS)
+        thresholds["pH"] = PH_THRESHOLD[track]
+        data_quality_flags.append("WARNING: 无 db_session, 使用静态硬编码阈值(请在 API 层传入 db_session)")
+
     weights = PROD_WEIGHTS if track == "prod" else ECO_WEIGHTS
 
     # 证据等级: 实测=A, 否则 C
@@ -151,11 +211,26 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
         top_n=top_n, op_model=is_op
     )
 
+    # M0-2: 给 key_obstacles 附加阈值元数据
+    for k in kos_result.get("key_obstacles", []):
+        fac = k.get("factor")
+        if fac in threshold_meta:
+            tm = threshold_meta[fac]
+            k["threshold_value"] = tm.get("threshold_value")
+            k["threshold_unit"] = tm.get("threshold_unit", "mg/kg")
+            k["threshold_standard"] = tm.get("threshold_standard", "")
+            k["threshold_version"] = tm.get("threshold_version", "")
+            k["pH_condition"] = tm.get("pH_condition", "")
+            k["land_use_type"] = tm.get("land_use_type", "")
+            k["threshold_source_id"] = tm.get("threshold_source_id")
+
     # 未知有机物三道防线
     known_factors = set(thresholds.keys())
     organic_result = guardrail_check(factors, known_factors)
 
     # 模型贡献度(只取 measured,前端用) — 口径与 kos_engine 的 m_map 一致(mean_abs_shap/total), 避免双源不一致
+    # P0-5 SHAP 口径修复: model_contribution 是"全局模型贡献度"(global_model scope),
+    # 不得描述为局部/障碍/因果类口径(详见 interpretation_note 字段)
     model_contribution = []
     if len(shap_measured) > 0:
         total_shap = float(shap_measured["mean_abs_shap"].sum()) if "mean_abs_shap" in shap_measured.columns else 0.0
@@ -165,6 +240,8 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
                 "factor": r["group"],
                 "contribution": round(raw / total_shap, 6) if total_shap > 0 else 0.0,
                 "direction": r.get("direction", "positive"),
+                # P0-5: 显式口径标记, 防止前端误读为局部/因果类口径
+                "contribution_scope": "global_model",
             })
 
     # 四层输出(裴总 P0 规则)
@@ -172,15 +249,31 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
         "track": track,
         "model_id": model_id,
         "data_version": "Gold Dataset v0.8",
-        "threshold_version": "GB15618(生产) / GB36600(生态) 简化版",
+        "threshold_version": ("数据库动态阈值(StandardThreshold)" if db_session and thresholds
+                              else "静态硬编码(需传入db_session启用动态阈值)"),
         "model_status": model_info["status"],
+        # M0-1: 因子映射详情
+        "mapping_details": mapping_details,
+        "mapping_conflicts": mapping_conflicts,
+        "unmapped": unmapped,
+        "unit_conversion_details": unit_conversion_details,
+        # M0-2: 阈值解析详情
+        "ambiguous_threshold_factors": ambiguous_factors,
         # 第一层: 明确障碍(实测+有阈值+B=1)
         "explicit_obstacles": kos_result["explicit_obstacles"],
         # 第二层: 关键障碍 Top-N(KOS 排序)
         "key_obstacles": [
             {"rank": k["rank"], "factor": k["factor"], "KOS": k["KOS"],
              "components": {"R": k["R"], "W": k["W"], "M": k["M"], "S": k["S"], "E": k["E"]},
-             "value": k["value"], "evidence": k["E"]}
+             "value": k["value"], "evidence": k["E"],
+             # P0-4 透明化字段 (向后兼容, 只新增)
+             "exceedance_ratio": k.get("exceedance_ratio", 0.0),
+             "severity_cap_ratio": k.get("severity_cap_ratio", KOS_SEVERITY_CAP_RATIO),
+             "severity_saturated": k.get("severity_saturated", False),
+             "stability_is_constant": k.get("stability_is_constant", True),
+             "stability_note": k.get("stability_note",
+                                     "当前无重复样稳定性数据,S为固定占位参数"),
+             "ranking_difference_small": k.get("ranking_difference_small", False)}
             for k in kos_result["key_obstacles"]
         ],
         # 第三层: 模型关注因子(实测+模型见过+无阈值或未超标,需专家复核)

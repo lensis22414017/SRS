@@ -252,7 +252,7 @@ export default function ObstacleAnalysis() {
                   style={{ marginBottom: 4, whiteSpace: "pre-wrap" }}>{diag?.summary || "—"}</Paragraph>
                 {diag?.polish_model && (
                   <Text type="secondary" style={{ fontSize: 11 }}>
-                    ⓘ 此结论由 AI 辅助生成（{diag?.polish_model}），仅供参考，以原始数据为准。
+                    ⓘ 此结论由 AI 辅助生成（{diag?.polish_model}），经事实校验但仍有降级回退机制，仅供参考，以原始数据为准。
                   </Text>
                 )}
               </Descriptions.Item>
@@ -443,7 +443,106 @@ export default function ObstacleAnalysis() {
               {kosData.organic_guardrails && (kosData.organic_guardrails.n_family_warning > 0 || kosData.organic_guardrails.n_unknown > 0) && (
                 <Alert type="warning" showIcon style={{ marginTop: 0 }}
                   message={`检测到 ${kosData.organic_guardrails.n_family_warning} 个族群未收录物质,${kosData.organic_guardrails.n_unknown} 个完全未知物质`}
-                  description={`这些物质无法自动判定障碍风险,已归入族群预警/送检建议。系统不会假装识别未知物质。请参考「建议补测」或安排深度检测。`} />
+                  description={`未收录因子不会丢失, 已进入模型候选识别、族群级近邻分析和未知因子预警(不强行套用阈值)。系统不会假装识别未知物质, 仅作为辅助识别参考, 非法规超标判定。请参考「建议补测」或安排深度检测。`} />
+              )}
+
+              {/* ───── M0-5: 开放集四层结果真实展示(模型候选 / 族群预警 / 未知因子) ───── */}
+              {(kosData.model_candidates?.length > 0 ||
+                kosData.family_alerts?.length > 0 ||
+                kosData.unknown_measured_factors?.length > 0) && (
+                <Card title={<Space><span>开放集识别结果（辅助识别 · 非法规超标结论）</span></Space>} size="small">
+                  <Paragraph type="secondary" style={{ fontSize: 12, marginBottom: 8 }}>
+                    以下三类结果属于辅助识别层, 与上方「关键障碍因子 Top-N」(法规超标层)严格区分, 仅供人工复核与补测决策。
+                  </Paragraph>
+                  <Collapse size="small" defaultActiveKey={["model_candidates", "family_alerts", "unknown_factors"]} items={[
+                    {
+                      key: "model_candidates",
+                      label: `① 模型候选障碍（${kosData.model_candidates?.length ?? 0}）`,
+                      children: (
+                        <>
+                          <Paragraph type="secondary" style={{ fontSize: 11, marginBottom: 8 }}>
+                            模型或文献数据提示其值得关注，但不属于法规超标结论。
+                          </Paragraph>
+                          <Table
+                            size="small" pagination={false} rowKey="original_name"
+                            dataSource={kosData.model_candidates || []}
+                            locale={{ emptyText: "无" }}
+                            columns={[
+                              textCol("原始名称", "original_name"),
+                              textCol("规范名称", "canonical"),
+                              textCol("候选原因", "reason"),
+                              { title: "模型贡献", dataIndex: "candidate_attention", align: "center", width: 110,
+                                render: (v: any) => {
+                                  if (v == null) return "—";
+                                  const score = typeof v === "object" ? v?.candidate_attention_score : v;
+                                  return score == null ? "—" : Number(score).toFixed(3);
+                                } },
+                              { title: "需复核", dataIndex: "review_required", align: "center", width: 80,
+                                render: (v: any) => v ? <Tag color="orange">是</Tag> : <Tag color="default">否</Tag> },
+                            ]}
+                          />
+                        </>
+                      ),
+                    },
+                    {
+                      key: "family_alerts",
+                      label: `② 族群级预警（${kosData.family_alerts?.length ?? 0}）`,
+                      children: (
+                        <>
+                          <Paragraph type="secondary" style={{ fontSize: 11, marginBottom: 8 }}>
+                            族群归类属于规则型辅助识别，不等同于具体化合物确认或法规判定。
+                          </Paragraph>
+                          <Table
+                            size="small" pagination={false} rowKey="original_name"
+                            dataSource={kosData.family_alerts || []}
+                            locale={{ emptyText: "无" }}
+                            columns={[
+                              textCol("原始名称", "original_name"),
+                              { title: "匹配族群", dataIndex: "matched_family", align: "center", width: 110,
+                                render: (v: string) => v ? <Tag color="blue">{v}</Tag> : "—" },
+                              { title: "置信度", dataIndex: "family_match_confidence", align: "center", width: 90,
+                                render: (v: any) => v == null ? "—" : Number(v).toFixed(3) },
+                              textCol("匹配理由", "family_match_reasons", {
+                                render: (v: any) => Array.isArray(v) && v.length ? v.join("；") : (v || "—"),
+                              }),
+                              textCol("原始单位", "original_unit"),
+                              { title: "需复核", dataIndex: "review_required", align: "center", width: 80,
+                                render: (v: any) => v ? <Tag color="orange">是</Tag> : <Tag color="default">否</Tag> },
+                            ]}
+                          />
+                        </>
+                      ),
+                    },
+                    {
+                      key: "unknown_factors",
+                      label: `③ 未知实测因子（${kosData.unknown_measured_factors?.length ?? 0}）`,
+                      children: (
+                        <>
+                          <Paragraph type="secondary" style={{ fontSize: 11, marginBottom: 8 }}>
+                            系统已保留该项实测数据，但目前无法可靠映射，建议补充 CAS、单位或检测方法。
+                          </Paragraph>
+                          <Table
+                            size="small" pagination={false} rowKey="original_name"
+                            dataSource={kosData.unknown_measured_factors || []}
+                            locale={{ emptyText: "无" }}
+                            columns={[
+                              textCol("原始名称", "original_name"),
+                              textCol("单位", "original_unit"),
+                              numCol("最大值", "max", { width: 90,
+                                render: (v: any) => v == null ? "—" : Number(v).toFixed(3) }),
+                              numCol("中位数", "median", { width: 90,
+                                render: (v: any) => v == null ? "—" : Number(v).toFixed(3) }),
+                              numCol("P95", "p95", { width: 90,
+                                render: (v: any) => v == null ? "—" : Number(v).toFixed(3) }),
+                              numCol("点位数", "n_points", { width: 80 }),
+                              textCol("未识别原因", "unknown_reason"),
+                            ]}
+                          />
+                        </>
+                      ),
+                    },
+                  ]} />
+                </Card>
               )}
             </>
           )}

@@ -224,8 +224,8 @@ def _render_points_map_png(coord_points: list, exceed_by_point: dict[int, float]
 
 
 def _render_shap_figure_png(top_factors: list, site_name: str) -> str | None:
-    """用 matplotlib 画 Top-N 障碍因子 SHAP 排名横向条形图(nature-figure 顶刊风格)。
-    报告增加顶刊级 SHAP 排名图(matplotlib 科研配图, 非 dashboard)。
+    """用 matplotlib 画 Top-N 障碍因子模型全局贡献份额横向条形图(科研配图风格)。
+    报告增加模型全局贡献份额排名图(matplotlib 科研配图, 非 dashboard)。
     正向(加重)=npg红 #E64B35, 负向(缓解)=npg蓝 #4DBBD5; 去顶右边框, 数值标注。"""
     try:
         import matplotlib
@@ -245,8 +245,8 @@ def _render_shap_figure_png(top_factors: list, site_name: str) -> str | None:
     ax.barh(range(len(names)), vals, color=colors, height=0.62, edgecolor="white", linewidth=0.6)
     ax.set_yticks(range(len(names)))
     ax.set_yticklabels(names, fontsize=9)
-    ax.set_xlabel("|SHAP| 相对重要性", fontsize=9)
-    ax.set_title(f"关键障碍因子 SHAP 排名 — {site_name}", fontsize=10.5, pad=8, color="#222")
+    ax.set_xlabel("模型全局贡献份额", fontsize=9)
+    ax.set_title(f"关键障碍因子模型全局贡献份额 — {site_name}", fontsize=10.5, pad=8, color="#222")
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
     ax.tick_params(length=0)
@@ -446,6 +446,13 @@ def collect(db: Session, site_id: int, version: str) -> dict:
         "standard_versions": _standard_versions(db),
         "workflow": workflow,
         "attachments": attachments, "audit_logs": audit_ctx,
+        # M0-5: 开放集识别结果(辅助识别 · 非法规超标)
+        # 来自 KOS 诊断时的开放集四层分类; 报告生成路径尚未实时调用 classify_open_set,
+        # 因此默认为空列表(模板会渲染为"无"), 后续如持久化开放集结果可在此注入。
+        "formal_obstacles": [],
+        "model_candidates": [],
+        "family_alerts": [],
+        "unknown_measured": [],
         "report": {"version": version, "template_version": TEMPLATE_VERSION,
                    "data_version": diag.data_version if diag else f"site{site_id}",
                    "standard_version": "GB15618/GB36600/HJ25.5-2018",
@@ -570,6 +577,12 @@ def render_docx(context: dict) -> bytes:
                  f"{'、'.join(context['validation']['exceed_factors']) or '无'}"),
     ])
 
+    add_kv("报告口径与结果范围说明", [
+        ("正式超标结论范围", "正式超标结论仅限于身份明确、单位兼容且阈值适用的因子。对没有适用阈值或未被正式因子库收录的实测指标，系统仍通过模型候选识别、族群级近邻分析和未知因子预警进行辅助识别，不会丢弃数据或强行套用标准。探索性识别结果不等同于法规超标判定，需结合检测方法和专家复核。"),
+        ("验证范围", "当前完成 3 个原始场地的工程回归验证 + 15 个合成数据演示，尚未开展跨区域大规模独立验证。报告结论作为辅助决策依据，不构成监管级科学可信判定。"),
+        ("方法学口径", "采用规则、模型和开放集识别相结合的混合策略(非纯数据驱动)。AI 润色文本经事实校验但仍有降级回退机制；任何 AI 生成的描述均以原始检测数据为准。"),
+    ])
+
     doc.add_heading("Top-N 障碍因子", level=1)
     if context.get("diagnosis") and context["diagnosis"].get("top_factors"):
         table = doc.add_table(rows=1, cols=5)
@@ -586,9 +599,9 @@ def render_docx(context: dict) -> bytes:
     else:
         doc.add_paragraph("暂无诊断结果。")
 
-    # DOCX 同步嵌入 SHAP 障碍因子排名图(与 PDF 口径一致)
+    # DOCX 同步嵌入模型全局贡献份额排名图(与 PDF 口径一致)
     _embed_docx_image(doc, context["map_summary"].get("shap_image"),
-                      "(关键障碍因子 SHAP 排名图件)")
+                      "(关键障碍因子模型全局贡献份额图件)")
 
     doc.add_heading("功能重构可行性评价", level=1)
     if context.get("reconstruction"):

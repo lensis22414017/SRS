@@ -130,10 +130,17 @@
     <tr><td>超标提示</td><td>{{ validation.n_exceed }} 项，涉及因子：{{ validation.exceed_factors|join('、') or '无' }}</td></tr>
   </table>
 
+  <h2>七.5、报告口径与结果范围说明</h2>
+  <table class="kv">
+    <tr><td>正式超标结论范围</td><td>正式超标结论仅限于身份明确、单位兼容且阈值适用的因子。对没有适用阈值或未被正式因子库收录的实测指标，系统仍通过模型候选识别、族群级近邻分析和未知因子预警进行辅助识别，不会丢弃数据或强行套用标准。探索性识别结果不等同于法规超标判定，需结合检测方法和专家复核。</td></tr>
+    <tr><td>验证范围</td><td>当前完成 3 个原始场地的工程回归验证 + 15 个合成数据演示，尚未开展跨区域大规模独立验证。报告结论作为辅助决策依据，不构成监管级科学可信判定。</td></tr>
+    <tr><td>方法学口径</td><td>采用规则、模型和开放集识别相结合的混合策略（非纯数据驱动）。AI 润色文本经事实校验但仍有降级回退机制；任何 AI 生成的描述均以原始检测数据为准。</td></tr>
+  </table>
+
   <h2>八、关键障碍因子识别（KOS 综合评分 · 规则主导 + 模型辅助）</h2>
   {% if map_summary.shap_image %}
   <img src="{{ map_summary.shap_image }}" alt="障碍因子排名图" style="width:92%;max-width:560px;margin:6pt 0;border:1px solid #eee"/>
-  <div class="muted" style="margin-bottom:6pt">图: Top-N 障碍因子排名(红=正向加重, 蓝=负向缓解, nature 顶刊配色)。</div>
+  <div class="muted" style="margin-bottom:6pt">图: Top-N 障碍因子模型全局贡献份额(红=正向加重, 蓝=负向缓解)。</div>
   {% endif %}
   {% if diagnosis %}
   <table class="kv">
@@ -158,6 +165,56 @@
   </table>
   <div class="muted">{{ diagnosis.summary }}</div>
   {% else %}<div class="muted">本场地的障碍因子诊断尚未运行。请在「障碍因子诊断」页面执行生产轨/生态轨诊断后，重新生成本报告以获取 KOS 关键障碍因子排名、超标分析等完整内容。</div>{% endif %}
+
+  <h2>八.5 开放集识别结果（辅助识别 · 非法规超标结论）</h2>
+  <div class="muted">本节列出三类辅助识别结果：模型候选障碍、族群级预警、未知实测因子。这些结果与第八章「关键障碍因子 Top-N」严格区分，不属于法规超标判定，仅供人工复核与补测决策参考。</div>
+
+  <h3 style="margin-top:8pt">① 模型候选障碍（{{ model_candidates|length if model_candidates else 0 }}）</h3>
+  <div class="muted" style="margin-bottom:4pt">模型或文献数据提示其值得关注，但不属于法规超标结论。</div>
+  {% if model_candidates and model_candidates|length > 0 %}
+  <table>
+    <tr><th>原始名称</th><th>规范名称</th><th>候选原因</th><th>模型贡献</th><th>需复核</th></tr>
+    {% for c in model_candidates %}
+    <tr><td>{{ c.original_name }}</td><td>{{ c.canonical or '—' }}</td>
+        <td class="muted">{{ c.reason or '—' }}</td>
+        <td>{% set _att = c.candidate_attention %}{% if _att is mapping %}{{ (_att.candidate_attention_score if _att.candidate_attention_score is not none else '—') }}{% elif _att is not none %}{{ _att }}{% else %}—{% endif %}</td>
+        <td>{{ '是' if c.review_required else '否' }}</td></tr>
+    {% endfor %}
+  </table>
+  {% else %}<div class="muted">无</div>{% endif %}
+
+  <h3 style="margin-top:8pt">② 族群级预警（{{ family_alerts|length if family_alerts else 0 }}）</h3>
+  <div class="muted" style="margin-bottom:4pt">族群归类属于规则型辅助识别，不等同于具体化合物确认或法规判定。</div>
+  {% if family_alerts and family_alerts|length > 0 %}
+  <table>
+    <tr><th>原始名称</th><th>匹配族群</th><th>置信度</th><th>匹配理由</th><th>原始单位</th><th>需复核</th></tr>
+    {% for f in family_alerts %}
+    <tr><td>{{ f.original_name }}</td>
+        <td>{{ f.matched_family or '—' }}</td>
+        <td>{{ f.family_match_confidence if f.family_match_confidence is not none else '—' }}</td>
+        <td class="muted">{{ (f.family_match_reasons|join('；')) if f.family_match_reasons else '—' }}</td>
+        <td>{{ f.original_unit or '—' }}</td>
+        <td>{{ '是' if f.review_required else '否' }}</td></tr>
+    {% endfor %}
+  </table>
+  {% else %}<div class="muted">无</div>{% endif %}
+
+  <h3 style="margin-top:8pt">③ 未知实测因子（{{ unknown_measured|length if unknown_measured else 0 }}）</h3>
+  <div class="muted" style="margin-bottom:4pt">系统已保留该项实测数据，但目前无法可靠映射，建议补充 CAS、单位或检测方法。</div>
+  {% if unknown_measured and unknown_measured|length > 0 %}
+  <table>
+    <tr><th>原始名称</th><th>单位</th><th>最大值</th><th>中位数</th><th>P95</th><th>点位数</th><th>未识别原因</th></tr>
+    {% for u in unknown_measured %}
+    <tr><td>{{ u.original_name }}</td>
+        <td>{{ u.original_unit or '—' }}</td>
+        <td>{{ u.max if u.max is not none else '—' }}</td>
+        <td>{{ u.median if u.median is not none else '—' }}</td>
+        <td>{{ u.p95 if u.p95 is not none else '—' }}</td>
+        <td>{{ u.n_points if u.n_points is not none else '—' }}</td>
+        <td class="muted">{{ u.unknown_reason or '—' }}</td></tr>
+    {% endfor %}
+  </table>
+  {% else %}<div class="muted">无</div>{% endif %}
 
   <h2>九、功能重构可行性评价</h2>
   {% for ev in reconstruction %}
@@ -247,7 +304,7 @@
 
   <div class="footer">
     报告版本 {{ report.version }}｜模板 {{ report.template_version }}｜数据版本快照 {{ report.data_version }}｜
-    生成时间 {{ report.generated_at }}｜本报告由"污染场地土壤生态-生产功能重构监管系统"自动生成，结论基于上述实测数据与标注参数，可追溯、可重复生成。<br/>
+    生成时间 {{ report.generated_at }}｜本报告由"污染场地土壤生态-生产功能重构监管系统"自动生成，结论基于上述实测数据与标注参数，过程可追溯、可重复生成；正式超标判定仅限于身份明确、单位兼容且阈值适用的因子，其余识别结果为辅助决策参考，需结合检测方法和专家复核。<br/>
     Copyright © 2026 生态环境部土壤与农业农村生态环境监管技术中心
   </div>
 </body>
