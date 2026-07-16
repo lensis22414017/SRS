@@ -88,7 +88,7 @@ def build_pollutant_limits(kb_csv: str) -> dict:
         parsed = parse_threshold_original(r.get("threshold_original"))
         if not parsed:
             continue
-        out.setdefault(name, {}).setdefault(scope, {}).set_default(sub, []).append({
+        out.setdefault(name, {}).setdefault(scope, {}).setdefault(sub, []).append({
             "ph_min": parsed["ph_min"], "ph_max": parsed["ph_max"],
             "limit": parsed["limit"], "limit_max": parsed["limit_max"],
             "source": (r.get("standard_source") or "").strip(),

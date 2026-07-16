@@ -234,6 +234,30 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
         result["data_quality_flags"] = data_quality_flags_pre + result.get("data_quality_flags", [])
     result["aggregation_method"] = "maximum_valid_measurement"
     result["factor_statistics"] = factor_stats
+
+    # P0-OPEN-4: 开放集分层识别 — 对所有实测因子做四层分类(formal/candidate/family/unknown)
+    # 不丢弃任何因子, 未收录因子进入 candidate/family_alert/unknown_measured
+    try:
+        from app.services.open_set_classifier import classify_open_set
+        from app.services.factor_normalizer import _ALIAS_TO_CANONICAL
+        known_canonical = set(_ALIAS_TO_CANONICAL.values())
+        # 模型特征来自 SHAP measured 的 group
+        model_features = set()
+        for mc in result.get("model_contribution", []):
+            model_features.add(mc.get("factor", ""))
+        # 有阈值的 canonical(从 kos_service 的阈值表)
+        from app.services.kos_service import PROD_THRESHOLDS, ECO_THRESHOLDS, PH_THRESHOLD
+        thr_map = PROD_THRESHOLDS if track == "prod" else ECO_THRESHOLDS
+        thr_map = {**thr_map, "pH": PH_THRESHOLD.get(track, {})}
+        open_set = classify_open_set(site_values, known_canonical, model_features, thr_map)
+        result["open_set"] = open_set
+        result["open_set_summary"] = open_set["open_set_summary"]
+        result["unknown_measured_factors"] = open_set["unknown_measured"]
+        result["family_alerts"] = open_set["family_alerts"]
+        result["model_candidates"] = open_set["model_candidates"]
+    except Exception:
+        pass  # 开放集识别失败不影响主诊断流程
+
     result["site_id"] = site_id
     result["site_name"] = site.name
     return result
