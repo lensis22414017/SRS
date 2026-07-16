@@ -48,6 +48,44 @@ def ensure_app_dirs():
             os.makedirs(db_dir, exist_ok=True)
 
 
+def inject_builtin_keys():
+    """首次启动时将内置 API key 写入 AppData 的 override 配置 + 设环境变量。
+
+    打包版内置 builtin_keys.py(不入 Git)，使甲方开箱即用 AI + 卫星地图。
+    开发模式(builtin_keys 不存在)时静默跳过，不影响开发流程。
+    """
+    try:
+        import builtin_keys as bk
+    except ImportError:
+        return  # 开发模式无内置 key，跳过
+
+    # 1. AI key → ai_config.json override(若已存在则不覆盖，尊重用户已配)
+    try:
+        from app.core.config import _app_data_dir
+        override_path = os.path.join(_app_data_dir(), "ai_config.json")
+        if not os.path.isfile(override_path):
+            import json
+            cfg = {"base_url": bk.AI_BASE_URL, "api_key": bk.AI_API_KEY,
+                   "model": bk.AI_MODEL, "provider": "zhipu"}
+            os.makedirs(os.path.dirname(override_path), exist_ok=True)
+            with open(override_path, "w", encoding="utf-8") as f:
+                json.dump(cfg, f, ensure_ascii=False, indent=2)
+            print(f"✅ 已预配 AI key 到 {override_path}")
+    except Exception as e:
+        print(f"⚠️ AI key 预配失败({e})，可在系统管理页手动配置。")
+
+    # 2. 高德 key → 环境变量(全局生效，map.py 读 os.environ)
+    gaode = getattr(bk, "GAODE_KEY", "")
+    if gaode:
+        os.environ["GAODE_KEY"] = gaode
+        # 同步写入 settings 缓存
+        try:
+            from app.core.config import get_settings
+            get_settings().gaode_key = gaode
+        except Exception:
+            pass
+
+
 def _check_port_in_use(port: int, host: str = "127.0.0.1") -> bool:
     """检测端口是否被占用。"""
     import socket
@@ -368,6 +406,7 @@ def main():
     print()
 
     ensure_app_dirs()
+    inject_builtin_keys()
 
     # 首启环境自检(只读探测, 不改任何配置)
     print("🔍 正在执行环境自检...")

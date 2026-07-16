@@ -85,3 +85,5 @@ build/
 *.db-journal
 *.db-wal
 *.db-shm
+packaging/builtin_keys.py
+backend/.env

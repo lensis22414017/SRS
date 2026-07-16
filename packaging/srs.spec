@@ -127,6 +127,8 @@ hidden_imports = [
     "webview.platforms.gtk",
     # pkg_resources 运行时依赖(weasyprint/reportlab 间接引入)
     "jaraco", "jaraco.text", "jaraco.functools", "jaraco.context",
+    # 内置 API key(打包版预配, 开发版不存在则静默跳过)
+    "builtin_keys",
 ]
 
 # ── 排除模块 ────────────────────────────────────────────────────
@@ -154,7 +156,7 @@ app_info = {
 # ── Analysis ────────────────────────────────────────────────────
 a = Analysis(
     [str(PROJECT_ROOT / "packaging" / "launcher.py")],
-    pathex=[str(PROJECT_ROOT), str(PROJECT_ROOT / "backend")],
+    pathex=[str(PROJECT_ROOT), str(PROJECT_ROOT / "backend"), str(PROJECT_ROOT / "packaging")],
     binaries=[],
     datas=added_files,
     hiddenimports=hidden_imports,
