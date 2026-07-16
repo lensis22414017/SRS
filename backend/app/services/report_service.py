@@ -210,7 +210,7 @@ def _render_points_map_png(coord_points: list, exceed_by_point: dict[int, float]
     ax.grid(True, linestyle="--", alpha=0.3)
     from datetime import datetime as _dt, timezone as _tz
     wm = f"8级色阶 | 渲染: {_dt.now(_tz.utc).strftime('%Y-%m-%d %H:%M UTC')} | 底图: 无(离线坐标散点)"
-    fig.text(0.5, 0.01, wm, ha="center", fontsize=5.5, color="#888", family="monospace")
+    fig.text(0.5, 0.01, wm, ha="center", fontsize=5.5, color="#888")
     fig.tight_layout(rect=[0, 0.03, 1, 0.97])
     from io import BytesIO
     buf = BytesIO()

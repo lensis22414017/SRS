@@ -79,7 +79,7 @@ VALID_TRANSITIONS = {
     "not_started": ["in_progress"],
     "in_progress": ["completed", "returned"],
     "returned":    ["in_progress"],               # 退回后只能重新进入进行中
-    "completed":   ["in_progress"],               # v0.2 P1-7: 已完成可重新打开(需要原因)
+    "completed":   ["in_progress", "returned"],   # 已完成可重新打开; 审批不合格可直接退回
 }
 
 STAGE_ORDER = ["survey", "approval", "construction", "effect", "maintenance"]

@@ -157,7 +157,7 @@
     {% endfor %}
   </table>
   <div class="muted">{{ diagnosis.summary }}</div>
-  {% else %}<div class="muted">暂无诊断结果。</div>{% endif %}
+  {% else %}<div class="muted">本场地的障碍因子诊断尚未运行。请在「障碍因子诊断」页面执行生产轨/生态轨诊断后，重新生成本报告以获取 KOS 关键障碍因子排名、超标分析等完整内容。</div>{% endif %}
 
   <h2>九、功能重构可行性评价</h2>
   {% for ev in reconstruction %}
@@ -174,7 +174,7 @@
     <tr><td>SSUI 指数</td><td><span class="badge">{{ ssui.score }}</span>（{{ ssui.grade }}）</td></tr>
     <tr><td>说明</td><td class="muted">{{ ssui.explanation }}</td></tr>
   </table>
-  {% else %}<div class="muted">暂无 SSUI 结果。</div>{% endif %}
+  {% else %}<div class="muted">本场地尚未运行 SSUI 可持续性评价。请在「SSUI 评价」页面执行后重新生成报告。</div>{% endif %}
 
   <h2>十一、推荐重构方案与推荐修复方案矩阵</h2>
   {% if recommendations %}
@@ -187,7 +187,7 @@
         <td class="muted">{{ r.reason[:120] }}…</td></tr>
     {% endfor %}
   </table>
-  {% else %}<div class="muted">暂无推荐方案。</div>{% endif %}
+  {% else %}<div class="muted">本场地尚未生成推荐方案。请在完成障碍因子诊断后，前往「方案推荐」页面执行匹配，再重新生成报告。</div>{% endif %}
 
   <h2>十二、修复案例证据库</h2>
   {% if remediation_cases %}
@@ -201,7 +201,7 @@
         <td>{{ c.evidence_source or c.doi or '—' }}</td></tr>
     {% endfor %}
   </table>
-  {% else %}<div class="muted">暂无修复案例。</div>{% endif %}
+  {% else %}<div class="muted">案例证据库中暂无与本场地污染物匹配的修复案例。随着案例库扩充，此处将自动补充同类场地的修复经验。</div>{% endif %}
 
   <h2>十三、五阶段全流程追溯记录</h2>
   <table>
@@ -238,7 +238,7 @@
   </table>
   {% endif %}
 
-  <h2>十七、人工复核意见区</h2>
+  <h2>十六、人工复核意见区</h2>
   <table class="kv">
     <tr><td>复核结论</td><td>□ 采纳系统结论　□ 部分采纳　□ 驳回并要求补充数据</td></tr>
     <tr><td>复核意见</td><td style="height:48pt">&nbsp;</td></tr>

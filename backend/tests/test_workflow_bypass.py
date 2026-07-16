@@ -63,12 +63,15 @@ class TestWorkflowBypassBlocked:
         with pytest.raises(ValueError, match="不允许"):
             W.update_stage(db, site_id, "survey", is_completed=True)
 
-    def test_completed_to_returned_rejected(self, db, site_id):
-        """completed -> returned directly -> MUST FAIL"""
+    def test_completed_to_returned_allowed(self, db, site_id):
+        """completed -> returned: 审批退回场景, 需 is_returned=True + review_comment"""
         W.update_stage(db, site_id, "survey", status="in_progress")
         W.update_stage(db, site_id, "survey", status="completed", is_completed=True)
-        with pytest.raises(ValueError, match="不允许"):
-            W.update_stage(db, site_id, "survey", is_returned=True)
+        stages = W.update_stage(db, site_id, "survey", is_returned=True,
+                                review_comment="数据不合格需补充")
+        s = [x for x in stages if x["stage"] == "survey"][0]
+        assert s["status"] == "returned"
+        assert s["is_returned"] is True
 
 
 class TestWorkflowLegalPath:
