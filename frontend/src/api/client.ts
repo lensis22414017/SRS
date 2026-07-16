@@ -56,9 +56,22 @@ export const api = {
   pointsWide: (id: number) => client.get(`/sites/${id}/points-wide`).then((r) => r.data),
   siteMapLayers: (id: number, params?: any) =>
     client.get(`/sites/${id}/map/layers`, { params }).then((r) => r.data),
-  geoIndex: () => client.get("/map/geo/index").then((r) => r.data),
-  geoBoundaries: (level: string, adcode?: number) =>
-    client.get("/map/geo/boundaries", { params: { level, adcode } }).then((r) => r.data),
+  geoIndex: (() => {
+    const cache = new Map<string, any>();
+    return () => {
+      if (cache.has("index")) return Promise.resolve(cache.get("index"));
+      return client.get("/map/geo/index").then((r) => { cache.set("index", r.data); return r.data; });
+    };
+  })(),
+  geoBoundaries: (() => {
+    const cache = new Map<string, any>();
+    return (level: string, adcode?: number) => {
+      const key = `${level}:${adcode ?? 0}`;
+      if (cache.has(key)) return Promise.resolve(cache.get(key));
+      return client.get("/map/geo/boundaries", { params: { level, adcode } })
+        .then((r) => { cache.set(key, r.data); return r.data; });
+    };
+  })(),
   eda: (id: number, params?: any) => client.get(`/sites/${id}/eda`, { params }).then((r) => r.data),
   measurements: (id: number, params?: any) =>
     client.get(`/sites/${id}/measurements`, { params }).then((r) => r.data),

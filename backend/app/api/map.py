@@ -396,7 +396,9 @@ def geo_index():
     if not os.path.exists(idx_path):
         raise HTTPException(503, "离线行政区索引未安装, 请先运行 scripts/download_admin_boundaries.py")
     with open(idx_path, encoding="utf-8") as f:
-        return _json.load(f)
+        data = _json.load(f)
+    return Response(content=_json.dumps(data, ensure_ascii=False), media_type="application/json",
+                    headers={"Cache-Control": "public, max-age=86400"})
 
 
 @router.get("/map/geo/boundaries")
@@ -429,4 +431,6 @@ def geo_boundaries(level: str = Query("province", pattern="^(province|prefecture
     if not os.path.exists(path):
         raise HTTPException(503, "离线行政区数据未安装, 请先运行 scripts/download_admin_boundaries.py")
     with open(path, encoding="utf-8") as f:
-        return _json.load(f)
+        data = _json.load(f)
+    return Response(content=_json.dumps(data, ensure_ascii=False), media_type="application/json",
+                    headers={"Cache-Control": "public, max-age=86400"})
