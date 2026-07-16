@@ -192,7 +192,7 @@ exe = EXE(
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
-    icon=str(PROJECT_ROOT / "packaging" / "srs_icon_v2.ico") if (PROJECT_ROOT / "packaging" / "srs_icon_v2.ico").exists() else (str(PROJECT_ROOT / "packaging" / "srs.ico") if (PROJECT_ROOT / "packaging" / "srs.ico").exists() else None),  # v2白底圆角新图标(深蓝盾+绿蘑菇), 回退旧ico
+    icon=str(PROJECT_ROOT / "packaging" / "srs_icon_v3.ico") if (PROJECT_ROOT / "packaging" / "srs_icon_v3.ico").exists() else (str(PROJECT_ROOT / "packaging" / "srs_icon_v2.ico") if (PROJECT_ROOT / "packaging" / "srs_icon_v2.ico").exists() else None),  # v3裴总定稿图标(蓝盾+绿芽), 回退v2
     version_info=_VI,  # Windows 版本信息对象(公司名/版权/版本)
 )
 
