@@ -443,11 +443,12 @@ def polish_diagnosis(db: Session, diagnosis_text: str) -> str | None:
         reply = _clean_markdown_punct(reply)
         if _quality_issue(reply):
             return None
-        # 事实校验: 原始诊断含超标事实但 AI 生成安全性结论则视为幻觉, 回退模板
-        if diagnosis_text and ("超标" in diagnosis_text or "障碍" in diagnosis_text):
-            hallucination_kw = ("安全", "低风险", "无风险", "状况良好", "风险很低", "整体状况")
-            if any(kw in reply for kw in hallucination_kw):
-                return None
+        # P0-6: 综合事实校验（替代旧的 6 关键词检查）
+        # 校验: 禁止性整体结论 + 因子不丢失 + 数值不改 + 超标关系不反转
+        from app.services.diagnosis_fact_check import validate_ai_polish
+        validation = validate_ai_polish(diagnosis_text, reply)
+        if validation["should_fallback"]:
+            return None  # 校验失败，回退到原始确定性诊断
         return reply.strip()
     except Exception:
         return None  # 静默降级, 不影响诊断主流程
