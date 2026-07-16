@@ -227,12 +227,20 @@ export default function Dashboard() {
               styles={{ body: { padding: "16px 20px" } }}
             >
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
-                <Statistic
-                  title={<span style={{ fontSize: 12, color: "#888" }}>{k.title}</span>}
-                  value={k.value}
-                  suffix={k.suffix}
-                  valueStyle={{ fontSize: 24, color: k.color, fontWeight: 700 }}
-                />
+                {k.suffix === "个场地" ? (
+                  <div>
+                    <div style={{ fontSize: 12, color: "#888", marginBottom: 2 }}>{k.title}</div>
+                    <div style={{ fontSize: 24, color: k.color, fontWeight: 700, lineHeight: 1.2 }}>{k.value}</div>
+                    <div style={{ fontSize: 24, color: k.color, fontWeight: 700, lineHeight: 1.2 }}>场地</div>
+                  </div>
+                ) : (
+                  <Statistic
+                    title={<span style={{ fontSize: 12, color: "#888" }}>{k.title}</span>}
+                    value={k.value}
+                    suffix={k.suffix}
+                    valueStyle={{ fontSize: 24, color: k.color, fontWeight: 700 }}
+                  />
+                )}
                 <div style={{
                   width: 40, height: 40, borderRadius: "50%",
                   background: (k as any).bg || k.color + "18",
