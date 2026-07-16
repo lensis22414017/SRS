@@ -22,6 +22,20 @@ const DARK_AXIS_LINE = "rgba(255,255,255,0.06)";
 const DARK_SPLIT = "rgba(255,255,255,0.06)";
 const DARK_TOOLTIP_BG = "rgba(12, 24, 48, 0.95)";
 
+// 区域排名颜色梯度: 第1名最深, 依次变浅(科研图风格)
+const PROV_GRADIENT: [string, string][] = [
+  ["#0c4a6e", "#0ea5e9"], // 1: 深蓝→亮蓝
+  ["#134e4a", "#14b8a6"], // 2: 深青→亮青
+  ["#164e63", "#0891b2"], // 3: 深cyan→亮cyan
+  ["#1e3a5f", "#3b82f6"], // 4: 深蓝→中蓝
+  ["#1a2e4f", "#4f7cc8"], // 5
+  ["#1e293b", "#64748b"], // 6: 转灰
+  ["#334155", "#7c8ba5"], // 7
+  ["#3f4a5f", "#8e9ab0"], // 8
+  ["#475569", "#94a3b8"], // 9
+  ["#4b5563", "#9ca3af"], // 10: 最浅
+];
+
 function darkGrid() {
   return { top: 10, right: 20, bottom: 24, left: 16, containLabel: true };
 }
@@ -112,10 +126,45 @@ export default function DashboardScreen() {
   const topAlerts = [...sites].filter(s => (s.n_exceed || 0) > 0)
     .sort((a, b) => (b.n_exceed || 0) - (a.n_exceed || 0)).slice(0, 10);
 
-  // 省份分布
+  // 省份分布 — 去掉"省/自治区/市/壮族"等后缀, 未知省份通过坐标反查
+  const cleanProvince = (p: string | null | undefined): string => {
+    if (!p || p === "unknown") return "";
+    return p.replace(/(省|自治区|维吾尔自治区|壮族自治区|回族自治区|特别行政区|市)$/g, "");
+  };
+  // 经纬度→省份简化反查(基于中国各省大致经纬度范围)
+  const coordToProvince = (lng: number | null, lat: number | null): string => {
+    if (lng == null || lat == null) return "";
+    const PROVINCES = [
+      ["云南", [97.5, 106.2], [21.1, 29.2]], ["广东", [109.7, 117.2], [20.2, 25.5]],
+      ["广西", [104.5, 112.1], [20.9, 26.4]], ["福建", [115.8, 120.6], [23.5, 28.3]],
+      ["江西", [113.5, 118.5], [24.5, 30.1]], ["湖南", [108.8, 114.3], [24.6, 30.1]],
+      ["贵州", [103.6, 109.6], [24.6, 29.2]], ["四川", [97.3, 108.5], [26.0, 34.3]],
+      ["重庆", [105.3, 110.2], [28.2, 32.2]], ["湖北", [108.4, 116.1], [29.0, 33.3]],
+      ["安徽", [114.9, 119.7], [29.4, 34.7]], ["浙江", [118.0, 122.9], [27.0, 31.2]],
+      ["江苏", [116.3, 121.9], [30.7, 35.2]], ["上海", [120.9, 122.0], [30.7, 31.9]],
+      ["河南", [110.3, 116.6], [31.4, 36.4]], ["山东", [114.8, 122.7], [34.4, 38.4]],
+      ["山西", [110.2, 114.6], [34.5, 40.7]], ["河北", [113.4, 119.8], [36.0, 42.6]],
+      ["北京", [115.4, 117.5], [39.4, 41.1]], ["天津", [116.7, 118.0], [38.6, 40.3]],
+      ["辽宁", [118.8, 125.8], [38.7, 43.5]], ["吉林", [121.6, 131.2], [40.8, 46.3]],
+      ["黑龙江", [121.2, 135.1], [43.4, 53.6]], ["内蒙古", [97.2, 126.0], [37.4, 53.4]],
+      ["陕西", [105.5, 111.2], [31.7, 39.6]], ["甘肃", [92.5, 108.7], [32.3, 42.8]],
+      ["宁夏", [104.3, 107.7], [35.1, 39.2]], ["新疆", [73.5, 96.4], [34.4, 49.2]],
+      ["青海", [89.4, 103.1], [31.6, 39.2]], ["西藏", [78.4, 99.1], [26.8, 36.5]],
+      ["海南", [108.6, 111.3], [18.1, 20.2]],
+    ] as const;
+    for (const [name, [lngMin, lngMax], [latMin, latMax]] of PROVINCES) {
+      if (lng >= lngMin && lng <= lngMax && lat >= latMin && lat <= latMax) return name;
+    }
+    return "";
+  };
   const provMap: Record<string, number> = {};
-  sites.forEach(s => { const p = s.province || "未知"; provMap[p] = (provMap[p] || 0) + 1; });
-  const provData = Object.entries(provMap).sort((a, b) => b[1] - a[1]).slice(0, 9);
+  sites.forEach(s => {
+    let p = cleanProvince(s.province);
+    if (!p) p = coordToProvince(s.longitude, s.latitude);
+    if (!p) p = "未知";
+    provMap[p] = (provMap[p] || 0) + 1;
+  });
+  const provData = Object.entries(provMap).filter(([k]) => k !== "未知").sort((a, b) => b[1] - a[1]).slice(0, 10);
 
   // 污染类型分布
   const typeData = [
@@ -157,10 +206,18 @@ export default function DashboardScreen() {
     yAxis: { type: "category" as const, inverse: true, data: provData.map(d => d[0]),
       axisLine: { lineStyle: { color: DARK_AXIS_LINE } }, axisLabel: { color: DARK_TEXT, fontSize: 10 } },
     series: [{
-      type: "bar", data: provData.map(d => d[1]),
-      itemStyle: { color: { type: "linear" as const, x: 0, y: 0, x2: 1, y2: 0,
-        colorStops: [{offset:0,color:"#1a5276"},{offset:1,color:"#2e86c1"}] },
-        borderRadius: [0, 3, 3, 0] },
+      type: "bar",
+      data: provData.map((d, i) => ({
+        value: d[1],
+        itemStyle: {
+          color: { type: "linear" as const, x: 0, y: 0, x2: 1, y2: 0,
+            colorStops: [
+              { offset: 0, color: PROV_GRADIENT[i % PROV_GRADIENT.length][0] },
+              { offset: 1, color: PROV_GRADIENT[i % PROV_GRADIENT.length][1] },
+            ] },
+          borderRadius: [0, 3, 3, 0],
+        },
+      })),
       barMaxWidth: 16,
     }],
   }), [provData]);
@@ -369,9 +426,9 @@ export default function DashboardScreen() {
           </div>
         </div>
 
-        {/* 中央：地图(70%) + 风险等级矩阵(30%) */}
+        {/* 中央：地图占满 */}
         <div className={styles.centerCol}>
-          <div className={styles.mapWrap} style={{ flex: "0 0 70%" }} data-testid="screen-map">
+          <div className={styles.mapWrap} style={{ flex: "1 1 100%" }} data-testid="screen-map">
             <SiteMap sites={mapSites} onMarkerClick={(s) => s.id && nav(`/sites/${s.id}`)} />
             {topAlerts.length > 0 && (
               <div className={styles.mapOverlay}>
@@ -384,36 +441,6 @@ export default function DashboardScreen() {
                 </div>
               </div>
             )}
-          </div>
-          {/* 地图下方：风险等级矩阵 */}
-          <div style={{ display: "flex", gap: 8, flex: "0 0 30%", marginTop: 8 }}>
-            <div className={styles.panel} style={{ flex: 1 }}>
-              <div className={styles.panelTitle}><span className={styles.panelTitleBar} />风险等级矩阵</div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 6, fontSize: 11 }}>
-                {[
-                  { label: "重金属", count: heavy, color: POLLUTION_TYPE.heavy_metal, bg: "rgba(215,48,39,0.15)" },
-                  { label: "有机污染", count: organic, color: POLLUTION_TYPE.organic, bg: "rgba(27,120,55,0.15)" },
-                  { label: "复合污染", count: composite, color: POLLUTION_TYPE.composite, bg: "rgba(224,130,20,0.15)" },
-                  { label: "高风险", count: highRisk, color: "#ff6b6b", bg: "rgba(255,107,107,0.15)" },
-                  { label: "超标记录", count: totalExceed, color: "#f0b429", bg: "rgba(240,180,41,0.15)" },
-                  { label: "覆盖省份", count: provinces, color: "#1e90ff", bg: "rgba(30,144,255,0.15)" },
-                ].map(m => (
-                  <div key={m.label} style={{ background: m.bg, borderRadius: 4, padding: "8px 10px", textAlign: "center", border: "1px solid rgba(255,255,255,0.05)" }}>
-                    <div style={{ fontSize: 18, fontWeight: 700, color: m.color }}>{m.count}</div>
-                    <div style={{ color: "#8899bb", fontSize: 10, marginTop: 2 }}>{m.label}</div>
-                  </div>
-                ))}
-              </div>
-              {/* Round7 追加: 用地类型分布(生产/生态) */}
-              <div data-testid="screen-land-use-dist" style={{ marginTop: 8, borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 6 }}>
-                <div style={{ color: DARK_TEXT, fontSize: 10, marginBottom: 4 }}>修复后用地类型分布</div>
-                <div style={{ display: "flex", height: 14, borderRadius: 3, overflow: "hidden", fontSize: 9 }}>
-                  <div style={{ width: landUseDist.pp + "%", background: "#722ed1", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff" }} title={"生产用地 " + landUseDist.p + " 个"}>生产{landUseDist.p}</div>
-                  <div style={{ width: landUseDist.ep + "%", background: "#52c41a", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff" }} title={"生态用地 " + landUseDist.e + " 个"}>生态{landUseDist.e}</div>
-                  {landUseDist.o > 0 && <div style={{ width: landUseDist.op + "%", background: "#6b8db5", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff" }} title={"未指定 " + landUseDist.o + " 个"}>未定{landUseDist.o}</div>}
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 

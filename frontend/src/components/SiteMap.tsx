@@ -298,13 +298,10 @@ export default function SiteMap({
       });
     }
 
-    // 采样点外围凸包虚线轮廓 + 顶点经纬度标注(体现采样范围边界与坐标)
+    // 采样点标注(不画虚线轮廓)
     if (lngLats.length >= 3) {
       const hull = convexHull(lngLats);
       if (hull.length >= 3) {
-        L.polygon(hull.map(([lon, lat]) => [lat, lon] as [number, number]), {
-          color: "#0f3d6e", weight: 2, dashArray: "6 6", fillOpacity: 0, opacity: 0.75,
-        }).addTo(layer);
         hull.forEach(([lon, lat]) => {
           L.marker([lat, lon], {
             interactive: false,
