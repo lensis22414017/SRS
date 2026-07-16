@@ -190,7 +190,7 @@ exe = EXE(
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
-    icon=str(PROJECT_ROOT / "packaging" / "srs.ico") if (PROJECT_ROOT / "packaging" / "srs.ico").exists() else (str(PROJECT_ROOT / "packaging" / "srs_512.png") if (PROJECT_ROOT / "packaging" / "srs_512.png").exists() else None),  # 扁平生态科技风新图标(多尺寸ico优先, 回退旧png)
+    icon=str(PROJECT_ROOT / "packaging" / "srs_icon_v2.ico") if (PROJECT_ROOT / "packaging" / "srs_icon_v2.ico").exists() else (str(PROJECT_ROOT / "packaging" / "srs.ico") if (PROJECT_ROOT / "packaging" / "srs.ico").exists() else None),  # v2白底圆角新图标(深蓝盾+绿蘑菇), 回退旧ico
     version_info=_VI,  # Windows 版本信息对象(公司名/版权/版本)
 )
 
