@@ -63,14 +63,13 @@ def _srs_isolate_db_per_test():
         from app.models import Base
         Base.metadata.drop_all(bind=_session_mod.engine)
         Base.metadata.create_all(bind=_session_mod.engine)
-        db = SessionLocal()
-        try:
-            seed_if_empty(db)
-            db.close()
-        except Exception:
-            pass
-    except Exception:
-        pass  # 无 SQLAlchemy 环境跳过(纯算法测试)
+        # v1.0.2: seed_if_empty 无参(自建 SessionLocal), 不传 db
+        # 这样测试也能拿到参考数据(角色/权限/因子字典/标准阈值)
+        seed_if_empty()
+    except Exception as e:
+        # 无 SQLAlchemy 环境跳过(纯算法测试), 但打印异常避免静默吞错误
+        import sys as _sys
+        print(f"[conftest] seed 跳过: {e}", file=_sys.stderr)
     yield
     # 测试后: 清理 session 连接(释放 SQLite WAL 锁)
     try:

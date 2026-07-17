@@ -34,7 +34,11 @@ except Exception:
 
 
 def ensure_app_dirs():
-    """确保应用数据目录存在 (首次启动由 lifespan 自动建表)。"""
+    """确保应用数据目录存在 (首次启动由 lifespan 自动建表)。
+
+    v1.0.2 (GPT 1.3): 生产数据目录不继承开发/演示/旧测试库。
+    若发现旧数据库(srs_dev.db/srs_test*.db), 只提示不自动复用。
+    """
     from app.core.config import get_settings
     s = get_settings()
     storage = s.file_storage_dir
@@ -46,6 +50,39 @@ def ensure_app_dirs():
         db_dir = os.path.dirname(os.path.abspath(db_path))
         if db_dir:
             os.makedirs(db_dir, exist_ok=True)
+        # v1.0.2: 检测旧数据库(GPT 1.3 禁止静默复用)
+        _detect_legacy_db(db_path)
+
+
+def _detect_legacy_db(prod_db_path: str):
+    """v1.0.2: 检测旧数据库, 提示用户但不自动复用 (GPT 1.3)。
+
+    场景: 首次启动生产版, %APPDATA%/SRS/srs.db 不存在,
+    但项目目录有 srs_dev.db / srs_test*.db。
+    处理: 打印警告, 不自动复制(避免开发数据污染生产)。
+    """
+    import os as _os
+    if _os.path.exists(prod_db_path):
+        return  # 生产库已存在, 无需检测
+    # 扫描项目根和常见位置的旧库
+    project_root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+    legacy_patterns = ["srs_dev.db", "srs_dev_*.db", "srs_test*.db", "srs_test_*.db"]
+    found = []
+    for pat in legacy_patterns:
+        import glob
+        for p in glob.glob(_os.path.join(project_root, pat)):
+            found.append(p)
+        # 也扫 backend/
+        for p in glob.glob(_os.path.join(project_root, "backend", pat)):
+            found.append(p)
+    if found:
+        print("=" * 70)
+        print("⚠️  检测到旧数据库(GPT 审计 1.3):")
+        for p in found[:5]:
+            print(f"   {_os.path.basename(p)}")
+        print(f"生产库将创建空白库: {prod_db_path}")
+        print("如需迁移旧数据, 请使用 系统管理 > 数据备份与恢复 > 导入旧库。")
+        print("=" * 70)
 
 
 def inject_builtin_keys():
