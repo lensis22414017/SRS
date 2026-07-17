@@ -61,7 +61,13 @@ def run_import(db: Session, file_path: str, mapping_id: str,
                imported_by: int | None = None,
                scope: str = "production", land_subtype: str = "其他用地",
                on_conflict: str = "skip") -> dict:
-    mapping = load_mapping(mapping_id)
+    # v1.0.2: 预设模板已删除, mapping_id 找不到时自动走 smart_detect
+    try:
+        mapping = load_mapping(mapping_id)
+    except FileNotFoundError:
+        # 预设模板不存在 → 用 smart_detect_and_map 自动识别
+        from app.services.import_service import resolve_mapping_for_file
+        _, mapping, _ = resolve_mapping_for_file("auto", file_path)
     return run_import_with_mapping(db, file_path, mapping,
                                    imported_by=imported_by,
                                    scope=scope, land_subtype=land_subtype,
