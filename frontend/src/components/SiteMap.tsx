@@ -279,7 +279,8 @@ export default function SiteMap({
         const ll = L.latLng(s.latitude, s.longitude);
         pts.push(ll);
         lngLats.push([s.longitude!, s.latitude!]);
-        const color = s.color || POLLUTION_TYPE[s.pollution_type || ""] || STATUS_COLOR[s.status || "danger"] || "#dc2626";
+        // v1.0.2(裴总问题8): null pollution_type 用中性灰, 不与重金属红撞色
+        const color = s.color || POLLUTION_TYPE[s.pollution_type || ""] || "#64748b";
         const ptLabel = POLLUTION_LABEL[s.pollution_type || ""] || s.pollution_type || "—";
         const exceedInfo = s.max_exceedance != null ? `${Number(s.max_exceedance).toFixed(1)} 倍` : (s.n_exceed != null ? `${s.n_exceed} 条` : "—");
         const popupHtml = [

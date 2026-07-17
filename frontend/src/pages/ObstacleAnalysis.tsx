@@ -178,8 +178,10 @@ export default function ObstacleAnalysis() {
         <Space style={{ width: "100%", justifyContent: "space-between", flexWrap: "wrap" }}>
           <Space wrap>
             <SitePicker value={sid} onChange={setSid} />
+            {/* v1.0.2(GPT 4.1-4.3 + 裴总问题7): 顶部卡片背景统一蓝色调 */}
             <Segmented value={landUse} onChange={(v) => switchLandUse(v as string)} disabled={!sid}
-              options={[{ label: "修复后·生产用地", value: "生产用地" }, { label: "修复后·生态用地", value: "生态用地" }]} />
+              options={[{ label: "修复后·生产用地", value: "生产用地" }, { label: "修复后·生态用地", value: "生态用地" }]}
+              style={{ background: "#e6f4ff", padding: 4, borderRadius: 6 }} />
           </Space>
           <Space>
             {diag && (
@@ -190,15 +192,12 @@ export default function ObstacleAnalysis() {
               }}>导出诊断报告</Button>
             )}
             <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
-            <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行障碍因子诊断</Button>
-            <Button loading={kosBusy} onClick={() => runKos("prod")} disabled={!sid}
-              style={{ background: "#722ed1", borderColor: "#722ed1", color: "#fff" }}>运行生产用途诊断</Button>
-            <Button loading={kosBusy} onClick={() => runKos("eco")} disabled={!sid}
-              style={{ background: "#52c41a", borderColor: "#52c41a", color: "#fff" }}>运行生态用途诊断</Button>
+            {/* v1.0.2(GPT 4.4-4.5): 单一运行按钮, 按顶部 Segmented 选轨跑 KOS */}
+            <Button type="primary" loading={kosBusy} onClick={() => runKos(landUse === "生态用地" ? "eco" : "prod")} disabled={!sid}>运行障碍因子诊断</Button>
           </Space>
         </Space>
         <div style={{ marginTop: 8, color: "#666", fontSize: 12 }}>
-          「修复后用途」决定诊断轨。当前展示「{landUse}」专属诊断结果。切换用途后需重新运行诊断。
+          「修复后用途」决定诊断轨。当前展示「{landUse}」专属诊断结果。选中上方卡片后点击「运行障碍因子诊断」即可。
         </div>
       </Card>
 
@@ -381,7 +380,7 @@ export default function ObstacleAnalysis() {
                     </Paragraph>
                   </>
                 ) : (
-                  <EmptyState description="无超标因子(B 全为 0),未生成关键障碍排名" />
+                  <EmptyState description="未生成关键障碍排名(可能因 pH/用地缺失已用兜底阈值,请核对场地数据完整性)" />
                 )}
               </Card>
 

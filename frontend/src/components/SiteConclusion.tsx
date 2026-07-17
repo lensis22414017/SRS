@@ -56,10 +56,19 @@ export default function SiteConclusion({ siteId }: { siteId: number }) {
   const recTests = [...(kosProd?.recommended_tests || []), ...(kosEco?.recommended_tests || [])]
     .filter((t, i, arr) => arr.findIndex(x => x.factor === t.factor) === i).slice(0, 6);
 
-  // 一句话结论判定
-  const prodFit = prod?.grade === "可行";
-  const ecoFit = eco?.grade === "可行";
-  const verdict = (fit: boolean | undefined, label: string) => {
+  // v1.0.2(GPT 4.19 + 阻断"超标却评价为优"): 复合判定, 不只看 grade
+  // 有任何 key_obstacle 或 review_required 时不显示绿色"适合"
+  const prodHasObstacle = prodKey.length > 0;
+  const ecoHasObstacle = ecoKey.length > 0;
+  const prodReviewRequired = kosProd?.review_required;
+  const ecoReviewRequired = kosEco?.review_required;
+  // 复合判定: grade="可行" 且 无障碍 且 无需复核 才算真正适合
+  const prodFit = prod?.grade === "可行" && !prodHasObstacle && !prodReviewRequired;
+  const ecoFit = eco?.grade === "可行" && !ecoHasObstacle && !ecoReviewRequired;
+  const verdict = (fit: boolean | undefined, label: string, hasObstacle?: boolean, reviewReq?: boolean) => {
+    if (fit === undefined && !prod && !eco) return <Tag color="default">数据不足</Tag>;
+    if (reviewReq) return <Tag icon={<WarningOutlined />} color="warning">需复核{label}</Tag>;
+    if (hasObstacle) return <Tag icon={<WarningOutlined />} color="warning">有障碍·{label}</Tag>;
     if (fit === undefined) return <Tag color="default">数据不足</Tag>;
     return fit
       ? <Tag icon={<CheckCircleOutlined />} color="success">适合{label}</Tag>
@@ -73,8 +82,8 @@ export default function SiteConclusion({ siteId }: { siteId: number }) {
         <Title level={4} style={{ marginTop: 0 }}>场地综合结论</Title>
         <Paragraph style={{ fontSize: 15 }}>
           {site.name}（{site.province || "—"}）修复后
-          {verdict(prodFit, "生产用途")}
-          {verdict(ecoFit, "生态用途")}。
+          {verdict(prodFit, "生产用途", prodHasObstacle, prodReviewRequired)}
+          {verdict(ecoFit, "生态用途", ecoHasObstacle, ecoReviewRequired)}。
           生产轨关键障碍: <b>{prodKey.map((k: any) => k.factor).join("、") || "无"}</b>;
           生态轨关键障碍: <b>{ecoKey.map((k: any) => k.factor).join("、") || "无"}</b>。
           {reviewRequired && <Text type="warning">部分结果需人工复核。</Text>}

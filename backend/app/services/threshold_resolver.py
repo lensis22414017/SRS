@@ -233,3 +233,60 @@ def resolve_threshold_from_db(
         "threshold_resolution_status": "resolved",
         "review_required": False,
     }
+
+
+# ── v1.0.2: 阈值兜底(裴总决策: GB15618 通用档最严值) ──────────────────
+
+def resolve_threshold_fallback(
+    db,
+    factor_canonical: str,
+    track: str = "prod",
+) -> dict:
+    """v1.0.2: pH/用地缺失时, 取该因子在该 standard 下的最严档(最小 screening_value)兜底。
+
+    场景: resolve_threshold_from_db 返回 ambiguous(pH/用地缺失无法唯一确定档)时调用。
+    策略: 从该因子所有阈值行中取 min(screening_value) 作为兜底限值(最严档, 宁可错杀)。
+    返回 status="fallback", review_required=True, 标注兜底来源。
+
+    GPT 4.10 + 裴总决策: 缺阈值不得当作安全, 用最严档兜底让甲方看到"有障碍但阈值待核实"。
+    """
+    from app.models import StandardThreshold
+
+    standards = (["GB 15618-2018", "GB15618-2018"] if track == "prod"
+                 else ["GB 36600-2018", "GB36600-2018"])
+    db_factor_name = _CANONICAL_TO_DB_NAME.get(factor_canonical, factor_canonical)
+
+    rows = (db.query(StandardThreshold)
+            .filter(StandardThreshold.factor_name == db_factor_name,
+                    StandardThreshold.standard_code.in_(standards),
+                    StandardThreshold.screening_value.isnot(None))
+            .all()) if standards else []
+
+    not_found_result = {
+        "threshold": None, "threshold_value": None, "threshold_unit": "mg/kg",
+        "threshold_standard": "", "threshold_version": "",
+        "pH_condition": "", "land_use_type": "",
+        "threshold_source_id": None,
+        "threshold_resolution_status": "not_found", "review_required": True,
+    }
+
+    if not rows:
+        return not_found_result
+
+    # 取最严档(最小 screening_value)
+    strictest = min(rows, key=lambda r: float(r.screening_value) if r.screening_value is not None else float('inf'))
+    limit = float(strictest.screening_value)
+    return {
+        "threshold": {"type": "upper", "limit": limit},
+        "threshold_value": limit,
+        "threshold_unit": strictest.unit or "mg/kg",
+        "threshold_standard": strictest.standard_code,
+        "threshold_version": str(strictest.version),
+        "pH_condition": "",
+        "land_use_type": "",
+        "threshold_source_id": strictest.id,
+        "threshold_resolution_status": "fallback",
+        "review_required": True,
+        "fallback_note": f"pH/用地缺失, 已用{factor_canonical}最严档({limit})兜底, 请核实场地pH/用地类型",
+    }
+

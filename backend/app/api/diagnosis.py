@@ -220,13 +220,32 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
             f"skipped_rejected_measurements: {n_rejected} 条 qa_status=rejected 数据被跳过")
     data_quality_flags_pre.extend(extreme_warnings)
 
-    # M0-2: 提取场地 pH 和土地用途, 传入动态阈值解析
-    site_pH = site_values.get("pH") or site_values.get("pH值") or site_values.get("酸碱度")
-    if site_pH is not None:
-        try:
-            site_pH = float(site_pH)
-        except (TypeError, ValueError):
-            site_pH = None
+    # M0-2/v1.0.2: 提取场地 pH 和土地用途, 传入动态阈值解析
+    # v1.0.2: 用多别名匹配 + FactorDictionary factor_code 兜底(修复根因 1-A)
+    site_pH = None
+    # 优先从 site_values 按常见 key 取
+    for ph_key in ("pH", "pH值", "酸碱度", "SoilpH", "pH_merged", "pH_value"):
+        if ph_key in site_values and site_values[ph_key] is not None:
+            try:
+                site_pH = float(site_values[ph_key])
+                break
+            except (TypeError, ValueError):
+                continue
+    # 兜底: 查 FactorDictionary 的 factor_code='pH' 对应的 measurement
+    if site_pH is None:
+        ph_factor = db.query(FactorDictionary).filter(
+            FactorDictionary.factor_code.in_(["pH", "pH_value", "SoilpH"])).first()
+        if ph_factor:
+            ph_meas = db.query(Measurement).filter(
+                Measurement.site_id == site_id,
+                Measurement.factor_id == ph_factor.id,
+                Measurement.qa_status != "rejected").order_by(Measurement.value.desc()).first()
+            if ph_meas:
+                try:
+                    v = ph_meas.value_used_for_model if ph_meas.value_used_for_model is not None else ph_meas.value
+                    site_pH = float(v) if v is not None else None
+                except (TypeError, ValueError):
+                    site_pH = None
     land_use_type = getattr(site, "land_use_type", None)
 
     result = run_kos_diagnosis(site_values, track=track, subset=subset, top_n=top_n,

@@ -180,7 +180,7 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
     USE_STATIC_FALLBACK = False  # 静态 fallback 默认关闭(M0-2 要求)
 
     if db_session is not None:
-        from app.services.threshold_resolver import resolve_threshold_from_db
+        from app.services.threshold_resolver import resolve_threshold_from_db, resolve_threshold_fallback
         for fac in list(factors.keys()):
             if fac == "pH":
                 thresholds["pH"] = PH_THRESHOLD[track]
@@ -191,10 +191,23 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
                 thresholds[fac] = thr_result["threshold"]
                 threshold_meta[fac] = thr_result
             elif thr_result["threshold_resolution_status"] == "ambiguous":
-                ambiguous_factors.append(fac)
-                data_quality_flags.append(
-                    f"threshold_ambiguous: {fac} 无法唯一确定阈值(pH或土地类型缺失), 不进正式KOS")
-                factors.pop(fac, None)  # ambiguous 因子不进 KOS
+                # v1.0.2(裴总决策 + GPT 4.10): ambiguous 不再 pop 因子!
+                # 改用 resolve_threshold_fallback 取 GB15618 最严档兜底,
+                # 让甲方看到"有障碍但阈值待核实", 而非"没障碍"
+                fb_result = resolve_threshold_fallback(db_session, fac, track=track)
+                if fb_result["threshold_resolution_status"] == "fallback":
+                    thresholds[fac] = fb_result["threshold"]
+                    threshold_meta[fac] = fb_result
+                    ambiguous_factors.append(fac)
+                    data_quality_flags.append(
+                        f"threshold_fallback: {fac} pH/用地缺失, 已用最严档"
+                        f"({fb_result['threshold_value']})兜底, 请核实")
+                else:
+                    # fallback 也查不到(完全无标准) → 该因子退出 KOS
+                    ambiguous_factors.append(fac)
+                    data_quality_flags.append(
+                        f"threshold_not_found: {fac} 无任何标准阈值, 不进KOS")
+                    factors.pop(fac, None)
             # not_found 的因子不进 KOS(无阈值)
 
     # emergency fallback(默认关闭): 仅当 db_session 为 None 或无数据时
@@ -231,6 +244,10 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
             k["pH_condition"] = tm.get("pH_condition", "")
             k["land_use_type"] = tm.get("land_use_type", "")
             k["threshold_source_id"] = tm.get("threshold_source_id")
+            # v1.0.2: 阈值解析状态 + 兜底说明
+            k["threshold_resolution_status"] = tm.get("threshold_resolution_status", "resolved")
+            if tm.get("fallback_note"):
+                k["fallback_note"] = tm["fallback_note"]
 
     # 未知有机物三道防线
     known_factors = set(thresholds.keys())
@@ -289,7 +306,10 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
              "threshold_version": k.get("threshold_version", ""),
              "pH_condition": k.get("pH_condition", ""),
              "land_use_type": k.get("land_use_type", ""),
-             "threshold_source_id": k.get("threshold_source_id")}
+             "threshold_source_id": k.get("threshold_source_id"),
+             # v1.0.2: 阈值解析状态(fallback 时前端显示"已用兜底阈值,请核实")
+             "threshold_resolution_status": k.get("threshold_resolution_status", "resolved"),
+             "fallback_note": k.get("fallback_note", "")}
             for k in kos_result["key_obstacles"]
         ],
         # 第三层: 模型关注因子(实测+模型见过+无阈值或未超标,需专家复核)
