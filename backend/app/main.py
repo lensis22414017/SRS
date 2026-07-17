@@ -1,4 +1,4 @@
-"""FastAPI 入口。SRS系统 v1.0。
+"""FastAPI 入口。SRS系统 v1.0.2。
 
 桌面打包模式: 若检测到 ../frontend/dist 存在, 自动挂载静态前端并启用 SPA 回退。
 数据库: 首次启动自动建表 + 种子数据 (幂等, 不覆盖已有数据)。
@@ -40,7 +40,7 @@ async def lifespan(app: FastAPI):
     seed_if_empty()
     yield
 
-app = FastAPI(title=settings.app_name, version="1.0.1", lifespan=lifespan)
+app = FastAPI(title=settings.app_name, version="1.0.2", lifespan=lifespan)
 
 # ── CORS: 开发模式 (Vite dev server) + 同源部署均兼容 ──────────────
 app.add_middleware(
@@ -67,7 +67,7 @@ app.include_router(ai_router)
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "app": settings.app_name, "version": "0.1.0"}
+    return {"status": "ok", "app": settings.app_name, "version": "1.0.2"}
 
 
 @app.get(settings.api_v1_prefix + "/info")

@@ -451,7 +451,7 @@ def main():
         os.chdir(project_root)
         sys.path.insert(0, os.path.join(project_root, "backend"))
 
-    print(f"🛡️  SRS 污染场地监管系统 v1.0.1")
+    print(f"🛡️  SRS 污染场地监管系统 v1.0.2")
     print(f"   开发者: 生态环境部土壤与农业农村生态环境监管技术中心")
     print(f"   协议: MIT License  © 2026 生态环境部土壤与农业农村生态环境监管技术中心")
     print(f"   数据目录: {_get_data_dir()}")

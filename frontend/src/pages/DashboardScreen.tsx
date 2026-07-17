@@ -362,7 +362,7 @@ export default function DashboardScreen() {
         </div>
         <div className={styles.headerMeta}>
           <span className={styles.clock}>{now.format("YYYY-MM-DD HH:mm:ss")}</span>
-          <span className={styles.dataVersion}>数据版本 v1.0.0</span>
+          <span className={styles.dataVersion}>数据版本 v1.0.2</span>
           <Button type="text" className={styles.backBtn} icon={<RollbackOutlined />}
             onClick={() => nav("/")}>返回工作台</Button>
         </div>

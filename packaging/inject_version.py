@@ -21,13 +21,13 @@ def build_version_info():
     strings = [
         ("CompanyName", "生态环境部土壤与农业农村生态环境监管技术中心"),
         ("FileDescription", "Soil Remediation Supervision System (SRS) - Contaminated Site Ecological-Productive Function Reconstruction"),
-        ("FileVersion", "1.0.0.0"),
+        ("FileVersion", "1.0.2.0"),
         ("InternalName", "SRS"),
         ("LegalCopyright", "Copyright (c) 2026 生态环境部土壤与农业农村生态环境监管技术中心"),
         ("OriginalFilename", "SRS.exe"),
         ("ProductName", "SRS - Contaminated Site Supervision System"),
-        ("ProductVersion", "1.0.0.0"),
-        ("Comments", "v1.0.0 - Built 2026-07-01"),
+        ("ProductVersion", "1.0.2.0"),
+        ("Comments", "v1.0.2 - Built 2026-07-17"),
     ]
     # StringTable block
     lang = b"\x09\x04\xb0\x04"  # 0x0409, 1200(0x04B0) little-endian

@@ -21,17 +21,17 @@ if sys.platform == "win32":
         StringStruct, VarFileInfo, VarStruct,
     )
     _VI = VSVersionInfo(
-        ffi=FixedFileInfo(filevers=(1,0,1,0), prodvers=(1,0,1,0), mask=0x3f,
+        ffi=FixedFileInfo(filevers=(1,0,2,0), prodvers=(1,0,2,0), mask=0x3f,
                           flags=0x0, OS=0x40004, fileType=0x1, subtype=0x0, date=(0,0)),
         kids=[StringFileInfo([StringTable('040904B0', [
             StringStruct('CompanyName', '生态环境部土壤与农业农村生态环境监管技术中心'),
             StringStruct('FileDescription', 'Soil Remediation Supervision System (SRS)'),
-            StringStruct('FileVersion', '1.0.1.0'),
+            StringStruct('FileVersion', '1.0.2.0'),
             StringStruct('InternalName', 'SRS'),
             StringStruct('LegalCopyright', 'Copyright (c) 2026 生态环境部土壤与农业农村生态环境监管技术中心'),
             StringStruct('OriginalFilename', 'SRS.exe'),
             StringStruct('ProductName', 'SRS - Contaminated Site Supervision System'),
-            StringStruct('ProductVersion', '1.0.1.0'),
+            StringStruct('ProductVersion', '1.0.2.0'),
         ])]), VarFileInfo([VarStruct('Translation', [0x0409, 1200])])])
 else:
     _VI = None
@@ -180,8 +180,8 @@ app_info = {
     "CFBundleName": "SRS",
     "CFBundleDisplayName": "污染场地监管系统",
     "CFBundleIdentifier": "com.srs.soil-remediation",
-    "CFBundleVersion": "0.1.0",
-    "CFBundleShortVersionString": "0.1.0",
+    "CFBundleVersion": "1.0.2",
+    "CFBundleShortVersionString": "1.0.2",
     "NSHumanReadableCopyright": "© 2026 SRS Project",
 }
 
@@ -250,8 +250,8 @@ if sys.platform == "darwin":
             "CFBundleName": "SRS",
             "CFBundleDisplayName": "污染场地监管系统",
             "CFBundleIdentifier": "com.srs.soil-remediation",
-            "CFBundleVersion": "0.1.0",
-            "CFBundleShortVersionString": "0.1.0",
+            "CFBundleVersion": "1.0.2",
+            "CFBundleShortVersionString": "1.0.2",
             "NSHumanReadableCopyright": "© 2026 SRS Project",
             "LSMinimumSystemVersion": "11.0",
         },

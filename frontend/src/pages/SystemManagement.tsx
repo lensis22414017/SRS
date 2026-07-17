@@ -824,7 +824,7 @@ function AboutSystem() {
         <Descriptions bordered size="small" column={1}>
           <Descriptions.Item label="系统名称">污染场地土壤生态-生产功能重构监管系统</Descriptions.Item>
           <Descriptions.Item label="英文名称">Soil Remediation Supervision System (SRS)</Descriptions.Item>
-          <Descriptions.Item label="版本">v1.0.0 (2026-07-01)</Descriptions.Item>
+          <Descriptions.Item label="版本">v1.0.2 (2026-07-17)</Descriptions.Item>
           <Descriptions.Item label="开发者">
             生态环境部土壤与农业农村生态环境监管技术中心<br/>
             <Text type="secondary" style={{ fontSize: 12 }}>

@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 """双轨训练集构建 zzv0.3 重训版(0泄漏 + 保留非派生浓度列 + 原生NaN)。
 
-防泄漏红线(项目组, � = group split(DOI/Source 连通分量跨集零重叠) + GroupKFold CV。
+防泄漏红线(项目组, φ = group split(DOI/Source 连通分量跨集零重叠) + GroupKFold CV。
   只剔除 20 个标签派生因子列(HM_COLS 8 + ORG_COLS_MAP 12, 标签直接由这些列的国标阈值算出 → 保留=标签泄漏)。
   其余 ~454 个非派生浓度列(PAH单体/PCB同系物/Fe/Mn等)保留作特征 —— 真实诊断时这些就是输入信号。
 缺失值: 不再中位数填充, 保留原始NaN, 由 sklearn 1.4+ 的 RF/ET/HGB 原生处理(树分裂时学缺失值走左/右)。
