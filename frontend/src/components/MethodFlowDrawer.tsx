@@ -54,7 +54,7 @@ function SvgFlow({ svgPath, title }: { svgPath: string; title: string }) {
               请在 Excalidraw 中创建「{title}」流程图，导出 SVG 后放入
             </Text>
             <br />
-            <Text code style={{ fontSize: 11 }}>frontend/src/assets/flows/</Text>
+            <Text code style={{ fontSize: 11 }}>frontend/public/assets/flows/</Text>
           </div>
         }
       />

@@ -333,7 +333,7 @@ export default function ObstacleAnalysis() {
               )}
 
               {/* 诊断方法说明卡片(普通中文 + KaTeX 公式 + 模型贡献度免责声明) */}
-              <MethodExplainCard track={kosTrack} />
+              <MethodExplainCard track={kosTrack} flowKey="obstacle_analysis" />
 
               {/* 第一层: 污染场地关键障碍因子 Top-N (规则层 B=1 + 实测 + 综合评分排序) */}
               <Card title={

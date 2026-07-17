@@ -41,7 +41,7 @@ PrivilegesRequired=admin
 ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 ; 图标
-SetupIconFile=srs_icon_v4.ico
+SetupIconFile=srs_icon_v5.ico
 UninstallDisplayIcon={app}\{#MyAppExeName}
 ; 安装界面语言
 ShowLanguageDialog=no

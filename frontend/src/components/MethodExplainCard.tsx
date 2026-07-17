@@ -9,8 +9,8 @@
  *   K_i = B_i × (0.30R_i + 0.25W_i + 0.15M_i + 0.20S_i + 0.10E_i)
  */
 import { useState } from "react";
-import { Card, Collapse, Table, Alert, Tag, Typography, Space } from "antd";
-import { InfoCircleOutlined, QuestionCircleOutlined } from "@ant-design/icons";
+import { Card, Collapse, Table, Alert, Tag, Typography, Space, Modal } from "antd";
+import { InfoCircleOutlined, QuestionCircleOutlined, ZoomInOutlined } from "@ant-design/icons";
 import FormulaBlock from "./FormulaBlock";
 
 const { Text } = Typography;
@@ -27,8 +27,11 @@ const COMPONENT_ROWS = [
   { sym: "Eᵢ", name: "证据等级", weight: "0.10", cn: "A=国标实测、B=文献阈值、C=模型推断。证据越弱权重越低。" },
 ];
 
-export default function MethodExplainCard({ track }: { track?: "prod" | "eco" }) {
+export default function MethodExplainCard({ track, flowKey }: { track?: "prod" | "eco"; flowKey?: string }) {
   const [open, setOpen] = useState<string | string[]>(["explain"]); // 默认展开
+  // v1.0.2(裴总决策: 行内缩略图+点击放大): 流程图 Modal
+  const [flowModalOpen, setFlowModalOpen] = useState(false);
+  const flowSrc = flowKey ? `/assets/flows/${flowKey}.svg` : null;
 
   return (
     <Card
@@ -56,6 +59,17 @@ export default function MethodExplainCard({ track }: { track?: "prod" | "eco" })
           label: <Text type="secondary" style={{ fontSize: 12 }}>这个 Top-N 是怎么算出来的?点击查看方法(普通中文)</Text>,
           children: (
             <Space direction="vertical" style={{ width: "100%" }} size={12}>
+              {/* v1.0.2: 行内流程图缩略图(点击放大) */}
+              {flowSrc && (
+                <div style={{ textAlign: "center", cursor: "pointer", border: "1px solid #e8e8e8", borderRadius: 6, padding: 8, background: "#fff" }}
+                  onClick={() => setFlowModalOpen(true)}>
+                  <img src={flowSrc} alt="方法流程图" style={{ maxHeight: 120, maxWidth: "100%" }}
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
+                  <div style={{ fontSize: 11, color: "#999", marginTop: 4 }}>
+                    <ZoomInOutlined /> 点击放大查看流程图
+                  </div>
+                </div>
+              )}
               {/* 普通中文五要素解释 */}
               <div style={{ fontSize: 12.5, color: "#333", lineHeight: 1.8 }}>
                 系统先把每个检测因子过<b>规则层</b>:只有既<b>有明确阈值</b>(国标/文献)、又被<b>实测</b>的因子,
@@ -105,6 +119,11 @@ export default function MethodExplainCard({ track }: { track?: "prod" | "eco" })
           ),
         }]}
       />
+      {/* v1.0.2: 流程图放大 Modal */}
+      <Modal open={flowModalOpen} onCancel={() => setFlowModalOpen(false)} footer={null}
+        width={900} title="方法流程图" centered>
+        {flowSrc && <img src={flowSrc} alt="方法流程图" style={{ width: "100%" }} />}
+      </Modal>
     </Card>
   );
 }

@@ -44,10 +44,19 @@ PROJECT_ROOT = Path(SPECPATH).resolve().parent
 # ── 数据文件 ────────────────────────────────────────────────────
 added_files = []
 
-# 前端构建产物
+# 前端构建产物 — v1.0.2(GPT 9.5): 强制依赖, 缺失则构建失败
 frontend_dist = PROJECT_ROOT / "frontend" / "dist"
-if frontend_dist.is_dir():
-    added_files.append((str(frontend_dist), "frontend/dist"))
+if not frontend_dist.is_dir():
+    raise SystemExit("BUILD FAILED: frontend/dist 不存在, 请先 npm run build (GPT 9.5 强制依赖)")
+# v1.0.2(GPT 8.2): 校验 7 张流程图在 dist/assets/flows/ 下
+_flows_in_dist = frontend_dist / "assets" / "flows"
+_expected_flows = ["obstacle_analysis.svg", "reconstruction_eval.svg", "ssui_eval.svg",
+                   "recommendation.svg", "trace_workflow.svg", "data_import.svg", "report_generation.svg"]
+if _flows_in_dist.is_dir():
+    _missing_flows = [f for f in _expected_flows if not (_flows_in_dist / f).exists()]
+    if _missing_flows:
+        raise SystemExit(f"BUILD FAILED: 流程图缺失(GPT 8.2): {_missing_flows}")
+added_files.append((str(frontend_dist), "frontend/dist"))
 
 # 报告模板
 report_templates = PROJECT_ROOT / "reporting" / "templates"
@@ -224,7 +233,7 @@ exe = EXE(
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
-    icon=str(PROJECT_ROOT / "packaging" / "srs_icon_v4.ico") if (PROJECT_ROOT / "packaging" / "srs_icon_v4.ico").exists() else (str(PROJECT_ROOT / "packaging" / "srs_icon_v3.ico") if (PROJECT_ROOT / "packaging" / "srs_icon_v3.ico").exists() else None),  # v4蓝盾双层+绿芽(加宽), 回退v3
+    icon=str(PROJECT_ROOT / "packaging" / "srs_icon_v5.ico") if (PROJECT_ROOT / "packaging" / "srs_icon_v5.ico").exists() else (str(PROJECT_ROOT / "packaging" / "srs_icon_v4.ico") if (PROJECT_ROOT / "packaging" / "srs_icon_v4.ico").exists() else None),  # v5蓝盾+双叶+土壤+数据节点, 回退v4
     version_info=_VI,  # Windows 版本信息对象(公司名/版权/版本)
 )
 
