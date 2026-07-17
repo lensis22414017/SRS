@@ -267,6 +267,12 @@ def smart_detect_and_map(path: str) -> tuple[str, dict, list[dict]]:
             pass
     longitude = _find(["经度", "经", "lon", "lng", "东经"])
     latitude = _find(["纬度", "纬", "lat", "北纬"])
+    # v1.0.2(GPT 3a): 补充 region/depth/soil_type 元信息列识别
+    # (删预设模板后 smart_detect 必须承担原本模板做的采样点元信息映射)
+    region = _find(["区域", "分区", "地段", "位置", "region", "area", "zone"])
+    depth_top = _find(["深度_上限", "深度上限", "上层深度", "上界", "depth_top", "top_depth"])
+    depth_bottom = _find(["深度_下限", "深度下限", "下层深度", "下界", "depth_bottom", "bottom_depth"])
+    soil_type = _find(["土壤类型", "土类", "土壤", "质地", "soil_type", "soil"])
 
     # 重金属识别改用 _matches_heavy_metal_token(token 边界匹配), 旧 _HM substring 已废弃(brief 4.1)
     _ORG = ("pah", "ocp", "石油", "多环", "农药", "苯", "菲", "芘", "pcb", "pbde")
@@ -303,8 +309,9 @@ def smart_detect_and_map(path: str) -> tuple[str, dict, list[dict]]:
         m = _re.search(r"[（(]([^)）]*)[)）]", raw)
         unit = m.group(1) if m else None
         name = _re.sub(r"[（(][^)）]*[)）]", "", raw).strip()
-        # 去除常见计量前缀符号
-        name = name.split("_")[-1] if "_" in name else name
+        # v1.0.2(GPT 3a): 因子名取下划线前的中文部分(如"铜_Cu"→"铜"),
+        # 与知识库/阈值/评价系统的中文因子命名规范一致; 无下划线时取整体
+        name = name.split("_")[0].strip() if "_" in name else name
         is_hm = _matches_heavy_metal_token(cl)
         is_org = any(k in cl for k in _ORG)
         if is_hm:
@@ -357,8 +364,8 @@ def smart_detect_and_map(path: str) -> tuple[str, dict, list[dict]]:
         },
         "point_columns": {
             "point_code": point_code, "longitude": longitude, "latitude": latitude,
-            "region": None, "depth_top_cm": None, "depth_bottom_cm": None,
-            "soil_type": None, "remark": None,
+            "region": region, "depth_top_cm": depth_top, "depth_bottom_cm": depth_bottom,
+            "soil_type": soil_type, "remark": None,
         },
         "factor_columns": factor_columns,
         "required_point_fields": [point_code] if point_code else [],

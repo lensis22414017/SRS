@@ -34,7 +34,9 @@ def compute_mapping_hash(mapping: dict) -> str:
         "header_row": mapping.get("header_row"),
         "point_columns": mapping.get("point_columns"),
         "factor_columns": mapping.get("factor_columns"),
-        "site": {k: site.get(k) for k in ("site_code", "pollution_type", "land_use_type")},
+        # v1.0.2(GPT 3a): 排除 site_code — smart_detect 每次生成唯一 site_code(时间戳+随机),
+        # 但 site_code 不影响"数据形态"; 同文件同结构重导应幂等去重, 不因 site_code 不同而判异
+        "site": {k: site.get(k) for k in ("pollution_type", "land_use_type")},
     }
     return hashlib.sha256(
         json.dumps(key_fields, sort_keys=True, ensure_ascii=False, default=str).encode("utf-8")

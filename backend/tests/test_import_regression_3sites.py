@@ -117,5 +117,18 @@ def test_three_xlsx_regression_all_checks():
         leaked = all_factor_codes & forbidden
         assert not leaked, f"元数据被识别为因子(GPT 2.6 违规): {leaked}"
 
+        # ===== 校验 7: smart_detect 应识别 region/depth/soil_type(GPT 3a) =====
+        # 删预设模板后 smart_detect 必须承担采样点元信息映射, 否则 EDA 分组降级
+        gejiu_points = (db.query(SamplingPoint)
+                        .join(Site, SamplingPoint.site_id == Site.id)
+                        .filter(Site.name.like("%个旧%")).all())
+        if gejiu_points:
+            regions = {p.region for p in gejiu_points if p.region}
+            assert len(regions) >= 2, \
+                f"个旧采样点 region 应≥2个区域(smart_detect 识别), 实际 {regions}"
+            depth_filled = sum(1 for p in gejiu_points if p.depth_top_cm is not None)
+            assert depth_filled == len(gejiu_points), \
+                f"个旧采样点 depth_top_cm 应全部填充, 实际 {depth_filled}/{len(gejiu_points)}"
+
     finally:
         db.close()
