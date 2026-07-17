@@ -1,4 +1,3 @@
-import sys
 """open_set_classifier.py — 开放集障碍因子分层识别（P0-OPEN-1/2/3, M0-3/4 修订）
 
 把甲方上传的每一个实测因子分到四种状态:
@@ -21,6 +20,7 @@ M0-4 修订(纠正虚假声明):
 - candidate_attention_score 不得与正式 KOS 混用
 """
 from __future__ import annotations
+import sys
 
 import os
 import re

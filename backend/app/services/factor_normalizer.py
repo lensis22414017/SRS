@@ -1,4 +1,3 @@
-import sys
 """factor_normalizer.py — 因子名称规范化、单位转换、冲突检测（P0-1 修复）
 
 替代 kos_service.py 中的子串匹配 normalize_factors，改为：
@@ -9,6 +8,7 @@ import sys
 5. 同一 canonical 因子多来源列冲突 → mapping_conflicts（不静默覆盖）
 """
 from __future__ import annotations
+import sys
 
 import os
 import re
