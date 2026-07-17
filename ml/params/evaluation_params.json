@@ -491,6 +491,141 @@
           "criterion": "经济效益C3 ",
           "weight": 0.3235
         }
+      },
+      "criteria_weights_25": {
+        "限制因子C1": 0.3445,
+        "风险因子C2": 0.2012,
+        "经济成本C3": 0.2072,
+        "经济效益C4": 0.2472,
+        "安全性B1": 0.5,
+        "经济性B2": 0.5
+      },
+      "meta_weights_25": {
+        "D1_土壤含盐量": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.1153
+        },
+        "D2_土壤碱化度": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0562
+        },
+        "D3_土壤机械组成": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0659
+        },
+        "D4_土壤含水率": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0686
+        },
+        "D5_阳离子交换量": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0305
+        },
+        "D6_盐基饱和度": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.1316
+        },
+        "D7_pH": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0653
+        },
+        "D8_土壤有机质": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0344
+        },
+        "D9_水稳性团聚体": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0257
+        },
+        "D10_有效态锌铁锰硼钙": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.1406
+        },
+        "D11_氮磷钾": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0535
+        },
+        "D12_土壤酶活性": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0346
+        },
+        "D13_土壤渗透率": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.065
+        },
+        "D14_有效土层厚度": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0269
+        },
+        "D15_土壤表面粗糙度": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0858
+        },
+        "D16_重金属污染物": {
+          "criterion": "风险因子C2",
+          "layer": "安全性B1",
+          "weight": 0.7984
+        },
+        "D17_有机污染物": {
+          "criterion": "风险因子C2",
+          "layer": "安全性B1",
+          "weight": 0.2016
+        },
+        "D18_劳动力成本": {
+          "criterion": "经济成本C3",
+          "layer": "经济性B2",
+          "weight": 0.3339
+        },
+        "D19_机械化成本": {
+          "criterion": "经济成本C3",
+          "layer": "经济性B2",
+          "weight": 0.2556
+        },
+        "D20_土地成本": {
+          "criterion": "经济成本C3",
+          "layer": "经济性B2",
+          "weight": 0.1781
+        },
+        "D21_非机械化成本": {
+          "criterion": "经济成本C3",
+          "layer": "经济性B2",
+          "weight": 0.2323
+        },
+        "D22_土地生产率": {
+          "criterion": "经济效益C4",
+          "layer": "经济性B2",
+          "weight": 0.3847
+        },
+        "D23_效益费用比": {
+          "criterion": "经济效益C4",
+          "layer": "经济性B2",
+          "weight": 0.2702
+        },
+        "D24_人均可支配收入": {
+          "criterion": "经济效益C4",
+          "layer": "经济性B2",
+          "weight": 0.254
+        },
+        "D25_土地产出系数": {
+          "criterion": "经济效益C4",
+          "layer": "经济性B2",
+          "weight": 0.3051
+        }
       }
     },
     "ecology": {
@@ -543,6 +678,141 @@
         "土地产出系数D11": {
           "criterion": "经济效益C3 ",
           "weight": 0.2699
+        }
+      },
+      "criteria_weights_25": {
+        "限制因子C1": 0.3838,
+        "风险因子C2": 0.141,
+        "经济成本C3": 0.2325,
+        "经济效益C4": 0.2426,
+        "安全性B1": 0.5,
+        "经济性B2": 0.5
+      },
+      "meta_weights_25": {
+        "D1_土壤含盐量": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.1209
+        },
+        "D2_土壤碱化度": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0615
+        },
+        "D3_土壤机械组成": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0659
+        },
+        "D4_土壤含水率": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0686
+        },
+        "D5_阳离子交换量": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0305
+        },
+        "D6_盐基饱和度": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.1322
+        },
+        "D7_pH": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0653
+        },
+        "D8_土壤有机质": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0344
+        },
+        "D9_水稳性团聚体": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0257
+        },
+        "D10_有效态锌铁锰硼钙": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.1406
+        },
+        "D11_氮磷钾": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0535
+        },
+        "D12_土壤酶活性": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0346
+        },
+        "D13_土壤渗透率": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.065
+        },
+        "D14_有效土层厚度": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0269
+        },
+        "D15_土壤表面粗糙度": {
+          "criterion": "限制因子C1",
+          "layer": "安全性B1",
+          "weight": 0.0858
+        },
+        "D16_重金属污染物": {
+          "criterion": "风险因子C2",
+          "layer": "安全性B1",
+          "weight": 0.8341
+        },
+        "D17_有机污染物": {
+          "criterion": "风险因子C2",
+          "layer": "安全性B1",
+          "weight": 0.1659
+        },
+        "D18_劳动力成本": {
+          "criterion": "经济成本C3",
+          "layer": "经济性B2",
+          "weight": 0.3585
+        },
+        "D19_机械化成本": {
+          "criterion": "经济成本C3",
+          "layer": "经济性B2",
+          "weight": 0.2556
+        },
+        "D20_土地成本": {
+          "criterion": "经济成本C3",
+          "layer": "经济性B2",
+          "weight": 0.1781
+        },
+        "D21_非机械化成本": {
+          "criterion": "经济成本C3",
+          "layer": "经济性B2",
+          "weight": 0.2323
+        },
+        "D22_土地生产率": {
+          "criterion": "经济效益C4",
+          "layer": "经济性B2",
+          "weight": 0.3095
+        },
+        "D23_效益费用比": {
+          "criterion": "经济效益C4",
+          "layer": "经济性B2",
+          "weight": 0.2702
+        },
+        "D24_人均可支配收入": {
+          "criterion": "经济效益C4",
+          "layer": "经济性B2",
+          "weight": 0.254
+        },
+        "D25_土地产出系数": {
+          "criterion": "经济效益C4",
+          "layer": "经济性B2",
+          "weight": 0.1938
         }
       }
     },
