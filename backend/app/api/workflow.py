@@ -26,7 +26,7 @@ def _require_site(db: Session, user: User, site_id: int) -> Site:
 
 
 @router.post("/sites/{site_id}/workflow/init")
-def init_workflow(site_id: int, user: User = Depends(get_current_user),
+def init_workflow(site_id: int, user: User = Depends(require_permission("data:input")),
                   db: Session = Depends(get_db)):
     _require_site(db, user, site_id)
     try:
@@ -45,7 +45,7 @@ def get_workflow(site_id: int, user: User = Depends(get_current_user),
 
 @router.post("/sites/{site_id}/workflow/{stage}")
 def update_workflow(site_id: int, stage: str, body: dict = Body(default={}),
-                    user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+                    user: User = Depends(require_permission("data:input")), db: Session = Depends(get_db)):
     _require_site(db, user, site_id)
     try:
         stages = workflow_service.update_stage(db, site_id, stage, **body)
@@ -57,7 +57,7 @@ def update_workflow(site_id: int, stage: str, body: dict = Body(default={}),
 @router.post("/sites/{site_id}/workflow/{stage}/attachment")
 async def upload_attachment(site_id: int, stage: str, file: UploadFile = File(...),
                            file_role: str = Form(None),
-                           user: User = Depends(get_current_user),
+                           user: User = Depends(require_permission("data:input")),
                            db: Session = Depends(get_db)):
     _require_site(db, user, site_id)
     try:

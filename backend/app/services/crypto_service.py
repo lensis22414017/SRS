@@ -93,11 +93,11 @@ def decrypt_field(encrypted: str, key: bytes | None = None) -> str:
     return aesgcm.decrypt(nonce, ciphertext, None).decode('utf-8')
 
 
-# 需要加密的敏感字段配置
+# v1.0.2(GPT P0-6c): 需要加密的敏感字段配置
+# 注意: 只加密 String 类型字段; Numeric 类型(如经纬度)需改字段类型才能加密, 留后续版本
 SENSITIVE_FIELDS = {
-    "sites": ["longitude", "latitude"],  # 精确经纬度
-    "users": ["contact_email", "contact_phone"],
-    "system_config": ["admin_contact_phone", "admin_contact_email"],
+    "users": ["email", "phone"],  # 用户联系方式(PII)
+    # "sites": ["longitude", "latitude"],  # TODO: 后续版本改 Numeric→String 后启用
 }
 
 

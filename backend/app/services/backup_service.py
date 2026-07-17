@@ -184,3 +184,45 @@ def verify_backup(backup_path: str) -> dict:
         }
     except Exception as e:
         return {"valid": False, "error": str(e)}
+
+
+# ── v1.0.2(GPT P0-6b): 定时备份调度(标准库实现, 无新依赖) ──────────────
+
+import threading
+
+
+def _daily_backup_loop(stop_event: threading.Event):
+    """后台线程: 每天凌晨 2:00 自动备份。
+
+    用标准库实现(不引入 APScheduler), 每小时检查一次是否到备份时间。
+    备份失败不中断循环, 只记录错误。
+    """
+    import logging
+    logger = logging.getLogger("srs.backup")
+    last_backup_date = None
+    while not stop_event.is_set():
+        now = datetime.now()
+        # 凌晨 2:00-2:59 且今天还没备份过
+        if now.hour == 2 and now.strftime("%Y%m%d") != last_backup_date:
+            try:
+                result = create_backup(label="auto")
+                last_backup_date = now.strftime("%Y%m%d")
+                logger.info(f"定时备份成功: {result.get('path', 'unknown')}")
+            except Exception as e:  # noqa: BLE001
+                logger.error(f"定时备份失败: {e}")
+                # 即使失败也标记今天已尝试, 避免反复重试
+                last_backup_date = now.strftime("%Y%m%d")
+        # 每小时检查一次
+        stop_event.wait(3600)
+
+
+def init_scheduler() -> threading.Event:
+    """启动定时备份后台线程。返回 stop_event 用于优雅关闭。
+
+    在 main.py lifespan 内调用, yield 后调 stop_event.set() 停止。
+    """
+    stop_event = threading.Event()
+    t = threading.Thread(target=_daily_backup_loop, args=(stop_event,),
+                         daemon=True, name="srs-daily-backup")
+    t.start()
+    return stop_event

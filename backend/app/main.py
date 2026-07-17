@@ -39,7 +39,15 @@ async def lifespan(app: FastAPI):
     from app.db.seed_db import seed_if_empty
     create_all()
     seed_if_empty()
+    # v1.0.2(GPT P0-6b): 启动定时备份后台线程(每天凌晨2:00)
+    from app.services.backup_service import init_scheduler
+    backup_stop_event = init_scheduler()
+    # v1.0.2(GPT P0-6c): 字段级加密钩子(User.email/phone)
+    from app.models.crypto_hooks import init_crypto_hooks  # noqa: F401
+    init_crypto_hooks()
     yield
+    # 优雅关闭定时备份
+    backup_stop_event.set()
 
 app = FastAPI(title=settings.app_name, version="1.0.2", lifespan=lifespan)
 
