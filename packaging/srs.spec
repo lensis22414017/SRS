@@ -153,6 +153,11 @@ hidden_imports = [
     "app.services.threshold_resolver",
 ]
 
+# 强制收集 app.services 全部子模块(确保 M0 新增的都被打包)
+from PyInstaller.utils.hooks import collect_submodules
+_extra_hidden = collect_submodules('app.services') + collect_submodules('app.api') + collect_submodules('app.models')
+hidden_imports.extend(_extra_hidden)
+
 # ── 排除模块 ────────────────────────────────────────────────────
 excluded_imports = [
     "pytest", "_pytest", "pluggy",
