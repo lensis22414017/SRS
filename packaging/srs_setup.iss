@@ -10,7 +10,7 @@
 
 #define MyAppName "污染场地土壤生态-生产功能重构监管系统"
 #define MyAppNameEn "SRS"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.0.1"
 #define MyAppPublisher "生态环境部土壤与农业农村生态环境监管技术中心"
 #define MyAppURL "https://github.com/lensis22414017/SRS"
 #define MyAppExeName "SRS.exe"
@@ -31,7 +31,7 @@ DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
 ; 输出目录与文件名
 OutputDir=..\packaging\Output
-OutputBaseFilename=SRS_Setup_v{#MyAppVersion}
+OutputBaseFilename=SRS-Setup-1.0.1-Windows-x64
 ; 压缩
 Compression=lzma2/ultra64
 SolidCompression=yes
@@ -41,7 +41,7 @@ PrivilegesRequired=admin
 ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 ; 图标
-SetupIconFile=srs_icon_v2.ico
+SetupIconFile=srs_icon_v4.ico
 UninstallDisplayIcon={app}\{#MyAppExeName}
 ; 安装界面语言
 ShowLanguageDialog=no

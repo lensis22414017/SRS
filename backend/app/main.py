@@ -40,7 +40,7 @@ async def lifespan(app: FastAPI):
     seed_if_empty()
     yield
 
-app = FastAPI(title=settings.app_name, version="0.1.0", lifespan=lifespan)
+app = FastAPI(title=settings.app_name, version="1.0.1", lifespan=lifespan)
 
 # ── CORS: 开发模式 (Vite dev server) + 同源部署均兼容 ──────────────
 app.add_middleware(
