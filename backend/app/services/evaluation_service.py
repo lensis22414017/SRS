@@ -206,6 +206,54 @@ def _evaluation_organic_degraded(db: Session, site_id: int, site: Site,
     }
 
 
+def _integrate_weighting_and_mice(means: dict, scope: str) -> dict:
+    """v1.0.2(GPT P0-3): 集成 AHP 主观权重 + MICE 插补。
+
+    单场地策略(裴总决策):
+    - AHP 主观权重: 用 indicator_weights 作为主观权重(已归一化)
+    - 客观权重(熵权/CRITIC): 单场地无跨场地数据, 退化为均匀权重
+    - MICE: 单场地 1×n 退化为中位数兜底(已有逻辑)
+
+    返回 evaluate() 的 custom_weights/imputed_values 参数。
+    """
+    import os as _os
+    import json as _json
+    import numpy as np
+    _PARAMS = _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.dirname(
+        _os.path.abspath(__file__)))), "ml", "params", "evaluation_params.json")
+    with open(_PARAMS, encoding="utf-8") as f:
+        params = _json.load(f)
+    iw = params["reconstruction"][scope]["indicator_weights"]
+
+    # AHP 主观权重(直接用 indicator_weights, 已归一化)
+    n = len(iw)
+    subjective = np.array(list(iw.values()))
+    subjective = subjective / subjective.sum()
+
+    # 客观权重: 单场地退化为均匀(诚实标注)
+    objective = np.ones(n) / n
+
+    # 组合权重(主观50% + 客观50%)
+    try:
+        from weighting import combined_weights
+        combined = combined_weights(subjective, objective, alpha=0.5)
+        custom_weights = {k: float(v) for k, v in zip(iw.keys(), combined)}
+    except ImportError:
+        custom_weights = None  # weighting.py 不可用时用静态权重
+
+    # MICE 插补(单场地退化为中位数兜底)
+    imputed_values = None
+    try:
+        from mice_imputer import apply_mice_to_values
+        result = apply_mice_to_values(means, all_factors=list(iw.keys()))
+        if result.get("imputed"):
+            imputed_values = result["imputed"]
+    except ImportError:
+        pass
+
+    return {"custom_weights": custom_weights, "imputed_values": imputed_values}
+
+
 def run_evaluation(db: Session, site_id: int, t: float | None = None,
                    intensity: str | None = None) -> dict:
     """运行评价。t 和 intensity 默认从 evaluation_params.json 读取。"""
@@ -273,7 +321,9 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
                 if fb.get("threshold_resolution_status") == "fallback":
                     lim = fb.get("threshold_value")
             screen[f] = lim
-        r = R.evaluate(means, scope, ph=ph, screen_limits=screen)
+        # v1.0.2(GPT P0-3): AHP主观权重 + MICE插补集成
+        eval_kwargs = _integrate_weighting_and_mice(means, scope)
+        r = R.evaluate(means, scope, ph=ph, screen_limits=screen, **eval_kwargs)
         et = "reconstruction_prod" if scope == "production" else "reconstruction_eco"
         # P4: 合并 KOS key_obstacles 到 limiting_factors(裴总要求功能重构读 KOS Top)
         kos_limiting = list(r.get("limiting_factors") or [])

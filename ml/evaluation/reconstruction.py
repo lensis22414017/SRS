@@ -103,17 +103,25 @@ def score_pollutant(value, screen_limit) -> int | None:
 
 
 def evaluate(values: dict, scope: str, ph: float | None = None,
-             screen_limits: dict | None = None) -> dict:
+             screen_limits: dict | None = None,
+             custom_weights: dict | None = None,
+             imputed_values: dict | None = None) -> dict:
     """values: {factor_code: site_mean_value}; screen_limits: {factor: limit}。
 
     v1.0.2 改动:
       - 覆盖率门禁: 已测指标/总指标 < COVERAGE_GATE → "证据不足/无法评价"
       - 改进模糊综合评价: 内梅罗指数 P总分=[(P平均²+P权重²)/2]^(1/2)
       - 污染物无阈值时退出打分(不返100)
+    v1.0.2(GPT P0-3): 新增 custom_weights/imputed_values 参数
+      - custom_weights: 外部注入的AHP+客观组合权重, 替代静态 indicator_weights
+      - imputed_values: MICE插补后的值, 合并到 values 再打分
     """
     params = _load(PARAMS)["reconstruction"][scope]
     rules = _load(RULES)
-    iw = params["indicator_weights"]
+    iw = custom_weights if custom_weights else params["indicator_weights"]
+    # v1.0.2(GPT P0-3): MICE 插补值合并
+    if imputed_values:
+        values = {**values, **imputed_values}
     land_subtype = _load(RULES).get("land_subtype_default", "dryland")
 
     scored = []  # (name, F, raw_weight)
