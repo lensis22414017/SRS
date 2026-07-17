@@ -1,7 +1,7 @@
 """评价与推荐 API。"""
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Body, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 
 from app.core.config import get_settings
@@ -24,9 +24,18 @@ def _require_site(db: Session, user: User, site_id: int) -> Site:
 
 
 @router.post("/sites/{site_id}/evaluation")
-def trigger_evaluation(site_id: int, t: float = Query(2.0), intensity: str = "medium",
-                       user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+def trigger_evaluation(site_id: int,
+                       payload: dict | None = Body(default=None),
+                       t: float = Query(2.0),
+                       intensity: str = Query("medium"),
+                       user: User = Depends(get_current_user),
+                       db: Session = Depends(get_db)):
+    """v1.0.2(GPT P0-4): t/intensity 从 body JSON 或 Query 参数接收(前端可调)。"""
     _require_site(db, user, site_id)
+    # 优先从 body JSON 读(前端用 body 传参)
+    if payload:
+        t = float(payload.get("t", t))
+        intensity = payload.get("intensity", intensity)
     try:
         return run_evaluation(db, site_id, t=t, intensity=intensity)
     except ValueError as e:

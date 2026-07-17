@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, Button, Empty, App, Row, Col, Statistic, Tag, Space, Table, Divider, Alert, Timeline, Typography } from "antd";
+import { Card, Button, Empty, App, Row, Col, Statistic, Tag, Space, Table, Divider, Alert, Timeline, Typography, InputNumber, Select } from "antd";
 import { ApartmentOutlined, ExportOutlined } from "@ant-design/icons";
 import ReactECharts from "echarts-for-react";
 import { api } from "../api/client";
@@ -22,6 +22,9 @@ export default function SSUIAnalysis() {
   const [hasRun, setHasRun] = useState(false);     // 是否已点击运行(控制本次结果区显隐, brief 4.5)
   const [busy, setBusy] = useState(false);
   const [flowOpen, setFlowOpen] = useState(false);
+  // v1.0.2(GPT P0-4): SSUI 评价参数(t=利用年限, intensity=管理强度)
+  const [evalT, setEvalT] = useState<number>(2);
+  const [evalIntensity, setEvalIntensity] = useState<string>("medium");
 
   const load = (id?: number) => {
     const s = id ?? sid; if (!s) return;
@@ -33,7 +36,7 @@ export default function SSUIAnalysis() {
     if (!sid) return;
     setBusy(true);
     try {
-      await api.runEvaluation(sid);
+      await api.runEvaluation(sid, { t: evalT, intensity: evalIntensity });
       setData(null);     // 清旧, 避免 load 完成前 race 显旧(M5)
       setHasRun(true);   // 标记本次运行完成, 显示结果区(避免历史伪装成本次)
       load(sid);         // 刷新最新结果(run 后已入库, is_stale=false)
@@ -133,6 +136,18 @@ export default function SSUIAnalysis() {
             }}>导出评价报告</Button>}
             <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行 SSUI 可持续利用评价</Button>
           </Space>
+          {/* v1.0.2(GPT P0-4): SSUI 评价参数输入(t=利用年限, intensity=管理强度) */}
+          <Space style={{ marginTop: 8 }}>
+            <Text type="secondary" style={{ fontSize: 12 }}>利用年限 t(年):</Text>
+            <InputNumber size="small" min={1} max={50} value={evalT} onChange={(v) => setEvalT(v ?? 2)} style={{ width: 70 }} />
+            <Text type="secondary" style={{ fontSize: 12 }}>管理强度:</Text>
+            <Select size="small" value={evalIntensity} onChange={setEvalIntensity} style={{ width: 100 }}
+              options={[
+                { value: "weak", label: "粗放(weak)" },
+                { value: "medium", label: "中等(medium)" },
+                { value: "strong", label: "集约(strong)" },
+              ]} />
+          </Space>
         </Space>
         <div style={{ marginTop: 12 }}>
           <FormulaBlock
@@ -142,7 +157,7 @@ export default function SSUIAnalysis() {
             note="其中 f(t) = 1 + 0.03·t 为时间修正函数，M 为管理调节因子（表3.49），等级边界见下方说明"
           >
             <Alert type="info" showIcon style={{ marginBottom: 12 }}
-              message="当前评价路径为 MVP 路径，因数据覆盖不足仅启用部分指标。完整评价体系包含安全性、经济性、社会性三个维度共 18 项指标，需在后续版本中逐步接入全部数据。" />
+              message="完整评价体系基于甲方方法 25 项元指标（D1-D25），按限制因子C1/风险因子C2/经济成本C3/经济效益C4 四个准则层分组。当前为 MVP 口径（场内 Min-Max 归一化），跨场地锚点/PCA 降维/博弈论赋权待后续版本接入多场地数据后启用。" />
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 4 }}>
               {[
                 { range: "≥ 0.80", label: "高可持续性", color: "#16a34a" },
@@ -188,7 +203,7 @@ export default function SSUIAnalysis() {
         <Card title="土壤持续利用度（SSUI）评价"
           extra={<Text type="secondary" style={{ fontSize: 12 }}>本次运行 ｜ 数据版本 {s?.data_version} ｜ 参数版本 {s?.param_version} ｜ {s?.created_at}</Text>}>
           <Alert type="warning" style={{ marginBottom: 16 }}
-            message="MVP 口径说明" description={s.explanation} />
+            message="25项完整口径（场内归一化 MVP）" description={s.explanation} />
           <Row gutter={16} align="middle">
             <Col span={8}>{gauge && <ReactECharts option={gauge} theme="srs-light" opts={SVG_OPTS} style={{ height: 220 }} />}</Col>
             <Col span={8}><Statistic title="SSUI 指数" value={s.score} /></Col>

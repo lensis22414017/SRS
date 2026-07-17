@@ -230,14 +230,17 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
         "is_na": False,
         "calculation_trace": [
             f"① 25项元指标按4个准则层分组计算(限制因子/风险因子/经济成本/经济效益)",
-            f"② 各准则层组内加权: SC1={round(sc.get('限制因子C1',0),4)}, SC2={round(sc.get('风险因子C2',0),4)}, "
+            f"② 各准则层组内加权(MVP场内Min-Max归一化): SC1={round(sc.get('限制因子C1',0),4)}, SC2={round(sc.get('风险因子C2',0),4)}, "
             f"SC3={round(sc.get('经济成本C3',0),4)}, SC4={round(sc.get('经济效益C4',0),4)}",
             f"③ B1安全性={round(b1,4)}, B2经济性={round(b2,4)}",
             f"④ f(t)=1+0.03×{t}={round(ft,3)}, M={M}",
             f"⑤ SSUI=(B1×0.5+B2×0.5)×f(t)×M={round(raw_ssui,4)}→min(,1.0)={ssui}",
             f"⑥ 等级: {grade}",
+            f"⑦ 口径说明: MVP用场内Min-Max归一化, 准则层权重来自甲方方法; "
+            f"跨场地锚点/PCA降维/博弈论赋权需多场地数据(后续版本)",
         ],
-        "explanation": f"SSUI(25项完整口径)={ssui}({grade})。"
+        "explanation": f"SSUI(25项完整口径,MVP场内归一化)={ssui}({grade})。"
                        f"B1安全性={round(b1,4)}, B2经济性={round(b2,4)}, f(t)={round(ft,3)}, M={M}。"
-                       f"基于甲方方法25项元指标(D1-D25)。",
+                       f"基于甲方方法25项元指标(D1-D25)。"
+                       f"当前为MVP口径(场内Min-Max), 跨场地可比性待后续版本。",
     }

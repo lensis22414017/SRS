@@ -128,7 +128,8 @@ export const api = {
     client.post(`/sites/${id}/kos-diagnosis?track=${track}&subset=${subset}`).then((r) => r.data),
   modelRegistry: () => client.get(`/models/registry`).then((r) => r.data),
   evaluation: (id: number) => client.get(`/sites/${id}/evaluation`).then((r) => r.data),
-  runEvaluation: (id: number) => client.post(`/sites/${id}/evaluation`).then((r) => r.data),
+  runEvaluation: (id: number, payload?: { t?: number; intensity?: string }) =>
+    client.post(`/sites/${id}/evaluation`, payload || {}).then((r) => r.data),
   recommendation: (id: number) => client.get(`/sites/${id}/recommendation`).then((r) => r.data),
   runRecommendation: (id: number) => client.post(`/sites/${id}/recommendation`).then((r) => r.data),
 
