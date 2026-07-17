@@ -143,9 +143,9 @@ hidden_imports = [
     "webview.platforms.gtk",
     # pkg_resources 运行时依赖(weasyprint/reportlab 间接引入)
     "jaraco", "jaraco.text", "jaraco.functools", "jaraco.context",
-    # M0-9: builtin_keys 已移除(hiddenimports + launcher inject_builtin_keys)
-    # builtin_keys.py 仍保留在 packaging/ 供开发态使用, .gitignore 已排除,
-    # 不再随包分发也不再自动注入; 用户需在「系统管理页」手动配置 AI/高德 key。
+    # 裴总决策: 恢复内置 key 预配(甲方开箱即用), builtin_keys.py 随包分发
+    # .gitignore 排除不入仓库, 但 PyInstaller 打包时需能 import
+    "builtin_keys",
 ]
 
 # ── 排除模块 ────────────────────────────────────────────────────

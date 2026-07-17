@@ -48,20 +48,51 @@ def ensure_app_dirs():
             os.makedirs(db_dir, exist_ok=True)
 
 
-def check_first_run_keys():
-    """M0-9: 首次启动密钥提示(只读, 不写入)。
+def inject_builtin_keys():
+    """首次启动时将内置 API key 写入 AppData 的 override 配置 + 设环境变量。
 
-    替代旧的 inject_builtin_keys(): 不再自动写入 AI key / 高德 key。
-    检测到关键 key 缺失时, 打印 + 弹窗(如可用)提示用户前往系统管理页配置。
-
-    保留只读探测: 通过 settings 已加载的配置(用户已配置 .env 或 ai_config.json)
-    判断是否需要提示, 不改任何文件。
+    打包版内置 builtin_keys.py(不入 Git)，使甲方开箱即用 AI + 卫星地图。
+    开发模式(builtin_keys 不存在)时静默跳过，不影响开发流程。
+    裴总决策: 甲方开箱即用优先(覆盖 GPT M0-9 建议)。
     """
+    try:
+        import builtin_keys as bk
+    except ImportError:
+        return  # 开发模式无内置 key，跳过
+
+    # 1. AI key → ai_config.json override(若已存在则不覆盖，尊重用户已配)
+    try:
+        from app.core.config import _app_data_dir
+        override_path = os.path.join(_app_data_dir(), "ai_config.json")
+        if not os.path.isfile(override_path):
+            import json
+            cfg = {"base_url": bk.AI_BASE_URL, "api_key": bk.AI_API_KEY,
+                   "model": bk.AI_MODEL, "provider": "zhipu"}
+            os.makedirs(os.path.dirname(override_path), exist_ok=True)
+            with open(override_path, "w", encoding="utf-8") as f:
+                json.dump(cfg, f, ensure_ascii=False, indent=2)
+            print(f"✅ 已预配 AI key 到 {override_path}")
+    except Exception as e:
+        print(f"⚠️ AI key 预配失败({e})，可在系统管理页手动配置。")
+
+    # 2. 高德 key → 环境变量(全局生效，map.py 读 os.environ)
+    gaode = getattr(bk, "GAODE_KEY", "")
+    if gaode:
+        os.environ["GAODE_KEY"] = gaode
+        try:
+            from app.core.config import get_settings
+            get_settings().gaode_key = gaode
+        except Exception:
+            pass
+
+
+def check_first_run_keys():
+    """首次启动密钥检测(只读提示, 实际注入由 inject_builtin_keys 完成)。"""
     try:
         from app.core.config import get_settings
         s = get_settings()
     except Exception:  # noqa: BLE001
-        return  # 配置未就绪, 不阻断启动
+        return
 
     missing = []
     if not (getattr(s, "ai_api_key", None) or "").strip():
@@ -428,8 +459,8 @@ def main():
     print()
 
     ensure_app_dirs()
-    # M0-9: 替代旧的 inject_builtin_keys(); 不再自动写入任何密钥,
-    # 仅在首启检测到 AI/高德 key 缺失时提示用户前往系统管理页配置。
+    # 裴总决策: 内置 key 预配(甲方开箱即用), inject 后再 check 提示缺失项
+    inject_builtin_keys()
     check_first_run_keys()
 
     # 首启环境自检(只读探测, 不改任何配置)
