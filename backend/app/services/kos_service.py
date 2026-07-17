@@ -116,6 +116,46 @@ def normalize_factors(raw_values: dict) -> dict:
     return normed
 
 
+def _compute_per_point_breakdown_with_thr(factor: str, per_point_data: dict | None,
+                                           thr_scalar: float | None) -> list:
+    """v1.0.2(GPT P0-2): 单因子逐点 B/R 分解(标量阈值版)。
+
+    直接接受已解析的标量阈值, 绕过 thresholds dict 格式问题。
+    """
+    if not per_point_data or thr_scalar is None:
+        return []
+
+    # canonical code → 中文元素名(As_mgkg→砷)
+    _CANON_TO_CN = {"As": "砷", "Pb": "铅", "Cu": "铜", "Zn": "锌", "Cd": "镉",
+                    "Cr": "铬", "Hg": "汞", "Ni": "镍"}
+    cn_name = None
+    for code_prefix, cn in _CANON_TO_CN.items():
+        if factor.startswith(code_prefix):
+            cn_name = cn
+            break
+
+    breakdown = []
+    for point_id, point_vals in per_point_data.items():
+        val = None
+        for fk, fv in point_vals.items():
+            if fk == factor or (cn_name and cn_name in fk):
+                val = fv
+                break
+        if val is None:
+            continue
+        b = 1 if (thr_scalar and val > thr_scalar) else 0
+        ratio = round(val / thr_scalar, 3) if (thr_scalar and thr_scalar > 0) else None
+        breakdown.append({
+            "point_id": point_id,
+            "value": round(float(val), 4),
+            "threshold": thr_scalar,
+            "B": b,
+            "severity_ratio": ratio,
+        })
+    breakdown.sort(key=lambda x: x["severity_ratio"] or 0, reverse=True)
+    return breakdown
+
+
 def _compute_per_point_breakdown(factor: str, per_point_data: dict | None,
                                    thresholds: dict, threshold_meta: dict) -> list:
     """v1.0.2(GPT P0-2): 单因子的逐点 B/R 分解。
@@ -133,16 +173,34 @@ def _compute_per_point_breakdown(factor: str, per_point_data: dict | None,
         return []
 
     # 因子归一化(中文符号匹配)
+    from app.services.factor_normalizer import normalize_factors_v2
     normed_factor = normalize_factors_v2({factor: None})
     fac_key = list(normed_factor.keys())[0] if normed_factor else factor
 
-    thr = thresholds.get(fac_key) or thresholds.get(factor)
+    # v1.0.2(GPT P0-2): canonical code → 中文元素名映射(As_mgkg→砷)
+    # per_point_data 的 key 是中文因子名, key_obstacle.factor 是 canonical code
+    _CANON_TO_CN = {"As": "砷", "Pb": "铅", "Cu": "铜", "Zn": "锌", "Cd": "镉",
+                    "Cr": "铬", "Hg": "汞", "Ni": "镍", "Cr_VI": "六价铬"}
+    cn_name = None
+    for code_prefix, cn in _CANON_TO_CN.items():
+        if factor.startswith(code_prefix):
+            cn_name = cn
+            break
+
+    # thr: kos_service 的 thresholds key 与 key_obstacle.factor 一致(canonical code)
+    thr = thresholds.get(factor)
+    # 兜底: 尝试归一化 key
+    if thr is None:
+        thr = thresholds.get(fac_key)
+    # 安全: thr 可能是 dict(未解析)或 None, 只取标量
+    if isinstance(thr, dict):
+        thr = thr.get("limit") or thr.get("threshold")
     breakdown = []
     for point_id, point_vals in per_point_data.items():
-        # 匹配该因子的值(支持中文/英文符号)
+        # 匹配该因子的值(支持 canonical code / 归一化 / 中文元素名)
         val = None
         for fk, fv in point_vals.items():
-            if fk == factor or fk == fac_key:
+            if fk == factor or fk == fac_key or (cn_name and cn_name in fk):
                 val = fv
                 break
         if val is None:
@@ -367,10 +425,18 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
             if tm.get("fallback_note"):
                 k["fallback_note"] = tm["fallback_note"]
 
-        # v1.0.2(GPT P0-2): 逐点 B/R 分解 — 哪些采样点超标、超标多少倍
-        # KOS 排名仍用最不利点(保守决策), 但附逐点透明分解
-        k["per_point_breakdown"] = _compute_per_point_breakdown(
-            fac, per_point_data, thresholds, threshold_meta)
+    # v1.0.2(GPT P0-2): 逐点 B/R 分解 — 哪些采样点超标、超标多少倍
+    # KOS 排名仍用最不利点(保守决策), 但附逐点透明分解
+    # 独立循环(不依赖 threshold_meta), 用 thresholds dict 的标量提取
+    for k in kos_result.get("key_obstacles", []):
+        fac = k.get("factor")
+        # 用 key_obstacle 已解析的 threshold_value(标量), 避免 thresholds dict 格式问题
+        _thr_scalar = k.get("threshold_value")
+        if _thr_scalar is None:
+            _thr_raw = thresholds.get(fac)
+            _thr_scalar = _thr_raw.get("limit") if isinstance(_thr_raw, dict) else _thr_raw
+        k["per_point_breakdown"] = _compute_per_point_breakdown_with_thr(
+            fac, per_point_data, _thr_scalar)
 
     # 未知有机物三道防线
     known_factors = set(thresholds.keys())
@@ -452,7 +518,9 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
              "threshold_source_id": k.get("threshold_source_id"),
              # v1.0.2: 阈值解析状态(fallback 时前端显示"已用兜底阈值,请核实")
              "threshold_resolution_status": k.get("threshold_resolution_status", "resolved"),
-             "fallback_note": k.get("fallback_note", "")}
+             "fallback_note": k.get("fallback_note", ""),
+             # v1.0.2(GPT P0-2): 逐点 B/R 分解(每个超标因子的采样点级别明细)
+             "per_point_breakdown": k.get("per_point_breakdown", [])}
             for k in kos_result["key_obstacles"]
         ],
         # 第三层: 模型关注因子(实测+模型见过+无阈值或未超标,需专家复核)
