@@ -131,7 +131,8 @@ def seed_reference():
 
         # v1.0.2(GPT P0-5): 首启管理员初始化 — User 表空时创建 admin, 解除审批死锁
         # 生产首启无演示数据时, 必须有 admin 才能 approve 后续注册的 pending 用户
-        if db.query(User).count() == 0:
+        # 注意: SRS_DEMO_SEED=1 时跳过(由 seed_demo 种 Demo@2026 的 admin)
+        if db.query(User).count() == 0 and os.environ.get("SRS_DEMO_SEED", "0") != "1":
             _seed_first_admin(db, role_map)
 
         db.commit()

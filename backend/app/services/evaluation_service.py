@@ -219,8 +219,9 @@ def _integrate_weighting_and_mice(means: dict, scope: str) -> dict:
     import os as _os
     import json as _json
     import numpy as np
+    # evaluation_service.py 在 backend/app/services/, 需上溯到 SRS 根(4级dirname)
     _PARAMS = _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.dirname(
-        _os.path.abspath(__file__)))), "ml", "params", "evaluation_params.json")
+        _os.path.dirname(_os.path.abspath(__file__))))), "ml", "params", "evaluation_params.json")
     with open(_PARAMS, encoding="utf-8") as f:
         params = _json.load(f)
     iw = params["reconstruction"][scope]["indicator_weights"]
