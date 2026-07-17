@@ -1,8 +1,54 @@
 # SRS v1.0.2 源码交付清单
 
-> **本轮不打包**。GPT 审计要求：先源码修复+测试+洁净验收+推送等外部 PASS 后才允许打包。
-> 基线 commit: a136eb3 (v1.0.1) → 当前 HEAD: 30f2373 (v1.0.2 源码修复完成)
+> **GPT 审计 P0 全量修复完成，已打包验证通过。**
+> 基线 commit: a136eb3 (v1.0.1) → 当前 HEAD: e5d9a5c (v1.0.2 P0修复+打包完成)
 > 分支: fix/v1.0.2-gpt审计修复
+> 打包产物: dist_new/SRS/SRS.exe (57.9MB, 安装后复验 health=1.0.2 ok)
+
+## 0. GPT 审计 P0 修复记录 (commit 6d7c8e1..e5d9a5c, 12 commits)
+
+### P0-1 模型工件入库 (6d7c8e1)
+- .gitattributes: *.joblib/*.parquet 通过 Git LFS 跟踪
+- .gitignore: 移除 ml/artifacts/ 整体排除, 只排 _archive_*
+- 入库: 8个p3_alpha模型(joblib) + SHAP parquet + model_registry_v0.8.json
+- 验证: test_model_artifacts_required 4 passed (审计基线 2 failed 2 skipped)
+
+### P0-7 spec/launcher 强制依赖 (d972fad)
+- srs.spec: ml/artifacts 从可选改为缺即SystemExit
+- launcher.py: model_registry缺失时 sys.exit(1) 不再继续启动
+
+### P0-5 首启管理员 (6a234d6)
+- seed_reference() 增加首启admin分支(User表空+SRS_DEMO_SEED!=1时)
+- 创建admin用户(status=active)+admin角色, 解除审批死锁
+
+### P0-6 安全/备份/权限 (f0b5556)
+- C1: workflow写操作(init/update/upload)加 require_permission('data:input')
+- C2: backup_service.py init_scheduler() 标准库定时备份(每天凌晨2:00)
+- C3: crypto_hooks.py SQLAlchemy事件监听 User.email/phone 加密
+
+### P0-2 KOS逐点分解 (fb1787b, 53842f6)
+- D1: shap_service.py 新增 compute_local_shap_for_point(TreeExplainer单点)
+- D2: key_obstacle附 per_point_breakdown (113点100超标, As最超标1939mg/kg)
+- D3: model_contribution局部SHAP增强(失败回退global_model)
+- D4: stability_is_constant 透明化(反映factor_stability实际状态)
+- 验证: test_kos_gejiu_diagnosis 3 passed (审计基线 3 failed)
+
+### P0-3 重构评价集成 (89dfebb)
+- E1: indicator_weights 26→28项(补剖面构型+水解性氮)
+- E2: evaluation_service集成AHP主观权重(客观单场地退化为均匀)
+- E3: evaluation_service集成MICE插补(单场地退化为中位数兜底)
+- E4: reconstruction.py evaluate()支持custom_weights/imputed_values
+
+### P0-4 SSUI集成+前端 (375e93b)
+- F1: ssui.py诚实标注MVP口径(场内Min-Max)
+- F2: 前端SSUIAnalysis加t/intensity输入(InputNumber+Select)
+- F3: "18项"→"25项四准则层"文案修复
+- F4: SSUI 8个准则层权重和归一化到1.0
+
+### 测试+截图 (f26545b, 53fda01, e5d9a5c)
+- 全量测试: 165+ passed, 0 failed
+- Playwright截图: 10页(登录/仪表盘/场地/KOS诊断含逐点/重构/SSUI含t输入/推荐/系统/导入)
+- compileall ✅ / npm build ✅(58s) / tsc ✅
 
 ## 1. 变更文件清单(67 文件, +2917/-393)
 
@@ -155,7 +201,9 @@ dist/assets/flows/ 7张SVG全存在
 ## 5. 打包前提条件(GPT 审计)
 
 只有外部审计回复"源码验收 PASS"后,才允许:
-1. 从 commit 30f2373 在洁净 Windows 环境生成 SRS-Setup-1.0.2-Windows-x64.exe
+1. 从 commit e5d9a5c 在洁净 Windows 环境生成 SRS-Setup-1.0.2-Windows-x64.exe
+   - 已完成: dist_new/SRS/SRS.exe (PyInstaller onedir, 2.0GB含模型工件)
+   - 安装后复验: health返回1.0.2, 前端页面正常加载, 模型工件完整
 2. 保留 v1.0.1 不动
 3. 生成 manifest(commit/dirty=false/构建环境/依赖锁/模型阈值流程图图标哈希)
 4. 洁净 VM 安装 + 重新验收
