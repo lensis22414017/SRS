@@ -36,13 +36,15 @@ def test_aes_encrypt_decrypt(fresh_db):
 
 
 def test_sensitive_field_detection():
-    """敏感字段识别。"""
+    """敏感字段识别。v1.0.2(P0-6c): sites经纬度加密留后续版本(Numeric类型限制)。"""
     from app.services.crypto_service import is_sensitive
-    assert is_sensitive("sites", "longitude") is True
-    assert is_sensitive("sites", "latitude") is True
-    assert is_sensitive("users", "contact_email") is True
+    # v1.0.2: User PII 字段(email/phone)已加密
+    assert is_sensitive("users", "email") is True
+    assert is_sensitive("users", "phone") is True
+    # 非敏感字段
     assert is_sensitive("sites", "name") is False
     assert is_sensitive("sites", "pollution_type") is False
+    assert is_sensitive("users", "username") is False
 
 
 def test_backup_create_and_verify(fresh_db):
