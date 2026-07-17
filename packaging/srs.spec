@@ -78,16 +78,24 @@ tiles_dir = PROJECT_ROOT / "data" / "geo" / "tiles"
 if tiles_dir.is_dir() and any(tiles_dir.glob("*.mbtiles")):
     added_files.append((str(tiles_dir), "data/geo/tiles"))
 
-# ML 模型工件 (如果存在)
+# ML 模型工件 — v1.0.2(GPT P0-1/P0-7): 强制依赖, 缺失则构建失败
 ml_artifacts = PROJECT_ROOT / "ml" / "artifacts"
-if ml_artifacts.is_dir() and any(ml_artifacts.iterdir()):
-    added_files.append((str(ml_artifacts), "ml/artifacts"))
+if not (ml_artifacts.is_dir() and any(ml_artifacts.iterdir())):
+    raise SystemExit("BUILD FAILED: ml/artifacts 缺失, KOS诊断无法运行 (GPT P0-1 强制依赖)")
+# 校验 registry + 至少1个 joblib 存在
+_registry = ml_artifacts / "p3_alpha" / "model_registry_v0.8.json"
+if not _registry.is_file():
+    raise SystemExit("BUILD FAILED: model_registry_v0.8.json 缺失 (GPT P0-1 强制依赖)")
+if not any((ml_artifacts / "p3_alpha").glob("*.joblib")):
+    raise SystemExit("BUILD FAILED: ml/artifacts/p3_alpha/*.joblib 缺失 (GPT P0-1 强制依赖)")
+added_files.append((str(ml_artifacts), "ml/artifacts"))
 
-# ML 关键 JSON 资源(诊断特征映射 + GEE 协变量标签)
+# ML 关键 JSON 资源(诊断特征映射 + GEE 协变量标签) — v1.0.2: 强制依赖
 for _json in ("ml/models/feature_mapping.json", "ml/covariates/gee_labels.json"):
     _f = PROJECT_ROOT / _json
-    if _f.is_file():
-        added_files.append((str(_f), "/".join(_json.split("/")[:-1])))
+    if not _f.is_file():
+        raise SystemExit(f"BUILD FAILED: {_json} 缺失 (GPT P0-7 强制依赖)")
+    added_files.append((str(_f), "/".join(_json.split("/")[:-1])))
 
 # 标准阈值 CSV(诊断/评价/超标判定依赖)
 std_dir = PROJECT_ROOT / "data" / "standards"

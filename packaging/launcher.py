@@ -505,6 +505,28 @@ def main():
     preflight_results = run_preflight(args.port, args.host)
     print(_preflight_summary(preflight_results))
     print()
+
+    # v1.0.2(GPT P0-1): 模型工件硬阻断 — 缺失则不启动(KOS核心功能不可用)
+    if getattr(sys, "frozen", False):
+        _resource_root = sys._MEIPASS  # type: ignore[attr-defined]
+    else:
+        _resource_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    _registry = os.path.join(_resource_root, "ml", "artifacts", "p3_alpha", "model_registry_v0.8.json")
+    if not os.path.isfile(_registry):
+        _msg = ("SRS 启动失败: 模型注册表(model_registry_v0.8.json)缺失。\n"
+                "KOS 障碍诊断核心功能无法运行。\n"
+                "请联系技术支持获取完整的模型工件包。")
+        print("❌ " + _msg)
+        try:
+            import tkinter as tk  # type: ignore
+            from tkinter import messagebox  # type: ignore
+            root = tk.Tk(); root.withdraw()
+            messagebox.showerror("SRS 启动失败", _msg)
+            root.destroy()
+        except Exception:  # noqa: BLE001
+            pass
+        sys.exit(1)
+
     n_fail = sum(1 for r in preflight_results if r["level"] == "fail")
     # 关键阻断项: 用原生提示框告知用户(GUI 环境), 仍继续启动(部分功能可降级)
     if n_fail:
