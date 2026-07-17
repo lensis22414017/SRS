@@ -146,6 +146,11 @@ hidden_imports = [
     # 裴总决策: 恢复内置 key 预配(甲方开箱即用), builtin_keys.py 随包分发
     # .gitignore 排除不入仓库, 但 PyInstaller 打包时需能 import
     "builtin_keys",
+    # M0 新增服务模块(需显式声明, 否则 PyInstaller 不收集动态 import)
+    "app.services.factor_normalizer",
+    "app.services.open_set_classifier",
+    "app.services.diagnosis_fact_check",
+    "app.services.threshold_resolver",
 ]
 
 # ── 排除模块 ────────────────────────────────────────────────────
