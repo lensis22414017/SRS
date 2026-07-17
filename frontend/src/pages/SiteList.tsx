@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { Card, Table, Tag, Input, Button, Space, App } from "antd";
-import { ImportOutlined, ReloadOutlined } from "@ant-design/icons";
+import { Card, Table, Tag, Input, Button, Space, App, Popconfirm } from "antd";
+import { ImportOutlined, ReloadOutlined, DeleteOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/client";
 import { seqCol, numCol, textCol } from "../utils/table";
 import { POLLUTION_TYPE, POLLUTION_LABEL } from "../theme/palette";
+
+const PAGE_SIZE = 10;
 
 export default function SiteList() {
   const { message } = App.useApp();
@@ -12,9 +14,27 @@ export default function SiteList() {
   const [data, setData] = useState<any>({ items: [], total: 0 });
   const [loading, setLoading] = useState(true);
   const [q, setQ] = useState("");
+  const [page, setPage] = useState(1);
 
-  const load = () => { setLoading(true); api.sites({ q, size: 100 }).then(setData).catch((err) => { message.error(err?.response?.data?.detail || "加载失败"); setData({ items: [], total: 0 }); }).finally(() => setLoading(false)); };
+  const load = () => {
+    setLoading(true);
+    api.sites({ q, size: 100 }).then(setData).catch((err) => {
+      message.error(err?.response?.data?.detail || "加载失败");
+      setData({ items: [], total: 0 });
+    }).finally(() => setLoading(false));
+  };
   useEffect(() => { load(); }, []);
+
+  // v1.0.2: 场地删除(GPT 第三节), Popconfirm + 级联清理在后端
+  const handleDelete = async (id: number, name: string) => {
+    try {
+      await api.deleteSite(id);
+      message.success(`场地「${name}」已删除(含所有关联数据)`);
+      load();
+    } catch (err: any) {
+      message.error(err?.response?.data?.detail || "删除失败");
+    }
+  };
 
   return (
     <Card title="场地数据管理"
@@ -23,12 +43,19 @@ export default function SiteList() {
         <Button icon={<ReloadOutlined />} onClick={load}>刷新</Button>
         <Button type="primary" icon={<ImportOutlined />} onClick={() => nav("/sites/import")}>批量导入</Button>
       </Space>}>
-      <Table rowKey="id" loading={loading} dataSource={data.items} pagination={{ pageSize: 10 }}
+      <Table rowKey="id" loading={loading} dataSource={data.items}
+        pagination={{
+          pageSize: PAGE_SIZE,
+          current: page,
+          onChange: (p) => setPage(p),
+          showSizeChanger: false,
+          showTotal: (t) => `共 ${t} 个场地`,
+        }}
         columns={[
-          seqCol(64),
+          // v1.0.2: 序号支持分页偏移(GPT 3.5), 第 2 页第 1 条显示 11
+          seqCol(64, page, PAGE_SIZE),
           textCol("场地编号", "site_code"),
           { title: "场地名称", dataIndex: "name", render: (v: string, r: any) => {
-            // 优化展示: site_北京_OP_200点 → 北京 · 有机污染 · 200点
             if (!v) return "—";
             const parts = v.replace(/^site_/, "").split("_");
             if (parts.length >= 2) {
@@ -50,7 +77,22 @@ export default function SiteList() {
             render: (v: number) => v ? <Tag color="red">{v}</Tag> : <Tag color="green">无</Tag> },
           { title: "数据质量", dataIndex: "data_quality", align: "center", width: 100,
             render: (v: string) => <Tag color={v === "良好" ? "green" : v === "部分超标" ? "orange" : "red"}>{v || "—"}</Tag> },
-          { title: "操作", align: "center", render: (_, r) => <a onClick={() => nav(`/sites/${r.id}`)}>查看详情</a> },
+          { title: "操作", align: "center", width: 160,
+            render: (_, r) => (
+              <Space size="small">
+                <a onClick={() => nav(`/sites/${r.id}`)}>查看详情</a>
+                <Popconfirm
+                  title="确认删除该场地？"
+                  description="将级联清除所有点位、测量、诊断、评价、推荐、报告记录，不可恢复。"
+                  onConfirm={() => handleDelete(r.id, r.name)}
+                  okText="确认删除"
+                  cancelText="取消"
+                  okButtonProps={{ danger: true }}>
+                  <a style={{ color: "#ff4d4f" }}><DeleteOutlined /> 删除</a>
+                </Popconfirm>
+              </Space>
+            ),
+          },
         ]} />
     </Card>
   );

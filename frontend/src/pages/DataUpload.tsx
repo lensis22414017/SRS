@@ -10,11 +10,9 @@ import { SVG_OPTS } from "../theme/echarts";
 
 const { Text } = Typography;
 
+// v1.0.2(裴总决策 + GPT 2.2): 完全删除预设模板, 只保留自动识别
 const MAPPINGS = [
-  { value: "auto", label: "自动识别模板（推荐，按列名/工作表匹配）" },
-  { value: "yunnan_gejiu", label: "云南个旧重金属污染场地（标准模板）" },
-  { value: "nanjing_qixia", label: "南京栖霞有机污染场地（有机污染模板）" },
-  { value: "xiangcun_fuhe", label: "乡村建设用地复合污染场地（复合污染模板）" },
+  { value: "auto", label: "自动识别（按列名/工作表智能匹配污染类型）" },
 ];
 
 export default function DataUpload() {

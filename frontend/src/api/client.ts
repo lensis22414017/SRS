@@ -50,6 +50,7 @@ export const api = {
   // 数据
   sites: (params?: any) => client.get("/sites", { params }).then((r) => r.data),
   site: (id: number) => client.get(`/sites/${id}`).then((r) => r.data),
+  deleteSite: (id: number) => client.delete(`/sites/${id}`).then((r) => r.data),
   updateLandUse: (id: number, land_use_type: string) =>
     client.put(`/sites/${id}/land-use`, { land_use_type }).then((r) => r.data),
   points: (id: number) => client.get(`/sites/${id}/points`).then((r) => r.data),

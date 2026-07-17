@@ -576,6 +576,86 @@ def update_site_land_use(site_id: int, body: LandUseUpdate,
     return {"ok": True, "site_id": site_id, "land_use_type": s.land_use_type}
 
 
+# v1.0.2: 场地删除(GPT 审计第三节) — 级联清理 + 审计墓碑
+@router.delete("/sites/{site_id}")
+def delete_site(site_id: int,
+                user: User = Depends(require_permission("data:delete")),
+                db: Session = Depends(get_db)):
+    """删除场地 + 事务化级联清理所有关联数据(GPT 3.1-3.3)。
+
+    级联表(按依赖顺序删除):
+      WorkflowAttachment → WorkflowRecord → Recommendation → EvaluationResult
+      → DiagnosisFactorDetail → DiagnosisResult → ReportRecord → AuditLog
+      → ProjectAuthorization → SamplingEvent → DatasetVersion → ImportBatch
+      → Measurement → SamplingPoint → Site
+
+    删除后保留审计墓碑(AuditLog, 不含业务内容), 场地不再出现在列表/统计/分析。
+    """
+    from app.models import (
+        DatasetVersion, ProjectAuthorization, Recommendation,
+        SamplingEvent, WorkflowAttachment, WorkflowRecord,
+    )
+    s = db.get(Site, site_id)
+    if not s:
+        raise HTTPException(404, "场地不存在")
+    assert_site_access(db, user, s)
+    site_name = s.name
+    site_code = s.site_code
+
+    # 收集该场地所有诊断 ID(用于删 DiagnosisFactorDetail)
+    diag_ids = [d.id for d in db.query(DiagnosisResult.id).filter_by(site_id=site_id).all()]
+    # 收集该场地所有工作流 ID(用于删 WorkflowAttachment)
+    wf_ids = [w.id for w in db.query(WorkflowRecord.id).filter_by(site_id=site_id).all()]
+
+    deleted_counts = {}
+    try:
+        # 1. 子表先删
+        if wf_ids:
+            n = db.query(WorkflowAttachment).filter(
+                WorkflowAttachment.workflow_record_id.in_(wf_ids)).delete(synchronize_session=False)
+            deleted_counts["workflow_attachments"] = n
+        if diag_ids:
+            n = db.query(DiagnosisFactorDetail).filter(
+                DiagnosisFactorDetail.diagnosis_id.in_(diag_ids)).delete(synchronize_session=False)
+            deleted_counts["diagnosis_factor_details"] = n
+
+        # 2. 按 site_id 删除的表
+        for model_name, model in [
+            ("workflow_records", WorkflowRecord),
+            ("recommendations", Recommendation),
+            ("evaluation_results", EvaluationResult),
+            ("diagnosis_results", DiagnosisResult),
+            ("report_records", ReportRecord),
+            ("project_authorizations", ProjectAuthorization),
+            ("sampling_events", SamplingEvent),
+            ("dataset_versions", DatasetVersion),
+            ("import_batches", ImportBatch),
+            ("measurements", Measurement),
+            ("sampling_points", SamplingPoint),
+        ]:
+            n = db.query(model).filter_by(site_id=site_id).delete(synchronize_session=False)
+            if n > 0:
+                deleted_counts[model_name] = n
+
+        # 3. 删除场地本身
+        # 注: RemediationCase 是案例库(无 site_id), 不参与场地删除级联
+        db.delete(s)
+
+        # 5. 审计墓碑(不含业务内容, 仅记录删除事件)
+        log(db, action="delete_site", user_id=user.id,
+            resource_type="site", resource_id=site_id,
+            detail={"site_name": site_name, "site_code": site_code,
+                    "deleted_counts": deleted_counts})
+        db.commit()
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(500, f"删除失败已回滚: {e}")
+
+    return {"ok": True, "site_id": site_id, "site_name": site_name,
+            "deleted_counts": deleted_counts}
+
+
+
 @router.get("/sites/{site_id}/points")
 def site_points(site_id: int, user: User = Depends(get_current_user),
                 db: Session = Depends(get_db)):

@@ -127,34 +127,22 @@ def _matches_heavy_metal_token(col_lower: str) -> bool:
 def resolve_mapping_for_file(mapping_id: str, dest: str) -> tuple[str, dict, dict]:
     """统一映射解析: 单文件 /import 与批量 /import/batch 共用(brief 4.1)。
 
-    auto 顺序:
-      1) detect_mapping 高置信命中预设(含 heavy_metal 防误判) → 用预设;
-      2) smart_detect_and_map 启发式识别任意结构 → smart_auto;
-      3) 低置信/缺必需字段 → mapping 仍返回, 但 detection_report.confidence<0.5 +
-         warnings 非空, 上层据此转 review_required 引导 Wizard。
+    v1.0.2(裴总决策 + GPT 2.2): 完全删除预设模板框束。
+      - 不再用 detect_mapping 匹配预设(已删除 mappings/*.json)
+      - 全部走 smart_detect_and_map 启发式识别任意结构
+      - site.name 用文件名, site_code 自动生成, pollution_type 按列内容判定
+      - 低置信/缺必需字段 → mapping 仍返回, 但 detection_report.confidence<0.5 +
+        warnings 非空, 上层据此转 review_required 引导 Wizard。
     返回 (used_id, mapping, detection_report)。detection_report 含:
       used_id / confidence / source / detected_sheet / point_code_column /
       longitude_column / latitude_column / factor_columns / warnings / template_scores。
     """
     is_auto = mapping_id in ("auto", "", "detect", None)
     if not is_auto:
-        mapping = load_mapping(mapping_id)
-        return mapping_id, mapping, {
-            "used_id": mapping_id, "confidence": 1.0, "source": "preset",
-            "detected_sheet": mapping.get("sheet"),
-            "warnings": [], "template_scores": [],
-        }
-    # auto: 先预设模板
-    used_id, mapping, detail = detect_mapping(dest)
-    if mapping is not None:
-        return used_id, mapping, {
-            "used_id": used_id, "confidence": 0.9, "source": "preset_match",
-            "detected_sheet": mapping.get("sheet"),
-            "point_code_column": (mapping.get("point_columns") or {}).get("point_code"),
-            "factor_columns": [fc.get("column") for fc in mapping.get("factor_columns", [])],
-            "warnings": [], "template_scores": detail,
-        }
-    # 预设未命中 → smart 通用识别
+        # v1.0.2: 预设模板已删除, 非 auto 的 mapping_id 一律回退到 smart
+        # (保留参数兼容性, 但不再加载预设 JSON)
+        pass
+    # v1.0.2: 全部走 smart 通用识别
     used_id, mapping, _smart_detail = smart_detect_and_map(dest)
     pc = (mapping.get("point_columns") or {}).get("point_code")
     n_factors = len([fc for fc in mapping.get("factor_columns", []) if fc.get("factor_code")])
@@ -173,7 +161,7 @@ def resolve_mapping_for_file(mapping_id: str, dest: str) -> tuple[str, dict, dic
         "longitude_column": (mapping.get("point_columns") or {}).get("longitude"),
         "latitude_column": (mapping.get("point_columns") or {}).get("latitude"),
         "factor_columns": [fc.get("column") for fc in mapping.get("factor_columns", [])],
-        "warnings": warnings, "template_scores": detail,
+        "warnings": warnings, "template_scores": [],
     }
     return used_id, mapping, report
 
@@ -287,9 +275,28 @@ def smart_detect_and_map(path: str) -> tuple[str, dict, list[dict]]:
     numeric_cols = df.select_dtypes(include="number").columns.tolist()
     # 若数值列不足, 尝试把所有非元信息列转数值
     candidate_cols = numeric_cols or [c for c in cols if c not in (point_code, longitude, latitude)]
+    # v1.0.2(GPT 2.6): 元数据黑名单 — 序号/经纬度/深度/上下限/筛选值/管制值等不得识别为污染因子
+    _META_BLACKLIST = {
+        "序号", "编号", "id", "no", "index", "行号",
+        "经度", "纬度", "longitude", "latitude", "lng", "lat", "x", "y",
+        "深度", "depth", "depth_top", "depth_bottom", "上层", "下层",
+        "上限", "下限", "上限值", "下限值",
+        "筛选值", "管制值", "标准值", "限值", "阈值",
+        "备注", "说明", "remark", "note", "comment", "描述",
+        "土壤类型", "质地", "soil_type", "land_use", "用地",
+        "日期", "时间", "date", "time", "采样日期", "检测日期",
+    }
     for c in candidate_cols:
         cl = str(c).lower()
         if c in (longitude, latitude):
+            continue
+        # v1.0.2: 跳过元数据列(GPT 2.6) — 支持包含匹配(如"深度_上限(cm)"含"上限")
+        col_name_clean = _re.sub(r"[（(][^)）]*[)）]", "", str(c)).strip().lower()
+        # 去除下划线分隔, 得到核心词(深度_上限 → 上限)
+        col_core = col_name_clean.split("_")[-1] if "_" in col_name_clean else col_name_clean
+        if (cl in _META_BLACKLIST or col_name_clean in _META_BLACKLIST
+                or col_core in _META_BLACKLIST
+                or any(kw in col_name_clean for kw in ("上限", "下限", "经度", "纬度", "深度", "序号"))):
             continue
         raw = str(c)
         # 提取单位 (xxx)
@@ -328,15 +335,21 @@ def smart_detect_and_map(path: str) -> tuple[str, dict, list[dict]]:
         pollution_type = "composite"
 
     import os as _os
+    import time as _time
+    import random as _random
     site_name = _os.path.splitext(_os.path.basename(path))[0]
+    # v1.0.2: site_code 加时间戳+随机后缀, 保证每次导入唯一(GPT 2.3 不共用场地身份)
+    ts = _time.strftime("%Y%m%d%H%M%S")
+    rand_suffix = f"{_random.randint(1000, 9999)}"
+    unique_code = f"AUTO-{ts}-{rand_suffix}"
     mapping = {
         "mapping_id": "smart_auto",
         "description": f"通用智能识别(自动生成): {site_name}",
         "sheet": sheet_name,
         "header_row": 1,
         "site": {
-            # site_code 用完整 stem(原 [:12] 截断 + canonical 含时间戳 → 同分钟冲突到同场地)
-            "site_code": "AUTO-" + site_name,
+            # v1.0.2: site_code 唯一(时间戳+随机), 避免同文件名多次导入合并到同一场地
+            "site_code": unique_code,
             "name": site_name,
             "pollution_type": pollution_type,
             "province": _infer_province_from_name(site_name), "city": None,
