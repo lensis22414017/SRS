@@ -129,11 +129,69 @@ def seed_reference():
         seed_factor_dictionary(db)
         seed_standard_thresholds(db)
 
+        # v1.0.2(GPT P0-5): 首启管理员初始化 — User 表空时创建 admin, 解除审批死锁
+        # 生产首启无演示数据时, 必须有 admin 才能 approve 后续注册的 pending 用户
+        if db.query(User).count() == 0:
+            _seed_first_admin(db, role_map)
+
         db.commit()
         print(f"参考数据初始化完成: 角色 {len(ROLES)}, 权限 {len(PERMISSIONS)}, "
               f"技术库 + 因子字典 + 标准阈值 (幂等)")
     finally:
         db.close()
+
+
+def _seed_first_admin(db, role_map: dict):
+    """v1.0.2(GPT P0-5): 首启管理员初始化。
+
+    生产首启(User 表空)时创建一个 admin 用户, 避免注册审批死锁。
+    密码来源优先级: SRS_FIRST_ADMIN_PASSWORD 环境变量 > 随机生成(打印到控制台)。
+    """
+    import secrets as _secrets
+    import string as _string
+
+    # 创建默认管理组织
+    org = db.query(Organization).filter_by(name="系统管理方").first()
+    if not org:
+        org = Organization(name="系统管理方", org_type="admin", is_seed=True)
+        db.add(org); db.flush()
+
+    # 密码: 环境变量优先, 否则随机生成
+    password = os.environ.get("SRS_FIRST_ADMIN_PASSWORD", "")
+    generated = False
+    if not password:
+        # 随机 16 位密码(大小写+数字+符号)
+        alphabet = _string.ascii_letters + _string.digits + "!@#$%^&*"
+        password = "".join(_secrets.choice(alphabet) for _ in range(16))
+        generated = True
+
+    # 创建 admin 用户(status=active, 非 pending)
+    admin_user = User(
+        username="admin",
+        display_name="系统管理员",
+        password_hash=hash_password(password),
+        organization_id=org.id,
+        status="active",  # 首启 admin 直接激活, 无需审批
+        is_seed=True,
+    )
+    db.add(admin_user); db.flush()
+
+    # 分配 admin 角色
+    admin_role_id = role_map.get("admin")
+    if admin_role_id and not db.query(UserRole).filter_by(
+            user_id=admin_user.id, role_id=admin_role_id).first():
+        db.add(UserRole(user_id=admin_user.id, role_id=admin_role_id))
+
+    # 打印凭据(生产首启控制台可见, 提示用户首次登录后修改)
+    print("=" * 60)
+    print("🔐 SRS 首次启动: 管理员账户已创建")
+    print(f"   用户名: admin")
+    if generated:
+        print(f"   密码: {password} (随机生成, 请立即登录修改!)")
+        print(f"   ⚠️ 此密码仅显示一次, 请妥善保存!")
+    else:
+        print(f"   密码: (来自 SRS_FIRST_ADMIN_PASSWORD 环境变量)")
+    print("=" * 60)
 
 
 def seed_tech(db):
