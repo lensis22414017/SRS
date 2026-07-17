@@ -103,7 +103,7 @@ if _knowledge_dir.is_dir():
 
 # ML 源码子目录: 后端服务运行时 sys.path.insert(resource_root()/ml/<sub>) 后再 import,
 # 这些 .py 必须随包分发, 否则打包后 诊断/评价/推荐/知识库入库 会 ImportError。
-for _sub in ("etl", "models", "explain", "recommend", "evaluation", "cleaning", "eda", "params", "covariates"):
+for _sub in ("etl", "models", "explain", "recommend", "evaluation", "cleaning", "eda", "params", "covariates", "ranking", "rules"):
     _d = PROJECT_ROOT / "ml" / _sub
     if _d.is_dir() and (any(_d.glob("*.py")) or any(_d.glob("*.json"))):
         added_files.append((str(_d), f"ml/{_sub}"))
