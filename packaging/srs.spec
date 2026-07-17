@@ -154,9 +154,14 @@ hidden_imports = [
 ]
 
 # 强制收集 app.services 全部子模块(确保 M0 新增的都被打包)
-from PyInstaller.utils.hooks import collect_submodules
-_extra_hidden = collect_submodules('app.services') + collect_submodules('app.api') + collect_submodules('app.models')
-hidden_imports.extend(_extra_hidden)
+# collect_submodules 对源码目录(非site-packages)可能不生效,
+# 额外把 app/services 整目录作为 datas 打包(运行时 import 能找到)
+_services_dir = PROJECT_ROOT / "backend" / "app" / "services"
+if _services_dir.is_dir():
+    added_files.append((str(_services_dir), "app/services"))
+_migrations_dir = PROJECT_ROOT / "backend" / "app" / "migrations"
+if _migrations_dir.is_dir():
+    added_files.append((str(_migrations_dir), "app/migrations"))
 
 # ── 排除模块 ────────────────────────────────────────────────────
 excluded_imports = [
