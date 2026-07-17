@@ -1,0 +1,18 @@
+# SRS v1.0.2 源码交付哈希清单
+# 基线: a136eb3 → HEAD: 30f2373
+# 分支: fix/v1.0.2-gpt审计修复
+
+# 流程图(7张)
+581607542fb24e552eb699f6b018f90927f6086bb803da4d26dbb2f338db1517  data_import.svg
+129a6e3c6559d64ac7b1171bc21ffa78b6a4f7b7875e5be22ffd1a477a74484d  obstacle_analysis.svg
+2b3eb5b47c0c2506ca9e2823562c8222df47dcd516df079a5f928cf435adb666  recommendation.svg
+93fe72cb13e1faabb8b760f8c84e5569b599fcd8cfcefc7aa40da23f58a6d362  reconstruction_eval.svg
+9ad16825bf28140b830adbce24e469ea29601478e7516122d1da196bfb6eec73  report_generation.svg
+320186612ceecd58cfb2bba5fc9accd1aedfd91a598f0e26ed0f5b5b1d1f07bd  ssui_eval.svg
+490eaf37224e40281261036a68129b035e6d12f752af65dd4e1e5a75e8820047  trace_workflow.svg
+
+# 图标母版
+8667930cd4634740dc8e4d48f4d152279967fce8a2dfb058a6befc064666f2fd  srs_icon_v5.svg
+
+# git commit hash
+30f2373  HEAD (fix/v1.0.2-gpt审计修复)
