@@ -89,9 +89,12 @@ def recommend(top_factors: list[str], land_use_cn: str = "生产用地",
             f"来源: {t.get('source', '') or 'GB 36600-2018 / HJ 25.4-2019 / HJ 25.6-2019'}。")
 
         # ── 结构化推荐理由 (前端分区卡片展示用) ─────────────────────────────
+        # v1.0.2(GPT 7.5): 法规来源可验证, 空源标注"默认补充"非技术原文
         source_ref = (t.get("source") or "").strip()
+        source_is_default = False
         if not source_ref:
-            # 按技术类别补充默认法规依据
+            # 按技术类别补充默认法规依据(标注为默认补充, 非技术库原文)
+            source_is_default = True
             _name = t.get("tech_name", "")
             if "固化" in _name or "稳定" in _name:
                 source_ref = "HJ 25.4-2019 《污染场地修复技术筛选指南》§4.3 固化/稳定化"
@@ -136,6 +139,8 @@ def recommend(top_factors: list[str], land_use_cn: str = "生产用地",
             },
             # 5. 推荐依据与法规来源
             "regulatory_basis": source_ref,
+            # v1.0.2(GPT 7.5): 标注法规来源是否默认补充(非技术库原文)
+            "regulatory_basis_is_default": source_is_default,
             # 6. 匹配分解
             "score_breakdown": {
                 "coverage": round(coverage, 3),

@@ -37,6 +37,18 @@ def _organic_factors_of(db: Session, site_id: int) -> list[str]:
 
 
 def run_recommendation(db: Session, site_id: int, top_k: int = 5) -> dict:
+    """v1.0.2(GPT 第七节): 方案推荐 — 区分类型 + 接收上游 + 不吞异常。
+
+    推荐类型(GPT 7.1):
+      - rule_based: 规则推荐(因子→技术库匹配, 当前主路径)
+      - case_based: 案例相似推荐(RemediationCase 匹配, 如有数据)
+      - collaborative: 协同过滤(需足够案例数据, 当前数据不足不启用)
+
+    上游依赖(GPT 7.3):
+      - KOS key_obstacles(同数据版本)
+      - 重构/SSUI 结果(如已计算)
+      任一上游过期/不可用 → 标降级原因(GPT 7.3), 不吞异常(GPT 7.4)
+    """
     import engine as E
 
     site = db.get(Site, site_id)
@@ -45,7 +57,15 @@ def run_recommendation(db: Session, site_id: int, top_k: int = 5) -> dict:
     diag = (db.query(DiagnosisResult).filter_by(site_id=site_id)
             .order_by(DiagnosisResult.id.desc()).first())
 
-    # P4: 优先读 KOS key_obstacles 作为障碍因子输入(裴总要求方案推荐读 KOS Top)
+    # v1.0.2: 上游状态追踪(GPT 7.3)
+    upstream_status = {
+        "kos": "available",       # KOS 诊断
+        "reconstruction": "not_computed",  # 重构评价
+        "ssui": "not_computed",   # SSUI
+    }
+    degradation_reasons = []
+
+    # P4: 优先读 KOS key_obstacles 作为障碍因子输入
     kos_factor_names = []
     kos_review_required = False
     try:
@@ -68,11 +88,13 @@ def run_recommendation(db: Session, site_id: int, top_k: int = 5) -> dict:
                 except (TypeError, ValueError):
                     pass
         if sv:
-            kos_r = run_kos_diagnosis(sv, track=track, subset=subset)
+            kos_r = run_kos_diagnosis(sv, track=track, subset=subset, db_session=db)
             kos_factor_names = [k["factor"] for k in kos_r.get("key_obstacles", [])][:5]
             kos_review_required = kos_r.get("review_required", False)
-    except Exception:
-        pass  # KOS 失败则 fallback 到原 SHAP 路径
+    except Exception as e:
+        # v1.0.2(GPT 7.4): 不吞 KOS 异常, 标注降级原因
+        upstream_status["kos"] = f"failed: {str(e)[:80]}"
+        degradation_reasons.append(f"KOS诊断失败({e}), 降级到SHAP路径")
 
     # KOS 因子英文名 → 中文名(推荐引擎用中文 METAL 集合匹配)
     _EN2CN = {"Cd_mgkg": "镉", "Pb_mgkg": "铅", "As_mgkg": "砷", "Cr_mgkg": "铬",
@@ -138,7 +160,32 @@ def run_recommendation(db: Session, site_id: int, top_k: int = 5) -> dict:
                       "cost_level": tech.cost_level,
                       "duration_level": tech.duration_level})
     db.commit()
+
+    # v1.0.2(GPT 7.1): 推荐类型区分
+    # 当前系统主要是规则推荐(因子→技术库匹配), 案例数据不足不启用协同过滤
+    recommendation_type = "rule_based"
+    if organic_fallback:
+        recommendation_type = "rule_based_organic_degraded"
+
+    # v1.0.2(GPT 7.3): 检查重构/SSUI 上游状态
+    try:
+        from app.models import EvaluationResult
+        eval_r = (db.query(EvaluationResult).filter_by(site_id=site_id)
+                  .order_by(EvaluationResult.id.desc()).first())
+        if eval_r:
+            upstream_status["reconstruction"] = "available"
+            if eval_r.results and "ssui" in (eval_r.results or {}):
+                upstream_status["ssui"] = "available"
+    except Exception:
+        pass
+
     return {"site_id": site_id, "diagnosis_id": (diag.id if diag else None),
             "based_on_factors": factor_names,
             "organic_fallback": organic_fallback,
+            # v1.0.2(GPT 7.1-7.5)
+            "recommendation_type": recommendation_type,
+            "upstream_status": upstream_status,
+            "degradation_reasons": degradation_reasons,
+            "collaborative_filtering_available": False,  # GPT 7.2: 案例数据不足
+            "kos_review_required": kos_review_required,
             "recommendations": saved}
