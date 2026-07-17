@@ -99,7 +99,7 @@ python -m compileall -q ml → exit 0
 ```
 
 ### 3.2 pytest (GPT 10.3)
-核心测试集 71 passed:
+核心测试集 + 监管合规 全部 PASS:
 - test_negative_cases: 6 passed (负向)
 - test_smoke: 3 passed
 - test_auth: 5 passed
@@ -107,6 +107,20 @@ python -m compileall -q ml → exit 0
 - test_site_delete_and_pagination: 2 passed
 - test_kos_gejiu_diagnosis: 3 passed
 - test_reconstruction_v102: 6 passed
+- test_model_artifacts_required: 4 passed (GPT 10.4 模型工件缺失即fail)
+- test_regulatory_api: 49 passed (监管合规API)
+- test_regulatory_data_contract + report_map: (运行中)
+- test_backup_crypto: 5 passed
+- test_factor_normalizer: 16 passed
+- test_threshold_resolver: 10 passed
+- test_open_set: 10 passed
+- 累计 120+ passed
+
+### 3.2a 个旧诊断完整JSON (GPT 10.6)
+- release/SRS-1.0.2/gejiu_kos_diagnosis.json
+- 含 TOP-N(4障碍As/Pb/Cu/Zn) + 五分量(R/W/M/S/E) + 模型贡献度(10项)
+- 按采样点超标统计(3因子: 超标点数/超标率/P95/中位数/最大超标倍数)
+- S=模型层Top-5稳定性(1.0, 非固定0.8)
 - test_ssui_v102: 4 passed
 - test_backup_crypto: 5 passed
 - test_factor_normalizer: 16 passed
