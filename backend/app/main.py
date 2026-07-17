@@ -14,6 +14,7 @@ from fastapi.responses import FileResponse, HTMLResponse
 
 from app.api.ai import router as ai_router
 from app.api.auth import router as auth_router
+from app.api.backup import router as backup_router  # v1.0.2: 备份恢复
 from app.api.data import router as data_router
 from app.api.diagnosis import router as diagnosis_router
 from app.api.evaluation import router as evaluation_router
@@ -63,6 +64,7 @@ app.include_router(map_router)
 app.include_router(workflow_router)
 app.include_router(system_router)
 app.include_router(ai_router)
+app.include_router(backup_router)  # v1.0.2: 备份恢复
 
 
 @app.get("/health")
