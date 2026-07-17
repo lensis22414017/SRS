@@ -146,3 +146,50 @@ def explain_regression(model, X: pd.DataFrame, sample_ids: Optional[None] = None
         "n_features": len(feat_names),
         "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
     }
+
+
+def compute_local_shap_for_point(model, feature_cols: list,
+                                  point_values: dict) -> dict | None:
+    """v1.0.2(GPT P0-2): 对单条采样点记录计算局部 SHAP。
+
+    把单点测量值(point_values={factor_code: value})展平成 110 列 DataFrame:
+    - x_measured_{factor}: 有实测值则填, 否则 0
+    - x_missing_{factor}: 1 if 缺失 else 0
+    - 其他前缀(family/proxy_gee/covariate): 填 0(单点无 GEE/族群数据)
+
+    返回 {factor_group: local_shap_value} 或 None(失败时)。
+    """
+    try:
+        import shap
+    except ImportError:
+        return None
+
+    try:
+        # 构造单行 DataFrame(110列, 缺失列填0)
+        row = {}
+        for col in feature_cols:
+            if col.startswith("x_measured_"):
+                factor = col.replace("x_measured_", "")
+                row[col] = float(point_values.get(factor, 0))
+            elif col.startswith("x_missing_"):
+                factor = col.replace("x_missing_", "")
+                row[col] = 0.0 if factor in point_values else 1.0
+            else:
+                row[col] = 0.0  # GEE/族群/协变量: 单点无数据
+
+        X_point = pd.DataFrame([row], columns=feature_cols)
+        explainer = shap.TreeExplainer(model)
+        sv = explainer.shap_values(X_point)
+        if isinstance(sv, list):
+            sv = sv[0]
+        sv = np.asarray(sv).flatten()
+
+        # 聚合到因子组
+        groups = [_feature_to_group(c) for c in feature_cols]
+        result = {}
+        for i, g in enumerate(groups):
+            val = float(sv[i])
+            result[g] = round(result.get(g, 0.0) + val, 6)
+        return result
+    except Exception:
+        return None

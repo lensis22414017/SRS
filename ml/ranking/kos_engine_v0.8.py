@@ -264,9 +264,11 @@ def compute_kos(
             "exceedance_ratio": round(float(sev_detail["exceedance_ratio"]), 4),
             "severity_cap_ratio": sev_detail["severity_cap_ratio"],
             "severity_saturated": bool(sev_detail["severity_saturated"]),
-            # S=0.8 占位参数透明化
-            "stability_is_constant": True,
-            "stability_note": "当前无重复样稳定性数据,S为固定占位参数",
+            # v1.0.2(GPT P0-2): S 稳定性透明化 — 反映 factor_stability 实际状态
+            "stability_is_constant": (not factor_stability) or len(set(factor_stability.values())) <= 1,
+            "stability_note": ("S为固定占位参数(无稳定性数据)" if not factor_stability
+                               else f"S来自模型Top-5稳定性({list(factor_stability.values())[0]:.3f})" if len(set(factor_stability.values())) <= 1
+                               else "S为因子级稳定性(模型metrics)"),
         }
 
         if b == 1 and is_measured and e_str in ("A", "B"):

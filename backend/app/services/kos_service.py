@@ -116,6 +116,51 @@ def normalize_factors(raw_values: dict) -> dict:
     return normed
 
 
+def _compute_per_point_breakdown(factor: str, per_point_data: dict | None,
+                                   thresholds: dict, threshold_meta: dict) -> list:
+    """v1.0.2(GPT P0-2): 单因子的逐点 B/R 分解。
+
+    对每个采样点, 用该点数据计算:
+    - value: 实测值
+    - B: 超标标志(0/1)
+    - severity_ratio: 超标倍数(value/threshold)
+    - threshold: 该因子阈值
+
+    返回 [{point_id, value, threshold, B, severity_ratio}, ...]。
+    KOS 排名仍用最不利点, 此分解仅供透明展示。
+    """
+    if not per_point_data:
+        return []
+
+    # 因子归一化(中文符号匹配)
+    normed_factor = normalize_factors_v2({factor: None})
+    fac_key = list(normed_factor.keys())[0] if normed_factor else factor
+
+    thr = thresholds.get(fac_key) or thresholds.get(factor)
+    breakdown = []
+    for point_id, point_vals in per_point_data.items():
+        # 匹配该因子的值(支持中文/英文符号)
+        val = None
+        for fk, fv in point_vals.items():
+            if fk == factor or fk == fac_key:
+                val = fv
+                break
+        if val is None:
+            continue
+        b = 1 if (thr and val > thr) else 0
+        ratio = round(val / thr, 3) if (thr and thr > 0) else None
+        breakdown.append({
+            "point_id": point_id,
+            "value": round(float(val), 4),
+            "threshold": thr,
+            "B": b,
+            "severity_ratio": ratio,
+        })
+    # 按 severity_ratio 降序(最超标点在前)
+    breakdown.sort(key=lambda x: x["severity_ratio"] or 0, reverse=True)
+    return breakdown
+
+
 def _compute_per_point_stats(per_point_data: dict | None, thresholds: dict,
                               threshold_meta: dict) -> dict:
     """v1.0.2(GPT 4.7): 按采样点计算超标统计。
@@ -322,6 +367,11 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
             if tm.get("fallback_note"):
                 k["fallback_note"] = tm["fallback_note"]
 
+        # v1.0.2(GPT P0-2): 逐点 B/R 分解 — 哪些采样点超标、超标多少倍
+        # KOS 排名仍用最不利点(保守决策), 但附逐点透明分解
+        k["per_point_breakdown"] = _compute_per_point_breakdown(
+            fac, per_point_data, thresholds, threshold_meta)
+
     # 未知有机物三道防线
     known_factors = set(thresholds.keys())
     organic_result = guardrail_check(factors, known_factors)
@@ -329,18 +379,35 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
     # 模型贡献度(只取 measured,前端用) — 口径与 kos_engine 的 m_map 一致(mean_abs_shap/total), 避免双源不一致
     # P0-5 SHAP 口径修复: model_contribution 是"全局模型贡献度"(global_model scope),
     # 不得描述为局部/障碍/因果类口径(详见 interpretation_note 字段)
+    # v1.0.2(GPT P0-2): 增加局部SHAP增强 — 对最不利点算 local SHAP, 失败回退 global
     model_contribution = []
+    local_shap_for_site = None
     if len(shap_measured) > 0:
+        # 尝试计算最不利点的局部 SHAP
+        try:
+            from ml.explain.shap_service import compute_local_shap_for_point
+            bundle = load_model_and_shap(subset, track)
+            _model = bundle.get("model")
+            _feature_cols = bundle.get("feature_cols")
+            if _model is not None and _feature_cols:
+                local_shap_for_site = compute_local_shap_for_point(_model, _feature_cols, factors)
+        except Exception:
+            local_shap_for_site = None
+
         total_shap = float(shap_measured["mean_abs_shap"].sum()) if "mean_abs_shap" in shap_measured.columns else 0.0
         for _, r in shap_measured.head(10).iterrows():
             raw = float(r.get("mean_abs_shap", 0))
-            model_contribution.append({
+            entry = {
                 "factor": r["group"],
                 "contribution": round(raw / total_shap, 6) if total_shap > 0 else 0.0,
                 "direction": r.get("direction", "positive"),
-                # P0-5: 显式口径标记, 防止前端误读为局部/因果类口径
                 "contribution_scope": "global_model",
-            })
+            }
+            # v1.0.2(GPT P0-2): 附局部SHAP值(若有)
+            if local_shap_for_site and r["group"] in local_shap_for_site:
+                entry["local_shap_value"] = local_shap_for_site[r["group"]]
+                entry["local_shap_note"] = "基于本场地最不利点的局部SHAP"
+            model_contribution.append(entry)
 
     # v1.0.2(GPT 4.7): 按采样点计算超标统计(超标点数/超标率/P95/最大超标倍数)
     per_point_stats = _compute_per_point_stats(per_point_data, thresholds, threshold_meta)
