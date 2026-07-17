@@ -19,8 +19,10 @@ backend/storage/
 storage/
 
 # 模型产物
-ml/artifacts/
-*.joblib
+# v1.0.2(P0-1): 模型工件通过 Git LFS 入库, 干净检出后 KOS 可运行
+# 只排除归档目录和历史快照, 保留 p3_alpha 活跃模型
+ml/artifacts/_archive_pre_retrain/
+ml/artifacts/_archive_*/
 
 # 前端
 node_modules/
