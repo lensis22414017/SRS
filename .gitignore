@@ -87,3 +87,5 @@ build/
 *.db-shm
 packaging/builtin_keys.py
 backend/.env
+release/SRS-1.0.1/installer/*.exe
+*.exe
