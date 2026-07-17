@@ -1,4 +1,3 @@
-import sys
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
@@ -31,6 +30,7 @@ kos_engine_v0.8.py — 关键障碍综合得分 (KOS) 引擎
 ====================================================================
 """
 from __future__ import annotations
+import sys
 import os
 import math
 import joblib
