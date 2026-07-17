@@ -63,8 +63,9 @@ def _srs_isolate_db_per_test():
         from app.models import Base
         Base.metadata.drop_all(bind=_session_mod.engine)
         Base.metadata.create_all(bind=_session_mod.engine)
-        # v1.0.2: seed_if_empty 无参(自建 SessionLocal), 不传 db
-        # 这样测试也能拿到参考数据(角色/权限/因子字典/标准阈值)
+        # v1.0.2: 测试环境启用演示数据(SRS_DEMO_SEED=1)
+        # 生产首启不种演示数据, 但旧测试(如 test_auth)依赖 admin/Demo@2026 演示账号
+        os.environ["SRS_DEMO_SEED"] = "1"
         seed_if_empty()
     except Exception as e:
         # 无 SQLAlchemy 环境跳过(纯算法测试), 但打印异常避免静默吞错误
