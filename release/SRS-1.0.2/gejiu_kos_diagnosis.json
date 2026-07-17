@@ -1,0 +1,422 @@
+{
+  "track": "prod",
+  "model_id": "all_prod_Full_RandomForest",
+  "data_version": "Gold Dataset v0.8",
+  "threshold_version": "数据库动态阈值(StandardThreshold)",
+  "model_status": "approved_alpha",
+  "mapping_details": [
+    {
+      "original_name": "pH",
+      "unit_raw": null,
+      "normalized_name": "ph",
+      "conversion_factor": 1.0,
+      "unit_converted": "unknown",
+      "canonical": "pH",
+      "original_value": 6.0,
+      "converted_value": 6.0
+    },
+    {
+      "original_name": "砷_As(mg/kg)",
+      "unit_raw": "mg/kg",
+      "normalized_name": "砷_as",
+      "conversion_factor": 1.0,
+      "unit_converted": "mg/kg",
+      "canonical": "As_mgkg",
+      "original_value": 80.0,
+      "converted_value": 80.0
+    },
+    {
+      "original_name": "铅_Pb(mg/kg)",
+      "unit_raw": "mg/kg",
+      "normalized_name": "铅_pb",
+      "conversion_factor": 1.0,
+      "unit_converted": "mg/kg",
+      "canonical": "Pb_mgkg",
+      "original_value": 300.0,
+      "converted_value": 300.0
+    },
+    {
+      "original_name": "铜_Cu(mg/kg)",
+      "unit_raw": "mg/kg",
+      "normalized_name": "铜_cu",
+      "conversion_factor": 1.0,
+      "unit_converted": "mg/kg",
+      "canonical": "Cu_mgkg",
+      "original_value": 150.0,
+      "converted_value": 150.0
+    },
+    {
+      "original_name": "锌_Zn(mg/kg)",
+      "unit_raw": "mg/kg",
+      "normalized_name": "锌_zn",
+      "conversion_factor": 1.0,
+      "unit_converted": "mg/kg",
+      "canonical": "Zn_mgkg",
+      "original_value": 400.0,
+      "converted_value": 400.0
+    },
+    {
+      "original_name": "镉_Cd(mg/kg)",
+      "unit_raw": "mg/kg",
+      "normalized_name": "镉_cd",
+      "conversion_factor": 1.0,
+      "unit_converted": "mg/kg",
+      "canonical": "Cd_mgkg",
+      "original_value": 0.3,
+      "converted_value": 0.3
+    }
+  ],
+  "mapping_conflicts": [],
+  "unmapped": [],
+  "unit_conversion_details": [
+    {
+      "original_name": "pH",
+      "canonical": "pH",
+      "unit_raw": null,
+      "unit_converted": "unknown",
+      "conversion_factor": 1.0
+    },
+    {
+      "original_name": "砷_As(mg/kg)",
+      "canonical": "As_mgkg",
+      "unit_raw": "mg/kg",
+      "unit_converted": "mg/kg",
+      "conversion_factor": 1.0
+    },
+    {
+      "original_name": "铅_Pb(mg/kg)",
+      "canonical": "Pb_mgkg",
+      "unit_raw": "mg/kg",
+      "unit_converted": "mg/kg",
+      "conversion_factor": 1.0
+    },
+    {
+      "original_name": "铜_Cu(mg/kg)",
+      "canonical": "Cu_mgkg",
+      "unit_raw": "mg/kg",
+      "unit_converted": "mg/kg",
+      "conversion_factor": 1.0
+    },
+    {
+      "original_name": "锌_Zn(mg/kg)",
+      "canonical": "Zn_mgkg",
+      "unit_raw": "mg/kg",
+      "unit_converted": "mg/kg",
+      "conversion_factor": 1.0
+    },
+    {
+      "original_name": "镉_Cd(mg/kg)",
+      "canonical": "Cd_mgkg",
+      "unit_raw": "mg/kg",
+      "unit_converted": "mg/kg",
+      "conversion_factor": 1.0
+    }
+  ],
+  "ambiguous_threshold_factors": [],
+  "explicit_obstacles": [
+    {
+      "factor": "Pb_mgkg",
+      "value": 300.0,
+      "threshold": {
+        "type": "upper",
+        "limit": 90.0
+      },
+      "severity_R": 0.6115,
+      "source": "规则判障碍"
+    },
+    {
+      "factor": "As_mgkg",
+      "value": 80.0,
+      "threshold": {
+        "type": "upper",
+        "limit": 40.0
+      },
+      "severity_R": 0.4582,
+      "source": "规则判障碍"
+    },
+    {
+      "factor": "Cu_mgkg",
+      "value": 150.0,
+      "threshold": {
+        "type": "upper",
+        "limit": 50.0
+      },
+      "severity_R": 0.5781,
+      "source": "规则判障碍"
+    },
+    {
+      "factor": "Zn_mgkg",
+      "value": 400.0,
+      "threshold": {
+        "type": "upper",
+        "limit": 200.0
+      },
+      "severity_R": 0.4582,
+      "source": "规则判障碍"
+    }
+  ],
+  "key_obstacles": [
+    {
+      "rank": 1,
+      "factor": "Pb_mgkg",
+      "KOS": 0.7001,
+      "components": {
+        "R": 0.6115,
+        "W": 0.8,
+        "M": 0.1113,
+        "S": 1.0,
+        "E": "A"
+      },
+      "value": 300.0,
+      "evidence": "A",
+      "exceedance_ratio": 3.3333,
+      "severity_cap_ratio": 10,
+      "severity_saturated": false,
+      "stability_is_constant": true,
+      "stability_note": "当前无重复样稳定性数据,S为固定占位参数",
+      "ranking_difference_small": false,
+      "threshold_value": 90.0,
+      "threshold_unit": "mg/kg",
+      "threshold_standard": "GB 15618-2018",
+      "threshold_version": "2018",
+      "pH_condition": "5.5<pH<=6.5",
+      "land_use_type": "农用地",
+      "threshold_source_id": 14,
+      "threshold_resolution_status": "resolved",
+      "fallback_note": ""
+    },
+    {
+      "rank": 2,
+      "factor": "As_mgkg",
+      "KOS": 0.6842,
+      "components": {
+        "R": 0.4582,
+        "W": 0.85,
+        "M": 0.228,
+        "S": 1.0,
+        "E": "A"
+      },
+      "value": 80.0,
+      "evidence": "A",
+      "exceedance_ratio": 2.0,
+      "severity_cap_ratio": 10,
+      "severity_saturated": false,
+      "stability_is_constant": true,
+      "stability_note": "当前无重复样稳定性数据,S为固定占位参数",
+      "ranking_difference_small": false,
+      "threshold_value": 40.0,
+      "threshold_unit": "mg/kg",
+      "threshold_standard": "GB 15618-2018",
+      "threshold_version": "2018",
+      "pH_condition": "5.5<pH<=6.5",
+      "land_use_type": "农用地",
+      "threshold_source_id": 10,
+      "threshold_resolution_status": "resolved",
+      "fallback_note": ""
+    },
+    {
+      "rank": 3,
+      "factor": "Cu_mgkg",
+      "KOS": 0.6728,
+      "components": {
+        "R": 0.5781,
+        "W": 0.75,
+        "M": 0.079,
+        "S": 1.0,
+        "E": "A"
+      },
+      "value": 150.0,
+      "evidence": "A",
+      "exceedance_ratio": 3.0,
+      "severity_cap_ratio": 10,
+      "severity_saturated": false,
+      "stability_is_constant": true,
+      "stability_note": "当前无重复样稳定性数据,S为固定占位参数",
+      "ranking_difference_small": false,
+      "threshold_value": 50.0,
+      "threshold_unit": "mg/kg",
+      "threshold_standard": "GB 15618-2018",
+      "threshold_version": "2018",
+      "pH_condition": "5.5<pH<=6.5",
+      "land_use_type": "农用地",
+      "threshold_source_id": 22,
+      "threshold_resolution_status": "resolved",
+      "fallback_note": ""
+    },
+    {
+      "rank": 4,
+      "factor": "Zn_mgkg",
+      "KOS": 0.6327,
+      "components": {
+        "R": 0.4582,
+        "W": 0.7,
+        "M": 0.1354,
+        "S": 1.0,
+        "E": "A"
+      },
+      "value": 400.0,
+      "evidence": "A",
+      "exceedance_ratio": 2.0,
+      "severity_cap_ratio": 10,
+      "severity_saturated": false,
+      "stability_is_constant": true,
+      "stability_note": "当前无重复样稳定性数据,S为固定占位参数",
+      "ranking_difference_small": false,
+      "threshold_value": 200.0,
+      "threshold_unit": "mg/kg",
+      "threshold_standard": "GB 15618-2018",
+      "threshold_version": "2018",
+      "pH_condition": "5.5<pH<=6.5",
+      "land_use_type": "农用地",
+      "threshold_source_id": 30,
+      "threshold_resolution_status": "resolved",
+      "fallback_note": ""
+    }
+  ],
+  "model_attention_factors": [
+    {
+      "factor": "Cd_mgkg",
+      "value": 0.3,
+      "threshold": {
+        "type": "upper",
+        "limit": 0.3
+      },
+      "B": 0,
+      "R": 0.0,
+      "W": 0.9,
+      "M": 0.3149,
+      "S": 1.0,
+      "E": "A",
+      "E_score": 1.0,
+      "is_measured": true,
+      "exceedance_ratio": 1.0,
+      "severity_cap_ratio": 10,
+      "severity_saturated": false,
+      "stability_is_constant": true,
+      "stability_note": "当前无重复样稳定性数据,S为固定占位参数",
+      "KOS": 0.0,
+      "layer": "model_attention",
+      "review_required": true,
+      "reason": "实测未超标但模型贡献度高,关注潜在风险"
+    }
+  ],
+  "family_warnings": [],
+  "unknown_alerts": [],
+  "recommended_tests": [],
+  "model_contribution": [
+    {
+      "factor": "Cd_mgkg",
+      "contribution": 0.314929,
+      "direction": "negative",
+      "contribution_scope": "global_model"
+    },
+    {
+      "factor": "As_mgkg",
+      "contribution": 0.228041,
+      "direction": "positive",
+      "contribution_scope": "global_model"
+    },
+    {
+      "factor": "Zn_mgkg",
+      "contribution": 0.135351,
+      "direction": "positive",
+      "contribution_scope": "global_model"
+    },
+    {
+      "factor": "Pb_mgkg",
+      "contribution": 0.11131,
+      "direction": "positive",
+      "contribution_scope": "global_model"
+    },
+    {
+      "factor": "Cu_mgkg",
+      "contribution": 0.079018,
+      "direction": "negative",
+      "contribution_scope": "global_model"
+    },
+    {
+      "factor": "OC_pct",
+      "contribution": 0.073057,
+      "direction": "negative",
+      "contribution_scope": "global_model"
+    },
+    {
+      "factor": "Hg_mgkg",
+      "contribution": 0.032726,
+      "direction": "positive",
+      "contribution_scope": "global_model"
+    },
+    {
+      "factor": "Cr_mgkg",
+      "contribution": 0.011238,
+      "direction": "negative",
+      "contribution_scope": "global_model"
+    },
+    {
+      "factor": "ph",
+      "contribution": 0.00529,
+      "direction": "positive",
+      "contribution_scope": "global_model"
+    },
+    {
+      "factor": "Ni_mgkg",
+      "contribution": 0.00525,
+      "direction": "negative",
+      "contribution_scope": "global_model"
+    }
+  ],
+  "data_quality_flags": [],
+  "review_required": true,
+  "limitations": "source-level 验证(非 site-level);SHAP 含缺失指示器需经 KOS 清洗;Spearman 含地理混淆",
+  "organic_guardrails": {
+    "n_formal": 6,
+    "n_family_warning": 0,
+    "n_tef": 0,
+    "n_unknown": 0,
+    "has_unknown_risk": false
+  },
+  "kos_weights": {
+    "R": 0.3,
+    "W": 0.25,
+    "M": 0.15,
+    "S": 0.2,
+    "E": 0.1
+  },
+  "per_point_stats": {
+    "As_mgkg": {
+      "n_total_points": 3,
+      "n_exceed_points": 2,
+      "exceed_rate": 0.6667,
+      "max_value": 80.0,
+      "max_exceedance_ratio": 2.0,
+      "p95": 80.0,
+      "median": 50.0,
+      "threshold_value": 40.0,
+      "threshold_resolution_status": "resolved"
+    },
+    "Pb_mgkg": {
+      "n_total_points": 3,
+      "n_exceed_points": 2,
+      "exceed_rate": 0.6667,
+      "max_value": 300.0,
+      "max_exceedance_ratio": 3.33,
+      "p95": 300.0,
+      "median": 200.0,
+      "threshold_value": 90.0,
+      "threshold_resolution_status": "resolved"
+    },
+    "Cu_mgkg": {
+      "n_total_points": 3,
+      "n_exceed_points": 2,
+      "exceed_rate": 0.6667,
+      "max_value": 150.0,
+      "max_exceedance_ratio": 3.0,
+      "p95": 150.0,
+      "median": 120.0,
+      "threshold_value": 50.0,
+      "threshold_resolution_status": "resolved"
+    }
+  },
+  "n_sampling_points": 3,
+  "interpretation_note": "模型贡献度(全局mean|SHAP|, 非因果, 非障碍高度; v1.0.2按采样点超标统计见per_point_stats)"
+}

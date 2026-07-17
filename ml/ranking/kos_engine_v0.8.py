@@ -183,6 +183,7 @@ def compute_kos(
     factor_evidence: dict,
     top_n: int = 10,
     op_model: bool = False,
+    factor_stability: dict | None = None,  # v1.0.2: 模型层 Top-5 稳定性
 ) -> dict:
     """核心 KOS 计算。
 
@@ -216,7 +217,10 @@ def compute_kos(
         w = factor_weights.get(fac, 0.5)
         e_str = factor_evidence.get(fac, "C")
         e = EVIDENCE_SCORE.get(e_str, 0.5)
-        s = 0.8
+        # v1.0.2(裴总决策): S 用模型层 Top-5 稳定性(跨 bootstrap 子样)
+        # 非因子层重复样稳定性(当前无重复样数据)
+        # stability_value 由 kos_service 从注册表传入, 默认 0.8 兼容
+        s = float(factor_stability.get(fac, 0.8)) if factor_stability else 0.8
 
         # 无阈值但实测+模型见过 → model_attention(裴总 P0 四层规则)
         if thr is None:

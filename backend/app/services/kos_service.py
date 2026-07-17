@@ -116,16 +116,70 @@ def normalize_factors(raw_values: dict) -> dict:
     return normed
 
 
+def _compute_per_point_stats(per_point_data: dict | None, thresholds: dict,
+                              threshold_meta: dict) -> dict:
+    """v1.0.2(GPT 4.7): 按采样点计算超标统计。
+
+    返回 {factor: {n_exceed_points, n_total_points, exceed_rate, max_ratio, p95, median}}
+    """
+    if not per_point_data:
+        return {}
+
+    # 收集每个 canonical 因子在所有点位的值
+    from app.services.factor_normalizer import normalize_factors_v2
+    factor_point_values = {}  # {canonical: [values across points]}
+
+    for point_id, point_vals in per_point_data.items():
+        normed = normalize_factors_v2(point_vals).get("factors", {})
+        for fac, val in normed.items():
+            factor_point_values.setdefault(fac, []).append(val)
+
+    stats = {}
+    for fac, vals in factor_point_values.items():
+        if fac == "pH" or not vals:
+            continue
+        thr = thresholds.get(fac)
+        if not thr or thr.get("type") != "upper" or thr.get("limit") is None:
+            continue
+        limit = float(thr["limit"])
+        exceed_vals = [v for v in vals if v > limit]
+        ratios = [v / limit for v in vals if v > limit] if limit > 0 else []
+        vals_sorted = sorted(vals)
+        n = len(vals_sorted)
+        # P95
+        p95_idx = int(n * 0.95)
+        p95 = vals_sorted[min(p95_idx, n - 1)] if n > 0 else None
+        # 中位数
+        median = vals_sorted[n // 2] if n > 0 else None
+
+        stats[fac] = {
+            "n_total_points": n,
+            "n_exceed_points": len(exceed_vals),
+            "exceed_rate": round(len(exceed_vals) / n, 4) if n > 0 else 0,
+            "max_value": max(vals) if vals else None,
+            "max_exceedance_ratio": round(max(ratios), 2) if ratios else 0,
+            "p95": round(p95, 4) if p95 else None,
+            "median": round(median, 4) if median else None,
+            "threshold_value": limit,
+            "threshold_resolution_status": threshold_meta.get(fac, {}).get(
+                "threshold_resolution_status", "resolved"),
+        }
+    return stats
+
+
 def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all",
                       top_n: int = 10, site_pH: float | None = None,
-                      land_use_type: str | None = None, db_session=None) -> dict:
+                      land_use_type: str | None = None, db_session=None,
+                      per_point_data: dict | None = None) -> dict:
     """运行完整 KOS 诊断。
-    site_values: {因子名(各种格式): 浓度值}
+    site_values: {因子名(各种格式): 浓度值} — 全场地每因子最大值(兼容)
     track: prod / eco
     subset: all / hm / op / hm_op (决定用哪个模型)
     site_pH: 场地 pH 值(用于动态阈值选择, M0-2)
     land_use_type: 土地用途(用于动态阈值选择)
     db_session: 数据库 session(用于查询 StandardThreshold, M0-2)
+    per_point_data: v1.0.2(GPT 4.7) {point_id: {factor_name: value}} 按采样点分组
+                    用于计算超标点数/超标率/P95/最大超标倍数
     """
     # M0-1: 归一化使用 normalize_factors_v2(精确匹配, 替代旧 substring)
     from app.services.factor_normalizer import normalize_factors_v2
@@ -226,10 +280,29 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
     # 证据等级: 实测=A, 否则 C
     evidence = {f: "A" for f in factors}
 
+    # v1.0.2(裴总决策): S 用模型层 Top-5 稳定性(从 metrics_file 读)
+    factor_stability = {}
+    try:
+        registry = load_registry()
+        model_info_s = registry["models"].get(model_id, {})
+        # top5_stability 在 metrics_file 里(非注册表顶层)
+        metrics_file = model_info_s.get("metrics_file")
+        if metrics_file:
+            metrics_path = os.path.join(ROOT, metrics_file) if not os.path.isabs(metrics_file) else metrics_file
+            if os.path.exists(metrics_path):
+                with open(metrics_path, encoding="utf-8") as mf:
+                    metrics = json.load(mf)
+                top5 = metrics.get("top5_stability")
+                if top5 is not None:
+                    # 所有因子用同一个模型层稳定性值(模型级,非因子级)
+                    factor_stability = {f: float(top5) for f in factors}
+    except Exception:
+        pass
+
     # KOS 计算
     kos_result = compute_kos(
         shap_measured, factors, thresholds, weights, evidence,
-        top_n=top_n, op_model=is_op
+        top_n=top_n, op_model=is_op, factor_stability=factor_stability
     )
 
     # M0-2: 给 key_obstacles 附加阈值元数据
@@ -269,6 +342,9 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
                 "contribution_scope": "global_model",
             })
 
+    # v1.0.2(GPT 4.7): 按采样点计算超标统计(超标点数/超标率/P95/最大超标倍数)
+    per_point_stats = _compute_per_point_stats(per_point_data, thresholds, threshold_meta)
+
     # 四层输出(裴总 P0 规则)
     output = {
         "track": track,
@@ -295,9 +371,9 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
              "exceedance_ratio": k.get("exceedance_ratio", 0.0),
              "severity_cap_ratio": k.get("severity_cap_ratio", KOS_SEVERITY_CAP_RATIO),
              "severity_saturated": k.get("severity_saturated", False),
-             "stability_is_constant": k.get("stability_is_constant", True),
+             "stability_is_constant": k.get("stability_is_constant", False),
              "stability_note": k.get("stability_note",
-                                     "当前无重复样稳定性数据,S为固定占位参数"),
+                                     "v1.0.2: S=模型层Top-5稳定性(跨bootstrap子样),非因子层重复样稳定性"),
              "ranking_difference_small": k.get("ranking_difference_small", False),
              # M0-2: 动态阈值元数据
              "threshold_value": k.get("threshold_value"),
@@ -333,7 +409,10 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
         "limitations": model_info["limitations"],
         "organic_guardrails": organic_result["summary"],
         "kos_weights": KOS_W,
-        "interpretation_note": "模型贡献度, 非因果, 非障碍高度",
+        # v1.0.2(GPT 4.7): 按采样点的超标统计
+        "per_point_stats": per_point_stats,
+        "n_sampling_points": len(per_point_data) if per_point_data else 0,
+        "interpretation_note": "模型贡献度(全局mean|SHAP|, 非因果, 非障碍高度; v1.0.2按采样点超标统计见per_point_stats)",
     }
     return output
 

@@ -166,9 +166,10 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
     # 2) qa_status=='rejected' 的数据跳过, 标记到 data_quality_flags
     # 3) 对每个因子返回统计量 (点位数/有效测量数/最大值/中位数/P95/超标点数/超标比例)
     # 4) aggregation_method="maximum_valid_measurement" (取每因子最大值, 最不利点)
+    #    v1.0.2(GPT 4.7): 同时按采样点分组, 支持按点位计算超标率/P95
     # 5) As/Cd/Pb/Hg 浓度 >10000 mg/kg 触发 extreme_value_warning (不改值, 只标记)
     rows = (db.query(Measurement.value_used_for_model, Measurement.value,
-                     Measurement.qa_status,
+                     Measurement.qa_status, Measurement.sampling_point_id,
                      FactorDictionary.factor_name, FactorDictionary.factor_code)
             .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id, isouter=True)
             .filter(Measurement.site_id == site_id)
@@ -181,10 +182,12 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
 
     site_values = {}
     per_factor_raw = {}    # factor -> [values] 用于统计
+    # v1.0.2: 按采样点分组 {point_id: {factor_name: value}}
+    per_point_data = {}
     n_rejected = 0
     extreme_warnings = []
 
-    for value_used, value, qa_status, fname, fcode in rows:
+    for value_used, value, qa_status, point_id, fname, fcode in rows:
         fn = fname or fcode
         if not fn:
             continue
@@ -199,9 +202,12 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
         except (TypeError, ValueError):
             continue
         per_factor_raw.setdefault(fn, []).append(vf)
-        # 取最大值 (最不利点)
+        # 取最大值 (最不利点, 兼容旧逻辑)
         if fn not in site_values or vf > site_values[fn]:
             site_values[fn] = vf
+        # v1.0.2: 按采样点分组
+        if point_id is not None:
+            per_point_data.setdefault(point_id, {})[fn] = vf
         # 极端值检查 (不改值, 只标记到 data_quality_flags)
         if any(p in fn for p in EXTREME_FACTOR_PATTERNS) and vf > EXTREME_THRESHOLD_MGKG:
             extreme_warnings.append(
@@ -249,7 +255,8 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
     land_use_type = getattr(site, "land_use_type", None)
 
     result = run_kos_diagnosis(site_values, track=track, subset=subset, top_n=top_n,
-                                site_pH=site_pH, land_use_type=land_use_type, db_session=db)
+                                site_pH=site_pH, land_use_type=land_use_type, db_session=db,
+                                per_point_data=per_point_data)
     # M0-6: 按 canonical key 保存统计量, 用动态阈值计算 exceedance_count/ratio
     # 建立 canonical→原始因子名 映射(从 normalize_factors_v2 的 mapping_details)
     canonical_to_raw = {}
