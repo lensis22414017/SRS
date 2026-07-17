@@ -256,9 +256,23 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
 
     results = {}
     for scope in ("production", "ecology"):
-        screen = {f: (resolve_limit(_limits(), f, ph, scope=scope,
-                                    land_subtype="其他用地") or {}).get("limit")
-                  for f in ("砷", "铅", "铜", "锌", "镉", "铬", "汞", "镍")}
+        # v1.0.2(GPT 5.4): 污染物阈值兜底 — resolve_limit 返回 None 时调 fallback
+        from app.services.threshold_resolver import resolve_threshold_fallback
+        _FACTOR_TO_CANON = {"砷": "As_mgkg", "铅": "Pb_mgkg", "铜": "Cu_mgkg",
+                            "锌": "Zn_mgkg", "镉": "Cd_mgkg", "铬": "Cr_mgkg",
+                            "汞": "Hg_mgkg", "镍": "Ni_mgkg"}
+        _track = "prod" if scope == "production" else "eco"
+        screen = {}
+        for f in ("砷", "铅", "铜", "锌", "镉", "铬", "汞", "镍"):
+            lim = (resolve_limit(_limits(), f, ph, scope=scope,
+                                 land_subtype="其他用地") or {}).get("limit")
+            # v1.0.2: resolve_limit 返回 None → 调 resolve_threshold_fallback 取最严档
+            if lim is None and db is not None:
+                canon = _FACTOR_TO_CANON.get(f, f)
+                fb = resolve_threshold_fallback(db, canon, track=_track)
+                if fb.get("threshold_resolution_status") == "fallback":
+                    lim = fb.get("threshold_value")
+            screen[f] = lim
         r = R.evaluate(means, scope, ph=ph, screen_limits=screen)
         et = "reconstruction_prod" if scope == "production" else "reconstruction_eco"
         # P4: 合并 KOS key_obstacles 到 limiting_factors(裴总要求功能重构读 KOS Top)

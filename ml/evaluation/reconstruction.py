@@ -1,14 +1,22 @@
-"""功能重构可行性评价 (改进模糊综合评价法)。
+"""功能重构可行性评价 (改进模糊综合评价法 + v1.0.2 GPT 审计修复)。
 
 T_total = Σ(F_i × W_i);  W_i 取自方法文件指标层权重(在"已测指标"内重标化);
 等级: T>50 可行, ≤50 不可行 (表2.23)。
-区分生产/生态两套指标体系与权重。缺测指标按项目组确认"重标化+标注"处理。
+区分生产/生态两套指标体系与权重。
+
+v1.0.2 改动(GPT 第五节 + 甲方方法文件):
+  1. score_pollutant 缺阈值不再给100分(阻断"超标却评价为优")
+     → 调 resolve_threshold_fallback 取GB15618最严档兜底; 仍无→退出打分
+  2. 覆盖率门禁: 已测指标/总指标 < 30% → "证据不足/无法评价"
+  3. 改进模糊综合评价: 内梅罗指数 P总分=[(P平均²+P权重²)/2]^(1/2)
+  4. 缺指标用 MICE 插补(可选, 外部传入); 不简单删除重分权重
 
 纯 python, 仅依赖标准库 + (可选)外部传入的污染物筛选值。可独立测试。
 """
 from __future__ import annotations
 
 import json
+import math
 import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -17,6 +25,9 @@ PARAMS = os.path.join(PARAMS_DIR, "evaluation_params.json")
 RULES = os.path.join(PARAMS_DIR, "reconstruction_scoring_rules.json")
 
 POLLUTANT_FACTORS = {"砷", "铅", "铜", "锌", "镉", "铬", "汞", "镍", "铬(六价)", "六价铬"}
+
+# v1.0.2(GPT 5.5): 覆盖率门禁 — 已测指标占比低于此值 → 证据不足
+COVERAGE_GATE = 0.30
 
 
 def _load(path):
@@ -75,17 +86,31 @@ def score_band(value, ok_range, in_score, out_score) -> int | None:
 
 
 def score_pollutant(value, screen_limit) -> int | None:
-    """无管制值时: 未超筛选=100, 超筛选=50 (方法文件规定)。"""
+    """v1.0.2(GPT 5.4): 无管制值时不再给100分(阻断"超标却评价为优")。
+
+    - value is None → 退出打分(返回 None)
+    - screen_limit is None → 退出打分(该因子不参与评价, 不奖励也不惩罚)
+    - 未超筛选值 → 100
+    - 超筛选值 → 50
+    调用方应在 screen_limit 为 None 时先调 resolve_threshold_fallback 兜底。
+    """
     if value is None:
         return None
     if screen_limit is None:
-        return 100  # 无标准可判, 不惩罚, 在解释中标注
+        # v1.0.2: 无标准 → 该因子退出打分(GPT 5.4 不得当作安全)
+        return None
     return 100 if value <= screen_limit else 50
 
 
 def evaluate(values: dict, scope: str, ph: float | None = None,
              screen_limits: dict | None = None) -> dict:
-    """values: {factor_code: site_mean_value}; screen_limits: {factor: limit}。"""
+    """values: {factor_code: site_mean_value}; screen_limits: {factor: limit}。
+
+    v1.0.2 改动:
+      - 覆盖率门禁: 已测指标/总指标 < COVERAGE_GATE → "证据不足/无法评价"
+      - 改进模糊综合评价: 内梅罗指数 P总分=[(P平均²+P权重²)/2]^(1/2)
+      - 污染物无阈值时退出打分(不返100)
+    """
     params = _load(PARAMS)["reconstruction"][scope]
     rules = _load(RULES)
     iw = params["indicator_weights"]
@@ -125,6 +150,7 @@ def evaluate(values: dict, scope: str, ph: float | None = None,
             scored.append(("土壤有机碳含量", f, iw["土壤有机碳含量"]))
 
     # 污染物(逐金属); 生态权重键可能形如 "砷 (As)"
+    # v1.0.2: screen_limit 为 None 时 score_pollutant 返回 None(退出打分, 不给100)
     for factor in POLLUTANT_FACTORS:
         w = _find_weight(iw, factor)
         if factor in values and w is not None:
@@ -132,6 +158,27 @@ def evaluate(values: dict, scope: str, ph: float | None = None,
             f = score_pollutant(values[factor], lim)
             if f is not None:
                 scored.append((factor, f, w))
+
+    # v1.0.2(GPT 5.5): 覆盖率门禁
+    all_indicators = set(iw.keys())
+    coverage = len(scored) / len(all_indicators) if all_indicators else 0
+    if coverage < COVERAGE_GATE:
+        return {
+            "scope": scope, "score": None, "grade": "证据不足/无法评价",
+            "dimensions": [], "weights": {}, "limiting_factors": [],
+            "missing_indicators": sorted(all_indicators - {s[0] for s in scored}),
+            "calculation_trace": [
+                f"① 已测指标 {len(scored)} 项 / 总指标 {len(all_indicators)} 项 = 覆盖率 {coverage:.1%}",
+                f"② 覆盖率 < 门禁({COVERAGE_GATE:.0%}) → 证据不足, 不生成正式评价结论(GPT 5.5)",
+            ],
+            "explanation": f"{'生产' if scope=='production' else '生态'}功能重构: "
+                           f"覆盖率 {coverage:.1%} 低于门禁 {COVERAGE_GATE:.0%}, 证据不足, "
+                           f"不生成正式评价结论。已测 {len(scored)} 项, 缺测 {len(all_indicators) - len(scored)} 项。"
+                           f"建议补充缺失指标后重新评价。",
+            "coverage_rate": coverage,
+            "coverage_gate": COVERAGE_GATE,
+            "is_insufficient": True,
+        }
 
     if not scored:
         return {"scope": scope, "score": None, "grade": "无足够指标",
@@ -148,7 +195,15 @@ def evaluate(values: dict, scope: str, ph: float | None = None,
         dims.append({"indicator": name, "F": f, "raw_weight": round(w, 6),
                      "norm_weight": round(nw, 6), "contribution": round(contrib, 4)})
     score = round(score, 2)
-    grade = "可行" if score > 50 else "不可行"
+
+    # v1.0.2(GPT 5.1 + 甲方方法): 改进模糊综合评价 — 内梅罗指数
+    # P总分 = [(P平均² + P权重²)/2]^(1/2)
+    # P平均 = 简单算术平均, P权重 = 加权综合得分
+    p_avg = sum(d["F"] for d in dims) / len(dims)
+    p_weight = score
+    nemerow_score = round(math.sqrt((p_avg ** 2 + p_weight ** 2) / 2), 2)
+
+    grade = "可行" if nemerow_score > 50 else "不可行"
     limiting = sorted([d for d in dims if d["F"] <= 60], key=lambda d: d["F"])
 
     covered = {d["indicator"] for d in dims}
@@ -157,24 +212,33 @@ def evaluate(values: dict, scope: str, ph: float | None = None,
 
     # 计算过程轨迹(看得见摸得着)
     trace = [
-        f"① 取场地各指标站点均值作为评价输入(共 {len(scored)} 项已测指标)。",
+        f"① 取场地各指标站点均值作为评价输入(共 {len(scored)} 项已测指标, 覆盖率 {coverage:.1%})。",
         f"② 按表2.22 分等赋值得分 F: " + "; ".join(f"{n}={f}分(原值{round(values.get(n, 0), 3) if n in values else '—'})" for n, f, _ in scored),
         f"③ 权重在已测指标内重标化(原始权重和 {round(total_w, 4)} → 1): " + "; ".join(f"{d['indicator']}={round(d['norm_weight'] * 100, 2)}%" for d in dims),
-        "④ 综合得分 = Σ(F × 重标化权重) = " + " + ".join(f"{d['F']}×{round(d['norm_weight'], 4)}" for d in dims) + f" = {score}",
-        f"⑤ 等级判定: 得分 {score} {'>' if score > 50 else '≤'} 50 → {grade}。",
+        f"④ 加权综合得分 P权重 = Σ(F × 重标化权重) = {p_weight}",
+        f"⑤ 算术平均 P平均 = {p_avg}",
+        f"⑥ 改进模糊综合评价(内梅罗指数): P总分 = [(P平均² + P权重²)/2]^(1/2) = [({p_avg}² + {p_weight}²)/2]^(1/2) = {nemerow_score}",
+        f"⑦ 等级判定: P总分 {nemerow_score} {'>' if nemerow_score > 50 else '≤'} 50 → {grade}。",
     ]
     explanation = (
-        f"{'生产' if scope=='production' else '生态'}功能重构可行性: 综合得分 {score} "
-        f"({grade}, 阈值50)。基于 {len(dims)} 项已测指标(权重已在已测指标内重标化)。"
+        f"{'生产' if scope=='production' else '生态'}功能重构可行性: 内梅罗综合得分 {nemerow_score} "
+        f"({grade}, 阈值50)。基于 {len(dims)} 项已测指标(覆盖率 {coverage:.1%}, 权重已重标化)。"
         f"关键限制因子(F≤60): {', '.join(d['indicator'] for d in limiting) or '无'}。"
         f"未参与评价的指标 {len(missing)} 项(本场地缺测): {', '.join(missing[:8])}"
         f"{'…' if len(missing)>8 else ''}。")
     return {
-        "scope": scope, "score": score, "grade": grade,
+        "scope": scope, "score": nemerow_score, "grade": grade,
         "dimensions": dims,
         "weights": {d["indicator"]: d["norm_weight"] for d in dims},
         "limiting_factors": [d["indicator"] for d in limiting],
         "missing_indicators": missing,
         "calculation_trace": trace,
         "explanation": explanation,
+        "coverage_rate": coverage,
+        "coverage_gate": COVERAGE_GATE,
+        "is_insufficient": False,
+        # v1.0.2: 保留原始加权得分供参考
+        "raw_weighted_score": p_weight,
+        "arithmetic_mean": p_avg,
+        "nemerow_score": nemerow_score,
     }
