@@ -273,7 +273,15 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
              "stability_is_constant": k.get("stability_is_constant", True),
              "stability_note": k.get("stability_note",
                                      "当前无重复样稳定性数据,S为固定占位参数"),
-             "ranking_difference_small": k.get("ranking_difference_small", False)}
+             "ranking_difference_small": k.get("ranking_difference_small", False),
+             # M0-2: 动态阈值元数据
+             "threshold_value": k.get("threshold_value"),
+             "threshold_unit": k.get("threshold_unit", "mg/kg"),
+             "threshold_standard": k.get("threshold_standard", ""),
+             "threshold_version": k.get("threshold_version", ""),
+             "pH_condition": k.get("pH_condition", ""),
+             "land_use_type": k.get("land_use_type", ""),
+             "threshold_source_id": k.get("threshold_source_id")}
             for k in kos_result["key_obstacles"]
         ],
         # 第三层: 模型关注因子(实测+模型见过+无阈值或未超标,需专家复核)
