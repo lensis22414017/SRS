@@ -1,3 +1,4 @@
+import sys
 """open_set_classifier.py — 开放集障碍因子分层识别（P0-OPEN-1/2/3, M0-3/4 修订）
 
 把甲方上传的每一个实测因子分到四种状态:
@@ -30,6 +31,13 @@ from typing import Any
 import yaml
 
 _ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+# PyInstaller 打包后数据在 _MEIPASS 或其 _internal 子目录
+if getattr(sys, "frozen", False):
+    _mep = sys._MEIPASS
+    if os.path.isdir(os.path.join(_mep, "ml")) or os.path.isdir(os.path.join(_mep, "data")):
+        _ROOT = _mep
+    elif os.path.isdir(os.path.join(_mep, "_internal", "ml")):
+        _ROOT = os.path.join(_mep, "_internal")
 
 # ── 配置项(GPT 要求可配置,不得声称已有科学外部校准) ──
 FAMILY_MATCH_MIN_CONFIDENCE = 0.5       # 族群匹配最低置信度(规则型,非ML)

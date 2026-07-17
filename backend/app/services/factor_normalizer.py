@@ -1,3 +1,4 @@
+import sys
 """factor_normalizer.py — 因子名称规范化、单位转换、冲突检测（P0-1 修复）
 
 替代 kos_service.py 中的子串匹配 normalize_factors，改为：
@@ -18,6 +19,13 @@ from typing import Any
 import yaml
 
 _ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+# PyInstaller 打包后数据在 _MEIPASS 或其 _internal 子目录
+if getattr(sys, "frozen", False):
+    _mep = sys._MEIPASS
+    if os.path.isdir(os.path.join(_mep, "ml")) or os.path.isdir(os.path.join(_mep, "data")):
+        _ROOT = _mep
+    elif os.path.isdir(os.path.join(_mep, "_internal", "ml")):
+        _ROOT = os.path.join(_mep, "_internal")
 _ALIASES_PATH = os.path.join(_ROOT, "data", "knowledge", "factor_aliases_v0.8.yaml")
 _UNIT_RULES_PATH = os.path.join(_ROOT, "data", "knowledge", "unit_conversion_rules_v0.8.yaml")
 

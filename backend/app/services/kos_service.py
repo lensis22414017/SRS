@@ -19,6 +19,14 @@ import pandas as pd
 import numpy as np
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+# PyInstaller 打包后数据在 _MEIPASS 或其 _internal 子目录
+if getattr(sys, 'frozen', False):
+    _mep = sys._MEIPASS  # type: ignore[attr-defined]
+    # PyInstaller 6.x onedir: 数据可能在 _MEIPASS 或 _MEIPASS/_internal
+    if os.path.isdir(os.path.join(_mep, 'ml', 'ranking')):
+        ROOT = _mep
+    elif os.path.isdir(os.path.join(_mep, '_internal', 'ml', 'ranking')):
+        ROOT = os.path.join(_mep, '_internal')
 sys.path.insert(0, ROOT)
 
 import importlib.util

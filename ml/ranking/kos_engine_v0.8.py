@@ -1,3 +1,4 @@
+import sys
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
@@ -38,6 +39,13 @@ import numpy as np
 from typing import Optional
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# PyInstaller 打包后数据在 _MEIPASS 或其 _internal 子目录
+if getattr(sys, "frozen", False):
+    _mep = sys._MEIPASS
+    if os.path.isdir(os.path.join(_mep, "ml")) or os.path.isdir(os.path.join(_mep, "data")):
+        ROOT = _mep
+    elif os.path.isdir(os.path.join(_mep, "_internal", "ml")):
+        ROOT = os.path.join(_mep, "_internal")
 ART = "ml/artifacts/p3_alpha"
 
 # KOS 权重 (方法学规定,裴总确认)
