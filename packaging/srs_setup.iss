@@ -5,12 +5,12 @@
 ; 编译方式: 用 Inno Setup Compiler 打开此 .iss 文件 → 点击 Build (Ctrl+B)
 ; 前置条件: 先用 PyInstaller 生成 dist/SRS/ 目录 (含 SRS.exe + 依赖)
 ;
-; 输出: packaging/Output/SRS-Setup-1.0.2-Windows-x64.exe (约 280-350MB)
+; 输出: packaging/Output/SRS-Setup-1.0.1-Windows-x64.exe (约 600-800MB)
 ; ==============================================================================
 
 #define MyAppName "污染场地土壤生态-生产功能重构监管系统"
 #define MyAppNameEn "SRS"
-#define MyAppVersion "1.0.2"
+#define MyAppVersion "1.0.1"
 #define MyAppPublisher "生态环境部土壤与农业农村生态环境监管技术中心"
 #define MyAppURL "https://github.com/lensis22414017/SRS"
 #define MyAppExeName "SRS.exe"
@@ -31,7 +31,7 @@ DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
 ; 输出目录与文件名
 OutputDir=..\packaging\Output
-OutputBaseFilename=SRS-Setup-1.0.2-Windows-x64
+OutputBaseFilename=SRS-Setup-1.0.1-Windows-x64
 ; 压缩
 Compression=lzma2/ultra64
 SolidCompression=yes
@@ -61,8 +61,8 @@ Name: "desktopicon"; Description: "在桌面创建快捷方式"; GroupDescriptio
 Name: "quicklaunchicon"; Description: "在快速启动栏创建快捷方式"; GroupDescription: "附加图标:"; Flags: checkedonce; OnlyBelowVersion: 6.01
 
 [Files]
-; PyInstaller 生成的整个 dist/SRS/ 目录
-Source: "..\dist\SRS\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+; PyInstaller 生成的整个 dist_new/SRS/ 目录(v1.0.1, 含L4模糊匹配+冗余依赖剔除)
+Source: "..\dist_new\SRS\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; 演示数据 Excel (安装到 应用数据目录\demo_sites\)
 Source: "..\data\demo_sites\*.xlsx"; DestDir: "{commonappdata}\SRS\demo_sites"; Flags: ignoreversion recursesubdirs; Check: DirExists(ExpandConstant('{commonappdata}\SRS\demo_sites'))
 ; 首次使用说明
