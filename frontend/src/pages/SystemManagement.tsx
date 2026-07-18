@@ -797,18 +797,22 @@ export default function SystemManagement() {
     >
       <Tabs
         items={[
-          { key: "overview", label: <Space><HomeOutlined />系统概览</Space>, children: <SystemOverview /> },
-          { key: "health", label: <Space><HeartOutlined />系统健康</Space>, children: <SystemHealth /> },
+          { key: "system", label: <Space><HomeOutlined />系统信息</Space>, children: (
+            <Space direction="vertical" style={{ width: "100%" }} size={16}>
+              <SystemOverview />
+              <SystemHealth />
+              <SystemConfig />
+            </Space>
+          ) },
           { key: "approvals", label: <Space><UserAddOutlined />账户审核</Space>, children: <AccountApprovals /> },
           { key: "tech", label: <Space><ExperimentOutlined />技术库管理</Space>, children: <TechLibrary /> },
           { key: "contact", label: <Space><PhoneOutlined />联系方式</Space>, children: <ContactInfoEditor /> },
-          { key: "cfg", label: <Space><SettingOutlined />系统配置</Space>, children: <SystemConfig /> },
           { key: "ai", label: <Space><ApiOutlined />AI 模型配置</Space>, children: <AiModelConfig /> },
           { key: "log", label: <Space><FileTextOutlined />操作日志</Space>, children: <AuditLogs /> },
           { key: "pwd", label: <Space><TeamOutlined />修改密码</Space>, children: <ChangePassword /> },
           { key: "about", label: <Space><InfoCircleOutlined />关于系统</Space>, children: <AboutSystem /> },
         ]}
-        defaultActiveKey="overview"
+        defaultActiveKey="system"
       />
     </Card>
   );
@@ -824,7 +828,7 @@ function AboutSystem() {
         <Descriptions bordered size="small" column={1}>
           <Descriptions.Item label="系统名称">污染场地土壤生态-生产功能重构监管系统</Descriptions.Item>
           <Descriptions.Item label="英文名称">Soil Remediation Supervision System (SRS)</Descriptions.Item>
-          <Descriptions.Item label="版本">v1.0.2 (2026-07-17)</Descriptions.Item>
+          <Descriptions.Item label="版本">v1.0.1 (2026-07-18)</Descriptions.Item>
           <Descriptions.Item label="开发者">
             生态环境部土壤与农业农村生态环境监管技术中心<br/>
             <Text type="secondary" style={{ fontSize: 12 }}>

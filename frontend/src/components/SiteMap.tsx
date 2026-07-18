@@ -245,6 +245,12 @@ export default function SiteMap({
   useEffect(() => {
     const map = mapRef.current;
     if (!map) return;
+    // v1.0.1(裴总任务5): 创建独立 coordPane, 使坐标标签位于三色点下一层(不覆盖点位)
+    // Leaflet 默认 markerPane=600, tilePane=200, overlayPane=400
+    if (!map.getPane("coordPane")) {
+      map.createPane("coordPane", map.getPane("overlayPane"));
+      map.getPane("coordPane")!.style.zIndex = "350";  // 低于 markerPane(600), 三色点在上
+    }
     const layer = L.layerGroup().addTo(map);
     const pts: L.LatLng[] = [];
     const lngLats: [number, number][] = [];
@@ -306,6 +312,7 @@ export default function SiteMap({
         hull.forEach(([lon, lat]) => {
           L.marker([lat, lon], {
             interactive: false,
+            pane: "coordPane",  // v1.0.1: 坐标标签置于三色点下一层
             icon: L.divIcon({
               html: `<span style="font-size:10px;color:#0f3d6e;background:rgba(255,255,255,.88);padding:1px 4px;border-radius:3px;border:1px solid #0f3d6e55;white-space:nowrap;">${lon.toFixed(3)}, ${lat.toFixed(3)}</span>`,
               className: "hull-vertex", iconSize: [64, 16], iconAnchor: [32, 8],

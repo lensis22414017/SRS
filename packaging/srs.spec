@@ -21,17 +21,17 @@ if sys.platform == "win32":
         StringStruct, VarFileInfo, VarStruct,
     )
     _VI = VSVersionInfo(
-        ffi=FixedFileInfo(filevers=(1,0,2,0), prodvers=(1,0,2,0), mask=0x3f,
+        ffi=FixedFileInfo(filevers=(1,0,1,0), prodvers=(1,0,1,0), mask=0x3f,
                           flags=0x0, OS=0x40004, fileType=0x1, subtype=0x0, date=(0,0)),
         kids=[StringFileInfo([StringTable('040904B0', [
             StringStruct('CompanyName', '生态环境部土壤与农业农村生态环境监管技术中心'),
             StringStruct('FileDescription', 'Soil Remediation Supervision System (SRS)'),
-            StringStruct('FileVersion', '1.0.2.0'),
+            StringStruct('FileVersion', '1.0.1.0'),
             StringStruct('InternalName', 'SRS'),
             StringStruct('LegalCopyright', 'Copyright (c) 2026 生态环境部土壤与农业农村生态环境监管技术中心'),
             StringStruct('OriginalFilename', 'SRS.exe'),
             StringStruct('ProductName', 'SRS - Contaminated Site Supervision System'),
-            StringStruct('ProductVersion', '1.0.2.0'),
+            StringStruct('ProductVersion', '1.0.1.0'),
         ])]), VarFileInfo([VarStruct('Translation', [0x0409, 1200])])])
 else:
     _VI = None
@@ -197,8 +197,8 @@ app_info = {
     "CFBundleName": "SRS",
     "CFBundleDisplayName": "污染场地监管系统",
     "CFBundleIdentifier": "com.srs.soil-remediation",
-    "CFBundleVersion": "1.0.2",
-    "CFBundleShortVersionString": "1.0.2",
+    "CFBundleVersion": "1.0.1",
+    "CFBundleShortVersionString": "1.0.1",
     "NSHumanReadableCopyright": "© 2026 SRS Project",
 }
 
@@ -241,15 +241,19 @@ exe = EXE(
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
-    icon=str(PROJECT_ROOT / "packaging" / "srs_icon_v5.ico") if (PROJECT_ROOT / "packaging" / "srs_icon_v5.ico").exists() else (str(PROJECT_ROOT / "packaging" / "srs_icon_v4.ico") if (PROJECT_ROOT / "packaging" / "srs_icon_v4.ico").exists() else None),  # v5蓝盾+双叶+土壤+数据节点, 回退v4
+    icon=str(PROJECT_ROOT / "packaging" / "srs_icon_v6.ico") if (PROJECT_ROOT / "packaging" / "srs_icon_v6.ico").exists() else (str(PROJECT_ROOT / "packaging" / "srs_icon_v5.ico") if (PROJECT_ROOT / "packaging" / "srs_icon_v5.ico").exists() else None),  # v6重构之盾(深蓝+白盾+双叶+数据节点), 回退v5
     version_info=_VI,  # Windows 版本信息对象(公司名/版权/版本)
 )
 
 # Windows/Linux: COLLECT 收集全部依赖到 dist/SRS/ 目录
+# v1.0.1: 过滤掉 .db 文件(裴总任务2 — 打包不含开发库残留, 首启用全新空库)
+_filtered_binaries = [b for b in a.binaries if not b[0].endswith(".db")]
+_filtered_datas = [d for d in a.datas if not d[0].endswith(".db") and ".db;" not in d[0]]
+
 coll = COLLECT(
     exe,
-    a.binaries,
-    a.datas,
+    _filtered_binaries,
+    _filtered_datas,
     strip=False,
     upx=True,
     upx_exclude=[],
@@ -267,8 +271,8 @@ if sys.platform == "darwin":
             "CFBundleName": "SRS",
             "CFBundleDisplayName": "污染场地监管系统",
             "CFBundleIdentifier": "com.srs.soil-remediation",
-            "CFBundleVersion": "1.0.2",
-            "CFBundleShortVersionString": "1.0.2",
+            "CFBundleVersion": "1.0.1",
+            "CFBundleShortVersionString": "1.0.1",
             "NSHumanReadableCopyright": "© 2026 SRS Project",
             "LSMinimumSystemVersion": "11.0",
         },

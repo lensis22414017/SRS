@@ -15,6 +15,8 @@ export default function SiteList() {
   const [loading, setLoading] = useState(true);
   const [q, setQ] = useState("");
   const [page, setPage] = useState(1);
+  const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
+  const [batchDeleting, setBatchDeleting] = useState(false);
 
   const load = () => {
     setLoading(true);
@@ -36,14 +38,45 @@ export default function SiteList() {
     }
   };
 
+  // v1.0.1: 批量删除(裴总任务2)
+  const handleBatchDelete = async () => {
+    setBatchDeleting(true);
+    try {
+      const ids = selectedRowKeys.map(k => Number(k));
+      const res = await api.batchDeleteSites(ids);
+      message.success(`批量删除完成: ${res.succeeded}/${res.total} 个场地已清除`);
+      setSelectedRowKeys([]);
+      load();
+    } catch (err: any) {
+      message.error(err?.response?.data?.detail || "批量删除失败");
+    } finally {
+      setBatchDeleting(false);
+    }
+  };
+
   return (
     <Card title="场地数据管理"
       extra={<Space>
         <Input.Search placeholder="按名称/编号搜索" allowClear onChange={(e) => setQ(e.target.value)} onSearch={load} style={{ width: 240 }} />
         <Button icon={<ReloadOutlined />} onClick={load}>刷新</Button>
+        {selectedRowKeys.length > 0 && (
+          <Popconfirm
+            title={`确认批量删除选中的 ${selectedRowKeys.length} 个场地？`}
+            description="将级联清除所有点位、测量、诊断、评价、推荐、报告记录，不可恢复。"
+            onConfirm={handleBatchDelete}
+            okText="确认批量删除"
+            cancelText="取消"
+            okButtonProps={{ danger: true, loading: batchDeleting }}>
+            <Button danger icon={<DeleteOutlined />}>批量删除({selectedRowKeys.length})</Button>
+          </Popconfirm>
+        )}
         <Button type="primary" icon={<ImportOutlined />} onClick={() => nav("/sites/import")}>批量导入</Button>
       </Space>}>
       <Table rowKey="id" loading={loading} dataSource={data.items}
+        rowSelection={{
+          selectedRowKeys,
+          onChange: setSelectedRowKeys,
+        }}
         pagination={{
           pageSize: PAGE_SIZE,
           current: page,
@@ -57,15 +90,8 @@ export default function SiteList() {
           textCol("场地编号", "site_code"),
           { title: "场地名称", dataIndex: "name", render: (v: string, r: any) => {
             if (!v) return "—";
-            const parts = v.replace(/^site_/, "").split("_");
-            if (parts.length >= 2) {
-              const prov = parts[0];
-              const typeCode = parts.slice(1, -1).join("_");
-              const count = parts[parts.length - 1];
-              const typeLabel = POLLUTION_LABEL[typeCode === "OP" ? "organic" : typeCode === "HM" ? "heavy_metal" : typeCode === "HM+OP" ? "composite" : ""] || typeCode;
-              return <span>{prov} · <Tag color={POLLUTION_TYPE[typeCode === "OP" ? "organic" : typeCode === "HM" ? "heavy_metal" : "composite"] || "#888"}>{typeLabel}</Tag> · {count}</span>;
-            }
-            return v;
+            // v1.0.1: 场地名称直接显示源文件名(不再做特殊装饰渲染)
+            return <span>{v}</span>;
           }},
           { title: "污染类型", dataIndex: "pollution_type", align: "center",
             render: (v: string) => v ? <Tag color={POLLUTION_TYPE[v] || "#888"}>{POLLUTION_LABEL[v] || v}</Tag> : "—" },

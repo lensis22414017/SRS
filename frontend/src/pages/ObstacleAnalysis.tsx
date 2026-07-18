@@ -10,6 +10,7 @@ import { api } from "../api/client";
 import SitePicker from "../components/SitePicker";
 import EmptyState from "../components/EmptyState";
 import { seqCol, numCol, textCol } from "../utils/table";
+import { formatFactor } from "../utils/factorFormat";
 import { POLLUTION_TYPE, POLLUTION_LABEL } from "../theme/palette";
 import { SVG_OPTS } from "../theme/echarts";
 
@@ -206,13 +207,13 @@ export default function ObstacleAnalysis() {
           {/* 场地背景信息 */}
           {siteBg}
 
-          {/* 模型与结论 — 术语简化 */}
-          <Card title={
-            <Space>
-              <span>诊断模型与结论</span>
-              {historyList.length > 1 && (
+          {/* 历史诊断切换(保留功能, 迁移到独立紧凑区) */}
+          {historyList.length > 1 && (
+            <Card size="small" style={{ marginBottom: 16 }}>
+              <Space>
+                <HistoryOutlined />
                 <Select size="small" placeholder="选择历史诊断" value={historyId ?? undefined}
-                  style={{ minWidth: 240, fontWeight: 400 }}
+                  style={{ minWidth: 320 }}
                   onChange={(v: number) => {
                     setHistoryId(v);
                     load(sid, v);
@@ -223,92 +224,16 @@ export default function ObstacleAnalysis() {
                     label: `${dayjs(h.created_at).format("MM-DD HH:mm")}${h.is_latest ? " (最新)" : ""} — ${(h.top_factors_summary || []).slice(0, 3).join(", ")}`,
                   }))}
                 />
-              )}
-              {historyId && (
-                <Tag color="blue" icon={<HistoryOutlined />}>历史记录（{dayjs(historyList.find(h => h.id === historyId)?.created_at).format("MM-DD HH:mm")}）</Tag>
-              )}
-            </Space>
-          }>
-            {veryLowConfidence && (
-              <Alert type="error" showIcon message="诊断结果不可靠，请检查数据完整性后重新诊断"
-                style={{ marginBottom: 12 }} />
-            )}
-            {lowConfidence && !veryLowConfidence && (
-              <Alert type="warning" showIcon message={`当前诊断结果置信度偏低（Spearman: ${aucNum?.toFixed(2)}），建议人工复核关键因子`}
-                style={{ marginBottom: 12 }} />
-            )}
-            <Descriptions size="small" column={2}>
-              <Descriptions.Item label="诊断方法">规则诊断 + 模型贡献度解释</Descriptions.Item>
-              <Descriptions.Item label="结论可信度">
-                {lowConfidence
-                  ? <Tag color="orange">建议人工复核</Tag>
-                  : veryLowConfidence
-                    ? <Tag color="red">结果不可靠</Tag>
-                    : <Tag color="green">正常</Tag>}
-              </Descriptions.Item>
-              <Descriptions.Item label="结论摘要" span={2}>
-                <Paragraph ellipsis={{ rows: 3, expandable: true, symbol: "展开全部" }}
-                  style={{ marginBottom: 4, whiteSpace: "pre-wrap" }}>{diag?.summary || "—"}</Paragraph>
-                {diag?.polish_model && (
-                  <Text type="secondary" style={{ fontSize: 11 }}>
-                    ⓘ 此结论由 AI 辅助生成（{diag?.polish_model}），经事实校验但仍有降级回退机制，仅供参考，以原始数据为准。
-                  </Text>
+                {historyId && (
+                  <Tag color="blue" icon={<HistoryOutlined />}>历史记录（{dayjs(historyList.find(h => h.id === historyId)?.created_at).format("MM-DD HH:mm")}）</Tag>
                 )}
-              </Descriptions.Item>
-            </Descriptions>
-            {/* 模型验证指标默认折叠, 避免甲方误读为法规结论 */}
-            <Collapse size="small" style={{ marginTop: 8 }} items={[{
-              key: "tech", label: "技术详情（模型验证指标，点击展开）",
-              children: (
-                <Descriptions size="small" column={1}>
-                  <Descriptions.Item label="诊断模型">{diag?.model?.name || "—"}</Descriptions.Item>
-                  <Descriptions.Item label="Spearman 秩相关">
-                    {aucVal != null ? Number(aucVal).toFixed(4) : "—"}
-                    <Tooltip title={<pre style={{ fontSize: 11, margin: 0, whiteSpace: "pre-line" }}>{AUC_GUIDE}</pre>}>
-                      <InfoCircleOutlined style={{ marginLeft: 6, color: "#888", cursor: "help" }} />
-                    </Tooltip>
-                    <Tag style={{ marginLeft: 6, fontSize: 10 }} color="processing">交叉验证指标，非法规判定</Tag>
-                  </Descriptions.Item>
-                </Descriptions>
-              ),
-            }]} />
-          </Card>
-
-          {/* 旧 SHAP 关键障碍因子表已下线(避免"模型贡献度"与"规则障碍"两套口径混淆甲方)。
-              现统一由下方 KOS「污染场地关键障碍因子 Top-N」承载(规则层 B=1 + 实测 + 综合评分)。 */}
-
-          {(localOption || directionOption) && (
-            <Row gutter={16}>
-              {localOption && (
-                <Col span={14}>
-                  <Card title="采样点风险成因分析">
-                    <ReactECharts option={localOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 320 }} />
-                  </Card>
-                </Col>
-              )}
-              {directionOption && (
-                <Col span={10}>
-                  <Card title="障碍因子影响方向分布">
-                    <ReactECharts option={directionOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 320 }} />
-                  </Card>
-                </Col>
-              )}
-            </Row>
-          )}
-
-          {diag?.shap_global?.calculation_trace?.length > 0 && (
-            <Card title="计算过程追溯">
-              <Timeline items={diag?.shap_global.calculation_trace.map((s: string) => ({ children: s }))} />
-            </Card>
-          )}
-
-          {diag?.local_explanation?.length > 0 && (
-            <Card title="局部解释（最高风险采样点）">
-              <Table rowKey={(r: any) => r.factor + r.point_code} size="small" pagination={false}
-                dataSource={diag?.local_explanation}
-                columns={[seqCol(64), textCol("采样点", "point_code"), textCol("因子", "factor"),
-                  numCol("模型贡献值", "shap_value"),
-                  { title: "方向", dataIndex: "direction", align: "center" }]} />
+                {veryLowConfidence && (
+                  <Tag color="red">结果不可靠</Tag>
+                )}
+                {lowConfidence && !veryLowConfidence && (
+                  <Tag color="orange">置信度偏低（Spearman: {aucNum?.toFixed(2)}）建议人工复核</Tag>
+                )}
+              </Space>
             </Card>
           )}
 
@@ -332,10 +257,7 @@ export default function ObstacleAnalysis() {
                 />
               )}
 
-              {/* 诊断方法说明卡片(普通中文 + KaTeX 公式 + 模型贡献度免责声明) */}
-              <MethodExplainCard track={kosTrack} flowKey="obstacle_analysis" />
-
-              {/* 第一层: 污染场地关键障碍因子 Top-N (规则层 B=1 + 实测 + 综合评分排序) */}
+              {/* 第一层: 污染场地关键障碍因子 Top-N (优先展示, 规则层 B=1 + 实测 + 综合评分排序) */}
               <Card title={
                 <Space>
                   <span>污染场地关键障碍因子 Top-N</span>
@@ -353,8 +275,8 @@ export default function ObstacleAnalysis() {
                       columns={[
                         { title: "排名", dataIndex: "rank", width: 60, align: "center",
                           render: (v: number) => <strong style={{ color: v <= 3 ? "#fa541c" : "#666" }}>#{v}</strong> },
-                        { title: "关键障碍因子", dataIndex: "factor", width: 140,
-                          render: (v: string) => <span style={{ fontWeight: 600 }}>{v}</span> },
+                        { title: "关键障碍因子", dataIndex: "factor", width: 160,
+                          render: (v: string) => <span style={{ fontWeight: 600 }}>{formatFactor(v)}</span> },
                         { title: "KOS 评分", dataIndex: "KOS", width: 110, align: "center",
                           render: (v: number, r: any) => {
                             const c = r.components || {};
@@ -369,8 +291,6 @@ export default function ObstacleAnalysis() {
                             </Tooltip>
                             );
                           } },
-                        { title: "实测值", dataIndex: "value", width: 100, align: "right",
-                          render: (v: number) => v != null ? v.toFixed(3) : "—" },
                         { title: "证据等级", dataIndex: "evidence", width: 80, align: "center",
                           render: (v: string) => <Tag color={v === "A" ? "green" : v === "B" ? "blue" : v === "C" ? "orange" : "red"}>{v}</Tag> },
                       ]} />
@@ -392,17 +312,17 @@ export default function ObstacleAnalysis() {
                       formatter: (params: any) => {
                         const d = barrierStackData[params[0].dataIndex];
                         const weightMap: any = { "R规则严重度": 0.30, "W用途权重": 0.25, "M模型贡献度": 0.15, "S稳定性": 0.20, "E证据等级": 0.10 };
-                        return "<b>" + d.factor + "</b><br/>" +
+                        return "<b>" + formatFactor(d.factor) + "</b><br/>" +
                           params.map((p: any) => {
                             const w = weightMap[p.seriesName] || 0;
                             const raw = (p.value / w).toFixed(3);
                             return p.marker + p.seriesName + ": " + p.value.toFixed(3) + " (分量" + raw + "×权重" + w + ")";
                           }).join("<br/>");
                       } },
-                    legend: { top: 0, data: ["R规则严重度", "W用途权重", "M模型贡献度", "S稳定性", "E证据等级"] },
-                    grid: { left: 90, right: 24, top: 40, bottom: 30 },
+                    legend: { top: 0, type: "scroll", data: ["R规则严重度", "W用途权重", "M模型贡献度", "S稳定性", "E证据等级"] },
+                    grid: { left: 120, right: 24, top: 40, bottom: 30 },
                     xAxis: { type: "value", name: "分量贡献(加权和前)", max: 1 },
-                    yAxis: { type: "category", inverse: true, data: barrierStackData.map((d: any) => d.factor) },
+                    yAxis: { type: "category", inverse: true, data: barrierStackData.map((d: any) => formatFactor(d.factor)) },
                     series: [
                       { name: "R规则严重度", type: "bar", stack: "kos", color: "#E64B35", data: barrierStackData.map((d: any) => d.R * 0.30) },
                       { name: "W用途权重", type: "bar", stack: "kos", color: "#4DBBD5", data: barrierStackData.map((d: any) => d.W * 0.25) },
@@ -422,9 +342,9 @@ export default function ObstacleAnalysis() {
                 <Card title="模型贡献度（因子对障碍指数的解释贡献）">
                   <ReactECharts option={{
                     tooltip: { trigger: "axis" },
-                    grid: { left: 120, right: 40, top: 10, bottom: 30 },
+                    grid: { left: 140, right: 40, top: 10, bottom: 30 },
                     xAxis: { type: "value", name: "贡献份额", max: 1 },
-                    yAxis: { type: "category", inverse: true, data: kosData.model_contribution.slice(0, 10).map((m: any) => m.factor) },
+                    yAxis: { type: "category", inverse: true, data: kosData.model_contribution.slice(0, 10).map((m: any) => formatFactor(m.factor)) },
                     series: [{ type: "bar",
                       data: kosData.model_contribution.slice(0, 10).map((m: any) => ({
                         value: m.contribution,
@@ -433,7 +353,7 @@ export default function ObstacleAnalysis() {
                       label: { show: true, position: "right", formatter: (p: any) => p.value.toFixed(3) } }],
                   }} theme="srs-light" opts={SVG_OPTS} style={{ height: 300 }} />
                   <Paragraph type="secondary" style={{ fontSize: 11, margin: "8px 0 0 0" }}>
-                    ⓘ 模型贡献度表示该因子对当前用途障碍指数的模型解释贡献,非因果,非障碍高度。
+                    ⓘ 模型贡献度（Mᵢ，权重仅0.15）反映该因子对障碍指数的统计解释贡献，仅作辅助参考。它不是因果证明，也不是法规判定依据。正式障碍判定以规则层（Bᵢ）和标准阈值（Rᵢ）为底线——未检测或无阈值的因子不会进入正式 Top-N。
                   </Paragraph>
                 </Card>
               )}
@@ -543,6 +463,9 @@ export default function ObstacleAnalysis() {
                   ]} />
                 </Card>
               )}
+
+              {/* 诊断方法说明卡片(移到最底部, 优先展示 Top-N 结果后再解释方法) */}
+              <MethodExplainCard track={kosTrack} flowKey="obstacle_analysis" />
             </>
           )}
         </>

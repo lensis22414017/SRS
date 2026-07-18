@@ -29,17 +29,18 @@ def _format_site_code(db: Session, site_id: int):
         return
     n_points = db.query(func.count(SamplingPoint.id)).filter_by(site_id=site_id).scalar()
 
-    prov = site.province or "未知"
-    # 保留省份全称，不做简写
+    # v1.0.1: 省份用简称(湖南省→湖南), 开头不要数字, 污染类型小写
+    prov = (site.province or "未知").rstrip("省").rstrip("市").rstrip("自治区") \
+        if site.province else "未知"
 
     pt = site.pollution_type
-    pt_abbr = "OP"
+    pt_abbr = "op"
     if pt == "heavy_metal":
-        pt_abbr = "HM"
+        pt_abbr = "hm"
     elif pt == "composite":
-        pt_abbr = "HM+OP"
+        pt_abbr = "hm+op"
 
-    code = f"{site.id:02d}-{prov}-{pt_abbr}-{n_points}点"
+    code = f"{prov}-{pt_abbr}-{n_points}点"
     site.site_code = code
     # 不覆盖 site.name，保留导入时的可读场地名
     db.commit()
@@ -653,6 +654,64 @@ def delete_site(site_id: int,
 
     return {"ok": True, "site_id": site_id, "site_name": site_name,
             "deleted_counts": deleted_counts}
+
+
+# v1.0.1: 场地批量删除(裴总任务2) — 复用单条级联逻辑, 事务化批量
+@router.post("/sites/batch-delete")
+def batch_delete_sites(payload: dict,
+                       user: User = Depends(require_permission("data:delete")),
+                       db: Session = Depends(get_db)):
+    """批量删除场地, 接收 {ids: [int, ...]}, 返回每场地的删除结果。"""
+    from app.models import (
+        DatasetVersion, ProjectAuthorization, Recommendation,
+        SamplingEvent, WorkflowAttachment, WorkflowRecord,
+    )
+    ids = payload.get("ids") or []
+    if not isinstance(ids, list) or not ids:
+        raise HTTPException(400, "ids 必须是非空列表")
+    results = []
+    for site_id in ids:
+        s = db.get(Site, site_id)
+        if not s:
+            results.append({"site_id": site_id, "ok": False, "error": "场地不存在"})
+            continue
+        try:
+            assert_site_access(db, user, s)
+        except Exception:
+            results.append({"site_id": site_id, "ok": False, "error": "无权限"})
+            continue
+        site_name = s.name
+        site_code = s.site_code
+        diag_ids = [d.id for d in db.query(DiagnosisResult.id).filter_by(site_id=site_id).all()]
+        wf_ids = [w.id for w in db.query(WorkflowRecord.id).filter_by(site_id=site_id).all()]
+        dc: dict = {}
+        if wf_ids:
+            n = db.query(WorkflowAttachment).filter(WorkflowAttachment.workflow_record_id.in_(wf_ids)).delete(synchronize_session=False)
+            if n: dc["workflow_attachments"] = n
+        if diag_ids:
+            n = db.query(DiagnosisFactorDetail).filter(DiagnosisFactorDetail.diagnosis_id.in_(diag_ids)).delete(synchronize_session=False)
+            if n: dc["diagnosis_factor_details"] = n
+        for model_name, model in [
+            ("workflow_records", WorkflowRecord), ("recommendations", Recommendation),
+            ("evaluation_results", EvaluationResult), ("diagnosis_results", DiagnosisResult),
+            ("report_records", ReportRecord), ("project_authorizations", ProjectAuthorization),
+            ("sampling_events", SamplingEvent), ("dataset_versions", DatasetVersion),
+            ("import_batches", ImportBatch), ("measurements", Measurement),
+            ("sampling_points", SamplingPoint),
+        ]:
+            n = db.query(model).filter_by(site_id=site_id).delete(synchronize_session=False)
+            if n: dc[model_name] = n
+        db.delete(s)
+        log(db, action="delete_site", user_id=user.id, resource_type="site", resource_id=site_id,
+            detail={"site_name": site_name, "site_code": site_code, "batch": True, "deleted_counts": dc})
+        results.append({"site_id": site_id, "ok": True, "site_name": site_name, "deleted_counts": dc})
+    try:
+        db.commit()
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(500, f"批量删除失败已回滚: {e}")
+    return {"ok": True, "results": results, "total": len(results),
+            "succeeded": sum(1 for r in results if r.get("ok"))}
 
 
 

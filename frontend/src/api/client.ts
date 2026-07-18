@@ -51,6 +51,9 @@ export const api = {
   sites: (params?: any) => client.get("/sites", { params }).then((r) => r.data),
   site: (id: number) => client.get(`/sites/${id}`).then((r) => r.data),
   deleteSite: (id: number) => client.delete(`/sites/${id}`).then((r) => r.data),
+  batchDeleteSites: (ids: number[]) => client.post("/sites/batch-delete", { ids }).then((r) => r.data),
+  deleteAttachment: (siteId: number, stage: string, attachmentId: number) =>
+    client.delete(`/sites/${siteId}/workflow/${stage}/attachments/${attachmentId}`).then((r) => r.data),
   updateLandUse: (id: number, land_use_type: string) =>
     client.put(`/sites/${id}/land-use`, { land_use_type }).then((r) => r.data),
   points: (id: number) => client.get(`/sites/${id}/points`).then((r) => r.data),
@@ -155,13 +158,19 @@ export const api = {
     a.href = url; a.download = filename; a.click();
     URL.revokeObjectURL(url);
   },
-  downloadAttachment: async (siteId: number, stage: string, attachmentId: number, filename: string) => {
+  downloadAttachment: async (siteId: number, stage: string, attachmentId: number, filename: string, inline?: boolean) => {
     const r = await client.get(
-      `/sites/${siteId}/workflow/${stage}/attachments/${attachmentId}/download`, { responseType: "blob" });
+      `/sites/${siteId}/workflow/${stage}/attachments/${attachmentId}/download`,
+      { params: inline ? { inline: true } : {}, responseType: "blob" });
     const url = URL.createObjectURL(r.data as Blob);
-    const a = document.createElement("a");
-    a.href = url; a.download = filename; a.click();
-    URL.revokeObjectURL(url);
+    if (inline) {
+      // v1.0.1: inline 模式在新窗口预览(PDF/图片)
+      window.open(url, "_blank");
+    } else {
+      const a = document.createElement("a");
+      a.href = url; a.download = filename; a.click();
+      URL.revokeObjectURL(url);
+    }
   },
 
   // 系统

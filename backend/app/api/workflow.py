@@ -78,10 +78,12 @@ async def upload_attachment(site_id: int, stage: str, file: UploadFile = File(..
 @router.get("/sites/{site_id}/workflow/{stage}/attachments/{attachment_id}/download")
 def download_attachment(site_id: int, stage: str, attachment_id: int,
                         user: User = Depends(require_permission("file:download")),
-                        db: Session = Depends(get_db)):
-    """下载五阶段追溯的某阶段附件。
+                        db: Session = Depends(get_db),
+                        inline: bool = Query(False, description="true=浏览器内联预览, false=下载")):
+    """下载/预览五阶段追溯的某阶段附件。
 
     权限: 校验 site 归属 + 该附件确实属于该 site+stage(防越权)。
+    v1.0.1: 支持 inline 参数, PDF/图片可在浏览器内联预览。
     """
     _require_site(db, user, site_id)
     att = db.get(WorkflowAttachment, attachment_id)
@@ -97,8 +99,47 @@ def download_attachment(site_id: int, stage: str, attachment_id: int,
     path = abs_path(fo.storage_key)
     if not os.path.exists(path):
         raise HTTPException(404, "附件文件丢失")
+    media = fo.content_type or "application/octet-stream"
+    # v1.0.1: inline 模式用 Content-Disposition: inline, 支持浏览器预览
+    if inline:
+        from starlette.responses import Response
+        with open(path, "rb") as f:
+            content = f.read()
+        return Response(content=content, media_type=media,
+                        headers={"Content-Disposition": f"inline; filename*=UTF-8''{fo.original_name}"})
     return FileResponse(path, filename=fo.original_name,
-                        media_type=fo.content_type or "application/octet-stream")
+                        media_type=media)
+
+
+# v1.0.1: 单条附件删除(裴总任务11) — 删除附件记录+物理文件
+@router.delete("/sites/{site_id}/workflow/{stage}/attachments/{attachment_id}")
+def delete_attachment(site_id: int, stage: str, attachment_id: int,
+                      user: User = Depends(require_permission("data:input")),
+                      db: Session = Depends(get_db)):
+    """删除五阶段追溯的某阶段附件(附件记录+物理文件)。"""
+    _require_site(db, user, site_id)
+    att = db.get(WorkflowAttachment, attachment_id)
+    if not att:
+        raise HTTPException(404, "附件不存在")
+    wr = db.get(WorkflowRecord, att.workflow_record_id)
+    if not wr or wr.site_id != site_id or wr.stage != stage:
+        raise HTTPException(404, "附件不属于该场地的该阶段")
+    fo = db.get(FileObject, att.file_object_id)
+    # 删除附件记录
+    db.delete(att)
+    # 尝试删除物理文件
+    file_deleted = False
+    if fo:
+        path = abs_path(fo.storage_key)
+        try:
+            if os.path.exists(path):
+                os.remove(path)
+                file_deleted = True
+        except Exception:  # noqa: BLE001
+            pass  # 文件删除失败不阻断记录删除
+        db.delete(fo)
+    db.commit()
+    return {"ok": True, "attachment_id": attachment_id, "file_deleted": file_deleted}
 
 
 @router.post("/sites/{site_id}/report")

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
-  Card, Steps, Tag, Button, Space, Upload, Select, Modal, Input, message, Table, Descriptions, Spin, Tooltip, Typography,
+  Card, Steps, Tag, Button, Space, Upload, Select, Modal, Input, message, Table, Descriptions, Spin, Tooltip, Typography, Popconfirm,
 } from "antd";
-import { UploadOutlined, FileAddOutlined, DownloadOutlined, EyeOutlined, ApartmentOutlined } from "@ant-design/icons";
+import { UploadOutlined, FileAddOutlined, DownloadOutlined, EyeOutlined, ApartmentOutlined, DeleteOutlined } from "@ant-design/icons";
 import { api } from "../api/client";
 import MethodFlowDrawer from "../components/MethodFlowDrawer";
 import { getFlowConfig } from "../config/methodFlows";
@@ -132,13 +132,15 @@ export default function TraceDetail() {
                   {s.attachments?.length > 0 && (
                     <div style={{ marginTop: 6 }}>
                       {s.attachments.map((a: any) => (
-                        <div key={a.id} style={{ marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
+                        <div key={a.id} style={{ marginBottom: 4, display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
                           <Tag color="blue" style={{ margin: 0 }}>{a.file_role || "材料"}</Tag>
-                          <a style={{ fontSize: 13 }}
-                             onClick={() => api.downloadAttachment(sid, s.stage, a.id, a.original_name || a.file_role || "附件")}>
-                            <DownloadOutlined style={{ marginRight: 2 }} />
-                            {a.original_name || a.file_role || "附件"}
-                          </a>
+                          <Tooltip title="预览">
+                            <a style={{ fontSize: 13 }}
+                               onClick={() => api.downloadAttachment(sid, s.stage, a.id, a.original_name || a.file_role || "附件", true)}>
+                              <EyeOutlined style={{ marginRight: 2 }} />
+                              {a.original_name || a.file_role || "附件"}
+                            </a>
+                          </Tooltip>
                           {a.size_bytes != null && (
                             <Tooltip title={`${a.size_bytes} 字节`}>
                               <Typography.Text type="secondary" style={{ fontSize: 11 }}>
@@ -146,6 +148,23 @@ export default function TraceDetail() {
                               </Typography.Text>
                             </Tooltip>
                           )}
+                          <Space size="small">
+                            <Tooltip title="下载">
+                              <Button size="small" type="link" icon={<DownloadOutlined />}
+                                onClick={() => api.downloadAttachment(sid, s.stage, a.id, a.original_name || a.file_role || "附件")} />
+                            </Tooltip>
+                            <Popconfirm title="确认删除该附件?" onConfirm={async () => {
+                              try {
+                                await api.deleteAttachment(sid, s.stage, a.id);
+                                message.success("附件已删除");
+                                load();
+                              } catch (e: any) { message.error(e?.response?.data?.detail || "删除失败"); }
+                            }} okText="删除" cancelText="取消" okButtonProps={{ danger: true }}>
+                              <Tooltip title="删除">
+                                <Button size="small" type="link" danger icon={<DeleteOutlined />} />
+                              </Tooltip>
+                            </Popconfirm>
+                          </Space>
                         </div>
                       ))}
                     </div>

@@ -10,7 +10,7 @@
  */
 import { useState } from "react";
 import { Card, Collapse, Table, Alert, Tag, Typography, Space, Modal } from "antd";
-import { InfoCircleOutlined, QuestionCircleOutlined, ZoomInOutlined } from "@ant-design/icons";
+import { QuestionCircleOutlined, ZoomInOutlined } from "@ant-design/icons";
 import FormulaBlock from "./FormulaBlock";
 
 const { Text } = Typography;
@@ -31,6 +31,7 @@ export default function MethodExplainCard({ track, flowKey }: { track?: "prod" |
   const [open, setOpen] = useState<string | string[]>(["explain"]); // 默认展开
   // v1.0.2(裴总决策: 行内缩略图+点击放大): 流程图 Modal
   const [flowModalOpen, setFlowModalOpen] = useState(false);
+  const [flowError, setFlowError] = useState(false);
   const flowSrc = flowKey ? `/assets/flows/${flowKey}.svg` : null;
 
   return (
@@ -60,15 +61,20 @@ export default function MethodExplainCard({ track, flowKey }: { track?: "prod" |
           children: (
             <Space direction="vertical" style={{ width: "100%" }} size={12}>
               {/* v1.0.2: 行内流程图缩略图(点击放大) */}
-              {flowSrc && (
+              {flowSrc && !flowError && (
                 <div style={{ textAlign: "center", cursor: "pointer", border: "1px solid #e8e8e8", borderRadius: 6, padding: 8, background: "#fff" }}
                   onClick={() => setFlowModalOpen(true)}>
                   <img src={flowSrc} alt="方法流程图" style={{ maxHeight: 120, maxWidth: "100%" }}
-                    onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
+                    onError={() => setFlowError(true)} />
                   <div style={{ fontSize: 11, color: "#999", marginTop: 4 }}>
                     <ZoomInOutlined /> 点击放大查看流程图
                   </div>
                 </div>
+              )}
+              {flowSrc && flowError && (
+                <Alert type="warning" showIcon style={{ fontSize: 12 }}
+                  message="流程图加载失败"
+                  description={`请检查文件是否存在: ${flowSrc}（public/assets/flows/ 目录下应有对应 SVG 文件）`} />
               )}
               {/* 普通中文五要素解释 */}
               <div style={{ fontSize: 12.5, color: "#333", lineHeight: 1.8 }}>
@@ -106,15 +112,6 @@ export default function MethodExplainCard({ track, flowKey }: { track?: "prod" |
                   ]}
                 />
               </FormulaBlock>
-
-              {/* 醒目声明 */}
-              <Alert
-                type="warning"
-                showIcon
-                icon={<InfoCircleOutlined />}
-                message="重要说明:模型贡献度不是法规判定结果,也不是因果证明"
-                description="模型贡献度(Mᵢ)只反映因子对障碍指数的统计解释贡献,权重仅 0.15。正式障碍判定以规则层(Bᵢ)和标准阈值(Rᵢ)为底线——未检测或无阈值的因子不会进入正式 Top-N,只会列入'模型关注'或'建议补测'供专家复核。"
-              />
             </Space>
           ),
         }]}

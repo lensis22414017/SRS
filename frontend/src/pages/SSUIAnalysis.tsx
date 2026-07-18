@@ -127,27 +127,22 @@ export default function SSUIAnalysis() {
     <>
       <Space direction="vertical" style={{ width: "100%" }} size={16}>
       <Card>
-        <Space style={{ width: "100%", justifyContent: "space-between" }}>
-          <SitePicker value={sid} onChange={setSid} />
-          <Space>
-            <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
-            {data && <Button icon={<ExportOutlined />} onClick={() => {
-              api.generateReport(sid!, "pdf").then(() => message.success("SSUI 评价报告生成中...")).catch(() => message.error("导出失败"));
-            }}>导出评价报告</Button>}
-            <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行 SSUI 可持续利用评价</Button>
-          </Space>
-          {/* v1.0.2(GPT P0-4): SSUI 评价参数输入(t=利用年限, intensity=管理强度) */}
-          <Space style={{ marginTop: 8 }}>
-            <Text type="secondary" style={{ fontSize: 12 }}>利用年限 t(年):</Text>
-            <InputNumber size="small" min={1} max={50} value={evalT} onChange={(v) => setEvalT(v ?? 2)} style={{ width: 70 }} />
-            <Text type="secondary" style={{ fontSize: 12 }}>管理强度:</Text>
-            <Select size="small" value={evalIntensity} onChange={setEvalIntensity} style={{ width: 100 }}
-              options={[
-                { value: "weak", label: "粗放(weak)" },
-                { value: "medium", label: "中等(medium)" },
-                { value: "strong", label: "集约(strong)" },
-              ]} />
-          </Space>
+        <Space style={{ width: "100%", flexWrap: "wrap", rowGap: 8 }}>
+          <SitePicker value={sid} onChange={setSid} style={{ maxWidth: 180 }} />
+          <Text type="secondary" style={{ fontSize: 12 }}>年限t:</Text>
+          <InputNumber size="small" min={1} max={50} value={evalT} onChange={(v) => setEvalT(v ?? 2)} style={{ width: 56 }} />
+          <Text type="secondary" style={{ fontSize: 12 }}>强度:</Text>
+          <Select size="small" value={evalIntensity} onChange={setEvalIntensity} style={{ width: 90 }}
+            options={[
+              { value: "weak", label: "粗放" },
+              { value: "medium", label: "中等" },
+              { value: "strong", label: "集约" },
+            ]} />
+          <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
+          {data && <Button icon={<ExportOutlined />} onClick={() => {
+            api.generateReport(sid!, "pdf").then(() => message.success("SSUI 评价报告生成中...")).catch(() => message.error("导出失败"));
+            }}>导出报告</Button>}
+          <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行评价</Button>
         </Space>
         <div style={{ marginTop: 12 }}>
           <FormulaBlock

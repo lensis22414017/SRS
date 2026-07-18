@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 512 512"
+     role="img"
+     aria-labelledby="shield-title shield-desc">
+  <title id="shield-title">重构之盾</title>
+  <desc id="shield-desc">
+    深蓝底板上的白色监管盾牌，盾中分层土壤长出生态与生产双叶新芽，三枚青色数据节点环绕主体。
+  </desc>
+
+  <defs>
+    <clipPath id="shield-content-clip">
+      <path d="M256 87C300 116 343 129 386 137V235C386 326 338 394 256 429C174 394 126 326 126 235V137C169 129 212 116 256 87Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- 软件图标底板 -->
+  <rect x="24" y="24" width="464" height="464" rx="104"
+        fill="#123B73"/>
+
+  <path d="M82 181C120 101 183 61 272 60"
+        fill="none"
+        stroke="#65E0C0"
+        stroke-width="8"
+        stroke-linecap="round"
+        opacity="0.16"/>
+
+  <path d="M430 327C398 409 337 450 245 452"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="8"
+        stroke-linecap="round"
+        opacity="0.12"/>
+
+  <!-- 盾牌内部的分层土壤 -->
+  <g clip-path="url(#shield-content-clip)">
+    <path d="M100 305C147 286 198 300 238 291C285 280 331 293 412 270V456H100Z"
+          fill="#DCA75A"/>
+
+    <path d="M99 339C158 320 205 342 260 326C315 310 355 329 412 310V456H99Z"
+          fill="#B8743C"/>
+
+    <path d="M100 383C153 368 210 388 263 371C314 355 357 376 412 359V456H100Z"
+          fill="#DCA75A"
+          opacity="0.58"/>
+
+    <path d="M108 416C166 401 220 422 271 405C322 388 362 407 404 394V456H108Z"
+          fill="#B8743C"/>
+
+    <!-- 根系 -->
+    <g fill="none"
+       stroke="#FFFFFF"
+       stroke-width="10"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       opacity="0.9">
+      <path d="M256 286V347L226 380"/>
+      <path d="M256 328L287 360L303 390"/>
+      <path d="M256 350L250 397"/>
+      <path d="M229 377L209 393"/>
+    </g>
+  </g>
+
+  <!-- 大数据驱动轨道 -->
+  <path d="M160 255C170 195 217 158 278 159C332 160 370 191 370 232C370 270 337 295 300 304"
+        fill="none"
+        stroke="#65E0C0"
+        stroke-width="12"
+        stroke-linecap="round"
+        opacity="0.9"/>
+
+  <circle cx="162" cy="251" r="14"
+          fill="#65E0C0"
+          stroke="#123B73"
+          stroke-width="8"/>
+
+  <circle cx="278" cy="159" r="14"
+          fill="#65E0C0"
+          stroke="#123B73"
+          stroke-width="8"/>
+
+  <circle cx="302" cy="304" r="14"
+          fill="#65E0C0"
+          stroke="#123B73"
+          stroke-width="8"/>
+
+  <!-- 生态与生产双叶新芽 -->
+  <path d="M256 301C255 262 258 223 271 187"
+        fill="none"
+        stroke="#65E0C0"
+        stroke-width="16"
+        stroke-linecap="round"/>
+
+  <!-- 生态叶 -->
+  <path d="M267 225C230 225 196 203 188 168C225 163 260 178 275 207C277 214 275 220 267 225Z"
+        fill="#19A980"/>
+
+  <!-- 生产叶 -->
+  <path d="M270 205C289 174 327 158 363 166C357 202 324 228 282 229C270 225 266 216 270 205Z"
+        fill="#DCA75A"/>
+
+  <path d="M207 181C231 188 250 201 269 219"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="8"
+        stroke-linecap="round"
+        opacity="0.62"/>
+
+  <path d="M345 178C319 186 298 199 278 219"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="8"
+        stroke-linecap="round"
+        opacity="0.62"/>
+
+  <!-- 土壤监管盾牌边界 -->
+  <path d="M256 87C300 116 343 129 386 137V235C386 326 338 394 256 429C174 394 126 326 126 235V137C169 129 212 116 256 87Z"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="18"
+        stroke-linejoin="round"/>
+
+  <path d="M256 111C292 134 328 147 363 155"
+        fill="none"
+        stroke="#65E0C0"
+        stroke-width="8"
+        stroke-linecap="round"
+        opacity="0.68"/>
+</svg>

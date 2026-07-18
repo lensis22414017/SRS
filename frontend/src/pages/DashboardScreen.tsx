@@ -251,9 +251,9 @@ export default function DashboardScreen() {
     return {
       tooltip: { trigger: "item" as const },
       series: [{
-        type: "funnel", left: 4, right: 50, top: 4, bottom: 4,
-        minSize: "20%", maxSize: "100%", sort: "descending", gap: 2,
-        label: { color: DARK_TEXT, fontSize: 10, formatter: "{b}\n{c}", position: "outside" },
+        type: "funnel", left: 20, right: 30, top: 4, bottom: 4,
+        minSize: "20%", maxSize: "80%", sort: "descending", gap: 2,
+        label: { color: DARK_TEXT, fontSize: 11, formatter: "{b} {c}", position: "inside" },
         labelLine: { length: 8, lineStyle: { color: DARK_AXIS_LINE } },
         itemStyle: { borderColor: "rgba(10,16,36,0.6)", borderWidth: 1 },
         data: data.length ? data : [{ name: "暂无工作流数据", value: 0 }],
@@ -354,18 +354,12 @@ export default function DashboardScreen() {
           ⚠ 当前为压缩预览模式（{typeof window !== "undefined" ? window.innerWidth : 0}px），推荐 1920×1080 查看完整大屏
         </div>
       )}
-      {/* ── 顶部标题栏 ──────────────────────────────────── */}
-      <div className={styles.header}>
-        <div className={styles.headerLeft}>
-          <DashboardOutlined style={{ color: "#4da3ff", fontSize: 20 }} />
-          <span className={styles.headerTitle}>污染场地土壤生态-生产功能重构监管系统</span>
-        </div>
-        <div className={styles.headerMeta}>
-          <span className={styles.clock}>{now.format("YYYY-MM-DD HH:mm:ss")}</span>
-          <span className={styles.dataVersion}>数据版本 v1.0.2</span>
-          <Button type="text" className={styles.backBtn} icon={<RollbackOutlined />}
-            onClick={() => nav("/")}>返回工作台</Button>
-        </div>
+      {/* ── 顶部状态栏(仅留时钟+版本+返回, 去除重复的系统标题) ─── */}
+      <div className={styles.headerMeta} style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", gap: 16, padding: "6px 16px", flexShrink: 0 }}>
+        <span className={styles.clock}>{now.format("YYYY-MM-DD HH:mm:ss")}</span>
+        <span className={styles.dataVersion}>数据版本 v1.0.1</span>
+        <Button type="text" className={styles.backBtn} icon={<RollbackOutlined />}
+          onClick={() => nav("/")}>返回工作台</Button>
       </div>
 
       {/* ── KPI 行 ──────────────────────────────────────── */}

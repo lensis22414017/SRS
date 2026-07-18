@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Select, Space, App } from "antd";
 import { api } from "../api/client";
 
-export default function SitePicker({ value, onChange }: { value?: number; onChange: (id: number) => void }) {
+export default function SitePicker({ value, onChange, style }: { value?: number; onChange: (id: number) => void; style?: React.CSSProperties }) {
   const { message } = App.useApp();
   const [sites, setSites] = useState<any[]>([]);
   useEffect(() => {
@@ -19,9 +19,9 @@ export default function SitePicker({ value, onChange }: { value?: number; onChan
     onChange(id);
   };
   return (
-    <Space>
+    <Space style={style}>
       <span>选择场地：</span>
-      <Select style={{ width: 380 }} value={value} onChange={setSite}
+      <Select style={{ width: style?.maxWidth ? Math.min(380, Number(style.maxWidth) - 80) : 380 }} value={value} onChange={setSite}
         showSearch
         optionFilterProp="label"
         options={sites.map((s) => ({ value: s.id, label: s.name, title: `${s.name}（${s.site_code}）` }))}

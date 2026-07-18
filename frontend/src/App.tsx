@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Layout, Menu, Dropdown, Avatar, Space, Typography, Breadcrumb, App as AntApp } from "antd";
 import {
   DashboardOutlined, DatabaseOutlined, SearchOutlined, ExperimentOutlined,
@@ -40,6 +41,7 @@ export default function AppLayout() {
   const loc = useLocation();
   const { user, logout, hasPermission } = useAuth();
   const { modal } = AntApp.useApp();
+  const [collapsed, setCollapsed] = useState(false);
   const top = "/" + (loc.pathname.split("/")[1] || "");
 
   // 按权限过滤菜单
@@ -64,13 +66,14 @@ export default function AppLayout() {
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      {/* ── 侧边栏 ────────────────────────────────────────── */}
+      {/* ── 侧边栏(固定不随主体滚动) ──────────────────────── */}
       <Sider
         theme="dark"
         width={220}
         breakpoint="lg"
-        collapsedWidth="0"
-        style={{ display: "flex", flexDirection: "column" }}
+        collapsedWidth={collapsed ? 0 : 220}
+        onCollapse={setCollapsed}
+        style={{ position: "fixed", left: 0, top: 0, bottom: 0, height: "100vh", overflow: "auto", zIndex: 100 }}
       >
         {/* 系统 Logo 区 */}
         <div style={{
@@ -78,14 +81,16 @@ export default function AppLayout() {
           borderBottom: "1px solid rgba(255,255,255,.08)",
         }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-            {/* SVG 图标 — 污染场地监管主题（盾牌+叶子） */}
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14 2L3 7v7c0 6.25 4.75 12.1 11 13.5C20.25 26.1 25 20.25 25 14V7L14 2z"
-                fill="#1d6fb8" stroke="#0f3d6e" strokeWidth="1" />
-              <path d="M14 8c-2.5 0-4.5 1.5-5 4 0 0 1 0.5 2.5 0.5C13 12.5 14 10 16.5 10c1.5 0 2.5 0.5 2.5 0.5C18.5 9.5 16.5 8 14 8z"
-                fill="#4ade80" />
-              <path d="M11.5 13c0 2.5 1.2 4.5 2.5 5.5 1.3-1 2.5-3 2.5-5.5H11.5z"
-                fill="#4ade80" />
+            {/* SVG 图标 — 重构之盾(深蓝底板+白盾+双叶+数据节点) */}
+            <svg width="28" height="28" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="24" y="24" width="464" height="464" rx="104" fill="#123B73" />
+              <path d="M256 87C300 116 343 129 386 137V235C386 326 338 394 256 429C174 394 126 326 126 235V137C169 129 212 116 256 87Z"
+                fill="none" stroke="#FFFFFF" strokeWidth="18" strokeLinejoin="round" />
+              <path d="M267 225C230 225 196 203 188 168C225 163 260 178 275 207C277 214 275 220 267 225Z" fill="#19A980" />
+              <path d="M270 205C289 174 327 158 363 166C357 202 324 228 282 229C270 225 266 216 270 205Z" fill="#DCA75A" />
+              <circle cx="162" cy="251" r="14" fill="#65E0C0" stroke="#123B73" strokeWidth="8" />
+              <circle cx="278" cy="159" r="14" fill="#65E0C0" stroke="#123B73" strokeWidth="8" />
+              <circle cx="302" cy="304" r="14" fill="#65E0C0" stroke="#123B73" strokeWidth="8" />
             </svg>
             <div>
               <div style={{ color: "#fff", fontWeight: 700, fontSize: 13, lineHeight: 1.2 }}>
@@ -116,11 +121,11 @@ export default function AppLayout() {
           fontSize: 10,
           userSelect: "none",
         }}>
-          v1.0.2 · SRS
+          v1.0.1 · SRS
         </div>
       </Sider>
 
-      <Layout>
+      <Layout style={{ marginLeft: collapsed ? 0 : 220, transition: "margin-left 0.2s" }}>
         {/* ── 顶部 Header ──────────────────────────────────── */}
         <Header style={{
           background: "#fff",
