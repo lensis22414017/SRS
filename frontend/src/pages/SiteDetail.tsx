@@ -20,6 +20,7 @@ export default function SiteDetail() {
   const [reports, setReports] = useState<any[]>([]);
   const [mapLayer, setMapLayer] = useState<any>(null);
   const [mapFactor, setMapFactor] = useState<string | undefined>();
+  const [widePage, setWidePage] = useState(1);
 
   const load = async () => {
     try {
@@ -126,7 +127,7 @@ export default function SiteDetail() {
               </div>
             )}
             <Table rowKey="seq" size="small" dataSource={wide.items} columns={wideColumns}
-              scroll={{ x: "max-content", y: 480 }} pagination={{ pageSize: 20 }} bordered />
+              scroll={{ x: "max-content", y: 480 }} pagination={{ pageSize: 20, showSizeChanger: false, current: widePage, onChange: setWidePage }} bordered />
           </Card>,
         },
         {

@@ -39,15 +39,45 @@ async def lifespan(app: FastAPI):
     from app.db.seed_db import seed_if_empty
     create_all()
     seed_if_empty()
-    # v1.0.2(GPT P0-6b): 启动定时备份后台线程(每天凌晨2:00)
+    # v1.0.1 final-audit: 启动时模型完整性健康检查(缺失直接警告, 诊断时阻断)
+    app.state.model_health = _check_model_integrity()
+    # 启动定时备份后台线程(每天凌晨2:00)
     from app.services.backup_service import init_scheduler
     backup_stop_event = init_scheduler()
-    # v1.0.2(GPT P0-6c): 字段级加密钩子(User.email/phone)
+    # 字段级加密钩子(User.email/phone)
     from app.models.crypto_hooks import init_crypto_hooks  # noqa: F401
     init_crypto_hooks()
     yield
     # 优雅关闭定时备份
     backup_stop_event.set()
+
+
+def _check_model_integrity() -> dict:
+    """启动时检查模型工件完整性(KOS诊断必需)。
+
+    检查 p3_alpha/model_registry_v0.8.json + 至少一个 joblib 模型存在。
+    缺失时返回 {ok: False, reason: ...}, 诊断API据此阻断。
+    """
+    import os, sys
+    root = sys._MEIPASS if getattr(sys, "frozen", False) else os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    # PyInstaller _internal 目录兼容
+    if not os.path.isdir(os.path.join(root, "ml")):
+        _internal = os.path.join(root, "_internal")
+        if os.path.isdir(os.path.join(_internal, "ml")):
+            root = _internal
+    art_dir = os.path.join(root, "ml", "artifacts", "p3_alpha")
+    registry = os.path.join(art_dir, "model_registry_v0.8.json")
+    if not os.path.isfile(registry):
+        return {"ok": False, "reason": f"模型注册表缺失: {registry}", "checked_at": _now()}
+    joblibs = [f for f in os.listdir(art_dir) if f.endswith(".joblib")] if os.path.isdir(art_dir) else []
+    if not joblibs:
+        return {"ok": False, "reason": f"无 joblib 模型工件: {art_dir}", "checked_at": _now()}
+    return {"ok": True, "n_models": len(joblibs), "registry": "model_registry_v0.8.json", "checked_at": _now()}
+
+
+def _now() -> str:
+    from datetime import datetime
+    return datetime.now().isoformat()
 
 app = FastAPI(title=settings.app_name, version="1.0.1", lifespan=lifespan)
 
@@ -77,7 +107,9 @@ app.include_router(backup_router)  # v1.0.2: 备份恢复
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "app": settings.app_name, "version": "1.0.1"}
+    model_health = getattr(app.state, "model_health", {})
+    return {"status": "ok", "app": settings.app_name, "version": "1.0.1",
+            "model_health": model_health}
 
 
 @app.get(settings.api_v1_prefix + "/info")

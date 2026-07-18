@@ -223,7 +223,7 @@ function AuditLogs() {
         showTotal: (t) => `共 ${t} 条记录`,
       }}
       columns={[
-        seqCol(64),
+        seqCol(64, page, 20),
         textCol("时间", "time", {
           render: (v: string) => v ? new Date(v).toLocaleString("zh-CN") : "—",
         }),

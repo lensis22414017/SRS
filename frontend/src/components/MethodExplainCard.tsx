@@ -12,6 +12,7 @@ import { useState } from "react";
 import { Card, Collapse, Table, Alert, Tag, Typography, Space, Modal } from "antd";
 import { QuestionCircleOutlined, ZoomInOutlined } from "@ant-design/icons";
 import FormulaBlock from "./FormulaBlock";
+import { flowAssetUrl } from "../config/methodFlows";
 
 const { Text } = Typography;
 
@@ -32,7 +33,7 @@ export default function MethodExplainCard({ track, flowKey }: { track?: "prod" |
   // v1.0.2(行内缩略图+点击放大): 流程图 Modal
   const [flowModalOpen, setFlowModalOpen] = useState(false);
   const [flowError, setFlowError] = useState(false);
-  const flowSrc = flowKey ? `/assets/flows/${flowKey}.svg` : null;
+  const flowSrc = flowKey ? flowAssetUrl(flowKey) : null;
 
   return (
     <Card

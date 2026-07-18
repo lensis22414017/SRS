@@ -3,7 +3,7 @@
 ; ==============================================================================
 ; 编译要求: 安装 Inno Setup 6 (https://jrsoftware.org/isdl.php)
 ; 编译方式: 用 Inno Setup Compiler 打开此 .iss 文件 → 点击 Build (Ctrl+B)
-; 前置条件: 先用 PyInstaller 生成 dist/SRS/ 目录 (含 SRS.exe + 依赖)
+; 前置条件: 先用 PyInstaller 生成 dist_new/SRS/ 目录 (含 SRS.exe + 依赖)
 ;
 ; 输出: packaging/Output/SRS-Setup-1.0.1-Windows-x64.exe (约 600-800MB)
 ; ==============================================================================
@@ -61,10 +61,9 @@ Name: "desktopicon"; Description: "在桌面创建快捷方式"; GroupDescriptio
 Name: "quicklaunchicon"; Description: "在快速启动栏创建快捷方式"; GroupDescription: "附加图标:"; Flags: checkedonce; OnlyBelowVersion: 6.01
 
 [Files]
-; PyInstaller 生成的整个 dist_new/SRS/ 目录(v1.0.1, 含L4模糊匹配+冗余依赖剔除)
+; PyInstaller 生成的整个 dist_new/SRS/ 目录(v1.0.1 final-audit, ARTIFACT_ROOT)
 Source: "..\dist_new\SRS\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-; 演示数据 Excel (安装到 应用数据目录\demo_sites\)
-Source: "..\data\demo_sites\*.xlsx"; DestDir: "{commonappdata}\SRS\demo_sites"; Flags: ignoreversion recursesubdirs; Check: DirExists(ExpandConstant('{commonappdata}\SRS\demo_sites'))
+; v1.0.1 final-audit: 不打包 demo_sites(正式安装包不含演示场地, 首启业务表为空)
 ; 首次使用说明
 Source: "..\docs\USER_GUIDE.md"; DestDir: "{app}"; Flags: ignoreversion
 

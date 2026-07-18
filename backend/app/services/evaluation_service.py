@@ -27,6 +27,7 @@ import json as _json
 _EVAL_PARAMS = None
 
 def _load_eval_params():
+    """v1.0.1 final-audit: 配置文件缺失时明确报错(禁止静默退化为仅SSUI默认参数)。"""
     global _EVAL_PARAMS
     if _EVAL_PARAMS is None:
         cfg_path = os.path.join(ROOT, "ml", "evaluation", "evaluation_params.json")
@@ -34,7 +35,10 @@ def _load_eval_params():
             with open(cfg_path, encoding="utf-8") as f:
                 _EVAL_PARAMS = _json.load(f)
         else:
-            _EVAL_PARAMS = {"ssui": {"t": 2.0, "intensity": "medium"}}
+            # v1.0.1 final-audit: 不静默退化, 明确报错
+            raise FileNotFoundError(
+                f"评价参数配置文件缺失: {cfg_path}。"
+                f"功能重构评价和SSUI不可用, 请检查安装完整性。")
     return _EVAL_PARAMS
 
 _LIM = None
@@ -349,6 +353,12 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
                 for kf in kos_factors:
                     if kf not in kos_limiting:
                         kos_limiting.insert(0, kf)
+                # v1.0.1 final-audit: 结论门禁 — KOS有key_obstacle时禁止"可行"
+                if kos_factors and r.get("grade") == "可行":
+                    r["grade"] = "不可行（存在超标障碍）"
+                    r["explanation"] = (r.get("explanation") or "") + \
+                        f" 结论门禁: KOS诊断检出 {len(kos_factors)} 个超标障碍因子({', '.join(kos_factors[:3])}), " \
+                        f"功能重构可行性强制降级为不可行。"
         except Exception:
             pass  # KOS 失败则保留原 limiting
         _save(db, site_id, et, data_version, r.get("score"), r.get("grade"),

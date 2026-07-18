@@ -158,6 +158,14 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
                           top_n: int = Query(10, ge=3, le=30),
                           user: User = Depends(get_current_user), db: Session = Depends(get_db)):
     """运行 KOS 诊断(三层输出:明确障碍 + 关键障碍 KOS + 补测建议)。"""
+    # v1.0.1 final-audit: 模型完整性阻断(缺失模型不允许诊断)
+    from fastapi import Request
+    from starlette.requests import Request as StarletteRequest
+    # 检查 app.state.model_health(启动时已设置)
+    from app.main import app as _app
+    model_health = getattr(_app.state, "model_health", {})
+    if not model_health.get("ok"):
+        raise HTTPException(503, f"模型工件不完整, KOS诊断不可用: {model_health.get('reason', '未知原因')}")
     from app.models import Measurement
     site = _require_site(db, user, site_id)
     from app.services.kos_service import run_kos_diagnosis

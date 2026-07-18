@@ -6,8 +6,8 @@
   backend/.venv/bin/pyinstaller packaging/srs.spec --clean
 
 输出:
-  dist/SRS.app/  (macOS .app bundle)
-  dist/SRS/      (Linux/Windows 目录)
+  dist_new/SRS.app/  (macOS .app bundle)
+  dist_new/SRS/      (Linux/Windows 目录, ARTIFACT_ROOT)
 """
 
 import os
@@ -168,6 +168,8 @@ hidden_imports = [
     "app.services.open_set_classifier",
     "app.services.diagnosis_fact_check",
     "app.services.threshold_resolver",
+    # v1.0.1 final-audit: PyYAML 及其数据(factor_normalizer 依赖)
+    "yaml",
 ]
 
 # 强制收集 app.services 全部子模块(确保 M0 新增的都被打包)
@@ -232,7 +234,7 @@ a.binaries = [
 # ── PYZ ─────────────────────────────────────────────────────────
 pyz = PYZ(a.pure, a.zipped_data)
 
-# ── EXE + COLLECT (onedir: Windows/Linux 输出 dist/SRS/ 目录含 SRS.exe) ─
+# ── EXE + COLLECT (onedir: Windows/Linux 输出 dist_new/SRS/ (ARTIFACT_ROOT) 目录含 SRS.exe) ─
 exe = EXE(
     pyz,
     a.scripts,
@@ -251,7 +253,7 @@ exe = EXE(
     version_info=_VI,  # Windows 版本信息对象(公司名/版权/版本)
 )
 
-# Windows/Linux: COLLECT 收集全部依赖到 dist/SRS/ 目录
+# Windows/Linux: COLLECT 收集全部依赖到 dist_new/SRS/ (ARTIFACT_ROOT) 目录
 # v1.0.1: 过滤掉 .db 文件(— 打包不含开发库残留, 首启用全新空库)
 _filtered_binaries = [b for b in a.binaries if not b[0].endswith(".db")]
 _filtered_datas = [d for d in a.datas if not d[0].endswith(".db") and ".db;" not in d[0]]

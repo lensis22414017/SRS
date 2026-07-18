@@ -354,12 +354,18 @@ export default function DashboardScreen() {
           ⚠ 当前为压缩预览模式（{typeof window !== "undefined" ? window.innerWidth : 0}px），推荐 1920×1080 查看完整大屏
         </div>
       )}
-      {/* ── 顶部状态栏(仅留时钟+版本+返回, 去除重复的系统标题) ─── */}
-      <div className={styles.headerMeta} style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", gap: 16, padding: "6px 16px", flexShrink: 0 }}>
-        <span className={styles.clock}>{now.format("YYYY-MM-DD HH:mm:ss")}</span>
-        <span className={styles.dataVersion}>数据版本 v1.0.1</span>
-        <Button type="text" className={styles.backBtn} icon={<RollbackOutlined />}
-          onClick={() => nav("/")}>返回工作台</Button>
+      {/* ── 大屏内部标题栏(居中标题+右侧时钟/版本/返回) ─── */}
+      <div className={styles.header} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 16px", flexShrink: 0 }}>
+        <div className={styles.headerLeft}>
+          <DashboardOutlined style={{ color: "#4da3ff", fontSize: 18 }} />
+          <span className={styles.headerTitle} style={{ fontSize: 16 }}>污染场地土壤生态-生产功能重构监管系统</span>
+        </div>
+        <div className={styles.headerMeta} style={{ display: "flex", alignItems: "center", gap: 16 }}>
+          <span className={styles.clock}>{now.format("YYYY-MM-DD HH:mm:ss")}</span>
+          <span className={styles.dataVersion}>数据版本 v1.0.1</span>
+          <Button type="text" className={styles.backBtn} icon={<RollbackOutlined />}
+            onClick={() => nav("/")}>返回工作台</Button>
+        </div>
       </div>
 
       {/* ── KPI 行 ──────────────────────────────────────── */}

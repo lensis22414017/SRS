@@ -341,12 +341,49 @@ def _rag_fallback_reply(ctx: dict, reason: str) -> str:
     return "\n".join(lines)
 
 
+# v1.0.1 final-audit: 意图路由 — 判断用户问题是 domain_rag 还是 general
+_DOMAIN_KEYWORDS = [
+    # 法规/标准
+    "标准", "阈值", "筛选值", "管制值", "GB15618", "GB36600", "GB", "mg/kg", "超标",
+    "筛选", "管控", "修复", "风险管控", "土壤环境",
+    # 污染物
+    "镉", "铅", "砷", "铜", "锌", "铬", "汞", "镍", "重金属", "有机物", "PAH", "多环芳烃",
+    "农药", "石油烃", "多氯联苯", "PCB", "二噁英",
+    # 场地/诊断
+    "场地", "诊断", "障碍因子", "KOS", "污染", "用地", "生态", "生产", "农用地", "建设用地",
+    "采样", "检测", "实测", "浓度", "pH",
+    # 修复技术
+    "植物修复", "固化", "稳定化", "客土", "淋洗", "生物修复", "热脱附",
+]
+
+
+def _route_intent(message: str, site_id: int | None = None) -> str:
+    """意图路由: 判断问题是 domain_rag(法规/阈值/场地) 还是 general(普通知识)。
+
+    规则:
+    1. 有 site_id → domain_rag(场地相关问题)
+    2. 消息含领域关键词 → domain_rag
+    3. 其他 → general(普通知识问答)
+    """
+    if site_id is not None:
+        return "domain_rag"
+    msg_lower = message.lower()
+    for kw in _DOMAIN_KEYWORDS:
+        if kw.lower() in msg_lower:
+            return "domain_rag"
+    return "general"
+
+
 def chat(db: Session, message: str, site_id: int | None = None,
          history: list[dict] | None = None) -> dict:
     from app.core.ai_config import effective_ai
     cfg = effective_ai()
     base_url, api_key, model = cfg["base_url"], cfg["api_key"], cfg["model"]
     timeout = get_settings().ai_timeout
+
+    # v1.0.1 final-audit: 意图路由 — domain_rag(法规/阈值/场地) vs general(普通知识)
+    answer_mode = _route_intent(message, site_id)
+
     ctx = retrieve(db, message, site_id=site_id)
     ctx_text = build_context_text(ctx)
 
@@ -356,10 +393,17 @@ def chat(db: Session, message: str, site_id: int | None = None,
                       "(默认推荐: 智谱 GLM 官方免费模型)。\n\n"
                       "以下是知识库检索到的相关资料(已可直接参考):\n" + ctx_text),
             "context": ctx, "model": None, "configured": False,
+            "answer_mode": answer_mode,
         }
 
-    messages = [{"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "system", "content": "【知识库检索结果】\n" + ctx_text}]
+    # domain_rag 模式: 绑定知识库+场地来源; general 模式: 可用模型通用知识
+    if answer_mode == "general":
+        # 普通知识问答: 不注入知识库上下文, 用模型通用知识
+        messages = [{"role": "system", "content": "你是 SRS 系统的 AI 智能助手。请用简体中文回答用户的普通知识问题, 可以使用你的通用知识。"}]
+    else:
+        # domain_rag 模式: 法规/阈值/场地诊断必须绑定知识库
+        messages = [{"role": "system", "content": SYSTEM_PROMPT},
+                    {"role": "system", "content": "【知识库检索结果】\n" + ctx_text}]
     for h in (history or [])[-6:]:
         if h.get("role") in ("user", "assistant"):
             messages.append({"role": h["role"], "content": h.get("content", "")})
@@ -384,7 +428,8 @@ def chat(db: Session, message: str, site_id: int | None = None,
             return {"reply": _rag_fallback_reply(ctx, "AI 模型返回内容存在乱码或质量异常, 已自动降级"),
                     "context": ctx, "model": model, "configured": True,
                     "degraded": True}
-        return {"reply": reply, "context": ctx, "model": model, "configured": True}
+        return {"reply": reply, "context": ctx, "model": model, "configured": True,
+                "answer_mode": answer_mode}
     except urllib.error.HTTPError as e:
         if e.code == 429:
             return {

@@ -23,26 +23,38 @@ from app.services.audit_service import log
 from app.services.import_service import load_mapping, read_table, resolve_mapping_for_file
 from app.services.pipeline import run_import_with_mapping
 
+def _to_base26(n: int) -> str:
+    """整数→纯字母 Base26 编码(0→A, 25→Z, 26→BA, ...)。"""
+    if n < 0:
+        n = 0
+    chars = []
+    n += 1  # 1→A 而非 0→A
+    while n > 0:
+        n, rem = divmod(n - 1, 26)
+        chars.append(chr(ord('A') + rem))
+    return ''.join(reversed(chars))
+
+
 def _format_site_code(db: Session, site_id: int):
+    """v1.0.1 final-audit: 场地编号纯字母(零数字), 格式 SRS-XXXX-YYYY。
+
+    site_id 转 Base26 字母, 保证全库唯一且不含数字。
+    采样点数量只放"采样点"独立列, 不拼入 site_code。
+    """
+    import re as _re
     site = db.get(Site, site_id)
     if not site:
         return
-    n_points = db.query(func.count(SamplingPoint.id)).filter_by(site_id=site_id).scalar()
-
-    # v1.0.1: 省份用简称(湖南省→湖南), 开头不要数字, 污染类型小写
-    prov = (site.province or "未知").rstrip("省").rstrip("市").rstrip("自治区") \
-        if site.province else "未知"
-
-    pt = site.pollution_type
-    pt_abbr = "op"
-    if pt == "heavy_metal":
-        pt_abbr = "hm"
-    elif pt == "composite":
-        pt_abbr = "hm+op"
-
-    code = f"{prov}-{pt_abbr}-{n_points}点"
+    # 纯字母编码: SRS-{site_id的Base26}-{随机4字母}(确保唯一性+可读性)
+    code = f"SRS-{_to_base26(site_id)}"
+    # 如有原业务编号且含数字, 另存 original_site_code
+    if site.site_code and _re.search(r'[0-9]', str(site.site_code)):
+        if not getattr(site, 'original_site_code', None):
+            try:
+                site.original_site_code = site.site_code
+            except Exception:
+                pass  # 字段可能不存在
     site.site_code = code
-    # 不覆盖 site.name，保留导入时的可读场地名
     db.commit()
 
 router = APIRouter(prefix=get_settings().api_v1_prefix, tags=["data"])

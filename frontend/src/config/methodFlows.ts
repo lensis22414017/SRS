@@ -24,8 +24,15 @@ export interface FlowConfig {
   references: FlowRef[];
 }
 
+// v1.0.1 final-audit: 唯一流程图资源 URL 生成方法(所有页面/缩略图/Modal/Drawer 共用)
+// 使用 Vite BASE_URL 生成同源地址, 不再到处硬编码 /assets/flows
+export const flowAssetUrl = (name: string): string => {
+  const base = import.meta.env.BASE_URL || "/";
+  return `${base}assets/flows/${name}.svg`;
+};
+
 // SVG 文件路径 — 指向 public/assets/flows/ 目录, 若文件不存在 Drawer 显示友好占位
-const svg = (name: string) => `/assets/flows/${name}.svg`;
+const svg = flowAssetUrl;
 
 export const METHOD_FLOWS: Record<string, FlowConfig> = {
   obstacle_analysis: {

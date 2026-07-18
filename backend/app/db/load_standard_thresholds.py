@@ -238,18 +238,35 @@ _EN2ZH = {"As": "砷", "Hg": "汞", "Pb": "铅", "Cr": "铬", "Zn": "锌", "Cd":
 
 
 def load(db) -> int:
-    # factor_code + factor_name 双 key + 英文→中文映射, 修复 factor_id 全 NULL
+    """v1.0.1 final-audit: 幂等 upsert(按唯一键 standard_code+factor_name+land_use_type+pH_condition)。
+
+    不再全删重建, 只插入缺失记录, 保留已有数据。
+    """
+    from sqlalchemy import and_
     factors: dict[str, int] = {}
     for f in db.query(FactorDictionary).all():
         factors[f.factor_code] = f.id
         factors[f.factor_name] = f.id
-    db.query(StandardThreshold).delete()
     rows = seed_rows()
+    inserted = 0
+    skipped = 0
     for row in rows:
         fn = row["factor_name"]
         factor_id = factors.get(fn) or factors.get(_EN2ZH.get(fn, fn))
+        # 唯一键: standard_code + factor_name + land_use_type + pH_condition
+        existing = db.query(StandardThreshold).filter(and_(
+            StandardThreshold.standard_code == row.get("standard_code", ""),
+            StandardThreshold.factor_name == fn,
+            StandardThreshold.land_use_type == row.get("land_use_type", ""),
+            StandardThreshold.pH_condition == row.get("pH_condition", ""),
+        )).first()
+        if existing:
+            skipped += 1
+            continue
         db.add(StandardThreshold(factor_id=factor_id, **row))
+        inserted += 1
     db.commit()
+    print(f"标准阈值幂等upsert: 新增 {inserted} 条, 已存在跳过 {skipped} 条")
     return len(rows)
 
 

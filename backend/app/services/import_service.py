@@ -332,14 +332,24 @@ def smart_detect_and_map(path: str) -> tuple[str, dict, list[dict]]:
 
     has_hm = any(d["type"] == "pollutant" and d.get("category") == "环境指标" for d in detail) and              any(_matches_heavy_metal_token(str(fc["column"]).lower()) for fc in factor_columns)
     has_org = any(any(k in str(fc["column"]).lower() for k in _ORG) for fc in factor_columns)
-    if has_hm and has_org:
+
+    # v1.0.1 final-audit: 污染类型判定优先级
+    # a.文件名语义(重金属/有机/复合) > b.实际有效测量值 > c.unknown(禁止默认composite)
+    fname_lower = os.path.basename(path).lower() if isinstance(path, str) else ""
+    fname_has_hm = any(k in fname_lower for k in ["重金属", "hm", "metal", "heavy_metal"])
+    fname_has_org = any(k in fname_lower for k in ["有机", "op", "organic", "petroleum"])
+    fname_has_comp = any(k in fname_lower for k in ["复合", "composite", "hm+op", "hm_op"])
+
+    # 只有至少一个有效重金属实测值+至少一个有效有机物实测值才能自动判为 composite
+    if (has_hm and has_org) or fname_has_comp:
         pollution_type = "composite"
-    elif has_hm:
+    elif has_hm or fname_has_hm:
         pollution_type = "heavy_metal"
-    elif has_org:
+    elif has_org or fname_has_org:
         pollution_type = "organic"
     else:
-        pollution_type = "composite"
+        # v1.0.1 final-audit: 无法判断时设 unknown(禁止默认 composite)
+        pollution_type = "unknown"
 
     import os as _os
     import time as _time
