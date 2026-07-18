@@ -15,9 +15,9 @@ from app.core.deps import (
 )
 from app.db.session import get_db
 from app.models import (
-    AuditLog, DiagnosisFactorDetail, DiagnosisResult, EvaluationResult,
-    FactorDictionary, ImportBatch, Measurement, ReportRecord, SamplingPoint, Site,
-    StandardThreshold, ThresholdRule, User, WorkflowRecord,
+    AuditLog, DiagnosisFactorDetail, DiagnosisResult, EconomicIndicator, EconomicRawInput,
+    EvaluationResult, FactorDictionary, ImportBatch, Measurement, ReportRecord, SamplingPoint,
+    Site, StandardThreshold, ThresholdRule, User, WorkflowRecord,
 )
 from app.services.audit_service import log
 from app.services.import_service import load_mapping, read_table, resolve_mapping_for_file
@@ -642,6 +642,8 @@ def delete_site(site_id: int,
             ("project_authorizations", ProjectAuthorization),
             ("sampling_events", SamplingEvent),
             ("dataset_versions", DatasetVersion),
+            ("economic_indicators", EconomicIndicator),  # R3-P0-9: 补删经济表
+            ("economic_raw_inputs", EconomicRawInput),   # R3-P0-9: 补删经济原始汇总
             ("import_batches", ImportBatch),
             ("measurements", Measurement),
             ("sampling_points", SamplingPoint),

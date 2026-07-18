@@ -195,7 +195,8 @@ def _seed_first_admin_with_password(db, password: str):
     db.add(admin_user); db.flush()
 
     # 分配 admin 角色
-    roles = {r.name: r.id for r in db.query(Role).all()}
+    # R3-P0-7 修复: 必须用 code(不是 name), seed 中 admin 的 code="admin"
+    roles = {r.code: r.id for r in db.query(Role).all()}
     admin_role_id = roles.get("admin")
     if admin_role_id and not db.query(UserRole).filter_by(
             user_id=admin_user.id, role_id=admin_role_id).first():

@@ -107,36 +107,51 @@ def setup_complete(body: SetupCompleteBody, db: Session = Depends(get_db)):
         db.add(org)
         db.flush()
 
-    # 创建管理员
-    admin_user = User(
-        username=body.username,
-        display_name="系统管理员",
-        password_hash=hash_password(body.password),
-        organization_id=org.id,
-        status="active",
-        is_seed=True,
-    )
-    db.add(admin_user)
-    db.flush()
+    # R3-P0-7 修复: 创建管理员 + 绑定角色 + 标记完成 必须原子事务
+    # 并发保护: 再次检查(防止两个请求同时通过 status 检查)
+    if _has_active_users(db):
+        raise HTTPException(409, "系统已有管理员, 首启向导不可用(并发保护)")
 
-    # 分配 admin 角色
-    admin_role = db.query(Role).filter_by(name="admin").first()
-    if admin_role and not db.query(UserRole).filter_by(
-            user_id=admin_user.id, role_id=admin_role.id).first():
-        db.add(UserRole(user_id=admin_user.id, role_id=admin_role.id))
+    try:
+        # 创建管理员
+        admin_user = User(
+            username=body.username,
+            display_name="系统管理员",
+            password_hash=hash_password(body.password),
+            organization_id=org.id,
+            status="active",
+            is_seed=True,
+        )
+        db.add(admin_user)
+        db.flush()
 
-    # 标记 setup 完成
-    config_row = db.query(SystemConfig).filter_by(config_key="setup_status").first()
-    if config_row:
-        config_row.config_value = "completed"
-    else:
-        db.add(SystemConfig(
-            config_key="setup_status",
-            config_value="completed",
-            description="首启设置状态(由首启向导完成)"
-        ))
+        # R3-P0-7 修复: 必须用 Role.code=="admin"(不是 name)
+        # seed 中 admin 的 code="admin", name="系统管理员"
+        admin_role = db.query(Role).filter_by(code="admin").first()
+        if not admin_role:
+            raise HTTPException(500, "admin 角色不存在, 请检查数据库种子是否完成")
+        if not db.query(UserRole).filter_by(
+                user_id=admin_user.id, role_id=admin_role.id).first():
+            db.add(UserRole(user_id=admin_user.id, role_id=admin_role.id))
 
-    db.commit()
+        # 标记 setup 完成
+        config_row = db.query(SystemConfig).filter_by(config_key="setup_status").first()
+        if config_row:
+            config_row.config_value = "completed"
+        else:
+            db.add(SystemConfig(
+                config_key="setup_status",
+                config_value="completed",
+                description="首启设置状态(由首启向导完成)"
+            ))
+
+        db.commit()
+    except HTTPException:
+        db.rollback()
+        raise
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(500, f"首启设置失败(已回滚): {e}")
     return {
         "success": True,
         "message": f"管理员 '{body.username}' 创建成功, 请使用该账号登录",

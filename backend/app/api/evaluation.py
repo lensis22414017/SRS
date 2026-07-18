@@ -30,18 +30,29 @@ def trigger_evaluation(site_id: int,
                        intensity: str = Query("medium"),
                        user: User = Depends(get_current_user),
                        db: Session = Depends(get_db)):
-    """v1.0.1 final-audit: t/intensity 从 body JSON 或 Query 参数接收(前端可调)。"""
+    """R3-P0-2: 评价 API 接收完整参数(allow_proxy/year/scenario/scope)。"""
     _require_site(db, user, site_id)
     # 优先从 body JSON 读(前端用 body 传参)
+    allow_proxy = False
+    evaluation_year = None
+    scenario = "production"
+    scope = "production"
     if payload:
         t = float(payload.get("t", t))
         intensity = payload.get("intensity", intensity)
+        allow_proxy = bool(payload.get("allow_proxy", False))
+        evaluation_year = payload.get("evaluation_year")
+        scenario = payload.get("scenario", "production")
+        scope = payload.get("scope", "production")
     # v1.0.1 final-audit: 统一强度枚举映射 weak→low, strong→high
     _INTENSITY_MAP = {"weak": "low", "medium": "medium", "strong": "high",
                       "low": "low", "high": "high"}
     intensity = _INTENSITY_MAP.get(intensity, "medium")
     try:
-        return run_evaluation(db, site_id, t=t, intensity=intensity)
+        return run_evaluation(db, site_id, t=t, intensity=intensity,
+                              allow_proxy=allow_proxy,
+                              evaluation_year=evaluation_year,
+                              scenario=scenario, scope=scope)
     except ValueError as e:
         raise HTTPException(404, str(e))
 

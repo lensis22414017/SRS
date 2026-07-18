@@ -139,8 +139,7 @@ export const api = {
     client.get(`/reports/${reportId}/download`, { responseType: "blob" }).then((r) => r.data as Blob),
 
   // 诊断 / 评价 / 推荐
-  diagnosis: (id: number) => client.get(`/sites/${id}/diagnosis`).then((r) => r.data),
-  runDiagnosis: (id: number) => client.post(`/sites/${id}/diagnosis`).then((r) => r.data),
+  // R3-P0-8: runDiagnosis 已删除(旧端点 410 废弃), 统一用 KOS 路径
   diagnosisHistory: (siteId: number) => client.get(`/sites/${siteId}/diagnoses`).then((r) => r.data),
   diagnosisDetail: (diagnosisId: number) => client.get(`/diagnoses/${diagnosisId}`).then((r) => r.data),
   // P4 KOS 诊断(三层输出: 明确障碍 + 关键障碍 + 补测建议)

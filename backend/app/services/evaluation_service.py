@@ -260,8 +260,10 @@ def _integrate_weighting_and_mice(means: dict, scope: str) -> dict:
 
 
 def run_evaluation(db: Session, site_id: int, t: float | None = None,
-                   intensity: str | None = None) -> dict:
-    """运行评价。t 和 intensity 默认从 evaluation_params.json 读取。"""
+                   intensity: str | None = None, allow_proxy: bool = False,
+                   evaluation_year: int | None = None, scenario: str = "production",
+                   scope: str = "production") -> dict:
+    """R3-P0-2/P0-4: 运行评价, 接收完整参数, 禁止跨年份拼数据。"""
     cfg = _load_eval_params().get("ssui", {})
     if t is None:
         t = cfg.get("t", 2.0)
@@ -279,19 +281,32 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
     ph = means.get("pH")
     data_version = current_site_data_version(db, site_id)
 
+    # R3-P0-3: SSUI 用专用评价输入指纹(含经济数据+参数), 不能只看 data_version
+    from app.services.versioning import evaluation_input_fingerprint
+    ssui_fingerprint = evaluation_input_fingerprint(
+        db, site_id, evaluation_year=evaluation_year, scenario=scenario,
+        scope=scope, t=t, intensity=intensity, allow_proxy=allow_proxy,
+        param_version=PARAM_VERSION)
+
     # 有机场地缺重金属评价元指标 → 走降级, 不算重构/SSUI 数值分(幂等检查前拦截)
     if site.pollution_type == "organic" and not any(n in means for n in HM_EVAL_FACTORS):
         return _evaluation_organic_degraded(db, site_id, site, series, means, data_version)
 
-    # brief 4.5 / D1: 追加式保留历史(旧实现 delete 全部旧评价 → 无历史)。
-    # 若三类 latest 的 data_version 都等于当前版本 → 数据未变(幂等), 直接返回不重算,
-    # 避免冗余累积; 数据变化时新增, 旧结果因 data_version 不同自动被 GET 判为 stale。
+    # brief 4.5 / D1: 追加式保留历史。
+    # R3-P0-3: reconstruction 用 data_version 判断; SSUI 用专用指纹判断
     existing_latest: dict[str, EvaluationResult] = {}
     for r in (db.query(EvaluationResult).filter_by(site_id=site_id)
               .order_by(EvaluationResult.id.desc()).all()):
         existing_latest.setdefault(r.eval_type, r)
-    if all(et in existing_latest and existing_latest[et].data_version == data_version
-           for et in ("reconstruction_prod", "reconstruction_eco", "ssui")):
+    # reconstruction 复用判断(只看检测数据版本)
+    recon_reusable = all(
+        et in existing_latest and existing_latest[et].data_version == data_version
+        for et in ("reconstruction_prod", "reconstruction_eco"))
+    # SSUI 复用判断(看评价输入指纹, 存在 param_version 字段里)
+    ssui_existing = existing_latest.get("ssui")
+    ssui_reusable = (ssui_existing is not None
+                     and ssui_existing.param_version == ssui_fingerprint)
+    if recon_reusable and ssui_reusable:
         return {
             "site_id": site_id, "data_version": data_version,
             "param_version": PARAM_VERSION, "reused": True,
@@ -386,28 +401,54 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
               explanation=r.get("explanation"))
         results[et] = r
 
-    # R3 审计第五类: 从 DB 查经济数据传入 SSUI 引擎
+    # R3-P0-2/P0-4: 从 DB 查经济数据, 锁定 site_id+year+scenario(禁止跨年份拼数据)
     from app.models import EconomicIndicator
-    econ_rows = (db.query(EconomicIndicator)
-                 .filter_by(site_id=site_id)
-                 .order_by(EconomicIndicator.evaluation_year.desc())
-                 .all())
+    econ_q = db.query(EconomicIndicator).filter_by(site_id=site_id)
+    if evaluation_year is not None:
+        econ_q = econ_q.filter_by(evaluation_year=evaluation_year)
+    else:
+        # 未指定年份 → 取最新年份(整体锁定, 不各自取最新)
+        latest_year = db.query(EconomicIndicator.evaluation_year).filter_by(
+            site_id=site_id).order_by(
+            EconomicIndicator.evaluation_year.desc()).first()
+        if latest_year:
+            evaluation_year = latest_year[0]
+            econ_q = econ_q.filter_by(evaluation_year=evaluation_year)
+    # R3-P0-4: 锁定 scenario(禁止跨场景拼数据)
+    econ_q = econ_q.filter_by(scenario=scenario)
+    econ_rows = econ_q.all()
     economic_data = {}
-    allow_proxy = False
     for er in econ_rows:
         code = er.indicator_code
-        if code not in economic_data:  # 取最新年份的每项
-            economic_data[code] = {
-                "value": er.raw_value,
-                "source_type": er.source_type,
-                "is_proxy": er.is_proxy,
-                "unit": er.unit,
-            }
-            if er.is_proxy or er.source_type in ("regional_official_proxy", "test_fixture"):
-                allow_proxy = True  # 有 proxy 数据时标记(但 evaluate 默认不 allow, 需用户勾选)
+        economic_data[code] = {
+            "value": er.raw_value,
+            "source_type": er.source_type,
+            "is_proxy": er.is_proxy,
+            "unit": er.unit,
+        }
 
-    s = S.evaluate(series, scope="production", t=t, intensity=intensity,
-                   economic_data=economic_data, allow_proxy=False)
+    # R3-P0-5: 从 DB 查标准阈值传给 SSUI 引擎(D16/D17 综合风险归一化)
+    safety_thresholds = {}
+    try:
+        from app.models import StandardThreshold
+        from app.services.threshold_resolver import _CANONICAL_TO_DB_NAME
+        # 查重金属+有机物的筛选值
+        thr_rows = db.query(StandardThreshold).filter(
+            StandardThreshold.exposure_scenario.in_(["production", "ecology"])).all()
+        # 构建 {中文名: {"limit": float, "type": "upper"}}
+        hm_names = {"砷", "铅", "镉", "铬", "汞", "铜", "锌", "镍"}
+        for tr in thr_rows:
+            if tr.factor_name in hm_names:
+                limit = tr.screening_value or tr.control_value
+                if limit:
+                    safety_thresholds[tr.factor_name] = {"limit": float(limit), "type": "upper"}
+    except Exception:
+        pass  # 阈值查询失败不阻断评价
+
+    # R3-P0-2: scope 和 allow_proxy 由参数传入(不再硬编码)
+    s = S.evaluate(series, scope=scope, t=t, intensity=intensity,
+                   economic_data=economic_data, allow_proxy=allow_proxy,
+                   safety_thresholds=safety_thresholds)
     ssui_dimensions = dict(s.get("dimensions") or {})
     ssui_dimensions["calculation_trace"] = s.get("calculation_trace", [])
     # R3: 把经济指标详情也存入 dimensions 供前端展示
@@ -417,10 +458,11 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
         ssui_dimensions["coverage"] = s["coverage"]
     ssui_dimensions["is_blocked"] = s.get("is_blocked", False)
     ssui_dimensions["is_reference"] = s.get("is_reference", False)
+    # R3-P0-3: SSUI 存专用指纹到 param_version(复用判断依据)
     _save(db, site_id, "ssui", data_version, s.get("ssui"), s.get("grade"),
           dimensions=ssui_dimensions, weights=s.get("weights"),
           limiting=s.get("limiting_factors"), risk=s.get("risk_factors"),
-          explanation=s.get("explanation"))
+          explanation=s.get("explanation"), param_version=ssui_fingerprint)
     results["ssui"] = s
 
     # brief 4.5/M4: 追加式但限累积——每 eval_type 保留最近 10 个, 防止反复评价膨胀
@@ -445,9 +487,10 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
 
 
 def _save(db, site_id, eval_type, data_version, score, grade,
-          dimensions=None, weights=None, limiting=None, risk=None, explanation=None):
+          dimensions=None, weights=None, limiting=None, risk=None, explanation=None,
+          param_version=None):
     db.add(EvaluationResult(
         site_id=site_id, eval_type=eval_type, data_version=data_version,
-        param_version=PARAM_VERSION, score=score, grade=grade,
+        param_version=param_version or PARAM_VERSION, score=score, grade=grade,
         dimensions=dimensions, weights=weights,
         limiting_factors=limiting, risk_factors=risk, explanation=explanation))

@@ -14,7 +14,56 @@ import json
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
-from app.models import ImportBatch, Measurement
+from app.models import ImportBatch, Measurement, EconomicIndicator, EconomicRawInput
+
+
+def evaluation_input_fingerprint(db: Session, site_id: int,
+                                  evaluation_year: int | None = None,
+                                  scenario: str = "production",
+                                  scope: str = "production",
+                                  t: float = 2.0, intensity: str = "medium",
+                                  allow_proxy: bool = False,
+                                  param_version: str = "") -> str:
+    """R3-P0-3: 评价输入指纹(用于 SSUI 缓存复用判断)。
+
+    包含:
+      - measurement_data_version(检测数据版本)
+      - D18-D25 经济数据内容哈希(锁定 year+scenario)
+      - 原始经济汇总值哈希
+      - scope/t/intensity/allow_proxy(评价参数)
+      - param_version(参数文件版本)
+
+    只有指纹完全相同才允许复用旧 SSUI 结果。
+    经济数据增删改后指纹变化 → 旧 SSUI 自动 stale。
+    """
+    import hashlib as _hl
+    # 1. 检测数据版本
+    meas_version = current_site_data_version(db, site_id)
+    # 2. 经济指标内容哈希(锁定 year+scenario)
+    econ_q = db.query(EconomicIndicator).filter_by(site_id=site_id, scenario=scenario)
+    if evaluation_year is not None:
+        econ_q = econ_q.filter_by(evaluation_year=evaluation_year)
+    econ_rows = econ_q.order_by(
+        EconomicIndicator.indicator_code, EconomicIndicator.updated_at.desc()).all()
+    econ_content = json.dumps([{
+        "code": r.indicator_code, "value": r.raw_value, "unit": r.unit,
+        "source_type": r.source_type, "is_proxy": r.is_proxy,
+        "updated_at": str(r.updated_at or r.created_at),
+    } for r in econ_rows], sort_keys=True, ensure_ascii=False)
+    econ_hash = _hl.sha256(econ_content.encode("utf-8")).hexdigest()[:12] if econ_rows else "no_econ"
+    # 3. 原始汇总值哈希
+    raw_q = db.query(EconomicRawInput).filter_by(site_id=site_id, scenario=scenario)
+    if evaluation_year is not None:
+        raw_q = raw_q.filter_by(evaluation_year=evaluation_year)
+    raw_rows = raw_q.all()
+    raw_content = json.dumps([{
+        "area": r.area_hectare, "yield": r.yield_kg,
+        "gross_output": r.gross_output_yuan, "total_cost": r.total_cost_yuan,
+    } for r in raw_rows], sort_keys=True, ensure_ascii=False)
+    raw_hash = _hl.sha256(raw_content.encode("utf-8")).hexdigest()[:8] if raw_rows else "no_raw"
+    # 4. 组合指纹
+    fp_str = f"{meas_version}|econ={econ_hash}|raw={raw_hash}|{scope}|t={t}|{intensity}|proxy={allow_proxy}|pv={param_version}"
+    return _hl.sha256(fp_str.encode("utf-8")).hexdigest()[:20]
 
 
 def compute_source_sha256(path: str) -> str:

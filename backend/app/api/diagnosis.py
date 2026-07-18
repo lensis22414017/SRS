@@ -352,6 +352,65 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
 
     result["site_id"] = site_id
     result["site_name"] = site.name
+
+    # R3-P0-8 修复: KOS 诊断结果持久化(写 DiagnosisResult + DiagnosisFactorDetail)
+    # 刷新页面后历史列表能看到, 报告导出也能读取
+    try:
+        from app.services.versioning import current_site_data_version
+        kos_data_version = current_site_data_version(db, site_id)
+        # 删除该场地旧的 KOS 诊断记录(保留 RF+SHAP 旧记录, 用 status 区分)
+        db.query(DiagnosisResult).filter_by(
+            site_id=site_id, status="kos_done").delete(synchronize_session=False)
+        diag = DiagnosisResult(
+            site_id=site_id,
+            data_version=kos_data_version,
+            top_n=top_n,
+            summary=f"KOS诊断({track}/{subset}): {len(result.get('key_obstacles', []))} 个关键障碍",
+            shap_global={
+                "kos_result": True,
+                "track": track, "subset": subset,
+                "key_obstacles": result.get("key_obstacles", []),
+                "model_contribution": result.get("model_contribution", []),
+                "factor_statistics": result.get("factor_statistics", {}),
+                "open_set_summary": result.get("open_set_summary", {}),
+                "coverage": result.get("coverage", 0),
+                "unmapped_factors": result.get("unmapped_factors", []),
+                "data_quality_flags": result.get("data_quality_flags", []),
+                "per_point_data": result.get("per_point_data", []),
+                "review_required": result.get("review_required", False),
+                "ambiguous_threshold_factors": result.get("ambiguous_threshold_factors", []),
+            },
+            status="kos_done",
+            human_review_triggered=result.get("review_required", False),
+            review_reason="KOS启发式阈值需复核" if result.get("review_required") else None,
+        )
+        db.add(diag)
+        db.flush()
+        # 写 key_obstacles 的因子明细(DiagnosisFactorDetail)
+        canonical_to_raw = result.get("_canonical_to_raw", {})
+        for rank, ko in enumerate(result.get("key_obstacles", [])[:top_n], 1):
+            canon = ko.get("factor", "")
+            raw_name = canonical_to_raw.get(canon, canon)
+            # 反查 FactorDictionary.id
+            fd = db.query(FactorDictionary).filter(
+                (FactorDictionary.factor_code == canon) |
+                (FactorDictionary.factor_name == raw_name)).first()
+            if fd:
+                db.add(DiagnosisFactorDetail(
+                    diagnosis_id=diag.id,
+                    factor_id=fd.id,
+                    importance=ko.get("importance", 0),
+                    shap_value=ko.get("KOS", 0),  # 复用字段存 KOS 分值
+                    direction=ko.get("direction", ""),
+                    rank=rank,
+                ))
+        db.commit()
+        result["diagnosis_id"] = diag.id  # 供前端引用
+    except Exception as e:
+        db.rollback()
+        result.setdefault("data_quality_flags", []).append(
+            f"kos_persistence_failed: {type(e).__name__}: {str(e)[:100]}")
+
     return result
 
 

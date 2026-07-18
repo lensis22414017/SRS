@@ -30,7 +30,6 @@ export default function ObstacleAnalysis() {
   const [sid, setSid] = useState<number>();
   const [diag, setDiag] = useState<any>(null);
   const [site, setSite] = useState<any>(null);
-  const [busy, setBusy] = useState(false);
   const [landUse, setLandUse] = useState<string>("生产用地");
   const [historyList, setHistoryList] = useState<any[]>([]);
   const [historyId, setHistoryId] = useState<number | null>(null);
@@ -42,10 +41,11 @@ export default function ObstacleAnalysis() {
 
   const load = (id?: number, diagnosisId?: number | null) => {
     const s = id ?? sid; if (!s) return;
+    // R3-P0-8: 旧 api.diagnosis(GET /diagnosis) 已废弃, 改为从历史取最新
     const diagPromise = diagnosisId
       ? api.diagnosisDetail(diagnosisId)
-      : api.diagnosis(s);
-    diagPromise.then(setDiag).catch(() => setDiag(null));
+      : api.diagnosisHistory(s).then((list: any[]) => list[0] ? api.diagnosisDetail(list[0].id) : null);
+    diagPromise.then((d: any) => setDiag(d)).catch(() => setDiag(null));
     api.site(s).then((d: any) => {
       setSite(d);
       setLandUse(d.land_use_type || "生产用地");
@@ -66,14 +66,7 @@ export default function ObstacleAnalysis() {
     } catch (e: any) { message.error(e?.response?.data?.detail || "用途切换失败"); }
   };
 
-  const run = async () => {
-    if (!sid) return;
-    setBusy(true);
-    try { await api.runDiagnosis(sid); message.success("诊断完成"); load(sid); }
-    catch (e: any) { message.error(e?.response?.data?.detail || "诊断失败"); }
-    finally { setBusy(false); }
-  };
-
+  // R3-P0-8: 旧 run() 已删除(调废弃 410 端点), 统一用 KOS 路径
   // P4 KOS 诊断(三层输出: 明确障碍 + 关键障碍 + 补测建议)
   const runKos = async (track?: "prod" | "eco") => {
     if (!sid) return;
