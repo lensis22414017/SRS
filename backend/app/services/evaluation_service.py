@@ -386,9 +386,37 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
               explanation=r.get("explanation"))
         results[et] = r
 
-    s = S.evaluate(series, scope="production", t=t, intensity=intensity)
+    # R3 审计第五类: 从 DB 查经济数据传入 SSUI 引擎
+    from app.models import EconomicIndicator
+    econ_rows = (db.query(EconomicIndicator)
+                 .filter_by(site_id=site_id)
+                 .order_by(EconomicIndicator.evaluation_year.desc())
+                 .all())
+    economic_data = {}
+    allow_proxy = False
+    for er in econ_rows:
+        code = er.indicator_code
+        if code not in economic_data:  # 取最新年份的每项
+            economic_data[code] = {
+                "value": er.raw_value,
+                "source_type": er.source_type,
+                "is_proxy": er.is_proxy,
+                "unit": er.unit,
+            }
+            if er.is_proxy or er.source_type in ("regional_official_proxy", "test_fixture"):
+                allow_proxy = True  # 有 proxy 数据时标记(但 evaluate 默认不 allow, 需用户勾选)
+
+    s = S.evaluate(series, scope="production", t=t, intensity=intensity,
+                   economic_data=economic_data, allow_proxy=False)
     ssui_dimensions = dict(s.get("dimensions") or {})
     ssui_dimensions["calculation_trace"] = s.get("calculation_trace", [])
+    # R3: 把经济指标详情也存入 dimensions 供前端展示
+    if s.get("economic_details"):
+        ssui_dimensions["economic_details"] = s["economic_details"]
+    if s.get("coverage"):
+        ssui_dimensions["coverage"] = s["coverage"]
+    ssui_dimensions["is_blocked"] = s.get("is_blocked", False)
+    ssui_dimensions["is_reference"] = s.get("is_reference", False)
     _save(db, site_id, "ssui", data_version, s.get("ssui"), s.get("grade"),
           dimensions=ssui_dimensions, weights=s.get("weights"),
           limiting=s.get("limiting_factors"), risk=s.get("risk_factors"),

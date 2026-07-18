@@ -36,18 +36,44 @@ def _load():
 
 
 def _minmax(vals, negative=False):
-    """场内 Min-Max 归一化(注: 方法学要求跨场地锚点, MVP 用场内)。"""
+    """场内 Min-Max 归一化(D1-D17 安全性指标用, 依赖同一场地多点数据)。
+
+    R3 审计第五类: 删除 min=max→0.5 的逻辑(单值/常量退化为 0.5 无评价意义)。
+    当 min=max 时返回 None 并标记 insufficient_variance, 上游不纳入该指标。
+    """
     vals = [v for v in vals if v is not None]
     if not vals:
         return None
     lo, hi = min(vals), max(vals)
     if hi == lo:
-        norm = [0.5] * len(vals)
-    else:
-        norm = [(v - lo) / (hi - lo) for v in vals]
-        if negative:
-            norm = [1 - x for x in norm]
+        # R3: min=max 时不再返回 0.5, 改为 None(方差不足, 不纳入评价)
+        return None
+    norm = [(v - lo) / (hi - lo) for v in vals]
+    if negative:
+        norm = [1 - x for x in norm]
     return sum(norm) / len(norm)
+
+
+def _normalize_economic(indicator_code: str, raw_value: float, params: dict) -> float | None:
+    """经济指标参照区间归一化(R3 审计第五类)。
+
+    使用 official reference ranges 的 min/max 作为锚点(非场内 Min-Max):
+      normalized = (raw - min) / (max - min)
+    负向指标(cost 类)取反: normalized = 1 - normalized
+    超出范围的值用 clip 截断到 [0, 1], 但保留原始值供审计追溯。
+    """
+    ref = params.get("economic_reference_ranges", {}).get("ranges", {}).get(indicator_code)
+    if not ref:
+        return None
+    lo, hi = ref.get("min"), ref.get("max")
+    if lo is None or hi is None or hi == lo:
+        return None
+    normalized = (raw_value - lo) / (hi - lo)
+    if ref.get("direction") == "negative":
+        normalized = 1 - normalized
+    # clip 到 [0, 1](原始值可能在参照区间外, 截断后仍在合法范围)
+    normalized = max(0.0, min(1.0, normalized))
+    return normalized
 
 
 def _pick_M(params, scope: str, intensity: str):
@@ -93,100 +119,176 @@ D_TO_FACTORS = {
     "D15_土壤表面粗糙度": ["表面粗糙度"],
     "D16_重金属污染物": ["砷", "铅", "镉", "铬", "汞", "铜", "锌", "镍"],
     "D17_有机污染物": ["苯并[a]芘", "六六六", "滴滴涕", "石油烃"],
-    # D18-D25 经济性指标(本系统通常无数据)
+    # D18-D25 经济性指标(R3 审计: 口径修正后的正式定义)
+    # D22 旧名"土地生产率" → "单位面积总产值"; D25 旧名"土地产出系数" → "单位面积实物产量"
     "D18_劳动力成本": [],
     "D19_机械化成本": [],
     "D20_土地成本": [],
     "D21_非机械化成本": [],
-    "D22_土地生产率": [],
+    "D22_单位面积总产值": [],
     "D23_效益费用比": [],
     "D24_人均可支配收入": [],
-    "D25_土地产出系数": [],
+    "D25_单位面积实物产量": [],
 }
 
 NEGATIVE_METAS = {"D1_土壤含盐量", "D16_重金属污染物", "D17_有机污染物"}
 
 
 def evaluate(series: dict, scope: str = "production", t: float = 2.0,
-             intensity: str = "medium") -> dict:
-    """v1.0.2: SSUI 完整 25 项评价。
+             intensity: str = "medium", economic_data: dict | None = None,
+             allow_proxy: bool = False) -> dict:
+    """v1.0.2 + R3: SSUI 完整 25 项评价。
 
-    series: {factor_code: [跨采样点数值]}。
-    scope: production/ecology。
-    t: 评价期跨度(年), 前端让用户选择(GPT 6.5)。
-    intensity: 管理强度 low/medium/high。
+    series: {factor_code: [跨采样点数值]} — D1-D17 安全性指标。
+    economic_data: {indicator_code: {"value": float, "source_type": str, ...}} — D18-D25 经济指标。
+    allow_proxy: 是否允许 proxy 数据生成参考 SSUI(默认 False, 只允许 site_actual)。
 
-    GPT 6.4: 风险/经济数据缺失 → SSUI=N/A, 不用总分回填。
+    R3 审计第五类:
+      - D18-D25 用参照区间归一化(非场内 Min-Max)
+      - 正式 SSUI 要求 8/8 经济指标齐全且 source_type=site_actual
+      - 缺经济数据返回 blocked + missing_indicators(不伪造)
     """
     params = _load()
     scope_key = "production" if scope == "production" else "ecology"
     meta_w = params[scope_key].get("meta_weights_25", {})
+    economic_data = economic_data or {}
 
     # 按准则层分组计算
     groups = {"限制因子C1": [], "风险因子C2": [], "经济成本C3": [], "经济效益C4": []}
+    # R3: 收集经济指标归一化详情(供前端展示+审计追溯)
+    economic_details = []
 
+    # D1-D17: 安全性指标(场内 Min-Max, 从 series 取值)
+    # R3: 用精确前缀匹配, 避免 "D1" 误匹配 "D18"
+    SAFETY_PREFIXES = ("D1_", "D2_", "D3_", "D4_", "D5_", "D6_", "D7_", "D8_",
+                       "D9_", "D10_", "D11_", "D12_", "D13_", "D14_", "D15_",
+                       "D16_", "D17_")
     for d_code, factor_list in D_TO_FACTORS.items():
+        if any(d_code.startswith(p) for p in SAFETY_PREFIXES):
+            w_info = meta_w.get(d_code)
+            if not w_info:
+                continue
+            criterion = w_info.get("criterion", "")
+            weight = w_info.get("weight", 0)
+            vals = None
+            for fc in factor_list:
+                if fc in series and any(x is not None for x in series[fc]):
+                    vals = series[fc]
+                    break
+            if vals is not None:
+                norm = _minmax(vals, negative=(d_code in NEGATIVE_METAS))
+                if norm is not None:
+                    groups[criterion].append((d_code, round(norm, 4), weight, "measured"))
+                else:
+                    # R3: min=max→None, 方差不足不纳入
+                    groups[criterion].append((d_code, None, weight, "insufficient_variance"))
+            else:
+                groups[criterion].append((d_code, None, weight, "missing"))
+
+    # D18-D25: 经济指标(参照区间归一化, 从 economic_data 取值)
+    ECONOMIC_CODES = {
+        "D18_劳动力成本": "D18", "D19_机械化成本": "D19",
+        "D20_土地成本": "D20", "D21_非机械化成本": "D21",
+        "D22_单位面积总产值": "D22", "D23_效益费用比": "D23",
+        "D24_人均可支配收入": "D24", "D25_单位面积实物产量": "D25",
+    }
+    economic_source_types = set()
+    for d_code, short_code in ECONOMIC_CODES.items():
         w_info = meta_w.get(d_code)
         if not w_info:
             continue
         criterion = w_info.get("criterion", "")
         weight = w_info.get("weight", 0)
-
-        # 找可得因子数据
-        vals = None
-        for fc in factor_list:
-            if fc in series and any(x is not None for x in series[fc]):
-                vals = series[fc]
-                break
-
-        if vals is not None:
-            norm = _minmax(vals, negative=(d_code in NEGATIVE_METAS))
+        ed = economic_data.get(short_code) or economic_data.get(d_code)
+        if ed and isinstance(ed, dict) and ed.get("value") is not None:
+            raw_val = ed["value"]
+            st = ed.get("source_type", "site_actual")
+            economic_source_types.add(st)
+            norm = _normalize_economic(short_code, raw_val, params)
             if norm is not None:
                 groups[criterion].append((d_code, round(norm, 4), weight, "measured"))
+                economic_details.append({
+                    "code": short_code, "name": d_code,
+                    "raw_value": raw_val, "normalized": round(norm, 4),
+                    "source_type": st, "is_proxy": ed.get("is_proxy", False),
+                    "unit": ed.get("unit", ""),
+                })
+            else:
+                groups[criterion].append((d_code, None, weight, "normalization_failed"))
         else:
-            # 未测
             groups[criterion].append((d_code, None, weight, "missing"))
 
-    # v1.0.2(GPT 6.4): 风险/经济数据缺失检查
+    # R3 审计第五类: 风险/经济数据缺失检查 + 8/8 经济齐全门禁
     c2_measured = [g for g in groups["风险因子C2"] if g[3] == "measured"]
     c3_measured = [g for g in groups["经济成本C3"] if g[3] == "measured"]
     c4_measured = [g for g in groups["经济效益C4"] if g[3] == "measured"]
+    economic_measured_count = len(c3_measured) + len(c4_measured)
 
-    # 如果风险因子或经济效益完全无数据 → SSUI=N/A(GPT 6.4)
+    # 如果风险因子或经济效益完全无数据 → SSUI=blocked
     has_risk_data = len(c2_measured) > 0
-    has_economic_data = len(c3_measured) > 0 or len(c4_measured) > 0
+    has_economic_data = economic_measured_count > 0
 
-    if not has_risk_data or not has_economic_data:
+    # R3: 检查是否全部 8 项经济指标齐全
+    economic_missing = [g[0] for g in groups["经济成本C3"] + groups["经济效益C4"] if g[3] != "measured"]
+    economic_all_present = economic_measured_count == 8 and len(economic_missing) == 0
+
+    # R3: 检查数据来源(只有 site_actual 能生成正式 SSUI)
+    has_only_site_actual = economic_source_types.issubset({"site_actual"}) if economic_source_types else False
+    has_proxy = bool(economic_source_types & {"regional_official_proxy", "official_national_reference", "test_fixture"})
+
+    if not has_risk_data or not has_economic_data or not economic_all_present:
         missing_dims = []
         if not has_risk_data:
             missing_dims.append("风险因子C2")
         if not has_economic_data:
             missing_dims.append("经济成本C3/经济效益C4")
+        elif not economic_all_present:
+            missing_dims.append(f"经济指标不完整(缺 {len(economic_missing)} 项: {', '.join(economic_missing[:3])})")
         return {
-            "scope": scope, "ssui": None, "grade": "N/A(数据不足)",
+            "scope": scope, "ssui": None, "grade": "blocked(数据不足)",
             "dimensions": {k: [g for g in v if g[3] == "measured"] for k, v in groups.items()},
-            "explanation": f"SSUI=N/A。缺失维度: {', '.join(missing_dims)}。"
+            "explanation": f"SSUI=blocked。缺失: {', '.join(missing_dims)}。"
                            f"方法学要求安全性(含风险因子)+经济性双重数据, "
-                           f"当前场地缺{'风险' if not has_risk_data else ''}"
-                           f"{'+' if not has_risk_data and not has_economic_data else ''}"
-                           f"{'经济' if not has_economic_data else ''}数据, "
-                           f"无法计算完整 SSUI(25项指标)。建议补充缺失维度数据。",
+                           f"且 D18-D25 经济指标需 8/8 齐全才能生成正式 SSUI。"
+                           f"当前经济指标 {economic_measured_count}/8 项已提供。"
+                           f"建议通过经济数据录入或 Excel 导入补齐缺失指标。",
             "calculation_trace": [
                 f"① 25项元指标数据覆盖检查:",
                 f"  限制因子C1: {len([g for g in groups['限制因子C1'] if g[3]=='measured'])} 项已测",
                 f"  风险因子C2: {len(c2_measured)} 项已测",
                 f"  经济成本C3: {len(c3_measured)} 项已测",
                 f"  经济效益C4: {len(c4_measured)} 项已测",
-                f"② 缺失维度: {', '.join(missing_dims)} → SSUI=N/A(GPT 6.4)",
+                f"② 缺失经济指标: {economic_missing}",
+                f"③ 门禁: D18-D25 需 8/8 齐全(当前 {economic_measured_count}/8) → SSUI=blocked",
             ],
             "is_na": True,
+            "is_blocked": True,
             "missing_dimensions": missing_dims,
+            "missing_indicators": economic_missing,
             "d_coverage": {
                 "C1": len([g for g in groups["限制因子C1"] if g[3] == "measured"]),
                 "C2": len(c2_measured),
                 "C3": len(c3_measured),
                 "C4": len(c4_measured),
             },
+            "economic_details": economic_details,
+            "normalization_version": params.get("economic_reference_ranges", {}).get("version", "unknown"),
+        }
+
+    # R3 审计第五类: proxy 数据门禁
+    # 经济数据齐全但来自 proxy → 生成参考 SSUI(标记 is_reference)
+    # is_reference: 只要数据含 proxy 且被允许使用, 结果就是参考评价
+    is_reference = has_proxy and allow_proxy
+    if has_proxy and not has_only_site_actual and not allow_proxy:
+        # proxy 数据但用户未勾选 allow_proxy → 返回 blocked, 提示用户主动选择
+        return {
+            "scope": scope, "ssui": None, "grade": "blocked(需确认代理数据)",
+            "is_na": True, "is_blocked": True,
+            "explanation": "经济数据包含区域代理/官方参照数据, 但用户未勾选'使用区域代理数据'。"
+                           "请在 SSUI 页面勾选后重新运行, 或录入场地真实经济数据。",
+            "missing_dimensions": ["经济数据来源需确认"],
+            "has_proxy_data": True,
+            "economic_details": economic_details,
         }
 
     # 有风险+经济数据 → 计算完整 SSUI
@@ -213,7 +315,24 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
     M = _pick_M(params, scope, intensity)
     raw_ssui = (b1 * 0.5 + b2 * 0.5) * ft * M
     ssui = round(min(raw_ssui, 1.0), 4)
-    grade = _grade(ssui, params)
+
+    # R3: proxy 数据标记(参考评价, 不是正式结论)
+    if is_reference:
+        grade = f"参考评价({_grade(ssui, params)})"
+    else:
+        grade = _grade(ssui, params)
+
+    # R3: 构建 parts 数组(供前端图表渲染, 修复契约断裂)
+    parts = []
+    for criterion_name, criterion_parts in groups.items():
+        for p in criterion_parts:
+            if p[3] == "measured":
+                parts.append({
+                    "meta": p[0], "normalized": p[1], "weight": p[2],
+                    "criterion": criterion_name,
+                })
+
+    ref_version = params.get("economic_reference_ranges", {}).get("version", "unknown")
 
     return {
         "scope": scope, "ssui": ssui, "grade": grade,
@@ -225,22 +344,36 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
             "SC3_cost": round(sc.get("经济成本C3", 0), 4),
             "SC4_benefit": round(sc.get("经济效益C4", 0), 4),
             "f_t": round(ft, 3), "M": M, "t": t,
+            "parts": parts,  # R3: 修复前端 parts 契约
         },
         "weights": cw,
         "is_na": False,
+        "is_reference": is_reference,
+        "is_blocked": False,
+        "source_type": "regional_official_proxy" if is_reference else "site_actual",
+        "is_proxy": is_reference,
+        "confidence": 0.6 if is_reference else 0.9,
+        "coverage": {
+            "economic_measured": economic_measured_count,
+            "economic_total": 8,
+            "economic_complete": economic_all_present,
+        },
+        "economic_details": economic_details,
+        "normalization_version": ref_version,
         "calculation_trace": [
             f"① 25项元指标按4个准则层分组计算(限制因子/风险因子/经济成本/经济效益)",
-            f"② 各准则层组内加权(MVP场内Min-Max归一化): SC1={round(sc.get('限制因子C1',0),4)}, SC2={round(sc.get('风险因子C2',0),4)}, "
+            f"② D1-D17 安全性: 场内Min-Max归一化; D18-D25 经济: 参照区间归一化({ref_version})",
+            f"③ 各准则层组内加权: SC1={round(sc.get('限制因子C1',0),4)}, SC2={round(sc.get('风险因子C2',0),4)}, "
             f"SC3={round(sc.get('经济成本C3',0),4)}, SC4={round(sc.get('经济效益C4',0),4)}",
-            f"③ B1安全性={round(b1,4)}, B2经济性={round(b2,4)}",
-            f"④ f(t)=1+0.03×{t}={round(ft,3)}, M={M}",
-            f"⑤ SSUI=(B1×0.5+B2×0.5)×f(t)×M={round(raw_ssui,4)}→min(,1.0)={ssui}",
-            f"⑥ 等级: {grade}",
-            f"⑦ 口径说明: MVP用场内Min-Max归一化, 准则层权重来自方法学; "
-            f"跨场地锚点/PCA降维/博弈论赋权需多场地数据(后续版本)",
+            f"④ B1安全性={round(b1,4)}, B2经济性={round(b2,4)}",
+            f"⑤ f(t)=1+0.03×{t}={round(ft,3)}, M={M}",
+            f"⑥ SSUI=(B1×0.5+B2×0.5)×f(t)×M={round(raw_ssui,4)}→min(,1.0)={ssui}",
+            f"⑦ 等级: {grade}",
+            f"⑧ 数据来源: {'区域代理数据(参考评价)' if is_reference else '场地实测数据(正式评价)'}",
         ],
-        "explanation": f"SSUI(25项完整口径,MVP场内归一化)={ssui}({grade})。"
+        "explanation": f"SSUI(25项完整口径)={ssui}({grade})。"
                        f"B1安全性={round(b1,4)}, B2经济性={round(b2,4)}, f(t)={round(ft,3)}, M={M}。"
-                       f"基于方法学25项元指标(D1-D25)。"
-                       f"当前为MVP口径(场内Min-Max), 跨场地可比性待后续版本。",
+                       f"基于方法学25项元指标(D1-D25), 经济指标用{ref_version}参照区间归一化。"
+                       + ("当前为参考评价(基于区域代理数据), 不作为场地正式结论。" if is_reference
+                          else "当前为正式评价(基于场地实测经济数据)。"),
     }

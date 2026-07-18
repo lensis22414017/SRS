@@ -15,6 +15,7 @@ from fastapi.responses import FileResponse, HTMLResponse
 from app.api.ai import router as ai_router
 from app.api.auth import router as auth_router
 from app.api.setup import router as setup_router
+from app.api.economic import router as economic_router
 from app.api.backup import router as backup_router  # v1.0.2: 备份恢复
 from app.api.data import router as data_router
 from app.api.diagnosis import router as diagnosis_router
@@ -170,6 +171,7 @@ app.add_middleware(
 # ── API 路由 ──────────────────────────────────────────────────────
 app.include_router(auth_router)
 app.include_router(setup_router)  # R3 审计第六类: 首启管理员设置向导
+app.include_router(economic_router)  # R3 审计第五类: SSUI D18-D25 经济数据
 app.include_router(data_router)
 app.include_router(diagnosis_router)
 app.include_router(evaluation_router)

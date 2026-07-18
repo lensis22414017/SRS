@@ -38,7 +38,7 @@ def test_ssui_25_metrics_structure():
 
 
 def test_ssui_na_when_missing_economic():
-    """缺经济数据 → SSUI=N/A(GPT 6.4)。"""
+    """缺经济数据 → SSUI=blocked(R3 审计第五类, 不再叫 N/A)。"""
     from ssui import evaluate
     # 只有土壤数据(C1+C2), 无经济数据
     series = {
@@ -47,8 +47,8 @@ def test_ssui_na_when_missing_economic():
         "砷": [10, 30, 50],
     }
     result = evaluate(series, scope="production", t=2.0, intensity="medium")
-    assert result.get("is_na") is True, "缺经济数据应 SSUI=N/A"
-    assert result["grade"] == "N/A(数据不足)"
+    assert result.get("is_na") is True, "缺经济数据应 SSUI=blocked"
+    assert result.get("is_blocked") is True, "缺经济数据应 blocked"
     assert result["ssui"] is None
     assert "经济" in str(result.get("missing_dimensions", []))
 

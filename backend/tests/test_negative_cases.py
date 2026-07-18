@@ -43,12 +43,13 @@ def test_low_coverage_insufficient(fresh_db):
 
 
 def test_ssui_na_without_economic(fresh_db):
-    """SSUI 缺经济数据 → N/A(GPT 6.4)。"""
+    """SSUI 缺经济数据 → blocked(R3 审计第五类)。"""
     sys.path.insert(0, os.path.join(BACKEND, "..", "ml", "evaluation"))
     from ssui import evaluate as ssui_evaluate
     result = ssui_evaluate({"pH": [6.5], "有机质": [30]}, scope="production")
     assert result.get("is_na") is True
-    assert result["grade"] == "N/A(数据不足)"
+    assert result.get("is_blocked") is True
+    assert result["ssui"] is None
 
 
 def test_kos_ph_missing_still_identifies_obstacles(fresh_db):

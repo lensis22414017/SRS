@@ -194,6 +194,25 @@ export default function SSUIAnalysis() {
           limitingFactors={s?.limiting_factors}
           explanation={s?.explanation}
           title="SSUI 可持续利用评价 — 不适用(有机污染场地)" />
+      ) : showResult && (s?.dimensions?.is_blocked || s?.grade?.startsWith("blocked")) ? (
+        <Card title="土壤持续利用度（SSUI）评价 — 数据不足">
+          <Alert type="warning" showIcon style={{ marginBottom: 16 }}
+            message="SSUI 评价受阻: 经济数据不完整"
+            description={s?.explanation || "D18-D25 经济指标需 8/8 齐全才能生成正式 SSUI。请录入场地经济数据。"} />
+          {s?.dimensions?.coverage && (
+            <div style={{ marginBottom: 16 }}>
+              <Text strong>经济指标覆盖: </Text>
+              <Tag color={s.dimensions.coverage.economic_complete ? "green" : "orange"}>
+                {s.dimensions.coverage.economic_measured}/{s.dimensions.coverage.economic_total}
+              </Tag>
+            </div>
+          )}
+          {trace.length > 0 && (
+            <Card size="small" title="计算追溯" style={{ marginTop: 16 }}>
+              <Timeline items={trace.map((t: string, i: number) => ({ children: t, key: i }))} />
+            </Card>
+          )}
+        </Card>
       ) : showResult ? (
         <Card title="土壤持续利用度（SSUI）评价"
           extra={<Text type="secondary" style={{ fontSize: 12 }}>本次运行 ｜ 数据版本 {s?.data_version} ｜ 参数版本 {s?.param_version} ｜ {s?.created_at}</Text>}>

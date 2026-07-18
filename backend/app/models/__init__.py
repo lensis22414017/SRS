@@ -463,6 +463,77 @@ class AuditLog(Base, TimestampMixin):
     detail: Mapped[dict | None] = mapped_column(JSON, nullable=True)
 
 
+# ---------------- SSUI 经济指标 ----------------
+class EconomicIndicator(Base, TimestampMixin):
+    """SSUI D18-D25 经济指标数据(R3 审计第五类)。
+
+    数据分层(source_type):
+      - site_actual: 场地预算/合同/发票等真实记录, 允许生成正式 SSUI
+      - regional_official_proxy: 国家/省/市公开统计数据, 仅生成参考 SSUI
+      - test_fixture: 仅用于自动测试和演示, 严禁进入生产报告
+    """
+    __tablename__ = "economic_indicators"
+    __table_args__ = (
+        UniqueConstraint("site_id", "evaluation_year", "scenario", "indicator_code",
+                         name="uq_economic_indicator"),
+    )
+    id: Mapped[int] = mapped_column(primary_key=True)
+    site_id: Mapped[int] = mapped_column(ForeignKey("sites.id"), index=True, nullable=False)
+    evaluation_year: Mapped[int] = mapped_column(Integer, nullable=False)
+    scenario: Mapped[str] = mapped_column(String(50), nullable=False, default="production")
+    crop_or_land_use: Mapped[str | None] = mapped_column(String(100), nullable=True)
+    indicator_code: Mapped[str] = mapped_column(String(10), nullable=False)  # D18-D25
+    indicator_name: Mapped[str] = mapped_column(String(60), nullable=False)
+    raw_value: Mapped[float] = mapped_column(Float, nullable=False)
+    unit: Mapped[str] = mapped_column(String(30), nullable=False)
+    direction: Mapped[str] = mapped_column(String(10), nullable=False, default="positive")  # positive/negative
+    # 数据来源元数据
+    source_type: Mapped[str] = mapped_column(String(40), nullable=False, default="site_actual")
+    source_name: Mapped[str | None] = mapped_column(String(200), nullable=True)
+    source_url: Mapped[str | None] = mapped_column(String(500), nullable=True)
+    source_geography: Mapped[str | None] = mapped_column(String(100), nullable=True)
+    source_year: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    is_proxy: Mapped[bool] = mapped_column(Boolean, default=False)
+    confidence: Mapped[float | None] = mapped_column(Float, nullable=True)
+    note: Mapped[str | None] = mapped_column(Text, nullable=True)
+    version: Mapped[str] = mapped_column(String(20), nullable=False, default="v1.0")
+
+
+class EconomicRawInput(Base, TimestampMixin):
+    """SSUI 经济数据原始汇总值(R3 审计第五类)。
+
+    存储 area/yield/gross_output/total_cost 及 D21 各成本分项,
+    D21/D22/D23/D25 优先由这些原始值派生(交叉校验)。
+    """
+    __tablename__ = "economic_raw_inputs"
+    __table_args__ = (
+        UniqueConstraint("site_id", "evaluation_year", "scenario",
+                         name="uq_economic_raw_input"),
+    )
+    id: Mapped[int] = mapped_column(primary_key=True)
+    site_id: Mapped[int] = mapped_column(ForeignKey("sites.id"), index=True, nullable=False)
+    evaluation_year: Mapped[int] = mapped_column(Integer, nullable=False)
+    scenario: Mapped[str] = mapped_column(String(50), nullable=False, default="production")
+    crop_or_land_use: Mapped[str | None] = mapped_column(String(100), nullable=True)
+    # 原始汇总值(用于交叉校验 D22/D23/D25)
+    area_hectare: Mapped[float | None] = mapped_column(Float, nullable=True)  # 面积(公顷)
+    yield_kg: Mapped[float | None] = mapped_column(Float, nullable=True)      # 总产量(kg)
+    gross_output_yuan: Mapped[float | None] = mapped_column(Float, nullable=True)  # 总产值(元)
+    total_cost_yuan: Mapped[float | None] = mapped_column(Float, nullable=True)    # 总成本(元)
+    # D21 非机械化成本分项
+    d21_seed_cost: Mapped[float | None] = mapped_column(Float, nullable=True)       # 种子
+    d21_fertilizer_cost: Mapped[float | None] = mapped_column(Float, nullable=True)  # 化肥
+    d21_manure_cost: Mapped[float | None] = mapped_column(Float, nullable=True)      # 农家肥
+    d21_pesticide_cost: Mapped[float | None] = mapped_column(Float, nullable=True)   # 农药
+    d21_film_cost: Mapped[float | None] = mapped_column(Float, nullable=True)        # 农膜
+    # 来源元数据
+    source_type: Mapped[str] = mapped_column(String(40), nullable=False, default="site_actual")
+    source_name: Mapped[str | None] = mapped_column(String(200), nullable=True)
+    source_year: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    is_proxy: Mapped[bool] = mapped_column(Boolean, default=False)
+    note: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+
 __all__ = [
     "Organization", "User", "Role", "Permission", "UserRole", "RolePermission",
     "Site", "SamplingPoint", "FactorDictionary", "ThresholdRule", "StandardThreshold",
@@ -472,4 +543,5 @@ __all__ = [
     "WorkflowRecord", "FileObject", "WorkflowAttachment", "ReportRecord",
     "SystemConfig", "AuditLog",
     "DatasetVersion", "SamplingEvent", "ProjectAuthorization",
+    "EconomicIndicator", "EconomicRawInput",
 ]

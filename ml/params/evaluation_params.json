@@ -432,6 +432,29 @@
         "label": "不可持续"
       }
     ],
+    "economic_reference_ranges": {
+      "version": "2020_national_rice",
+      "source": "全国农产品成本收益资料汇编2021(国家发改委价格成本调查中心) + 国家统计局2020统计公报",
+      "source_url": "https://www.ndrc.gov.cn/xxgk/zcfb/tz/2021/",
+      "note": "2020年全国稻谷官方数据作为 D18-D25 经济指标归一化的 min-max 锚点。仅用于参照归一化, 不作为场地实测数据。",
+      "ranges": {
+        "D18": {"min": 100, "max": 800, "unit": "元/亩", "direction": "negative", "description": "劳动力成本"},
+        "D19": {"min": 50, "max": 400, "unit": "元/亩", "direction": "negative", "description": "机械作业及服务成本"},
+        "D20": {"min": 50, "max": 500, "unit": "元/亩", "direction": "negative", "description": "土地租金或折算土地成本"},
+        "D21": {"min": 50, "max": 600, "unit": "元/亩", "direction": "negative", "description": "种子肥料农药等非机械化物质投入"},
+        "D22": {"min": 5000, "max": 40000, "unit": "元/公顷", "direction": "positive", "description": "单位面积总产值"},
+        "D23": {"min": 0.5, "max": 2.0, "unit": "无量纲", "direction": "positive", "description": "效益费用比(总产值/总成本)"},
+        "D24": {"min": 5000, "max": 40000, "unit": "元/人", "direction": "positive", "description": "人均可支配收入"},
+        "D25": {"min": 2000, "max": 15000, "unit": "kg/公顷", "direction": "positive", "description": "单位面积实物产量"}
+      },
+      "test_fixture_2020_rice": {
+        "D18": 467.41, "D19": 200.54, "D20": 244.05, "D21": 278.53,
+        "D22": 19537.65, "D23": 1.039083, "D24": 17131, "D25": 7016.85,
+        "source_type": "official_national_reference",
+        "source_year": 2020, "geography": "CN", "scenario": "production/rice",
+        "is_proxy": true, "formal_score": false
+      }
+    },
     "top_weights_production": {
       "vC1_limit": 0.431218,
       "vC2_cost": 0.259357,
@@ -608,7 +631,7 @@
           "layer": "经济性B2",
           "weight": 0.2323
         },
-        "D22_土地生产率": {
+        "D22_单位面积总产值": {
           "criterion": "经济效益C4",
           "layer": "经济性B2",
           "weight": 0.316886
@@ -623,7 +646,7 @@
           "layer": "经济性B2",
           "weight": 0.209226
         },
-        "D25_土地产出系数": {
+        "D25_单位面积实物产量": {
           "criterion": "经济效益C4",
           "layer": "经济性B2",
           "weight": 0.251318
@@ -796,7 +819,7 @@
           "layer": "经济性B2",
           "weight": 0.226745
         },
-        "D22_土地生产率": {
+        "D22_单位面积总产值": {
           "criterion": "经济效益C4",
           "layer": "经济性B2",
           "weight": 0.301217
@@ -811,7 +834,7 @@
           "layer": "经济性B2",
           "weight": 0.247202
         },
-        "D25_土地产出系数": {
+        "D25_单位面积实物产量": {
           "criterion": "经济效益C4",
           "layer": "经济性B2",
           "weight": 0.188613

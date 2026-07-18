@@ -36,6 +36,16 @@ export const api = {
   setupComplete: (body: { username: string; password: string; confirm_password: string }) =>
     client.post("/setup/complete", body).then((r) => r.data),
 
+  // R3 审计第五类: SSUI D18-D25 经济数据
+  getEconomicData: (siteId: number) =>
+    client.get(`/sites/${siteId}/economic-data`).then((r) => r.data),
+  saveEconomicData: (siteId: number, body: any) =>
+    client.post(`/sites/${siteId}/economic-data`, body).then((r) => r.data),
+  deleteEconomicData: (siteId: number, year?: number) =>
+    client.delete(`/sites/${siteId}/economic-data`, { params: year ? { year } : {} }).then((r) => r.data),
+  economicTemplateUrl: (siteId: number) =>
+    `/api/v1/sites/${siteId}/economic-data/template`,
+
   // 注册 / 审核
   register: (body: {
     username: string; password: string; display_name: string;

@@ -1,0 +1,38 @@
+{
+  "description": "R3 审计第五类: 2020年全国稻谷官方验收夹具(仅用于测试, 严禁进入生产报告)",
+  "source_type": "official_national_reference",
+  "source_name": "全国农产品成本收益资料汇编2021 + 国家统计局2020统计公报",
+  "source_year": 2020,
+  "source_geography": "CN",
+  "scenario": "production/rice",
+  "is_proxy": true,
+  "formal_score": false,
+  "indicators": {
+    "D18": {"value": 467.41, "unit": "元/亩", "name": "劳动力成本"},
+    "D19": {"value": 200.54, "unit": "元/亩", "name": "机械化成本"},
+    "D20": {"value": 244.05, "unit": "元/亩", "name": "土地成本"},
+    "D21": {"value": 278.53, "unit": "元/亩", "name": "非机械化成本"},
+    "D22": {"value": 19537.65, "unit": "元/公顷", "name": "单位面积总产值"},
+    "D23": {"value": 1.039083, "unit": "无量纲", "name": "效益费用比"},
+    "D24": {"value": 17131, "unit": "元/人", "name": "人均可支配收入"},
+    "D25": {"value": 7016.85, "unit": "kg/公顷", "name": "单位面积实物产量"}
+  },
+  "raw_input": {
+    "area_hectare": 1.0,
+    "yield_kg": 7016.85,
+    "gross_output_yuan": 1302.51,
+    "total_cost_yuan": 1253.52,
+    "d21_seed_cost": 67.64,
+    "d21_fertilizer_cost": 136.22,
+    "d21_manure_cost": 9.69,
+    "d21_pesticide_cost": 60.79,
+    "d21_film_cost": 4.19
+  },
+  "notes": {
+    "D21_breakdown": "种子67.64 + 化肥136.22 + 农家肥9.69 + 农药60.79 + 农膜4.19 = 278.53",
+    "D22_derivation": "1302.51元/亩 × 15 = 19537.65元/公顷",
+    "D23_derivation": "总产值1302.51 ÷ 总成本1253.52 = 1.039083",
+    "D25_derivation": "467.79kg/亩 × 15 = 7016.85kg/公顷",
+    "D24_source": "国家统计局2020年统计公报(全国农村居民人均可支配收入17131元)"
+  }
+}
