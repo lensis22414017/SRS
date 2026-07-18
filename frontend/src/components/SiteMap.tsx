@@ -245,7 +245,7 @@ export default function SiteMap({
   useEffect(() => {
     const map = mapRef.current;
     if (!map) return;
-    // v1.0.1(裴总任务5): 创建独立 coordPane, 使坐标标签位于三色点下一层(不覆盖点位)
+    // v1.0.1(): 创建独立 coordPane, 使坐标标签位于三色点下一层(不覆盖点位)
     // Leaflet 默认 markerPane=600, tilePane=200, overlayPane=400
     if (!map.getPane("coordPane")) {
       map.createPane("coordPane", map.getPane("overlayPane"));
@@ -285,7 +285,7 @@ export default function SiteMap({
         const ll = L.latLng(s.latitude, s.longitude);
         pts.push(ll);
         lngLats.push([s.longitude!, s.latitude!]);
-        // v1.0.2(裴总问题8): null pollution_type 用中性灰, 不与重金属红撞色
+        // v1.0.2(): null pollution_type 用中性灰, 不与重金属红撞色
         const color = s.color || POLLUTION_TYPE[s.pollution_type || ""] || "#64748b";
         const ptLabel = POLLUTION_LABEL[s.pollution_type || ""] || s.pollution_type || "—";
         const exceedInfo = s.max_exceedance != null ? `${Number(s.max_exceedance).toFixed(1)} 倍` : (s.n_exceed != null ? `${s.n_exceed} 条` : "—");

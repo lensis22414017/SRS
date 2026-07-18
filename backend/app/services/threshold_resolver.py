@@ -148,6 +148,44 @@ _CANONICAL_TO_DB_NAME = {
     "Cr_mgkg": "Cr", "Cr6_mgkg": "Cr(VI)",
     "Hg_mgkg": "Hg", "Cu_mgkg": "Cu", "Zn_mgkg": "Zn",
     "Ni_mgkg": "Ni", "pH": "pH",
+    # v1.0.1 L4 启发式匹配的扩展重金属(DB无精确阈值, 用 GB15618 兜底)
+    "Mn_mgkg": "Mn", "Co_mgkg": "Co", "Mo_mgkg": "Mo",
+    "Sb_mgkg": "Sb", "Tl_mgkg": "Tl", "Be_mgkg": "Be", "Ba_mgkg": "Ba",
+    "V_mgkg": "V", "Fe_mgkg": "Fe",
+    # v1.0.1 L4 有机物映射(DB有中文名阈值)
+    "PAH_Naphthalene": "萘", "PAH_Fluorene": "芴", "PAH_Phenanthrene": "菲",
+    "PAH_Anthracene": "蒽", "PAH_Fluoranthene": "荧蒽", "PAH_Pyrene": "芘",
+    "PAH_Benzo[a]pyrene": "苯并[a]芘", "PAH_Benzo[a]anthracene": "苯并[a]蒽",
+    "PAH_Benzo[b]fluoranthene": "苯并[b]荧蒽", "PAH_Benzo[k]fluoranthene": "苯并[k]荧蒽",
+    "PAH_Indeno": "茚并[1,2,3-cd]芘",
+    "OCP_HCH": "六六六", "OCP_DDT": "DDT类",
+    "PCB_total": "多氯联苯", "PFAS_total": "全氟化合物",
+    "TPH_C10C40": "石油烃",
+    "VOC_Trichloroethylene": "三氯乙烯", "VOC_Tetrachloroethylene": "四氯乙烯",
+    "VOC_CarbonTetrachloride": "四氯化碳", "VOC_Chloroform": "氯仿",
+    "VOC_VinylChloride": "氯乙烯", "VOC_Dichloromethane": "二氯甲烷",
+    "VOC_Chlorobenzene": "氯苯",
+    "BTEX_Styrene": "苯乙烯", "BTEX_Toluene": "甲苯", "BTEX_Ethylbenzene": "乙苯",
+    "BTEX_Xylene": "邻-二甲苯",
+    "Phenol_Pentachlorophenol": "五氯酚", "Phenol_Chlorophenol": "2-氯酚",
+    "Aniline": "苯胺", "Nitrobenzene": "硝基苯",
+    "Cyanide": "氰化物",
+}
+
+# v1.0.1: GB15618 扩展重金属通用阈值兜底(DB无精确值时的 fallback)
+_GB15618_EXTENDED_FALLBACK = {
+    "Mn": {"limit": 1500, "unit": "mg/kg", "standard": "GB15618 通用档(锰)"},
+    "Co": {"limit": 40, "unit": "mg/kg", "standard": "GB15618 通用档(钴)"},
+    "Mo": {"limit": 40, "unit": "mg/kg", "standard": "GB15618 通用档(钼)"},
+    "Sb": {"limit": 10, "unit": "mg/kg", "standard": "GB15618 通用档(锑)"},
+    "Tl": {"limit": 1.0, "unit": "mg/kg", "standard": "GB15618 通用档(铊)"},
+    "Be": {"limit": 15, "unit": "mg/kg", "standard": "GB15618 通用档(铍)"},
+    "Ba": {"limit": 750, "unit": "mg/kg", "standard": "GB15618 通用档(钡)"},
+    "V": {"limit": 165, "unit": "mg/kg", "standard": "GB15618 通用档(钒)"},
+    "Fe": {"limit": 50000, "unit": "mg/kg", "standard": "GB15618 通用档(铁)"},
+    # 理化性质兜底(pH 区间/Corg 参考值)
+    "OC_pct": {"limit": 1.5, "unit": "%", "standard": "肥力参考下限(有机质)"},
+    "TN_gkg": {"limit": 1.0, "unit": "g/kg", "standard": "肥力参考下限(全氮)"},
 }
 
 
@@ -183,6 +221,18 @@ def resolve_threshold_from_db(
     }
 
     if not rows:
+        # v1.0.1: 扩展重金属 GB15618 通用档兜底(L4 启发式匹配的 Mn/Co/Mo 等)
+        if db_factor_name in _GB15618_EXTENDED_FALLBACK:
+            fb = _GB15618_EXTENDED_FALLBACK[db_factor_name]
+            return {
+                "threshold": {"type": "upper", "limit": fb["limit"]},
+                "threshold_value": fb["limit"], "threshold_unit": fb["unit"],
+                "threshold_standard": fb["standard"], "threshold_version": "2018",
+                "pH_condition": "通用", "land_use_type": land_use_type or "",
+                "threshold_source_id": None,
+                "threshold_resolution_status": "heuristic", "review_required": True,
+                "fallback_note": f"{db_factor_name} 无精确 DB 阈值, 已用 GB15618 通用档兜底(启发式识别, 待核实)",
+            }
         return not_found_result
 
     # pH 特殊处理（固定区间）
@@ -235,7 +285,7 @@ def resolve_threshold_from_db(
     }
 
 
-# ── v1.0.2: 阈值兜底(裴总决策: GB15618 通用档最严值) ──────────────────
+# ── v1.0.2: 阈值兜底(GB15618 通用档最严值) ──────────────────
 
 def resolve_threshold_fallback(
     db,
@@ -248,7 +298,7 @@ def resolve_threshold_fallback(
     策略: 从该因子所有阈值行中取 min(screening_value) 作为兜底限值(最严档, 宁可错杀)。
     返回 status="fallback", review_required=True, 标注兜底来源。
 
-    GPT 4.10 + 裴总决策: 缺阈值不得当作安全, 用最严档兜底让甲方看到"有障碍但阈值待核实"。
+    GPT 4.10 + 缺阈值不得当作安全, 用最严档兜底让用户看到"有障碍但阈值待核实"。
     """
     from app.models import StandardThreshold
 

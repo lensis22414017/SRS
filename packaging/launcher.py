@@ -88,9 +88,9 @@ def _detect_legacy_db(prod_db_path: str):
 def inject_builtin_keys():
     """首次启动时将内置 API key 写入 AppData 的 override 配置 + 设环境变量。
 
-    打包版内置 builtin_keys.py(不入 Git)，使甲方开箱即用 AI + 卫星地图。
+    打包版内置 builtin_keys.py(不入 Git)，使用户开箱即用 AI + 卫星地图。
     开发模式(builtin_keys 不存在)时静默跳过，不影响开发流程。
-    裴总决策: 甲方开箱即用优先(覆盖 GPT M0-9 建议)。
+    用户开箱即用优先(覆盖 GPT M0-9 建议)。
     """
     try:
         import builtin_keys as bk
@@ -496,7 +496,7 @@ def main():
     print()
 
     ensure_app_dirs()
-    # 裴总决策: 内置 key 预配(甲方开箱即用), inject 后再 check 提示缺失项
+    # 内置 key 预配(用户开箱即用), inject 后再 check 提示缺失项
     inject_builtin_keys()
     check_first_run_keys()
 

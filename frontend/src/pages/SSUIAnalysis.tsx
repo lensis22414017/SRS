@@ -152,7 +152,7 @@ export default function SSUIAnalysis() {
             note="其中 f(t) = 1 + 0.03·t 为时间修正函数，M 为管理调节因子（表3.49），等级边界见下方说明"
           >
             <Alert type="info" showIcon style={{ marginBottom: 12 }}
-              message="完整评价体系基于甲方方法 25 项元指标（D1-D25），按限制因子C1/风险因子C2/经济成本C3/经济效益C4 四个准则层分组。当前为 MVP 口径（场内 Min-Max 归一化），跨场地锚点/PCA 降维/博弈论赋权待后续版本接入多场地数据后启用。" />
+              message="完整评价体系基于方法学 25 项元指标（D1-D25），按限制因子C1/风险因子C2/经济成本C3/经济效益C4 四个准则层分组。当前为 MVP 口径（场内 Min-Max 归一化），跨场地锚点/PCA 降维/博弈论赋权待后续版本接入多场地数据后启用。" />
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 4 }}>
               {[
                 { range: "≥ 0.80", label: "高可持续性", color: "#16a34a" },

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""v1.0.2: AHP + 熵权法/CRITIC 主客观组合赋权(甲方方法文件 + GPT 第五节)。
+"""v1.0.2: AHP + 熵权法/CRITIC 主客观组合赋权(方法学文件 + GPT 第五节)。
 
-甲方方法:
+方法学:
   - 第2章重构评价: 主观权重 50% + 客观权重 50%(段落[411])
   - 客观权重 = 熵权法 + CRITIC 法的平均(段落[439])
   - AHP 一致性检验 CR < 0.1(段落[365], Table[16] 全部通过)
@@ -36,7 +36,7 @@ def ahp_weights(judgment_matrix: np.ndarray) -> tuple[np.ndarray, float]:
 
     # 一致性检验
     CI = (max_eigenvalue - n) / (n - 1) if n > 1 else 0
-    # RI 表(n=1~11, 甲方 Table[50])
+    # RI 表(n=1~11, 用户 Table[50])
     RI_TABLE = [0, 0, 0.58, 0.90, 1.12, 1.24, 1.32, 1.41, 1.45, 1.49, 1.51]
     RI = RI_TABLE[n - 1] if n <= len(RI_TABLE) else 1.51
     CR = CI / RI if RI > 0 else 0
@@ -100,7 +100,7 @@ def critic_weights(data: np.ndarray) -> np.ndarray:
 
 def combined_weights(subjective: np.ndarray, objective: np.ndarray,
                      alpha: float = 0.5) -> np.ndarray:
-    """主客观组合赋权(甲方第2章: alpha=0.5)。
+    """主客观组合赋权(用户第2章: alpha=0.5)。
 
     alpha: 主观权重占比(0.5 = 各半)。
     """
@@ -117,7 +117,7 @@ def evaluate_combined_weights(judgment_matrix: np.ndarray, data: np.ndarray,
     subjective, cr = ahp_weights(judgment_matrix)
     ent = entropy_weights(data)
     crit = critic_weights(data)
-    # 客观权重 = 熵权 + CRITIC 的平均(甲方方法)
+    # 客观权重 = 熵权 + CRITIC 的平均(方法学)
     objective = (ent + crit) / 2
     objective = objective / objective.sum()
     combined = combined_weights(subjective, objective, alpha)

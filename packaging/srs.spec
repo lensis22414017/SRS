@@ -160,7 +160,7 @@ hidden_imports = [
     "webview.platforms.gtk",
     # pkg_resources 运行时依赖(weasyprint/reportlab 间接引入)
     "jaraco", "jaraco.text", "jaraco.functools", "jaraco.context",
-    # 裴总决策: 恢复内置 key 预配(甲方开箱即用), builtin_keys.py 随包分发
+    # 恢复内置 key 预配(用户开箱即用), builtin_keys.py 随包分发
     # .gitignore 排除不入仓库, 但 PyInstaller 打包时需能 import
     "builtin_keys",
     # M0 新增服务模块(需显式声明, 否则 PyInstaller 不收集动态 import)
@@ -189,6 +189,12 @@ excluded_imports = [
     # Qt bindings: matplotlib backend 探测会引入 PyQt5/PySide6, 两者冲突且 SRS 不需要(Qt 桌面框架)
     "PyQt5", "PyQt6", "PySide2", "PySide6",
     "matplotlib.backends.backend_qt5agg", "matplotlib.backends.backend_qt",
+    # v1.0.1: 排除冗余大型依赖(项目实际用 sklearn, 不用 catboost/plotly/googleapiclient)
+    "catboost", "catboost_core", "catboost_evaluator",
+    "googleapiclient", "googleapiclient.discovery", "googleapiclient.errors",
+    "googleapiclient.discovery_cache",
+    "plotly", "plotly.graph_objects", "plotly.express", "plotly.subplots",
+    "plotly.offline", "plotly.io",
 ]
 
 # ── macOS .app 信息 ─────────────────────────────────────────────
@@ -246,7 +252,7 @@ exe = EXE(
 )
 
 # Windows/Linux: COLLECT 收集全部依赖到 dist/SRS/ 目录
-# v1.0.1: 过滤掉 .db 文件(裴总任务2 — 打包不含开发库残留, 首启用全新空库)
+# v1.0.1: 过滤掉 .db 文件(— 打包不含开发库残留, 首启用全新空库)
 _filtered_binaries = [b for b in a.binaries if not b[0].endswith(".db")]
 _filtered_datas = [d for d in a.datas if not d[0].endswith(".db") and ".db;" not in d[0]]
 

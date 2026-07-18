@@ -127,7 +127,7 @@ def _matches_heavy_metal_token(col_lower: str) -> bool:
 def resolve_mapping_for_file(mapping_id: str, dest: str) -> tuple[str, dict, dict]:
     """统一映射解析: 单文件 /import 与批量 /import/batch 共用(brief 4.1)。
 
-    v1.0.2(裴总决策 + GPT 2.2): 完全删除预设模板框束。
+    v1.0.2(+ GPT 2.2): 完全删除预设模板框束。
       - 不再用 detect_mapping 匹配预设(已删除 mappings/*.json)
       - 全部走 smart_detect_and_map 启发式识别任意结构
       - site.name 用文件名, site_code 自动生成, pollution_type 按列内容判定

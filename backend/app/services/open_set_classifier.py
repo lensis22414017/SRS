@@ -1,6 +1,6 @@
 """open_set_classifier.py — 开放集障碍因子分层识别（P0-OPEN-1/2/3, M0-3/4 修订）
 
-把甲方上传的每一个实测因子分到四种状态:
+把用户上传的每一个实测因子分到四种状态:
   A. formal_obstacle: 精确匹配+单位兼容+有阈值+规则判障碍 → 进正式KOS
   B. model_candidate: 无阈值但模型见过 → 输出模型贡献(非法规结论)
   C. family_alert: 未收录但可归入化学族群 → 族群级预警(人工复核)
@@ -128,7 +128,7 @@ def classify_factor(
     """对单个实测因子进行开放集分层识别。
 
     参数:
-        raw_name: 原始因子名(甲方Excel列名)
+        raw_name: 原始因子名(用户Excel列名)
         value: 浓度值
         unit: 单位(从列名或数据提取)
         known_canonical: 已知 canonical 因子集合(来自别名表)

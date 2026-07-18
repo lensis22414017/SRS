@@ -656,7 +656,7 @@ def delete_site(site_id: int,
             "deleted_counts": deleted_counts}
 
 
-# v1.0.1: 场地批量删除(裴总任务2) — 复用单条级联逻辑, 事务化批量
+# v1.0.1: 场地批量删除() — 复用单条级联逻辑, 事务化批量
 @router.post("/sites/batch-delete")
 def batch_delete_sites(payload: dict,
                        user: User = Depends(require_permission("data:delete")),
@@ -801,7 +801,7 @@ def export_site_measurements(site_id: int,
                 format: str = Query("csv", pattern="^(csv|xlsx)$"),
                 user: User = Depends(require_permission("data:export")),
                 db: Session = Depends(get_db)):
-    """导出场地检测长表(brief 4.3)。16 字段对齐甲方验收, 中文不乱码, 写 audit log。"""
+    """导出场地检测长表(brief 4.3)。16 字段对齐项目验收, 中文不乱码, 写 audit log。"""
     import csv as _csv
     import io
     s = db.get(Site, site_id)

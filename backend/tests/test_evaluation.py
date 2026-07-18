@@ -140,7 +140,7 @@ def test_evaluation_and_recommendation_persisted():
 
 @needs_full
 def test_op_site_evaluation_degraded_with_organic_risk():
-    """裴总 P0-3: OP 有机场地缺重金属 → 降级评价 + organic_risk 风险诊断, 不裸 null。"""
+    """ P0-3: OP 有机场地缺重金属 → 降级评价 + organic_risk 风险诊断, 不裸 null。"""
     from app.db.bootstrap import main as bootstrap
     from app.db.load_kb import main as load_kb
     from app.db.session import SessionLocal
@@ -181,7 +181,7 @@ def test_op_site_evaluation_degraded_with_organic_risk():
         assert ev["organic_risk"]["exceed_factors"], "应识别出超标有机因子"
         assert "石油烃(C10-C40)" in ev["organic_risk"]["exceed_factors"]
         assert ev["organic_risk"]["max_ratios"]["石油烃(C10-C40)"] > 1
-        # 数据缺口 + 原因说明(裴总: 为什么不能算 + 缺哪些指标)
+        # 数据缺口 + 原因说明(: 为什么不能算 + 缺哪些指标)
         assert ev["limiting_factors"] and ev["explanation"]
         # 入库: organic_risk 记录 + ssui 降级记录
         assert db.query(EvaluationResult).filter_by(
@@ -195,7 +195,7 @@ def test_op_site_evaluation_degraded_with_organic_risk():
 
 @needs_full
 def test_op_site_recommendation_organic_fallback_and_no_404():
-    """裴总 P0-3: OP 场地无诊断 → 推荐走 organic_fallback; GET 推荐无记录返回 200 不 404。"""
+    """ P0-3: OP 场地无诊断 → 推荐走 organic_fallback; GET 推荐无记录返回 200 不 404。"""
     from fastapi.testclient import TestClient
     from app.db.bootstrap import main as bootstrap
     from app.db.load_kb import main as load_kb

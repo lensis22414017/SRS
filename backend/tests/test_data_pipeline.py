@@ -4,7 +4,7 @@
 - 入库/API 类用例需 backend 依赖 (sqlalchemy/fastapi), 在 venv/docker 环境运行:
     cd backend && DATABASE_URL=sqlite:///./test.db pytest -q
 
-v1.0.2 注: 预设模板(yunnan_gejiu)已完全删除(GPT 第二节 + 裴总决策)。
+v1.0.2 注: 预设模板(yunnan_gejiu)已完全删除(GPT 第二节 + )。
 解析/校验类测试已改为 auto 识别; 入库/API 类断言依赖旧模板精确字段(如 skip 重复),
 与新逻辑(每次导入唯一 site_code)冲突, 标记 skip。
 新功能完整覆盖见 test_import_regression_3sites.py(三 XLSX + 代表值 + 元数据排除)。
@@ -167,7 +167,7 @@ def test_api_batch_import_and_overview_badges():
 @needs_data
 @pytest.mark.skip(reason=_SKIP_REASON)
 def test_import_skip_duplicate_and_new_version():
-    """裴总 P1-3: 同文件二次导入默认 skip(不造新场地); new_version 复用同 site 并建 DatasetVersion(v1.0 P0-2 变更)。"""
+    """ P1-3: 同文件二次导入默认 skip(不造新场地); new_version 复用同 site 并建 DatasetVersion(v1.0 P0-2 变更)。"""
     from app.db.bootstrap import main as bootstrap
     from app.db.session import SessionLocal
     from app.models import Site, DatasetVersion

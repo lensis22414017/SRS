@@ -4,7 +4,7 @@ T_total = Σ(F_i × W_i);  W_i 取自方法文件指标层权重(在"已测指�
 等级: T>50 可行, ≤50 不可行 (表2.23)。
 区分生产/生态两套指标体系与权重。
 
-v1.0.2 改动(GPT 第五节 + 甲方方法文件):
+v1.0.2 改动(GPT 第五节 + 方法学文件):
   1. score_pollutant 缺阈值不再给100分(阻断"超标却评价为优")
      → 调 resolve_threshold_fallback 取GB15618最严档兜底; 仍无→退出打分
   2. 覆盖率门禁: 已测指标/总指标 < 30% → "证据不足/无法评价"
@@ -204,7 +204,7 @@ def evaluate(values: dict, scope: str, ph: float | None = None,
                      "norm_weight": round(nw, 6), "contribution": round(contrib, 4)})
     score = round(score, 2)
 
-    # v1.0.2(GPT 5.1 + 甲方方法): 改进模糊综合评价 — 内梅罗指数
+    # v1.0.2(GPT 5.1 + 方法学): 改进模糊综合评价 — 内梅罗指数
     # P总分 = [(P平均² + P权重²)/2]^(1/2)
     # P平均 = 简单算术平均, P权重 = 加权综合得分
     p_avg = sum(d["F"] for d in dims) / len(dims)

@@ -5,7 +5,7 @@ kos_engine_v0.8.py — 关键障碍综合得分 (KOS) 引擎
 ====================================================================
 公式: KOS_i,t = B_i,t × (0.30×R + 0.25×W + 0.15×M + 0.20×S + 0.10×E)
 
-强制规则(裴总放行口径 + 第一份附件):
+强制规则(+ 第一份附件):
 1. 只有 B=1 (规则判障碍) 的因子进入正式关键障碍 Top-N
 2. 只有实测因子 (x_measured_*) 可以进入正式排名
 3. GEE/proxy 只能作背景协变量,不得作为正式障碍
@@ -48,7 +48,7 @@ if getattr(sys, "frozen", False):
         ROOT = os.path.join(_mep, "_internal")
 ART = "ml/artifacts/p3_alpha"
 
-# KOS 权重 (方法学规定,裴总确认)
+# KOS 权重 (方法学规定,)
 KOS_W = {"R": 0.30, "W": 0.25, "M": 0.15, "S": 0.20, "E": 0.10}
 
 # 证据等级分值
@@ -217,12 +217,12 @@ def compute_kos(
         w = factor_weights.get(fac, 0.5)
         e_str = factor_evidence.get(fac, "C")
         e = EVIDENCE_SCORE.get(e_str, 0.5)
-        # v1.0.2(裴总决策): S 用模型层 Top-5 稳定性(跨 bootstrap 子样)
+        # v1.0.2(): S 用模型层 Top-5 稳定性(跨 bootstrap 子样)
         # 非因子层重复样稳定性(当前无重复样数据)
         # stability_value 由 kos_service 从注册表传入, 默认 0.8 兼容
         s = float(factor_stability.get(fac, 0.8)) if factor_stability else 0.8
 
-        # 无阈值但实测+模型见过 → model_attention(裴总 P0 四层规则)
+        # 无阈值但实测+模型见过 → model_attention( P0 四层规则)
         if thr is None:
             if is_measured and in_model and m > 0.01:
                 model_attention.append({

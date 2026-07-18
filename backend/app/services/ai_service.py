@@ -96,7 +96,7 @@ def retrieve(db: Session, query: str, site_id: int | None = None, k: int = 8) ->
 
 
 # ── 向量语义检索层(TF-IDF + 余弦相似度, 混合检索) ──────────────────────
-# 裴总要求 AI-RAG 向量化: 在 SQL 关键词检索(精确)之上, 加 TF-IDF 语义检索(同义/近义),
+# AI-RAG 向量化: 在 SQL 关键词检索(精确)之上, 加 TF-IDF 语义检索(同义/近义),
 # 两者结果合并去重。无需外部 embedding 服务, sklearn 即可实现。
 _VECTOR_CACHE: dict = {}  # {cache_key: {"matrix": ..., "names": ..., "vec": ...}}
 

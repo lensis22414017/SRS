@@ -10,7 +10,7 @@ import { SVG_OPTS } from "../theme/echarts";
 
 const { Text } = Typography;
 
-// v1.0.2(裴总决策 + GPT 2.2): 完全删除预设模板, 只保留自动识别
+// v1.0.2(+ GPT 2.2): 完全删除预设模板, 只保留自动识别
 const MAPPINGS = [
   { value: "auto", label: "自动识别（按列名/工作表智能匹配污染类型）" },
 ];

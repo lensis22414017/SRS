@@ -129,7 +129,7 @@ def train_final():
                 "诚实标注: 非派生浓度列对泛化判别力有限(单用test AUC≈随机), "
                 "GEE环境因子是最稳定信号源。物理上限test AUC约0.68-0.70, "
                 "这是特征对'是否超标'标签判别力的本质上限, 非模型优化可突破。"),
-            "retrain_note": "zzv0.3重训(2026-07-01裴总指令): 0泄漏GroupKFold+保留非派生浓度+GEE补采+原生NaN",
+            "retrain_note": "zzv0.3重训(2026-07-01指令): 0泄漏GroupKFold+保留非派生浓度+GEE补采+原生NaN",
         }
         meta_path = os.path.join(ARTIFACT_DIR, f"rf_barrier_factor_{version}.meta.json")
         with open(meta_path, "w", encoding="utf-8") as f:

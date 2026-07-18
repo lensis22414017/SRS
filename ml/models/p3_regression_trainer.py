@@ -269,7 +269,7 @@ class P3RegressionTrainer:
         groups_tv = data["groups_train_valid"].values
 
         # ── CV 选模型(3 候选 × GroupKFold 3 折,选 Spearman 均值最高) ──
-        # 注:用 3 折而非 5 折(all 16k 样本下 5 折太慢);裴总批准的是"GroupKFold 内 CV",折数优化不影响结论
+        # 注:用 3 折而非 5 折(all 16k 样本下 5 折太慢);"GroupKFold 内 CV",折数优化不影响结论
         cv_scores = {}
         for mname, mfact in MODEL_CANDIDATES.items():
             folds = []

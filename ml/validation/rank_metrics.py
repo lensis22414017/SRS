@@ -4,7 +4,7 @@
 - top-k precision/recall: 障碍因子是否被正确识别进 top-k
 - rank correlation (Kendall/Spearman): 排序稳定性
 - SHAP consistency: 跨折排序可复现性
-文献: docs/references/障碍因子诊断_方法学综合报告.md [裴总报告139行, #64 bootstrap, #65 permutation]
+文献: docs/references/障碍因子诊断_方法学综合报告.md [, #64 bootstrap, #65 permutation]
 """
 from __future__ import annotations
 import numpy as np

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""v1.0.2: 数据库备份与恢复服务(GPT 第九节 + 裴总决策: 本轮实现)。
+"""v1.0.2: 数据库备份与恢复服务(GPT 第九节 + 本轮实现)。
 
 功能:
   1. 定时备份(APScheduler 每日 dump srs_prod.db)

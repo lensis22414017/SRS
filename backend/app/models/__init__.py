@@ -289,7 +289,7 @@ class DiagnosisResult(Base, TimestampMixin):
     polish_model: Mapped[str | None] = mapped_column(String(64), nullable=True)
     shap_global: Mapped[dict | None] = mapped_column(JSON, nullable=True)
     status: Mapped[str] = mapped_column(String(20), default="done")
-    # zzv0.4 审计证据链字段(裴总报告147-164行 + 文献[#9 Mitchell],[#10 Gebru])
+    # zzv0.4 审计证据链字段(-164行 + 文献[#9 Mitchell],[#10 Gebru])
     validation_strategy: Mapped[str | None] = mapped_column(String(60), nullable=True)  # group_split / nested_cv
     group_key: Mapped[str | None] = mapped_column(String(40), nullable=True)  # id_DOI / site_id / province
     feature_schema_hash: Mapped[str | None] = mapped_column(String(64), nullable=True)  # 训练特征SHA256

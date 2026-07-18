@@ -82,8 +82,8 @@ Filename: "{app}\{#MyAppExeName}"; Description: "立即启动 {#MyAppName}"; Fla
 
 [UninstallDelete]
 ; 卸载时清理应用数据 (数据库、缓存、上传文件)
-; 注意: 不删用户数据目录(AppData\Roaming\SRS), 因为可能含甲方的场地数据
-; 甲方需手动删除该目录才能完全清除
+; 注意: 不删用户数据目录(AppData\Roaming\SRS), 因为可能含用户的场地数据
+; 用户需手动删除该目录才能完全清除
 
 [Code]
 function InitializeSetup(): Boolean;

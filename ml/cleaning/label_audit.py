@@ -1,7 +1,7 @@
 """zzv0.4 P4-1: confident learning 标签审计。
 
 文献依据: [#6 Northcutt et al. 2021] Confident Learning
-裴总报告2第31行: 每轮训练前排查疑似错标, 输出候选复核清单
+第31行: 每轮训练前排查疑似错标, 输出候选复核清单
 实现: 用交叉验证的预测概率 + 标签, 找出"模型认为大概率是A但标为B"的疑似错标样本。
 """
 from __future__ import annotations

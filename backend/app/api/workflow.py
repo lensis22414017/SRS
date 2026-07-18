@@ -111,7 +111,7 @@ def download_attachment(site_id: int, stage: str, attachment_id: int,
                         media_type=media)
 
 
-# v1.0.1: 单条附件删除(裴总任务11) — 删除附件记录+物理文件
+# v1.0.1: 单条附件删除() — 删除附件记录+物理文件
 @router.delete("/sites/{site_id}/workflow/{stage}/attachments/{attachment_id}")
 def delete_attachment(site_id: int, stage: str, attachment_id: int,
                       user: User = Depends(require_permission("data:input")),

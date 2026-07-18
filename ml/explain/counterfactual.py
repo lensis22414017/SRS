@@ -3,7 +3,7 @@
 文献依据:
 - [#24 Wachter et al. 2017]: 反事实解释, "如果想让某因子不再进入top-3, 应改变什么"
 - [#44 AHP-TOPSIS植物筛选], [#50 可持续修复], [#51 纳米修复]: 修复技术库映射
-裴总报告1第145行: 反事实把障碍因子转成行动建议
+第145行: 反事实把障碍因子转成行动建议
 """
 from __future__ import annotations
 import numpy as np

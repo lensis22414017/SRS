@@ -38,7 +38,7 @@ export default function SiteList() {
     }
   };
 
-  // v1.0.1: 批量删除(裴总任务2)
+  // v1.0.1: 批量删除()
   const handleBatchDelete = async () => {
     setBatchDeleting(true);
     try {

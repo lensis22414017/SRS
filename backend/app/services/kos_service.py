@@ -74,12 +74,31 @@ PH_THRESHOLD = {"prod": {"type": "interval", "min": 5.5, "max": 8.5},
 
 # 用途权重(简化,来自课题二 AHP)
 PROD_WEIGHTS = {"Cd_mgkg": 0.9, "Pb_mgkg": 0.8, "As_mgkg": 0.85, "Cr_mgkg": 0.7, "Hg_mgkg": 0.85,
-                "Cu_mgkg": 0.75, "Zn_mgkg": 0.7, "Ni_mgkg": 0.65, "pH": 0.8, "BaP_ngg": 0.85}
+                "Cu_mgkg": 0.75, "Zn_mgkg": 0.7, "Ni_mgkg": 0.65, "pH": 0.8, "BaP_ngg": 0.85,
+                # v1.0.1 L4 扩展重金属(启发式权重, 低于核心重金属)
+                "Mn_mgkg": 0.55, "Co_mgkg": 0.55, "Mo_mgkg": 0.5, "Sb_mgkg": 0.6,
+                "Tl_mgkg": 0.65, "Be_mgkg": 0.6, "Ba_mgkg": 0.5, "V_mgkg": 0.55, "Fe_mgkg": 0.45,
+                # v1.0.1 L4 有机物(按毒性/持久性赋权, PAH/OCP 高于 VOC)
+                "PAH_Benzo[a]pyrene": 0.85, "PAH_total": 0.8, "PAH_Naphthalene": 0.65,
+                "PAH_Pyrene": 0.65, "PAH_Fluoranthene": 0.65, "PAH_Phenanthrene": 0.6,
+                "PAH_Anthracene": 0.6, "PAH_Fluorene": 0.55, "PAH_Indeno": 0.75,
+                "PAH_Benzo[a]anthracene": 0.7, "PAH_Benzo[b]fluoranthene": 0.7,
+                "OCP_DDT": 0.85, "OCP_HCH": 0.8, "PCB_total": 0.85, "PFAS_total": 0.8,
+                "TPH_C10C40": 0.65,
+                "VOC_Tetrachloroethylene": 0.7, "VOC_Trichloroethylene": 0.65,
+                "VOC_CarbonTetrachloride": 0.7, "Aniline": 0.65, "Nitrobenzene": 0.6,
+                "Cyanide": 0.7, "Phenol_Pentachlorophenol": 0.7,
+                "BTEX_Styrene": 0.55, "BTEX_Toluene": 0.55, "BTEX_Ethylbenzene": 0.6,
+                "BTEX_Xylene": 0.55}
 ECO_WEIGHTS = {"Cd_mgkg": 0.85, "Pb_mgkg": 0.85, "As_mgkg": 0.9, "Cr_mgkg": 0.8, "Hg_mgkg": 0.9,
-               "Cu_mgkg": 0.7, "Zn_mgkg": 0.65, "Ni_mgkg": 0.7, "pH": 0.75}
+               "Cu_mgkg": 0.7, "Zn_mgkg": 0.65, "Ni_mgkg": 0.7, "pH": 0.75,
+               # v1.0.1 L4 生态轨(生态用地对重金属更敏感, 权重略高)
+               "Mn_mgkg": 0.6, "Co_mgkg": 0.6, "Tl_mgkg": 0.7, "Be_mgkg": 0.65,
+               "PAH_Benzo[a]pyrene": 0.9, "PAH_total": 0.85, "OCP_DDT": 0.9,
+               "PCB_total": 0.9, "PFAS_total": 0.85}
 
 # 特征名映射(中文场地数据 → x_measured_ 特征名)
-# 这是从甲方检测数据到模型特征的桥梁
+# 这是从用户检测数据到模型特征的桥梁
 VALUE_TO_FEATURE = {
     "镉": "Cd_mgkg", "Cd": "Cd_mgkg", "镉_Cd": "Cd_mgkg",
     "铅": "Pb_mgkg", "Pb": "Pb_mgkg", "铅_Pb": "Pb_mgkg",
@@ -348,9 +367,9 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
                 thresholds[fac] = thr_result["threshold"]
                 threshold_meta[fac] = thr_result
             elif thr_result["threshold_resolution_status"] == "ambiguous":
-                # v1.0.2(裴总决策 + GPT 4.10): ambiguous 不再 pop 因子!
+                # v1.0.2(+ GPT 4.10): ambiguous 不再 pop 因子!
                 # 改用 resolve_threshold_fallback 取 GB15618 最严档兜底,
-                # 让甲方看到"有障碍但阈值待核实", 而非"没障碍"
+                # 让用户看到"有障碍但阈值待核实", 而非"没障碍"
                 fb_result = resolve_threshold_fallback(db_session, fac, track=track)
                 if fb_result["threshold_resolution_status"] == "fallback":
                     thresholds[fac] = fb_result["threshold"]
@@ -383,7 +402,7 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
     # 证据等级: 实测=A, 否则 C
     evidence = {f: "A" for f in factors}
 
-    # v1.0.2(裴总决策): S 用模型层 Top-5 稳定性(从 metrics_file 读)
+    # v1.0.2(): S 用模型层 Top-5 稳定性(从 metrics_file 读)
     factor_stability = {}
     try:
         registry = load_registry()
@@ -478,7 +497,7 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
     # v1.0.2(GPT 4.7): 按采样点计算超标统计(超标点数/超标率/P95/最大超标倍数)
     per_point_stats = _compute_per_point_stats(per_point_data, thresholds, threshold_meta)
 
-    # 四层输出(裴总 P0 规则)
+    # 四层输出( P0 规则)
     output = {
         "track": track,
         "model_id": model_id,

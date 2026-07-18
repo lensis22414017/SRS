@@ -209,7 +209,7 @@ def _evaluation_organic_degraded(db: Session, site_id: int, site: Site,
 def _integrate_weighting_and_mice(means: dict, scope: str) -> dict:
     """v1.0.2(GPT P0-3): 集成 AHP 主观权重 + MICE 插补。
 
-    单场地策略(裴总决策):
+    单场地策略():
     - AHP 主观权重: 用 indicator_weights 作为主观权重(已归一化)
     - 客观权重(熵权/CRITIC): 单场地无跨场地数据, 退化为均匀权重
     - MICE: 单场地 1×n 退化为中位数兜底(已有逻辑)
@@ -326,7 +326,7 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
         eval_kwargs = _integrate_weighting_and_mice(means, scope)
         r = R.evaluate(means, scope, ph=ph, screen_limits=screen, **eval_kwargs)
         et = "reconstruction_prod" if scope == "production" else "reconstruction_eco"
-        # P4: 合并 KOS key_obstacles 到 limiting_factors(裴总要求功能重构读 KOS Top)
+        # P4: 合并 KOS key_obstacles 到 limiting_factors(功能重构读 KOS Top)
         kos_limiting = list(r.get("limiting_factors") or [])
         try:
             from app.services.kos_service import run_kos_diagnosis

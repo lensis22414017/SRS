@@ -120,14 +120,14 @@ def test_report_generation_full_chain():
             xml = z.read("word/document.xml").decode("utf-8", errors="ignore")
             media_files = [n for n in z.namelist() if n.startswith("word/media/")]
         text = re.sub("<[^>]+>", " ", xml)
-        # 裴总 P1-1: DOCX 同步 PDF 图件 — 至少 map + SHAP + EDA 三张
+        #  P1-1: DOCX 同步 PDF 图件 — 至少 map + SHAP + EDA 三张
         assert len(media_files) >= 3, (
             f"DOCX 媒体图件应 ≥3 (map+shap+eda), 实际 {len(media_files)}: {media_files}")
         for section in ["地图图件", "检测数据摘要", "数据质量校验",
                         "功能重构可行性", "SSUI", "推荐修复方案矩阵",
                         "五阶段全流程追溯", "附件清单", "人工复核意见区"]:
             assert section in text, f"DOCX 报告缺章节: {section}"
-        assert "操作日志摘要" not in text, "DOCX 不应含操作日志摘要(裴总第一节)"
+        assert "操作日志摘要" not in text, "DOCX 不应含操作日志摘要()"
     finally:
         db.close()
 
@@ -151,11 +151,11 @@ def test_report_html_renders():
         for section in ["场地基本信息", "数据来源说明", "采样点信息", "检测数据摘要",
                         "地图图件", "数据质量校验", "障碍因子识别", "功能重构可行性",
                         "可持续利用评价", "推荐重构方案", "五阶段全流程追溯",
-                        "附件清单", "报告版本", "人工复核意见区"]:  # 操作日志摘要已按裴总问题4移除
+                        "附件清单", "报告版本", "人工复核意见区"]:  # 操作日志摘要已按移除
             assert section in html, f"报告缺章节: {section}"
         assert "三、采样点信息" not in html
         assert "十、五阶段全流程追溯记录" not in html
-        # 裴总第一节: 报告不含"操作日志摘要"(甲方明确可不提系统操作摘要)
+        # 报告不含"操作日志摘要"(甲方明确可不提系统操作摘要)
         assert "操作日志摘要" not in html
     finally:
         db.close()
@@ -220,7 +220,7 @@ def test_workflow_attachment_download_and_authz():
 def test_workflow_five_stage_full_e2e():
     """T10.1 端到端: 五阶段各上传(中文文件名) + 刷新持久化 + 下载SHA256一致。
 
-    裴总 P1: 证明追溯上传闭环真实可用(非摆设), 覆盖 Stop hook 要求:
+     P1: 证明追溯上传闭环真实可用(非摆设), 覆盖 Stop hook 要求:
     - 五阶段(survey/approval/construction/effect/maintenance)各一附件
     - 中文文件名(save_upload 用 uuid_原名, 中文不乱码)
     - 刷新持久化(GET → GET, 附件数稳定, 不因刷新丢失)

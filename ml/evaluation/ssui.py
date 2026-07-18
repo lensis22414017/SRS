@@ -1,8 +1,8 @@
-"""v1.0.2: 可持续利用评价 SSUI 完整 25 项实现(甲方方法 + GPT 第六节)。
+"""v1.0.2: 可持续利用评价 SSUI 完整 25 项实现(方法学 + GPT 第六节)。
 
 SSUI = Σ(指标层权重 Wi · 元指标综合得分 Si) × f(t) × M
 
-甲方方法结构:
+方法学结构:
   目标层 A(土壤持续利用)
     ├─ 准则层 B1 安全性(0.5)
     │    ├─ 指标层 C1 限制因子(D1-D15)
@@ -15,9 +15,9 @@ v1.0.2 关键改动(GPT 6.1-6.8):
   1. 删除 C1 MVP 单维度虚假正式等级
   2. 落地 25 项元指标(D1-D25)结构
   3. 风险/经济数据缺失 → SSUI=N/A(不用总分回填)
-  4. f(t)=1+α·t, α=0.03(甲方方法)
-  5. M 管理强度(甲方 Table[75] 6档)
-  6. 等级边界(甲方 Table[76])
+  4. f(t)=1+α·t, α=0.03(方法学)
+  5. M 管理强度(用户 Table[75] 6档)
+  6. 等级边界(用户 Table[76])
 
 纯 python, 仅依赖标准库。
 """
@@ -36,7 +36,7 @@ def _load():
 
 
 def _minmax(vals, negative=False):
-    """场内 Min-Max 归一化(注: 甲方方法要求跨场地锚点, MVP 用场内)。"""
+    """场内 Min-Max 归一化(注: 方法学要求跨场地锚点, MVP 用场内)。"""
     vals = [v for v in vals if v is not None]
     if not vals:
         return None
@@ -166,7 +166,7 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
             "scope": scope, "ssui": None, "grade": "N/A(数据不足)",
             "dimensions": {k: [g for g in v if g[3] == "measured"] for k, v in groups.items()},
             "explanation": f"SSUI=N/A。缺失维度: {', '.join(missing_dims)}。"
-                           f"甲方方法要求安全性(含风险因子)+经济性双重数据, "
+                           f"方法学要求安全性(含风险因子)+经济性双重数据, "
                            f"当前场地缺{'风险' if not has_risk_data else ''}"
                            f"{'+' if not has_risk_data and not has_economic_data else ''}"
                            f"{'经济' if not has_economic_data else ''}数据, "
@@ -200,7 +200,7 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
         tw = sum(p[2] for p in measured)
         sc[criterion] = sum(p[1] * (p[2] / tw) for p in measured) if tw > 0 else 0
 
-    # 准则层权重(甲方 Table[45])
+    # 准则层权重(用户 Table[45])
     cw = params[scope_key].get("criteria_weights_25", {})
     # B1 安全性 = C1 + C2, B2 经济性 = C3 + C4
     b1 = (sc.get("限制因子C1", 0) * cw.get("限制因子C1", 0.3445) / (cw.get("限制因子C1", 0.3445) + cw.get("风险因子C2", 0.2012))
@@ -236,11 +236,11 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
             f"④ f(t)=1+0.03×{t}={round(ft,3)}, M={M}",
             f"⑤ SSUI=(B1×0.5+B2×0.5)×f(t)×M={round(raw_ssui,4)}→min(,1.0)={ssui}",
             f"⑥ 等级: {grade}",
-            f"⑦ 口径说明: MVP用场内Min-Max归一化, 准则层权重来自甲方方法; "
+            f"⑦ 口径说明: MVP用场内Min-Max归一化, 准则层权重来自方法学; "
             f"跨场地锚点/PCA降维/博弈论赋权需多场地数据(后续版本)",
         ],
         "explanation": f"SSUI(25项完整口径,MVP场内归一化)={ssui}({grade})。"
                        f"B1安全性={round(b1,4)}, B2经济性={round(b2,4)}, f(t)={round(ft,3)}, M={M}。"
-                       f"基于甲方方法25项元指标(D1-D25)。"
+                       f"基于方法学25项元指标(D1-D25)。"
                        f"当前为MVP口径(场内Min-Max), 跨场地可比性待后续版本。",
     }

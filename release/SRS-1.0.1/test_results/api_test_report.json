@@ -1,0 +1,356 @@
+{
+  "sites": [
+    {
+      "file": "演示_云南_重金属_重度.xlsx",
+      "import": {
+        "status": 200,
+        "ok": true
+      },
+      "kos_prod": {
+        "status": 200,
+        "n_obstacles": 4
+      },
+      "kos_eco": {
+        "status": 200,
+        "n_obstacles": 3
+      },
+      "reconstruction": {
+        "status": 200,
+        "grade": null,
+        "has_ssui": true
+      },
+      "errors": []
+    },
+    {
+      "file": "演示_四川_有机_轻度.xlsx",
+      "import": {
+        "status": 200,
+        "ok": true
+      },
+      "kos_prod": {
+        "status": 200,
+        "n_obstacles": 0
+      },
+      "kos_eco": {
+        "status": 200,
+        "n_obstacles": 1
+      },
+      "reconstruction": {
+        "status": 200,
+        "grade": null,
+        "has_ssui": true
+      },
+      "errors": []
+    },
+    {
+      "file": "演示_四川_重金属_重度.xlsx",
+      "import": {
+        "status": 200,
+        "ok": true
+      },
+      "kos_prod": {
+        "status": 200,
+        "n_obstacles": 4
+      },
+      "kos_eco": {
+        "status": 200,
+        "n_obstacles": 3
+      },
+      "reconstruction": {
+        "status": 200,
+        "grade": null,
+        "has_ssui": true
+      },
+      "errors": []
+    },
+    {
+      "file": "演示_山东_复合_中度.xlsx",
+      "import": {
+        "status": 200,
+        "ok": true
+      },
+      "kos_prod": {
+        "status": 200,
+        "n_obstacles": 1
+      },
+      "kos_eco": {
+        "status": 200,
+        "n_obstacles": 3
+      },
+      "reconstruction": {
+        "status": 200,
+        "grade": null,
+        "has_ssui": true
+      },
+      "errors": []
+    },
+    {
+      "file": "演示_山东_有机_重度.xlsx",
+      "import": {
+        "status": 200,
+        "ok": true
+      },
+      "kos_prod": {
+        "status": 200,
+        "n_obstacles": 0
+      },
+      "kos_eco": {
+        "status": 200,
+        "n_obstacles": 4
+      },
+      "reconstruction": {
+        "status": 200,
+        "grade": null,
+        "has_ssui": true
+      },
+      "errors": []
+    },
+    {
+      "file": "演示_广东_复合_轻度.xlsx",
+      "import": {
+        "status": 200,
+        "ok": true
+      },
+      "kos_prod": {
+        "status": 200,
+        "n_obstacles": 1
+      },
+      "kos_eco": {
+        "status": 200,
+        "n_obstacles": 0
+      },
+      "reconstruction": {
+        "status": 200,
+        "grade": null,
+        "has_ssui": true
+      },
+      "errors": []
+    },
+    {
+      "file": "演示_广东_重金属_中度.xlsx",
+      "import": {
+        "status": 200,
+        "ok": true
+      },
+      "kos_prod": {
+        "status": 200,
+        "n_obstacles": 3
+      },
+      "kos_eco": {
+        "status": 200,
+        "n_obstacles": 3
+      },
+      "reconstruction": {
+        "status": 200,
+        "grade": null,
+        "has_ssui": true
+      },
+      "errors": []
+    },
+    {
+      "file": "演示_江苏_有机_中度.xlsx",
+      "import": {
+        "status": 400,
+        "ok": false
+      },
+      "kos_prod": null,
+      "kos_eco": null,
+      "reconstruction": null,
+      "errors": [
+        "import: {\"detail\":\"导入失败 [IntegrityError]: (sqlite3.IntegrityError) UNIQUE constraint failed: sites.site_code\\n[SQL: UPDATE sites SET site_code=?, updated_at=CURRENT_TIMESTAMP WHERE sites.id = ?]\\n[parameters:"
+      ]
+    },
+    {
+      "file": "演示_江苏_重金属_轻度.xlsx",
+      "import": {
+        "status": 400,
+        "ok": false
+      },
+      "kos_prod": null,
+      "kos_eco": null,
+      "reconstruction": null,
+      "errors": [
+        "import: {\"detail\":\"导入失败 [IntegrityError]: (sqlite3.IntegrityError) UNIQUE constraint failed: sites.site_code\\n[SQL: UPDATE sites SET site_code=?, updated_at=CURRENT_TIMESTAMP WHERE sites.id = ?]\\n[parameters:"
+      ]
+    },
+    {
+      "file": "演示_河南_复合_重度.xlsx",
+      "import": {
+        "status": 200,
+        "ok": true
+      },
+      "kos_prod": {
+        "status": 200,
+        "n_obstacles": 1
+      },
+      "kos_eco": {
+        "status": 200,
+        "n_obstacles": 4
+      },
+      "reconstruction": {
+        "status": 200,
+        "grade": null,
+        "has_ssui": true
+      },
+      "errors": []
+    },
+    {
+      "file": "演示_浙江_复合_轻度.xlsx",
+      "import": {
+        "status": 200,
+        "ok": true
+      },
+      "kos_prod": {
+        "status": 200,
+        "n_obstacles": 1
+      },
+      "kos_eco": {
+        "status": 200,
+        "n_obstacles": 0
+      },
+      "reconstruction": {
+        "status": 200,
+        "grade": null,
+        "has_ssui": true
+      },
+      "errors": []
+    },
+    {
+      "file": "演示_浙江_重金属_中度.xlsx",
+      "import": {
+        "status": 400,
+        "ok": false
+      },
+      "kos_prod": null,
+      "kos_eco": null,
+      "reconstruction": null,
+      "errors": [
+        "import: {\"detail\":\"导入失败 [IntegrityError]: (sqlite3.IntegrityError) UNIQUE constraint failed: sites.site_code\\n[SQL: UPDATE sites SET site_code=?, updated_at=CURRENT_TIMESTAMP WHERE sites.id = ?]\\n[parameters:"
+      ]
+    },
+    {
+      "file": "演示_湖北_有机_中度.xlsx",
+      "import": {
+        "status": 200,
+        "ok": true
+      },
+      "kos_prod": {
+        "status": 200,
+        "n_obstacles": 0
+      },
+      "kos_eco": {
+        "status": 200,
+        "n_obstacles": 3
+      },
+      "reconstruction": {
+        "status": 200,
+        "grade": null,
+        "has_ssui": true
+      },
+      "errors": []
+    },
+    {
+      "file": "演示_湖南_复合_重度.xlsx",
+      "import": {
+        "status": 200,
+        "ok": true
+      },
+      "kos_prod": {
+        "status": 200,
+        "n_obstacles": 3
+      },
+      "kos_eco": {
+        "status": 200,
+        "n_obstacles": 2
+      },
+      "reconstruction": {
+        "status": 200,
+        "grade": null,
+        "has_ssui": true
+      },
+      "errors": []
+    },
+    {
+      "file": "演示_湖南_重金属_轻度.xlsx",
+      "import": {
+        "status": 200,
+        "ok": true
+      },
+      "kos_prod": {
+        "status": 200,
+        "n_obstacles": 2
+      },
+      "kos_eco": {
+        "status": 200,
+        "n_obstacles": 1
+      },
+      "reconstruction": {
+        "status": 200,
+        "grade": null,
+        "has_ssui": true
+      },
+      "errors": []
+    },
+    {
+      "file": "演示_福建_有机_轻度.xlsx",
+      "import": {
+        "status": 400,
+        "ok": false
+      },
+      "kos_prod": null,
+      "kos_eco": null,
+      "reconstruction": null,
+      "errors": [
+        "import: {\"detail\":\"导入失败 [IntegrityError]: (sqlite3.IntegrityError) UNIQUE constraint failed: sites.site_code\\n[SQL: UPDATE sites SET site_code=?, updated_at=CURRENT_TIMESTAMP WHERE sites.id = ?]\\n[parameters:"
+      ]
+    },
+    {
+      "file": "演示_辽宁_有机_重度.xlsx",
+      "import": {
+        "status": 200,
+        "ok": true
+      },
+      "kos_prod": {
+        "status": 200,
+        "n_obstacles": 0
+      },
+      "kos_eco": {
+        "status": 200,
+        "n_obstacles": 4
+      },
+      "reconstruction": {
+        "status": 200,
+        "grade": null,
+        "has_ssui": true
+      },
+      "errors": []
+    },
+    {
+      "file": "演示_陕西_复合_中度.xlsx",
+      "import": {
+        "status": 200,
+        "ok": true
+      },
+      "kos_prod": {
+        "status": 200,
+        "n_obstacles": 1
+      },
+      "kos_eco": {
+        "status": 200,
+        "n_obstacles": 2
+      },
+      "reconstruction": {
+        "status": 200,
+        "grade": null,
+        "has_ssui": true
+      },
+      "errors": []
+    }
+  ],
+  "summary": {
+    "total": 18,
+    "succeeded": 14,
+    "failed": 4,
+    "success_rate": "14/18 = 77.8%"
+  }
+}

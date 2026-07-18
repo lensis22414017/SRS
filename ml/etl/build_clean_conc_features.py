@@ -4,7 +4,7 @@
   1. 离群值修正: Pb/As/Cr/Cu/Zn/Ni 超ceiling且/1000后落入正常范围 → /1000(单位错误ugkg误标mgkg)
   2. Cd/Hg 极端值: 保留但Winsorize到p99.9(矿区可能真实高, 不冒进删)
   3. 国家编码统一: 中国/China→China
-  4. 重金属浓度(8 HM + 12 有机汇总)保留作特征(裴总2026-07-01决策: 真实诊断时浓度就是输入)
+  4. 重金属浓度(8 HM + 12 有机汇总)保留作特征(真实诊断时浓度就是输入)
      - 这不是标签泄漏: 标签是浓度×pH×阈值的复杂函数, 模型学的是非线性关系, 泛化到新场地
   5. 原生NaN(树模型处理, 不填充)
 输出: data/training/dual_track/ (覆盖, 含重金属浓度特征)
@@ -38,7 +38,7 @@ GEE_COLS = ["gee_ndvi", "gee_precip_annual_mm", "gee_temp_mean_c",
             "gee_soil_pH", "gee_soc_g_kg", "gee_cec_cmol_kg", "gee_clay_pct",
             "gee_sand_pct", "gee_silt_pct", "gee_bulk_density_g_cm3", "gee_nitrogen_g_kg"]
 
-# 浓度特征(裴总决策保留): 8重金属 + 12有机汇总 = 标签派生列, 但作为合法特征
+# 浓度特征(保留): 8重金属 + 12有机汇总 = 标签派生列, 但作为合法特征
 CONC_FEATURE_COLS = list(HM_COLS) + list(ORG_COLS_MAP.keys())  # 20个
 
 # 清洗: 单位错误的离群值修正(超ceiling且/1000后正常)
@@ -168,7 +168,7 @@ def build_with_conc_features():
         "label_prod_pos_rate": float(df["标签_生产"].mean()),
         "label_eco_pos_rate": float(df["标签_生态"].mean()),
         "missing_value_policy": "原生NaN(树模型处理, 不填充)",
-        "note": "裴总2026-07-01决策: 保留重金属浓度作特征(真实诊断时浓度是输入, 非泄漏)",
+        "note": "保留重金属浓度作特征(真实诊断时浓度是输入, 非泄漏)",
     }
     with open(os.path.join(OUT_DIR, "meta.json"), "w", encoding="utf-8") as f:
         json.dump(meta, f, ensure_ascii=False, indent=2)

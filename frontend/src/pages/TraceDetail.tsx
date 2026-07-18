@@ -26,7 +26,7 @@ function formatBytes(bytes: number | undefined | null): string {
 }
 
 // 通用文件角色(原始报告/审批意见/盖章版报告/补充材料) + 各阶段专属角色
-// 支持监理上传→甲方审批→盖章版上传 的角色流转
+// 支持监理上传→用户审批→盖章版上传 的角色流转
 const COMMON_FILE_ROLES = ["原始报告", "审批意见", "盖章版报告", "补充材料"];
 const FILE_ROLES: Record<string, string[]> = {
   survey: [...COMMON_FILE_ROLES, "场地调查报告", "检测数据", "障碍因子识别结果", "可行性分析结论"],

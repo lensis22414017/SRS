@@ -2,7 +2,7 @@
  * MethodExplainCard — 污染场地关键障碍因子「诊断方法说明」卡片
  *
  * 位置: 障碍因子分析页, 关键障碍因子结果上方。
- * 目的: 用普通中文向甲方解释 KOS 综合评分由哪五要素构成, 并明确
+ * 目的: 用普通中文向用户解释 KOS 综合评分由哪五要素构成, 并明确
  *       "模型贡献度 ≠ 法规判定 ≠ 因果证明", 防止误解。
  *
  * 公式(与 ml/ranking/kos_engine_v0.8.py 一致):
@@ -29,7 +29,7 @@ const COMPONENT_ROWS = [
 
 export default function MethodExplainCard({ track, flowKey }: { track?: "prod" | "eco"; flowKey?: string }) {
   const [open, setOpen] = useState<string | string[]>(["explain"]); // 默认展开
-  // v1.0.2(裴总决策: 行内缩略图+点击放大): 流程图 Modal
+  // v1.0.2(行内缩略图+点击放大): 流程图 Modal
   const [flowModalOpen, setFlowModalOpen] = useState(false);
   const [flowError, setFlowError] = useState(false);
   const flowSrc = flowKey ? `/assets/flows/${flowKey}.svg` : null;

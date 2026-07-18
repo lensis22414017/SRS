@@ -443,7 +443,7 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
             pivot, scope="production" if track == "prod" else "ecology")
         rl_ranked = production_limiting_factors(pivot)
         # zzv0.4 规则/模型分层(文献[#2 Rudin2019]): 规则层(阈值超标)先行, SHAP归因次之
-        # 不再混排去重, 而是分层呈现, 让甲方看到"规则判定"与"模型归因"各自结论
+        # 不再混排去重, 而是分层呈现, 让用户看到"规则判定"与"模型归因"各自结论
         rule_ranked = sorted(ex_ranked + rl_ranked,
                              key=lambda x: x.get("mean_abs_shap", 0), reverse=True)
         # 合并去重保留向后兼容(all_ranked), 但分层标注 source
@@ -469,7 +469,7 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
     # (17真实场地 land_use_type 全 null → 永远 fallback prod, 双轨失效)
     # 改为: 显式 track 参数优先, 其次 land_use_type, 默认双轨都算
     _lut = (getattr(site, "land_use_type", None) or "").strip()
-    # zzv0.4 红旗检测(裴总报告19行): prod/eco输出异常一致=可疑
+    # zzv0.4 红旗检测(): prod/eco输出异常一致=可疑
     prod_top1 = prod_r["ranked"][0]["factor_code"] if prod_r["ranked"] else None
     eco_top1 = eco_r["ranked"][0]["factor_code"] if eco_r["ranked"] else None
     dual_track_suspicious = (prod_top1 and eco_top1 and prod_top1 == eco_top1
@@ -591,7 +591,7 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
         # zzv0.4 规则/模型分层呈现(文献[#2 Rudin2019])
         "rule_factors": main.get("rule_ranked", []),
         "shap_factors": main.get("shap_ranked", []),
-        # zzv0.4 红旗检测(裴总报告19行)
+        # zzv0.4 红旗检测()
         "human_review_triggered": bool(dual_track_suspicious),
         "review_reason": "双轨top-1因子异常一致, 标签/特征可能未差异化" if dual_track_suspicious else None,
     }

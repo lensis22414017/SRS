@@ -5,7 +5,7 @@
 - [#10 Gebru et al. 2018] Datasheets: 数据文档(来源/缺失/偏差/代表性)
 - [#59 Novelty Detection] IsolationForest/LOF: OOD 检测
 - [#8 Angelopoulos 2021] conformal: 分布无关覆盖保证
-裴总报告1第147-164行: 审计证据链字段
+第147-164行: 审计证据链字段
 """
 from __future__ import annotations
 import json
@@ -27,7 +27,7 @@ def generate_model_card(model_meta: dict, validation_metrics: dict,
         "group_key": model_meta.get("group_key", "id_DOI"),
         "threshold_library_version": "GB15618-2018/GB36600-2018/HJ25.5-2018",
         "ood_policy": model_meta.get("ood_policy", "warn"),
-        "human_review_policy": "触发条件见 P4-3(裴总报告251-261行): OOD/top1差值小/SHAP不稳定/缺失高/校准差/双轨一致",
+        "human_review_policy": "触发条件见 P4-3(-261行): OOD/top1差值小/SHAP不稳定/缺失高/校准差/双轨一致",
         "performance": validation_metrics,
         "intended_use": "污染场地障碍因子诊断(因子归因, 非二分类预测)。用户上传实测浓度→RF+SHAP识别障碍因子。",
         "out_of_scope": [
@@ -101,7 +101,7 @@ def should_trigger_human_review(ood_score: float, top1_shap: float, top2_shap: f
                                 shap_consistency: float, missing_rate: float,
                                 data_origin: str, calibration_error: float,
                                 dual_track_consistent: bool) -> tuple[bool, list[str]]:
-    """人工复核触发政策(裴总报告251-261行, 7条)。返回 (是否触发, 原因列表)。"""
+    """人工复核触发政策(-261行, 7条)。返回 (是否触发, 原因列表)。"""
     reasons = []
     if ood_score > 0.3:
         reasons.append(f"OOD score {ood_score:.3f} 超阈值(分布外样本)")

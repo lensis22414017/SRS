@@ -179,7 +179,7 @@ export default function ObstacleAnalysis() {
         <Space style={{ width: "100%", justifyContent: "space-between", flexWrap: "wrap" }}>
           <Space wrap>
             <SitePicker value={sid} onChange={setSid} />
-            {/* v1.0.2(GPT 4.1-4.3 + 裴总问题7): 顶部卡片背景统一蓝色调 */}
+            {/* v1.0.2(GPT 4.1-4.3 + ): 顶部卡片背景统一蓝色调 */}
             <Segmented value={landUse} onChange={(v) => switchLandUse(v as string)} disabled={!sid}
               options={[{ label: "修复后·生产用地", value: "生产用地" }, { label: "修复后·生态用地", value: "生态用地" }]}
               style={{ background: "#e6f4ff", padding: 4, borderRadius: 6 }} />
@@ -275,8 +275,22 @@ export default function ObstacleAnalysis() {
                       columns={[
                         { title: "排名", dataIndex: "rank", width: 60, align: "center",
                           render: (v: number) => <strong style={{ color: v <= 3 ? "#fa541c" : "#666" }}>#{v}</strong> },
-                        { title: "关键障碍因子", dataIndex: "factor", width: 160,
-                          render: (v: string) => <span style={{ fontWeight: 600 }}>{formatFactor(v)}</span> },
+                        { title: "关键障碍因子", dataIndex: "factor", width: 180,
+                          render: (v: string, r: any) => (
+                            <Space size="small">
+                              <span style={{ fontWeight: 600 }}>{formatFactor(v)}</span>
+                              {r.threshold_resolution_status === "heuristic" && (
+                                <Tooltip title="该因子为启发式识别(关键词匹配), 阈值已用 GB15618 通用档兜底, 待专家核实">
+                                  <Tag color="orange" style={{ fontSize: 10 }}>启发式·待核实</Tag>
+                                </Tooltip>
+                              )}
+                              {r.threshold_resolution_status === "fallback" && (
+                                <Tooltip title="该因子阈值已用 GB15618 通用档兜底(无精确 pH/用地匹配)">
+                                  <Tag color="gold" style={{ fontSize: 10 }}>兜底阈值</Tag>
+                                </Tooltip>
+                              )}
+                            </Space>
+                          ) },
                         { title: "KOS 评分", dataIndex: "KOS", width: 110, align: "center",
                           render: (v: number, r: any) => {
                             const c = r.components || {};

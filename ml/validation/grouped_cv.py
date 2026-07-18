@@ -1,6 +1,6 @@
 """zzv0.4 P1-1/P1-2/P1-3/P1-4: 监管级分组验证协议。
 
-四套 group 切分(文献[#55 GroupKFold], 裴总报告126行):
+四套 group 切分(文献[#55 GroupKFold], ):
 - LeaveOneSiteOut (group=site_id): 站点外推
 - LeaveOneRegionOut (group=province/region): 区域外推
 - time-based split (按collected_at): 时间外推
@@ -144,7 +144,7 @@ def _permutation_topk(model, X_te, y_te, feature_names, k: int = 10) -> list[str
 
 
 def run_all_splits(track: str = "prod", group_strategies: list[str] | None = None) -> dict:
-    """运行多套group切分验证(裴总报告126行)。"""
+    """运行多套group切分验证()。"""
     X_tr, X_va, X_te, g_tr, yp_tr, ye_tr = _load_split()
     y = yp_tr if track == "prod" else ye_tr
     useful = select_features(X_tr)

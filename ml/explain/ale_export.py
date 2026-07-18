@@ -4,7 +4,7 @@
 - [#58 permutation importance]: SHAP排序在相关特征下易误导, 需permutation对照
 - [#4 Apley&Zhu 2020 ALE]: 相关特征下PDP会外推失真, ALE更稳健
 - [#25 ICE]: 个体异质性
-裴总报告2第51行: 解释层SHAP+permutation+ALE组合, 不只SHAP
+第51行: 解释层SHAP+permutation+ALE组合, 不只SHAP
 """
 from __future__ import annotations
 import numpy as np

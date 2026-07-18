@@ -1,4 +1,4 @@
-"""v1.0.2: 数据备份与恢复 API(GPT 第九节 + 裴总决策: 本轮实现)。
+"""v1.0.2: 数据备份与恢复 API(GPT 第九节 + 本轮实现)。
 
 端点:
   POST /api/v1/backup          创建备份(权限: system:backup)

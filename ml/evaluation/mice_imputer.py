@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""v1.0.2: MICE 缺失值处理(甲方方法 + GPT 第五节)。
+"""v1.0.2: MICE 缺失值处理(方法学 + GPT 第五节)。
 
-甲方方法(段落[439]):
+方法学(段落[439]):
   1. 识别缺失位置和模式
   2. 初步插补(均值/中位数)
   3. 链式方程迭代插补
@@ -25,7 +25,7 @@ def mice_impute(data: np.ndarray, n_imputations: int = 5,
     """MICE 多重插补。
 
     data: m×n 矩阵, np.nan 表示缺失。
-    n_imputations: 插补次数 m(甲方方法, 默认 5)。
+    n_imputations: 插补次数 m(方法学, 默认 5)。
     返回 {imputed_datasets, mean, is_imputed_mask}。
     """
     imputed_datasets = []
@@ -62,7 +62,7 @@ def apply_mice_to_values(values: dict, all_factors: list[str],
     """对场地指标值应用 MICE 插补。
 
     values: {factor: value}, 缺失的 factor 不在 dict 中或为 None。
-    all_factors: 完整指标列表(甲方方法定义的全部指标)。
+    all_factors: 完整指标列表(方法学定义的全部指标)。
     返回 {factor: imputed_value, is_imputed: bool}。
     """
     # 构造 1×n 矩阵(单场地)

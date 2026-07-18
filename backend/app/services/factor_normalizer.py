@@ -66,9 +66,10 @@ def _norm_key_aggressive(s: str) -> str:
 
 
 def _lookup_canonical(raw_name: str) -> str | None:
-    """三级查找: 精确 → 去单位精确 → 组合名拆分。
+    """四级查找: 精确 → 去单位精确 → 组合名拆分 → 关键词模糊匹配。
 
     精确匹配优先（禁止子串匹配），组合名如"镉_Cd"按分隔符拆分后逐段查。
+    v1.0.1: L1/L2/L3 失败后加 L4 关键词模糊匹配(含"镉/Cd"→Cd_mgkg)。
     """
     if not raw_name:
         return None
@@ -93,6 +94,12 @@ def _lookup_canonical(raw_name: str) -> str | None:
             pk = _norm_key(p)
             if pk in _ALIAS_TO_CANONICAL:
                 return _ALIAS_TO_CANONICAL[pk]
+
+    # 第4级: 关键词模糊匹配(含"镉/Cd"→Cd_mgkg, 启发式兜底)
+    # 覆盖训练数据未见过但命名含标准关键词的因子(如"镉含量"/"Cd浓度")
+    fuzzy = _fuzzy_keyword_match(factor_name)
+    if fuzzy:
+        return fuzzy
 
     return None
 
@@ -121,6 +128,130 @@ if _ALIASES:
 
 # 补充 Cr6 的精确匹配（确保 Cr 不误配 Cr(VI)）
 # factor_aliases 已有 Cr6_mgkg → 六价铬/Cr(VI)/Cr6+，这里只是确保优先级
+
+# ── v1.0.1 L4 关键词模糊匹配兜底 ─────────────────────────────
+# 当 L1/L2/L3 精确匹配都失败时, 用关键词扫描匹配 canonical code
+# 覆盖训练数据未见过但命名含标准关键词的因子(如"镉含量"/"Cd浓度"/"铜指标")
+# 参考: C:\Users\曾鸿\Desktop\000\0_背景资料\整合报告.txt (122 种障碍因子清单)
+# 设计原则: 中文字符关键词直接匹配; 英文单字母/双字母需带边界(括号/下划线/中文后缀)
+_KEYWORD_TO_CANONICAL: dict[str, str] = {
+    # ── 重金属中文关键词(直接匹配, 无歧义) ──
+    "镉": "Cd_mgkg", "铅": "Pb_mgkg", "砷": "As_mgkg", "铜": "Cu_mgkg",
+    "锌": "Zn_mgkg", "汞": "Hg_mgkg", "镍": "Ni_mgkg", "锰": "Mn_mgkg",
+    "钴": "Co_mgkg", "钼": "Mo_mgkg", "锑": "Sb_mgkg", "铊": "Tl_mgkg",
+    "铍": "Be_mgkg", "钡": "Ba_mgkg", "钒": "V_mgkg",
+    # ── 理化性质 ──
+    "阳离子交换": "CEC_cmolkg", "阳离子交换量": "CEC_cmolkg",
+    "电导率": "EC_mScm",
+    "有机碳": "OC_pct", "有机质": "OC_pct",
+    "全氮": "TN_gkg", "水解性氮": "TN_gkg", "碱解氮": "TN_gkg",
+    "全磷": "P_mgkg", "有效磷": "P_mgkg", "速效磷": "P_mgkg",
+    "全钾": "K_mgkg", "速效钾": "K_mgkg", "缓效钾": "K_mgkg",
+    "容重": "SoilBD_gcm3", "土壤容重": "SoilBD_gcm3",
+    "质地": "Clay_pct", "粘粒": "Clay_pct", "黏粒": "Clay_pct",
+    "砂粒": "Sand_pct", "粉粒": "Silt_pct",
+    "坡度": "Slope_pct", "海拔": "Elevation_m",
+    "全铁": "Fe_mgkg", "铁": "Fe_mgkg",
+    # ── PAH 多环芳烃(16种优先控制) ──
+    "萘": "PAH_Naphthalene", "苊": "PAH_Acenaphthylene", "芴": "PAH_Fluorene",
+    "菲": "PAH_Phenanthrene", "蒽": "PAH_Anthracene", "荧蒽": "PAH_Fluoranthene",
+    "芘": "PAH_Pyrene", "苯并[a]蒽": "PAH_Benz[a]anthracene",
+    "苯并芘": "PAH_Benzo[a]pyrene", "苯并[a]芘": "PAH_Benzo[a]pyrene",
+    "苯并[b]荧蒽": "PAH_Benzo[b]fluoranthene", "苯并[k]荧蒽": "PAH_Benzo[k]fluoranthene",
+    "茚并": "PAH_Indeno", "苝": "PAH_Perylene",
+    # ── OCP 有机氯农药 ──
+    "六六六": "OCP_HCH", "滴滴涕": "OCP_DDT", "氯丹": "OCP_Chlordane",
+    "七氯": "OCP_Heptachlor", "毒杀芬": "OCP_Camphechlor", "灭蚁灵": "OCP_Mirex",
+    "硫丹": "OCP_Endosulfan",
+    # ── PCB 多氯联苯 ──
+    "多氯联苯": "PCB_total", "联苯": "PCB_total",
+    # ── PFAS 全氟化合物 ──
+    "全氟": "PFAS_total", "全氟辛酸": "PFAS_PFOA", "全氟辛烷": "PFAS_PFOS",
+    # ── PAE 邻苯二甲酸酯(塑化剂) ──
+    "邻苯二甲酸": "PAE_total", "塑化剂": "PAE_total",
+    # ── TPH 石油烃 ──
+    "石油烃": "TPH_C10C40", "矿物油": "TPH_C10C40", "总石油": "TPH_C10C40",
+    # ── BTEX 苯系物 ──
+    "苯乙烯": "BTEX_Styrene", "甲苯": "BTEX_Toluene",
+    "乙苯": "BTEX_Ethylbenzene", "二甲苯": "BTEX_Xylene",
+    # ── 酚类 ──
+    "五氯酚": "Phenol_Pentachlorophenol", "硝基酚": "Phenol_Nitrophenol",
+    "氯酚": "Phenol_Chlorophenol", "二氯酚": "Phenol_Dichlorophenol",
+    # ── 氯代烃 ──
+    "三氯乙烯": "VOC_Trichloroethylene", "四氯乙烯": "VOC_Tetrachloroethylene",
+    "四氯化碳": "VOC_CarbonTetrachloride", "氯仿": "VOC_Chloroform",
+    "氯甲烷": "VOC_Chloromethane", "氯乙烯": "VOC_VinylChloride",
+    "二氯甲烷": "VOC_Dichloromethane", "二氯乙烷": "VOC_Dichloroethane",
+    "二氯苯": "VOC_Dichlorobenzene", "氯苯": "VOC_Chlorobenzene",
+    # ── 其他有机物 ──
+    "苯胺": "Aniline", "硝基苯": "Nitrobenzene",
+    "阿特拉津": "Atrazine", "莠去津": "Atrazine",
+    "二噁英": "Dioxin", "氰化物": "Cyanide",
+    # 英文全名(无歧义, 直接匹配)
+    "cadmium": "Cd_mgkg", "lead": "Pb_mgkg", "arsenic": "As_mgkg", "copper": "Cu_mgkg",
+    "zinc": "Zn_mgkg", "mercury": "Hg_mgkg", "nickel": "Ni_mgkg", "manganese": "Mn_mgkg",
+    "cobalt": "Co_mgkg", "molybdenum": "Mo_mgkg", "antimony": "Sb_mgkg", "thallium": "Tl_mgkg",
+    "beryllium": "Be_mgkg", "barium": "Ba_mgkg", "vanadium": "V_mgkg",
+}
+
+# 英文符号 → canonical 的映射(需用正则边界匹配, 避免子串误配)
+# 如 "Cd浓度" 命中 cd, 但 "record" 中的 cd 不命中(因后跟 e 非中文/数字/边界符)
+_SYMBOL_PATTERNS: list[tuple[str, str]] = [
+    (r"cd(?=[\s（(＿_含量浓度指标值检测水平测定分析总量\d]|$)", "Cd_mgkg"),
+    (r"pb(?=[\s（(＿_含量浓度指标值检测水平测定分析总量\d]|$)", "Pb_mgkg"),
+    (r"as(?=[\s（(＿_含量浓度指标值检测水平测定分析总量\d]|$)", "As_mgkg"),
+    (r"cu(?=[\s（(＿_含量浓度指标值检测水平测定分析总量\d]|$)", "Cu_mgkg"),
+    (r"zn(?=[\s（(＿_含量浓度指标值检测水平测定分析总量\d]|$)", "Zn_mgkg"),
+    (r"hg(?=[\s（(＿_含量浓度指标值检测水平测定分析总量\d]|$)", "Hg_mgkg"),
+    (r"ni(?=[\s（(＿_含量浓度指标值检测水平测定分析总量\d]|$)", "Ni_mgkg"),
+    (r"mn(?=[\s（(＿_含量浓度指标值检测水平测定分析总量\d]|$)", "Mn_mgkg"),
+    (r"\bco(?=[\s（(＿_含量浓度指标值检测水平测定分析总量\d]|$)", "Co_mgkg"),
+    (r"\bmo(?=[\s（(＿_含量浓度指标值检测水平测定分析总量\d]|$)", "Mo_mgkg"),
+    (r"\bsb(?=[\s（(＿_含量浓度指标值检测水平测定分析总量\d]|$)", "Sb_mgkg"),
+    (r"\btl(?=[\s（(＿_含量浓度指标值检测水平测定分析总量\d]|$)", "Tl_mgkg"),
+    (r"\bbe(?=[\s（(＿_含量浓度指标值检测水平测定分析总量\d]|$)", "Be_mgkg"),
+    (r"\bba(?=[\s（(＿_含量浓度指标值检测水平测定分析总量\d]|$)", "Ba_mgkg"),
+    (r"\bv(?=[\s（(＿_含量浓度指标值检测水平测定分析总量\d]|$)", "V_mgkg"),
+    # 有机物英文缩写
+    (r"\bpah\b", "PAH_total"), (r"\bpfos\b", "PFAS_PFOS"), (r"\bpfoa\b", "PFAS_PFOA"),
+    (r"\bpfas\b", "PFAS_total"), (r"\btph\b", "TPH_C10C40"),
+    (r"\bpcb\b", "PCB_total"), (r"\bddt\b", "OCP_DDT"), (r"\bhch\b", "OCP_HCH"),
+    # 注意: "铬"/"Cr"/"cr" 不在表内(需区分总铬vs六价铬), 依赖 L1/L2/L3 精确匹配
+]
+
+# 形态冲突检查(总铬vs六价铬等) — 匹配时排除冲突关键词
+_FORM_CONFLICT_KEYWORDS = ["六价", "cr6", "cr(vi)", "crvi", "有效态", "水溶态", "交换态"]
+
+
+def _fuzzy_keyword_match(factor_name: str) -> str | None:
+    """L4 关键词模糊匹配: 对 factor_name 做关键词扫描, 命中→返回 canonical code。
+
+    规则:
+    1. 先做形态冲突检查(含"六价"/"cr6"/"有效态"等→不匹配, 避免误配)
+    2. 中文关键词直接匹配(无歧义)
+    3. 英文符号用正则前瞻边界匹配(后跟中文后缀/数字/括号/下划线/行尾)
+       避免把"cd"误匹配到"record"等无关词
+    """
+    if not factor_name:
+        return None
+    s = factor_name.lower().strip()
+
+    # 形态冲突检查
+    for ck in _FORM_CONFLICT_KEYWORDS:
+        if ck in s:
+            return None
+
+    # 中文关键词扫描(直接包含匹配, 按关键词长度降序优先匹配长词避免短词误配)
+    for keyword in sorted(_KEYWORD_TO_CANONICAL.keys(), key=len, reverse=True):
+        if keyword in s:
+            return _KEYWORD_TO_CANONICAL[keyword]
+
+    # 英文符号正则边界匹配
+    for pattern, canonical in _SYMBOL_PATTERNS:
+        if re.search(pattern, s):
+            return canonical
+
+    return None
 
 
 def _extract_unit(col_name: str) -> tuple[str | None, str]:
@@ -155,6 +286,18 @@ def normalize_factor_name(raw_name: str) -> tuple[str | None, dict]:
     meta["normalized_name"] = normed
 
     canonical = _lookup_canonical(str(raw_name))
+
+    # v1.0.1: 标注匹配方式(精确/L4启发式模糊)
+    if canonical:
+        # 检查是否走 L4 关键词模糊匹配(L1/L2/L3 精确匹配表里查不到的)
+        k_precise = _norm_key(factor_name)
+        k2_precise = _norm_key(str(raw_name))
+        if k_precise in _ALIAS_TO_CANONICAL or k2_precise in _ALIAS_TO_CANONICAL:
+            meta["match_method"] = "exact"
+        else:
+            meta["match_method"] = "fuzzy_keyword"
+    else:
+        meta["match_method"] = "unmapped"
 
     # 单位转换
     if unit_raw and unit_raw in _UNIT_CONVERSION:

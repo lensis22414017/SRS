@@ -1,6 +1,6 @@
 """zzv0.3 R6: 最终模型训练 + 产物保存。
 
-裴总2026-07-01决策后的最终模型:
+后的最终模型:
   - eco轨: HM8+理化11+GEE14+特征工程(对数/pH交互/Nemerow指数), 三集AUC 0.92+, 真实跨文献泛化
   - prod轨: 同特征, 但AUC接近1.0(标签由HM×pH派生=查表), 诚实标注
 0泄漏: GroupKFold(DOI/Source) + 跨集group split
@@ -89,7 +89,7 @@ def main():
                        if track=="prod" else
                        "eco轨: 重金属+环境综合判别生态障碍, GroupKFold CV 0.92+为真实跨文献泛化, 与文献(0.85-0.95)一致。"
                        "permutation重要性: As>Zn>Cd>Pb>Cr(重金属主导)+gee_temp/OC/海拔(环境辅助)。")),
-                "retrain_note":"zzv0.3重训(2026-07-01裴总指令): 0泄漏GroupKFold+保留重金属+数据清洗+GEE补采+特征工程"}
+                "retrain_note":"zzv0.3重训(2026-07-01指令): 0泄漏GroupKFold+保留重金属+数据清洗+GEE补采+特征工程"}
         mpath = os.path.join(ARTIFACT_DIR,f"rf_barrier_factor_{version}.meta.json")
         json.dump(meta,open(mpath,"w",encoding="utf-8"),ensure_ascii=False,indent=2)
         results[track]=meta["metrics"]
