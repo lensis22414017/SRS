@@ -330,8 +330,23 @@ def smart_detect_and_map(path: str) -> tuple[str, dict, list[dict]]:
         })
         detail.append({"factor": raw, "category": cat, "type": ftype})
 
-    has_hm = any(d["type"] == "pollutant" and d.get("category") == "环境指标" for d in detail) and              any(_matches_heavy_metal_token(str(fc["column"]).lower()) for fc in factor_columns)
-    has_org = any(any(k in str(fc["column"]).lower() for k in _ORG) for fc in factor_columns)
+    # R3 审计第七类 7.3: 污染类型按有效非空实测值判定(不是仅看列名)
+    # has_hm/has_org 要求: 列名匹配 AND 至少 1 个有效非空数值
+    def _col_has_valid_values(col_name: str) -> bool:
+        """检查列是否有至少 1 个有效非空数值。"""
+        if col_name not in df.columns:
+            return False
+        try:
+            valid = pd.to_numeric(df[col_name], errors="coerce").dropna()
+            return len(valid) >= 1
+        except Exception:
+            return False
+
+    has_hm = (any(d["type"] == "pollutant" and d.get("category") == "环境指标" for d in detail)
+              and any(_matches_heavy_metal_token(str(fc["column"]).lower()) and _col_has_valid_values(fc["column"])
+                      for fc in factor_columns))
+    has_org = any(any(k in str(fc["column"]).lower() for k in _ORG) and _col_has_valid_values(fc["column"])
+                  for fc in factor_columns)
 
     # v1.0.1 final-audit: 污染类型判定优先级
     # a.文件名语义(重金属/有机/复合) > b.实际有效测量值 > c.unknown(禁止默认composite)

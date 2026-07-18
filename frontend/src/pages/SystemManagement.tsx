@@ -548,6 +548,7 @@ function TechLibrary() {
   const [modal, setModal] = useState<any>(null);
   const [form] = Form.useForm();
   const [saving, setSaving] = useState(false);
+  const [techPage, setTechPage] = useState(1);  // R3 审计: 技术库分页序号
 
   const load = (query = q) => {
     setLoading(true);
@@ -603,9 +604,9 @@ function TechLibrary() {
         <Button type="primary" icon={<PlusOutlined />} onClick={openCreate}>新增技术</Button>
       </Space>
       <Table rowKey="id" size="small" loading={loading} dataSource={data.items}
-        pagination={{ pageSize: 10 }} scroll={{ x: "max-content" }}
+        pagination={{ pageSize: 10, current: techPage, onChange: setTechPage }} scroll={{ x: "max-content" }}
         columns={[
-          seqCol(56),
+          seqCol(56, techPage, 10),
           textCol("技术名称", "tech_name", { width: 160 }),
           { title: "适用污染物", dataIndex: "applicable_pollutants", width: 150,
             render: (v: any) => v ? <Tag>{typeof v === "string" ? v : JSON.stringify(v)}</Tag> : "—" },

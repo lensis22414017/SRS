@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form, Input, Button, Card, App, Typography, Space, Row, Col, Modal } from "antd";
 import {
   UserOutlined, LockOutlined, SafetyCertificateOutlined,
@@ -34,6 +34,23 @@ export default function Login() {
 
   const [submitting, setSubmitting] = useState(false);
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
+
+  // R3 审计第六类: 检测首启状态, needs_setup=true 时跳转到首启向导
+  useEffect(() => {
+    api.setupStatus().then((s) => {
+      if (s.needs_setup) {
+        nav("/setup");
+      }
+    }).catch(() => { /* 静默忽略, 不阻断登录页 */ });
+  }, [nav]);
+
+  // 接收 setup 页面传来的用户名
+  useEffect(() => {
+    const state = (history.state || {}) as { username?: string };
+    if (state.username) {
+      form.setFieldsValue({ username: state.username });
+    }
+  }, [form]);
 
   const onFinish = async (v: { username: string; password: string }) => {
     setSubmitting(true);

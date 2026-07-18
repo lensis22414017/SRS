@@ -38,4 +38,8 @@ def test_health_endpoint():
     c = TestClient(app)
     r = c.get("/health")
     assert r.status_code == 200
-    assert r.json()["status"] == "ok"
+    # R3 审计第七类: status 可以是 "ok"(模型完整) 或 "degraded"(模型不完整)
+    # 测试环境模型路径可能解析不到, 关键是端点可用且返回 model_health 字段
+    data = r.json()
+    assert data["status"] in ("ok", "degraded"), f"status 应为 ok/degraded, 实际={data['status']}"
+    assert "model_health" in data, "必须返回 model_health 字段"

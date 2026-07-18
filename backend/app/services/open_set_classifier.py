@@ -177,10 +177,20 @@ def classify_factor(
         return result
 
     if canonical:
-        # 有 canonical 但既无阈值也不在模型特征 → 归 formal_eligible(无阈值标记)
-        result["layer"] = "formal_eligible"
+        # R3 审计第三类: 有 canonical 但既无阈值也不在模型特征
+        #   - 先检查族群归属(PAH/PFAS/OCP 等), 命中→family_alert(不进 formal_eligible)
+        #   - 否则归 identified_no_threshold(新层: 身份明确但无阈值, 不进正式障碍结论)
+        family_result = _try_family_match(raw_name, value, unit)
+        if family_result["matched"]:
+            result["layer"] = "family_alert"
+            result.update(family_result)
+            result["review_required"] = True
+            result["reason"] = f"因子 {canonical} 归入 {family_result['matched_family']} 族群(无正式阈值)"
+            return result
+        # 身份明确但无阈值且无族群 → identified_no_threshold
+        result["layer"] = "identified_no_threshold"
         result["threshold"] = None
-        result["reason"] = f"因子 {canonical} 身份明确但无适用阈值"
+        result["reason"] = f"因子 {canonical} 身份明确但无适用阈值, 不进入正式障碍结论"
         result["review_required"] = True
         return result
 
@@ -288,6 +298,7 @@ def classify_open_set(
     formal_obstacles = []     # formal_eligible 中规则确认超标的子集
     model_candidates = []
     family_alerts = []
+    identified_no_threshold = []  # R3: 身份明确但无阈值(不进正式障碍)
     unknown_measured = []
     n_unit_conflict = 0
     n_mapping_conflict = 0
@@ -321,6 +332,9 @@ def classify_open_set(
                 result["is_formal_obstacle"] = False
         elif layer == "model_candidate":
             model_candidates.append(result)
+        elif layer == "identified_no_threshold":
+            # R3 审计第三类: 身份明确但无阈值, 收纳但不进 formal_eligible
+            identified_no_threshold.append(result)
         elif layer == "family_alert":
             family_alerts.append(result)
             # M0-3: 单位不兼容导致置信度降低 → 真实计数
@@ -350,12 +364,14 @@ def classify_open_set(
         "formal_obstacles": formal_obstacles,
         "model_candidates": model_candidates,
         "family_alerts": family_alerts,
+        "identified_no_threshold": identified_no_threshold,
         "unknown_measured": unknown_measured,
         "open_set_summary": {
             "n_formal_eligible": len(formal_eligible),
             "n_formal_obstacle": len(formal_obstacles),
             "n_model_candidate": len(model_candidates),
             "n_family_alert": len(family_alerts),
+            "n_identified_no_threshold": len(identified_no_threshold),
             "n_unknown": len(unknown_measured),
             "n_unit_conflict": n_unit_conflict,
             "n_mapping_conflict": n_mapping_conflict,

@@ -49,6 +49,8 @@ export default function TraceDetail() {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [previewTitle, setPreviewTitle] = useState("");
   const [flowOpen, setFlowOpen] = useState(false);
+  const [filePage, setFilePage] = useState(1);  // R3 审计: 文件库分页序号
+  const [reportPage, setReportPage] = useState(1);
 
   const load = async () => {
     setSite(await api.site(sid));
@@ -226,9 +228,10 @@ export default function TraceDetail() {
         if (!allFiles.length) return null;
         return (
           <Card title={<Space><FileAddOutlined />网盘 · 已上传文件库（{allFiles.length} 个文件）</Space>} size="small">
-            <Table rowKey={(r: any) => `${r.stage}_${r.id}`} size="small" pagination={{ pageSize: 8 }} dataSource={allFiles}
+            <Table rowKey={(r: any) => `${r.stage}_${r.id}`} size="small"
+              pagination={{ pageSize: 8, current: filePage, onChange: setFilePage }} dataSource={allFiles}
               columns={[
-                seqCol(50),
+                seqCol(50, filePage, 8),
                 textCol("所属阶段", "stage_name"),
                 { title: "文件类型", dataIndex: "file_role", align: "left", render: (v: any) => v || "—" },
                 { title: "文件名", dataIndex: "original_name", align: "left",
@@ -256,7 +259,7 @@ export default function TraceDetail() {
       {reports.length > 0 && (
         <Card title="已生成报告">
           <Table rowKey="report_id" size="small" pagination={false} dataSource={reports}
-            columns={[seqCol(64), textCol("版本", "version"), textCol("生成时间", "generated_at"),
+            columns={[seqCol(64, 1, reports.length), textCol("版本", "version"), textCol("生成时间", "generated_at"),
               { title: "格式", align: "center", render: (_: any, r: any) => (r.data_snapshot?.format || "pdf").toUpperCase() },
               { title: "操作", align: "center", render: (_: any, r: any) => {
                   const fmt = r.data_snapshot?.format || "pdf";

@@ -53,12 +53,12 @@ class TestPOpenSetRecognition:
         assert r["matched_family"] == "PFAS"
 
     def test_05_unindexed_soil_physical(self):
-        """5. 未收录的土壤物理性质指标 → 养分族群或 unknown 或 formal_eligible(别名表有则精确匹配)"""
+        """5. 未收录的土壤物理性质指标 → 养分族群或 unknown 或 identified_no_threshold"""
         r = classify_factor("土壤容重", 1.3, None, KNOWN_CANONICAL, MODEL_FEATURES, KNOWN_THRESHOLDS)
-        # 土壤容重可能在别名表(SoilBD_gcm3), 精确匹配→formal_eligible(无阈值);
+        # 土壤容重可能在别名表(SoilBD_gcm3), 精确匹配→identified_no_threshold(无阈值);
         # 也可能不在别名表→family_alert(养分)或unknown_measured
-        assert r["layer"] in ("family_alert", "unknown_measured", "formal_eligible"), \
-            f"土壤容重应归 family/unknown/formal_eligible, 实际={r['layer']}"
+        assert r["layer"] in ("family_alert", "unknown_measured", "identified_no_threshold"), \
+            f"土壤容重应归 family/unknown/identified_no_threshold, 实际={r['layer']}"
 
     def test_06_completely_unknown_name(self):
         """6. 完全未知名称 → unknown_measured"""
@@ -71,8 +71,10 @@ class TestPOpenSetRecognition:
         """7. 单位不兼容 → 降级或标记"""
         # PAH 族群但单位是无量纲 pH → 不兼容
         r = classify_factor("荧蒽", 5.0, "无量纲", KNOWN_CANONICAL, MODEL_FEATURES, KNOWN_THRESHOLDS)
-        # 应降级置信度或归 unknown
-        assert r["layer"] in ("unknown_measured", "family_alert")
+        # 单位不兼容时族群匹配置信度降低(<阈值→不匹配);
+        # 但荧蒽有 canonical(PAH_Fluoranthene), 走 identified_no_threshold 或 family_alert
+        assert r["layer"] in ("unknown_measured", "family_alert", "identified_no_threshold"), \
+            f"单位不兼容应降级, 实际={r['layer']}"
         if r["layer"] == "family_alert":
             assert r["family_match_confidence"] < 0.8  # 置信度被降
 

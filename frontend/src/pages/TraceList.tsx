@@ -11,6 +11,8 @@ export default function TraceList() {
   const [data, setData] = useState<any>({ items: [] });
   const [loading, setLoading] = useState(true);
   const [q, setQ] = useState("");
+  const [page, setPage] = useState(1);
+  const pageSize = 10;
   const load = () => { setLoading(true); api.sites({ q, size: 100 }).then(setData).catch((err) => { message.error(err?.response?.data?.detail || "加载失败"); setData({ items: [] }); }).finally(() => setLoading(false)); };
   useEffect(() => { load(); }, []);
 
@@ -20,9 +22,10 @@ export default function TraceList() {
         <Input.Search placeholder="搜索场地" allowClear onChange={(e) => setQ(e.target.value)} onSearch={load} style={{ width: 240 }} />
         <Button icon={<ReloadOutlined />} onClick={load}>刷新</Button>
       </Space>}>
-      <Table rowKey="id" loading={loading} dataSource={data.items} pagination={{ pageSize: 10 }}
+      <Table rowKey="id" loading={loading} dataSource={data.items}
+        pagination={{ pageSize, current: page, onChange: (p) => setPage(p) }}
         columns={[
-          seqCol(64),
+          seqCol(64, page, pageSize),
           textCol("场地编号", "site_code"),
           textCol("名称", "name"),
           { title: "污染类型", dataIndex: "pollution_type", align: "center",

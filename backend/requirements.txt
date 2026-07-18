@@ -11,6 +11,8 @@ bcrypt>=4.2
 python-multipart>=0.0.12
 pandas>=2.2.3
 numpy>=2.0
+# R3 审计第二类: 显式声明 pyarrow(KOS 读 SHAP parquet 工件必需, 之前是 pandas 隐式依赖)
+pyarrow>=14.0
 openpyxl>=3.1
 scikit-learn>=1.5.2
 shap>=0.47

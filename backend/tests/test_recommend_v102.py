@@ -65,10 +65,9 @@ def test_upstream_status_tracking():
     """run_recommendation 返回 upstream_status(GPT 7.3)。"""
     # 这个测试需要 DB, 在有 DB 环境验证
     try:
-        from app.db.session import SessionLocal, reset_engine_for_tests
+        from app.db.session import SessionLocal
         from app.models import Base
         from app.db import session as _session_mod
-        reset_engine_for_tests("sqlite:///./srs_test_session.db")
         Base.metadata.drop_all(bind=_session_mod.engine)
         Base.metadata.create_all(bind=_session_mod.engine)
         from app.db.seed_db import seed_if_empty

@@ -14,6 +14,7 @@ from fastapi.responses import FileResponse, HTMLResponse
 
 from app.api.ai import router as ai_router
 from app.api.auth import router as auth_router
+from app.api.setup import router as setup_router
 from app.api.backup import router as backup_router  # v1.0.2: 备份恢复
 from app.api.data import router as data_router
 from app.api.diagnosis import router as diagnosis_router
@@ -55,10 +56,13 @@ async def lifespan(app: FastAPI):
 def _check_model_integrity() -> dict:
     """启动时检查模型工件完整性(KOS诊断必需)。
 
-    检查 p3_alpha/model_registry_v0.8.json + 至少一个 joblib 模型存在。
-    缺失时返回 {ok: False, reason: ...}, 诊断API据此阻断。
+    R3 审计第七类 7.6: 解析 registry, 逐一核对 frontend_enabled 模型的:
+      1. joblib 存在且可加载
+      2. shap_global parquet 存在且可读
+      3. metrics json 存在且可解析
+    缺失时返回 {ok: False, reason: ..., missing: [...], load_errors: [...]}
     """
-    import os, sys
+    import os, sys, json
     root = sys._MEIPASS if getattr(sys, "frozen", False) else os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     # PyInstaller _internal 目录兼容
     if not os.path.isdir(os.path.join(root, "ml")):
@@ -69,10 +73,80 @@ def _check_model_integrity() -> dict:
     registry = os.path.join(art_dir, "model_registry_v0.8.json")
     if not os.path.isfile(registry):
         return {"ok": False, "reason": f"模型注册表缺失: {registry}", "checked_at": _now()}
-    joblibs = [f for f in os.listdir(art_dir) if f.endswith(".joblib")] if os.path.isdir(art_dir) else []
-    if not joblibs:
-        return {"ok": False, "reason": f"无 joblib 模型工件: {art_dir}", "checked_at": _now()}
-    return {"ok": True, "n_models": len(joblibs), "registry": "model_registry_v0.8.json", "checked_at": _now()}
+
+    try:
+        with open(registry, encoding="utf-8") as f:
+            reg_data = json.load(f)
+    except Exception as e:
+        return {"ok": False, "reason": f"注册表解析失败: {e}", "checked_at": _now()}
+
+    checked_models = []
+    missing = []
+    load_errors = []
+    n_ok = 0
+
+    for model_id, info in reg_data.get("models", {}).items():
+        # 只核对 frontend_enabled 的模型(生产可用集)
+        if not info.get("frontend_enabled", False):
+            continue
+        model_file = info.get("model_file", "")
+        shap_file = info.get("shap_global_file", "")
+        metrics_file = info.get("metrics_file", "")
+        issues = []
+
+        # 1. joblib 存在且可加载
+        joblib_path = os.path.join(root, model_file) if model_file and not os.path.isabs(model_file) else model_file
+        if not model_file or not os.path.isfile(joblib_path):
+            issues.append(f"joblib缺失: {model_file}")
+            missing.append(f"{model_id}/joblib")
+        else:
+            try:
+                import joblib
+                joblib.load(joblib_path)
+            except Exception as e:
+                issues.append(f"joblib加载失败: {e}")
+                load_errors.append(f"{model_id}: {e}")
+
+        # 2. shap parquet 存在且可读
+        shap_path = os.path.join(root, shap_file) if shap_file and not os.path.isabs(shap_file) else shap_file
+        if not shap_file or not os.path.isfile(shap_path):
+            issues.append(f"parquet缺失: {shap_file}")
+            missing.append(f"{model_id}/shap_parquet")
+        else:
+            try:
+                import pandas as pd
+                pd.read_parquet(shap_path)
+            except Exception as e:
+                issues.append(f"parquet读取失败: {e}")
+                load_errors.append(f"{model_id}/shap: {e}")
+
+        # 3. metrics json 存在且可解析
+        metrics_path = os.path.join(root, metrics_file) if metrics_file and not os.path.isabs(metrics_file) else metrics_file
+        if metrics_file and not os.path.isfile(metrics_path):
+            issues.append(f"metrics缺失: {metrics_file}")
+            missing.append(f"{model_id}/metrics")
+        elif metrics_file:
+            try:
+                with open(metrics_path, encoding="utf-8") as f:
+                    json.load(f)
+            except Exception as e:
+                issues.append(f"metrics解析失败: {e}")
+                load_errors.append(f"{model_id}/metrics: {e}")
+
+        if issues:
+            checked_models.append({"model_id": model_id, "status": "error", "issues": issues})
+        else:
+            checked_models.append({"model_id": model_id, "status": "ok"})
+            n_ok += 1
+
+    # 至少一个模型 ok 才算整体 ok(允许部分模型异常但保留可用集)
+    if n_ok == 0:
+        return {"ok": False, "reason": "所有 frontend_enabled 模型均不可用",
+                "checked_models": checked_models, "missing": missing,
+                "load_errors": load_errors, "checked_at": _now()}
+    return {"ok": True, "n_models_ok": n_ok, "n_models_checked": len(checked_models),
+            "checked_models": checked_models, "missing": missing,
+            "load_errors": load_errors, "checked_at": _now()}
 
 
 def _now() -> str:
@@ -95,6 +169,7 @@ app.add_middleware(
 
 # ── API 路由 ──────────────────────────────────────────────────────
 app.include_router(auth_router)
+app.include_router(setup_router)  # R3 审计第六类: 首启管理员设置向导
 app.include_router(data_router)
 app.include_router(diagnosis_router)
 app.include_router(evaluation_router)
@@ -108,7 +183,9 @@ app.include_router(backup_router)  # v1.0.2: 备份恢复
 @app.get("/health")
 def health():
     model_health = getattr(app.state, "model_health", {})
-    return {"status": "ok", "app": settings.app_name, "version": "1.0.1",
+    # R3 审计第七类 7.7: 模型不完整时 status=degraded(不再恒为 ok)
+    status = "ok" if model_health.get("ok") else "degraded"
+    return {"status": status, "app": settings.app_name, "version": "1.0.1",
             "model_health": model_health}
 
 

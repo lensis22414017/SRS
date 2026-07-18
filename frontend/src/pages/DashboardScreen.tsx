@@ -354,13 +354,17 @@ export default function DashboardScreen() {
           ⚠ 当前为压缩预览模式（{typeof window !== "undefined" ? window.innerWidth : 0}px），推荐 1920×1080 查看完整大屏
         </div>
       )}
-      {/* ── 大屏内部标题栏(居中标题+右侧时钟/版本/返回) ─── */}
-      <div className={styles.header} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 16px", flexShrink: 0 }}>
-        <div className={styles.headerLeft}>
+      {/* ── 大屏内部标题栏(标题真正水平居中+右侧时钟/版本/返回) ─── */}
+      <div className={styles.header} style={{ position: "relative", display: "flex", alignItems: "center", padding: "6px 16px", flexShrink: 0, minHeight: 44 }}>
+        {/* 左侧占位(保持平衡) */}
+        <div style={{ flex: 1 }} />
+        {/* 中间标题(绝对定位居中) */}
+        <div style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", display: "flex", alignItems: "center", gap: 8 }}>
           <DashboardOutlined style={{ color: "#4da3ff", fontSize: 18 }} />
-          <span className={styles.headerTitle} style={{ fontSize: 16 }}>污染场地土壤生态-生产功能重构监管系统</span>
+          <span className={styles.headerTitle} style={{ fontSize: 16, whiteSpace: "nowrap" }}>污染场地土壤生态-生产功能重构监管系统</span>
         </div>
-        <div className={styles.headerMeta} style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        {/* 右侧时钟/版本/返回(绝对定位右对齐) */}
+        <div className={styles.headerMeta} style={{ position: "absolute", right: 16, display: "flex", alignItems: "center", gap: 16 }}>
           <span className={styles.clock}>{now.format("YYYY-MM-DD HH:mm:ss")}</span>
           <span className={styles.dataVersion}>数据版本 v1.0.1</span>
           <Button type="text" className={styles.backBtn} icon={<RollbackOutlined />}

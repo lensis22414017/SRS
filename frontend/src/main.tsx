@@ -10,6 +10,7 @@ import "./theme/echarts";  // ECharts SVG 全局主题注册
 // 路由级懒加载, 把 ECharts/leaflet/KaTeX 大依赖拆到各页面 chunk,
 // 主 bundle 从 ~2.6MB 降到 ~1MB, 首屏只加载当前路由代码。
 const Login = lazy(() => import("./pages/Login"));
+const Setup = lazy(() => import("./pages/Setup"));  // R3 审计第六类: 首启向导
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const SiteList = lazy(() => import("./pages/SiteList"));
 const SiteDetail = lazy(() => import("./pages/SiteDetail"));
@@ -85,6 +86,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             <Suspense fallback={<Fallback />}>
               <Routes>
                 <Route path="/login" element={<Login />} />
+                <Route path="/setup" element={<Setup />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/dashboard/screen" element={<Protected><DashboardScreen /></Protected>} />

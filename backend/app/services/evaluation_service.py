@@ -331,7 +331,10 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
         r = R.evaluate(means, scope, ph=ph, screen_limits=screen, **eval_kwargs)
         et = "reconstruction_prod" if scope == "production" else "reconstruction_eco"
         # P4: 合并 KOS key_obstacles 到 limiting_factors(功能重构读 KOS Top)
+        # R3 审计第四类: 删除 except Exception: pass, 改为结构化错误处理
         kos_limiting = list(r.get("limiting_factors") or [])
+        kos_error = None
+        kos_factors = []
         try:
             from app.services.kos_service import run_kos_diagnosis
             from app.models import Measurement
@@ -347,20 +350,34 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
                         if fn not in sv or vv > sv[fn]: sv[fn] = vv
                     except (TypeError, ValueError): pass
             if sv:
-                kos_r = run_kos_diagnosis(sv, track=track, subset="all")
+                # R3 审计第四类 4.3: 传同一 db_session, 统一使用数据库动态阈值
+                kos_r = run_kos_diagnosis(sv, track=track, subset="all", db_session=db)
                 kos_factors = [k["factor"] for k in kos_r.get("key_obstacles", [])][:5]
                 # KOS 因子优先,合并去重
                 for kf in kos_factors:
                     if kf not in kos_limiting:
                         kos_limiting.insert(0, kf)
-                # v1.0.1 final-audit: 结论门禁 — KOS有key_obstacle时禁止"可行"
-                if kos_factors and r.get("grade") == "可行":
-                    r["grade"] = "不可行（存在超标障碍）"
-                    r["explanation"] = (r.get("explanation") or "") + \
-                        f" 结论门禁: KOS诊断检出 {len(kos_factors)} 个超标障碍因子({', '.join(kos_factors[:3])}), " \
-                        f"功能重构可行性强制降级为不可行。"
-        except Exception:
-            pass  # KOS 失败则保留原 limiting
+        except Exception as e:
+            # R3 审计第四类 4.1-4.2: 不静默吞异常, 记录错误用于门禁降级
+            kos_error = str(e)
+
+        # R3 审计第四类 4.2: 门禁降级四字段同步(grade/score/explanation/limiting_factors)
+        if kos_error:
+            # KOS 调用失败 → 强制降级为"评价受阻", score=None
+            r["grade"] = "评价受阻(KOS诊断失败)"
+            r["score"] = None
+            r["explanation"] = (r.get("explanation") or "") + \
+                f" 结论门禁: KOS诊断执行失败({kos_error[:200]}), " \
+                f"功能重构评价降级为'评价受阻', 请检查模型完整性后重试。"
+            r.setdefault("data_quality_flags", []).append("kos_diagnosis_failed")
+        elif kos_factors and r.get("grade") == "可行":
+            # KOS 检出超标障碍且重构判"可行" → 强制降级, score 同步置 None
+            r["grade"] = "不可行（存在超标障碍）"
+            r["score"] = None
+            r["explanation"] = (r.get("explanation") or "") + \
+                f" 结论门禁: KOS诊断检出 {len(kos_factors)} 个超标障碍因子" \
+                f"({', '.join(kos_factors[:3])}), 功能重构可行性强制降级为不可行。"
+            r.setdefault("data_quality_flags", []).append("kos_obstacle_forced_downgrade")
         _save(db, site_id, et, data_version, r.get("score"), r.get("grade"),
               dimensions={"dimensions": r["dimensions"],
                           "missing_indicators": r.get("missing_indicators", []),

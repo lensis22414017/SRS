@@ -151,6 +151,8 @@ hidden_imports = [
     "matplotlib", "matplotlib.pyplot", "matplotlib.backends.backend_agg",
     # 数据处理
     "pandas", "numpy", "openpyxl",
+    # R3 审计第二类: 显式 pyarrow(KOS 读 SHAP parquet, 避免 pandas 隐式依赖丢失)
+    "pyarrow", "pyarrow.parquet", "pyarrow.pandas_compat",
     # 认证
     "bcrypt", "jose",
     # 工具

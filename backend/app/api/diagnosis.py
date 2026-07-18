@@ -24,16 +24,17 @@ def _require_site(db: Session, user: User, site_id: int) -> Site:
     return s
 
 
-@router.post("/sites/{site_id}/diagnosis")
-def trigger_diagnosis(site_id: int, top_n: int = Query(10, ge=3, le=30),
+@router.post("/sites/{site_id}/diagnosis", status_code=410)
+def trigger_diagnosis(site_id: int,
                       user: User = Depends(get_current_user), db: Session = Depends(get_db)):
-    _require_site(db, user, site_id)
-    try:
-        return run_diagnosis(db, site_id, top_n=top_n)
-    except ValueError as e:
-        raise HTTPException(404, str(e))
-    except ImportError as e:
-        raise HTTPException(503, f"算法依赖缺失(需 scikit-learn/shap): {e}")
+    """[已废弃 v1.0.1] 旧 RF+SHAP 端点会触发现场重训(读虚拟数据), 已被 KOS 路径取代。
+
+    返回 410 Gone, 指引到 POST /sites/{site_id}/kos-diagnosis。
+    """
+    raise HTTPException(
+        status_code=410,
+        detail="此端点已废弃(会触发现场训练, 违反生产规范)。请改用 POST /api/v1/sites/{site_id}/kos-diagnosis。".format(site_id=site_id)
+    )
 
 
 @router.get("/sites/{site_id}/diagnoses")

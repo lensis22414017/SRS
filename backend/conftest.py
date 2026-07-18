@@ -1,6 +1,7 @@
-"""pytest 引导: sys.path + 统一测试 DATABASE_URL + session 级 engine 重置。"""
+"""pytest 引导: sys.path + 独立 tempfile 测试库 + session 级 engine 重置。"""
 import os
 import sys
+import tempfile
 
 BACKEND = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(BACKEND)
@@ -16,10 +17,11 @@ _pkg = os.path.join(ROOT, "packaging")
 if _pkg not in sys.path:
     sys.path.append(_pkg)
 
-# 统一测试库: 强制赋值(覆盖各 test 模块冲突的 setdefault), 根除串库(brief 4.9)。
-# 各 test 文件里残留的 os.environ.setdefault("DATABASE_URL", ...) 因 conftest 先执行
-# 而 setdefault 不覆盖, 已全部失效; 后续将逐步删除。
-os.environ["DATABASE_URL"] = "sqlite:///./srs_test_session.db"
+# R3 审计第八类 8.1: 每个 session 用独立 tempfile SQLite(不再共享 ./srs_test_session.db)
+# 解决 SQLite WAL 锁竞争导致全量混跑 71 个失败的问题
+_test_db = tempfile.NamedTemporaryFile(suffix="_srs_test.db", delete=False)
+_test_db.close()
+os.environ["DATABASE_URL"] = f"sqlite:///{_test_db.name}"
 os.environ.setdefault("SECRET_KEY", "test_secret")
 os.environ.setdefault("DEMO_PASSWORD", "Demo@2026")
 

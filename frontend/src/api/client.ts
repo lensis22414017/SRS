@@ -29,6 +29,13 @@ export const api = {
     client.post<LoginResp>("/auth/login", { username, password }).then((r) => r.data),
   me: () => client.get("/auth/me").then((r) => r.data),
 
+  // R3 审计第六类: 首启管理员设置向导
+  setupStatus: () => client.get("/setup/status").then((r) => r.data) as Promise<{
+    needs_setup: boolean; setup_status: string | null; has_users: boolean;
+  }>,
+  setupComplete: (body: { username: string; password: string; confirm_password: string }) =>
+    client.post("/setup/complete", body).then((r) => r.data),
+
   // 注册 / 审核
   register: (body: {
     username: string; password: string; display_name: string;

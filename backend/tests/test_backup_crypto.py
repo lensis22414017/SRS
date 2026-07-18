@@ -11,10 +11,10 @@ sys.path.insert(0, BACKEND)
 
 @pytest.fixture
 def fresh_db():
-    from app.db.session import SessionLocal, reset_engine_for_tests
-    from app.models import Base
+    """R3 审计第八类: 使用 conftest 的独立 tempfile db, 不再 reset_engine 覆盖。"""
+    from app.db.session import SessionLocal
     from app.db import session as _session_mod
-    reset_engine_for_tests("sqlite:///./srs_test_session.db")
+    from app.models import Base
     Base.metadata.drop_all(bind=_session_mod.engine)
     Base.metadata.create_all(bind=_session_mod.engine)
     from app.db.seed_db import seed_if_empty

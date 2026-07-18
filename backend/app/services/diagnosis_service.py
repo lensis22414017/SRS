@@ -399,7 +399,7 @@ def _enrich_gee_if_needed(pivot: pd.DataFrame, site, feature_list: list) -> pd.D
 
 
 def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
-    from rf_barrier import load_latest, train  # ml/models
+    from rf_barrier import load_latest  # ml/models (train 已移除, 禁止现场训练)
     from shap_service import explain  # ml/explain
 
     site = db.get(Site, site_id)
@@ -422,8 +422,13 @@ def run_diagnosis(db: Session, site_id: int, top_n: int = 10) -> dict:
     def _single(track: str) -> dict:
         b = load_latest(track=track)
         if b is None:
-            train()
-            b = load_latest(track=track)
+            # v1.0.1 final-audit(R3): 禁止现场训练, 缺失模型直接报错
+            # 旧代码 train() 会读 data/raw/模拟特征表_F127_n11690.csv 虚拟数据, 已删除
+            raise RuntimeError(
+                f"模型工件缺失(track={track}), 禁止现场训练。"
+                f"请检查 ml/artifacts/p3_alpha/ 下对应 joblib 是否存在, "
+                f"或联系管理员重新部署完整模型包。"
+            )
         pivot_g = _enrich_gee_if_needed(pivot, site, b["feature_list"])
         Xt, imp = align_features(pivot_g, b["feature_list"], b["medians"], mapping)
         pr = b["model"].predict_proba(Xt)[:, 1]
