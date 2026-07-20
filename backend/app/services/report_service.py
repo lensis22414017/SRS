@@ -838,6 +838,12 @@ def generate(db: Session, site_id: int, generated_by: int | None = None,
             db, docx_bytes, f"追溯报告_{ctx['site']['site_code']}_{version}.docx",
             content_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document")
         fmt = "docx"
+    elif requested == "html":
+        html = render_html(ctx)
+        fo = save_bytes(db, html.encode("utf-8"),
+                        f"追溯报告_{ctx['site']['site_code']}_{version}.html",
+                        content_type="text/html")
+        fmt = "html"
     else:
         html = render_html(ctx)
         pdf = html_to_pdf(html)

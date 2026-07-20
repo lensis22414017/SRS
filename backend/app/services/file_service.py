@@ -21,7 +21,7 @@ ALLOWED_MIME_PREFIXES = (
     "application/vnd.ms-excel",
     "application/octet-stream",      # 通用二进制(允许未知类型)
     "application/zip",               # ZIP 压缩包
-    "image/", "text/csv", "text/plain",
+    "image/", "text/csv", "text/plain", "text/html",
 )
 
 

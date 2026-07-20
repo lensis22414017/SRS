@@ -179,7 +179,7 @@ hidden_imports = [
     # 报告
     "jinja2", "xhtml2pdf", "reportlab",
     "reportlab.pdfbase", "reportlab.pdfbase.cidfonts",
-    "weasyprint", "docx",
+    "weasyprint", "docx", "PIL", "PIL.Image", "PIL._imaging",
     # 报告内采样点静态图件(离线渲染, 不依赖地图服务)
     "matplotlib", "matplotlib.pyplot", "matplotlib.backends.backend_agg",
     # 数据处理
@@ -221,7 +221,6 @@ excluded_imports = [
     "pytest", "_pytest", "pluggy",
     "pip", "setuptools", "wheel",
     "tkinter", "_tkinter",
-    "PIL",  # 未使用
     # Qt bindings: matplotlib backend 探测会引入 PyQt5/PySide6, 两者冲突且 SRS 不需要(Qt 桌面框架)
     "PyQt5", "PyQt6", "PySide2", "PySide6",
     "matplotlib.backends.backend_qt5agg", "matplotlib.backends.backend_qt",

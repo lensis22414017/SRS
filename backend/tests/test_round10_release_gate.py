@@ -2,7 +2,9 @@
 from __future__ import annotations
 
 import json
+import importlib.util
 from pathlib import Path
+import sys
 
 import joblib
 import pandas as pd
@@ -84,6 +86,36 @@ def test_ci_downloads_lfs_models_and_scopes_postgres_to_concurrency():
     assert ' or stale' not in postgres_test
 
 
+def test_windowed_launcher_redirects_missing_stdio_to_appdata(tmp_path: Path, monkeypatch):
+    """console=False 时启动器不得因 print 写入 None 而静默退出。"""
+    module_path = ROOT / "packaging" / "launcher.py"
+    spec = importlib.util.spec_from_file_location("srs_launcher_test", module_path)
+    assert spec and spec.loader
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    original_stdout, original_stderr = sys.stdout, sys.stderr
+    log_handle = None
+    try:
+        monkeypatch.setenv("APPDATA", str(tmp_path))
+        sys.stdout = None
+        sys.stderr = None
+        module._ensure_windowed_stdio()
+        log_handle = sys.stdout
+        assert log_handle is not None
+        assert sys.stderr is log_handle
+        print("windowed-launcher-smoke", flush=True)
+    finally:
+        sys.stdout = original_stdout
+        sys.stderr = original_stderr
+        if log_handle is not None:
+            log_handle.close()
+
+    log_path = tmp_path / "SRS" / "launcher.log"
+    assert log_path.is_file()
+    assert "windowed-launcher-smoke" in log_path.read_text(encoding="utf-8")
+
+
 def test_packaging_gate_checks_missing_flow_directory_and_all_enabled_models():
     spec = (ROOT / "packaging" / "srs.spec").read_text(encoding="utf-8")
     assert "if not _flows_in_dist.is_dir()" in spec
@@ -91,3 +123,23 @@ def test_packaging_gate_checks_missing_flow_directory_and_all_enabled_models():
     assert "_joblib.load" in spec
     assert "_pd.read_parquet" in spec
     assert "--distpath dist_new" in spec
+
+
+def test_packaging_keeps_pdf_fallback_dependencies_and_html_report_mime():
+    """打包后 PDF 备用链路需要 Pillow；公开支持的 HTML 报告必须可保存。"""
+    from app.services.file_service import _validate_upload
+
+    spec = (ROOT / "packaging" / "srs.spec").read_text(encoding="utf-8")
+    excluded = spec.split("excluded_imports = [", 1)[1].split("]", 1)[0]
+    assert '"PIL"' not in excluded
+    assert '"PIL.Image"' in spec
+    assert '"PIL._imaging"' in spec
+    _validate_upload(b"<html><body>SRS</body></html>", "report.html", "text/html")
+
+
+def test_installer_keeps_admin_default_but_allows_isolated_current_user_validation():
+    installer = (ROOT / "packaging" / "srs_setup.iss").read_text(encoding="utf-8")
+    assert "PrivilegesRequired=admin" in installer
+    assert "PrivilegesRequiredOverridesAllowed=commandline" in installer
+    assert "AppId={{B8F3E2A1-2026-0716-SRSO-000000000001}" in installer
+    assert "OutputBaseFilename=SRS-Setup-1.0.1-Windows-x64" in installer

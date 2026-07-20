@@ -25,6 +25,39 @@ import threading
 import time
 import webbrowser
 
+
+_windowed_log_handle = None
+
+
+def _ensure_windowed_stdio():
+    """为 PyInstaller windowed 模式提供可写标准流。
+
+    ``console=False`` 时 PyInstaller 会把 ``sys.stdout`` / ``sys.stderr``
+    设为 ``None``。启动器随后使用 ``print`` 输出自检信息，若不补流会在
+    FastAPI 启动前静默退出。日志只写到当前 APPDATA 下，不影响终端模式。
+    """
+    global _windowed_log_handle
+    if sys.stdout is not None and sys.stderr is not None:
+        return
+    log_dir = os.path.join(
+        os.environ.get("APPDATA", os.path.expanduser("~")),
+        "SRS",
+    )
+    os.makedirs(log_dir, exist_ok=True)
+    _windowed_log_handle = open(
+        os.path.join(log_dir, "launcher.log"),
+        "a",
+        encoding="utf-8",
+        buffering=1,
+    )
+    if sys.stdout is None:
+        sys.stdout = _windowed_log_handle
+    if sys.stderr is None:
+        sys.stderr = _windowed_log_handle
+
+
+_ensure_windowed_stdio()
+
 # Windows 控制台默认 GBK, print emoji(🛡️🔍✅等)会 UnicodeEncodeError; 打包后无控制台但仍可能触发
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")

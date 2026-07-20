@@ -38,6 +38,8 @@ SolidCompression=yes
 LZMAUseSeparateProcess=yes
 ; 权限要求 (安装到 Program Files 需管理员)
 PrivilegesRequired=admin
+; 默认仍为管理员安装；仅允许验收脚本通过 /CURRENTUSER 安装到隔离目录。
+PrivilegesRequiredOverridesAllowed=commandline
 ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 ; 图标
