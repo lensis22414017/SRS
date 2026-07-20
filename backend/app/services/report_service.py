@@ -323,16 +323,53 @@ def collect(db: Session, site_id: int, version: str) -> dict:
                    .filter(DiagnosisFactorDetail.diagnosis_id == diag.id,
                            DiagnosisFactorDetail.sampling_point_id.is_(None))
                    .order_by(DiagnosisFactorDetail.rank).all())
+        # Round9 P0-3.4: 区分 KOS / RF+SHAP, 不再默认 model_name="RF"
+        diag_method = diag.diagnosis_method or "rf_shap"
+        if diag_method == "kos":
+            model_name_default = "KOS-P3Alpha"
+        else:
+            model_name_default = "RF"
         diag_ctx = {
-            "model_name": model.model_name if model else "RF",
-            "model_version": model.version if model else "—",
+            "model_name": model.model_name if model else model_name_default,
+            "model_version": model.version if model else (diag.model_version or "—"),
             "metrics": (model.metrics if model else {}) or {},
             "data_version": diag.data_version, "summary": diag.summary,
             "top_factors": [{"rank": d.rank, "factor": fd.factor_name,
                              "category": fd.level1_category,
                              "importance": d.importance, "direction": d.direction}
                             for d, fd in details],
+            "method": diag_method,
+            "track": diag.track,
+            "subset": diag.subset,
         }
+        # Round9 P0-3.4: KOS 记录从 result_payload 读完整审计信息(五分量/模型贡献度/开放集)
+        if diag_method == "kos" and diag.result_payload:
+            rp = diag.result_payload
+            diag_ctx["kos"] = {
+                "key_obstacles": rp.get("key_obstacles", []),
+                "model_contribution": rp.get("model_contribution", []),
+                "per_point_stats": rp.get("per_point_stats", {}),
+                "n_sampling_points": rp.get("n_sampling_points", 0),
+                "open_set": rp.get("open_set", {}),
+                "open_set_summary": rp.get("open_set_summary", {}),
+                "family_warnings": rp.get("family_warnings", []),
+                "unknown_alerts": rp.get("unknown_alerts", []),
+                "model_attention_factors": rp.get("model_attention_factors", []),
+                "kos_weights": rp.get("kos_weights", {}),
+                "interpretation_note": rp.get("interpretation_note", ""),
+                "threshold_version": rp.get("threshold_version", ""),
+                "review_required": rp.get("review_required", False),
+                "data_quality_flags": rp.get("data_quality_flags", []),
+                "coverage": rp.get("coverage", 0),
+                "limitations": rp.get("limitations", ""),
+            }
+            # Round9 P0-3.4: 开放集四层(替代硬编码空 [])
+            os_data = rp.get("open_set", {}) or {}
+            formal_obstacles = [k.get("factor") for k in rp.get("key_obstacles", [])
+                                 if k.get("threshold_resolution_status") == "resolved"]
+        else:
+            formal_obstacles = []
+        # 占位会被后续覆盖
 
     evals = {e.eval_type: e for e in
              db.query(EvaluationResult).filter_by(site_id=site_id)
@@ -446,13 +483,21 @@ def collect(db: Session, site_id: int, version: str) -> dict:
         "standard_versions": _standard_versions(db),
         "workflow": workflow,
         "attachments": attachments, "audit_logs": audit_ctx,
-        # M0-5: 开放集识别结果(辅助识别 · 非法规超标)
-        # 来自 KOS 诊断时的开放集四层分类; 报告生成路径尚未实时调用 classify_open_set,
-        # 因此默认为空列表(模板会渲染为"无"), 后续如持久化开放集结果可在此注入。
-        "formal_obstacles": [],
-        "model_candidates": [],
-        "family_alerts": [],
-        "unknown_measured": [],
+        # Round9 P0-3.4: 开放集四层 — 从 KOS result_payload 注入(替代硬编码空 [])
+        # KOS 记录: 优先从 result_payload.open_set 读四层
+        # 非 KOS 记录: 保留空(模板渲染为"无")
+        "formal_obstacles": (
+            (diag_ctx or {}).get("kos", {}).get("open_set", {}).get("formal_obstacles", [])
+            if (diag_ctx and diag_ctx.get("method") == "kos") else []),
+        "model_candidates": (
+            (diag_ctx or {}).get("kos", {}).get("open_set", {}).get("model_candidates", [])
+            if (diag_ctx and diag_ctx.get("method") == "kos") else []),
+        "family_alerts": (
+            (diag_ctx or {}).get("kos", {}).get("family_warnings", [])
+            if (diag_ctx and diag_ctx.get("method") == "kos") else []),
+        "unknown_measured": (
+            (diag_ctx or {}).get("kos", {}).get("unknown_alerts", [])
+            if (diag_ctx and diag_ctx.get("method") == "kos") else []),
         "report": {"version": version, "template_version": TEMPLATE_VERSION,
                    "data_version": diag.data_version if diag else f"site{site_id}",
                    "standard_version": "GB15618/GB36600/HJ25.5-2018",

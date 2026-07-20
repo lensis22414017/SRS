@@ -94,22 +94,28 @@ def setup_complete(body: SetupCompleteBody, db: Session = Depends(get_db)):
       3. 两次密码必须一致
       4. 完成后写入 setup_status=completed, 不可再次调用
     """
-    # Round8 审计 5.4: setup_status 从 pending 到 completed 必须同一事务
+    # Round8 审计 5.4 + Round9 P0-4: setup_status 从 pending 到 completed 必须同一事务
     # 先做轻量校验(避免不必要的写锁开销)
     if body.password != body.confirm_password:
         raise HTTPException(400, "两次输入的密码不一致")
     if db.query(User).filter_by(username=body.username).first():
         raise HTTPException(409, f"用户名 '{body.username}' 已存在")
 
-    # Round8 审计 5.3: SQLite 用 BEGIN IMMEDIATE 获取独占写锁
-    # 这一步会让其他并发请求在尝试写时阻塞/失败, 真正实现互斥
+    # Round9 P0-4: SQLite 用 BEGIN IMMEDIATE; PG/MySQL 用 SELECT FOR UPDATE 锁配置行
     from sqlalchemy import text as _text
+    from sqlalchemy.exc import IntegrityError
     from app.db.session import engine
     is_sqlite = "sqlite" in (engine.url.get_backend_name() or "").lower()
     try:
         if is_sqlite:
             # 显式 BEGIN IMMEDIATE 立刻获取写锁(SQLite 默认 deferred 会等到第一条写)
             db.execute(_text("BEGIN IMMEDIATE"))
+        else:
+            # Round9 P0-4: PostgreSQL/MySQL — SELECT FOR UPDATE 锁住配置行
+            # 其他并发事务尝试同时锁会阻塞, 释放后再检查 status 已非 pending
+            db.execute(_text(
+                "SELECT config_value FROM system_config "
+                "WHERE config_key='setup_status' FOR UPDATE"))
         # 进入 critical section
         status = _get_setup_status(db)
         if status != "pending":
@@ -119,19 +125,26 @@ def setup_complete(body: SetupCompleteBody, db: Session = Depends(get_db)):
             db.rollback()
             raise HTTPException(409, "系统已有管理员, 首启向导不可用")
 
-        # Round8 审计 5.2-5.4: 条件 UPDATE 原子锁 — pending → in_progress
-        # 多个并发请求同时通过 BEGIN IMMEDIATE 后, 只有一个能成功 UPDATE
-        # (其余会因 setup_status 不再是 pending 而影响行数=0)
+        # Round9 P0-4: 真正的原子条件 UPDATE — pending → in_progress
+        # 多个并发请求同时通过锁后, 只有一个 UPDATE 影响行数=1
+        result = db.execute(_text(
+            "UPDATE system_config SET config_value='in_progress' "
+            "WHERE config_key='setup_status' AND config_value='pending'"))
+        # rowcount != 1 → 被并发抢先(返回 409, 不创建用户)
+        rows_affected = getattr(result, "rowcount", 0)
+        if rows_affected != 1:
+            db.rollback()
+            raise HTTPException(409, "首启设置已被另一请求抢先完成(原子 UPDATE 并发保护)")
+        db.flush()
+        # 重新加载 config_row 让 SQLAlchemy session 看到 DB 层的更新
+        db.expire_all()
         config_row = db.query(SystemConfig).filter_by(config_key="setup_status").first()
         if not config_row:
             db.rollback()
             raise HTTPException(409, "setup_status 未初始化, 请重启服务后再试")
-        if config_row.config_value != "pending":
+        if config_row.config_value != "in_progress":
             db.rollback()
             raise HTTPException(409, "首启设置已被另一请求抢先完成(并发保护)")
-        # 设置 in_progress 标记(同一事务, 立即可见, 其他并发请求看到非 pending 状态)
-        config_row.config_value = "in_progress"
-        db.flush()  # 不 commit, 继续在同一事务内创建用户
 
         # 确保管理组织存在
         org = db.query(Organization).filter_by(name="系统管理方").first()
@@ -153,7 +166,6 @@ def setup_complete(body: SetupCompleteBody, db: Session = Depends(get_db)):
         db.flush()
 
         # Round8 审计 5.5: admin 角色不存在必须失败(不创建无角色用户)
-        # R3-P0-7: 必须用 Role.code=="admin"(不是 name)
         admin_role = db.query(Role).filter_by(code="admin").first()
         if not admin_role:
             db.rollback()
@@ -172,13 +184,17 @@ def setup_complete(body: SetupCompleteBody, db: Session = Depends(get_db)):
     except HTTPException:
         db.rollback()
         raise
+    except IntegrityError as e:
+        # Round9 P0-4: PG 唯一约束兜底 → 转 409(并发场景下 username 撞)
+        db.rollback()
+        raise HTTPException(409, f"首启设置失败(数据冲突, 已回滚): {e.orig}")
     except Exception as e:
         db.rollback()
         # SQLite "database is locked" 在并发竞争时返回 409 而非 500
         err_msg = str(e).lower()
         if "locked" in err_msg or "database is locked" in err_msg:
             raise HTTPException(409, "首启设置被并发请求抢先完成, 请重试或检查状态")
-        raise HTTPException(500, f"首启设置失败(已回滚): {e}")
+        raise HTTPException(500, f"首启设置失败(已回滚): {type(e).__name__}: {str(e)[:200]}")
     return {
         "success": True,
         "message": f"管理员 '{body.username}' 创建成功, 请使用该账号登录",

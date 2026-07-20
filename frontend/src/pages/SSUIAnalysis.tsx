@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Card, Button, Empty, App, Row, Col, Statistic, Tag, Space, Table, Divider, Alert, Timeline, Typography, InputNumber, Select } from "antd";
-import { ApartmentOutlined, ExportOutlined } from "@ant-design/icons";
+import { Card, Button, Empty, App, Row, Col, Statistic, Tag, Space, Table, Divider, Alert, Timeline, Typography, InputNumber, Select, Checkbox, Modal } from "antd";
+import { ApartmentOutlined, ExportOutlined, DatabaseOutlined } from "@ant-design/icons";
 import ReactECharts from "echarts-for-react";
 import { api } from "../api/client";
 import SitePicker from "../components/SitePicker";
@@ -8,6 +8,7 @@ import FormulaBlock from "../components/FormulaBlock";
 import OrganicDegradedCard from "../components/OrganicDegradedCard";
 import EmptyState from "../components/EmptyState";
 import MethodFlowDrawer from "../components/MethodFlowDrawer";
+import EconomicDataDrawer from "../components/EconomicDataDrawer";
 import { seqCol, numCol, textCol } from "../utils/table";
 import { SVG_OPTS } from "../theme/echarts";
 import { getFlowConfig } from "../config/methodFlows";
@@ -16,15 +17,21 @@ const { Text } = Typography;
 
 /** SSUI 评价 = 方法文件第3章 土壤持续利用经济性和安全性评价(SSUI 模型) */
 export default function SSUIAnalysis() {
-  const { message } = App.useApp();
+  const { message, modal } = App.useApp();
   const [sid, setSid] = useState<number>();
   const [data, setData] = useState<any>(null);     // GET: 历史 + current_data_version
   const [hasRun, setHasRun] = useState(false);     // 是否已点击运行(控制本次结果区显隐, brief 4.5)
   const [busy, setBusy] = useState(false);
   const [flowOpen, setFlowOpen] = useState(false);
+  const [ecoOpen, setEcoOpen] = useState(false);   // Round9 P0-5: 经济数据管理 Drawer
   // v1.0.2(GPT P0-4): SSUI 评价参数(t=利用年限, intensity=管理强度)
   const [evalT, setEvalT] = useState<number>(2);
   const [evalIntensity, setEvalIntensity] = useState<string>("medium");
+  // Round9 P0-5: 完整评价参数(年份/场景/scope/allow_proxy)
+  const [evalYear, setEvalYear] = useState<number | undefined>(undefined);
+  const [evalScenario, setEvalScenario] = useState<"production" | "ecology">("production");
+  const [evalScope, setEvalScope] = useState<"production" | "ecology">("production");
+  const [allowProxy, setAllowProxy] = useState(false);
 
   const load = (id?: number) => {
     const s = id ?? sid; if (!s) return;
@@ -36,13 +43,33 @@ export default function SSUIAnalysis() {
     if (!sid) return;
     setBusy(true);
     try {
-      await api.runEvaluation(sid, { t: evalT, intensity: evalIntensity });
+      await api.runEvaluation(sid, {
+        t: evalT, intensity: evalIntensity,
+        evaluation_year: evalYear, scenario: evalScenario,
+        scope: evalScope, allow_proxy: allowProxy,
+      });
       setData(null);     // 清旧, 避免 load 完成前 race 显旧(M5)
       setHasRun(true);   // 标记本次运行完成, 显示结果区(避免历史伪装成本次)
       load(sid);         // 刷新最新结果(run 后已入库, is_stale=false)
       message.success("SSUI 评价完成");
     } catch (e: any) { message.error(e?.response?.data?.detail || "评价失败"); }
     finally { setBusy(false); }
+  };
+
+  // Round9 P0-5.3: 勾选 allow_proxy 前必须 Modal.confirm 提示
+  const toggleAllowProxy = (checked: boolean) => {
+    if (checked) {
+      modal.confirm({
+        title: "确认使用区域代理数据?",
+        content: "勾选后生成的 SSUI 结果为参考评价, 不代表场地真实经济数据。请在能接受'参考评价'语义时使用。",
+        okText: "确认勾选",
+        cancelText: "取消",
+        onOk: () => setAllowProxy(true),
+        onCancel: () => setAllowProxy(false),
+      });
+    } else {
+      setAllowProxy(false);
+    }
   };
 
   const histS = data?.results?.ssui;   // 历史 SSUI(选场地即显元信息 + is_stale)
@@ -138,6 +165,17 @@ export default function SSUIAnalysis() {
               { value: "medium", label: "中等" },
               { value: "strong", label: "集约" },
             ]} />
+          <Text type="secondary" style={{ fontSize: 12 }}>年份:</Text>
+          <InputNumber size="small" min={2000} max={2100} placeholder="自动" value={evalYear}
+            onChange={(v) => setEvalYear(v ?? undefined)} style={{ width: 90 }} />
+          <Text type="secondary" style={{ fontSize: 12 }}>场景:</Text>
+          <Select size="small" value={evalScenario} onChange={(v) => setEvalScenario(v)} style={{ width: 100 }}
+            options={[{ value: "production", label: "生产" }, { value: "ecology", label: "生态" }]} />
+          <Text type="secondary" style={{ fontSize: 12 }}>scope:</Text>
+          <Select size="small" value={evalScope} onChange={(v) => setEvalScope(v)} style={{ width: 100 }}
+            options={[{ value: "production", label: "production" }, { value: "ecology", label: "ecology" }]} />
+          <Checkbox checked={allowProxy} onChange={(e) => toggleAllowProxy(e.target.checked)}>允许代理(参考)</Checkbox>
+          <Button icon={<DatabaseOutlined />} onClick={() => setEcoOpen(true)} disabled={!sid}>经济数据</Button>
           <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
           {data && <Button icon={<ExportOutlined />} onClick={() => {
             api.generateReport(sid!, "pdf").then(() => message.success("SSUI 评价报告生成中...")).catch(() => message.error("导出失败"));
@@ -198,7 +236,12 @@ export default function SSUIAnalysis() {
         <Card title="土壤持续利用度（SSUI）评价 — 数据不足">
           <Alert type="warning" showIcon style={{ marginBottom: 16 }}
             message="SSUI 评价受阻: 经济数据不完整"
-            description={s?.explanation || "D18-D25 经济指标需 8/8 齐全才能生成正式 SSUI。请录入场地经济数据。"} />
+            description={s?.explanation || "D18-D25 经济指标需 8/8 齐全才能生成正式 SSUI。请录入场地经济数据。"}
+            action={
+              <Space direction="vertical" size="small">
+                <Button type="primary" size="small" icon={<DatabaseOutlined />} onClick={() => setEcoOpen(true)}>补录经济数据</Button>
+              </Space>
+            } />
           {s?.dimensions?.coverage && (
             <div style={{ marginBottom: 16 }}>
               <Text strong>经济指标覆盖: </Text>
@@ -216,8 +259,26 @@ export default function SSUIAnalysis() {
       ) : showResult ? (
         <Card title="土壤持续利用度（SSUI）评价"
           extra={<Text type="secondary" style={{ fontSize: 12 }}>本次运行 ｜ 数据版本 {s?.data_version} ｜ 参数版本 {s?.param_version} ｜ {s?.created_at}</Text>}>
-          <Alert type="warning" style={{ marginBottom: 16 }}
-            message="25项完整口径（场内归一化 MVP）" description={s.explanation} />
+          {/* Round9 P0-5.5: 正式 vs 参考评价视觉区分 */}
+          {(s?.is_reference || s?.is_proxy || s?.has_fallback_threshold) && (
+            <Alert type="warning" showIcon style={{ marginBottom: 16 }}
+              message="⚠ 参考评价(非场地正式结论)"
+              description={
+                s?.has_fallback_threshold
+                  ? "本评价使用了 fallback/heuristic 阈值(非权威法规阈值), 仅供参考。请补充权威阈值后重评。"
+                  : "本评价基于区域代理数据(非场地真实经济数据), 仅供参考, 不作为场地正式结论。"
+              } />
+          )}
+          {/* Round9 P0-2.6: 最严重超标因子显示 */}
+          {s?.worst_factor && (
+            <Alert type={s?.severity_forced_downgrade ? "error" : "info"} showIcon style={{ marginBottom: 16 }}
+              message={`最严重超标因子: ${s.worst_factor} ${s.worst_ratio ? `(超标 ${s.worst_ratio.toFixed(2)} 倍)` : ""}`}
+              description={s?.severity_forced_downgrade
+                ? `Round9 P0-2.4 安全门禁: 超标≥5倍触发强制等级降级, 禁止评"优/良好"。`
+                : undefined} />
+          )}
+          <Alert type="info" style={{ marginBottom: 16 }}
+            message={`25项完整口径（${s?.is_reference ? "参考评价" : "正式评价"}）`} description={s.explanation} />
           <Row gutter={16} align="middle">
             <Col span={8}>{gauge && <ReactECharts option={gauge} theme="srs-light" opts={SVG_OPTS} style={{ height: 220 }} />}</Col>
             <Col span={8}><Statistic title="SSUI 指数" value={s.score} /></Col>
@@ -275,6 +336,7 @@ export default function SSUIAnalysis() {
       ) : <EmptyState description="请选择场地并运行 SSUI 评价" />}
     </Space>
       <MethodFlowDrawer open={flowOpen} onClose={() => setFlowOpen(false)} config={getFlowConfig("ssui_eval")!} />
+      <EconomicDataDrawer siteId={sid} open={ecoOpen} onClose={() => setEcoOpen(false)} onSaved={() => load(sid)} />
     </>
   );
 }

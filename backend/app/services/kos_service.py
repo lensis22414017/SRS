@@ -498,13 +498,34 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
     per_point_stats = _compute_per_point_stats(per_point_data, thresholds, threshold_meta)
 
     # 四层输出( P0 规则)
+    # Round9 P0-3.2: 真实 coverage + subset + model_version(供审计 payload 完整)
+    measured_factors_set = {md.get("canonical") for md in mapping_details
+                             if md.get("matched")}
+    # 从 model_info.feature_list 或 key_obstacles/w_expected 推断模型期望因子集
+    _expected = set()
+    if isinstance(model_info.get("feature_list"), list):
+        _expected = {str(f) for f in model_info["feature_list"]}
+    if not _expected:
+        # 兜底: 用 kos_engine 的全部 canonical 因子
+        try:
+            _expected = set(getattr(_kos_engine, "CANONICAL_FACTORS", set())) or set()
+        except Exception:
+            _expected = set()
+    coverage_value = (round(len(measured_factors_set & _expected)
+                             / max(len(_expected), 1), 4)
+                       if _expected else 0.0)
+    # model_version: 优先从 registry 读真实版本, 否则 fallback
+    model_version_out = model_info.get("version") or "p3_alpha_v0.8"
     output = {
         "track": track,
+        "subset": subset,  # Round9 P0-3.2: 显式加入(原 kos_service 不返回, 由 API 注入)
         "model_id": model_id,
+        "model_version": model_version_out,  # Round9 P0-3.2: 真实模型版本
         "data_version": "Gold Dataset v0.8",
         "threshold_version": ("数据库动态阈值(StandardThreshold)" if db_session and thresholds
                               else "静态硬编码(需传入db_session启用动态阈值)"),
         "model_status": model_info["status"],
+        "coverage": coverage_value,  # Round9 P0-3.2: 真实覆盖率(实测因子/模型期望因子)
         # M0-1: 因子映射详情
         "mapping_details": mapping_details,
         "mapping_conflicts": mapping_conflicts,

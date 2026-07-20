@@ -146,24 +146,48 @@
   <table class="kv">
     <tr><td>模型</td><td>{{ diagnosis.model_name }} {{ diagnosis.model_version }}（Spearman={{ diagnosis.metrics.cv_spearman_mean | default('—') }}）</td></tr>
     <tr><td>数据版本</td><td>{{ diagnosis.data_version }}</td></tr>
+    {% if diagnosis.method == "kos" %}
+    <tr><td>诊断方法</td><td>KOS(关键障碍评分: B×(0.30R+0.25W+0.15M+0.20S+0.10E))</td></tr>
+    <tr><td>轨道/子集</td><td>{{ diagnosis.track or '—' }} / {{ diagnosis.subset or '—' }}</td></tr>
+    {% if diagnosis.kos and diagnosis.kos.threshold_version %}<tr><td>阈值版本</td><td>{{ diagnosis.kos.threshold_version }}</td></tr>{% endif %}
+    {% if diagnosis.kos and diagnosis.kos.coverage is defined %}<tr><td>覆盖率</td><td>{{ '%.2f'|format(diagnosis.kos.coverage*100) }}%</td></tr>{% endif %}
+    {% endif %}
   </table>
   {% set maximp = diagnosis.top_factors|map(attribute='importance')|max %}
   <table>
-    <tr><th>排名</th><th>障碍因子</th><th>类别</th><th>相对重要性</th><th>方向</th></tr>
+    <tr><th>排名</th><th>障碍因子</th><th>类别</th><th>{% if diagnosis.method == "kos" %}KOS 分数{% else %}相对重要性{% endif %}</th><th>方向</th></tr>
     {% for t in diagnosis.top_factors %}
     <tr><td>{{ t.rank }}</td><td>{{ t.factor }}</td><td>{{ t.category or '—' }}</td>
         <td>
+          {% if diagnosis.method == "kos" %}
+            {{ t.kos_score if t.kos_score is not none else '—' }}
+          {% else %}
           <table style="width:100%"><tr>
             <td style="width:62%;border:none;padding:0">
               <div class="bar-wrap"><div class="bar" style="width:{{ ((t.importance/maximp*100) if maximp else 0)|round|int }}%">&nbsp;</div></div>
             </td>
             <td style="width:38%;border:none;padding:0 0 0 4pt">{{ t.importance }}</td>
           </tr></table>
+          {% endif %}
         </td>
         <td>{{ t.direction }}</td></tr>
     {% endfor %}
   </table>
   <div class="muted">{{ diagnosis.summary }}</div>
+  {% if diagnosis.method == "kos" and diagnosis.kos %}
+  <div class="muted" style="margin-top:6pt">
+    <strong>五分量(R/W/M/S/E):</strong> R=阈值超标, W=用途权重, M=模型贡献,
+    S=模型稳定性, E=证据等级。<br/>
+    <strong>模型贡献度说明:</strong> 模型贡献度(M)基于全局 SHAP, 反映模型对因子的关注程度,
+    <em>非因果强度</em>, 仅作辅助识别; 法规超标判定以 R(阈值超标)为准。
+    {% if diagnosis.kos.interpretation_note %}<br/>{{ diagnosis.kos.interation_note }}{% endif %}
+    {% if diagnosis.kos.review_required %}<br/><strong style="color:#c60">⚠ 含启发式/兜底阈值, 需专家复核。</strong>{% endif %}
+  </div>
+  {% if diagnosis.kos.per_point_stats and diagnosis.kos.n_sampling_points %}
+  <h3 style="margin-top:8pt">逐点超标统计(共 {{ diagnosis.kos.n_sampling_points }} 个采样点)</h3>
+  <div class="muted">按采样点计算的超标点数与超标率, 来自 KOS 诊断结果。</div>
+  {% endif %}
+  {% endif %}
   {% else %}<div class="muted">本场地的障碍因子诊断尚未运行。请在「障碍因子诊断」页面执行生产轨/生态轨诊断后，重新生成本报告以获取 KOS 关键障碍因子排名、超标分析等完整内容。</div>{% endif %}
 
   <h2>八.5 开放集识别结果（辅助识别 · 非法规超标结论）</h2>

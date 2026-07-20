@@ -293,12 +293,38 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
     ph = means.get("pH")
     data_version = current_site_data_version(db, site_id)
 
-    # R3-P0-3: SSUI 用专用评价输入指纹(含经济数据+参数), 不能只看 data_version
+    # Round9 P0-1.2: 必须先解析 evaluation_year(自动选年), 再算指纹。
+    # 旧 Round8 在 evaluation_year=None 时用 None 算指纹 → 指纹与实际计算输入不一致。
+    # 自动选年: 取该 site+scenario 的最大 evaluation_year
+    from app.models import EconomicIndicator
+    if evaluation_year is None:
+        latest_year_row = db.query(EconomicIndicator.evaluation_year).filter_by(
+            site_id=site_id, scenario=scenario).order_by(
+            EconomicIndicator.evaluation_year.desc()).first()
+        if latest_year_row:
+            evaluation_year = latest_year_row[0]
+    # 若仍为 None(场地无任何经济数据) → 标 0 让指纹仍稳定(用户补录后指纹变)
+    resolved_year = evaluation_year if evaluation_year is not None else 0
+
+    # R3-P0-3 + Round9 P0-1: SSUI 用专用评价输入指纹(含经济数据+参数+CSV+阈值)
     from app.services.versioning import evaluation_input_fingerprint
     ssui_fingerprint = evaluation_input_fingerprint(
-        db, site_id, evaluation_year=evaluation_year, scenario=scenario,
+        db, site_id, evaluation_year=resolved_year, scenario=scenario,
         scope=requested_scope, t=t, intensity=intensity, allow_proxy=allow_proxy,
         param_version=PARAM_VERSION)
+
+    # Round9 P0-1.3: 保存 run_config(供 GET 重算指纹, 不再依赖猜参数)
+    ssui_run_config = {
+        "evaluation_year": resolved_year,
+        "scenario": scenario,
+        "scope": requested_scope,
+        "t": float(t),
+        "intensity": intensity,
+        "allow_proxy": bool(allow_proxy),
+        "normalization_version": "v1",  # 由 ssui.py 实际填, 这里占位
+        "param_version": PARAM_VERSION,
+        "threshold_scope": requested_scope,
+    }
 
     # 有机场地缺重金属评价元指标 → 走降级, 不算重构/SSUI 数值分(幂等检查前拦截)
     if site.pollution_type == "organic" and not any(n in means for n in HM_EVAL_FACTORS):
@@ -415,18 +441,11 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
         results[et] = r
 
     # R3-P0-2/P0-4: 从 DB 查经济数据, 锁定 site_id+year+scenario(禁止跨年份拼数据)
+    # Round9 P0-1.2: evaluation_year 已在前面的"自动选年"逻辑中解析完成, 这里直接用
     from app.models import EconomicIndicator
     econ_q = db.query(EconomicIndicator).filter_by(site_id=site_id, scenario=scenario)
-    # Round8 审计 1.5: evaluation_year 必填(或自动选同年同场景最新)
-    if evaluation_year is None:
-        latest_year_row = db.query(EconomicIndicator.evaluation_year).filter_by(
-            site_id=site_id, scenario=scenario).order_by(
-            EconomicIndicator.evaluation_year.desc()).first()
-        if latest_year_row:
-            evaluation_year = latest_year_row[0]
-            econ_q = econ_q.filter_by(evaluation_year=evaluation_year)
-    else:
-        econ_q = econ_q.filter_by(evaluation_year=evaluation_year)
+    if resolved_year and resolved_year > 0:
+        econ_q = econ_q.filter_by(evaluation_year=resolved_year)
     econ_rows = econ_q.all()
     economic_data = {}
     for er in econ_rows:
@@ -495,12 +514,14 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
         ssui_dimensions["coverage"] = s["coverage"]
     ssui_dimensions["is_blocked"] = s.get("is_blocked", False)
     ssui_dimensions["is_reference"] = s.get("is_reference", False)
-    # R3-P0-3 / Round8: SSUI 指纹写入专用 input_fingerprint 字段(不再塞 param_version)
+    # R3-P0-3 / Round9 P0-1: SSUI 指纹+run_config 写入专用字段(不再塞 param_version)
+    # 用 ssui 实际返回的 normalization_version 覆盖占位
+    ssui_run_config["normalization_version"] = s.get("normalization_version", "v1")
     _save(db, site_id, "ssui", data_version, s.get("ssui"), s.get("grade"),
           dimensions=ssui_dimensions, weights=s.get("weights"),
           limiting=s.get("limiting_factors"), risk=s.get("risk_factors"),
           explanation=s.get("explanation"), param_version=PARAM_VERSION,
-          input_fingerprint=ssui_fingerprint)
+          input_fingerprint=ssui_fingerprint, run_config=ssui_run_config)
     results["ssui"] = s
 
     # brief 4.5/M4: 追加式但限累积——每 eval_type 保留最近 10 个, 防止反复评价膨胀
@@ -517,7 +538,7 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
         "param_version": PARAM_VERSION,
         "scope": requested_scope,  # Round8 审计一类: 显式回传 scope, 便于审计追溯
         "scenario": scenario,
-        "evaluation_year": evaluation_year,
+        "evaluation_year": resolved_year,  # Round9 P0-1: 永远是解析后的字面值, 不为 None
         "reconstruction_prod": {"score": results["reconstruction_prod"]["score"],
                                 "grade": results["reconstruction_prod"]["grade"]},
         "reconstruction_eco": {"score": results["reconstruction_eco"]["score"],
@@ -529,11 +550,12 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
 
 def _save(db, site_id, eval_type, data_version, score, grade,
           dimensions=None, weights=None, limiting=None, risk=None, explanation=None,
-          param_version=None, input_fingerprint=None):
+          param_version=None, input_fingerprint=None, run_config=None):
     db.add(EvaluationResult(
         site_id=site_id, eval_type=eval_type, data_version=data_version,
         param_version=param_version or PARAM_VERSION,
         input_fingerprint=input_fingerprint,
+        run_config=run_config,
         score=score, grade=grade,
         dimensions=dimensions, weights=weights,
         limiting_factors=limiting, risk_factors=risk, explanation=explanation))

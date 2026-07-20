@@ -632,7 +632,8 @@ def delete_site(site_id: int,
                 DiagnosisFactorDetail.diagnosis_id.in_(diag_ids)).delete(synchronize_session=False)
             deleted_counts["diagnosis_factor_details"] = n
 
-        # 2. 按 site_id 删除的表
+        # 2. 按 site_id 删除的表(Round9 P0-7: 调整顺序, measurements 必须在 import_batches 之前删
+        #    因为 measurements.import_batch_id FK 引用 import_batches)
         for model_name, model in [
             ("workflow_records", WorkflowRecord),
             ("recommendations", Recommendation),
@@ -644,8 +645,8 @@ def delete_site(site_id: int,
             ("dataset_versions", DatasetVersion),
             ("economic_indicators", EconomicIndicator),  # R3-P0-9: 补删经济表
             ("economic_raw_inputs", EconomicRawInput),   # R3-P0-9: 补删经济原始汇总
+            ("measurements", Measurement),               # Round9: 先于 import_batches(被 FK 引用)
             ("import_batches", ImportBatch),
-            ("measurements", Measurement),
             ("sampling_points", SamplingPoint),
         ]:
             n = db.query(model).filter_by(site_id=site_id).delete(synchronize_session=False)
@@ -713,7 +714,8 @@ def batch_delete_sites(payload: dict,
             # Round8 审计六类 6.3-6.4: 批量删除补经济表(与单删保持一致)
             ("economic_indicators", EconomicIndicator),
             ("economic_raw_inputs", EconomicRawInput),
-            ("import_batches", ImportBatch), ("measurements", Measurement),
+            # Round9 P0-7: measurements 在 import_batches 之前删(被 FK 引用)
+            ("measurements", Measurement), ("import_batches", ImportBatch),
             ("sampling_points", SamplingPoint),
         ]:
             n = db.query(model).filter_by(site_id=site_id).delete(synchronize_session=False)

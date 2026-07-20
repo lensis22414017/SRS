@@ -316,6 +316,8 @@ class DiagnosisFactorDetail(Base, TimestampMixin):
     sampling_point_id: Mapped[int | None] = mapped_column(ForeignKey("sampling_points.id"), nullable=True)
     importance: Mapped[float | None] = mapped_column(Float, nullable=True)
     shap_value: Mapped[float | None] = mapped_column(Float, nullable=True)
+    # Round9 P0-3.3: KOS 专用排序分(不冒充 SHAP importance)
+    kos_score: Mapped[float | None] = mapped_column(Float, nullable=True)
     direction: Mapped[str | None] = mapped_column(String(10), nullable=True)  # positive/negative
     rank: Mapped[int | None] = mapped_column(Integer, nullable=True)
 
@@ -330,6 +332,9 @@ class EvaluationResult(Base, TimestampMixin):
     # Round8 审计二类: SSUI 输入指纹(检测版本+经济数据+参数+t/intensity/scope/proxy)
     # 不再塞入 param_version 字段; param_version 保留真实参数版本号
     input_fingerprint: Mapped[str | None] = mapped_column(String(64), nullable=True, index=True)
+    # Round9 P0-1.1: 评价运行配置快照(供 GET 重算指纹, 不再依赖猜参数)
+    # 含: evaluation_year/scenario/scope/t/intensity/allow_proxy/normalization_version/param_version/threshold_scope
+    run_config: Mapped[dict | None] = mapped_column(JSON, nullable=True)
     score: Mapped[float | None] = mapped_column(Float, nullable=True)
     grade: Mapped[str | None] = mapped_column(String(40), nullable=True)
     dimensions: Mapped[dict | None] = mapped_column(JSON, nullable=True)

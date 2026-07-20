@@ -36,7 +36,7 @@ export const api = {
   setupComplete: (body: { username: string; password: string; confirm_password: string }) =>
     client.post("/setup/complete", body).then((r) => r.data),
 
-  // R3 审计第五类: SSUI D18-D25 经济数据
+  // R3 审计第五类 + Round9 P0-5: SSUI D18-D25 经济数据 CRUD + 导入
   getEconomicData: (siteId: number) =>
     client.get(`/sites/${siteId}/economic-data`).then((r) => r.data),
   saveEconomicData: (siteId: number, body: any) =>
@@ -45,6 +45,13 @@ export const api = {
     client.delete(`/sites/${siteId}/economic-data`, { params: year ? { year } : {} }).then((r) => r.data),
   economicTemplateUrl: (siteId: number) =>
     `/api/v1/sites/${siteId}/economic-data/template`,
+  importEconomicData: (siteId: number, file: File) => {
+    const form = new FormData();
+    form.append("file", file);
+    return client.post(`/sites/${siteId}/economic-data/import`, form, {
+      headers: { "Content-Type": "multipart/form-data" },
+    }).then((r) => r.data);
+  },
 
   // 注册 / 审核
   register: (body: {
@@ -147,8 +154,12 @@ export const api = {
     client.post(`/sites/${id}/kos-diagnosis?track=${track}&subset=${subset}`).then((r) => r.data),
   modelRegistry: () => client.get(`/models/registry`).then((r) => r.data),
   evaluation: (id: number) => client.get(`/sites/${id}/evaluation`).then((r) => r.data),
-  runEvaluation: (id: number, payload?: { t?: number; intensity?: string }) =>
-    client.post(`/sites/${id}/evaluation`, payload || {}).then((r) => r.data),
+  // Round9 P0-5: runEvaluation 扩展完整参数(t/intensity/year/scenario/scope/allow_proxy)
+  runEvaluation: (id: number, payload?: {
+    t?: number; intensity?: string;
+    evaluation_year?: number; scenario?: "production" | "ecology";
+    scope?: "production" | "ecology"; allow_proxy?: boolean;
+  }) => client.post(`/sites/${id}/evaluation`, payload || {}).then((r) => r.data),
   recommendation: (id: number) => client.get(`/sites/${id}/recommendation`).then((r) => r.data),
   runRecommendation: (id: number) => client.post(`/sites/${id}/recommendation`).then((r) => r.data),
 

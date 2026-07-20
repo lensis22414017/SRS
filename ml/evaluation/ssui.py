@@ -54,15 +54,23 @@ def _minmax(vals, negative=False):
     return sum(norm) / len(norm)
 
 
-def _normalize_economic(indicator_code: str, raw_value: float, params: dict) -> float | None:
-    """经济指标参照区间归一化(R3 审计第五类)。
+def _normalize_economic(indicator_code: str, raw_value: float, params: dict,
+                        ref_data: dict | None = None) -> float | None:
+    """经济指标参照区间归一化(Round9 P0-6: 从 CSV 加载)。
 
     使用 official reference ranges 的 min/max 作为锚点(非场内 Min-Max):
       normalized = (raw - min) / (max - min)
     负向指标(cost 类)取反: normalized = 1 - normalized
     超出范围的值用 clip 截断到 [0, 1], 但保留原始值供审计追溯。
+
+    ref_data 来自 load_economic_reference() — Round9 起从 CSV 读, 不再读 params JSON。
+    params 兼容旧路径(ref_data=None 时回退到 params.economic_reference_ranges, deprecated)。
     """
-    ref = params.get("economic_reference_ranges", {}).get("ranges", {}).get(indicator_code)
+    if ref_data and ref_data.get("ranges"):
+        ref = ref_data["ranges"].get(indicator_code)
+    else:
+        # 兼容路径: params JSON 中 deprecated 的 economic_reference_ranges
+        ref = params.get("economic_reference_ranges", {}).get("ranges", {}).get(indicator_code)
     if not ref:
         return None
     lo, hi = ref.get("min"), ref.get("max")
@@ -78,71 +86,126 @@ def _normalize_economic(indicator_code: str, raw_value: float, params: dict) -> 
 
 def _aggregate_pollutant_risk(factor_list: list, series: dict,
                                safety_thresholds: dict, d_code: str,
-                               threshold_resolution_status: dict | None = None) -> tuple:
-    """Round8 审计三类: 综合全部污染物因子的风险归一化。
+                               threshold_resolution_status: dict | None = None) -> dict:
+    """Round9 P0-2: 综合全部污染物因子的风险归一化(返回结构化结果)。
 
-    返回 (score_or_None, status) 二元组:
-      - status="measured": 有实测+有阈值, score 是数值
-      - status="unresolved_threshold": 有实测但全部因子阈值未解析 → 禁止回退 Min-Max
-        (审计 3.5: 不得用场内 Min-Max 伪装正式评价, 进入 review_required/blocked)
-      - status="missing": 无实测数据
-      - status="partial_resolved": 部分因子有阈值, 部分无阈值
-        (审计 3.10: 正常砷+严重镉必须由镉决定 D16 风险 — 用最严重超标因子决定)
+    返回 dict:
+      {
+        "score": float|None,                  # 归一化得分(0-1, 越高越安全)
+        "status": "measured"|"partial_resolved"|"unresolved_threshold"|"missing",
+        "worst_factor": str|None,             # 最严重超标因子(审计要求显式返回)
+        "worst_ratio": float|None,            # 最严重超标倍数(r=value/threshold)
+        "factor_details": [                   # 每个实测污染子的完整审计信息
+            {"factor","max_value","threshold","threshold_standard","threshold_version",
+             "resolution_status","ratio","exceeded","controls_final_risk"}
+        ],
+        "unresolved_factors": [str],          # 有实测但阈值未解析(审计要求 blocked)
+        "resolved_count": int, "measured_count": int,
+      }
 
     策略(满足单调性 + 不丢绝对污染程度):
       1. 对每个污染物因子, 计算 max(浓度)/阈值 = 超标比例 r
       2. 取所有有阈值因子的最大超标比例 r_max(最严重因子决定风险)
-      3. 用超标比例归一化: r_max=0→1.0(安全), r_max=1→0.5(刚好达标边界),
-         r_max=2→0.0(超标2倍, 极高风险)
-      公式: score = max(0, 1 - max(0, r_max - 1)) → r≤1时score=1, r=2时score=0
+      3. Round9 P0-2.5 公式(与甲方方法文件一致, 代码/注释/测试三者统一):
+         r_max ≤ 1 (未超标) → score = 1.0
+         r_max = 1 → score = 1.0 (阈值边界, 临界安全)
+         r_max = 2 → score = 0.5 (超标一倍, 高风险)
+         r_max = 3 → score = 0.0 (超标两倍, clip 到 0)
+         公式: score = max(0, 1 - 0.5*(r_max - 1))
+         单调性: r 越大 score 越小, 完全单调递减。
 
-    Round8 审计 3.5: 有实测值但没有阈值时, 不得回退场内 Min-Max 生成正式评价。
+    Round9 P0-2.3: 有实测值但阈值未解析的因子 → 列入 unresolved_factors, 上游必须 blocked。
     """
     threshold_resolution_status = threshold_resolution_status or {}
-    ratios = []
+    factor_details = []
+    unresolved_factors = []
     has_any_data = False
-    has_threshold = False
-    has_unresolved_threshold = False
+    ratios_with_threshold = []  # [(factor, ratio, threshold_value, ...)]
+
     for fc in factor_list:
-        if fc in series and any(x is not None for x in series[fc]):
-            vals = [v for v in series[fc] if v is not None]
-            if not vals:
-                continue
-            max_val = max(vals)
-            has_any_data = True
-            # Round8 审计 3.2-3.3: 阈值解析状态以 threshold_resolution_status 为准
+        if fc not in series or not any(x is not None for x in series[fc]):
+            continue
+        vals = [v for v in series[fc] if v is not None]
+        if not vals:
+            continue
+        max_val = max(float(v) for v in vals)
+        has_any_data = True
+        thr = safety_thresholds.get(fc) or {}
+        thr_limit = thr.get("limit") if isinstance(thr, dict) else None
+        thr_limit = float(thr_limit) if thr_limit and thr_limit > 0 else None
+        fc_status = thr.get("resolution_status") if isinstance(thr, dict) else None
+        if not fc_status:
             fc_status = threshold_resolution_status.get(fc, "unknown")
-            thr = safety_thresholds.get(fc)
-            if thr and thr.get("limit") and thr["limit"] > 0:
-                ratio = max_val / thr["limit"]
-                ratios.append((fc, ratio))
-                has_threshold = True
-            else:
-                # 有实测值但无阈值 → 标记 unresolved
-                has_unresolved_threshold = True
+
+        # 判定该因子是否"实测但阈值未解析"(审计 P0-2.3: 这类必须 blocked)
+        # 审计语义: 必须是上游已经解析过但确认"无阈值"(not_found/ambiguous/unit_conflict/mapping_conflict)
+        # 注意: "unknown" 表示上游没传该因子的解析信息(可能是 fixture 没传或确实没解析),
+        #       不等同于"阈值不存在"; 不直接拦截, 只标 review_required 让上游补解析。
+        # 这样 fixture 只传砷的 safety_thresholds 时不会误判 D16 其他重金属为 unresolved。
+        NOT_RESOLVED_BLOCK = {"not_found", "ambiguous", "unit_conflict", "mapping_conflict"}
+        if thr_limit is None or fc_status in NOT_RESOLVED_BLOCK:
+            factor_details.append({
+                "factor": fc, "max_value": max_val, "threshold": None,
+                "threshold_standard": thr.get("standard", "") if isinstance(thr, dict) else "",
+                "threshold_version": thr.get("version", "") if isinstance(thr, dict) else "",
+                "resolution_status": fc_status, "ratio": None,
+                "exceeded": None, "controls_final_risk": False,
+            })
+            # 只有明确"已解析但无阈值"才入 unresolved(blocked); unknown 不 blocked
+            if fc_status in NOT_RESOLVED_BLOCK:
+                unresolved_factors.append(fc)
+            continue
+
+        ratio = max_val / thr_limit
+        exceeded = ratio > 1.0
+        ratios_with_threshold.append((fc, ratio, thr_limit, thr, fc_status, max_val, exceeded))
+        factor_details.append({
+            "factor": fc, "max_value": max_val, "threshold": thr_limit,
+            "threshold_standard": thr.get("standard", "") if isinstance(thr, dict) else "",
+            "threshold_version": thr.get("version", "") if isinstance(thr, dict) else "",
+            "resolution_status": fc_status, "ratio": round(ratio, 4),
+            "exceeded": exceeded, "controls_final_risk": False,
+        })
 
     if not has_any_data:
-        return (None, "missing")
+        return {"score": None, "status": "missing",
+                "worst_factor": None, "worst_ratio": None,
+                "factor_details": [], "unresolved_factors": [],
+                "resolved_count": 0, "measured_count": 0}
 
-    if ratios:
-        # Round8 审计 3.10: 用最严重超标因子决定风险(正常砷+严重镉→镉决定)
-        r_max = max(r[1] for r in ratios)
-        worst_factor = max(ratios, key=lambda x: x[1])[0]
-        # 单调性: 超标比例越高, 得分越低
-        # r_max ≤ 1 (未超标) → score = 1.0
-        # r_max = 1 → score = 1.0 (阈值边界)
-        # r_max = 2 → score = 0.0 (超标一倍)
-        # r_max > 2 → score = 0.0 (clip)
-        if r_max <= 1.0:
+    measured_count = len(factor_details)
+    resolved_count = len(ratios_with_threshold)
+
+    if ratios_with_threshold:
+        # 最严重超标因子决定风险(审计 3.10)
+        worst = max(ratios_with_threshold, key=lambda x: x[1])
+        worst_factor = worst[0]
+        worst_ratio = worst[1]
+        # 标记 controls_final_risk
+        for fd in factor_details:
+            if fd["factor"] == worst_factor:
+                fd["controls_final_risk"] = True
+        # Round9 P0-2.5: 单调递减公式, 与注释一致
+        # r_max ≤ 1 → score=1.0; r_max=2 → 0.5; r_max=3 → 0.0; r_max>3 → 0.0
+        if worst_ratio <= 1.0:
             score = 1.0
         else:
-            score = max(0.0, 1.0 - (r_max - 1.0))
-        status = "partial_resolved" if has_unresolved_threshold else "measured"
-        return (score, status)
-    elif has_unresolved_threshold:
-        # Round8 审计 3.5: 有实测值但全部因子阈值未解析 → 禁止回退 Min-Max
-        return (None, "unresolved_threshold")
-    return (None, "missing")
+            score = max(0.0, 1.0 - 0.5 * (worst_ratio - 1.0))
+        status = "partial_resolved" if unresolved_factors else "measured"
+        return {"score": round(score, 4), "status": status,
+                "worst_factor": worst_factor, "worst_ratio": round(worst_ratio, 4),
+                "factor_details": factor_details, "unresolved_factors": unresolved_factors,
+                "resolved_count": resolved_count, "measured_count": measured_count}
+    elif unresolved_factors:
+        # 有实测但全部阈值未解析 → 禁止回退 Min-Max, 上游 blocked
+        return {"score": None, "status": "unresolved_threshold",
+                "worst_factor": None, "worst_ratio": None,
+                "factor_details": factor_details, "unresolved_factors": unresolved_factors,
+                "resolved_count": 0, "measured_count": measured_count}
+    return {"score": None, "status": "missing",
+            "worst_factor": None, "worst_ratio": None,
+            "factor_details": [], "unresolved_factors": [],
+            "resolved_count": 0, "measured_count": measured_count}
 
 
 def _pick_M(params, scope: str, intensity: str):
@@ -230,12 +293,35 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
     safety_thresholds = safety_thresholds or {}
     threshold_resolution_status = threshold_resolution_status or {}
 
+    # Round9 P0-6: 经济参照集从 CSV 加载(不再读 JSON 手填 min/max)
+    # normalization_version 含 CSV 版本 + SHA-256 前 8 位, 指纹/审计可追溯
+    try:
+        from reference_loader import load_economic_reference
+        ref_data = load_economic_reference()
+        ref_version = ref_data.get("version", "missing")
+        ref_sha = ref_data.get("sha256", "missing")[:8]
+        normalization_version = f"{ref_version}_{ref_sha}"
+    except Exception:
+        ref_data = {"ranges": {}, "version": "missing", "sha256": "missing"}
+        normalization_version = "missing"
+    # CSV 缺失/不可读时使用 deprecated JSON 兜底, 但 normalization_version 显式标 missing
+    if ref_data.get("sha256") in {"missing", "unreadable"}:
+        # 回退到 JSON(deprecated 路径, 但保留可用性)
+        ref_data = params.get("economic_reference_ranges", {"ranges": {}})
+        normalization_version = f"deprecated_json_{ref_data.get('version', 'unknown')}"
+
     # 按准则层分组计算
     groups = {"限制因子C1": [], "风险因子C2": [], "经济成本C3": [], "经济效益C4": []}
     # R3: 收集经济指标归一化详情(供前端展示+审计追溯)
     economic_details = []
-    # Round8: 收集阈值未解析因子(进入 review_required)
+    # Round9 P0-2.3: 收集实测但阈值未解析的因子(必须 blocked, 不只是 review)
     unresolved_threshold_factors = []
+    # Round9 P0-2.3: 详细收集所有 D16/D17 因子级审计信息
+    pollutant_factor_details_all = []
+    worst_factor_global = None
+    worst_ratio_global = None
+    # Round9 P0-2.3: 是否有 fallback/heuristic 阈值(只能参考评价)
+    has_fallback_threshold = False
 
     # D1-D17: 安全性指标(场内 Min-Max, 从 series 取值)
     # R3: 用精确前缀匹配, 避免 "D1" 误匹配 "D18"
@@ -250,22 +336,32 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
             criterion = w_info.get("criterion", "")
             weight = w_info.get("weight", 0)
 
-            # R3-P0-5 + Round8 审计三类: D16/D17 综合全部因子(取最严重超标比例)
-            # 返回 (score, status) 二元组; status="unresolved_threshold" 时禁止回退 Min-Max
+            # R3-P0-5 + Round9 P0-2: D16/D17 综合全部因子(取最严重超标比例)
+            # 返回结构化 dict; 含 unresolved_factors 的因子进入 blocked
             if d_code in ("D16_重金属污染物", "D17_有机污染物"):
-                score_val, status_val = _aggregate_pollutant_risk(
+                pr = _aggregate_pollutant_risk(
                     factor_list, series, safety_thresholds, d_code,
                     threshold_resolution_status=threshold_resolution_status)
-                if status_val == "measured" and score_val is not None:
-                    groups[criterion].append((d_code, round(score_val, 4), weight, "measured"))
-                elif status_val == "partial_resolved" and score_val is not None:
-                    # 部分因子有阈值, 部分无 — 用最严重超标因子决定, 但标记 review_required
-                    groups[criterion].append((d_code, round(score_val, 4), weight, "partial_resolved"))
-                    unresolved_threshold_factors.append(d_code)
-                elif status_val == "unresolved_threshold":
-                    # Round8 审计 3.5: 有实测但阈值全部未解析 → 禁止 Min-Max 伪装正式结果
+                # 跟踪全局最严重因子(供 severe exceedance 门禁)
+                if pr.get("worst_ratio") is not None:
+                    if worst_ratio_global is None or pr["worst_ratio"] > worst_ratio_global:
+                        worst_ratio_global = pr["worst_ratio"]
+                        worst_factor_global = pr["worst_factor"]
+                # 跟踪 fallback/heuristic 阈值(只能生成参考评价)
+                for fd in pr.get("factor_details", []):
+                    pollutant_factor_details_all.append({"d_code": d_code, **fd})
+                    if fd.get("resolution_status") in {"fallback", "heuristic"}:
+                        has_fallback_threshold = True
+                # 收集实测但阈值未解析的因子(细到具体因子名, 不是 d_code)
+                for uf in pr.get("unresolved_factors", []):
+                    unresolved_threshold_factors.append(f"{d_code}:{uf}")
+
+                if pr["status"] == "measured" and pr["score"] is not None:
+                    groups[criterion].append((d_code, pr["score"], weight, "measured"))
+                elif pr["status"] == "partial_resolved" and pr["score"] is not None:
+                    groups[criterion].append((d_code, pr["score"], weight, "partial_resolved"))
+                elif pr["status"] == "unresolved_threshold":
                     groups[criterion].append((d_code, None, weight, "unresolved_threshold"))
-                    unresolved_threshold_factors.append(d_code)
                 else:
                     groups[criterion].append((d_code, None, weight, "missing"))
                 continue
@@ -305,7 +401,7 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
             raw_val = ed["value"]
             st = ed.get("source_type", "site_actual")
             economic_source_types.add(st)
-            norm = _normalize_economic(short_code, raw_val, params)
+            norm = _normalize_economic(short_code, raw_val, params, ref_data=ref_data)
             if norm is not None:
                 groups[criterion].append((d_code, round(norm, 4), weight, "measured"))
                 economic_details.append({
@@ -320,10 +416,37 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
             groups[criterion].append((d_code, None, weight, "missing"))
 
     # R3 审计第五类: 风险/经济数据缺失检查 + 8/8 经济齐全门禁
-    c2_measured = [g for g in groups["风险因子C2"] if g[3] == "measured"]
+    c2_measured = [g for g in groups["风险因子C2"] if g[3] in ("measured", "partial_resolved")]
     c3_measured = [g for g in groups["经济成本C3"] if g[3] == "measured"]
     c4_measured = [g for g in groups["经济效益C4"] if g[3] == "measured"]
     economic_measured_count = len(c3_measured) + len(c4_measured)
+
+    # ──── Round9 P0-2.3 安全门禁: 实测因子阈值未解析 → blocked ────
+    # 审计 P0-2.3: 任何有实测值的污染物, 若阈值 not_found/ambiguous/unit_conflict/mapping_conflict
+    # 不得生成正式 SSUI; 不得用安全的砷掩盖严重但无阈值的镉/有机污染物。
+    # 旧 Round8 实现只看 C2.measured>0, 这正是"正常砷+严重镉无阈值仍能评优"的根因。
+    if unresolved_threshold_factors:
+        missing_list = ", ".join(unresolved_threshold_factors[:6])
+        return {
+            "scope": scope, "ssui": None, "grade": "blocked(实测因子阈值未解析)",
+            "dimensions": {k: [g for g in v if g[3] in ("measured", "partial_resolved")]
+                           for k, v in groups.items()},
+            "explanation": (
+                f"SSUI=blocked。以下污染物有实测值但阈值未解析: {missing_list}。"
+                f"按 Round9 P0-2.3 安全门禁, 不允许用其他有阈值的安全因子掩盖"
+                f"无阈值的严重超标因子。请补充对应污染物的法规阈值(GB15618/GB36600)后重试。"),
+            "calculation_trace": [
+                "① 25项元指标数据覆盖检查",
+                f"② D16/D17 中以下因子阈值未解析: {missing_list}",
+                "③ Round9 P0-2.3 门禁: 实测+阈值未解析 → SSUI=blocked",
+            ],
+            "is_na": True, "is_blocked": True,
+            "blocked_reason": "unresolved_threshold",
+            "blocked_factors": unresolved_threshold_factors,
+            "pollutant_factor_details": pollutant_factor_details_all,
+            "missing_dimensions": ["风险因子C2 阈值未解析"],
+            "normalization_version": normalization_version,
+        }
 
     # 如果风险因子或经济效益完全无数据 → SSUI=blocked
     has_risk_data = len(c2_measured) > 0
@@ -373,7 +496,7 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
                 "C4": len(c4_measured),
             },
             "economic_details": economic_details,
-            "normalization_version": params.get("economic_reference_ranges", {}).get("version", "unknown"),
+            "normalization_version": normalization_version,
         }
 
     # R3 审计第五类: proxy 数据门禁
@@ -417,9 +540,42 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
     raw_ssui = (b1 * 0.5 + b2 * 0.5) * ft * M
     ssui = round(min(raw_ssui, 1.0), 4)
 
+    # ──── Round9 P0-2.4 severe exceedance 安全门禁 ────
+    # 审计 P0-2.4: D16/D17 最严重超标倍数 ≥ 5 (高风险档) → 等级不得为"优/高/低风险"
+    # 即"严重超标却评价为优/良好"的矛盾结论, 审计明令禁止。
+    # levels 实际: 高度可持续(0.8-1.0) / 中度可持续(0.6-0.8) / 低度可持续(0.4-0.6) / 不可持续(<0.4)
+    # 触发后强制降级到"低度可持续"(score 也同步降到 0.4 区间)。
+    SEVERE_EXCEEDANCE_RATIO = 5.0
+    severe_exceedance_forced_downgrade = False
+    base_grade = _grade(ssui, params)
+    if worst_ratio_global is not None and worst_ratio_global >= SEVERE_EXCEEDANCE_RATIO:
+        # 审计语义: 严重超标不能给"优/良好/高可持续/中可持续"评价
+        FORBIDDEN_GRADES_WHEN_SEVERE = {"高度可持续", "中度可持续", "优", "良好",
+                                          "高可持续性", "低风险"}
+        if base_grade in FORBIDDEN_GRADES_WHEN_SEVERE:
+            severe_exceedance_forced_downgrade = True
+            # 同步降级 score 到低度可持续上限(0.6)
+            ssui = min(ssui, 0.5999)
+
+    # ──── Round9 P0-2.3 fallback/heuristic 阈值只能参考评价 ────
+    # 即便 SSUI 算出来, 若 safety_thresholds 含 fallback/heuristic 状态, 强制标参考评价
+    # 不允许 source_type=site_actual + confidence=0.9 (审计 P0-2.4)
+    if has_fallback_threshold:
+        is_reference = True
+        forced_reference_reason = "阈值待核实(fallback/heuristic)"
+    else:
+        forced_reference_reason = None
+
     # R3: proxy 数据标记(参考评价, 不是正式结论)
-    if is_reference:
-        grade = f"参考评价({_grade(ssui, params)})"
+    # Round9 P0-2.3: fallback/heuristic 阈值也强制 is_reference
+    # Round9 P0-2.4: severe exceedance 强制降级
+    if severe_exceedance_forced_downgrade:
+        grade = f"低可持续性(超标{worst_ratio_global:.1f}倍强制降级)"
+    elif is_reference:
+        if forced_reference_reason:
+            grade = f"参考评价-{forced_reference_reason}({_grade(ssui, params)})"
+        else:
+            grade = f"参考评价({_grade(ssui, params)})"
     else:
         grade = _grade(ssui, params)
 
@@ -433,10 +589,15 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
                     "criterion": criterion_name,
                 })
 
-    ref_version = params.get("economic_reference_ranges", {}).get("version", "unknown")
+    ref_version = normalization_version
 
     # Round8 审计三类: 阈值未解析的因子需要 review_required(不阻断 SSUI, 但标记待复核)
-    review_required = bool(unresolved_threshold_factors)
+    # Round9 P0-2.3: unresolved_threshold 已在前面拦截为 blocked, 这里 review_required 永远 False
+    review_required = False
+
+    # Round9 P0-2.6: 显式返回最严重因子(供前端/报告/审计追溯)
+    # severity_forced: severe exceedance 是否触发了强制降级
+    severity_forced = severe_exceedance_forced_downgrade
 
     return {
         "scope": scope, "ssui": ssui, "grade": grade,
@@ -454,10 +615,19 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
         "is_na": False,
         "is_reference": is_reference,
         "is_blocked": False,
-        "source_type": "regional_official_proxy" if is_reference else "site_actual",
+        # Round9 P0-2.3: fallback 强制 source_type 非 site_actual + confidence 降级
+        "source_type": ("reference_threshold" if forced_reference_reason
+                        else ("regional_official_proxy" if is_reference else "site_actual")),
         "is_proxy": is_reference,
-        "confidence": 0.6 if is_reference else 0.9,
+        "confidence": 0.6 if (is_reference or forced_reference_reason) else 0.9,
         "review_required": review_required,
+        # Round9 P0-2.6: 最严重因子和超标倍数(审计要求显式返回)
+        "worst_factor": worst_factor_global,
+        "worst_ratio": worst_ratio_global,
+        "severity_forced_downgrade": severity_forced,
+        "pollutant_factor_details": pollutant_factor_details_all,
+        # Round9 P0-2.3: 标记阈值是否含 fallback(前端可显示警告)
+        "has_fallback_threshold": has_fallback_threshold,
         "unresolved_threshold_factors": unresolved_threshold_factors,
         "coverage": {
             "economic_measured": economic_measured_count,
@@ -476,10 +646,16 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
             f"⑥ SSUI=(B1×0.5+B2×0.5)×f(t)×M={round(raw_ssui,4)}→min(,1.0)={ssui}",
             f"⑦ 等级: {grade}",
             f"⑧ 数据来源: {'区域代理数据(参考评价)' if is_reference else '场地实测数据(正式评价)'}",
+            f"⑨ Round9 P0-2.4 门禁: 最严重因子={worst_factor_global}, 超标倍数={worst_ratio_global}, "
+            f"{'触发强制降级(≥5倍)' if severity_forced else '未触发(或<5倍)'}",
         ],
         "explanation": f"SSUI(25项完整口径)={ssui}({grade})。"
                        f"B1安全性={round(b1,4)}, B2经济性={round(b2,4)}, f(t)={round(ft,3)}, M={M}。"
                        f"基于方法学25项元指标(D1-D25), 经济指标用{ref_version}参照区间归一化。"
                        + ("当前为参考评价(基于区域代理数据), 不作为场地正式结论。" if is_reference
-                          else "当前为正式评价(基于场地实测经济数据)。"),
+                          else "当前为正式评价(基于场地实测经济数据)。")
+                       + (f" 最严重超标因子={worst_factor_global}, 超标{worst_ratio_global:.2f}倍。"
+                          if worst_ratio_global else "")
+                       + (" Round9 P0-2.4: 严重超标(≥5倍)触发等级强制降级。" if severity_forced else "")
+                       + (" Round9 P0-2.3: 阈值含 fallback/heuristic, 仅作参考评价。" if forced_reference_reason else ""),
     }

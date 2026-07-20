@@ -67,9 +67,10 @@ def list_diagnoses(site_id: int, user: User = Depends(get_current_user),
 
 
 def _build_kos_response(diag: DiagnosisResult, db: Session, site_id: int | None = None) -> dict:
-    """Round8 审计 4.6: 统一构建 KOS 历史详情响应, 带 kos_result 字段。
+    """Round8 审计 4.6 + Round9 P0-3.4: 统一构建 KOS 历史详情响应, 带 kos_result 字段。
 
     兼容 KOS(用 result_payload)和旧 RF+SHAP(用 shap_global)两种记录。
+    Round9 P0-3.4: 优先从 result_payload.key_obstacles 读 Top-N(不再依赖 DiagnosisFactorDetail)。
     """
     model = db.get(MLModel, diag.model_id) if diag.model_id else None
     details = (db.query(DiagnosisFactorDetail, FactorDictionary)
@@ -80,6 +81,7 @@ def _build_kos_response(diag: DiagnosisResult, db: Session, site_id: int | None 
     for d, fd in details:
         item = {"factor": fd.factor_name, "category": fd.level1_category,
                 "importance": d.importance, "shap_value": d.shap_value,
+                "kos_score": getattr(d, "kos_score", None),
                 "direction": d.direction, "rank": d.rank}
         if d.sampling_point_id is None:
             global_items.append(item)
@@ -88,8 +90,22 @@ def _build_kos_response(diag: DiagnosisResult, db: Session, site_id: int | None 
             item["point_code"] = sp.point_code if sp else None
             local_items.append(item)
     global_items.sort(key=lambda x: (x["rank"] or 999))
-    # Round8 审计 4.6: KOS 记录用 result_payload 还原完整结果到 kos_result 字段
+
+    # Round9 P0-3.4: KOS 记录优先从 result_payload 读 Top-N
     kos_result = diag.result_payload if diag.diagnosis_method == "kos" else None
+    # 若 KOS 但 DiagnosisFactorDetail 为空, 从 result_payload.key_obstacles 兜底
+    if diag.diagnosis_method == "kos" and kos_result and not global_items:
+        for ko in (kos_result.get("key_obstacles") or [])[:10]:
+            global_items.append({
+                "factor": ko.get("factor"), "category": None,
+                "importance": None,  # Round9 P0-3.3: KOS 不冒充 SHAP importance
+                "shap_value": None,
+                "kos_score": ko.get("KOS"),
+                "direction": None,
+                "rank": ko.get("rank"),
+            })
+        global_items.sort(key=lambda x: (x["rank"] or 999))
+
     return {
         "diagnosis_id": diag.id,
         "site_id": site_id if site_id is not None else diag.site_id,
@@ -104,7 +120,6 @@ def _build_kos_response(diag: DiagnosisResult, db: Session, site_id: int | None 
         "top_factors": global_items,
         "local_explanation": local_items,
         "shap_global": diag.shap_global,
-        # Round8 审计 4.6: KOS 历史详情返回统一 kos_result 字段
         "diagnosis_method": diag.diagnosis_method,
         "track": diag.track,
         "subset": diag.subset,
@@ -112,6 +127,66 @@ def _build_kos_response(diag: DiagnosisResult, db: Session, site_id: int | None 
         "kos_result": kos_result,
         "created_at": str(diag.created_at),
     }
+
+
+# Round9 P0-3.1: KOS canonical payload 序列化器
+# 审计 P0-3.5"不要继续手工遗漏字段" — 自动遍历 result dict 保留所有审计字段,
+# 剔除私有下划线字段、非 JSON 序列化对象(numpy/joblib 类型)
+_KOS_PAYLOAD_REQUIRED_KEYS = [
+    "track", "subset", "model_id", "model_version", "model_status",
+    "data_version", "threshold_version",
+    "mapping_details", "mapping_conflicts", "unmapped",
+    "unit_conversion_details", "explicit_obstacles",
+    "key_obstacles", "model_attention_factors",
+    "family_warnings", "unknown_alerts", "recommended_tests",
+    "model_contribution", "factor_statistics",
+    "per_point_stats", "n_sampling_points",
+    "open_set", "open_set_summary",
+    "data_quality_flags", "ambiguous_threshold_factors", "coverage",
+    "limitations", "organic_guardrails", "kos_weights",
+    "interpretation_note", "review_required",
+]
+
+
+def _json_safe(obj):
+    """递归把 numpy 类型转成 JSON 安全类型; 失败返回 None(不丢整个 payload)。"""
+    import math
+    try:
+        if obj is None or isinstance(obj, (bool, int, str)):
+            return obj
+        if isinstance(obj, float):
+            return obj if math.isfinite(obj) else None
+        # numpy scalar
+        if hasattr(obj, "item") and not isinstance(obj, (list, dict, tuple)):
+            try:
+                return _json_safe(obj.item())
+            except Exception:
+                return None
+        if isinstance(obj, dict):
+            return {str(k): _json_safe(v) for k, v in obj.items()}
+        if isinstance(obj, (list, tuple)):
+            return [_json_safe(x) for x in obj]
+        # 其他类型(str 模型对象等)→ str 兜底
+        return str(obj)
+    except Exception:
+        return None
+
+
+def _kos_canonical_payload(result: dict, track: str = "prod",
+                            subset: str = "all", top_n: int = 10) -> dict:
+    """Round9 P0-3.1: KOS canonical payload — 自动收集所有审计要求字段。
+
+    替代 Round8 手工挑字段(漏 mapping_details/unit_conversion_details 等)。
+    修正 Round8 字段名错误: unmapped_factors→unmapped, per_point_data→per_point_stats。
+    """
+    payload = {}
+    for key in _KOS_PAYLOAD_REQUIRED_KEYS:
+        payload[key] = _json_safe(result.get(key))
+    # API 层补充(非 kos_service 返回)
+    payload["subset"] = payload.get("subset") or subset
+    payload["top_n"] = top_n
+    payload["track"] = payload.get("track") or track
+    return payload
 
 
 @router.get("/diagnoses/{diagnosis_id}")
@@ -339,45 +414,17 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
     result["site_id"] = site_id
     result["site_name"] = site.name
 
-    # Round8 审计四类: KOS 诊断结果持久化(追加式历史, 不再删除旧记录)
-    # 4.1: 禁止运行前删除全部旧 kos_done; 改追加式最多保留 10 条
-    # 4.3: 持久化失败必须 rollback 并返回 5xx(不再返回 200 + data_quality_flags)
-    # 4.4: 用专用字段 diagnosis_method/track/subset/model_version/result_payload
-    #      不再用 shap_value/shap_global 伪装 KOS
-    # 4.5: result_payload 保存完整内容(key_obstacles/五分量/统计量/open_set/...)
+    # Round9 P0-3: KOS 诊断结果持久化(canonical payload 自动收集所有审计字段)
+    # P0-3.1: 用 _kos_canonical_payload 替代手工挑字段(不再漏字段, 不再写错字段名)
+    # P0-3.3: DiagnosisFactorDetail.kos_score 存 KOS 排序分; importance 留空(不冒充 SHAP)
+    # P0-3.4: 不再用 result.get("_canonical_to_raw")(字段不存在), 改用 mapping_details
     from fastapi import HTTPException as _HTTPException
     try:
         from app.services.versioning import current_site_data_version
         kos_data_version = current_site_data_version(db, site_id)
-        # Round8 审计 4.4: 完整结果存入 result_payload(shap_global 只存兼容字段)
-        kos_payload = {
-            "key_obstacles": result.get("key_obstacles", []),
-            "model_contribution": result.get("model_contribution", []),
-            "factor_statistics": result.get("factor_statistics", {}),
-            "open_set_summary": result.get("open_set_summary", {}),
-            "open_set": result.get("open_set", {}),
-            "open_set_status": result.get("open_set_status", ""),
-            "unknown_measured_factors": result.get("unknown_measured_factors", []),
-            "family_alerts": result.get("family_alerts", []),
-            "model_candidates": result.get("model_candidates", []),
-            "coverage": result.get("coverage", 0),
-            "unmapped_factors": result.get("unmapped_factors", []),
-            "data_quality_flags": result.get("data_quality_flags", []),
-            "per_point_data": result.get("per_point_data", []),
-            "aggregation_method": result.get("aggregation_method", ""),
-            "review_required": result.get("review_required", False),
-            "ambiguous_threshold_factors": result.get("ambiguous_threshold_factors", []),
-            "recommended_tests": result.get("recommended_tests", []),
-            "track": track, "subset": subset, "top_n": top_n,
-            "site_pH": site_pH, "land_use_type": land_use_type,
-            "model_id": result.get("model_id"),
-            "model_status": result.get("model_status", ""),
-            "organic_guardrails": result.get("organic_guardrails", {}),
-            "threshold_metadata": {
-                "library_version": "GB15618-2018 / GB36600-2018",
-            },
-        }
-        # 模型版本(从 model_registry_v0.8.json 读, 没有则用 KOS_VERSION)
+        # Round9 P0-3.1: canonical payload 自动收集所有审计要求字段
+        kos_payload = _kos_canonical_payload(result, track=track, subset=subset, top_n=top_n)
+        # 模型版本(从 model_registry_v0.8.json 读, 没有则用 p3_alpha_v0.8)
         model_version = result.get("model_version") or "p3_alpha_v0.8"
         diag = DiagnosisResult(
             site_id=site_id,
@@ -385,7 +432,6 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
             top_n=top_n,
             summary=f"KOS诊断({track}/{subset}): {len(result.get('key_obstacles', []))} 个关键障碍",
             shap_global={"kos_result": True},  # 仅作旧端兼容标记
-            # Round8 审计 4.4: 专用字段
             diagnosis_method="kos",
             track=track,
             subset=subset,
@@ -397,25 +443,32 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
         )
         db.add(diag)
         db.flush()
-        # 写 key_obstacles 的因子明细(DiagnosisFactorDetail, 不再复用 shap_value 伪装 KOS)
-        canonical_to_raw = result.get("_canonical_to_raw", {})
+        # Round9 P0-3.4: 用 mapping_details 建立 canonical→raw 映射(不再用 _canonical_to_raw)
+        canonical_to_raw = {}
+        for md in result.get("mapping_details", []):
+            c = md.get("canonical")
+            if c:
+                canonical_to_raw.setdefault(c, []).append(md.get("original_name", c))
+        # Round9 P0-3.3: DiagnosisFactorDetail.kos_score 存 KOS 分; importance 不冒充 SHAP
         for rank, ko in enumerate(result.get("key_obstacles", [])[:top_n], 1):
             canon = ko.get("factor", "")
-            raw_name = canonical_to_raw.get(canon, canon)
-            # 反查 FactorDictionary.id
+            raw_names = canonical_to_raw.get(canon, [])
+            raw_name = raw_names[0] if raw_names else canon
             fd = db.query(FactorDictionary).filter(
                 (FactorDictionary.factor_code == canon) |
-                (FactorDictionary.factor_name == raw_name)).first()
+                (FactorDictionary.factor_name == raw_name) |
+                (FactorDictionary.factor_name == canon)).first()
             if fd:
                 db.add(DiagnosisFactorDetail(
                     diagnosis_id=diag.id,
                     factor_id=fd.id,
-                    importance=ko.get("importance", 0),
-                    shap_value=None,  # Round8 审计 4.4: 不再用 shap_value 伪装 KOS
+                    importance=None,  # Round9 P0-3.3: KOS 不冒充 SHAP importance
+                    shap_value=None,
+                    kos_score=ko.get("KOS"),  # 专用 KOS 排序分
                     direction=ko.get("direction", ""),
                     rank=rank,
                 ))
-        # Round8 审计 4.2: 追加式历史(最多保留最近 10 条 kos_done; 清理时先处理子表)
+        # Round8 审计 4.2: 追加式历史(最多保留最近 10 条 kos_done)
         stale_kos = (db.query(DiagnosisResult)
                      .filter_by(site_id=site_id, status="kos_done")
                      .order_by(DiagnosisResult.id.desc()).offset(10).all())
@@ -424,8 +477,8 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
                 diagnosis_id=old_diag.id).delete(synchronize_session=False)
             db.delete(old_diag)
         db.commit()
-        result["diagnosis_id"] = diag.id  # 供前端引用
-        # Round8 审计 4.6: 直接返回时也带上 kos_result 字段(GET 历史详情统一格式)
+        result["diagnosis_id"] = diag.id
+        # Round9 P0-3.1: 直接返回的 kos_result 与 GET 历史详情完全一致(深度相等)
         result["kos_result"] = kos_payload
         result["diagnosis_method"] = "kos"
     except _HTTPException:

@@ -1,0 +1,9 @@
+indicator_code,indicator_name,scope,crop,region,year,unit,lower,upper,direction,source_name,source_url,source_document,table_or_page,is_proxy,version,effective_date
+D18,劳动力成本,production,rice,CN,2020,元/亩,100,800,negative,"全国农产品成本收益资料汇编2021(国家发改委价格成本调查中心)",https://www.ndrc.gov.cn/xxgk/zcfb/tz/2021/,"待核查(源自汇编中稻谷家庭用工折价与雇工费用分项汇总)",待核查,true,v1,2026-07-20
+D19,机械作业及服务成本,production,rice,CN,2020,元/亩,50,400,negative,"全国农产品成本收益资料汇编2021(国家发改委价格成本调查中心)",https://www.ndrc.gov.cn/xxgk/zcfb/tz/2021/,"待核查(源自汇编中稻谷机械作业费分项)",待核查,true,v1,2026-07-20
+D20,土地租金或折算土地成本,production,rice,CN,2020,元/亩,50,500,negative,"全国农产品成本收益资料汇编2021(国家发改委价格成本调查中心)",https://www.ndrc.gov.cn/xxgk/zcfb/tz/2021/,"待核查(源自汇编中稻谷流转地租金与自营地折租分项)",待核查,true,v1,2026-07-20
+D21,种子肥料农药等非机械化物质投入,production,rice,CN,2020,元/亩,50,600,negative,"全国农产品成本收益资料汇编2021(国家发改委价格成本调查中心)",https://www.ndrc.gov.cn/xxgk/zcfb/tz/2021/,"待核查(源自汇编中稻谷种子费化肥费农家肥费农药费农膜费汇总)",待核查,true,v1,2026-07-20
+D22,单位面积总产值,production,rice,CN,2020,元/公顷,5000,40000,positive,"全国农产品成本收益资料汇编2021(国家发改委价格成本调查中心)",https://www.ndrc.gov.cn/xxgk/zcfb/tz/2021/,"待核查(源自汇编每亩产值乘15亩每公顷换算)",待核查,true,v1,2026-07-20
+D23,效益费用比,production,rice,CN,2020,无量纲,0.5,2.0,positive,"全国农产品成本收益资料汇编2021(国家发改委价格成本调查中心)",https://www.ndrc.gov.cn/xxgk/zcfb/tz/2021/,"待核查(源自汇编每亩总产值除以每亩总成本比值)",待核查,true,v1,2026-07-20
+D24,人均可支配收入,production,rice,CN,2020,元/人,5000,40000,positive,"国家统计局2020年国民经济和社会发展统计公报",http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202102/t20210228_1814159.html,"待核查(源自公报农村居民人均可支配收入17131元)",待核查,true,v1,2026-07-20
+D25,单位面积实物产量,production,rice,CN,2020,kg/公顷,2000,15000,positive,"全国农产品成本收益资料汇编2021(国家发改委价格成本调查中心)",https://www.ndrc.gov.cn/xxgk/zcfb/tz/2021/,"待核查(源自汇编每亩产量乘15亩每公顷换算)",待核查,true,v1,2026-07-20

@@ -85,35 +85,76 @@ def trigger_evaluation(site_id: int,
 @router.get("/sites/{site_id}/evaluation")
 def get_evaluation(site_id: int, user: User = Depends(get_current_user),
                    db: Session = Depends(get_db)):
+    """Round9 P0-1.3: GET 用 run_config 重算指纹判断 stale。
+
+    审计 P0-1.6: 不允许写"GET 没参数所以只能看 data_version"。
+    用历史结果保存的 run_config 重新计算当前指纹:
+      current_fingerprint != saved.input_fingerprint → is_stale=true。
+    """
     _require_site(db, user, site_id)
     from app.services.versioning import (
         current_site_data_version, evaluation_input_fingerprint,
+        _eval_params_sha256, _economic_ref_csv_sha256,
     )
     current_dv = current_site_data_version(db, site_id)
     rows = (db.query(EvaluationResult).filter_by(site_id=site_id)
             .order_by(EvaluationResult.id.desc()).all())
     if not rows:
         return {"site_id": site_id, "current_data_version": current_dv, "results": {}}
+    # Round9 P0-1.7: 参数文件/CSV unreadable → 全部 stale(禁止复用)
+    params_sha = _eval_params_sha256()
+    csv_sha = _economic_ref_csv_sha256()
+    params_unreadable = params_sha in {"missing", "unreadable"}
+    csv_unreadable = csv_sha in {"missing", "unreadable"}
+
     latest = {}
     for r in rows:
         if r.eval_type in latest:
             continue
-        # Round8 审计二类 2.4: SSUI 用 input_fingerprint 重算判断 stale
-        # 检测数据版本变化 → stale(旧逻辑保留)
+        # 默认按 data_version 判断(reconstruction 类)
         is_stale = (r.data_version != current_dv)
-        # SSUI 还要检查 input_fingerprint 是否变化(经济数据/参数等)
-        if r.eval_type == "ssui" and r.input_fingerprint:
-            # 由于 GET 不带 t/intensity/scope 等参数, 这里只能根据持久化的
-            # input_fingerprint 自身(20字符哈希)做存在性检查 + 检测数据版本变化。
-            # 完整的指纹重算需要前端在 POST 时由 service 端校验。
-            # 简化: SSUI 也看 input_fingerprint 是否仍指向当前数据版本。
-            ssui_stale = (r.data_version != current_dv)
-            is_stale = ssui_stale
+        stale_reason = "data_version_changed" if is_stale else None
+
+        # Round9 P0-1.6: SSUI 必须用 run_config 重算指纹
+        if r.eval_type == "ssui":
+            if not r.run_config or not r.input_fingerprint:
+                is_stale = True
+                stale_reason = "run_config_missing"
+            else:
+                try:
+                    rc = r.run_config
+                    cur_fp = evaluation_input_fingerprint(
+                        db, site_id,
+                        evaluation_year=rc.get("evaluation_year"),
+                        scenario=rc.get("scenario", "production"),
+                        scope=rc.get("scope", "production"),
+                        t=float(rc.get("t", 2.0)),
+                        intensity=rc.get("intensity", "medium"),
+                        allow_proxy=bool(rc.get("allow_proxy", False)),
+                        param_version=rc.get("param_version", ""),
+                    )
+                    if cur_fp != r.input_fingerprint:
+                        is_stale = True
+                        stale_reason = "input_fingerprint_mismatch"
+                except Exception:
+                    is_stale = True
+                    stale_reason = "fingerprint_recalc_failed"
+
+        # Round9 P0-1.7: 参数/CSV 文件 unreadable → 强制 stale
+        if params_unreadable:
+            is_stale = True
+            stale_reason = f"params_file_{params_sha}"
+        if csv_unreadable and r.eval_type == "ssui":
+            is_stale = True
+            stale_reason = f"economic_ref_csv_{csv_sha}"
+
         latest[r.eval_type] = {
             "score": r.score, "grade": r.grade, "data_version": r.data_version,
             "is_stale": is_stale,
+            "stale_reason": stale_reason,
             "param_version": r.param_version,
             "input_fingerprint": r.input_fingerprint,
+            "run_config": r.run_config,
             "dimensions": r.dimensions,
             "weights": r.weights, "limiting_factors": r.limiting_factors,
             "risk_factors": r.risk_factors, "explanation": r.explanation,

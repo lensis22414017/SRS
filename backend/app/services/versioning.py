@@ -42,25 +42,71 @@ def _eval_params_sha256() -> str:
         return "unreadable"
 
 
-def _threshold_set_hash(db: Session) -> str:
-    """Round8 审计二类 2.3: 阈值数据集哈希。
+def _economic_ref_csv_sha256() -> str:
+    """Round9 P0-1: 经济参照集 CSV 的 SHA-256。
 
-    基于 standard_thresholds 表行数+内容(标准号/因子名/screening_value/版本)生成哈希;
-    阈值表如有新增/修改/删除 → 哈希变化 → SSUI stale。
+    CSV 在 data/standards/ssui_economic_reference_v1.csv; 文件变化 → 指纹变化 → stale。
+    文件不存在返回 "missing"; 不可读返回 "unreadable"。
+    """
+    import hashlib as _hl
+    import os as _os
+    _here = _os.path.dirname(_os.path.abspath(__file__))
+    # backend/app/services/ → SRS 根是 3 级 dirname
+    _root = _os.path.dirname(_os.path.dirname(_os.path.dirname(_here)))
+    _CSV = _os.path.join(_root, "data", "standards", "ssui_economic_reference_v1.csv")
+    try:
+        if not _os.path.exists(_CSV):
+            return "missing"
+        h = _hl.sha256()
+        with open(_CSV, "rb") as f:
+            for chunk in iter(lambda: f.read(1 << 20), b""):
+                h.update(chunk)
+        return h.hexdigest()[:16]
+    except OSError:
+        return "unreadable"
+
+
+def _threshold_set_hash(db: Session) -> str:
+    """Round9 P0-1.1: 阈值数据集哈希(扩展字段)。
+
+    基于 standard_thresholds 表的完整内容(standard_code/factor_name/screening_value/version
+    + pH_condition/land_use_type/unit/exposure_scenario + 派生 track)生成稳定哈希。
+    排序必须稳定(按所有字段排序), 不依赖数据库 id 自然顺序。
     """
     import hashlib as _hl
     try:
         from app.models import StandardThreshold
         rows = (db.query(StandardThreshold.standard_code, StandardThreshold.factor_name,
-                          StandardThreshold.screening_value, StandardThreshold.version)
-                .order_by(StandardThreshold.id).all())
+                          StandardThreshold.screening_value, StandardThreshold.version,
+                          StandardThreshold.pH_condition, StandardThreshold.land_use_type,
+                          StandardThreshold.unit, StandardThreshold.exposure_scenario)
+                .all())
         if not rows:
             return "no_thr"
-        content = json.dumps([{
-            "std": r.standard_code, "fac": r.factor_name,
-            "sv": float(r.screening_value) if r.screening_value is not None else None,
-            "ver": str(r.version),
-        } for r in rows], sort_keys=True, ensure_ascii=False)
+        def _track(std_code: str) -> str:
+            sc = (std_code or "").upper().replace(" ", "")
+            if "GB15618" in sc:
+                return "prod"
+            if "GB36600" in sc:
+                return "eco"
+            return "unknown"
+        items = []
+        for r in rows:
+            items.append({
+                "std": r.standard_code or "",
+                "fac": r.factor_name or "",
+                "sv": float(r.screening_value) if r.screening_value is not None else None,
+                "ver": str(r.version or ""),
+                "ph": r.pH_condition or "",
+                "lu": r.land_use_type or "",
+                "u": r.unit or "",
+                "es": r.exposure_scenario or "",
+                "track": _track(r.standard_code or ""),
+            })
+        # 显式排序(稳定), 不依赖 DB id
+        items.sort(key=lambda x: (x["std"], x["fac"], x["ph"], x["lu"],
+                                    str(x["sv"]), x["ver"], x["u"], x["es"]))
+        content = json.dumps(items, sort_keys=True, ensure_ascii=False)
         return _hl.sha256(content.encode("utf-8")).hexdigest()[:12]
     except Exception:
         return "thr_err"
@@ -73,19 +119,18 @@ def evaluation_input_fingerprint(db: Session, site_id: int,
                                   t: float = 2.0, intensity: str = "medium",
                                   allow_proxy: bool = False,
                                   param_version: str = "") -> str:
-    """Round8 审计二类: 评价输入指纹(用于 SSUI 缓存复用判断)。
+    """Round9 P0-1: 评价输入指纹(显式包含所有字面值, 供 GET stale 重算)。
 
-    包含:
-      - measurement_data_version(检测数据版本)
-      - D18-D25 经济数据内容哈希(锁定 year+scenario)
-      - 原始经济汇总值哈希
-      - scope/t/intensity/allow_proxy(评价参数)
-      - param_version(参数版本号)
-      - evaluation_params.json 真实 SHA-256(不只是版本号字符串)
-      - standard_thresholds 表内容哈希(阈值集变化 → stale)
-
-    只有指纹完全相同才允许复用旧 SSUI 结果。
-    经济数据增删改后指纹变化 → 旧 SSUI 自动 stale。
+    审计 P0-1.4: input_fingerprint 必须显式包含:
+      - site_id / measurement_data_version
+      - evaluation_year 字面值(非 None)
+      - scenario 字面值
+      - scope / t / intensity / allow_proxy
+      - 指定年+指定场景 D18-D25 经济指标内容哈希
+      - EconomicRawInput 内容哈希
+      - evaluation_params.json 完整 SHA-256
+      - 经济参照 CSV SHA-256
+      - 阈值数据集完整哈希(含 pH_condition/land_use_type/unit/exposure_scenario/track)
     """
     import hashlib as _hl
     # 1. 检测数据版本
@@ -112,13 +157,16 @@ def evaluation_input_fingerprint(db: Session, site_id: int,
         "gross_output": r.gross_output_yuan, "total_cost": r.total_cost_yuan,
     } for r in raw_rows], sort_keys=True, ensure_ascii=False)
     raw_hash = _hl.sha256(raw_content.encode("utf-8")).hexdigest()[:8] if raw_rows else "no_raw"
-    # Round8 审计 2.3: 参数文件 SHA-256 + 阈值集哈希
+    # Round9 P0-1: 参数 SHA + 阈值集哈希 + 经济参照 CSV SHA
     params_sha = _eval_params_sha256()
+    csv_sha = _economic_ref_csv_sha256()
     thr_hash = _threshold_set_hash(db)
-    # 4. 组合指纹
-    fp_str = (f"{meas_version}|econ={econ_hash}|raw={raw_hash}|"
-              f"{scope}|t={t}|{intensity}|proxy={allow_proxy}|"
-              f"pv={param_version}|psha={params_sha}|thr={thr_hash}")
+    # 4. 组合指纹 — Round9 P0-1: 显式包含 evaluation_year/scenario 字面值
+    fp_str = (f"site={site_id}|meas={meas_version}|"
+              f"year={evaluation_year}|scn={scenario}|scope={scope}|"
+              f"t={t}|intensity={intensity}|proxy={allow_proxy}|"
+              f"econ={econ_hash}|raw={raw_hash}|"
+              f"pv={param_version}|psha={params_sha}|csv={csv_sha}|thr={thr_hash}")
     return _hl.sha256(fp_str.encode("utf-8")).hexdigest()[:20]
 
 

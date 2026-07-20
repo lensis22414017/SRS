@@ -58,7 +58,7 @@ def test_delete_site_cascades_and_disappears():
                 DiagnosisFactorDetail.diagnosis_id.in_(diag_ids)).delete(synchronize_session=False)
         for model in [WorkflowRecord, Recommendation, EvaluationResult, DiagnosisResult,
                       ReportRecord, ProjectAuthorization, SamplingEvent, DatasetVersion,
-                      ImportBatch, Measurement, SamplingPoint]:
+                      Measurement, ImportBatch, SamplingPoint]:
             db.query(model).filter_by(site_id=sid).delete(synchronize_session=False)
         # 注: RemediationCase 是案例库(无 site_id), 不参与场地删除级联
         db.delete(site)

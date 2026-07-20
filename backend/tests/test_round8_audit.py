@@ -306,79 +306,89 @@ def test_threshold_set_hash_in_fingerprint(fresh_db):
 # ═══════════════════════════════════════════════════════════════
 
 def test_d16_monotonicity():
-    """审计 3.8: 单调性测试(安全值→1.0, 阈值边界→1.0, 1.5倍→0.5, 2倍→0.0, 10倍→0.0)。"""
-    from ssui import _aggregate_pollutant_risk
-    # 测试场景: 单个镉因子, 阈值=0.3(GB15618 农用地 pH 6.5-7.5 筛选值)
-    factor_list = ["镉"]
-    thresholds = {"镉": {"limit": 0.3, "type": "upper"}}
+    """审计 3.8 / Round9 P0-2.5: 单调性测试(新公式 r=1→1.0, r=2→0.5, r=3→0.0, r≥3→0.0)。
 
-    # 0.3 mg/kg(等于阈值边界)→ r=1.0 → score=1.0
-    score_at_boundary, _ = _aggregate_pollutant_risk(
-        factor_list, {"镉": [0.3]}, thresholds, "D16_重金属污染物")
-    assert score_at_boundary == 1.0, f"阈值边界应得 1.0, 实际 {score_at_boundary}"
+    Round9 P0-2.5 公式(代码/注释/测试三者一致):
+      score = max(0, 1 - 0.5*(r-1))
+      r ≤ 1 → score = 1.0
+      r = 1.5 → score = 0.75
+      r = 2 → score = 0.5
+      r = 3 → score = 0.0(clip)
+    """
+    from ssui import _aggregate_pollutant_risk
+    factor_list = ["镉"]
+    thresholds = {"镉": {"limit": 0.3, "type": "upper", "resolution_status": "resolved"}}
+
+    # Round9 新结构化返回 + 新公式
+    # 0.3 mg/kg(阈值边界)→ r=1.0 → score=1.0
+    r = _aggregate_pollutant_risk(factor_list, {"镉": [0.3]}, thresholds, "D16_重金属污染物")
+    assert r["score"] == 1.0, f"阈值边界应得 1.0, 实际 {r['score']}"
 
     # 0.15 mg/kg(半阈值)→ r=0.5 → score=1.0(安全)
-    score_safe, _ = _aggregate_pollutant_risk(
-        factor_list, {"镉": [0.15]}, thresholds, "D16_重金属污染物")
-    assert score_safe == 1.0, f"安全值应得 1.0, 实际 {score_safe}"
+    r = _aggregate_pollutant_risk(factor_list, {"镉": [0.15]}, thresholds, "D16_重金属污染物")
+    assert r["score"] == 1.0, f"安全值应得 1.0, 实际 {r['score']}"
 
-    # 0.45 mg/kg(1.5 倍)→ r=1.5 → score=0.5
-    score_15x, _ = _aggregate_pollutant_risk(
-        factor_list, {"镉": [0.45]}, thresholds, "D16_重金属污染物")
-    assert score_15x == 0.5, f"1.5 倍超标应得 0.5, 实际 {score_15x}"
+    # 0.45 mg/kg(1.5 倍)→ r=1.5 → score=0.75
+    r = _aggregate_pollutant_risk(factor_list, {"镉": [0.45]}, thresholds, "D16_重金属污染物")
+    assert r["score"] == 0.75, f"1.5 倍超标应得 0.75, 实际 {r['score']}"
 
-    # 0.6 mg/kg(2 倍)→ r=2 → score=0.0
-    score_2x, _ = _aggregate_pollutant_risk(
-        factor_list, {"镉": [0.6]}, thresholds, "D16_重金属污染物")
-    assert score_2x == 0.0, f"2 倍超标应得 0.0, 实际 {score_2x}"
+    # 0.6 mg/kg(2 倍)→ r=2 → score=0.5
+    r = _aggregate_pollutant_risk(factor_list, {"镉": [0.6]}, thresholds, "D16_重金属污染物")
+    assert r["score"] == 0.5, f"2 倍超标应得 0.5, 实际 {r['score']}"
+
+    # 0.9 mg/kg(3 倍)→ r=3 → score=0.0(clip)
+    r = _aggregate_pollutant_risk(factor_list, {"镉": [0.9]}, thresholds, "D16_重金属污染物")
+    assert r["score"] == 0.0, f"3 倍超标应得 0.0(clip), 实际 {r['score']}"
 
     # 3.0 mg/kg(10 倍)→ r=10 → score=0.0(clip)
-    score_10x, _ = _aggregate_pollutant_risk(
-        factor_list, {"镉": [3.0]}, thresholds, "D16_重金属污染物")
-    assert score_10x == 0.0, f"10 倍超标应得 0.0(clip), 实际 {score_10x}"
+    r = _aggregate_pollutant_risk(factor_list, {"镉": [3.0]}, thresholds, "D16_重金属污染物")
+    assert r["score"] == 0.0, f"10 倍超标应得 0.0(clip), 实际 {r['score']}"
 
 
 def test_d16_worst_factor_dominates():
-    """审计 3.10: 正常砷 + 严重镉必须由镉决定 D16 风险。"""
+    """审计 3.10 / Round9 P0-2.3: 正常砷 + 严重镉必须由镉决定 D16 风险。"""
     from ssui import _aggregate_pollutant_risk
     # 砷=10(GB15618 阈值)→ r=1.0(安全), 镉=3.0(10倍阈值)→ r=10(严重超标)
-    # 最严重因子(镉)决定 D16 → score=0.0
-    thresholds = {"砷": {"limit": 10.0, "type": "upper"},
-                  "镉": {"limit": 0.3, "type": "upper"}}
+    thresholds = {"砷": {"limit": 10.0, "type": "upper", "resolution_status": "resolved"},
+                  "镉": {"limit": 0.3, "type": "upper", "resolution_status": "resolved"}}
     series = {"砷": [10.0], "镉": [3.0]}
-    score, status = _aggregate_pollutant_risk(
-        ["砷", "镉"], series, thresholds, "D16_重金属污染物")
-    assert score == 0.0, \
-        f"砷正常+镉严重超标时 D16 应由镉决定得 0.0, 实际 {score}"
-    assert status in ("measured", "partial_resolved")
+    r = _aggregate_pollutant_risk(["砷", "镉"], series, thresholds, "D16_重金属污染物")
+    # Round9 P0-2.6: 必须返回 worst_factor
+    assert r.get("worst_factor") == "镉", f"最严重因子应为镉, 实际 {r.get('worst_factor')}"
+    assert r.get("worst_ratio") == 10.0, f"最严重超标倍数应为 10, 实际 {r.get('worst_ratio')}"
+    assert r["score"] == 0.0, f"砷正常+镉严重超标时 D16 应由镉决定得 0.0, 实际 {r['score']}"
+    assert r["status"] in ("measured", "partial_resolved")
 
 
 def test_no_threshold_no_minmax_fallback():
-    """审计 3.5/3.9: 有实测但无阈值时不得回退场内 Min-Max 伪装正式结果。"""
+    """审计 3.5/3.9 / Round9 P0-2.3: 有实测但无阈值时不得回退场内 Min-Max。"""
     from ssui import _aggregate_pollutant_risk
-    # 实测严重超标但无阈值 → 不能场内 Min-Max
     thresholds = {}  # 无阈值
-    series = {"镉": [0.1, 0.5, 5.0]}  # 严重异质性, 5.0 远超 0.3 GB15618
-    score, status = _aggregate_pollutant_risk(
+    series = {"镉": [0.1, 0.5, 5.0]}
+    r = _aggregate_pollutant_risk(
         ["镉"], series, thresholds, "D16_重金属污染物",
         threshold_resolution_status={"镉": "not_found"})
     # 关键断言: status=unresolved_threshold, score=None(不回退 Min-Max)
-    assert status == "unresolved_threshold", \
-        f"无阈值时必须返回 unresolved_threshold(审计 3.5), 实际 {status}"
-    assert score is None, \
-        f"无阈值时 score 必须为 None(不回退 Min-Max), 实际 {score}"
+    assert r["status"] == "unresolved_threshold", \
+        f"无阈值时必须返回 unresolved_threshold(审计 3.5), 实际 {r['status']}"
+    assert r["score"] is None, \
+        f"无阈值时 score 必须为 None(不回退 Min-Max), 实际 {r['score']}"
+    # Round9 P0-2.3: 必须把具体因子列入 unresolved_factors(供上游 blocked)
+    assert "镉" in r["unresolved_factors"], \
+        f"实测无阈值的镉必须列入 unresolved_factors, 实际 {r['unresolved_factors']}"
 
 
 def test_persistent_severe_exceedance_not_missing():
-    """审计 3.9: 恒定严重超标不能变成 missing。"""
+    """审计 3.9 / Round9 P0-2: 恒定严重超标不能变成 missing。"""
     from ssui import _aggregate_pollutant_risk
     # 所有采样点都是 5.0 mg/kg(严重超标 0.3 阈值), 但有阈值 → 应得分 0.0 而非 missing
-    thresholds = {"镉": {"limit": 0.3, "type": "upper"}}
+    thresholds = {"镉": {"limit": 0.3, "type": "upper", "resolution_status": "resolved"}}
     series = {"镉": [5.0, 5.0, 5.0]}  # 恒定
-    score, status = _aggregate_pollutant_risk(
+    r = _aggregate_pollutant_risk(
         ["镉"], series, thresholds, "D16_重金属污染物")
-    assert status == "measured", "恒定超标因子应被识别"
-    assert score == 0.0, "恒定严重超标应得 0.0(不变成 missing)"
+    assert r["status"] == "measured", "恒定超标因子应被识别"
+    assert r["score"] == 0.0, "恒定严重超标应得 0.0(不变成 missing)"
+    assert r["worst_factor"] == "镉"
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -502,8 +512,13 @@ def test_kos_persistence_failure_returns_5xx(fresh_db, monkeypatch):
 # ═══════════════════════════════════════════════════════════════
 
 @needs_db
-def test_setup_concurrent_only_one_succeeds(fresh_db):
-    """审计 5.6: 两个并发首启请求只允许一个成功(200), 另一个 409。"""
+def test_setup_sequential_only_one_succeeds(fresh_db):
+    """审计 5.6 / Round9 P0-4: 顺序两次首启请求只允许一个成功。
+
+    Round9: 旧 test_setup_concurrent_only_one_succeeds 是顺序请求(非真并发),
+    按审计 P0-4.5 改名为 _sequential 保留作为基础回归。
+    真·并发测试见 test_round9_audit.py 的 test_setup_real_concurrent(两线程+Barrier)。
+    """
     db = fresh_db
     try:
         # 关键: 先调 _client() 让 bootstrap 完成(它会 drop+create+seed 覆盖 fresh_db 状态)
@@ -520,8 +535,7 @@ def test_setup_concurrent_only_one_succeeds(fresh_db):
                                 description="首启状态"))
         db.commit()
 
-        # 模拟两个并发请求(SQLite BEGIN IMMEDIATE 让第二个在第一个 commit 后看到非 pending)
-        # TestClient 是同步的, 这里用顺序两次模拟并发竞争的结果
+        # 顺序两次请求(模拟并发竞争的结果; 真·并发测试在新文件)
         body1 = {"username": "admin_concurrent_1", "password": "Test@2026abc",
                  "confirm_password": "Test@2026abc"}
         body2 = {"username": "admin_concurrent_2", "password": "Test@2026abc",
