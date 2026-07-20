@@ -710,6 +710,9 @@ def batch_delete_sites(payload: dict,
             ("evaluation_results", EvaluationResult), ("diagnosis_results", DiagnosisResult),
             ("report_records", ReportRecord), ("project_authorizations", ProjectAuthorization),
             ("sampling_events", SamplingEvent), ("dataset_versions", DatasetVersion),
+            # Round8 审计六类 6.3-6.4: 批量删除补经济表(与单删保持一致)
+            ("economic_indicators", EconomicIndicator),
+            ("economic_raw_inputs", EconomicRawInput),
             ("import_batches", ImportBatch), ("measurements", Measurement),
             ("sampling_points", SamplingPoint),
         ]:

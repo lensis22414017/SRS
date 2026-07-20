@@ -77,20 +77,32 @@ def _normalize_economic(indicator_code: str, raw_value: float, params: dict) -> 
 
 
 def _aggregate_pollutant_risk(factor_list: list, series: dict,
-                               safety_thresholds: dict, d_code: str) -> float | None:
-    """R3-P0-5: 综合全部污染物因子的风险归一化。
+                               safety_thresholds: dict, d_code: str,
+                               threshold_resolution_status: dict | None = None) -> tuple:
+    """Round8 审计三类: 综合全部污染物因子的风险归一化。
+
+    返回 (score_or_None, status) 二元组:
+      - status="measured": 有实测+有阈值, score 是数值
+      - status="unresolved_threshold": 有实测但全部因子阈值未解析 → 禁止回退 Min-Max
+        (审计 3.5: 不得用场内 Min-Max 伪装正式评价, 进入 review_required/blocked)
+      - status="missing": 无实测数据
+      - status="partial_resolved": 部分因子有阈值, 部分无阈值
+        (审计 3.10: 正常砷+严重镉必须由镉决定 D16 风险 — 用最严重超标因子决定)
 
     策略(满足单调性 + 不丢绝对污染程度):
       1. 对每个污染物因子, 计算 max(浓度)/阈值 = 超标比例 r
-      2. 取所有因子的最大超标比例 r_max(最严重因子决定风险)
+      2. 取所有有阈值因子的最大超标比例 r_max(最严重因子决定风险)
       3. 用超标比例归一化: r_max=0→1.0(安全), r_max=1→0.5(刚好达标边界),
          r_max=2→0.0(超标2倍, 极高风险)
       公式: score = max(0, 1 - max(0, r_max - 1)) → r≤1时score=1, r=2时score=0
 
-    无阈值时回退到场内 Min-Max(但综合全部因子, 不只取第一个)。
+    Round8 审计 3.5: 有实测值但没有阈值时, 不得回退场内 Min-Max 生成正式评价。
     """
+    threshold_resolution_status = threshold_resolution_status or {}
     ratios = []
     has_any_data = False
+    has_threshold = False
+    has_unresolved_threshold = False
     for fc in factor_list:
         if fc in series and any(x is not None for x in series[fc]):
             vals = [v for v in series[fc] if v is not None]
@@ -98,16 +110,24 @@ def _aggregate_pollutant_risk(factor_list: list, series: dict,
                 continue
             max_val = max(vals)
             has_any_data = True
+            # Round8 审计 3.2-3.3: 阈值解析状态以 threshold_resolution_status 为准
+            fc_status = threshold_resolution_status.get(fc, "unknown")
             thr = safety_thresholds.get(fc)
             if thr and thr.get("limit") and thr["limit"] > 0:
                 ratio = max_val / thr["limit"]
-                ratios.append(ratio)
+                ratios.append((fc, ratio))
+                has_threshold = True
+            else:
+                # 有实测值但无阈值 → 标记 unresolved
+                has_unresolved_threshold = True
 
     if not has_any_data:
-        return None
+        return (None, "missing")
 
     if ratios:
-        r_max = max(ratios)
+        # Round8 审计 3.10: 用最严重超标因子决定风险(正常砷+严重镉→镉决定)
+        r_max = max(r[1] for r in ratios)
+        worst_factor = max(ratios, key=lambda x: x[1])[0]
         # 单调性: 超标比例越高, 得分越低
         # r_max ≤ 1 (未超标) → score = 1.0
         # r_max = 1 → score = 1.0 (阈值边界)
@@ -117,16 +137,12 @@ def _aggregate_pollutant_risk(factor_list: list, series: dict,
             score = 1.0
         else:
             score = max(0.0, 1.0 - (r_max - 1.0))
-        return score
-    else:
-        # 无阈值 → 回退到场内 Min-Max(综合全部因子)
-        all_vals = []
-        for fc in factor_list:
-            if fc in series:
-                all_vals.extend([v for v in series[fc] if v is not None])
-        if not all_vals or len(all_vals) < 2:
-            return None
-        return _minmax(all_vals, negative=True)
+        status = "partial_resolved" if has_unresolved_threshold else "measured"
+        return (score, status)
+    elif has_unresolved_threshold:
+        # Round8 审计 3.5: 有实测值但全部因子阈值未解析 → 禁止回退 Min-Max
+        return (None, "unresolved_threshold")
+    return (None, "missing")
 
 
 def _pick_M(params, scope: str, intensity: str):
@@ -189,30 +205,37 @@ NEGATIVE_METAS = {"D1_土壤含盐量", "D16_重金属污染物", "D17_有机污
 
 def evaluate(series: dict, scope: str = "production", t: float = 2.0,
              intensity: str = "medium", economic_data: dict | None = None,
-             allow_proxy: bool = False, safety_thresholds: dict | None = None) -> dict:
-    """v1.0.2 + R3: SSUI 完整 25 项评价。
+             allow_proxy: bool = False, safety_thresholds: dict | None = None,
+             threshold_resolution_status: dict | None = None) -> dict:
+    """v1.0.2 + R3 + Round8: SSUI 完整 25 项评价。
 
     series: {factor_code: [跨采样点数值]} — D1-D17 安全性指标。
     economic_data: {indicator_code: {"value": float, "source_type": str, ...}} — D18-D25 经济指标。
     allow_proxy: 是否允许 proxy 数据生成参考 SSUI(默认 False, 只允许 site_actual)。
-    safety_thresholds: {factor_code: {"limit": float, "type": "upper"}} — D16/D17 标准阈值(R3-P0-5)。
+    safety_thresholds: {factor_code: {"limit": float, "type": "upper", ...}} — D16/D17 标准阈值。
+    threshold_resolution_status: {factor_code: "resolved"/"fallback"/"ambiguous"/"not_found"/...}
+      Round8 审计三类: 用于判断"有实测值但无阈值"的因子, 禁止回退 Min-Max。
 
     R3 审计第五类:
       - D18-D25 用参照区间归一化(非场内 Min-Max)
       - 正式 SSUI 要求 8/8 经济指标齐全且 source_type=site_actual
       - 缺经济数据返回 blocked + missing_indicators(不伪造)
     R3-P0-5: D16/D17 综合全部重金属/有机物(取最严重超标比例), 用标准阈值归一化
+    Round8 审计三类: 有实测值但阈值未解析 → 进入 unresolved_threshold/blocked(不回退 Min-Max)
     """
     params = _load()
     scope_key = "production" if scope == "production" else "ecology"
     meta_w = params[scope_key].get("meta_weights_25", {})
     economic_data = economic_data or {}
     safety_thresholds = safety_thresholds or {}
+    threshold_resolution_status = threshold_resolution_status or {}
 
     # 按准则层分组计算
     groups = {"限制因子C1": [], "风险因子C2": [], "经济成本C3": [], "经济效益C4": []}
     # R3: 收集经济指标归一化详情(供前端展示+审计追溯)
     economic_details = []
+    # Round8: 收集阈值未解析因子(进入 review_required)
+    unresolved_threshold_factors = []
 
     # D1-D17: 安全性指标(场内 Min-Max, 从 series 取值)
     # R3: 用精确前缀匹配, 避免 "D1" 误匹配 "D18"
@@ -227,13 +250,22 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
             criterion = w_info.get("criterion", "")
             weight = w_info.get("weight", 0)
 
-            # R3-P0-5: D16重金属/D17有机物 综合全部因子(取最严重超标比例)
-            # 不再只取第一个匹配的因子
+            # R3-P0-5 + Round8 审计三类: D16/D17 综合全部因子(取最严重超标比例)
+            # 返回 (score, status) 二元组; status="unresolved_threshold" 时禁止回退 Min-Max
             if d_code in ("D16_重金属污染物", "D17_有机污染物"):
-                norm = _aggregate_pollutant_risk(
-                    factor_list, series, safety_thresholds, d_code)
-                if norm is not None:
-                    groups[criterion].append((d_code, round(norm, 4), weight, "measured"))
+                score_val, status_val = _aggregate_pollutant_risk(
+                    factor_list, series, safety_thresholds, d_code,
+                    threshold_resolution_status=threshold_resolution_status)
+                if status_val == "measured" and score_val is not None:
+                    groups[criterion].append((d_code, round(score_val, 4), weight, "measured"))
+                elif status_val == "partial_resolved" and score_val is not None:
+                    # 部分因子有阈值, 部分无 — 用最严重超标因子决定, 但标记 review_required
+                    groups[criterion].append((d_code, round(score_val, 4), weight, "partial_resolved"))
+                    unresolved_threshold_factors.append(d_code)
+                elif status_val == "unresolved_threshold":
+                    # Round8 审计 3.5: 有实测但阈值全部未解析 → 禁止 Min-Max 伪装正式结果
+                    groups[criterion].append((d_code, None, weight, "unresolved_threshold"))
+                    unresolved_threshold_factors.append(d_code)
                 else:
                     groups[criterion].append((d_code, None, weight, "missing"))
                 continue
@@ -403,6 +435,9 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
 
     ref_version = params.get("economic_reference_ranges", {}).get("version", "unknown")
 
+    # Round8 审计三类: 阈值未解析的因子需要 review_required(不阻断 SSUI, 但标记待复核)
+    review_required = bool(unresolved_threshold_factors)
+
     return {
         "scope": scope, "ssui": ssui, "grade": grade,
         "dimensions": {
@@ -422,6 +457,8 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
         "source_type": "regional_official_proxy" if is_reference else "site_actual",
         "is_proxy": is_reference,
         "confidence": 0.6 if is_reference else 0.9,
+        "review_required": review_required,
+        "unresolved_threshold_factors": unresolved_threshold_factors,
         "coverage": {
             "economic_measured": economic_measured_count,
             "economic_total": 8,

@@ -1,7 +1,7 @@
 """数据库会话。"""
 import os
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, event
 from sqlalchemy.orm import sessionmaker
 
 from app.core.config import get_settings
@@ -9,6 +9,18 @@ from app.core.config import get_settings
 settings = get_settings()
 connect_args = {"check_same_thread": False} if settings.database_url.startswith("sqlite") else {}
 engine = create_engine(settings.database_url, connect_args=connect_args, future=True)
+
+
+# Round8 审计六类 6.1: SQLite 默认 PRAGMA foreign_keys=OFF, 显式开启
+# 确保外键约束生效(场地删除级联测试的真实前提)
+if settings.database_url.startswith("sqlite"):
+    @event.listens_for(engine, "connect")
+    def _set_sqlite_pragma(dbapi_connection, connection_record):
+        cursor = dbapi_connection.cursor()
+        cursor.execute("PRAGMA foreign_keys=ON")
+        cursor.close()
+
+
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False, future=True)
 
 
@@ -40,4 +52,11 @@ def reset_engine_for_tests(database_url: str | None = None) -> None:
                         if new_settings.database_url.startswith("sqlite") else {})
     engine = create_engine(new_settings.database_url,
                            connect_args=new_connect_args, future=True)
+    # Round8 审计六类 6.1: 重建 engine 后也要绑定 PRAGMA foreign_keys=ON
+    if new_settings.database_url.startswith("sqlite"):
+        @event.listens_for(engine, "connect")
+        def _set_sqlite_pragma_reset(dbapi_connection, connection_record):
+            cursor = dbapi_connection.cursor()
+            cursor.execute("PRAGMA foreign_keys=ON")
+            cursor.close()
     SessionLocal.configure(bind=engine)

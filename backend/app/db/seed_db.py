@@ -198,7 +198,14 @@ def _seed_first_admin_with_password(db, password: str):
     # R3-P0-7 修复: 必须用 code(不是 name), seed 中 admin 的 code="admin"
     roles = {r.code: r.id for r in db.query(Role).all()}
     admin_role_id = roles.get("admin")
-    if admin_role_id and not db.query(UserRole).filter_by(
+    # Round8 审计 5.5: admin 角色不存在必须失败(不创建无角色用户)
+    if not admin_role_id:
+        db.rollback()
+        raise RuntimeError(
+            "admin 角色不存在, 无法为环境变量首管理员绑定角色。"
+            "请确认 seed_roles() 已在 seed_db.py 调用顺序中先执行。"
+            "禁止创建无角色管理员(安全约束)。")
+    if not db.query(UserRole).filter_by(
             user_id=admin_user.id, role_id=admin_role_id).first():
         db.add(UserRole(user_id=admin_user.id, role_id=admin_role_id))
 

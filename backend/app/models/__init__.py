@@ -289,6 +289,12 @@ class DiagnosisResult(Base, TimestampMixin):
     polish_model: Mapped[str | None] = mapped_column(String(64), nullable=True)
     shap_global: Mapped[dict | None] = mapped_column(JSON, nullable=True)
     status: Mapped[str] = mapped_column(String(20), default="done")
+    # Round8 审计四类: KOS 持久化专用字段(不再用 shap_global 伪装 KOS)
+    diagnosis_method: Mapped[str | None] = mapped_column(String(30), nullable=True)  # "kos"/"rf_shap"
+    track: Mapped[str | None] = mapped_column(String(10), nullable=True)  # "prod"/"eco"
+    subset: Mapped[str | None] = mapped_column(String(20), nullable=True)  # "all"/"hm"/"op"/"hm_op"
+    model_version: Mapped[str | None] = mapped_column(String(40), nullable=True)  # 模型版本号
+    result_payload: Mapped[dict | None] = mapped_column(JSON, nullable=True)  # 完整 KOS 结果
     # zzv0.4 审计证据链字段(-164行 + 文献[#9 Mitchell],[#10 Gebru])
     validation_strategy: Mapped[str | None] = mapped_column(String(60), nullable=True)  # group_split / nested_cv
     group_key: Mapped[str | None] = mapped_column(String(40), nullable=True)  # id_DOI / site_id / province
@@ -321,6 +327,9 @@ class EvaluationResult(Base, TimestampMixin):
     eval_type: Mapped[str] = mapped_column(String(30))  # reconstruction_prod/reconstruction_eco/ssui
     data_version: Mapped[str | None] = mapped_column(String(60), nullable=True)
     param_version: Mapped[str | None] = mapped_column(String(30), nullable=True)
+    # Round8 审计二类: SSUI 输入指纹(检测版本+经济数据+参数+t/intensity/scope/proxy)
+    # 不再塞入 param_version 字段; param_version 保留真实参数版本号
+    input_fingerprint: Mapped[str | None] = mapped_column(String(64), nullable=True, index=True)
     score: Mapped[float | None] = mapped_column(Float, nullable=True)
     grade: Mapped[str | None] = mapped_column(String(40), nullable=True)
     dimensions: Mapped[dict | None] = mapped_column(JSON, nullable=True)

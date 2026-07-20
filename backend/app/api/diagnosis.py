@@ -66,14 +66,11 @@ def list_diagnoses(site_id: int, user: User = Depends(get_current_user),
     return result
 
 
-@router.get("/diagnoses/{diagnosis_id}")
-def get_diagnosis_detail(diagnosis_id: int, user: User = Depends(get_current_user),
-                          db: Session = Depends(get_db)):
-    """查看特定历史诊断的完整结果。"""
-    diag = db.get(DiagnosisResult, diagnosis_id)
-    if not diag:
-        raise HTTPException(404, "诊断记录不存在")
-    _require_site(db, user, diag.site_id)
+def _build_kos_response(diag: DiagnosisResult, db: Session, site_id: int | None = None) -> dict:
+    """Round8 审计 4.6: 统一构建 KOS 历史详情响应, 带 kos_result 字段。
+
+    兼容 KOS(用 result_payload)和旧 RF+SHAP(用 shap_global)两种记录。
+    """
     model = db.get(MLModel, diag.model_id) if diag.model_id else None
     details = (db.query(DiagnosisFactorDetail, FactorDictionary)
                .join(FactorDictionary,
@@ -91,8 +88,11 @@ def get_diagnosis_detail(diagnosis_id: int, user: User = Depends(get_current_use
             item["point_code"] = sp.point_code if sp else None
             local_items.append(item)
     global_items.sort(key=lambda x: (x["rank"] or 999))
+    # Round8 审计 4.6: KOS 记录用 result_payload 还原完整结果到 kos_result 字段
+    kos_result = diag.result_payload if diag.diagnosis_method == "kos" else None
     return {
-        "diagnosis_id": diag.id, "site_id": diag.site_id,
+        "diagnosis_id": diag.id,
+        "site_id": site_id if site_id is not None else diag.site_id,
         "model": ({"name": model.model_name, "version": model.version,
                    "metrics": model.metrics, "feature_list": model.feature_list,
                    "training_data_version": model.training_data_version}
@@ -104,8 +104,25 @@ def get_diagnosis_detail(diagnosis_id: int, user: User = Depends(get_current_use
         "top_factors": global_items,
         "local_explanation": local_items,
         "shap_global": diag.shap_global,
+        # Round8 审计 4.6: KOS 历史详情返回统一 kos_result 字段
+        "diagnosis_method": diag.diagnosis_method,
+        "track": diag.track,
+        "subset": diag.subset,
+        "model_version": diag.model_version,
+        "kos_result": kos_result,
         "created_at": str(diag.created_at),
     }
+
+
+@router.get("/diagnoses/{diagnosis_id}")
+def get_diagnosis_detail(diagnosis_id: int, user: User = Depends(get_current_user),
+                          db: Session = Depends(get_db)):
+    """查看特定历史诊断的完整结果。"""
+    diag = db.get(DiagnosisResult, diagnosis_id)
+    if not diag:
+        raise HTTPException(404, "诊断记录不存在")
+    _require_site(db, user, diag.site_id)
+    return _build_kos_response(diag, db)
 
 
 @router.get("/sites/{site_id}/diagnosis")
@@ -116,38 +133,7 @@ def latest_diagnosis(site_id: int, user: User = Depends(get_current_user),
             .order_by(DiagnosisResult.id.desc()).first())
     if not diag:
         raise HTTPException(404, "该场地暂无诊断结果")
-    model = db.get(MLModel, diag.model_id) if diag.model_id else None
-    details = (db.query(DiagnosisFactorDetail, FactorDictionary)
-               .join(FactorDictionary,
-                     DiagnosisFactorDetail.factor_id == FactorDictionary.id)
-               .filter(DiagnosisFactorDetail.diagnosis_id == diag.id).all())
-    global_items, local_items = [], []
-    for d, fd in details:
-        item = {"factor": fd.factor_name, "category": fd.level1_category,
-                "importance": d.importance, "shap_value": d.shap_value,
-                "direction": d.direction, "rank": d.rank}
-        if d.sampling_point_id is None:
-            global_items.append(item)
-        else:
-            sp = db.get(SamplingPoint, d.sampling_point_id)
-            item["point_code"] = sp.point_code if sp else None
-            local_items.append(item)
-    global_items.sort(key=lambda x: (x["rank"] or 999))
-    return {
-        "diagnosis_id": diag.id, "site_id": site_id,
-        "model": ({"name": model.model_name, "version": model.version,
-                   "metrics": model.metrics, "feature_list": model.feature_list,
-                   "training_data_version": model.training_data_version}
-                  if model else None),
-        "data_version": diag.data_version,
-        "summary": diag.summary_polished or diag.summary,
-        "summary_raw": diag.summary,
-        "polish_model": diag.polish_model,
-        "top_factors": global_items,
-        "local_explanation": local_items,
-        "shap_global": diag.shap_global,
-        "created_at": str(diag.created_at),
-    }
+    return _build_kos_response(diag, db, site_id=site_id)
 
 
 # ──────────────────────────────────────────────────────────────
@@ -353,40 +339,65 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
     result["site_id"] = site_id
     result["site_name"] = site.name
 
-    # R3-P0-8 修复: KOS 诊断结果持久化(写 DiagnosisResult + DiagnosisFactorDetail)
-    # 刷新页面后历史列表能看到, 报告导出也能读取
+    # Round8 审计四类: KOS 诊断结果持久化(追加式历史, 不再删除旧记录)
+    # 4.1: 禁止运行前删除全部旧 kos_done; 改追加式最多保留 10 条
+    # 4.3: 持久化失败必须 rollback 并返回 5xx(不再返回 200 + data_quality_flags)
+    # 4.4: 用专用字段 diagnosis_method/track/subset/model_version/result_payload
+    #      不再用 shap_value/shap_global 伪装 KOS
+    # 4.5: result_payload 保存完整内容(key_obstacles/五分量/统计量/open_set/...)
+    from fastapi import HTTPException as _HTTPException
     try:
         from app.services.versioning import current_site_data_version
         kos_data_version = current_site_data_version(db, site_id)
-        # 删除该场地旧的 KOS 诊断记录(保留 RF+SHAP 旧记录, 用 status 区分)
-        db.query(DiagnosisResult).filter_by(
-            site_id=site_id, status="kos_done").delete(synchronize_session=False)
+        # Round8 审计 4.4: 完整结果存入 result_payload(shap_global 只存兼容字段)
+        kos_payload = {
+            "key_obstacles": result.get("key_obstacles", []),
+            "model_contribution": result.get("model_contribution", []),
+            "factor_statistics": result.get("factor_statistics", {}),
+            "open_set_summary": result.get("open_set_summary", {}),
+            "open_set": result.get("open_set", {}),
+            "open_set_status": result.get("open_set_status", ""),
+            "unknown_measured_factors": result.get("unknown_measured_factors", []),
+            "family_alerts": result.get("family_alerts", []),
+            "model_candidates": result.get("model_candidates", []),
+            "coverage": result.get("coverage", 0),
+            "unmapped_factors": result.get("unmapped_factors", []),
+            "data_quality_flags": result.get("data_quality_flags", []),
+            "per_point_data": result.get("per_point_data", []),
+            "aggregation_method": result.get("aggregation_method", ""),
+            "review_required": result.get("review_required", False),
+            "ambiguous_threshold_factors": result.get("ambiguous_threshold_factors", []),
+            "recommended_tests": result.get("recommended_tests", []),
+            "track": track, "subset": subset, "top_n": top_n,
+            "site_pH": site_pH, "land_use_type": land_use_type,
+            "model_id": result.get("model_id"),
+            "model_status": result.get("model_status", ""),
+            "organic_guardrails": result.get("organic_guardrails", {}),
+            "threshold_metadata": {
+                "library_version": "GB15618-2018 / GB36600-2018",
+            },
+        }
+        # 模型版本(从 model_registry_v0.8.json 读, 没有则用 KOS_VERSION)
+        model_version = result.get("model_version") or "p3_alpha_v0.8"
         diag = DiagnosisResult(
             site_id=site_id,
             data_version=kos_data_version,
             top_n=top_n,
             summary=f"KOS诊断({track}/{subset}): {len(result.get('key_obstacles', []))} 个关键障碍",
-            shap_global={
-                "kos_result": True,
-                "track": track, "subset": subset,
-                "key_obstacles": result.get("key_obstacles", []),
-                "model_contribution": result.get("model_contribution", []),
-                "factor_statistics": result.get("factor_statistics", {}),
-                "open_set_summary": result.get("open_set_summary", {}),
-                "coverage": result.get("coverage", 0),
-                "unmapped_factors": result.get("unmapped_factors", []),
-                "data_quality_flags": result.get("data_quality_flags", []),
-                "per_point_data": result.get("per_point_data", []),
-                "review_required": result.get("review_required", False),
-                "ambiguous_threshold_factors": result.get("ambiguous_threshold_factors", []),
-            },
+            shap_global={"kos_result": True},  # 仅作旧端兼容标记
+            # Round8 审计 4.4: 专用字段
+            diagnosis_method="kos",
+            track=track,
+            subset=subset,
+            model_version=model_version,
+            result_payload=kos_payload,
             status="kos_done",
             human_review_triggered=result.get("review_required", False),
             review_reason="KOS启发式阈值需复核" if result.get("review_required") else None,
         )
         db.add(diag)
         db.flush()
-        # 写 key_obstacles 的因子明细(DiagnosisFactorDetail)
+        # 写 key_obstacles 的因子明细(DiagnosisFactorDetail, 不再复用 shap_value 伪装 KOS)
         canonical_to_raw = result.get("_canonical_to_raw", {})
         for rank, ko in enumerate(result.get("key_obstacles", [])[:top_n], 1):
             canon = ko.get("factor", "")
@@ -400,16 +411,35 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
                     diagnosis_id=diag.id,
                     factor_id=fd.id,
                     importance=ko.get("importance", 0),
-                    shap_value=ko.get("KOS", 0),  # 复用字段存 KOS 分值
+                    shap_value=None,  # Round8 审计 4.4: 不再用 shap_value 伪装 KOS
                     direction=ko.get("direction", ""),
                     rank=rank,
                 ))
+        # Round8 审计 4.2: 追加式历史(最多保留最近 10 条 kos_done; 清理时先处理子表)
+        stale_kos = (db.query(DiagnosisResult)
+                     .filter_by(site_id=site_id, status="kos_done")
+                     .order_by(DiagnosisResult.id.desc()).offset(10).all())
+        for old_diag in stale_kos:
+            db.query(DiagnosisFactorDetail).filter_by(
+                diagnosis_id=old_diag.id).delete(synchronize_session=False)
+            db.delete(old_diag)
         db.commit()
         result["diagnosis_id"] = diag.id  # 供前端引用
-    except Exception as e:
+        # Round8 审计 4.6: 直接返回时也带上 kos_result 字段(GET 历史详情统一格式)
+        result["kos_result"] = kos_payload
+        result["diagnosis_method"] = "kos"
+    except _HTTPException:
         db.rollback()
-        result.setdefault("data_quality_flags", []).append(
-            f"kos_persistence_failed: {type(e).__name__}: {str(e)[:100]}")
+        raise
+    except Exception as e:
+        # Round8 审计 4.3: 持久化失败必须 rollback 并返回 5xx(禁止返回 200)
+        db.rollback()
+        import traceback
+        traceback.print_exc()
+        raise _HTTPException(
+            status_code=503,
+            detail=(f"KOS 诊断结果持久化失败: {type(e).__name__}: {str(e)[:200]}。"
+                    f"诊断未保存到历史记录, 请检查数据库或磁盘空间后重试。"))
 
     return result
 

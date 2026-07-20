@@ -17,6 +17,55 @@ from sqlalchemy.orm import Session
 from app.models import ImportBatch, Measurement, EconomicIndicator, EconomicRawInput
 
 
+def _eval_params_sha256() -> str:
+    """Round8 审计二类 2.3: 计算 evaluation_params.json 真实 SHA-256(不只是版本号)。
+
+    参数文件 mtime/内容任一变化 → sha256 变化 → 旧 SSUI 自动 stale。
+    文件不存在时返回 "missing"(标记为待校验, 禁止复用)。
+    """
+    import hashlib as _hl
+    import os as _os
+    # evaluation_params.json 在 SRS 根/ml/params/
+    # __file__ = backend/app/services/versioning.py → 3 级 dirname 到 SRS 根
+    _here = _os.path.dirname(_os.path.abspath(__file__))
+    _PARAMS_PATH = _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.dirname(
+        _here))), "ml", "params", "evaluation_params.json")
+    try:
+        if not _os.path.exists(_PARAMS_PATH):
+            return "missing"
+        h = _hl.sha256()
+        with open(_PARAMS_PATH, "rb") as f:
+            for chunk in iter(lambda: f.read(1 << 20), b""):
+                h.update(chunk)
+        return h.hexdigest()[:16]
+    except OSError:
+        return "unreadable"
+
+
+def _threshold_set_hash(db: Session) -> str:
+    """Round8 审计二类 2.3: 阈值数据集哈希。
+
+    基于 standard_thresholds 表行数+内容(标准号/因子名/screening_value/版本)生成哈希;
+    阈值表如有新增/修改/删除 → 哈希变化 → SSUI stale。
+    """
+    import hashlib as _hl
+    try:
+        from app.models import StandardThreshold
+        rows = (db.query(StandardThreshold.standard_code, StandardThreshold.factor_name,
+                          StandardThreshold.screening_value, StandardThreshold.version)
+                .order_by(StandardThreshold.id).all())
+        if not rows:
+            return "no_thr"
+        content = json.dumps([{
+            "std": r.standard_code, "fac": r.factor_name,
+            "sv": float(r.screening_value) if r.screening_value is not None else None,
+            "ver": str(r.version),
+        } for r in rows], sort_keys=True, ensure_ascii=False)
+        return _hl.sha256(content.encode("utf-8")).hexdigest()[:12]
+    except Exception:
+        return "thr_err"
+
+
 def evaluation_input_fingerprint(db: Session, site_id: int,
                                   evaluation_year: int | None = None,
                                   scenario: str = "production",
@@ -24,14 +73,16 @@ def evaluation_input_fingerprint(db: Session, site_id: int,
                                   t: float = 2.0, intensity: str = "medium",
                                   allow_proxy: bool = False,
                                   param_version: str = "") -> str:
-    """R3-P0-3: 评价输入指纹(用于 SSUI 缓存复用判断)。
+    """Round8 审计二类: 评价输入指纹(用于 SSUI 缓存复用判断)。
 
     包含:
       - measurement_data_version(检测数据版本)
       - D18-D25 经济数据内容哈希(锁定 year+scenario)
       - 原始经济汇总值哈希
       - scope/t/intensity/allow_proxy(评价参数)
-      - param_version(参数文件版本)
+      - param_version(参数版本号)
+      - evaluation_params.json 真实 SHA-256(不只是版本号字符串)
+      - standard_thresholds 表内容哈希(阈值集变化 → stale)
 
     只有指纹完全相同才允许复用旧 SSUI 结果。
     经济数据增删改后指纹变化 → 旧 SSUI 自动 stale。
@@ -61,8 +112,13 @@ def evaluation_input_fingerprint(db: Session, site_id: int,
         "gross_output": r.gross_output_yuan, "total_cost": r.total_cost_yuan,
     } for r in raw_rows], sort_keys=True, ensure_ascii=False)
     raw_hash = _hl.sha256(raw_content.encode("utf-8")).hexdigest()[:8] if raw_rows else "no_raw"
+    # Round8 审计 2.3: 参数文件 SHA-256 + 阈值集哈希
+    params_sha = _eval_params_sha256()
+    thr_hash = _threshold_set_hash(db)
     # 4. 组合指纹
-    fp_str = f"{meas_version}|econ={econ_hash}|raw={raw_hash}|{scope}|t={t}|{intensity}|proxy={allow_proxy}|pv={param_version}"
+    fp_str = (f"{meas_version}|econ={econ_hash}|raw={raw_hash}|"
+              f"{scope}|t={t}|{intensity}|proxy={allow_proxy}|"
+              f"pv={param_version}|psha={params_sha}|thr={thr_hash}")
     return _hl.sha256(fp_str.encode("utf-8")).hexdigest()[:20]
 
 

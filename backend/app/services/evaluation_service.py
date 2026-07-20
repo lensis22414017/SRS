@@ -263,7 +263,19 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
                    intensity: str | None = None, allow_proxy: bool = False,
                    evaluation_year: int | None = None, scenario: str = "production",
                    scope: str = "production") -> dict:
-    """R3-P0-2/P0-4: 运行评价, 接收完整参数, 禁止跨年份拼数据。"""
+    """R3-P0-2/P0-4/Round8: 运行评价, 接收完整参数, 禁止跨年份拼数据。
+
+    Round8 审计一类: 入参 scope 称为 requested_scope(用户请求的正式评价场景),
+    内部双轨重构仍需同时跑 production+ecology, 用独立变量名 recon_scope 隔离,
+    严禁把循环变量赋给入参导致 SSUI 串轨。
+    """
+    requested_scope = scope  # 用户显式请求的评价场景(production 或 ecology)
+    # Round8 审计 1.4: scope/scenario 必须是合法枚举, 非法返回 ValueError(API 层转 422)
+    if requested_scope not in ("production", "ecology"):
+        raise ValueError(f"非法 scope: {requested_scope}, 只允许 production / ecology")
+    if scenario not in ("production", "ecology"):
+        raise ValueError(f"非法 scenario: {scenario}, 只允许 production / ecology")
+
     cfg = _load_eval_params().get("ssui", {})
     if t is None:
         t = cfg.get("t", 2.0)
@@ -285,7 +297,7 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
     from app.services.versioning import evaluation_input_fingerprint
     ssui_fingerprint = evaluation_input_fingerprint(
         db, site_id, evaluation_year=evaluation_year, scenario=scenario,
-        scope=scope, t=t, intensity=intensity, allow_proxy=allow_proxy,
+        scope=requested_scope, t=t, intensity=intensity, allow_proxy=allow_proxy,
         param_version=PARAM_VERSION)
 
     # 有机场地缺重金属评价元指标 → 走降级, 不算重构/SSUI 数值分(幂等检查前拦截)
@@ -302,10 +314,10 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
     recon_reusable = all(
         et in existing_latest and existing_latest[et].data_version == data_version
         for et in ("reconstruction_prod", "reconstruction_eco"))
-    # SSUI 复用判断(看评价输入指纹, 存在 param_version 字段里)
+    # SSUI 复用判断(看评价输入指纹, 存在 input_fingerprint 字段里)
     ssui_existing = existing_latest.get("ssui")
     ssui_reusable = (ssui_existing is not None
-                     and ssui_existing.param_version == ssui_fingerprint)
+                     and ssui_existing.input_fingerprint == ssui_fingerprint)
     if recon_reusable and ssui_reusable:
         return {
             "site_id": site_id, "data_version": data_version,
@@ -323,16 +335,17 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
         }
 
     results = {}
-    for scope in ("production", "ecology"):
+    # Round8 审计一类: 双轨重构用独立循环变量 recon_scope, 严禁覆盖入参 requested_scope
+    for recon_scope in ("production", "ecology"):
         # v1.0.2(GPT 5.4): 污染物阈值兜底 — resolve_limit 返回 None 时调 fallback
         from app.services.threshold_resolver import resolve_threshold_fallback
         _FACTOR_TO_CANON = {"砷": "As_mgkg", "铅": "Pb_mgkg", "铜": "Cu_mgkg",
                             "锌": "Zn_mgkg", "镉": "Cd_mgkg", "铬": "Cr_mgkg",
                             "汞": "Hg_mgkg", "镍": "Ni_mgkg"}
-        _track = "prod" if scope == "production" else "eco"
+        _track = "prod" if recon_scope == "production" else "eco"
         screen = {}
         for f in ("砷", "铅", "铜", "锌", "镉", "铬", "汞", "镍"):
-            lim = (resolve_limit(_limits(), f, ph, scope=scope,
+            lim = (resolve_limit(_limits(), f, ph, scope=recon_scope,
                                  land_subtype="其他用地") or {}).get("limit")
             # v1.0.2: resolve_limit 返回 None → 调 resolve_threshold_fallback 取最严档
             if lim is None and db is not None:
@@ -342,9 +355,9 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
                     lim = fb.get("threshold_value")
             screen[f] = lim
         # v1.0.2(GPT P0-3): AHP主观权重 + MICE插补集成
-        eval_kwargs = _integrate_weighting_and_mice(means, scope)
-        r = R.evaluate(means, scope, ph=ph, screen_limits=screen, **eval_kwargs)
-        et = "reconstruction_prod" if scope == "production" else "reconstruction_eco"
+        eval_kwargs = _integrate_weighting_and_mice(means, recon_scope)
+        r = R.evaluate(means, recon_scope, ph=ph, screen_limits=screen, **eval_kwargs)
+        et = "reconstruction_prod" if recon_scope == "production" else "reconstruction_eco"
         # P4: 合并 KOS key_obstacles 到 limiting_factors(功能重构读 KOS Top)
         # R3 审计第四类: 删除 except Exception: pass, 改为结构化错误处理
         kos_limiting = list(r.get("limiting_factors") or [])
@@ -353,7 +366,7 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
         try:
             from app.services.kos_service import run_kos_diagnosis
             from app.models import Measurement
-            track = "prod" if scope == "production" else "eco"
+            track = "prod" if recon_scope == "production" else "eco"
             mrows = (db.query(Measurement.value, FactorDictionary.factor_name)
                      .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id, isouter=True)
                      .filter(Measurement.site_id == site_id, Measurement.value.isnot(None)).all())
@@ -403,19 +416,17 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
 
     # R3-P0-2/P0-4: 从 DB 查经济数据, 锁定 site_id+year+scenario(禁止跨年份拼数据)
     from app.models import EconomicIndicator
-    econ_q = db.query(EconomicIndicator).filter_by(site_id=site_id)
-    if evaluation_year is not None:
-        econ_q = econ_q.filter_by(evaluation_year=evaluation_year)
-    else:
-        # 未指定年份 → 取最新年份(整体锁定, 不各自取最新)
-        latest_year = db.query(EconomicIndicator.evaluation_year).filter_by(
-            site_id=site_id).order_by(
+    econ_q = db.query(EconomicIndicator).filter_by(site_id=site_id, scenario=scenario)
+    # Round8 审计 1.5: evaluation_year 必填(或自动选同年同场景最新)
+    if evaluation_year is None:
+        latest_year_row = db.query(EconomicIndicator.evaluation_year).filter_by(
+            site_id=site_id, scenario=scenario).order_by(
             EconomicIndicator.evaluation_year.desc()).first()
-        if latest_year:
-            evaluation_year = latest_year[0]
+        if latest_year_row:
+            evaluation_year = latest_year_row[0]
             econ_q = econ_q.filter_by(evaluation_year=evaluation_year)
-    # R3-P0-4: 锁定 scenario(禁止跨场景拼数据)
-    econ_q = econ_q.filter_by(scenario=scenario)
+    else:
+        econ_q = econ_q.filter_by(evaluation_year=evaluation_year)
     econ_rows = econ_q.all()
     economic_data = {}
     for er in econ_rows:
@@ -427,28 +438,54 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
             "unit": er.unit,
         }
 
-    # R3-P0-5: 从 DB 查标准阈值传给 SSUI 引擎(D16/D17 综合风险归一化)
+    # R3-P0-5 + Round8 审计三类: 用 resolve_threshold_from_db 按 scope/pH/land_use 解析
+    # 不再用 production+ecology 无序覆盖, 严格按 requested_scope 解析
+    from app.services.threshold_resolver import resolve_threshold_from_db
+    from app.models import StandardThreshold
     safety_thresholds = {}
-    try:
-        from app.models import StandardThreshold
-        from app.services.threshold_resolver import _CANONICAL_TO_DB_NAME
-        # 查重金属+有机物的筛选值
-        thr_rows = db.query(StandardThreshold).filter(
-            StandardThreshold.exposure_scenario.in_(["production", "ecology"])).all()
-        # 构建 {中文名: {"limit": float, "type": "upper"}}
-        hm_names = {"砷", "铅", "镉", "铬", "汞", "铜", "锌", "镍"}
-        for tr in thr_rows:
-            if tr.factor_name in hm_names:
-                limit = tr.screening_value or tr.control_value
-                if limit:
-                    safety_thresholds[tr.factor_name] = {"limit": float(limit), "type": "upper"}
-    except Exception:
-        pass  # 阈值查询失败不阻断评价
+    threshold_resolution_status = {}
+    land_use_type = getattr(site, "land_use_type", None)
+    _HM_CANON_MAP = {"砷": "As_mgkg", "铅": "Pb_mgkg", "镉": "Cd_mgkg", "铬": "Cr_mgkg",
+                     "汞": "Hg_mgkg", "铜": "Cu_mgkg", "锌": "Zn_mgkg", "镍": "Ni_mgkg"}
+    _ORGANIC_FACTORS = ["苯并[a]芘", "六六六", "滴滴涕", "石油烃"]
+    requested_track = "prod" if requested_scope == "production" else "eco"
+    for cn_name, canon in _HM_CANON_MAP.items():
+        resolved = resolve_threshold_from_db(
+            db, canon, track=requested_track, site_pH=ph, land_use_type=land_use_type)
+        if resolved.get("threshold_value") is not None:
+            safety_thresholds[cn_name] = {
+                "limit": float(resolved["threshold_value"]),
+                "type": "upper",
+                "standard": resolved.get("threshold_standard", ""),
+                "version": resolved.get("threshold_version", ""),
+                "pH_condition": resolved.get("pH_condition", ""),
+                "land_use_type": resolved.get("land_use_type", ""),
+                "resolution_status": resolved.get("threshold_resolution_status", "resolved"),
+            }
+        threshold_resolution_status[cn_name] = resolved.get(
+            "threshold_resolution_status", "not_found")
+    # D17 有机污染物阈值(原审计三类 3.4: 必须为每个有机物解析合法阈值)
+    for org_name in _ORGANIC_FACTORS:
+        resolved = resolve_threshold_from_db(
+            db, org_name, track=requested_track, site_pH=ph, land_use_type=land_use_type)
+        if resolved.get("threshold_value") is not None:
+            safety_thresholds[org_name] = {
+                "limit": float(resolved["threshold_value"]),
+                "type": "upper",
+                "standard": resolved.get("threshold_standard", ""),
+                "version": resolved.get("threshold_version", ""),
+                "pH_condition": resolved.get("pH_condition", ""),
+                "land_use_type": resolved.get("land_use_type", ""),
+                "resolution_status": resolved.get("threshold_resolution_status", "resolved"),
+            }
+        threshold_resolution_status[org_name] = resolved.get(
+            "threshold_resolution_status", "not_found")
 
-    # R3-P0-2: scope 和 allow_proxy 由参数传入(不再硬编码)
-    s = S.evaluate(series, scope=scope, t=t, intensity=intensity,
+    # Round8 审计一类 1.3: SSUI 严格使用 requested_scope, 不再受双轨循环影响
+    s = S.evaluate(series, scope=requested_scope, t=t, intensity=intensity,
                    economic_data=economic_data, allow_proxy=allow_proxy,
-                   safety_thresholds=safety_thresholds)
+                   safety_thresholds=safety_thresholds,
+                   threshold_resolution_status=threshold_resolution_status)
     ssui_dimensions = dict(s.get("dimensions") or {})
     ssui_dimensions["calculation_trace"] = s.get("calculation_trace", [])
     # R3: 把经济指标详情也存入 dimensions 供前端展示
@@ -458,11 +495,12 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
         ssui_dimensions["coverage"] = s["coverage"]
     ssui_dimensions["is_blocked"] = s.get("is_blocked", False)
     ssui_dimensions["is_reference"] = s.get("is_reference", False)
-    # R3-P0-3: SSUI 存专用指纹到 param_version(复用判断依据)
+    # R3-P0-3 / Round8: SSUI 指纹写入专用 input_fingerprint 字段(不再塞 param_version)
     _save(db, site_id, "ssui", data_version, s.get("ssui"), s.get("grade"),
           dimensions=ssui_dimensions, weights=s.get("weights"),
           limiting=s.get("limiting_factors"), risk=s.get("risk_factors"),
-          explanation=s.get("explanation"), param_version=ssui_fingerprint)
+          explanation=s.get("explanation"), param_version=PARAM_VERSION,
+          input_fingerprint=ssui_fingerprint)
     results["ssui"] = s
 
     # brief 4.5/M4: 追加式但限累积——每 eval_type 保留最近 10 个, 防止反复评价膨胀
@@ -477,6 +515,9 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
     return {
         "site_id": site_id, "data_version": data_version,
         "param_version": PARAM_VERSION,
+        "scope": requested_scope,  # Round8 审计一类: 显式回传 scope, 便于审计追溯
+        "scenario": scenario,
+        "evaluation_year": evaluation_year,
         "reconstruction_prod": {"score": results["reconstruction_prod"]["score"],
                                 "grade": results["reconstruction_prod"]["grade"]},
         "reconstruction_eco": {"score": results["reconstruction_eco"]["score"],
@@ -488,9 +529,11 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
 
 def _save(db, site_id, eval_type, data_version, score, grade,
           dimensions=None, weights=None, limiting=None, risk=None, explanation=None,
-          param_version=None):
+          param_version=None, input_fingerprint=None):
     db.add(EvaluationResult(
         site_id=site_id, eval_type=eval_type, data_version=data_version,
-        param_version=param_version or PARAM_VERSION, score=score, grade=grade,
+        param_version=param_version or PARAM_VERSION,
+        input_fingerprint=input_fingerprint,
+        score=score, grade=grade,
         dimensions=dimensions, weights=weights,
         limiting_factors=limiting, risk_factors=risk, explanation=explanation))

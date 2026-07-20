@@ -37,6 +37,14 @@ def fresh_db():
     Base.metadata.create_all(bind=_session_mod.engine)
     from app.db.seed_db import seed_if_empty
     seed_if_empty()
+    db = SessionLocal()
+    # Round8 审计 6.1: foreign_keys=ON 后, 测试需要先造场地再插经济指标
+    from app.models import Site
+    if not db.query(Site).filter_by(id=1).first():
+        db.add(Site(id=1, name="测试场地", site_code="SRS-TEST1",
+                    pollution_type="heavy_metal"))
+        db.commit()
+    db.close()
     return SessionLocal()
 
 
@@ -98,18 +106,29 @@ def test_01_migration_and_unique_constraint(fresh_db):
 
 # ── 测试 3: 完整夹具重复运行得到一致 0≤SSUI≤1 ─────────────────────
 def test_03_full_fixture_produces_valid_ssui(fresh_db, fixture_data):
-    """完整 8 项经济夹具 + allow_proxy → 得到 0≤SSUI≤1。"""
+    """完整 8 项经济夹具 + allow_proxy → 得到 0≤SSUI≤1。
+
+    Round8 审计三类: D16 重金属必须传 safety_thresholds 才能正常归一化
+    (无阈值时进入 unresolved_threshold, 不再回退 Min-Max 伪装正式评价)。
+    """
     from ssui import evaluate
     db = fresh_db
     try:
         # 安全性数据(重金属超标场景, 提供风险因子)
         series = {"砷": [80.0, 50.0], "铅": [300.0, 200.0], "pH": [6.0, 6.5]}
         econ = _load_fixture_economic(fixture_data)
+        # Round8: 传标准阈值(GB15618 农用地 pH 6.5-7.5 筛选值)
+        safety_thresholds = {
+            "砷": {"limit": 30.0, "type": "upper"},
+            "铅": {"limit": 80.0, "type": "upper"},
+        }
 
         r1 = evaluate(series, scope="production", t=2.0, intensity="medium",
-                      economic_data=econ, allow_proxy=True)
+                      economic_data=econ, allow_proxy=True,
+                      safety_thresholds=safety_thresholds)
         r2 = evaluate(series, scope="production", t=2.0, intensity="medium",
-                      economic_data=econ, allow_proxy=True)
+                      economic_data=econ, allow_proxy=True,
+                      safety_thresholds=safety_thresholds)
 
         assert r1.get("ssui") is not None, f"应产出 SSUI, 实际: {r1}"
         assert 0 <= r1["ssui"] <= 1, f"SSUI 应在 0-1, 实际={r1['ssui']}"
@@ -179,17 +198,23 @@ def test_06_no_degenerate_0_5(fresh_db, fixture_data):
 
 # ── 测试 7: 未勾选代理数据时不自动套用 ─────────────────────────────
 def test_07_proxy_data_not_used_without_consent(fresh_db, fixture_data):
-    """proxy 数据 + allow_proxy=False → blocked(需确认)。"""
+    """proxy 数据 + allow_proxy=False → blocked(需确认)。
+
+    Round8 审计三类: D16 必须有阈值才能算 measured, 否则先因 C2 缺失而 blocked。
+    """
     from ssui import evaluate
     db = fresh_db
     try:
         series = {"砷": [80.0, 50.0], "pH": [6.0, 6.5]}
         econ = _load_fixture_economic(fixture_data)  # 全是 proxy 数据
+        safety_thresholds = {"砷": {"limit": 30.0, "type": "upper"}}
 
-        r = evaluate(series, economic_data=econ, allow_proxy=False)
+        r = evaluate(series, economic_data=econ, allow_proxy=False,
+                     safety_thresholds=safety_thresholds)
         assert r.get("is_blocked") is True, "未勾选 proxy 应 blocked"
         assert r.get("ssui") is None
-        assert "代理" in r.get("explanation", "") or "确认" in r.get("explanation", "")
+        assert "代理" in r.get("explanation", "") or "确认" in r.get("explanation", ""), \
+            f"explanation 应提示代理确认, 实际: {r.get('explanation')}"
     finally:
         db.close()
 
@@ -202,8 +227,11 @@ def test_09_returns_full_metadata(fresh_db, fixture_data):
     try:
         series = {"砷": [80.0, 50.0], "pH": [6.0, 6.5]}
         econ = _load_fixture_economic(fixture_data)
+        # Round8 审计三类: D16 必须有阈值才能算 measured
+        safety_thresholds = {"砷": {"limit": 30.0, "type": "upper"}}
 
-        r = evaluate(series, economic_data=econ, allow_proxy=True)
+        r = evaluate(series, economic_data=econ, allow_proxy=True,
+                     safety_thresholds=safety_thresholds)
         assert r.get("ssui") is not None
 
         # 检查所有要求的元数据字段

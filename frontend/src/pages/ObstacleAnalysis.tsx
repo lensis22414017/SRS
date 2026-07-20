@@ -41,11 +41,29 @@ export default function ObstacleAnalysis() {
 
   const load = (id?: number, diagnosisId?: number | null) => {
     const s = id ?? sid; if (!s) return;
-    // R3-P0-8: 旧 api.diagnosis(GET /diagnosis) 已废弃, 改为从历史取最新
+    // R3-P0-8 + Round8 审计四类 4.7: 旧 api.diagnosis(GET /diagnosis) 已废弃, 改为从历史取最新
+    // Round8 审计 4.7: 加载最新/历史详情时必须 setKosData(detail.kos_result)
+    // 刷新页面后完整 KOS 图表恢复
     const diagPromise = diagnosisId
       ? api.diagnosisDetail(diagnosisId)
       : api.diagnosisHistory(s).then((list: any[]) => list[0] ? api.diagnosisDetail(list[0].id) : null);
-    diagPromise.then((d: any) => setDiag(d)).catch(() => setDiag(null));
+    diagPromise.then((d: any) => {
+      setDiag(d);
+      // Round8 审计 4.7: 从持久化 kos_result 字段恢复完整 KOS 结果
+      if (d?.kos_result) {
+        setKosData(d.kos_result);
+        // 同时恢复 kosTrack 状态(从持久化的 track 字段)
+        if (d.track === "prod" || d.track === "eco") {
+          setKosTrack(d.track);
+        }
+      } else if (d?.diagnosis_method !== "kos") {
+        // 非 KOS 记录(旧 RF+SHAP)清空 kosData
+        setKosData(null);
+      }
+    }).catch(() => {
+      setDiag(null);
+      setKosData(null);
+    });
     api.site(s).then((d: any) => {
       setSite(d);
       setLandUse(d.land_use_type || "生产用地");
@@ -55,7 +73,7 @@ export default function ObstacleAnalysis() {
       api.diagnosisHistory(s).then(setHistoryList).catch(() => setHistoryList([]));
     }
   };
-  useEffect(() => { if (sid) { load(sid); setHistoryId(null); setKosData(null); } }, [sid]);
+  useEffect(() => { if (sid) { load(sid); setHistoryId(null); } }, [sid]);
 
   const switchLandUse = async (v: string) => {
     if (!sid) return;
@@ -74,6 +92,9 @@ export default function ObstacleAnalysis() {
     setKosBusy(true);
     try {
       const r = await api.kosDiagnosis(sid, t);
+      // Round8 审计 4.6: POST 直接返回时 r 已包含顶层 key_obstacles 等字段
+      // 同时 r.kos_result 是与 GET 详情统一的完整结构, 直接用 r 即可
+      // (key_obstacles/model_contribution/factor_statistics 等都在顶层)
       setKosData(r);
       setKosTrack(t);
       if (r.review_required) {
@@ -82,6 +103,7 @@ export default function ObstacleAnalysis() {
         message.success(`KOS ${t === "prod" ? "生产" : "生态"}诊断完成`);
       }
     } catch (e: any) {
+      // Round8 审计 4.3: 后端持久化失败会返回 503, 这里展示详细原因
       message.error(e?.response?.data?.detail || "KOS 诊断失败");
       setKosData(null);
     } finally { setKosBusy(false); }
