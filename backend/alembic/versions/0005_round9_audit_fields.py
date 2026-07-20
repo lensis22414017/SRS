@@ -17,18 +17,26 @@ branch_labels = None
 depends_on = None
 
 
+def _columns(table_name: str) -> set[str]:
+    return {c["name"] for c in sa.inspect(op.get_bind()).get_columns(table_name)}
+
+
 def upgrade():
     # Round9 P0-1.1: evaluation_results.run_config JSON
-    with op.batch_alter_table("evaluation_results") as batch:
-        batch.add_column(sa.Column("run_config", sa.JSON, nullable=True))
+    if "run_config" not in _columns("evaluation_results"):
+        with op.batch_alter_table("evaluation_results") as batch:
+            batch.add_column(sa.Column("run_config", sa.JSON, nullable=True))
 
     # Round9 P0-3.3: diagnosis_factor_details.kos_score Float
-    with op.batch_alter_table("diagnosis_factor_details") as batch:
-        batch.add_column(sa.Column("kos_score", sa.Float, nullable=True))
+    if "kos_score" not in _columns("diagnosis_factor_details"):
+        with op.batch_alter_table("diagnosis_factor_details") as batch:
+            batch.add_column(sa.Column("kos_score", sa.Float, nullable=True))
 
 
 def downgrade():
-    with op.batch_alter_table("evaluation_results") as batch:
-        batch.drop_column("run_config")
-    with op.batch_alter_table("diagnosis_factor_details") as batch:
-        batch.drop_column("kos_score")
+    if "run_config" in _columns("evaluation_results"):
+        with op.batch_alter_table("evaluation_results") as batch:
+            batch.drop_column("run_config")
+    if "kos_score" in _columns("diagnosis_factor_details"):
+        with op.batch_alter_table("diagnosis_factor_details") as batch:
+            batch.drop_column("kos_score")

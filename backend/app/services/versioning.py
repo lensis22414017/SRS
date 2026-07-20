@@ -37,7 +37,7 @@ def _eval_params_sha256() -> str:
         with open(_PARAMS_PATH, "rb") as f:
             for chunk in iter(lambda: f.read(1 << 20), b""):
                 h.update(chunk)
-        return h.hexdigest()[:16]
+        return h.hexdigest()
     except OSError:
         return "unreadable"
 
@@ -61,7 +61,7 @@ def _economic_ref_csv_sha256() -> str:
         with open(_CSV, "rb") as f:
             for chunk in iter(lambda: f.read(1 << 20), b""):
                 h.update(chunk)
-        return h.hexdigest()[:16]
+        return h.hexdigest()
     except OSError:
         return "unreadable"
 
@@ -107,7 +107,7 @@ def _threshold_set_hash(db: Session) -> str:
         items.sort(key=lambda x: (x["std"], x["fac"], x["ph"], x["lu"],
                                     str(x["sv"]), x["ver"], x["u"], x["es"]))
         content = json.dumps(items, sort_keys=True, ensure_ascii=False)
-        return _hl.sha256(content.encode("utf-8")).hexdigest()[:12]
+        return _hl.sha256(content.encode("utf-8")).hexdigest()
     except Exception:
         return "thr_err"
 
@@ -146,17 +146,17 @@ def evaluation_input_fingerprint(db: Session, site_id: int,
         "source_type": r.source_type, "is_proxy": r.is_proxy,
         "updated_at": str(r.updated_at or r.created_at),
     } for r in econ_rows], sort_keys=True, ensure_ascii=False)
-    econ_hash = _hl.sha256(econ_content.encode("utf-8")).hexdigest()[:12] if econ_rows else "no_econ"
+    econ_hash = _hl.sha256(econ_content.encode("utf-8")).hexdigest() if econ_rows else "no_econ"
     # 3. 原始汇总值哈希
     raw_q = db.query(EconomicRawInput).filter_by(site_id=site_id, scenario=scenario)
     if evaluation_year is not None:
         raw_q = raw_q.filter_by(evaluation_year=evaluation_year)
-    raw_rows = raw_q.all()
+    raw_rows = raw_q.order_by(EconomicRawInput.id).all()
     raw_content = json.dumps([{
         "area": r.area_hectare, "yield": r.yield_kg,
         "gross_output": r.gross_output_yuan, "total_cost": r.total_cost_yuan,
     } for r in raw_rows], sort_keys=True, ensure_ascii=False)
-    raw_hash = _hl.sha256(raw_content.encode("utf-8")).hexdigest()[:8] if raw_rows else "no_raw"
+    raw_hash = _hl.sha256(raw_content.encode("utf-8")).hexdigest() if raw_rows else "no_raw"
     # Round9 P0-1: 参数 SHA + 阈值集哈希 + 经济参照 CSV SHA
     params_sha = _eval_params_sha256()
     csv_sha = _economic_ref_csv_sha256()
@@ -167,7 +167,7 @@ def evaluation_input_fingerprint(db: Session, site_id: int,
               f"t={t}|intensity={intensity}|proxy={allow_proxy}|"
               f"econ={econ_hash}|raw={raw_hash}|"
               f"pv={param_version}|psha={params_sha}|csv={csv_sha}|thr={thr_hash}")
-    return _hl.sha256(fp_str.encode("utf-8")).hexdigest()[:20]
+    return _hl.sha256(fp_str.encode("utf-8")).hexdigest()
 
 
 def compute_source_sha256(path: str) -> str:

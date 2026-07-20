@@ -161,35 +161,60 @@ def compute_local_shap_for_point(model, feature_cols: list,
     """
     try:
         import shap
-    except ImportError:
-        return None
+    except ImportError as exc:
+        raise RuntimeError("SHAP 运行依赖未安装") from exc
 
     try:
-        # 构造单行 DataFrame(110列, 缺失列填0)
+        # 构造单行 DataFrame。未实测项保留 NaN，由训练时同一 Pipeline 的
+        # imputer 处理；不得用 0 冒充真实浓度。
         row = {}
         for col in feature_cols:
             if col.startswith("x_measured_"):
                 factor = col.replace("x_measured_", "")
-                row[col] = float(point_values.get(factor, 0))
+                row[col] = (
+                    float(point_values[factor]) if factor in point_values else np.nan
+                )
             elif col.startswith("x_missing_"):
                 factor = col.replace("x_missing_", "")
                 row[col] = 0.0 if factor in point_values else 1.0
             else:
-                row[col] = 0.0  # GEE/族群/协变量: 单点无数据
+                row[col] = np.nan  # GEE/族群/协变量: 当前点位未提供
 
         X_point = pd.DataFrame([row], columns=feature_cols)
-        explainer = shap.TreeExplainer(model)
-        sv = explainer.shap_values(X_point)
+        estimator = model
+        X_explain = X_point
+        explain_feature_cols = list(feature_cols)
+        if hasattr(model, "steps") and len(model.steps) > 1:
+            transformer = model[:-1]
+            estimator = model.steps[-1][1]
+            transformed = transformer.transform(X_point)
+            try:
+                explain_feature_cols = list(transformer.get_feature_names_out(feature_cols))
+            except Exception:
+                # SimpleImputer 会移除训练期全空列；用 statistics_ 精确同步。
+                imputer = next(
+                    (step for _, step in transformer.steps if hasattr(step, "statistics_")),
+                    None,
+                )
+                if imputer is not None:
+                    explain_feature_cols = [
+                        feature for feature, statistic in zip(feature_cols, imputer.statistics_)
+                        if not np.isnan(statistic)
+                    ]
+            X_explain = pd.DataFrame(transformed, columns=explain_feature_cols)
+
+        explainer = shap.TreeExplainer(estimator)
+        sv = explainer.shap_values(X_explain)
         if isinstance(sv, list):
             sv = sv[0]
         sv = np.asarray(sv).flatten()
 
         # 聚合到因子组
-        groups = [_feature_to_group(c) for c in feature_cols]
+        groups = [_feature_to_group(c) for c in explain_feature_cols]
         result = {}
         for i, g in enumerate(groups):
             val = float(sv[i])
             result[g] = round(result.get(g, 0.0) + val, 6)
         return result
-    except Exception:
-        return None
+    except Exception as exc:
+        raise RuntimeError(f"局部 SHAP 计算失败: {type(exc).__name__}: {exc}") from exc

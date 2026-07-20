@@ -27,6 +27,7 @@ svglib==1.5.1
 python-docx>=1.1
 redis>=5.0
 pytest>=8.3
+pytest-timeout>=2.3
 httpx>=0.27
 # --- D12 PDF 报告生成 (macOS: brew install pango gdk-pixbuf libffi; Linux: apt-get install libpango-1.0-0 libgdk-pixbuf2.0-0 libffi-dev) ---
 weasyprint>=63

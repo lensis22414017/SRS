@@ -21,8 +21,10 @@ depends_on = None
 
 
 def upgrade():
+    tables = set(sa.inspect(op.get_bind()).get_table_names())
     # economic_indicators: D18-D25 经济指标(每指标一行)
-    op.create_table(
+    if "economic_indicators" not in tables:
+        op.create_table(
         "economic_indicators",
         sa.Column("id", sa.Integer, primary_key=True),
         sa.Column("site_id", sa.Integer, sa.ForeignKey("sites.id"), nullable=False, index=True),
@@ -47,10 +49,11 @@ def upgrade():
         sa.Column("updated_at", sa.DateTime(timezone=True), nullable=True),
         sa.UniqueConstraint("site_id", "evaluation_year", "scenario", "indicator_code",
                             name="uq_economic_indicator"),
-    )
+        )
 
     # economic_raw_inputs: 原始汇总值(用于 D21/D22/D23/D25 交叉校验)
-    op.create_table(
+    if "economic_raw_inputs" not in tables:
+        op.create_table(
         "economic_raw_inputs",
         sa.Column("id", sa.Integer, primary_key=True),
         sa.Column("site_id", sa.Integer, sa.ForeignKey("sites.id"), nullable=False, index=True),
@@ -75,9 +78,12 @@ def upgrade():
         sa.Column("updated_at", sa.DateTime(timezone=True), nullable=True),
         sa.UniqueConstraint("site_id", "evaluation_year", "scenario",
                             name="uq_economic_raw_input"),
-    )
+        )
 
 
 def downgrade():
-    op.drop_table("economic_raw_inputs")
-    op.drop_table("economic_indicators")
+    tables = set(sa.inspect(op.get_bind()).get_table_names())
+    if "economic_raw_inputs" in tables:
+        op.drop_table("economic_raw_inputs")
+    if "economic_indicators" in tables:
+        op.drop_table("economic_indicators")

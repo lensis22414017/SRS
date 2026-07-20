@@ -45,8 +45,10 @@ def standardize_unit(value: float, from_unit: str, to_unit: str) -> float:
       元/亩 ↔ 元/公顷 (单位面积成本)
       kg/亩 ↔ kg/公顷 (单位面积产量)
     """
-    from_unit = (from_unit or "").strip().lower()
-    to_unit = (to_unit or "").strip().lower()
+    def _canonical(unit: str) -> str:
+        return (unit or "").strip().lower().replace("·年", "").replace("/年", "")
+    from_unit = _canonical(from_unit)
+    to_unit = _canonical(to_unit)
     if from_unit == to_unit:
         return value
 
@@ -74,20 +76,20 @@ def standardize_unit(value: float, from_unit: str, to_unit: str) -> float:
 
 # D18-D25 标准单位定义(R3 审计口径)
 INDICATOR_DEFINITIONS = {
-    "D18": {"name": "劳动力成本", "unit": "元/亩", "direction": "negative",
+    "D18": {"name": "劳动力成本", "unit": "元/亩·年", "direction": "negative",
             "description": "劳动力成本, 元/亩·年"},
-    "D19": {"name": "机械化成本", "unit": "元/亩", "direction": "negative",
+    "D19": {"name": "机械化成本", "unit": "元/亩·年", "direction": "negative",
             "description": "机械作业及服务成本, 元/亩·年"},
-    "D20": {"name": "土地成本", "unit": "元/亩", "direction": "negative",
+    "D20": {"name": "土地成本", "unit": "元/亩·年", "direction": "negative",
             "description": "土地租金或折算土地成本, 元/亩·年"},
-    "D21": {"name": "非机械化成本", "unit": "元/亩", "direction": "negative",
+    "D21": {"name": "非机械化成本", "unit": "元/亩·年", "direction": "negative",
             "description": "种子、肥料、农药等非机械化物质投入, 元/亩·年"},
-    "D22": {"name": "单位面积总产值", "unit": "元/公顷", "direction": "positive",
+    "D22": {"name": "单位面积总产值", "unit": "元/公顷·年", "direction": "positive",
             "description": "单位面积总产值, 元/公顷·年"},
     "D23": {"name": "效益费用比", "unit": "无量纲", "direction": "positive",
             "description": "总产值÷总成本, 无量纲"},
-    "D24": {"name": "人均可支配收入", "unit": "元/人", "direction": "positive",
+    "D24": {"name": "人均可支配收入", "unit": "元/人·年", "direction": "positive",
             "description": "对应用途和地域的人均可支配收入, 元/人·年"},
-    "D25": {"name": "单位面积实物产量", "unit": "kg/公顷", "direction": "positive",
+    "D25": {"name": "单位面积实物产量", "unit": "kg/公顷·年", "direction": "positive",
             "description": "单位面积实物产量, kg/公顷·年"},
 }

@@ -6,7 +6,9 @@
 from __future__ import annotations
 
 from datetime import date, datetime
+import re
 
+from sqlalchemy import or_
 from sqlalchemy.orm import Session
 
 from app.models import (
@@ -18,6 +20,39 @@ from app.services.versioning import (
 )
 
 SCRIPT_VERSION = "ingest_v0.1"
+
+
+def _to_base26(n: int) -> str:
+    """正整数转纯大写字母，用于不含数字的展示编号。"""
+    n = max(int(n), 1)
+    chars: list[str] = []
+    while n:
+        n, rem = divmod(n - 1, 26)
+        chars.append(chr(ord("A") + rem))
+    return "".join(reversed(chars))
+
+
+def normalize_site_display_code(db: Session, site: Site, source_code: str | None) -> None:
+    """保存原始业务编号，同时保证甲方界面使用的 site_code 不含数字。
+
+    智能导入临时编号、含数字编号及包含非拉丁字符的编号都转换为
+    `SRS-<Base26(site.id)>`。纯字母业务编号原样保留。
+    """
+    raw = str(source_code or "").strip()
+    is_display_safe = bool(re.fullmatch(r"[A-Za-z]+(?:-[A-Za-z]+)*", raw))
+    requires_generated_code = not is_display_safe or raw.upper().startswith("AUTO")
+    if not requires_generated_code:
+        site.site_code = raw.upper()
+        return
+    if raw:
+        site.original_site_code = raw
+    generated = f"SRS-{_to_base26(site.id)}"
+    collision = db.query(Site.id).filter(
+        Site.site_code == generated, Site.id != site.id
+    ).first()
+    if collision:
+        raise ValueError(f"纯字母场地编号冲突: {generated}")
+    site.site_code = generated
 
 
 def ensure_factor(db: Session, fdef: dict) -> int:
@@ -49,10 +84,15 @@ def _parse_date(s) -> date | None:
 
 
 def upsert_site(db: Session, site_meta: dict) -> Site:
-    code = site_meta.get("site_code")
-    site = db.query(Site).filter_by(site_code=code).first()
+    code = str(site_meta.get("site_code") or "").strip()
+    if not code:
+        raise ValueError("场地编号不能为空")
+    site = db.query(Site).filter(or_(
+        Site.site_code == code,
+        Site.original_site_code == code,
+    )).first()
     if site is None:
-        site = Site(site_code=code)
+        site = Site(site_code=code, name=site_meta.get("name") or code)
         db.add(site)
     site.name = site_meta.get("name", site.name or code)
     site.pollution_type = site_meta.get("pollution_type", site.pollution_type)
@@ -64,6 +104,8 @@ def upsert_site(db: Session, site_meta: dict) -> Site:
         site.latitude = site_meta["latitude"]
     if site_meta.get("organization_id"):
         site.organization_id = site_meta["organization_id"]
+    db.flush()
+    normalize_site_display_code(db, site, code)
     db.flush()
     return site
 

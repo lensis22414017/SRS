@@ -18,29 +18,52 @@ branch_labels = None
 depends_on = None
 
 
+def _columns(table_name: str) -> set[str]:
+    return {c["name"] for c in sa.inspect(op.get_bind()).get_columns(table_name)}
+
+
+def _indexes(table_name: str) -> set[str]:
+    return {i["name"] for i in sa.inspect(op.get_bind()).get_indexes(table_name)}
+
+
 def upgrade():
     # Round8 审计二类 2.2: evaluation_results.input_fingerprint
-    with op.batch_alter_table("evaluation_results") as batch:
-        batch.add_column(sa.Column("input_fingerprint", sa.String(64), nullable=True))
-        batch.create_index("ix_evaluation_results_input_fingerprint",
-                           ["input_fingerprint"], unique=False)
+    if "input_fingerprint" not in _columns("evaluation_results"):
+        with op.batch_alter_table("evaluation_results") as batch:
+            batch.add_column(sa.Column("input_fingerprint", sa.String(64), nullable=True))
+    if "ix_evaluation_results_input_fingerprint" not in _indexes("evaluation_results"):
+        with op.batch_alter_table("evaluation_results") as batch:
+            batch.create_index("ix_evaluation_results_input_fingerprint",
+                               ["input_fingerprint"], unique=False)
 
     # Round8 审计四类 4.4: diagnosis_results 新增 KOS 持久化字段
-    with op.batch_alter_table("diagnosis_results") as batch:
-        batch.add_column(sa.Column("diagnosis_method", sa.String(30), nullable=True))
-        batch.add_column(sa.Column("track", sa.String(10), nullable=True))
-        batch.add_column(sa.Column("subset", sa.String(20), nullable=True))
-        batch.add_column(sa.Column("model_version", sa.String(40), nullable=True))
-        batch.add_column(sa.Column("result_payload", sa.JSON, nullable=True))
+    columns = _columns("diagnosis_results")
+    additions = [
+        ("diagnosis_method", sa.String(30)),
+        ("track", sa.String(10)),
+        ("subset", sa.String(20)),
+        ("model_version", sa.String(40)),
+        ("result_payload", sa.JSON),
+    ]
+    missing = [(name, type_) for name, type_ in additions if name not in columns]
+    if missing:
+        with op.batch_alter_table("diagnosis_results") as batch:
+            for name, type_ in missing:
+                batch.add_column(sa.Column(name, type_, nullable=True))
 
 
 def downgrade():
-    with op.batch_alter_table("evaluation_results") as batch:
-        batch.drop_index("ix_evaluation_results_input_fingerprint")
-        batch.drop_column("input_fingerprint")
-    with op.batch_alter_table("diagnosis_results") as batch:
-        batch.drop_column("diagnosis_method")
-        batch.drop_column("track")
-        batch.drop_column("subset")
-        batch.drop_column("model_version")
-        batch.drop_column("result_payload")
+    if "ix_evaluation_results_input_fingerprint" in _indexes("evaluation_results"):
+        with op.batch_alter_table("evaluation_results") as batch:
+            batch.drop_index("ix_evaluation_results_input_fingerprint")
+    if "input_fingerprint" in _columns("evaluation_results"):
+        with op.batch_alter_table("evaluation_results") as batch:
+            batch.drop_column("input_fingerprint")
+    columns = _columns("diagnosis_results")
+    present = [name for name in (
+        "diagnosis_method", "track", "subset", "model_version", "result_payload"
+    ) if name in columns]
+    if present:
+        with op.batch_alter_table("diagnosis_results") as batch:
+            for name in present:
+                batch.drop_column(name)

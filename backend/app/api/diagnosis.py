@@ -31,6 +31,7 @@ def trigger_diagnosis(site_id: int,
 
     返回 410 Gone, 指引到 POST /sites/{site_id}/kos-diagnosis。
     """
+    _require_site(db, user, site_id)
     raise HTTPException(
         status_code=410,
         detail="此端点已废弃(会触发现场训练, 违反生产规范)。请改用 POST /api/v1/sites/{site_id}/kos-diagnosis。".format(site_id=site_id)
@@ -139,7 +140,9 @@ _KOS_PAYLOAD_REQUIRED_KEYS = [
     "unit_conversion_details", "explicit_obstacles",
     "key_obstacles", "model_attention_factors",
     "family_warnings", "unknown_alerts", "recommended_tests",
-    "model_contribution", "factor_statistics",
+    "model_contribution", "model_feature_names", "factor_statistics",
+    "model_contribution_scope", "local_shap_status",
+    "decision_point_id", "decision_point_code", "decision_point_selection",
     "per_point_stats", "n_sampling_points",
     "open_set", "open_set_summary",
     "data_quality_flags", "ambiguous_threshold_factors", "coverage",
@@ -179,9 +182,13 @@ def _kos_canonical_payload(result: dict, track: str = "prod",
     替代 Round8 手工挑字段(漏 mapping_details/unit_conversion_details 等)。
     修正 Round8 字段名错误: unmapped_factors→unmapped, per_point_data→per_point_stats。
     """
-    payload = {}
+    payload = {
+        key: _json_safe(value)
+        for key, value in result.items()
+        if not key.startswith("_") and key not in {"kos_result", "diagnosis_id"}
+    }
     for key in _KOS_PAYLOAD_REQUIRED_KEYS:
-        payload[key] = _json_safe(result.get(key))
+        payload.setdefault(key, None)
     # API 层补充(非 kos_service 返回)
     payload["subset"] = payload.get("subset") or subset
     payload["top_n"] = top_n
@@ -359,11 +366,17 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
                 s["exceedance_count"] = exceed_n
                 s["exceedance_ratio"] = round(exceed_n / len(all_vals), 4) if all_vals else 0.0
         k["factor_statistics"] = s
-        k["aggregation_method"] = "maximum_valid_measurement"
+        k["aggregation_method"] = result.get(
+            "rule_aggregation_method",
+            "site_factor_worst_case_with_per_point_evidence",
+        )
     # 极端值警告 + rejected 跳过 数量 加入 data_quality_flags
     if data_quality_flags_pre:
         result["data_quality_flags"] = data_quality_flags_pre + result.get("data_quality_flags", [])
-    result["aggregation_method"] = "maximum_valid_measurement"
+    result["aggregation_method"] = result.get(
+        "rule_aggregation_method",
+        "site_factor_worst_case_with_per_point_evidence",
+    )
     result["factor_statistics"] = factor_stats
 
     # P0-OPEN-4: 开放集分层识别 — 对所有实测因子做四层分类(formal/candidate/family/unknown)
@@ -373,10 +386,9 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
         from app.services.open_set_classifier import classify_open_set
         from app.services.factor_normalizer import _ALIAS_TO_CANONICAL
         known_canonical = set(_ALIAS_TO_CANONICAL.values())
-        # 模型特征来自 SHAP measured 的 group
-        model_features = set()
-        for mc in result.get("model_contribution", []):
-            model_features.add(mc.get("factor", ""))
+        # 模型已见特征来自完整 measured SHAP 清单，不能拿局部贡献 Top-10
+        # 代替模型适用域，否则未进入局部 Top-10 的已见因子会被误判为未知。
+        model_features = set(result.get("model_feature_names") or [])
         # M0-2: 用本次诊断的动态阈值结果(而非硬编码), 从 key_obstacles 提取已解析阈值
         thr_map = {}
         for k in result.get("key_obstacles", []):
@@ -413,6 +425,12 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
 
     result["site_id"] = site_id
     result["site_name"] = site.name
+    decision_point_id = result.get("decision_point_id")
+    if decision_point_id is not None:
+        decision_point = db.get(SamplingPoint, decision_point_id)
+        result["decision_point_code"] = (
+            decision_point.point_code if decision_point else None
+        )
 
     # Round9 P0-3: KOS 诊断结果持久化(canonical payload 自动收集所有审计字段)
     # P0-3.1: 用 _kos_canonical_payload 替代手工挑字段(不再漏字段, 不再写错字段名)
@@ -421,13 +439,39 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
     from fastapi import HTTPException as _HTTPException
     try:
         from app.services.versioning import current_site_data_version
+        import hashlib
+        import json
         kos_data_version = current_site_data_version(db, site_id)
         # Round9 P0-3.1: canonical payload 自动收集所有审计要求字段
         kos_payload = _kos_canonical_payload(result, track=track, subset=subset, top_n=top_n)
         # 模型版本(从 model_registry_v0.8.json 读, 没有则用 p3_alpha_v0.8)
         model_version = result.get("model_version") or "p3_alpha_v0.8"
+        feature_names = result.get("model_feature_names") or []
+        feature_hash = hashlib.sha256(
+            json.dumps(feature_names, ensure_ascii=False, sort_keys=True).encode("utf-8")
+        ).hexdigest()
+        model_record = (db.query(MLModel).filter_by(
+            model_name=result.get("model_id"), version=model_version).first())
+        if model_record is None:
+            model_record = MLModel(
+                model_name=result.get("model_id") or "unknown_kos_model",
+                version=model_version,
+                algorithm=result.get("model_algorithm"),
+                feature_list={"measured_factor_groups": feature_names,
+                              "n_features": result.get("model_n_features")},
+                training_data_version=result.get("data_version"),
+                metrics=result.get("model_metrics") or {},
+                artifact_path=result.get("model_artifact_path"),
+                validation_strategy=result.get("model_validation_strategy") or "group_split",
+                group_key=result.get("model_group_key") or "id_DOI/source",
+                feature_schema_hash=feature_hash,
+                ood_policy="warn",
+            )
+            db.add(model_record)
+            db.flush()
         diag = DiagnosisResult(
             site_id=site_id,
+            model_id=model_record.id,
             data_version=kos_data_version,
             top_n=top_n,
             summary=f"KOS诊断({track}/{subset}): {len(result.get('key_obstacles', []))} 个关键障碍",
@@ -436,6 +480,10 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
             track=track,
             subset=subset,
             model_version=model_version,
+            validation_strategy=model_record.validation_strategy,
+            group_key=model_record.group_key,
+            feature_schema_hash=model_record.feature_schema_hash,
+            threshold_library_version=result.get("threshold_version"),
             result_payload=kos_payload,
             status="kos_done",
             human_review_triggered=result.get("review_required", False),

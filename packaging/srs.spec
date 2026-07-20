@@ -3,7 +3,7 @@
 
 构建:
   cd <项目根目录>
-  backend/.venv/bin/pyinstaller packaging/srs.spec --clean
+  backend/.venv/bin/pyinstaller packaging/srs.spec --clean --distpath dist_new
 
 输出:
   dist_new/SRS.app/  (macOS .app bundle)
@@ -52,10 +52,11 @@ if not frontend_dist.is_dir():
 _flows_in_dist = frontend_dist / "assets" / "flows"
 _expected_flows = ["obstacle_analysis.svg", "reconstruction_eval.svg", "ssui_eval.svg",
                    "recommendation.svg", "trace_workflow.svg", "data_import.svg", "report_generation.svg"]
-if _flows_in_dist.is_dir():
-    _missing_flows = [f for f in _expected_flows if not (_flows_in_dist / f).exists()]
-    if _missing_flows:
-        raise SystemExit(f"BUILD FAILED: 流程图缺失(GPT 8.2): {_missing_flows}")
+if not _flows_in_dist.is_dir():
+    raise SystemExit("BUILD FAILED: frontend/dist/assets/flows 整体缺失")
+_missing_flows = [f for f in _expected_flows if not (_flows_in_dist / f).is_file()]
+if _missing_flows:
+    raise SystemExit(f"BUILD FAILED: 流程图缺失: {_missing_flows}")
 added_files.append((str(frontend_dist), "frontend/dist"))
 
 # 报告模板
@@ -82,12 +83,36 @@ if tiles_dir.is_dir() and any(tiles_dir.glob("*.mbtiles")):
 ml_artifacts = PROJECT_ROOT / "ml" / "artifacts"
 if not (ml_artifacts.is_dir() and any(ml_artifacts.iterdir())):
     raise SystemExit("BUILD FAILED: ml/artifacts 缺失, KOS诊断无法运行 (GPT P0-1 强制依赖)")
-# 校验 registry + 至少1个 joblib 存在
+# 校验 registry 中全部 frontend_enabled 模型及配套工件
 _registry = ml_artifacts / "p3_alpha" / "model_registry_v0.8.json"
 if not _registry.is_file():
     raise SystemExit("BUILD FAILED: model_registry_v0.8.json 缺失 (GPT P0-1 强制依赖)")
-if not any((ml_artifacts / "p3_alpha").glob("*.joblib")):
-    raise SystemExit("BUILD FAILED: ml/artifacts/p3_alpha/*.joblib 缺失 (GPT P0-1 强制依赖)")
+import json as _json
+import joblib as _joblib
+import pandas as _pd
+with _registry.open(encoding="utf-8") as _handle:
+    _registry_data = _json.load(_handle)
+_required_models = {
+    model_id: info for model_id, info in _registry_data.get("models", {}).items()
+    if info.get("frontend_enabled") is True
+}
+if not _required_models:
+    raise SystemExit("BUILD FAILED: registry 未声明 frontend_enabled 模型")
+for _model_id, _info in sorted(_required_models.items()):
+    for _field in ("model_file", "metrics_file", "shap_global_file"):
+        _raw = _info.get(_field)
+        if not _raw:
+            raise SystemExit(f"BUILD FAILED: {_model_id}/{_field} 未声明")
+        _path = PROJECT_ROOT / str(_raw).replace("\\", "/")
+        if not _path.is_file():
+            raise SystemExit(f"BUILD FAILED: {_model_id}/{_field} 缺失: {_path}")
+    _local = _info.get("shap_local_file")
+    if _local and not (PROJECT_ROOT / str(_local).replace("\\", "/")).is_file():
+        raise SystemExit(f"BUILD FAILED: {_model_id}/shap_local_file 缺失")
+    _joblib.load(PROJECT_ROOT / str(_info["model_file"]).replace("\\", "/"))
+    _pd.read_parquet(PROJECT_ROOT / str(_info["shap_global_file"]).replace("\\", "/"))
+    with (PROJECT_ROOT / str(_info["metrics_file"]).replace("\\", "/")).open(encoding="utf-8") as _handle:
+        _json.load(_handle)
 added_files.append((str(ml_artifacts), "ml/artifacts"))
 
 # ML 关键 JSON 资源(诊断特征映射 + GEE 协变量标签) — v1.0.2: 强制依赖
@@ -99,8 +124,16 @@ for _json in ("ml/models/feature_mapping.json", "ml/covariates/gee_labels.json")
 
 # 标准阈值 CSV(诊断/评价/超标判定依赖)
 std_dir = PROJECT_ROOT / "data" / "standards"
-if std_dir.is_dir() and any(std_dir.glob("*.csv")):
-    added_files.append((str(std_dir), "data/standards"))
+_required_standard_files = [
+    std_dir / "ssui_economic_reference_v1.csv",
+    PROJECT_ROOT / "ml" / "params" / "evaluation_params.json",
+]
+for _required in _required_standard_files:
+    if not _required.is_file():
+        raise SystemExit(f"BUILD FAILED: 评价/标准资源缺失: {_required}")
+if not std_dir.is_dir() or not any(std_dir.glob("*.csv")):
+    raise SystemExit("BUILD FAILED: data/standards CSV 资源缺失")
+added_files.append((str(std_dir), "data/standards"))
 
 # M0-9: 开放集识别运行时必需的知识库文件(别名表 / 单位转换 / 族群库 / 化合物别名)
 # 这些文件由 factor_normalizer.py + open_set_classifier.py 在运行时按需读取,
@@ -162,8 +195,7 @@ hidden_imports = [
     "webview.platforms.gtk",
     # pkg_resources 运行时依赖(weasyprint/reportlab 间接引入)
     "jaraco", "jaraco.text", "jaraco.functools", "jaraco.context",
-    # 恢复内置 key 预配(用户开箱即用), builtin_keys.py 随包分发
-    # .gitignore 排除不入仓库, 但 PyInstaller 打包时需能 import
+    # 项目方要求演示包内置 AI/地图 key，保证甲方开箱即用
     "builtin_keys",
     # M0 新增服务模块(需显式声明, 否则 PyInstaller 不收集动态 import)
     "app.services.factor_normalizer",

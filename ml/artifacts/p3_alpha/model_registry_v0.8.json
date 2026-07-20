@@ -89,7 +89,7 @@
       "shap_local_file": null,
       "status": "exploratory",
       "recommended_use": "HM+OP生态轨,仅限规则辅助与人工复核",
-      "limitations": "OP 信号稀疏;SHAP 由 GEE 背景主导非污染物;test 非零样本少;不建议作正式 OP 诊断依据",
+      "limitations": "source-level 分组验证(非 site-level);OP 信号稀疏;SHAP 由 GEE 背景主导非污染物;test 非零样本少;不建议作正式 OP 诊断依据",
       "frontend_enabled": false,
       "metrics": {
         "test_spearman": 0.8922104105672316,
@@ -114,7 +114,7 @@
       "shap_local_file": null,
       "status": "exploratory",
       "recommended_use": "HM+OP生产轨,仅限规则辅助与人工复核",
-      "limitations": "OP 信号稀疏;SHAP 由 GEE 背景主导非污染物;test 非零样本少;不建议作正式 OP 诊断依据",
+      "limitations": "source-level 分组验证(非 site-level);OP 信号稀疏;SHAP 由 GEE 背景主导非污染物;test 非零样本少;不建议作正式 OP 诊断依据",
       "frontend_enabled": false,
       "metrics": {
         "test_spearman": 0.9023433795392221,
@@ -164,7 +164,7 @@
       "shap_local_file": "ml/artifacts/p3_alpha/op_eco_Full_RandomForest_shap_local.parquet",
       "status": "exploratory",
       "recommended_use": "OP 模型 Spearman 偏低且 GEE 主导,仅探索参考",
-      "limitations": "OP 信号稀疏;SHAP 由 GEE 背景主导非污染物;test 非零样本少;不建议作正式 OP 诊断依据",
+      "limitations": "source-level 分组验证(非 site-level);OP 信号稀疏;SHAP 由 GEE 背景主导非污染物;test 非零样本少;不建议作正式 OP 诊断依据",
       "frontend_enabled": false,
       "metrics": {
         "test_spearman": 0.6615550426444096,
@@ -189,7 +189,7 @@
       "shap_local_file": "ml/artifacts/p3_alpha/op_prod_Full_RandomForest_shap_local.parquet",
       "status": "exploratory",
       "recommended_use": "OP 模型 Spearman 偏低且 GEE 主导,仅探索参考",
-      "limitations": "OP 信号稀疏;SHAP 由 GEE 背景主导非污染物;test 非零样本少;不建议作正式 OP 诊断依据",
+      "limitations": "source-level 分组验证(非 site-level);OP 信号稀疏;SHAP 由 GEE 背景主导非污染物;test 非零样本少;不建议作正式 OP 诊断依据",
       "frontend_enabled": false,
       "metrics": {
         "test_spearman": 0.7694855274207247,

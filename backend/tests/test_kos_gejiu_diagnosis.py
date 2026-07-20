@@ -76,8 +76,8 @@ def test_gejiu_overload_identifies_obstacles(fresh_db):
         db.close()
 
 
-def test_ph_missing_uses_fallback(fresh_db):
-    """pH 缺失时用兜底阈值, key_obstacles 仍非空(GPT 4.10 + v1.0.2)。"""
+def test_ph_missing_blocks_formal_threshold_diagnosis(fresh_db):
+    """pH 缺失时不得用最严档兜底冒充正式法规 Top-N。"""
     from app.services.kos_service import run_kos_diagnosis
     db = fresh_db
     try:
@@ -89,17 +89,14 @@ def test_ph_missing_uses_fallback(fresh_db):
         result = run_kos_diagnosis(site_values, track="prod", subset="all",
                                    site_pH=None, db_session=db)
 
-        # 兜底后 key_obstacles 必须非空
-        assert len(result["key_obstacles"]) > 0, "pH 缺失用兜底后必须有障碍因子"
-
-        # 所有障碍因子应标记 fallback 状态
-        for k in result["key_obstacles"]:
-            status = k.get("threshold_resolution_status", "resolved")
-            assert status in ("fallback", "resolved"), f"{k['factor']} 状态异常: {status}"
-
-        # ambiguous_factors 应包含超标因子
+        assert result["key_obstacles"] == []
+        assert result["review_required"] is True
         assert len(result.get("ambiguous_threshold_factors", [])) > 0, \
-            "pH 缺失应产生 ambiguous_factors"
+            "pH 缺失应列出无法唯一解析阈值的因子"
+        assert any(
+            "无法唯一解析权威阈值" in message
+            for message in result.get("data_quality_flags", [])
+        )
     finally:
         db.close()
 

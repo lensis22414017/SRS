@@ -127,22 +127,31 @@ def test_diagnosis_end_to_end():
     from app.db.bootstrap import main as bootstrap
     from app.db.load_kb import main as load_kb
     from app.db.session import SessionLocal
-    from app.models import DiagnosisFactorDetail, DiagnosisResult
-    from app.services.diagnosis_service import run_diagnosis
+    from app.models import DiagnosisFactorDetail, DiagnosisResult, User
+    from app.api.diagnosis import trigger_kos_diagnosis
+    from app.main import app, _check_model_integrity
     from app.services.pipeline import run_import
     bootstrap(); load_kb()
     db = SessionLocal()
     try:
         imp = run_import(db, GEJIU, "yunnan_gejiu")
-        res = run_diagnosis(db, imp["site_id"], top_n=10)
-        assert res["n_points"] == 134
-        assert len(res["top_factors"]) >= 1      # 至少1个障碍因子 (数据可变)
-        names = {t["factor"] for t in res["top_factors"]}
-        assert names & {"砷", "铅", "铜", "锌", "pH", "有机质"}  # 实测因子进入Top
+        app.state.model_health = _check_model_integrity()
+        assert app.state.model_health["ok"], app.state.model_health
+        user = db.query(User).filter_by(username="admin").one()
+        res = trigger_kos_diagnosis(
+            imp["site_id"], track="prod", subset="all", top_n=10,
+            user=user, db=db,
+        )
+        assert res["n_sampling_points"] == 134
+        assert len(res["key_obstacles"]) >= 1
+        names = {t["factor"] for t in res["key_obstacles"]}
+        assert names & {"As_mgkg", "Pb_mgkg", "Cu_mgkg", "Zn_mgkg", "pH"}
         assert res["model_version"]
         # 入库校验
         diag = db.get(DiagnosisResult, res["diagnosis_id"])
-        assert diag and diag.shap_global["global"]
+        assert diag and diag.diagnosis_method == "kos"
+        assert diag.result_payload == res["kos_result"]
+        assert diag.result_payload["model_contribution_scope"] == "local_point"
         details = db.query(DiagnosisFactorDetail).filter_by(diagnosis_id=diag.id).all()
         assert len(details) >= 1       # 至少1条诊断因子详情
     finally:

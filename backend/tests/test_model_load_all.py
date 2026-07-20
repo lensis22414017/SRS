@@ -19,10 +19,15 @@ REGISTRY = os.path.join(ROOT, "ml", "artifacts", "p3_alpha",
                         "model_registry_v0.8.json")
 
 
+def _abs_path(raw_path):
+    normalized = raw_path.replace("\\", os.sep).replace("/", os.sep)
+    return normalized if os.path.isabs(normalized) else os.path.join(ROOT, normalized)
+
+
 @pytest.fixture(scope="module")
 def registry_data():
     if not os.path.exists(REGISTRY):
-        pytest.skip(f"模型注册表不存在: {REGISTRY}")
+        pytest.fail(f"模型注册表不存在: {REGISTRY}")
     with open(REGISTRY, encoding="utf-8") as f:
         return json.load(f)
 
@@ -47,10 +52,10 @@ def _model_cases(registry_data):
 def test_model_joblib_loadable(model_id, model_file, shap_file, metrics_file):
     """每个注册模型的 joblib 必须能加载(审计 2.A)。"""
     if not model_file:
-        pytest.skip(f"{model_id} 无 model_file")
-    abs_path = os.path.join(ROOT, model_file) if not os.path.isabs(model_file) else model_file
+        pytest.fail(f"{model_id} 无 model_file")
+    abs_path = _abs_path(model_file)
     if not os.path.exists(abs_path):
-        pytest.skip(f"{model_id} joblib 文件不存在: {abs_path}")
+        pytest.fail(f"{model_id} joblib 文件不存在: {abs_path}")
 
     import joblib
     bundle = joblib.load(abs_path)
@@ -67,10 +72,10 @@ def test_model_joblib_loadable(model_id, model_file, shap_file, metrics_file):
 def test_shap_parquet_readable(model_id, model_file, shap_file, metrics_file):
     """每个注册模型的 SHAP parquet 必须能读取(审计 2.A 核心)。"""
     if not shap_file:
-        pytest.skip(f"{model_id} 无 shap_global_file")
-    abs_path = os.path.join(ROOT, shap_file) if not os.path.isabs(shap_file) else shap_file
+        pytest.fail(f"{model_id} 无 shap_global_file")
+    abs_path = _abs_path(shap_file)
     if not os.path.exists(abs_path):
-        pytest.skip(f"{model_id} parquet 不存在: {abs_path}")
+        pytest.fail(f"{model_id} parquet 不存在: {abs_path}")
 
     import pandas as pd
     df = pd.read_parquet(abs_path)
@@ -84,10 +89,10 @@ def test_shap_parquet_readable(model_id, model_file, shap_file, metrics_file):
 def test_metrics_json_parsable(model_id, model_file, shap_file, metrics_file):
     """每个注册模型的 metrics JSON 必须可解析(审计 7.6)。"""
     if not metrics_file:
-        pytest.skip(f"{model_id} 无 metrics_file")
-    abs_path = os.path.join(ROOT, metrics_file) if not os.path.isabs(metrics_file) else metrics_file
+        pytest.fail(f"{model_id} 无 metrics_file")
+    abs_path = _abs_path(metrics_file)
     if not os.path.exists(abs_path):
-        pytest.skip(f"{model_id} metrics 不存在: {abs_path}")
+        pytest.fail(f"{model_id} metrics 不存在: {abs_path}")
 
     with open(abs_path, encoding="utf-8") as f:
         data = json.load(f)

@@ -1,8 +1,8 @@
 """P0-5 SHAP 口径修复测试。
 
 测试覆盖:
-- model_contribution 每条含 contribution_scope="global_model"
-- 校验 kos_service.py / diagnosis.py 代码无"场地局部贡献"、"障碍高度"、"因果贡献"措辞
+- 有真实决策点时优先返回 contribution_scope="local_point"
+- 校验解释明确说明 SHAP 非因果、非法规判定依据
 - shap_contribution_filter.py 的 classify_group 四类分类正确 (只读验证)
 """
 import os
@@ -63,42 +63,35 @@ class TestP05ShapClassifyGroup:
 # model_contribution 口径修复
 # ──────────────────────────────────────────────────────────────
 class TestP05ModelContributionScope:
-    """model_contribution 每条含 contribution_scope='global_model'"""
-
-    def test_contribution_scope_constant(self):
-        """contribution_scope 字段值定义正确"""
-        EXPECTED = "global_model"
-        assert EXPECTED == "global_model"
+    """同一真实决策点优先使用局部 SHAP，全局值只能作为显式降级。"""
 
     def test_run_kos_diagnosis_model_contribution_has_scope(self):
-        """若 ml artifacts 可用, 验证 run_kos_diagnosis.model_contribution 每条含字段"""
+        """正式工件必须可用，且真实点位输入应返回局部贡献。"""
         art_path = os.path.join(ROOT_DIR, "ml", "artifacts", "p3_alpha",
                                 "model_registry_v0.8.json")
-        if not os.path.exists(art_path):
-            pytest.skip("ml artifacts 不存在")
-        try:
-            from app.services.kos_service import run_kos_diagnosis
-        except Exception as e:
-            pytest.skip(f"kos_service 不可导入: {e}")
+        assert os.path.exists(art_path), "正式模型注册表缺失"
+        from app.services.kos_service import run_kos_diagnosis
         site_values = {"砷_As(mg/kg)": 80.0, "铅_Pb(mg/kg)": 300.0,
                        "镉_Cd(mg/kg)": 0.3, "pH": 7.0}
-        try:
-            result = run_kos_diagnosis(site_values, track="prod", subset="all")
-        except Exception as e:
-            pytest.skip(f"run_kos_diagnosis 执行失败: {e}")
-        if "error" in result:
-            pytest.skip(f"模型未注册: {result['error']}")
+        result = run_kos_diagnosis(
+            site_values, track="prod", subset="all", site_pH=7.0,
+            per_point_data={"P1": site_values},
+        )
+        assert "error" not in result, result.get("error")
         mc = result.get("model_contribution", [])
+        assert mc, "模型贡献度不能为空"
+        assert result["model_contribution_scope"] == "local_point"
+        assert result["decision_point_id"] == "P1"
         for item in mc:
-            assert item.get("contribution_scope") == "global_model", \
-                f"model_contribution 每条必须有 contribution_scope='global_model', 实际: {item}"
+            assert item.get("contribution_scope") == "local_point", item
+            assert item.get("decision_point_id") == "P1", item
 
 
 # ──────────────────────────────────────────────────────────────
 # 静态校验: 代码无错误措辞
 # ──────────────────────────────────────────────────────────────
 class TestP05NoCausalLocalPhrasing:
-    """代码中不应出现错误措辞 (障碍高度/因果贡献/场地局部贡献)"""
+    """代码中不得把 SHAP 描述为因果或法规障碍结论。"""
 
     @pytest.mark.parametrize("relpath", [
         "backend/app/services/kos_service.py",
@@ -108,10 +101,9 @@ class TestP05NoCausalLocalPhrasing:
         "ml/explain/shap_service.py",
     ])
     def test_no_causal_or_barrier_height_phrasing(self, relpath):
-        """禁止措辞: 因果贡献/障碍高度/场地局部贡献 (中文)"""
+        """因果/障碍高度措辞只能出现在明确否定语境。"""
         path = os.path.join(ROOT_DIR, relpath)
-        if not os.path.exists(path):
-            pytest.skip(f"{relpath} 不存在")
+        assert os.path.exists(path), f"必需源码缺失: {relpath}"
         with open(path, encoding="utf-8") as f:
             content = f.read()
 
@@ -120,8 +112,6 @@ class TestP05NoCausalLocalPhrasing:
         forbidden_when_positive = [
             "障碍高度",          # 不能把 SHAP 描述为障碍高度
             "因果贡献",          # 不能描述为因果贡献
-            "场地局部贡献",      # 不能描述为场地局部贡献
-            "局部贡献",          # 简化: 不允许出现"局部贡献"
         ]
         for bad in forbidden_when_positive:
             # 允许在否定语境出现: "非...障碍高度", "非因果", "禁止写X", "防止误读为X"

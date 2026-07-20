@@ -289,6 +289,117 @@ def _compute_per_point_stats(per_point_data: dict | None, thresholds: dict,
     return stats
 
 
+def _compute_per_point_stats_dynamic(normalized_points: dict,
+                                     per_point_thresholds: dict,
+                                     per_point_meta: dict) -> dict:
+    """按每个点位自己的 pH/用地阈值汇总法规超标统计。"""
+    factor_rows: dict[str, list[dict]] = {}
+    for point_id, point_values in normalized_points.items():
+        thresholds = per_point_thresholds.get(point_id, {})
+        metadata = per_point_meta.get(point_id, {})
+        for factor, value in point_values.items():
+            threshold = thresholds.get(factor)
+            if threshold is None:
+                continue
+            detail = compute_severity_detail(value, threshold)
+            factor_rows.setdefault(factor, []).append({
+                "point_id": point_id,
+                "value": float(value),
+                "B": int(detail.get("B") or 0),
+                "ratio": float(detail.get("exceedance_ratio") or 0.0),
+                "threshold": metadata.get(factor, {}).get("threshold_value"),
+                "threshold_resolution_status": metadata.get(factor, {}).get(
+                    "threshold_resolution_status", "resolved"
+                ),
+            })
+
+    output = {}
+    for factor, rows in factor_rows.items():
+        values = sorted(row["value"] for row in rows)
+        exceed = [row for row in rows if row["B"] == 1]
+        count = len(values)
+        output[factor] = {
+            "n_total_points": count,
+            "n_exceed_points": len(exceed),
+            "exceed_rate": round(len(exceed) / count, 4) if count else 0.0,
+            "max_value": max(values) if values else None,
+            "max_exceedance_ratio": round(
+                max((row["ratio"] for row in exceed), default=0.0), 4
+            ),
+            "p95": round(values[min(int(count * 0.95), count - 1)], 4) if count else None,
+            "median": round(values[count // 2], 4) if count else None,
+            "point_details": rows,
+        }
+    return output
+
+
+def _normalize_per_point_data(per_point_data: dict | None) -> dict:
+    if not per_point_data:
+        return {}
+    from app.services.factor_normalizer import normalize_factors_v2
+    return {
+        point_id: normalize_factors_v2(values).get("factors", {})
+        for point_id, values in per_point_data.items()
+    }
+
+
+def _select_decision_point(per_point_data: dict | None, thresholds: dict,
+                           per_point_thresholds: dict | None = None) -> dict | None:
+    """选择一个真实采样点用于局部模型解释。
+
+    选择顺序为最大法规超标倍数、超标因子数、超标倍数总和、有效因子数。
+    这里不拼接不同点位的最大值，返回的 ``factor_values`` 始终来自同一采样点。
+    """
+    if not per_point_data:
+        return None
+
+    candidates = []
+    normalized_points = _normalize_per_point_data(per_point_data)
+    for point_id, normalized in normalized_points.items():
+        if not normalized:
+            continue
+        exceedances = []
+        factor_evidence = []
+        for factor, value in normalized.items():
+            point_threshold_map = (per_point_thresholds or {}).get(point_id, thresholds)
+            threshold = point_threshold_map.get(factor)
+            if threshold is None:
+                continue
+            detail = compute_severity_detail(value, threshold)
+            if detail.get("B") == 1:
+                ratio = float(detail.get("exceedance_ratio") or 0.0)
+                exceedances.append(ratio)
+                factor_evidence.append({
+                    "factor": factor,
+                    "value": float(value),
+                    "exceedance_ratio": round(ratio, 6),
+                })
+        score = (
+            max(exceedances, default=0.0),
+            len(exceedances),
+            sum(exceedances),
+            len(normalized),
+        )
+        candidates.append({
+            "point_id": point_id,
+            "factor_values": normalized,
+            "selection_score": score,
+            "exceedance_evidence": sorted(
+                factor_evidence,
+                key=lambda item: item["exceedance_ratio"],
+                reverse=True,
+            ),
+        })
+
+    if not candidates:
+        return None
+    candidates.sort(
+        key=lambda item: (item["selection_score"], str(item["point_id"])),
+        reverse=True,
+    )
+    return candidates[0]
+
+
 def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all",
                       top_n: int = 10, site_pH: float | None = None,
                       land_use_type: str | None = None, db_session=None,
@@ -356,7 +467,7 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
     USE_STATIC_FALLBACK = False  # 静态 fallback 默认关闭(M0-2 要求)
 
     if db_session is not None:
-        from app.services.threshold_resolver import resolve_threshold_from_db, resolve_threshold_fallback
+        from app.services.threshold_resolver import resolve_threshold_from_db
         for fac in list(factors.keys()):
             if fac == "pH":
                 thresholds["pH"] = PH_THRESHOLD[track]
@@ -366,25 +477,13 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
             if thr_result["threshold_resolution_status"] == "resolved":
                 thresholds[fac] = thr_result["threshold"]
                 threshold_meta[fac] = thr_result
-            elif thr_result["threshold_resolution_status"] == "ambiguous":
-                # v1.0.2(+ GPT 4.10): ambiguous 不再 pop 因子!
-                # 改用 resolve_threshold_fallback 取 GB15618 最严档兜底,
-                # 让用户看到"有障碍但阈值待核实", 而非"没障碍"
-                fb_result = resolve_threshold_fallback(db_session, fac, track=track)
-                if fb_result["threshold_resolution_status"] == "fallback":
-                    thresholds[fac] = fb_result["threshold"]
-                    threshold_meta[fac] = fb_result
-                    ambiguous_factors.append(fac)
-                    data_quality_flags.append(
-                        f"threshold_fallback: {fac} pH/用地缺失, 已用最严档"
-                        f"({fb_result['threshold_value']})兜底, 请核实")
-                else:
-                    # fallback 也查不到(完全无标准) → 该因子退出 KOS
-                    ambiguous_factors.append(fac)
-                    data_quality_flags.append(
-                        f"threshold_not_found: {fac} 无任何标准阈值, 不进KOS")
-                    factors.pop(fac, None)
-            # not_found 的因子不进 KOS(无阈值)
+            else:
+                # ambiguous / heuristic / fallback / not_found 均不得进入正式法规 Top-N。
+                ambiguous_factors.append(fac)
+                data_quality_flags.append(
+                    f"threshold_{thr_result['threshold_resolution_status']}: "
+                    f"{fac} 无法唯一解析权威阈值, 已退出正式KOS并要求复核"
+                )
 
     # emergency fallback(默认关闭): 仅当 db_session 为 None 或无数据时
     if not thresholds and USE_STATIC_FALLBACK:
@@ -421,17 +520,129 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
     except Exception:
         pass
 
-    # KOS 计算
+    # 每个采样点按该点 pH 独立解析阈值。只有 resolved 权威阈值进入正式 KOS；
+    # ambiguous/heuristic/fallback 仅进入复核层，不能冒充法规超标结论。
+    normalized_points = _normalize_per_point_data(per_point_data)
+    per_point_thresholds: dict = {}
+    per_point_meta: dict = {}
+    point_unresolved = []
+    if db_session is not None and normalized_points:
+        from app.services.threshold_resolver import resolve_threshold_from_db
+        for point_id, point_values in normalized_points.items():
+            point_pH = point_values.get("pH")
+            point_threshold_map = {}
+            point_meta_map = {}
+            for factor in point_values:
+                if factor == "pH":
+                    point_threshold_map[factor] = PH_THRESHOLD[track]
+                    point_meta_map[factor] = {
+                        "threshold": PH_THRESHOLD[track],
+                        "threshold_value": None,
+                        "threshold_unit": "无量纲",
+                        "threshold_standard": "土壤用途适宜区间",
+                        "threshold_version": "v1",
+                        "pH_condition": "",
+                        "land_use_type": land_use_type or "",
+                        "threshold_resolution_status": "resolved",
+                    }
+                    continue
+                resolved = resolve_threshold_from_db(
+                    db_session,
+                    factor,
+                    track=track,
+                    site_pH=point_pH,
+                    land_use_type=land_use_type,
+                )
+                status = resolved.get("threshold_resolution_status")
+                if status == "resolved":
+                    point_threshold_map[factor] = resolved["threshold"]
+                    point_meta_map[factor] = resolved
+                else:
+                    point_unresolved.append({
+                        "point_id": point_id,
+                        "factor": factor,
+                        "status": status,
+                        "reason": resolved.get("note") or resolved.get("fallback_note") or "无权威阈值",
+                    })
+            per_point_thresholds[point_id] = point_threshold_map
+            per_point_meta[point_id] = point_meta_map
+
+    # KOS 计算。场地汇总仍保留模型关注/补测层；正式 Top-N 在有逐点数据时
+    # 改为“逐点计算后按因子取最不利真实点”，不再用跨点位虚拟向量判 B/R。
     kos_result = compute_kos(
         shap_measured, factors, thresholds, weights, evidence,
         top_n=top_n, op_model=is_op, factor_stability=factor_stability
     )
+    if normalized_points and per_point_thresholds:
+        best_by_factor = {}
+        for point_id, point_values in normalized_points.items():
+            point_threshold_map = per_point_thresholds.get(point_id, {})
+            point_result = compute_kos(
+                shap_measured,
+                point_values,
+                point_threshold_map,
+                weights,
+                {factor: "A" for factor in point_values},
+                top_n=max(top_n, len(point_values)),
+                op_model=is_op,
+                factor_stability=factor_stability,
+            )
+            for item in point_result.get("key_obstacles", []):
+                factor = item["factor"]
+                candidate = dict(item)
+                candidate["decision_point_id"] = point_id
+                metadata = per_point_meta.get(point_id, {}).get(factor, {})
+                candidate.update({
+                    "threshold_value": metadata.get("threshold_value"),
+                    "threshold_unit": metadata.get("threshold_unit", "mg/kg"),
+                    "threshold_standard": metadata.get("threshold_standard", ""),
+                    "threshold_version": metadata.get("threshold_version", ""),
+                    "pH_condition": metadata.get("pH_condition", ""),
+                    "land_use_type": metadata.get("land_use_type", ""),
+                    "threshold_source_id": metadata.get("threshold_source_id"),
+                    "threshold_resolution_status": "resolved",
+                })
+                previous = best_by_factor.get(factor)
+                if previous is None or candidate["KOS"] > previous["KOS"]:
+                    best_by_factor[factor] = candidate
+
+        point_formal = sorted(
+            best_by_factor.values(), key=lambda item: item["KOS"], reverse=True
+        )
+        point_formal = point_formal[:top_n]
+        for rank, item in enumerate(point_formal, 1):
+            item["rank"] = rank
+            item["ranking_difference_small"] = (
+                rank > 1 and point_formal[rank - 2]["KOS"] - item["KOS"] < 0.01
+            )
+        kos_result["key_obstacles"] = point_formal
+        kos_result["explicit_obstacles"] = [
+            {
+                "factor": item["factor"],
+                "value": item["value"],
+                "threshold": item["threshold"],
+                "severity_R": item["R"],
+                "point_id": item["decision_point_id"],
+                "source": "逐点规则判障碍",
+            }
+            for item in point_formal
+        ]
+        kos_result["n_formal"] = len(best_by_factor)
+        kos_result["review_required"] = (
+            kos_result.get("review_required", False) or bool(point_unresolved)
+        )
+        if point_unresolved:
+            kos_result.setdefault("data_quality_flags", []).append(
+                f"{len(point_unresolved)} 个点位-因子组合因阈值未解析而退出正式KOS"
+            )
 
     # M0-2: 给 key_obstacles 附加阈值元数据
     for k in kos_result.get("key_obstacles", []):
         fac = k.get("factor")
-        if fac in threshold_meta:
-            tm = threshold_meta[fac]
+        point_id = k.get("decision_point_id")
+        tm = ((per_point_meta.get(point_id, {}) if point_id is not None else {}).get(fac)
+              or threshold_meta.get(fac))
+        if tm:
             k["threshold_value"] = tm.get("threshold_value")
             k["threshold_unit"] = tm.get("threshold_unit", "mg/kg")
             k["threshold_standard"] = tm.get("threshold_standard", "")
@@ -449,6 +660,28 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
     # 独立循环(不依赖 threshold_meta), 用 thresholds dict 的标量提取
     for k in kos_result.get("key_obstacles", []):
         fac = k.get("factor")
+        if normalized_points and per_point_thresholds:
+            breakdown = []
+            for point_id, point_values in normalized_points.items():
+                if fac not in point_values:
+                    continue
+                point_threshold = per_point_thresholds.get(point_id, {}).get(fac)
+                if point_threshold is None:
+                    continue
+                detail = compute_severity_detail(point_values[fac], point_threshold)
+                metadata = per_point_meta.get(point_id, {}).get(fac, {})
+                breakdown.append({
+                    "point_id": point_id,
+                    "value": round(float(point_values[fac]), 4),
+                    "threshold": metadata.get("threshold_value"),
+                    "threshold_standard": metadata.get("threshold_standard", ""),
+                    "pH_condition": metadata.get("pH_condition", ""),
+                    "B": int(detail.get("B") or 0),
+                    "severity_ratio": round(float(detail.get("exceedance_ratio") or 0.0), 4),
+                })
+            breakdown.sort(key=lambda item: item["severity_ratio"], reverse=True)
+            k["per_point_breakdown"] = breakdown
+            continue
         # 用 key_obstacle 已解析的 threshold_value(标量), 避免 thresholds dict 格式问题
         _thr_scalar = k.get("threshold_value")
         if _thr_scalar is None:
@@ -461,50 +694,89 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
     known_factors = set(thresholds.keys())
     organic_result = guardrail_check(factors, known_factors)
 
-    # 模型贡献度(只取 measured,前端用) — 口径与 kos_engine 的 m_map 一致(mean_abs_shap/total), 避免双源不一致
-    # P0-5 SHAP 口径修复: model_contribution 是"全局模型贡献度"(global_model scope),
-    # 不得描述为局部/障碍/因果类口径(详见 interpretation_note 字段)
-    # v1.0.2(GPT P0-2): 增加局部SHAP增强 — 对最不利点算 local SHAP, 失败回退 global
+    # 模型贡献度: 优先解释一个真实的最不利采样点; 不得把不同点位最大值
+    # 拼成虚拟场地向量。局部解释不可用时才显式降级为全局模型背景贡献。
     model_contribution = []
     local_shap_for_site = None
+    local_shap_status = "not_attempted"
+    decision_point = _select_decision_point(
+        per_point_data, thresholds, per_point_thresholds
+    )
     if len(shap_measured) > 0:
-        # 尝试计算最不利点的局部 SHAP
-        try:
-            from ml.explain.shap_service import compute_local_shap_for_point
-            bundle = load_model_and_shap(subset, track)
-            _model = bundle.get("model")
-            _feature_cols = bundle.get("feature_cols")
-            if _model is not None and _feature_cols:
-                local_shap_for_site = compute_local_shap_for_point(_model, _feature_cols, factors)
-        except Exception:
-            local_shap_for_site = None
+        if decision_point:
+            try:
+                from ml.explain.shap_service import compute_local_shap_for_point
+                bundle = _kos_engine.load_model_and_shap(subset, track)
+                local_shap_for_site = compute_local_shap_for_point(
+                    bundle.get("model"),
+                    bundle.get("feature_cols") or [],
+                    decision_point["factor_values"],
+                )
+                local_shap_status = "available" if local_shap_for_site else "unavailable"
+            except Exception as exc:
+                local_shap_status = (
+                    f"unavailable:{type(exc).__name__}:{str(exc)[:160]}"
+                )
+                data_quality_flags.append(local_shap_status)
 
-        total_shap = float(shap_measured["mean_abs_shap"].sum()) if "mean_abs_shap" in shap_measured.columns else 0.0
-        for _, r in shap_measured.head(10).iterrows():
-            raw = float(r.get("mean_abs_shap", 0))
-            entry = {
-                "factor": r["group"],
-                "contribution": round(raw / total_shap, 6) if total_shap > 0 else 0.0,
-                "direction": r.get("direction", "positive"),
-                "contribution_scope": "global_model",
-            }
-            # v1.0.2(GPT P0-2): 附局部SHAP值(若有)
-            if local_shap_for_site and r["group"] in local_shap_for_site:
-                entry["local_shap_value"] = local_shap_for_site[r["group"]]
-                entry["local_shap_note"] = "基于本场地最不利点的局部SHAP"
-            model_contribution.append(entry)
+        if local_shap_for_site:
+            measured_at_point = set(decision_point["factor_values"])
+            local_rows = [
+                (factor, float(value))
+                for factor, value in local_shap_for_site.items()
+                if factor in measured_at_point
+            ]
+            local_rows.sort(key=lambda item: abs(item[1]), reverse=True)
+            total_abs_local = sum(abs(value) for _, value in local_rows)
+            for factor, value in local_rows[:10]:
+                model_contribution.append({
+                    "factor": factor,
+                    "contribution": round(abs(value) / total_abs_local, 6)
+                    if total_abs_local > 0 else 0.0,
+                    "direction": "positive" if value >= 0 else "negative",
+                    "contribution_scope": "local_point",
+                    "local_shap_value": round(value, 6),
+                    "decision_point_id": decision_point["point_id"],
+                    "local_shap_note": "基于同一真实最不利采样点的局部SHAP",
+                })
+        else:
+            total_shap = (float(shap_measured["mean_abs_shap"].sum())
+                          if "mean_abs_shap" in shap_measured.columns else 0.0)
+            for _, row in shap_measured.head(10).iterrows():
+                raw = float(row.get("mean_abs_shap", 0))
+                model_contribution.append({
+                    "factor": row["group"],
+                    "contribution": round(raw / total_shap, 6) if total_shap > 0 else 0.0,
+                    "direction": row.get("direction", "positive"),
+                    "contribution_scope": "global_model",
+                    "local_shap_value": None,
+                    "decision_point_id": decision_point["point_id"] if decision_point else None,
+                    "local_shap_note": "局部解释不可用，仅展示训练集全局背景贡献",
+                })
 
     # v1.0.2(GPT 4.7): 按采样点计算超标统计(超标点数/超标率/P95/最大超标倍数)
-    per_point_stats = _compute_per_point_stats(per_point_data, thresholds, threshold_meta)
+    per_point_stats = (
+        _compute_per_point_stats_dynamic(
+            normalized_points, per_point_thresholds, per_point_meta
+        )
+        if normalized_points and per_point_thresholds else
+        _compute_per_point_stats(per_point_data, thresholds, threshold_meta)
+    )
 
     # 四层输出( P0 规则)
     # Round9 P0-3.2: 真实 coverage + subset + model_version(供审计 payload 完整)
-    measured_factors_set = {md.get("canonical") for md in mapping_details
-                             if md.get("matched")}
+    measured_factors_set = {
+        md.get("canonical") for md in mapping_details if md.get("canonical")
+    }
     # 从 model_info.feature_list 或 key_obstacles/w_expected 推断模型期望因子集
     _expected = set()
     if isinstance(model_info.get("feature_list"), list):
         _expected = {str(f) for f in model_info["feature_list"]}
+    if not _expected and "group" in shap_measured.columns:
+        _expected = {
+            str(group) for group in shap_measured["group"].dropna().tolist()
+            if not str(group).startswith("缺失指示_")
+        }
     if not _expected:
         # 兜底: 用 kos_engine 的全部 canonical 因子
         try:
@@ -525,6 +797,12 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
         "threshold_version": ("数据库动态阈值(StandardThreshold)" if db_session and thresholds
                               else "静态硬编码(需传入db_session启用动态阈值)"),
         "model_status": model_info["status"],
+        "model_algorithm": model_info.get("algorithm"),
+        "model_metrics": model_info.get("metrics") or {},
+        "model_n_features": model_info.get("n_features"),
+        "model_artifact_path": model_info.get("model_file"),
+        "model_validation_strategy": "group_split",
+        "model_group_key": "id_DOI/source",
         "coverage": coverage_value,  # Round9 P0-3.2: 真实覆盖率(实测因子/模型期望因子)
         # M0-1: 因子映射详情
         "mapping_details": mapping_details,
@@ -533,6 +811,12 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
         "unit_conversion_details": unit_conversion_details,
         # M0-2: 阈值解析详情
         "ambiguous_threshold_factors": ambiguous_factors,
+        "point_threshold_unresolved": point_unresolved,
+        "rule_aggregation_method": (
+            "per_point_dynamic_threshold_then_site_factor_worst_case"
+            if normalized_points and per_point_thresholds else
+            "site_factor_worst_case"
+        ),
         # 第一层: 明确障碍(实测+有阈值+B=1)
         "explicit_obstacles": kos_result["explicit_obstacles"],
         # 第二层: 关键障碍 Top-N(KOS 排序)
@@ -574,12 +858,28 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
             for r in kos_result["recommended_tests"]
         ],
         "model_contribution": model_contribution,
-        "data_quality_flags": kos_result["data_quality_flags"] + (
+        "model_feature_names": sorted({
+            str(group) for group in shap_measured.get("group", pd.Series(dtype=str)).dropna().tolist()
+        }),
+        "model_contribution_scope": (
+            "local_point" if local_shap_for_site else "global_model"
+        ),
+        "local_shap_status": local_shap_status,
+        "decision_point_id": decision_point["point_id"] if decision_point else None,
+        "decision_point_selection": (
+            {
+                "method": "max_rule_exceedance_then_count",
+                "selection_score": list(decision_point["selection_score"]),
+                "exceedance_evidence": decision_point["exceedance_evidence"],
+            }
+            if decision_point else None
+        ),
+        "data_quality_flags": list(dict.fromkeys(data_quality_flags + kos_result["data_quality_flags"] + (
             ["OP 模型为探索性,建议结合规则筛查和人工复核"] if is_exploratory else []
         ) + (
             [f"检测到 {organic_result['summary']['n_family_warning']} 个族群未收录物质,"
              f"{organic_result['summary']['n_unknown']} 个完全未知物质"] if organic_result["summary"]["has_unknown_risk"] else []
-        ),
+        ))),
         "review_required": kos_result["review_required"] or is_exploratory or organic_result["summary"]["has_unknown_risk"],
         "limitations": model_info["limitations"],
         "organic_guardrails": organic_result["summary"],
@@ -587,7 +887,11 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
         # v1.0.2(GPT 4.7): 按采样点的超标统计
         "per_point_stats": per_point_stats,
         "n_sampling_points": len(per_point_data) if per_point_data else 0,
-        "interpretation_note": "模型贡献度(全局mean|SHAP|, 非因果, 非障碍高度; v1.0.2按采样点超标统计见per_point_stats)",
+        "interpretation_note": (
+            "模型贡献度为同一真实最不利采样点的局部SHAP，非因果、非法规判定依据"
+            if local_shap_for_site else
+            "局部SHAP不可用，当前仅展示训练集全局mean|SHAP|背景贡献；非因果、非法规判定依据"
+        ),
     }
     return output
 

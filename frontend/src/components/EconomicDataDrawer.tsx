@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   Drawer, Table, Button, Form, InputNumber, Input, Select, Space,
-  Popconfirm, message, Tag, Alert, Upload, Divider, Typography,
+  Popconfirm, message, Tag, Alert, Upload, Divider, Typography, Switch,
 } from "antd";
 import {
   PlusOutlined, DeleteOutlined, DownloadOutlined, UploadOutlined,
@@ -46,14 +46,14 @@ export default function EconomicDataDrawer({
 
   // D18-D25 指标定义(从后端 indicator_definitions 读; 兜底硬编码)
   const INDICATORS = data?.indicator_definitions || {
-    D18: { name: "劳动力成本", unit: "元/亩", direction: "negative" },
-    D19: { name: "机械作业及服务成本", unit: "元/亩", direction: "negative" },
-    D20: { name: "土地租金或折算土地成本", unit: "元/亩", direction: "negative" },
-    D21: { name: "种子肥料农药等非机械化物质投入", unit: "元/亩", direction: "negative" },
-    D22: { name: "单位面积总产值", unit: "元/公顷", direction: "positive" },
+    D18: { name: "劳动力成本", unit: "元/亩·年", direction: "negative" },
+    D19: { name: "机械作业及服务成本", unit: "元/亩·年", direction: "negative" },
+    D20: { name: "土地租金或折算土地成本", unit: "元/亩·年", direction: "negative" },
+    D21: { name: "种子肥料农药等非机械化物质投入", unit: "元/亩·年", direction: "negative" },
+    D22: { name: "单位面积总产值", unit: "元/公顷·年", direction: "positive" },
     D23: { name: "效益费用比", unit: "无量纲", direction: "positive" },
-    D24: { name: "人均可支配收入", unit: "元/人", direction: "positive" },
-    D25: { name: "单位面积实物产量", unit: "kg/公顷", direction: "positive" },
+    D24: { name: "人均可支配收入", unit: "元/人·年", direction: "positive" },
+    D25: { name: "单位面积实物产量", unit: "kg/公顷·年", direction: "positive" },
   };
 
   // 按 (year, scenario) 分组
@@ -78,6 +78,7 @@ export default function EconomicDataDrawer({
         indicator_code: code, value: undefined,
         unit: INDICATORS[code].unit, source_type: "site_actual",
         source_name: "", source_year: new Date().getFullYear(),
+        source_url: "", source_geography: "",
         is_proxy: false,
       })),
       // 原始汇总(可选)
@@ -90,6 +91,7 @@ export default function EconomicDataDrawer({
   const openEdit = (g: any) => {
     const byCode: Record<string, any> = {};
     for (const r of g.rows) byCode[r.code] = r;
+    const raw = (data?.raw_inputs || []).find((item: any) => item.year === g.year && item.scenario === g.scenario) || {};
     editForm.setFieldsValue({
       evaluation_year: g.year,
       scenario: g.scenario,
@@ -100,9 +102,16 @@ export default function EconomicDataDrawer({
         unit: byCode[code]?.unit || INDICATORS[code].unit,
         source_type: byCode[code]?.source_type || "site_actual",
         source_name: byCode[code]?.source_name || "",
+        source_url: byCode[code]?.source_url || "",
+        source_geography: byCode[code]?.source_geography || "",
         source_year: byCode[code]?.source_year || g.year,
         is_proxy: byCode[code]?.is_proxy || false,
       })),
+      area_hectare: raw.area_hectare, yield_kg: raw.yield_kg,
+      gross_output_yuan: raw.gross_output_yuan, total_cost_yuan: raw.total_cost_yuan,
+      d21_seed_cost: raw.d21_seed_cost, d21_fertilizer_cost: raw.d21_fertilizer_cost,
+      d21_manure_cost: raw.d21_manure_cost, d21_pesticide_cost: raw.d21_pesticide_cost,
+      d21_film_cost: raw.d21_film_cost,
     });
     setEditModal({ year: g.year, scenario: g.scenario });
   };
@@ -118,8 +127,10 @@ export default function EconomicDataDrawer({
         unit: ind.unit,
         source_type: ind.source_type,
         source_name: ind.source_name || null,
+        source_url: ind.source_url || null,
+        source_geography: ind.source_geography || null,
         source_year: ind.source_year || null,
-        is_proxy: ind.is_proxy || false,
+        is_proxy: ind.source_type !== "site_actual",
       }));
       // 缺值的指标后端会拒绝; 这里过滤掉 value 为 undefined 的项让用户先存部分
       const validIndicators = indicators.filter((i: any) => i.value !== undefined && i.value !== null);
@@ -138,8 +149,11 @@ export default function EconomicDataDrawer({
       if (v.yield_kg != null) body.yield_kg = v.yield_kg;
       if (v.gross_output_yuan != null) body.gross_output_yuan = v.gross_output_yuan;
       if (v.total_cost_yuan != null) body.total_cost_yuan = v.total_cost_yuan;
+      for (const key of ["d21_seed_cost", "d21_fertilizer_cost", "d21_manure_cost", "d21_pesticide_cost", "d21_film_cost"]) {
+        if (v[key] != null) body[key] = v[key];
+      }
       const r = await api.saveEconomicData(siteId, body);
-      message.success(`保存成功: ${r.indicators_saved}/8 项${r.economic_complete ? "(8/8 齐全, 可生成正式 SSUI)" : `(缺 ${r.missing?.length || 0} 项)`}`);
+      message.success(`保存成功: ${r.indicators_saved}/8 项${r.economic_complete ? "(经济指标齐全；仍需 D1-D17 完整后才可正式评价)" : `(缺 ${r.missing?.length || 0} 项)`}`);
       setEditModal(null);
       load();
       onSaved?.();
@@ -151,11 +165,11 @@ export default function EconomicDataDrawer({
     }
   };
 
-  const del = async (year: number) => {
+  const del = async (year: number, scenario: "production" | "ecology") => {
     if (!siteId) return;
     try {
-      await api.deleteEconomicData(siteId, year);
-      message.success(`已删除 ${year} 年数据`);
+      await api.deleteEconomicData(siteId, year, scenario);
+      message.success(`已删除 ${year} 年 ${scenario} 数据`);
       load();
       onSaved?.();
     } catch (e: any) {
@@ -196,7 +210,7 @@ export default function EconomicDataDrawer({
         <Space>
           <Button size="small" icon={<ReloadOutlined />} onClick={load}>刷新</Button>
           <Button size="small" icon={<DownloadOutlined />}
-            onClick={() => siteId && window.open(api.economicTemplateUrl(siteId))}>下载模板</Button>
+            onClick={() => siteId && api.downloadEconomicTemplate(siteId).catch(() => message.error("模板下载失败"))}>下载模板</Button>
           <Upload {...uploadProps}>
             <Button size="small" icon={<UploadOutlined />} loading={saving}>导入 Excel</Button>
           </Upload>
@@ -264,7 +278,7 @@ export default function EconomicDataDrawer({
             render: (_: any, r: any) => (
               <Space size="small">
                 <Button size="small" icon={<EditOutlined />} onClick={() => openEdit(r)}>编辑</Button>
-                <Popconfirm title={`删除 ${r.year} 年全部经济数据?`} onConfirm={() => del(r.year)}>
+                <Popconfirm title={`删除 ${r.year} 年 ${r.scenario} 经济数据?`} onConfirm={() => del(r.year, r.scenario)}>
                   <Button size="small" danger icon={<DeleteOutlined />}>删</Button>
                 </Popconfirm>
               </Space>
@@ -320,18 +334,38 @@ export default function EconomicDataDrawer({
                       ]} />
                     </Form.Item>
                     <Form.Item name={[field.name, "is_proxy"]} label="代理" valuePropName="checked">
-                      <InputNumber style={{ width: 60 }} min={0} max={1} />
+                      <Switch disabled />
+                    </Form.Item>
+                    <Form.Item name={[field.name, "source_name"]} label="来源名称">
+                      <Input style={{ width: 150 }} />
+                    </Form.Item>
+                    <Form.Item name={[field.name, "source_url"]} label="来源URL">
+                      <Input style={{ width: 180 }} />
+                    </Form.Item>
+                    <Form.Item name={[field.name, "source_year"]} label="来源年">
+                      <InputNumber min={1900} max={2100} style={{ width: 90 }} />
+                    </Form.Item>
+                    <Form.Item name={[field.name, "source_geography"]} label="来源地域">
+                      <Input style={{ width: 100 }} />
                     </Form.Item>
                   </Space>
                 );
               })}
             </Form.List>
-            <Divider orientation="left">原始汇总值(可选, 用于 D23/D25 交叉校验)</Divider>
+            <Divider orientation="left">原始汇总值(可选, 用于 D22/D23/D25 交叉校验)</Divider>
             <Space style={{ width: "100%" }} size="middle">
               <Form.Item name="area_hectare" label="面积(公顷)"><InputNumber style={{ width: 120 }} /></Form.Item>
               <Form.Item name="yield_kg" label="总产量(kg)"><InputNumber style={{ width: 140 }} /></Form.Item>
               <Form.Item name="gross_output_yuan" label="总产值(元)"><InputNumber style={{ width: 140 }} /></Form.Item>
               <Form.Item name="total_cost_yuan" label="总成本(元)"><InputNumber style={{ width: 140 }} /></Form.Item>
+            </Space>
+            <Divider orientation="left">D21 原始成本分项(总额，五项须同时填写)</Divider>
+            <Space wrap>
+              <Form.Item name="d21_seed_cost" label="种子总成本(元)"><InputNumber min={0} /></Form.Item>
+              <Form.Item name="d21_fertilizer_cost" label="化肥总成本(元)"><InputNumber min={0} /></Form.Item>
+              <Form.Item name="d21_manure_cost" label="农家肥总成本(元)"><InputNumber min={0} /></Form.Item>
+              <Form.Item name="d21_pesticide_cost" label="农药总成本(元)"><InputNumber min={0} /></Form.Item>
+              <Form.Item name="d21_film_cost" label="农膜总成本(元)"><InputNumber min={0} /></Form.Item>
             </Space>
           </Form>
         </Drawer>

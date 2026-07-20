@@ -382,7 +382,10 @@ export default function ObstacleAnalysis() {
                       label: { show: true, position: "right", formatter: (p: any) => p.value.toFixed(3) } }],
                   }} theme="srs-light" opts={SVG_OPTS} style={{ height: 300 }} />
                   <Paragraph type="secondary" style={{ fontSize: 11, margin: "8px 0 0 0" }}>
-                    ⓘ 模型贡献度（Mᵢ，权重仅0.15）反映该因子对障碍指数的统计解释贡献，仅作辅助参考。它不是因果证明，也不是法规判定依据。正式障碍判定以规则层（Bᵢ）和标准阈值（Rᵢ）为底线——未检测或无阈值的因子不会进入正式 Top-N。
+                    {kosData.model_contribution_scope === "local_point"
+                      ? `ⓘ 当前为真实采样点 ${kosData.decision_point_code || kosData.decision_point_id || "—"} 的局部 SHAP 贡献；所有特征来自同一点位。`
+                      : "ⓘ 当前局部解释不可用，图中仅为训练集全局背景贡献，不代表本场地局部贡献。"}
+                    模型贡献仅作统计解释参考，不是因果证明，也不是法规判定依据；正式障碍判定以规则层和标准阈值为准。
                   </Paragraph>
                 </Card>
               )}

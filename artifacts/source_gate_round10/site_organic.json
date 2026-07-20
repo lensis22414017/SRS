@@ -1,0 +1,1854 @@
+{
+  "source_file": "2.20250731_有机污染场地数据表(南京栖霞)_完整版.xlsx",
+  "mapping": {
+    "mapping_id": "smart_auto",
+    "confidence": null,
+    "warnings": null
+  },
+  "site": {
+    "id": 2,
+    "site_code": "SRS-B",
+    "name": "2.20250731_有机污染场地数据表(南京栖霞)_完整版",
+    "pollution_type": "organic",
+    "land_use_type": null,
+    "sampling_points": 49,
+    "measurements": 1911
+  },
+  "kos_production": {
+    "track": "prod",
+    "subset": "op",
+    "model_id": "op_prod_Full_RandomForest",
+    "model_version": "p3_alpha_v0.8",
+    "model_contribution_scope": "local_point",
+    "decision_point_id": 35,
+    "decision_point_code": "NJ-S4-4-2",
+    "n_sampling_points": 49,
+    "coverage": 0.1389,
+    "review_required": true,
+    "open_set_summary": {
+      "n_formal_eligible": 1,
+      "n_formal_obstacle": 1,
+      "n_model_candidate": 4,
+      "n_family_alert": 9,
+      "n_identified_no_threshold": 4,
+      "n_unknown": 21,
+      "n_unit_conflict": 0,
+      "n_mapping_conflict": 0
+    },
+    "key_obstacles": [
+      {
+        "rank": 1,
+        "factor": "pH",
+        "KOS": 0.6482,
+        "components": {
+          "R": 0.56,
+          "W": 0.8,
+          "M": 0.0001,
+          "S": 0.901,
+          "E": "A"
+        },
+        "value": 10.18,
+        "evidence": "A",
+        "exceedance_ratio": 0.56,
+        "severity_cap_ratio": 10,
+        "severity_saturated": false,
+        "stability_is_constant": true,
+        "stability_note": "S来自模型Top-5稳定性(0.901)",
+        "ranking_difference_small": false,
+        "threshold_value": null,
+        "threshold_unit": "无量纲",
+        "threshold_standard": "土壤用途适宜区间",
+        "threshold_version": "v1",
+        "pH_condition": "",
+        "land_use_type": "",
+        "threshold_source_id": null,
+        "threshold_resolution_status": "resolved",
+        "fallback_note": "",
+        "per_point_breakdown": [
+          {
+            "point_id": 35,
+            "value": 10.18,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.56
+          },
+          {
+            "point_id": 37,
+            "value": 9.93,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.4767
+          },
+          {
+            "point_id": 39,
+            "value": 9.89,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.4633
+          },
+          {
+            "point_id": 34,
+            "value": 9.63,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.3767
+          },
+          {
+            "point_id": 43,
+            "value": 9.46,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.32
+          },
+          {
+            "point_id": 47,
+            "value": 9.35,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.2833
+          },
+          {
+            "point_id": 44,
+            "value": 9.15,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.2167
+          },
+          {
+            "point_id": 41,
+            "value": 8.79,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0967
+          },
+          {
+            "point_id": 46,
+            "value": 8.75,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0833
+          },
+          {
+            "point_id": 27,
+            "value": 8.72,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0733
+          },
+          {
+            "point_id": 21,
+            "value": 8.67,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0567
+          },
+          {
+            "point_id": 25,
+            "value": 8.67,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0567
+          },
+          {
+            "point_id": 48,
+            "value": 8.67,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0567
+          },
+          {
+            "point_id": 50,
+            "value": 8.59,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.03
+          },
+          {
+            "point_id": 31,
+            "value": 8.58,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0267
+          },
+          {
+            "point_id": 42,
+            "value": 8.58,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0267
+          },
+          {
+            "point_id": 54,
+            "value": 8.57,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0233
+          },
+          {
+            "point_id": 32,
+            "value": 8.51,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0033
+          },
+          {
+            "point_id": 9,
+            "value": 7.97,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 10,
+            "value": 8.01,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 11,
+            "value": 7.74,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 12,
+            "value": 7.32,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 13,
+            "value": 8.24,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 14,
+            "value": 8.04,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 15,
+            "value": 8.27,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 17,
+            "value": 7.74,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 18,
+            "value": 7.73,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 19,
+            "value": 8.49,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 20,
+            "value": 8.49,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 22,
+            "value": 7.28,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 23,
+            "value": 7.46,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 28,
+            "value": 7.34,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 29,
+            "value": 8.49,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 30,
+            "value": 7.65,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 38,
+            "value": 8.43,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 45,
+            "value": 8.13,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 51,
+            "value": 8.29,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 53,
+            "value": 8.19,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 55,
+            "value": 8.44,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 56,
+            "value": 8.12,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 57,
+            "value": 8.31,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          }
+        ],
+        "factor_statistics": {
+          "measurement_count": 41,
+          "valid_measurement_count": 41,
+          "max_value": 10.18,
+          "median_value": 8.49,
+          "p95_value": 9.89,
+          "exceedance_count": 0,
+          "exceedance_ratio": 0.0
+        },
+        "aggregation_method": "per_point_dynamic_threshold_then_site_factor_worst_case"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "EC_mScm",
+        "contribution": 0.698563,
+        "direction": "positive",
+        "contribution_scope": "local_point",
+        "local_shap_value": 0.029749,
+        "decision_point_id": 35,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      },
+      {
+        "factor": "OC_pct",
+        "contribution": 0.298666,
+        "direction": "negative",
+        "contribution_scope": "local_point",
+        "local_shap_value": -0.012719,
+        "decision_point_id": 35,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      },
+      {
+        "factor": "CEC_cmolkg",
+        "contribution": 0.002653,
+        "direction": "negative",
+        "contribution_scope": "local_point",
+        "local_shap_value": -0.000113,
+        "decision_point_id": 35,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      },
+      {
+        "factor": "pH",
+        "contribution": 7e-05,
+        "direction": "negative",
+        "contribution_scope": "local_point",
+        "local_shap_value": -3e-06,
+        "decision_point_id": 35,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      },
+      {
+        "factor": "TN_gkg",
+        "contribution": 4.7e-05,
+        "direction": "negative",
+        "contribution_scope": "local_point",
+        "local_shap_value": -2e-06,
+        "decision_point_id": 35,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      }
+    ],
+    "per_point_stats": {
+      "pH": {
+        "n_total_points": 41,
+        "n_exceed_points": 18,
+        "exceed_rate": 0.439,
+        "max_value": 10.18,
+        "max_exceedance_ratio": 0.56,
+        "p95": 9.89,
+        "median": 8.49,
+        "point_details": [
+          {
+            "point_id": 9,
+            "value": 7.97,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 10,
+            "value": 8.01,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 11,
+            "value": 7.74,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 12,
+            "value": 7.32,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 13,
+            "value": 8.24,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 14,
+            "value": 8.04,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 15,
+            "value": 8.27,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 17,
+            "value": 7.74,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 18,
+            "value": 7.73,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 19,
+            "value": 8.49,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 20,
+            "value": 8.49,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 21,
+            "value": 8.67,
+            "B": 1,
+            "ratio": 0.05666666666666664,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 22,
+            "value": 7.28,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 23,
+            "value": 7.46,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 25,
+            "value": 8.67,
+            "B": 1,
+            "ratio": 0.05666666666666664,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 27,
+            "value": 8.72,
+            "B": 1,
+            "ratio": 0.07333333333333354,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 28,
+            "value": 7.34,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 29,
+            "value": 8.49,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 30,
+            "value": 7.65,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 31,
+            "value": 8.58,
+            "B": 1,
+            "ratio": 0.02666666666666669,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 32,
+            "value": 8.51,
+            "B": 1,
+            "ratio": 0.0033333333333332624,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 34,
+            "value": 9.63,
+            "B": 1,
+            "ratio": 0.3766666666666669,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 35,
+            "value": 10.18,
+            "B": 1,
+            "ratio": 0.5599999999999999,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 37,
+            "value": 9.93,
+            "B": 1,
+            "ratio": 0.47666666666666657,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 38,
+            "value": 8.43,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 39,
+            "value": 9.89,
+            "B": 1,
+            "ratio": 0.46333333333333354,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 41,
+            "value": 8.79,
+            "B": 1,
+            "ratio": 0.09666666666666639,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 42,
+            "value": 8.58,
+            "B": 1,
+            "ratio": 0.02666666666666669,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 43,
+            "value": 9.46,
+            "B": 1,
+            "ratio": 0.3200000000000003,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 44,
+            "value": 9.15,
+            "B": 1,
+            "ratio": 0.21666666666666679,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 45,
+            "value": 8.13,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 46,
+            "value": 8.75,
+            "B": 1,
+            "ratio": 0.08333333333333333,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 47,
+            "value": 9.35,
+            "B": 1,
+            "ratio": 0.2833333333333332,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 48,
+            "value": 8.67,
+            "B": 1,
+            "ratio": 0.05666666666666664,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 50,
+            "value": 8.59,
+            "B": 1,
+            "ratio": 0.029999999999999954,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 51,
+            "value": 8.29,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 53,
+            "value": 8.19,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 54,
+            "value": 8.57,
+            "B": 1,
+            "ratio": 0.023333333333333428,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 55,
+            "value": 8.44,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 56,
+            "value": 8.12,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 57,
+            "value": 8.31,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          }
+        ]
+      }
+    },
+    "data_quality_flags": [
+      "因子 PAH_Fluoranthene 有多个来源列(苯并[j]荧蒽, 荧蒽)，存在冲突",
+      "因子 PAH_Anthracene 有多个来源列(1,2-苯并蒽, 蒽)，存在冲突",
+      "因子 电导率（→EC_mScm）单位不明，未做单位转换",
+      "因子 有机碳（→OC_pct）单位不明，未做单位转换",
+      "因子 全氮（→TN_gkg）单位不明，未做单位转换",
+      "因子 全磷（→P_mgkg）单位不明，未做单位转换",
+      "因子 全钾（→K_mgkg）单位不明，未做单位转换",
+      "因子 阳离子交换量（→CEC_cmolkg）单位不明，未做单位转换",
+      "因子 1,2-二氯苯（→VOC_Dichlorobenzene）单位不明，未做单位转换",
+      "因子 四氯乙烯（→VOC_Tetrachloroethylene）单位不明，未做单位转换",
+      "因子 氯仿-d（→VOC_Chloroform）单位不明，未做单位转换",
+      "因子 1,2-苯并蒽（→PAH_Anthracene）单位不明，未做单位转换",
+      "因子 芘（→PAH_Pyrene）单位不明，未做单位转换",
+      "因子 苯并[j]荧蒽（→PAH_Fluoranthene）单位不明，未做单位转换",
+      "因子 苯并[k]荧蒽（→PAH_Benzo[k]fluoranthene）单位不明，未做单位转换",
+      "因子 二氯甲烷（→VOC_Dichloromethane）单位不明，未做单位转换",
+      "因子 荧蒽（→PAH_Fluoranthene）单位不明，未做单位转换",
+      "因子 蒽（→PAH_Anthracene）单位不明，未做单位转换",
+      "因子 邻苯二甲酸二酯（→PAE_total）单位不明，未做单位转换",
+      "mapping_conflicts: 2 个因子有来源冲突, 已排除出正式KOS, 需人工选择",
+      "threshold_not_found: EC_mScm 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_heuristic: OC_pct 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_heuristic: TN_gkg 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: P_mgkg 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: K_mgkg 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: CEC_cmolkg 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: VOC_Dichlorobenzene 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 2-蒎烯 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 双戊烯 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 1,2,3,5-四氯-4,6-二甲基苯 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 4-羟基-4-甲基-2-戊酮 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 二丁基氯菌酸酯 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: VOC_Tetrachloroethylene 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 芥酸酰胺 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 二十七烷 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 图恩戈尔 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 二十四烷 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 2,2-二甲基己烷 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 二十烷 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 异丁酸丁酯 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: VOC_Chloroform 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 左旋-beta-蒎烯 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 屈 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: PAH_Pyrene 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 叔丁脲 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 十七烷 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: PAH_Benzo[k]fluoranthene 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 十六烷 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 1,8-二氮杂环十四烷-2,7-二酮 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: VOC_Dichloromethane 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 角鲨烯 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: PAE_total 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 5-甲基-2,6,10,14,18-二十碳五烯 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 十九烷 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "OP 模型为探索性,建议结合规则筛查和人工复核",
+      "567 个点位-因子组合因阈值未解析而退出正式KOS",
+      "检测到 20 个族群未收录物质,14 个完全未知物质"
+    ],
+    "limitations": "source-level 分组验证(非 site-level);OP 信号稀疏;SHAP 由 GEE 背景主导非污染物;test 非零样本少;不建议作正式 OP 诊断依据"
+  },
+  "kos_ecology": {
+    "track": "eco",
+    "subset": "op",
+    "model_id": "op_eco_Full_RandomForest",
+    "model_version": "p3_alpha_v0.8",
+    "model_contribution_scope": "local_point",
+    "decision_point_id": 35,
+    "decision_point_code": "NJ-S4-4-2",
+    "n_sampling_points": 49,
+    "coverage": 0.1389,
+    "review_required": true,
+    "open_set_summary": {
+      "n_formal_eligible": 1,
+      "n_formal_obstacle": 1,
+      "n_model_candidate": 4,
+      "n_family_alert": 9,
+      "n_identified_no_threshold": 4,
+      "n_unknown": 21,
+      "n_unit_conflict": 0,
+      "n_mapping_conflict": 0
+    },
+    "key_obstacles": [
+      {
+        "rank": 1,
+        "factor": "pH",
+        "KOS": 0.6585,
+        "components": {
+          "R": 0.5697,
+          "W": 0.75,
+          "M": 0.0005,
+          "S": 1.0,
+          "E": "A"
+        },
+        "value": 10.18,
+        "evidence": "A",
+        "exceedance_ratio": 0.5697,
+        "severity_cap_ratio": 10,
+        "severity_saturated": false,
+        "stability_is_constant": true,
+        "stability_note": "S来自模型Top-5稳定性(1.000)",
+        "ranking_difference_small": false,
+        "threshold_value": null,
+        "threshold_unit": "无量纲",
+        "threshold_standard": "土壤用途适宜区间",
+        "threshold_version": "v1",
+        "pH_condition": "",
+        "land_use_type": "",
+        "threshold_source_id": null,
+        "threshold_resolution_status": "resolved",
+        "fallback_note": "",
+        "per_point_breakdown": [
+          {
+            "point_id": 35,
+            "value": 10.18,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.5697
+          },
+          {
+            "point_id": 37,
+            "value": 9.93,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.4939
+          },
+          {
+            "point_id": 39,
+            "value": 9.89,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.4818
+          },
+          {
+            "point_id": 34,
+            "value": 9.63,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.403
+          },
+          {
+            "point_id": 43,
+            "value": 9.46,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.3515
+          },
+          {
+            "point_id": 47,
+            "value": 9.35,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.3182
+          },
+          {
+            "point_id": 44,
+            "value": 9.15,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.2576
+          },
+          {
+            "point_id": 41,
+            "value": 8.79,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.1485
+          },
+          {
+            "point_id": 46,
+            "value": 8.75,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.1364
+          },
+          {
+            "point_id": 27,
+            "value": 8.72,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.1273
+          },
+          {
+            "point_id": 21,
+            "value": 8.67,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.1121
+          },
+          {
+            "point_id": 25,
+            "value": 8.67,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.1121
+          },
+          {
+            "point_id": 48,
+            "value": 8.67,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.1121
+          },
+          {
+            "point_id": 50,
+            "value": 8.59,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0879
+          },
+          {
+            "point_id": 31,
+            "value": 8.58,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0848
+          },
+          {
+            "point_id": 42,
+            "value": 8.58,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0848
+          },
+          {
+            "point_id": 54,
+            "value": 8.57,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0818
+          },
+          {
+            "point_id": 32,
+            "value": 8.51,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0636
+          },
+          {
+            "point_id": 19,
+            "value": 8.49,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0576
+          },
+          {
+            "point_id": 20,
+            "value": 8.49,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0576
+          },
+          {
+            "point_id": 29,
+            "value": 8.49,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0576
+          },
+          {
+            "point_id": 55,
+            "value": 8.44,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0424
+          },
+          {
+            "point_id": 38,
+            "value": 8.43,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0394
+          },
+          {
+            "point_id": 57,
+            "value": 8.31,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.003
+          },
+          {
+            "point_id": 9,
+            "value": 7.97,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 10,
+            "value": 8.01,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 11,
+            "value": 7.74,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 12,
+            "value": 7.32,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 13,
+            "value": 8.24,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 14,
+            "value": 8.04,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 15,
+            "value": 8.27,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 17,
+            "value": 7.74,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 18,
+            "value": 7.73,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 22,
+            "value": 7.28,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 23,
+            "value": 7.46,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 28,
+            "value": 7.34,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 30,
+            "value": 7.65,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 45,
+            "value": 8.13,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 51,
+            "value": 8.29,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 53,
+            "value": 8.19,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 56,
+            "value": 8.12,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          }
+        ],
+        "factor_statistics": {
+          "measurement_count": 41,
+          "valid_measurement_count": 41,
+          "max_value": 10.18,
+          "median_value": 8.49,
+          "p95_value": 9.89,
+          "exceedance_count": 0,
+          "exceedance_ratio": 0.0
+        },
+        "aggregation_method": "per_point_dynamic_threshold_then_site_factor_worst_case"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "EC_mScm",
+        "contribution": 0.976802,
+        "direction": "positive",
+        "contribution_scope": "local_point",
+        "local_shap_value": 0.060929,
+        "decision_point_id": 35,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      },
+      {
+        "factor": "OC_pct",
+        "contribution": 0.022605,
+        "direction": "negative",
+        "contribution_scope": "local_point",
+        "local_shap_value": -0.00141,
+        "decision_point_id": 35,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      },
+      {
+        "factor": "CEC_cmolkg",
+        "contribution": 0.000417,
+        "direction": "negative",
+        "contribution_scope": "local_point",
+        "local_shap_value": -2.6e-05,
+        "decision_point_id": 35,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      },
+      {
+        "factor": "TN_gkg",
+        "contribution": 9.6e-05,
+        "direction": "positive",
+        "contribution_scope": "local_point",
+        "local_shap_value": 6e-06,
+        "decision_point_id": 35,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      },
+      {
+        "factor": "pH",
+        "contribution": 8e-05,
+        "direction": "negative",
+        "contribution_scope": "local_point",
+        "local_shap_value": -5e-06,
+        "decision_point_id": 35,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      }
+    ],
+    "per_point_stats": {
+      "pH": {
+        "n_total_points": 41,
+        "n_exceed_points": 24,
+        "exceed_rate": 0.5854,
+        "max_value": 10.18,
+        "max_exceedance_ratio": 0.5697,
+        "p95": 9.89,
+        "median": 8.49,
+        "point_details": [
+          {
+            "point_id": 9,
+            "value": 7.97,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 10,
+            "value": 8.01,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 11,
+            "value": 7.74,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 12,
+            "value": 7.32,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 13,
+            "value": 8.24,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 14,
+            "value": 8.04,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 15,
+            "value": 8.27,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 17,
+            "value": 7.74,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 18,
+            "value": 7.73,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 19,
+            "value": 8.49,
+            "B": 1,
+            "ratio": 0.05757575757575741,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 20,
+            "value": 8.49,
+            "B": 1,
+            "ratio": 0.05757575757575741,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 21,
+            "value": 8.67,
+            "B": 1,
+            "ratio": 0.11212121212121186,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 22,
+            "value": 7.28,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 23,
+            "value": 7.46,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 25,
+            "value": 8.67,
+            "B": 1,
+            "ratio": 0.11212121212121186,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 27,
+            "value": 8.72,
+            "B": 1,
+            "ratio": 0.12727272727272723,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 28,
+            "value": 7.34,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 29,
+            "value": 8.49,
+            "B": 1,
+            "ratio": 0.05757575757575741,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 30,
+            "value": 7.65,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 31,
+            "value": 8.58,
+            "B": 1,
+            "ratio": 0.08484848484848463,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 32,
+            "value": 8.51,
+            "B": 1,
+            "ratio": 0.06363636363636334,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 34,
+            "value": 9.63,
+            "B": 1,
+            "ratio": 0.40303030303030296,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 35,
+            "value": 10.18,
+            "B": 1,
+            "ratio": 0.5696969696969693,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 37,
+            "value": 9.93,
+            "B": 1,
+            "ratio": 0.4939393939393935,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 38,
+            "value": 8.43,
+            "B": 1,
+            "ratio": 0.039393939393939086,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 39,
+            "value": 9.89,
+            "B": 1,
+            "ratio": 0.48181818181818165,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 41,
+            "value": 8.79,
+            "B": 1,
+            "ratio": 0.14848484848484797,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 42,
+            "value": 8.58,
+            "B": 1,
+            "ratio": 0.08484848484848463,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 43,
+            "value": 9.46,
+            "B": 1,
+            "ratio": 0.3515151515151515,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 44,
+            "value": 9.15,
+            "B": 1,
+            "ratio": 0.2575757575757574,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 45,
+            "value": 8.13,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 46,
+            "value": 8.75,
+            "B": 1,
+            "ratio": 0.13636363636363613,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 47,
+            "value": 9.35,
+            "B": 1,
+            "ratio": 0.3181818181818178,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 48,
+            "value": 8.67,
+            "B": 1,
+            "ratio": 0.11212121212121186,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 50,
+            "value": 8.59,
+            "B": 1,
+            "ratio": 0.0878787878787876,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 51,
+            "value": 8.29,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 53,
+            "value": 8.19,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 54,
+            "value": 8.57,
+            "B": 1,
+            "ratio": 0.08181818181818167,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 55,
+            "value": 8.44,
+            "B": 1,
+            "ratio": 0.04242424242424205,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 56,
+            "value": 8.12,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 57,
+            "value": 8.31,
+            "B": 1,
+            "ratio": 0.0030303030303029652,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          }
+        ]
+      }
+    },
+    "data_quality_flags": [
+      "因子 PAH_Fluoranthene 有多个来源列(苯并[j]荧蒽, 荧蒽)，存在冲突",
+      "因子 PAH_Anthracene 有多个来源列(1,2-苯并蒽, 蒽)，存在冲突",
+      "因子 电导率（→EC_mScm）单位不明，未做单位转换",
+      "因子 有机碳（→OC_pct）单位不明，未做单位转换",
+      "因子 全氮（→TN_gkg）单位不明，未做单位转换",
+      "因子 全磷（→P_mgkg）单位不明，未做单位转换",
+      "因子 全钾（→K_mgkg）单位不明，未做单位转换",
+      "因子 阳离子交换量（→CEC_cmolkg）单位不明，未做单位转换",
+      "因子 1,2-二氯苯（→VOC_Dichlorobenzene）单位不明，未做单位转换",
+      "因子 四氯乙烯（→VOC_Tetrachloroethylene）单位不明，未做单位转换",
+      "因子 氯仿-d（→VOC_Chloroform）单位不明，未做单位转换",
+      "因子 1,2-苯并蒽（→PAH_Anthracene）单位不明，未做单位转换",
+      "因子 芘（→PAH_Pyrene）单位不明，未做单位转换",
+      "因子 苯并[j]荧蒽（→PAH_Fluoranthene）单位不明，未做单位转换",
+      "因子 苯并[k]荧蒽（→PAH_Benzo[k]fluoranthene）单位不明，未做单位转换",
+      "因子 二氯甲烷（→VOC_Dichloromethane）单位不明，未做单位转换",
+      "因子 荧蒽（→PAH_Fluoranthene）单位不明，未做单位转换",
+      "因子 蒽（→PAH_Anthracene）单位不明，未做单位转换",
+      "因子 邻苯二甲酸二酯（→PAE_total）单位不明，未做单位转换",
+      "mapping_conflicts: 2 个因子有来源冲突, 已排除出正式KOS, 需人工选择",
+      "threshold_not_found: EC_mScm 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_heuristic: OC_pct 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_heuristic: TN_gkg 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: P_mgkg 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: K_mgkg 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: CEC_cmolkg 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: VOC_Dichlorobenzene 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 2-蒎烯 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 双戊烯 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 1,2,3,5-四氯-4,6-二甲基苯 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 4-羟基-4-甲基-2-戊酮 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 二丁基氯菌酸酯 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_ambiguous: VOC_Tetrachloroethylene 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 芥酸酰胺 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 二十七烷 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 图恩戈尔 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 二十四烷 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 2,2-二甲基己烷 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 二十烷 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 异丁酸丁酯 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_ambiguous: VOC_Chloroform 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 左旋-beta-蒎烯 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 屈 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_ambiguous: PAH_Pyrene 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 叔丁脲 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 十七烷 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_ambiguous: PAH_Benzo[k]fluoranthene 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 十六烷 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 1,8-二氮杂环十四烷-2,7-二酮 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_ambiguous: VOC_Dichloromethane 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 角鲨烯 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: PAE_total 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 5-甲基-2,6,10,14,18-二十碳五烯 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 十九烷 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "OP 模型为探索性,建议结合规则筛查和人工复核",
+      "567 个点位-因子组合因阈值未解析而退出正式KOS",
+      "检测到 20 个族群未收录物质,14 个完全未知物质"
+    ],
+    "limitations": "source-level 分组验证(非 site-level);OP 信号稀疏;SHAP 由 GEE 背景主导非污染物;test 非零样本少;不建议作正式 OP 诊断依据"
+  },
+  "evaluation": {
+    "site_id": 2,
+    "data_version": "0ca24da078e1_n1911",
+    "param_version": "evaluation_params_v0.2",
+    "organic_degraded": true,
+    "reconstruction_prod": {
+      "score": null,
+      "grade": "证据不足/无法评价"
+    },
+    "reconstruction_eco": {
+      "score": null,
+      "grade": "证据不足/无法评价"
+    },
+    "ssui": {
+      "ssui": null,
+      "grade": "blocked(有机污染评价指标不足)"
+    },
+    "organic_risk": {
+      "n_organic_factors": 7,
+      "detected_factors": {
+        "1,2-二氯苯": 49,
+        "1,2,3,5-四氯-4,6-二甲基苯": 48,
+        "1,2-苯并蒽": 4,
+        "芘": 7,
+        "苯并[j]荧蒽": 2,
+        "苯并[k]荧蒽": 3,
+        "邻苯二甲酸二酯": 3
+      },
+      "exceed_factors": [],
+      "max_ratios": {},
+      "no_threshold_factors": {
+        "1,2-二氯苯": 34.9,
+        "1,2,3,5-四氯-4,6-二甲基苯": 0.472,
+        "1,2-苯并蒽": 0.519,
+        "芘": 0.661,
+        "苯并[j]荧蒽": 0.535,
+        "苯并[k]荧蒽": 0.707,
+        "邻苯二甲酸二酯": 0.828
+      },
+      "n_with_threshold": 0,
+      "n_no_threshold": 7,
+      "overall": "全部 7 个有机因子无 GB36600 筛选值, 无法定量判定(需补权威阈值)",
+      "threshold_source": "GB36600-2018 / GB15618-2018 (threshold_rules ∪ standard_thresholds 最严档)",
+      "note": "无 GB36600 单项筛选值的有机因子单独列出(不默认判'未超标'); 需补权威阈值方可定量判定(遵守不凭记忆补阈值原则)。"
+    },
+    "limiting_factors": [
+      "缺重金属评价因子(砷/铅/镉/铬/汞/镍/铜/锌)",
+      "缺农业肥力指标(有机质/速效钾/阳离子交换量等)"
+    ],
+    "explanation": "本场地已运行有机污染风险诊断，但三份检测数据未覆盖功能重构与完整 SSUI 所需的农业肥力、生态安全和经济指标，因此结论为证据不足，而不是把有机场地判为不适用。系统不使用默认值或测试夹具补造正式分数；请按缺失清单补录后重新评价。"
+  },
+  "recommendation": {
+    "site_id": 2,
+    "diagnosis_id": 4,
+    "based_on_factors": [
+      "pH"
+    ],
+    "organic_fallback": false,
+    "recommendation_type": "rule_based",
+    "upstream_status": {
+      "kos": "available",
+      "reconstruction": "available",
+      "ssui": "not_computed"
+    },
+    "degradation_reasons": [],
+    "collaborative_filtering_available": false,
+    "kos_review_required": true,
+    "recommendations": []
+  },
+  "report": {
+    "context_has_kos": true,
+    "html_size": 81938
+  }
+}

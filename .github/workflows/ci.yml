@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main, "fix/**", "feat/**"]
+    branches: [main, "fix/**", "feat/**", "codex/**"]
   pull_request:
     branches: [main]
 
@@ -22,10 +22,19 @@ jobs:
       - name: Compile check
         run: |
           python -m compileall backend/app backend/tests -q
+      - name: Alembic clean install and latest migration round-trip
+        env:
+          DATABASE_URL: "sqlite:///./ci_alembic.db"
+        run: |
+          cd backend
+          alembic upgrade head
+          alembic downgrade 0005_round9
+          alembic upgrade head
+          alembic current
       - name: Run pytest
         env:
           DATABASE_URL: "sqlite:///./ci_test.db"
-          SECRET_KEY: "ci_secret"
+          SECRET_KEY: "ci_only_key_2026_at_least_32_characters_long"
           SRS_DEMO_SEED: "1"
         run: |
           cd backend && python -m pytest tests/ -v --tb=short
@@ -64,7 +73,7 @@ jobs:
       - name: Run pytest (setup concurrency + Round9 audit)
         env:
           DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/srs_test"
-          SECRET_KEY: "ci_secret"
+          SECRET_KEY: "ci_only_key_2026_at_least_32_characters_long"
           SRS_DEMO_SEED: "1"
         run: |
           cd backend && python -m pytest tests/test_round9_audit.py -v --tb=short -k "setup or stale or kos"

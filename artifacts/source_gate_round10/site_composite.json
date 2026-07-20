@@ -1,0 +1,1114 @@
+{
+  "source_file": "1.20250731_复合污染场地数据表(乡村建设用地)_完整版.xlsx",
+  "mapping": {
+    "mapping_id": "smart_auto",
+    "confidence": null,
+    "warnings": null
+  },
+  "site": {
+    "id": 1,
+    "site_code": "SRS-A",
+    "name": "1.20250731_复合污染场地数据表(乡村建设用地)_完整版",
+    "pollution_type": "composite",
+    "land_use_type": null,
+    "sampling_points": 8,
+    "measurements": 192
+  },
+  "kos_production": {
+    "track": "prod",
+    "subset": "hm_op",
+    "model_id": "hm_op_prod_Full_RandomForest",
+    "model_version": "p3_alpha_v0.8",
+    "model_contribution_scope": "local_point",
+    "decision_point_id": 6,
+    "decision_point_code": "XC-场地-20-40",
+    "n_sampling_points": 8,
+    "coverage": 0.14,
+    "review_required": true,
+    "open_set_summary": {
+      "n_formal_eligible": 2,
+      "n_formal_obstacle": 2,
+      "n_model_candidate": 6,
+      "n_family_alert": 4,
+      "n_identified_no_threshold": 4,
+      "n_unknown": 7,
+      "n_unit_conflict": 0,
+      "n_mapping_conflict": 1
+    },
+    "key_obstacles": [
+      {
+        "rank": 1,
+        "factor": "Cd_mgkg",
+        "KOS": 0.6791,
+        "components": {
+          "R": 0.564,
+          "W": 0.9,
+          "M": 0.166,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 1.72,
+        "evidence": "A",
+        "exceedance_ratio": 2.8667,
+        "severity_cap_ratio": 10,
+        "severity_saturated": false,
+        "stability_is_constant": true,
+        "stability_note": "S为固定占位参数(无稳定性数据)",
+        "ranking_difference_small": false,
+        "threshold_value": 0.6,
+        "threshold_unit": "mg/kg",
+        "threshold_standard": "GB 15618-2018",
+        "threshold_version": "2018",
+        "pH_condition": "pH>7.5",
+        "land_use_type": "农用地",
+        "threshold_source_id": 4,
+        "threshold_resolution_status": "resolved",
+        "fallback_note": "",
+        "per_point_breakdown": [
+          {
+            "point_id": 6,
+            "value": 1.72,
+            "threshold": 0.6,
+            "threshold_standard": "GB 15618-2018",
+            "pH_condition": "pH>7.5",
+            "B": 1,
+            "severity_ratio": 2.8667
+          },
+          {
+            "point_id": 5,
+            "value": 0.28,
+            "threshold": 0.6,
+            "threshold_standard": "GB 15618-2018",
+            "pH_condition": "pH>7.5",
+            "B": 0,
+            "severity_ratio": 0.4667
+          },
+          {
+            "point_id": 8,
+            "value": 0.23,
+            "threshold": 0.6,
+            "threshold_standard": "GB 15618-2018",
+            "pH_condition": "pH>7.5",
+            "B": 0,
+            "severity_ratio": 0.3833
+          },
+          {
+            "point_id": 1,
+            "value": 0.22,
+            "threshold": 0.6,
+            "threshold_standard": "GB 15618-2018",
+            "pH_condition": "pH>7.5",
+            "B": 0,
+            "severity_ratio": 0.3667
+          },
+          {
+            "point_id": 7,
+            "value": 0.22,
+            "threshold": 0.6,
+            "threshold_standard": "GB 15618-2018",
+            "pH_condition": "pH>7.5",
+            "B": 0,
+            "severity_ratio": 0.3667
+          },
+          {
+            "point_id": 2,
+            "value": 0.17,
+            "threshold": 0.6,
+            "threshold_standard": "GB 15618-2018",
+            "pH_condition": "pH>7.5",
+            "B": 0,
+            "severity_ratio": 0.2833
+          },
+          {
+            "point_id": 3,
+            "value": 0.13,
+            "threshold": 0.6,
+            "threshold_standard": "GB 15618-2018",
+            "pH_condition": "pH>7.5",
+            "B": 0,
+            "severity_ratio": 0.2167
+          },
+          {
+            "point_id": 4,
+            "value": 0.12,
+            "threshold": 0.6,
+            "threshold_standard": "GB 15618-2018",
+            "pH_condition": "pH>7.5",
+            "B": 0,
+            "severity_ratio": 0.2
+          }
+        ],
+        "factor_statistics": {
+          "measurement_count": 8,
+          "valid_measurement_count": 8,
+          "max_value": 1.72,
+          "median_value": 0.22,
+          "p95_value": 1.72,
+          "exceedance_count": 1,
+          "exceedance_ratio": 0.125
+        },
+        "aggregation_method": "per_point_dynamic_threshold_then_site_factor_worst_case"
+      },
+      {
+        "rank": 2,
+        "factor": "pH",
+        "KOS": 0.463,
+        "components": {
+          "R": 0.01,
+          "W": 0.8,
+          "M": 0.0002,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 8.53,
+        "evidence": "A",
+        "exceedance_ratio": 0.01,
+        "severity_cap_ratio": 10,
+        "severity_saturated": false,
+        "stability_is_constant": true,
+        "stability_note": "S为固定占位参数(无稳定性数据)",
+        "ranking_difference_small": false,
+        "threshold_value": null,
+        "threshold_unit": "无量纲",
+        "threshold_standard": "土壤用途适宜区间",
+        "threshold_version": "v1",
+        "pH_condition": "",
+        "land_use_type": "",
+        "threshold_source_id": null,
+        "threshold_resolution_status": "resolved",
+        "fallback_note": "",
+        "per_point_breakdown": [
+          {
+            "point_id": 8,
+            "value": 8.53,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.01
+          },
+          {
+            "point_id": 4,
+            "value": 8.51,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0033
+          },
+          {
+            "point_id": 1,
+            "value": 8.14,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 2,
+            "value": 8.45,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 3,
+            "value": 8.31,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 5,
+            "value": 8.11,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 6,
+            "value": 8.49,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 7,
+            "value": 8.42,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          }
+        ],
+        "factor_statistics": {
+          "measurement_count": 8,
+          "valid_measurement_count": 8,
+          "max_value": 8.53,
+          "median_value": 8.434999999999999,
+          "p95_value": 8.53,
+          "exceedance_count": 0,
+          "exceedance_ratio": 0.0
+        },
+        "aggregation_method": "per_point_dynamic_threshold_then_site_factor_worst_case"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.916895,
+        "direction": "positive",
+        "contribution_scope": "local_point",
+        "local_shap_value": 0.03856,
+        "decision_point_id": 6,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      },
+      {
+        "factor": "SoilBD_gcm3",
+        "contribution": 0.037736,
+        "direction": "positive",
+        "contribution_scope": "local_point",
+        "local_shap_value": 0.001587,
+        "decision_point_id": 6,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      },
+      {
+        "factor": "TN_gkg",
+        "contribution": 0.016312,
+        "direction": "negative",
+        "contribution_scope": "local_point",
+        "local_shap_value": -0.000686,
+        "decision_point_id": 6,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      },
+      {
+        "factor": "OC_pct",
+        "contribution": 0.013982,
+        "direction": "positive",
+        "contribution_scope": "local_point",
+        "local_shap_value": 0.000588,
+        "decision_point_id": 6,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      },
+      {
+        "factor": "CEC_cmolkg",
+        "contribution": 0.008822,
+        "direction": "positive",
+        "contribution_scope": "local_point",
+        "local_shap_value": 0.000371,
+        "decision_point_id": 6,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      },
+      {
+        "factor": "EC_mScm",
+        "contribution": 0.005255,
+        "direction": "negative",
+        "contribution_scope": "local_point",
+        "local_shap_value": -0.000221,
+        "decision_point_id": 6,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      },
+      {
+        "factor": "pH",
+        "contribution": 0.000999,
+        "direction": "negative",
+        "contribution_scope": "local_point",
+        "local_shap_value": -4.2e-05,
+        "decision_point_id": 6,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      }
+    ],
+    "per_point_stats": {
+      "pH": {
+        "n_total_points": 8,
+        "n_exceed_points": 2,
+        "exceed_rate": 0.25,
+        "max_value": 8.53,
+        "max_exceedance_ratio": 0.01,
+        "p95": 8.53,
+        "median": 8.45,
+        "point_details": [
+          {
+            "point_id": 1,
+            "value": 8.14,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 2,
+            "value": 8.45,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 3,
+            "value": 8.31,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 4,
+            "value": 8.51,
+            "B": 1,
+            "ratio": 0.0033333333333332624,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 5,
+            "value": 8.11,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 6,
+            "value": 8.49,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 7,
+            "value": 8.42,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 8,
+            "value": 8.53,
+            "B": 1,
+            "ratio": 0.009999999999999787,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          }
+        ]
+      },
+      "Cd_mgkg": {
+        "n_total_points": 8,
+        "n_exceed_points": 1,
+        "exceed_rate": 0.125,
+        "max_value": 1.72,
+        "max_exceedance_ratio": 2.8667,
+        "p95": 1.72,
+        "median": 0.22,
+        "point_details": [
+          {
+            "point_id": 1,
+            "value": 0.22,
+            "B": 0,
+            "ratio": 0.3666666666666667,
+            "threshold": 0.6,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 2,
+            "value": 0.17,
+            "B": 0,
+            "ratio": 0.2833333333333334,
+            "threshold": 0.6,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 3,
+            "value": 0.13,
+            "B": 0,
+            "ratio": 0.21666666666666667,
+            "threshold": 0.6,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 4,
+            "value": 0.12,
+            "B": 0,
+            "ratio": 0.2,
+            "threshold": 0.6,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 5,
+            "value": 0.28,
+            "B": 0,
+            "ratio": 0.46666666666666673,
+            "threshold": 0.6,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 6,
+            "value": 1.72,
+            "B": 1,
+            "ratio": 2.8666666666666667,
+            "threshold": 0.6,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 7,
+            "value": 0.22,
+            "B": 0,
+            "ratio": 0.3666666666666667,
+            "threshold": 0.6,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 8,
+            "value": 0.23,
+            "B": 0,
+            "ratio": 0.38333333333333336,
+            "threshold": 0.6,
+            "threshold_resolution_status": "resolved"
+          }
+        ]
+      }
+    },
+    "data_quality_flags": [
+      "因子 OC_pct 有多个来源列(有机质, 有机碳)，存在冲突",
+      "因子 P_mgkg 有多个来源列(全磷, 有效磷)，存在冲突",
+      "因子 K_mgkg 有多个来源列(全钾, 速效钾)，存在冲突",
+      "因子 有机质（→OC_pct）单位不明，未做单位转换",
+      "因子 有机碳（→OC_pct）单位不明，未做单位转换",
+      "因子 全氮（→TN_gkg）单位不明，未做单位转换",
+      "因子 全磷（→P_mgkg）单位不明，未做单位转换",
+      "因子 全钾（→K_mgkg）单位不明，未做单位转换",
+      "因子 有效磷（→P_mgkg）单位不明，未做单位转换",
+      "因子 速效钾（→K_mgkg）单位不明，未做单位转换",
+      "因子 电导率（→EC_mScm）单位不明，未做单位转换",
+      "因子 阳离子交换量（→CEC_cmolkg）单位不明，未做单位转换",
+      "因子 容重（→SoilBD_gcm3）单位不明，未做单位转换",
+      "因子 镉（→Cd_mgkg）单位不明，未做单位转换",
+      "因子 砂粒（→Sand_pct）单位不明，未做单位转换",
+      "因子 黏粒（→Clay_pct）单位不明，未做单位转换",
+      "因子 粉粒（→Silt_pct）单位不明，未做单位转换",
+      "因子 石油烃（→TPH_C10C40）单位不明，未做单位转换",
+      "mapping_conflicts: 3 个因子有来源冲突, 已排除出正式KOS, 需人工选择",
+      "threshold_heuristic: TN_gkg 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 水分 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: EC_mScm 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: CEC_cmolkg 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: SoilBD_gcm3 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: Sand_pct 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: Clay_pct 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: Silt_pct 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 大团聚体 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 中团聚体 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 小团聚体 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 微团聚体 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 细微团聚体 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 超细团聚体 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: TPH_C10C40 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "OP 模型为探索性,建议结合规则筛查和人工复核",
+      "139 个点位-因子组合因阈值未解析而退出正式KOS",
+      "检测到 1 个族群未收录物质,14 个完全未知物质"
+    ],
+    "limitations": "source-level 分组验证(非 site-level);OP 信号稀疏;SHAP 由 GEE 背景主导非污染物;test 非零样本少;不建议作正式 OP 诊断依据"
+  },
+  "kos_ecology": {
+    "track": "eco",
+    "subset": "hm_op",
+    "model_id": "hm_op_eco_Full_RandomForest",
+    "model_version": "p3_alpha_v0.8",
+    "model_contribution_scope": "local_point",
+    "decision_point_id": 8,
+    "decision_point_code": "XC-场地-60-100",
+    "n_sampling_points": 8,
+    "coverage": 0.14,
+    "review_required": true,
+    "open_set_summary": {
+      "n_formal_eligible": 1,
+      "n_formal_obstacle": 1,
+      "n_model_candidate": 7,
+      "n_family_alert": 4,
+      "n_identified_no_threshold": 4,
+      "n_unknown": 7,
+      "n_unit_conflict": 0,
+      "n_mapping_conflict": 1
+    },
+    "key_obstacles": [
+      {
+        "rank": 1,
+        "factor": "pH",
+        "KOS": 0.4686,
+        "components": {
+          "R": 0.0697,
+          "W": 0.75,
+          "M": 0.001,
+          "S": 0.8,
+          "E": "A"
+        },
+        "value": 8.53,
+        "evidence": "A",
+        "exceedance_ratio": 0.0697,
+        "severity_cap_ratio": 10,
+        "severity_saturated": false,
+        "stability_is_constant": true,
+        "stability_note": "S为固定占位参数(无稳定性数据)",
+        "ranking_difference_small": false,
+        "threshold_value": null,
+        "threshold_unit": "无量纲",
+        "threshold_standard": "土壤用途适宜区间",
+        "threshold_version": "v1",
+        "pH_condition": "",
+        "land_use_type": "",
+        "threshold_source_id": null,
+        "threshold_resolution_status": "resolved",
+        "fallback_note": "",
+        "per_point_breakdown": [
+          {
+            "point_id": 8,
+            "value": 8.53,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0697
+          },
+          {
+            "point_id": 4,
+            "value": 8.51,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0636
+          },
+          {
+            "point_id": 6,
+            "value": 8.49,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0576
+          },
+          {
+            "point_id": 2,
+            "value": 8.45,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0455
+          },
+          {
+            "point_id": 7,
+            "value": 8.42,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.0364
+          },
+          {
+            "point_id": 3,
+            "value": 8.31,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 1,
+            "severity_ratio": 0.003
+          },
+          {
+            "point_id": 1,
+            "value": 8.14,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          },
+          {
+            "point_id": 5,
+            "value": 8.11,
+            "threshold": null,
+            "threshold_standard": "土壤用途适宜区间",
+            "pH_condition": "",
+            "B": 0,
+            "severity_ratio": 0.0
+          }
+        ],
+        "factor_statistics": {
+          "measurement_count": 8,
+          "valid_measurement_count": 8,
+          "max_value": 8.53,
+          "median_value": 8.434999999999999,
+          "p95_value": 8.53,
+          "exceedance_count": 0,
+          "exceedance_ratio": 0.0
+        },
+        "aggregation_method": "per_point_dynamic_threshold_then_site_factor_worst_case"
+      }
+    ],
+    "model_contribution": [
+      {
+        "factor": "Cd_mgkg",
+        "contribution": 0.594663,
+        "direction": "negative",
+        "contribution_scope": "local_point",
+        "local_shap_value": -0.008512,
+        "decision_point_id": 8,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      },
+      {
+        "factor": "SoilBD_gcm3",
+        "contribution": 0.161869,
+        "direction": "positive",
+        "contribution_scope": "local_point",
+        "local_shap_value": 0.002317,
+        "decision_point_id": 8,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      },
+      {
+        "factor": "CEC_cmolkg",
+        "contribution": 0.127707,
+        "direction": "positive",
+        "contribution_scope": "local_point",
+        "local_shap_value": 0.001828,
+        "decision_point_id": 8,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      },
+      {
+        "factor": "pH",
+        "contribution": 0.060919,
+        "direction": "negative",
+        "contribution_scope": "local_point",
+        "local_shap_value": -0.000872,
+        "decision_point_id": 8,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      },
+      {
+        "factor": "OC_pct",
+        "contribution": 0.035839,
+        "direction": "positive",
+        "contribution_scope": "local_point",
+        "local_shap_value": 0.000513,
+        "decision_point_id": 8,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      },
+      {
+        "factor": "TN_gkg",
+        "contribution": 0.01027,
+        "direction": "negative",
+        "contribution_scope": "local_point",
+        "local_shap_value": -0.000147,
+        "decision_point_id": 8,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      },
+      {
+        "factor": "EC_mScm",
+        "contribution": 0.008733,
+        "direction": "positive",
+        "contribution_scope": "local_point",
+        "local_shap_value": 0.000125,
+        "decision_point_id": 8,
+        "local_shap_note": "基于同一真实最不利采样点的局部SHAP"
+      }
+    ],
+    "per_point_stats": {
+      "pH": {
+        "n_total_points": 8,
+        "n_exceed_points": 6,
+        "exceed_rate": 0.75,
+        "max_value": 8.53,
+        "max_exceedance_ratio": 0.0697,
+        "p95": 8.53,
+        "median": 8.45,
+        "point_details": [
+          {
+            "point_id": 1,
+            "value": 8.14,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 2,
+            "value": 8.45,
+            "B": 1,
+            "ratio": 0.04545454545454501,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 3,
+            "value": 8.31,
+            "B": 1,
+            "ratio": 0.0030303030303029652,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 4,
+            "value": 8.51,
+            "B": 1,
+            "ratio": 0.06363636363636334,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 5,
+            "value": 8.11,
+            "B": 0,
+            "ratio": 0.0,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 6,
+            "value": 8.49,
+            "B": 1,
+            "ratio": 0.05757575757575741,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 7,
+            "value": 8.42,
+            "B": 1,
+            "ratio": 0.03636363636363612,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          },
+          {
+            "point_id": 8,
+            "value": 8.53,
+            "B": 1,
+            "ratio": 0.06969696969696927,
+            "threshold": null,
+            "threshold_resolution_status": "resolved"
+          }
+        ]
+      }
+    },
+    "data_quality_flags": [
+      "因子 OC_pct 有多个来源列(有机质, 有机碳)，存在冲突",
+      "因子 P_mgkg 有多个来源列(全磷, 有效磷)，存在冲突",
+      "因子 K_mgkg 有多个来源列(全钾, 速效钾)，存在冲突",
+      "因子 有机质（→OC_pct）单位不明，未做单位转换",
+      "因子 有机碳（→OC_pct）单位不明，未做单位转换",
+      "因子 全氮（→TN_gkg）单位不明，未做单位转换",
+      "因子 全磷（→P_mgkg）单位不明，未做单位转换",
+      "因子 全钾（→K_mgkg）单位不明，未做单位转换",
+      "因子 有效磷（→P_mgkg）单位不明，未做单位转换",
+      "因子 速效钾（→K_mgkg）单位不明，未做单位转换",
+      "因子 电导率（→EC_mScm）单位不明，未做单位转换",
+      "因子 阳离子交换量（→CEC_cmolkg）单位不明，未做单位转换",
+      "因子 容重（→SoilBD_gcm3）单位不明，未做单位转换",
+      "因子 镉（→Cd_mgkg）单位不明，未做单位转换",
+      "因子 砂粒（→Sand_pct）单位不明，未做单位转换",
+      "因子 黏粒（→Clay_pct）单位不明，未做单位转换",
+      "因子 粉粒（→Silt_pct）单位不明，未做单位转换",
+      "因子 石油烃（→TPH_C10C40）单位不明，未做单位转换",
+      "mapping_conflicts: 3 个因子有来源冲突, 已排除出正式KOS, 需人工选择",
+      "threshold_heuristic: TN_gkg 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 水分 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: EC_mScm 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: CEC_cmolkg 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: SoilBD_gcm3 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_ambiguous: Cd_mgkg 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: Sand_pct 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: Clay_pct 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: Silt_pct 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 大团聚体 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 中团聚体 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 小团聚体 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 微团聚体 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 细微团聚体 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_not_found: 超细团聚体 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "threshold_ambiguous: TPH_C10C40 无法唯一解析权威阈值, 已退出正式KOS并要求复核",
+      "OP 模型为探索性,建议结合规则筛查和人工复核",
+      "147 个点位-因子组合因阈值未解析而退出正式KOS",
+      "检测到 1 个族群未收录物质,15 个完全未知物质"
+    ],
+    "limitations": "source-level 分组验证(非 site-level);OP 信号稀疏;SHAP 由 GEE 背景主导非污染物;test 非零样本少;不建议作正式 OP 诊断依据"
+  },
+  "evaluation": {
+    "site_id": 1,
+    "data_version": "8d1e42df809a_n192",
+    "param_version": "evaluation_params_v0.2",
+    "scope": "production",
+    "scenario": "production",
+    "evaluation_year": 0,
+    "reconstruction_prod": {
+      "score": null,
+      "grade": "证据不足/无法评价"
+    },
+    "reconstruction_eco": {
+      "score": null,
+      "grade": "证据不足/无法评价"
+    },
+    "ssui": {
+      "ssui": null,
+      "grade": "blocked(实测因子阈值未解析)"
+    },
+    "details": {
+      "reconstruction_prod": {
+        "scope": "production",
+        "score": null,
+        "grade": "证据不足/无法评价",
+        "dimensions": [],
+        "weights": {},
+        "limiting_factors": [],
+        "missing_indicators": [
+          "C库变化因子（耕地）",
+          "光温生产潜力/气候生产潜力",
+          "六价铬",
+          "六六六",
+          "剖面构型",
+          "土壤容重",
+          "地下水埋深",
+          "地形坡度",
+          "有效土层厚度",
+          "水解性氮",
+          "汞",
+          "滴滴涕",
+          "灌排能力",
+          "生物多样性",
+          "盐渍化程度",
+          "砷",
+          "耕地质地（表层土壤质地）",
+          "苯并 [a] 芘",
+          "铅",
+          "铜",
+          "锌",
+          "镍",
+          "阳离子交换量"
+        ],
+        "calculation_trace": [
+          "① 已测指标 5 项 / 总指标 28 项 = 覆盖率 17.9%",
+          "② 覆盖率 < 门禁(30%) → 证据不足, 不生成正式评价结论(GPT 5.5)"
+        ],
+        "explanation": "生产功能重构: 覆盖率 17.9% 低于门禁 30%, 证据不足, 不生成正式评价结论。已测 5 项, 缺测 23 项。建议补充缺失指标后重新评价。",
+        "coverage_rate": 0.17857142857142858,
+        "coverage_gate": 0.3,
+        "is_insufficient": true
+      },
+      "reconstruction_eco": {
+        "scope": "ecology",
+        "score": null,
+        "grade": "证据不足/无法评价",
+        "dimensions": [],
+        "weights": {},
+        "limiting_factors": [],
+        "missing_indicators": [
+          "1,1 - 二氯乙烯",
+          "1,1 - 二氯乙烷",
+          "1,1,1 - 三氯乙烷",
+          "1,1,1,2 - 四氯乙烷",
+          "1,1,2 - 三氯乙烷",
+          "1,1,2,2 - 四氯乙烷",
+          "1,2 - 二氯丙烷",
+          "1,2 - 二氯乙烷",
+          "1,2 - 二氯苯",
+          "1,2 - 二溴乙烷",
+          "1,2,3 - 三氯丙烷",
+          "1,4 - 二氯苯",
+          "2 - 氯酚",
+          "2，4 - 二氯酚",
+          "2，4 - 二硝基甲苯",
+          "2，4 - 二硝基酚",
+          "2，4，6 - 三氯酚",
+          "3,3',4,4',5,5'-六氯联苯 （PCB169）",
+          "3,3',4,4',5-五氯联苯 （PCB126）",
+          "3，3‘-二氯联苯胺",
+          "C库变化因子（草地）",
+          "p,p'- 滴滴伊",
+          "p,p'- 滴滴滴",
+          "α- 六六六",
+          "β- 六六六",
+          "γ- 六六六",
+          "䓛",
+          "一溴二氯甲烷",
+          "七氯",
+          "三氯乙烯",
+          "乐果",
+          "乙苯",
+          "二噁英类（总毒性当量）",
+          "二氯甲烷",
+          "二溴氯甲烷",
+          "二苯并 [a,h] 蒽",
+          "五氯酚",
+          "六氯环戊二烯",
+          "六氯苯",
+          "剖面构型",
+          "反 - 1,2 - 二氯乙烯",
+          "可溶性氯",
+          "含盐量",
+          "四氯乙烯",
+          "四氯化碳",
+          "土壤入渗率",
+          "土壤容重",
+          "土壤有机碳含量",
+          "地形坡度",
+          "多氯联苯（总量）⑤",
+          "多溴联苯（总量）",
+          "排水条件",
+          "敌敌畏",
+          "有效土层厚度",
+          "有效硫",
+          "有效钙",
+          "有效钼",
+          "有效铁",
+          "有效铜",
+          "有效锌",
+          "有效锰",
+          "有效镁",
+          "氯丹",
+          "氯乙烯",
+          "氯仿",
+          "氯甲烷",
+          "氯苯",
+          "氰化物",
+          "水解性氮",
+          "汞 (Hg)",
+          "溴仿",
+          "滴滴涕",
+          "灌溉条件",
+          "灭蚁灵",
+          "甲基汞",
+          "甲苯",
+          "石油烃（C10-C40）",
+          "砷 (As)",
+          "硝基苯",
+          "硫丹",
+          "耕地质地（表层土壤质地）",
+          "苯",
+          "苯乙烯",
+          "苯并 [a] 芘",
+          "苯并 [a] 蒽",
+          "苯并 [b] 荧蒽",
+          "苯并 [k] 荧蒽",
+          "苯胺",
+          "茚并 [1,2,3-cd] 芘",
+          "萘",
+          "邻二甲苯",
+          "邻苯二甲酸丁基苄酯",
+          "邻苯二甲酸二(2-乙基己 基）酯",
+          "邻苯二甲酸二正辛酯",
+          "钒",
+          "钴",
+          "铅 (Pb)",
+          "铍",
+          "铜 (Cu)",
+          "铬 (VI)",
+          "锑",
+          "镉 (Cd)",
+          "镍 (Ni)",
+          "间 + 对二甲苯",
+          "阳离子交换量",
+          "阿特拉津",
+          "顺 - 1,2 - 二氯乙烯"
+        ],
+        "calculation_trace": [
+          "① 已测指标 4 项 / 总指标 110 项 = 覆盖率 3.6%",
+          "② 覆盖率 < 门禁(30%) → 证据不足, 不生成正式评价结论(GPT 5.5)"
+        ],
+        "explanation": "生态功能重构: 覆盖率 3.6% 低于门禁 30%, 证据不足, 不生成正式评价结论。已测 4 项, 缺测 106 项。建议补充缺失指标后重新评价。",
+        "coverage_rate": 0.03636363636363636,
+        "coverage_gate": 0.3,
+        "is_insufficient": true
+      },
+      "ssui": {
+        "scope": "production",
+        "ssui": null,
+        "grade": "blocked(实测因子阈值未解析)",
+        "dimensions": {
+          "限制因子C1": [],
+          "风险因子C2": [
+            [
+              "D16_重金属污染物",
+              0.0667,
+              0.7984,
+              "measured"
+            ]
+          ],
+          "经济成本C3": [],
+          "经济效益C4": []
+        },
+        "explanation": "SSUI=blocked。以下污染物有实测值但阈值未解析: D17_有机污染物:石油烃。按 Round9 P0-2.3 安全门禁, 不允许用其他有阈值的安全因子掩盖无阈值的严重超标因子。请补充对应污染物的法规阈值(GB15618/GB36600)后重试。",
+        "calculation_trace": [
+          "① 25项元指标数据覆盖检查",
+          "② D16/D17 中以下因子阈值未解析: D17_有机污染物:石油烃",
+          "③ Round9 P0-2.3 门禁: 实测+阈值未解析 → SSUI=blocked"
+        ],
+        "is_na": true,
+        "is_blocked": true,
+        "blocked_reason": "unresolved_threshold",
+        "blocked_factors": [
+          "D17_有机污染物:石油烃"
+        ],
+        "pollutant_factor_details": [
+          {
+            "d_code": "D16_重金属污染物",
+            "factor": "镉",
+            "max_value": 1.72,
+            "threshold": 0.6,
+            "threshold_standard": "GB 15618-2018",
+            "threshold_version": "2018",
+            "resolution_status": "resolved",
+            "ratio": 2.8667,
+            "exceeded": true,
+            "controls_final_risk": true
+          },
+          {
+            "d_code": "D17_有机污染物",
+            "factor": "石油烃",
+            "max_value": 290.64,
+            "threshold": null,
+            "threshold_standard": "",
+            "threshold_version": "",
+            "resolution_status": "not_found",
+            "ratio": null,
+            "exceeded": null,
+            "controls_final_risk": false
+          }
+        ],
+        "missing_dimensions": [
+          "风险因子C2 阈值未解析"
+        ],
+        "normalization_version": "v1.1_7b0c928496a265609ea01ad28855c18cd2e58d7dd1915667e2bb50e808ac7ca6"
+      }
+    }
+  },
+  "recommendation": {
+    "site_id": 1,
+    "diagnosis_id": 2,
+    "based_on_factors": [
+      "pH"
+    ],
+    "organic_fallback": false,
+    "recommendation_type": "rule_based",
+    "upstream_status": {
+      "kos": "available",
+      "reconstruction": "available",
+      "ssui": "not_computed"
+    },
+    "degradation_reasons": [],
+    "collaborative_filtering_available": false,
+    "kos_review_required": true,
+    "recommendations": []
+  },
+  "report": {
+    "context_has_kos": true,
+    "html_size": 86603
+  }
+}

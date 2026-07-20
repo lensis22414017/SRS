@@ -46,7 +46,7 @@ if getattr(sys, "frozen", False):
         ROOT = _mep
     elif os.path.isdir(os.path.join(_mep, "_internal", "ml")):
         ROOT = os.path.join(_mep, "_internal")
-ART = "ml/artifacts/p3_alpha"
+ART = os.path.join(ROOT, "ml", "artifacts", "p3_alpha")
 
 # KOS 权重 (方法学规定,)
 KOS_W = {"R": 0.30, "W": 0.25, "M": 0.15, "S": 0.20, "E": 0.10}

@@ -105,8 +105,8 @@ def test_01_migration_and_unique_constraint(fresh_db):
 
 
 # ── 测试 3: 完整夹具重复运行得到一致 0≤SSUI≤1 ─────────────────────
-def test_03_full_fixture_produces_valid_ssui(fresh_db, fixture_data):
-    """完整 8 项经济夹具 + allow_proxy → 得到 0≤SSUI≤1。
+def test_03_economic_only_fixture_cannot_fake_full_ssui(fresh_db, fixture_data):
+    """只有 8 项经济夹具不能冒充 D1-D25 完整评价。
 
     Round8 审计三类: D16 重金属必须传 safety_thresholds 才能正常归一化
     (无阈值时进入 unresolved_threshold, 不再回退 Min-Max 伪装正式评价)。
@@ -130,11 +130,10 @@ def test_03_full_fixture_produces_valid_ssui(fresh_db, fixture_data):
                       economic_data=econ, allow_proxy=True,
                       safety_thresholds=safety_thresholds)
 
-        assert r1.get("ssui") is not None, f"应产出 SSUI, 实际: {r1}"
-        assert 0 <= r1["ssui"] <= 1, f"SSUI 应在 0-1, 实际={r1['ssui']}"
-        assert r1["ssui"] == r2["ssui"], "重复运行应得到完全一致的值"
-        assert r1.get("is_reference") is True, "proxy 数据应标记为参考评价"
-        assert r1.get("is_blocked") is False
+        assert r1.get("ssui") is None
+        assert r1.get("is_blocked") is True
+        assert r1 == r2, "相同不完整输入应得到完全一致的阻断结果"
+        assert r1.get("d_coverage", {}).get("C1", 0) < 15
     finally:
         db.close()
 
@@ -181,17 +180,20 @@ def test_06_no_degenerate_0_5(fresh_db, fixture_data):
     from ssui import _normalize_economic, _load
 
     params = _load()
-    # D18=467.41, range [100, 800], negative
+    from reference_loader import load_economic_reference
+    ref_data = load_economic_reference()
+    # D18=467.41, 官方2015-2020区间 [467.41, 508.59], negative
     norm = _normalize_economic("D18", 467.41, params)
+    norm = _normalize_economic("D18", 467.41, params, ref_data=ref_data)
     assert norm is not None
-    expected = 1 - (467.41 - 100) / (800 - 100)  # negative direction
+    expected = 1 - (467.41 - 467.41) / (508.59 - 467.41)
     assert abs(norm - expected) < 0.001, f"D18 归一化={norm}, 期望={expected}"
     assert norm != 0.5, "不应退化为 0.5"
 
-    # D22=19537.65, range [5000, 40000], positive
-    norm22 = _normalize_economic("D22", 19537.65, params)
+    # D22=19537.65, 官方2015-2020逐年观测区间
+    norm22 = _normalize_economic("D22", 19537.65, params, ref_data=ref_data)
     assert norm22 is not None
-    expected22 = (19537.65 - 5000) / (40000 - 5000)
+    expected22 = (19537.65 - 18933.15) / (20662.80 - 18933.15)
     assert abs(norm22 - expected22) < 0.001
     assert norm22 != 0.5
 
@@ -205,12 +207,15 @@ def test_07_proxy_data_not_used_without_consent(fresh_db, fixture_data):
     from ssui import evaluate
     db = fresh_db
     try:
-        series = {"砷": [80.0, 50.0], "pH": [6.0, 6.5]}
+        from test_round10_ssui_science import _full_safety_inputs
+        series, safety_refs, safety_thresholds, statuses, groups = _full_safety_inputs()
         econ = _load_fixture_economic(fixture_data)  # 全是 proxy 数据
-        safety_thresholds = {"砷": {"limit": 30.0, "type": "upper"}}
 
         r = evaluate(series, economic_data=econ, allow_proxy=False,
-                     safety_thresholds=safety_thresholds)
+                     safety_thresholds=safety_thresholds,
+                     threshold_resolution_status=statuses,
+                     safety_reference_ranges=safety_refs,
+                     pollutant_groups=groups)
         assert r.get("is_blocked") is True, "未勾选 proxy 应 blocked"
         assert r.get("ssui") is None
         assert "代理" in r.get("explanation", "") or "确认" in r.get("explanation", ""), \
@@ -221,17 +226,19 @@ def test_07_proxy_data_not_used_without_consent(fresh_db, fixture_data):
 
 # ── 测试 9: 返回 coverage/source_type/is_proxy/confidence/normalization_version
 def test_09_returns_full_metadata(fresh_db, fixture_data):
-    """完整评价返回 coverage/source_type/is_proxy/confidence/normalization_version。"""
+    """完整 25 项参考评价返回 coverage/source_type 等元数据。"""
     from ssui import evaluate
     db = fresh_db
     try:
-        series = {"砷": [80.0, 50.0], "pH": [6.0, 6.5]}
+        from test_round10_ssui_science import _full_safety_inputs
+        series, safety_refs, safety_thresholds, statuses, groups = _full_safety_inputs()
         econ = _load_fixture_economic(fixture_data)
-        # Round8 审计三类: D16 必须有阈值才能算 measured
-        safety_thresholds = {"砷": {"limit": 30.0, "type": "upper"}}
 
         r = evaluate(series, economic_data=econ, allow_proxy=True,
-                     safety_thresholds=safety_thresholds)
+                     safety_thresholds=safety_thresholds,
+                     threshold_resolution_status=statuses,
+                     safety_reference_ranges=safety_refs,
+                     pollutant_groups=groups)
         assert r.get("ssui") is not None
 
         # 检查所有要求的元数据字段

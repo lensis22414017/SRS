@@ -69,28 +69,44 @@ def run_recommendation(db: Session, site_id: int, top_k: int = 5) -> dict:
     kos_factor_names = []
     kos_review_required = False
     try:
-        from app.services.kos_service import run_kos_diagnosis
-        track = "eco" if (site.land_use_type or "").startswith("生态") else "prod"
-        subset = {"heavy_metal": "hm", "organic": "op"}.get(site.pollution_type or "", "all")
-        # 从 DB 读场地因子值
-        from app.models import Measurement
-        rows = (db.query(Measurement.value, FactorDictionary.factor_name, FactorDictionary.factor_code)
-                .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id, isouter=True)
-                .filter(Measurement.site_id == site_id, Measurement.value.isnot(None)).all())
-        sv = {}
-        for v, fn, fc in rows:
-            n = fn or fc
-            if n:
+        # 已持久化的 KOS 是同一次正式诊断的审计快照，应优先于现场重算。
+        kos_payload = (diag.result_payload if diag and diag.diagnosis_method == "kos"
+                       and isinstance(diag.result_payload, dict) else None)
+        if kos_payload:
+            kos_factor_names = [k["factor"] for k in kos_payload.get("key_obstacles", [])][:5]
+            kos_review_required = bool(kos_payload.get("review_required"))
+        else:
+            from app.services.kos_service import run_kos_diagnosis
+            track = "eco" if (site.land_use_type or "").startswith("生态") else "prod"
+            subset = {"heavy_metal": "hm", "organic": "op"}.get(site.pollution_type or "", "all")
+            # 无历史时按真实采样点重算；pH、用途和 value_used_for_model 必须与正式链路一致。
+            rows = (db.query(Measurement.value_used_for_model, Measurement.value,
+                             Measurement.sampling_point_id,
+                             FactorDictionary.factor_name, FactorDictionary.factor_code)
+                    .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id, isouter=True)
+                    .filter(Measurement.site_id == site_id, Measurement.value.isnot(None)).all())
+            sv = {}
+            per_point = {}
+            for value_used, value, point_id, fn, fc in rows:
+                n = fn or fc
+                if not n:
+                    continue
                 try:
-                    vv = float(v)
-                    if n not in sv or vv > sv[n]:
-                        sv[n] = vv
+                    vv = float(value_used if value_used is not None else value)
                 except (TypeError, ValueError):
-                    pass
-        if sv:
-            kos_r = run_kos_diagnosis(sv, track=track, subset=subset, db_session=db)
-            kos_factor_names = [k["factor"] for k in kos_r.get("key_obstacles", [])][:5]
-            kos_review_required = kos_r.get("review_required", False)
+                    continue
+                if n not in sv or vv > sv[n]:
+                    sv[n] = vv
+                if point_id is not None:
+                    per_point.setdefault(point_id, {})[n] = vv
+            if sv:
+                kos_r = run_kos_diagnosis(
+                    sv, track=track, subset=subset, site_pH=sv.get("pH"),
+                    land_use_type=site.land_use_type, db_session=db,
+                    per_point_data=per_point,
+                )
+                kos_factor_names = [k["factor"] for k in kos_r.get("key_obstacles", [])][:5]
+                kos_review_required = bool(kos_r.get("review_required"))
     except Exception as e:
         # v1.0.2(GPT 7.4): 不吞 KOS 异常, 标注降级原因
         upstream_status["kos"] = f"failed: {str(e)[:80]}"
@@ -114,6 +130,11 @@ def run_recommendation(db: Session, site_id: int, top_k: int = 5) -> dict:
         if site.pollution_type == "organic":
             organic_fallback = True
             factor_names = _organic_factors_of(db, site_id) or ["有机污染物"]
+        elif kos_review_required:
+            # 没有可用于正式推荐的法规障碍时返回空候选并保留复核原因，不能抛成运行失败。
+            factor_names = []
+            upstream_status["kos"] = "review_required_no_formal_obstacle"
+            degradation_reasons.append("KOS需人工复核，暂无可用于正式推荐的法规障碍因子")
         else:
             raise ValueError("请先运行障碍因子诊断")
     else:

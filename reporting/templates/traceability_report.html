@@ -140,7 +140,7 @@
   <h2>八、关键障碍因子识别（KOS 综合评分 · 规则主导 + 模型辅助）</h2>
   {% if map_summary.shap_image %}
   <img src="{{ map_summary.shap_image }}" alt="障碍因子排名图" style="width:92%;max-width:560px;margin:6pt 0;border:1px solid #eee"/>
-  <div class="muted" style="margin-bottom:6pt">图: Top-N 障碍因子模型全局贡献份额(红=正向加重, 蓝=负向缓解)。</div>
+  <div class="muted" style="margin-bottom:6pt">图: 障碍因子模型解释贡献份额。局部解释可用时采用同一真实最不利点，否则明确降级为训练集全局背景贡献；红=正向加重，蓝=负向缓解。</div>
   {% endif %}
   {% if diagnosis %}
   <table class="kv">
@@ -153,24 +153,30 @@
     {% if diagnosis.kos and diagnosis.kos.coverage is defined %}<tr><td>覆盖率</td><td>{{ '%.2f'|format(diagnosis.kos.coverage*100) }}%</td></tr>{% endif %}
     {% endif %}
   </table>
-  {% set maximp = diagnosis.top_factors|map(attribute='importance')|max %}
   <table>
-    <tr><th>排名</th><th>障碍因子</th><th>类别</th><th>{% if diagnosis.method == "kos" %}KOS 分数{% else %}相对重要性{% endif %}</th><th>方向</th></tr>
+    {% if diagnosis.method == "kos" %}
+    <tr><th>排名</th><th>障碍因子</th><th>KOS</th><th>R/W/M/S/E</th><th>实测值/阈值</th><th>最大超标倍数</th></tr>
+    {% else %}
+    {% set maximp = diagnosis.top_factors|map(attribute='importance')|max %}
+    <tr><th>排名</th><th>障碍因子</th><th>类别</th><th>相对重要性</th><th>方向</th></tr>
+    {% endif %}
     {% for t in diagnosis.top_factors %}
-    <tr><td>{{ t.rank }}</td><td>{{ t.factor }}</td><td>{{ t.category or '—' }}</td>
-        <td>
-          {% if diagnosis.method == "kos" %}
-            {{ t.kos_score if t.kos_score is not none else '—' }}
-          {% else %}
+    {% if diagnosis.method == "kos" %}
+    <tr><td>{{ t.rank }}</td><td>{{ t.factor }}</td>
+        <td>{{ t.kos_score if t.kos_score is not none else '—' }}</td>
+        <td>R={{ t.components.R if t.components.R is defined else '—' }} / W={{ t.components.W if t.components.W is defined else '—' }} / M={{ t.components.M if t.components.M is defined else '—' }} / S={{ t.components.S if t.components.S is defined else '—' }} / E={{ t.components.E if t.components.E is defined else '—' }}</td>
+        <td>{{ t.value if t.value is not none else '—' }} / {{ t.threshold_value if t.threshold_value is not none else '—' }}{% if t.threshold_standard %}<br/><span class="muted">{{ t.threshold_standard }}</span>{% endif %}</td>
+        <td>{{ t.max_exceedance_ratio if t.max_exceedance_ratio is not none else '—' }}</td></tr>
+    {% else %}
+    <tr><td>{{ t.rank }}</td><td>{{ t.factor }}</td><td>{{ t.category or '—' }}</td><td>
           <table style="width:100%"><tr>
             <td style="width:62%;border:none;padding:0">
               <div class="bar-wrap"><div class="bar" style="width:{{ ((t.importance/maximp*100) if maximp else 0)|round|int }}%">&nbsp;</div></div>
             </td>
             <td style="width:38%;border:none;padding:0 0 0 4pt">{{ t.importance }}</td>
           </tr></table>
-          {% endif %}
-        </td>
-        <td>{{ t.direction }}</td></tr>
+        </td><td>{{ t.direction }}</td></tr>
+    {% endif %}
     {% endfor %}
   </table>
   <div class="muted">{{ diagnosis.summary }}</div>
@@ -178,14 +184,37 @@
   <div class="muted" style="margin-top:6pt">
     <strong>五分量(R/W/M/S/E):</strong> R=阈值超标, W=用途权重, M=模型贡献,
     S=模型稳定性, E=证据等级。<br/>
-    <strong>模型贡献度说明:</strong> 模型贡献度(M)基于全局 SHAP, 反映模型对因子的关注程度,
+    <strong>模型贡献度说明:</strong>
+    {% if diagnosis.kos.model_contribution_scope == 'local_point' %}
+    当前为真实采样点 {{ diagnosis.kos.decision_point_code or diagnosis.kos.decision_point_id or '—' }} 的局部 SHAP；所有模型输入来自同一点位。
+    {% else %}
+    局部解释不可用，当前仅展示训练集全局背景贡献，不代表本场地局部贡献。
+    {% endif %}
     <em>非因果强度</em>, 仅作辅助识别; 法规超标判定以 R(阈值超标)为准。
-    {% if diagnosis.kos.interpretation_note %}<br/>{{ diagnosis.kos.interation_note }}{% endif %}
+    {% if diagnosis.kos.interpretation_note %}<br/>{{ diagnosis.kos.interpretation_note }}{% endif %}
     {% if diagnosis.kos.review_required %}<br/><strong style="color:#c60">⚠ 含启发式/兜底阈值, 需专家复核。</strong>{% endif %}
   </div>
+  {% if diagnosis.kos.model_contribution %}
+  <h3 style="margin-top:8pt">模型贡献度</h3>
+  <table>
+    <tr><th>因子</th><th>贡献份额</th><th>方向</th><th>局部 SHAP</th><th>范围</th></tr>
+    {% for m in diagnosis.kos.model_contribution %}
+    <tr><td>{{ m.factor }}</td><td>{{ m.contribution }}</td><td>{{ m.direction }}</td>
+        <td>{{ m.local_shap_value if m.local_shap_value is not none else '—' }}</td>
+        <td>{{ m.contribution_scope }}</td></tr>
+    {% endfor %}
+  </table>
+  {% endif %}
   {% if diagnosis.kos.per_point_stats and diagnosis.kos.n_sampling_points %}
   <h3 style="margin-top:8pt">逐点超标统计(共 {{ diagnosis.kos.n_sampling_points }} 个采样点)</h3>
-  <div class="muted">按采样点计算的超标点数与超标率, 来自 KOS 诊断结果。</div>
+  <table>
+    <tr><th>因子</th><th>超标点/有效点</th><th>超标率</th><th>最大值</th><th>P95</th><th>中位数</th><th>最大超标倍数</th></tr>
+    {% for factor, s in diagnosis.kos.per_point_stats.items() %}
+    <tr><td>{{ factor }}</td><td>{{ s.n_exceed_points }}/{{ s.n_total_points }}</td>
+        <td>{{ s.exceed_rate }}</td><td>{{ s.max_value }}</td><td>{{ s.p95 }}</td>
+        <td>{{ s.median }}</td><td>{{ s.max_exceedance_ratio }}</td></tr>
+    {% endfor %}
+  </table>
   {% endif %}
   {% endif %}
   {% else %}<div class="muted">本场地的障碍因子诊断尚未运行。请在「障碍因子诊断」页面执行生产轨/生态轨诊断后，重新生成本报告以获取 KOS 关键障碍因子排名、超标分析等完整内容。</div>{% endif %}

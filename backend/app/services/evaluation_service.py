@@ -30,7 +30,7 @@ def _load_eval_params():
     """v1.0.1 final-audit: 配置文件缺失时明确报错(禁止静默退化为仅SSUI默认参数)。"""
     global _EVAL_PARAMS
     if _EVAL_PARAMS is None:
-        cfg_path = os.path.join(ROOT, "ml", "evaluation", "evaluation_params.json")
+        cfg_path = os.path.join(ROOT, "ml", "params", "evaluation_params.json")
         if os.path.exists(cfg_path):
             with open(cfg_path, encoding="utf-8") as f:
                 _EVAL_PARAMS = _json.load(f)
@@ -155,7 +155,7 @@ def _organic_risk(db: Session, site_id: int, series: dict, means: dict) -> dict:
 
 def _evaluation_organic_degraded(db: Session, site_id: int, site: Site,
                                  series: dict, means: dict, data_version: str) -> dict:
-    """有机污染场地降级评价: 重构/SSUI 标"不适用(有机)" + organic_risk 风险诊断。
+    """有机污染场地证据不足评价 + organic_risk 风险诊断。
 
     评价口径基于重金属+农业肥力, 有机因子不在体系内 → 不评分, 但必须给出:
     (1) 为什么不能算 (2) 缺哪些指标 (3) 有机污染风险诊断 (4) OP 修复技术候选(见 recommend_service)。
@@ -164,7 +164,9 @@ def _evaluation_organic_degraded(db: Session, site_id: int, site: Site,
     existing_ssui = (db.query(EvaluationResult)
                      .filter_by(site_id=site_id, eval_type="ssui", data_version=data_version)
                      .first())
-    if existing_ssui and existing_ssui.grade == "不适用(有机)":
+    reconstruction_grade = "证据不足/无法评价"
+    ssui_grade = "blocked(有机污染评价指标不足)"
+    if existing_ssui and existing_ssui.grade == ssui_grade:
         existing_or = (db.query(EvaluationResult)
                        .filter_by(site_id=site_id, eval_type="organic_risk")
                        .order_by(EvaluationResult.id.desc()).first())
@@ -173,9 +175,9 @@ def _evaluation_organic_degraded(db: Session, site_id: int, site: Site,
         return {
             "site_id": site_id, "data_version": data_version, "param_version": PARAM_VERSION,
             "organic_degraded": True, "reused": True,
-            "reconstruction_prod": {"score": None, "grade": "不适用(有机)"},
-            "reconstruction_eco": {"score": None, "grade": "不适用(有机)"},
-            "ssui": {"ssui": None, "grade": "不适用(有机)"},
+            "reconstruction_prod": {"score": None, "grade": reconstruction_grade},
+            "reconstruction_eco": {"score": None, "grade": reconstruction_grade},
+            "ssui": {"ssui": None, "grade": ssui_grade},
             "organic_risk": organic_risk,
             "limiting_factors": existing_ssui.limiting_factors or [],
             "explanation": existing_ssui.explanation or "",
@@ -184,15 +186,18 @@ def _evaluation_organic_degraded(db: Session, site_id: int, site: Site,
     limiting = ["缺重金属评价因子(砷/铅/镉/铬/汞/镍/铜/锌)",
                 "缺农业肥力指标(有机质/速效钾/阳离子交换量等)"]
     explanation = (
-        "本场地为有机污染场地, 功能重构可行性与 SSUI 评价口径基于重金属 + 农业肥力指标体系, "
-        "有机污染物不在该评价体系内, 故不生成数值评分。下方'有机污染风险诊断'作为替代诊断依据。"
-        "如需生成 SSUI/重构分数, 请补充: 砷、铅、镉等重金属指标, 以及有机质、速效钾等农业肥力指标。"
+        "本场地已运行有机污染风险诊断，但三份检测数据未覆盖功能重构与完整 SSUI 所需的"
+        "农业肥力、生态安全和经济指标，因此结论为证据不足，而不是把有机场地判为不适用。"
+        "系统不使用默认值或测试夹具补造正式分数；请按缺失清单补录后重新评价。"
     )
-    dims = {"applicable": False, "reason": "organic_site_no_heavy_metal_indicators",
+    dims = {"applicable": True, "is_blocked": True,
+            "reason": "organic_site_required_indicators_missing",
             "organic_risk": organic_risk, "pollution_type": site.pollution_type}
-    for et in ("reconstruction_prod", "reconstruction_eco", "ssui"):
-        _save(db, site_id, et, data_version, score=None, grade="不适用(有机)",
+    for et in ("reconstruction_prod", "reconstruction_eco"):
+        _save(db, site_id, et, data_version, score=None, grade=reconstruction_grade,
               dimensions=dims, limiting=limiting, explanation=explanation)
+    _save(db, site_id, "ssui", data_version, score=None, grade=ssui_grade,
+          dimensions=dims, limiting=limiting, explanation=explanation)
     _save(db, site_id, "organic_risk", data_version,
           score=(max(organic_risk["max_ratios"].values()) if organic_risk["max_ratios"] else None),
           grade=organic_risk["overall"],
@@ -201,9 +206,9 @@ def _evaluation_organic_degraded(db: Session, site_id: int, site: Site,
     return {
         "site_id": site_id, "data_version": data_version, "param_version": PARAM_VERSION,
         "organic_degraded": True,
-        "reconstruction_prod": {"score": None, "grade": "不适用(有机)"},
-        "reconstruction_eco": {"score": None, "grade": "不适用(有机)"},
-        "ssui": {"ssui": None, "grade": "不适用(有机)"},
+        "reconstruction_prod": {"score": None, "grade": reconstruction_grade},
+        "reconstruction_eco": {"score": None, "grade": reconstruction_grade},
+        "ssui": {"ssui": None, "grade": ssui_grade},
         "organic_risk": organic_risk,
         "limiting_factors": limiting,
         "explanation": explanation,
@@ -211,52 +216,13 @@ def _evaluation_organic_degraded(db: Session, site_id: int, site: Site,
 
 
 def _integrate_weighting_and_mice(means: dict, scope: str) -> dict:
-    """v1.0.2(GPT P0-3): 集成 AHP 主观权重 + MICE 插补。
+    """返回不伪造的单场地评价参数。
 
-    单场地策略():
-    - AHP 主观权重: 用 indicator_weights 作为主观权重(已归一化)
-    - 客观权重(熵权/CRITIC): 单场地无跨场地数据, 退化为均匀权重
-    - MICE: 单场地 1×n 退化为中位数兜底(已有逻辑)
-
-    返回 evaluate() 的 custom_weights/imputed_values 参数。
+    一个场地的一行均值无法估计熵权/CRITIC，也无法拟合 MICE。此前用均匀权重
+    冒充客观权重、用单行中位数冒充 MICE 会制造虚假完整性。当前只使用方法文件
+    已登记的权重；缺失指标由覆盖率门禁阻断，绝不现场补造。
     """
-    import os as _os
-    import json as _json
-    import numpy as np
-    # evaluation_service.py 在 backend/app/services/, 需上溯到 SRS 根(4级dirname)
-    _PARAMS = _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.dirname(
-        _os.path.dirname(_os.path.abspath(__file__))))), "ml", "params", "evaluation_params.json")
-    with open(_PARAMS, encoding="utf-8") as f:
-        params = _json.load(f)
-    iw = params["reconstruction"][scope]["indicator_weights"]
-
-    # AHP 主观权重(直接用 indicator_weights, 已归一化)
-    n = len(iw)
-    subjective = np.array(list(iw.values()))
-    subjective = subjective / subjective.sum()
-
-    # 客观权重: 单场地退化为均匀(诚实标注)
-    objective = np.ones(n) / n
-
-    # 组合权重(主观50% + 客观50%)
-    try:
-        from weighting import combined_weights
-        combined = combined_weights(subjective, objective, alpha=0.5)
-        custom_weights = {k: float(v) for k, v in zip(iw.keys(), combined)}
-    except ImportError:
-        custom_weights = None  # weighting.py 不可用时用静态权重
-
-    # MICE 插补(单场地退化为中位数兜底)
-    imputed_values = None
-    try:
-        from mice_imputer import apply_mice_to_values
-        result = apply_mice_to_values(means, all_factors=list(iw.keys()))
-        if result.get("imputed"):
-            imputed_values = result["imputed"]
-    except ImportError:
-        pass
-
-    return {"custom_weights": custom_weights, "imputed_values": imputed_values}
+    return {"custom_weights": None, "imputed_values": None}
 
 
 def run_evaluation(db: Session, site_id: int, t: float | None = None,
@@ -363,22 +329,10 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
     results = {}
     # Round8 审计一类: 双轨重构用独立循环变量 recon_scope, 严禁覆盖入参 requested_scope
     for recon_scope in ("production", "ecology"):
-        # v1.0.2(GPT 5.4): 污染物阈值兜底 — resolve_limit 返回 None 时调 fallback
-        from app.services.threshold_resolver import resolve_threshold_fallback
-        _FACTOR_TO_CANON = {"砷": "As_mgkg", "铅": "Pb_mgkg", "铜": "Cu_mgkg",
-                            "锌": "Zn_mgkg", "镉": "Cd_mgkg", "铬": "Cr_mgkg",
-                            "汞": "Hg_mgkg", "镍": "Ni_mgkg"}
-        _track = "prod" if recon_scope == "production" else "eco"
         screen = {}
         for f in ("砷", "铅", "铜", "锌", "镉", "铬", "汞", "镍"):
             lim = (resolve_limit(_limits(), f, ph, scope=recon_scope,
                                  land_subtype="其他用地") or {}).get("limit")
-            # v1.0.2: resolve_limit 返回 None → 调 resolve_threshold_fallback 取最严档
-            if lim is None and db is not None:
-                canon = _FACTOR_TO_CANON.get(f, f)
-                fb = resolve_threshold_fallback(db, canon, track=_track)
-                if fb.get("threshold_resolution_status") == "fallback":
-                    lim = fb.get("threshold_value")
             screen[f] = lim
         # v1.0.2(GPT P0-3): AHP主观权重 + MICE插补集成
         eval_kwargs = _integrate_weighting_and_mice(means, recon_scope)
@@ -393,19 +347,33 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
             from app.services.kos_service import run_kos_diagnosis
             from app.models import Measurement
             track = "prod" if recon_scope == "production" else "eco"
-            mrows = (db.query(Measurement.value, FactorDictionary.factor_name)
+            mrows = (db.query(Measurement.value_used_for_model, Measurement.value,
+                              Measurement.sampling_point_id, FactorDictionary.factor_name)
                      .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id, isouter=True)
                      .filter(Measurement.site_id == site_id, Measurement.value.isnot(None)).all())
             sv = {}
-            for v, fn in mrows:
+            per_point = {}
+            for value_used, value, point_id, fn in mrows:
                 if fn:
                     try:
-                        vv = float(v)
-                        if fn not in sv or vv > sv[fn]: sv[fn] = vv
-                    except (TypeError, ValueError): pass
+                        vv = float(value_used if value_used is not None else value)
+                        if fn not in sv or vv > sv[fn]:
+                            sv[fn] = vv
+                        if point_id is not None:
+                            per_point.setdefault(point_id, {})[fn] = vv
+                    except (TypeError, ValueError):
+                        continue
             if sv:
                 # R3 审计第四类 4.3: 传同一 db_session, 统一使用数据库动态阈值
-                kos_r = run_kos_diagnosis(sv, track=track, subset="all", db_session=db)
+                kos_r = run_kos_diagnosis(
+                    sv,
+                    track=track,
+                    subset="all",
+                    site_pH=ph,
+                    land_use_type=site.land_use_type,
+                    db_session=db,
+                    per_point_data=per_point,
+                )
                 kos_factors = [k["factor"] for k in kos_r.get("key_obstacles", [])][:5]
                 # KOS 因子优先,合并去重
                 for kf in kos_factors:
@@ -460,19 +428,33 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
     # R3-P0-5 + Round8 审计三类: 用 resolve_threshold_from_db 按 scope/pH/land_use 解析
     # 不再用 production+ecology 无序覆盖, 严格按 requested_scope 解析
     from app.services.threshold_resolver import resolve_threshold_from_db
-    from app.models import StandardThreshold
     safety_thresholds = {}
     threshold_resolution_status = {}
     land_use_type = getattr(site, "land_use_type", None)
     _HM_CANON_MAP = {"砷": "As_mgkg", "铅": "Pb_mgkg", "镉": "Cd_mgkg", "铬": "Cr_mgkg",
                      "汞": "Hg_mgkg", "铜": "Cu_mgkg", "锌": "Zn_mgkg", "镍": "Ni_mgkg"}
-    _ORGANIC_FACTORS = ["苯并[a]芘", "六六六", "滴滴涕", "石油烃"]
     requested_track = "prod" if requested_scope == "production" else "eco"
-    for cn_name, canon in _HM_CANON_MAP.items():
+    measured_factor_rows = (db.query(FactorDictionary.factor_code, FactorDictionary.factor_name,
+                                     FactorDictionary.level1_category)
+                            .join(Measurement, Measurement.factor_id == FactorDictionary.id)
+                            .filter(Measurement.site_id == site_id).distinct().all())
+    heavy_factor_codes = []
+    organic_factor_codes = []
+    factor_names = {}
+    for factor_code, factor_name, category in measured_factor_rows:
+        factor_names[factor_code] = factor_name or factor_code
+        if factor_name in _HM_CANON_MAP or factor_code in _HM_CANON_MAP:
+            heavy_factor_codes.append(factor_code)
+        elif category == "环境指标" and factor_code != "pH":
+            organic_factor_codes.append(factor_code)
+
+    for factor_code in heavy_factor_codes:
+        cn_name = factor_names[factor_code]
+        canon = _HM_CANON_MAP.get(cn_name, _HM_CANON_MAP.get(factor_code, factor_code))
         resolved = resolve_threshold_from_db(
             db, canon, track=requested_track, site_pH=ph, land_use_type=land_use_type)
         if resolved.get("threshold_value") is not None:
-            safety_thresholds[cn_name] = {
+            safety_thresholds[factor_code] = {
                 "limit": float(resolved["threshold_value"]),
                 "type": "upper",
                 "standard": resolved.get("threshold_standard", ""),
@@ -481,14 +463,18 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
                 "land_use_type": resolved.get("land_use_type", ""),
                 "resolution_status": resolved.get("threshold_resolution_status", "resolved"),
             }
-        threshold_resolution_status[cn_name] = resolved.get(
+        threshold_resolution_status[factor_code] = resolved.get(
             "threshold_resolution_status", "not_found")
-    # D17 有机污染物阈值(原审计三类 3.4: 必须为每个有机物解析合法阈值)
-    for org_name in _ORGANIC_FACTORS:
+    # D17 动态覆盖本场地全部实测有机污染物，不再限定四个静态名称。
+    for factor_code in organic_factor_codes:
+        factor_name = factor_names[factor_code]
         resolved = resolve_threshold_from_db(
-            db, org_name, track=requested_track, site_pH=ph, land_use_type=land_use_type)
+            db, factor_code, track=requested_track, site_pH=ph, land_use_type=land_use_type)
+        if resolved.get("threshold_value") is None and factor_name != factor_code:
+            resolved = resolve_threshold_from_db(
+                db, factor_name, track=requested_track, site_pH=ph, land_use_type=land_use_type)
         if resolved.get("threshold_value") is not None:
-            safety_thresholds[org_name] = {
+            safety_thresholds[factor_code] = {
                 "limit": float(resolved["threshold_value"]),
                 "type": "upper",
                 "standard": resolved.get("threshold_standard", ""),
@@ -497,14 +483,16 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
                 "land_use_type": resolved.get("land_use_type", ""),
                 "resolution_status": resolved.get("threshold_resolution_status", "resolved"),
             }
-        threshold_resolution_status[org_name] = resolved.get(
+        threshold_resolution_status[factor_code] = resolved.get(
             "threshold_resolution_status", "not_found")
 
     # Round8 审计一类 1.3: SSUI 严格使用 requested_scope, 不再受双轨循环影响
     s = S.evaluate(series, scope=requested_scope, t=t, intensity=intensity,
                    economic_data=economic_data, allow_proxy=allow_proxy,
                    safety_thresholds=safety_thresholds,
-                   threshold_resolution_status=threshold_resolution_status)
+                   threshold_resolution_status=threshold_resolution_status,
+                   pollutant_groups={"heavy_metals": heavy_factor_codes,
+                                     "organics": organic_factor_codes})
     ssui_dimensions = dict(s.get("dimensions") or {})
     ssui_dimensions["calculation_trace"] = s.get("calculation_trace", [])
     # R3: 把经济指标详情也存入 dimensions 供前端展示
@@ -514,6 +502,8 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
         ssui_dimensions["coverage"] = s["coverage"]
     ssui_dimensions["is_blocked"] = s.get("is_blocked", False)
     ssui_dimensions["is_reference"] = s.get("is_reference", False)
+    # 保存 canonical SSUI 响应，GET/刷新/报告不得丢失 worst_factor、coverage、raw_score 等。
+    ssui_dimensions["result_payload"] = s
     # R3-P0-3 / Round9 P0-1: SSUI 指纹+run_config 写入专用字段(不再塞 param_version)
     # 用 ssui 实际返回的 normalization_version 覆盖占位
     ssui_run_config["normalization_version"] = s.get("normalization_version", "v1")

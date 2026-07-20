@@ -54,7 +54,7 @@ def _minmax(vals, negative=False):
     return sum(norm) / len(norm)
 
 
-def _normalize_economic(indicator_code: str, raw_value: float, params: dict,
+def _normalize_economic(indicator_code: str, raw_value: float, params: dict | None = None,
                         ref_data: dict | None = None) -> float | None:
     """经济指标参照区间归一化(Round9 P0-6: 从 CSV 加载)。
 
@@ -66,11 +66,7 @@ def _normalize_economic(indicator_code: str, raw_value: float, params: dict,
     ref_data 来自 load_economic_reference() — Round9 起从 CSV 读, 不再读 params JSON。
     params 兼容旧路径(ref_data=None 时回退到 params.economic_reference_ranges, deprecated)。
     """
-    if ref_data and ref_data.get("ranges"):
-        ref = ref_data["ranges"].get(indicator_code)
-    else:
-        # 兼容路径: params JSON 中 deprecated 的 economic_reference_ranges
-        ref = params.get("economic_reference_ranges", {}).get("ranges", {}).get(indicator_code)
+    ref = (ref_data or {}).get("ranges", {}).get(indicator_code)
     if not ref:
         return None
     lo, hi = ref.get("min"), ref.get("max")
@@ -82,6 +78,24 @@ def _normalize_economic(indicator_code: str, raw_value: float, params: dict,
     # clip 到 [0, 1](原始值可能在参照区间外, 截断后仍在合法范围)
     normalized = max(0.0, min(1.0, normalized))
     return normalized
+
+
+def _normalize_against_external_reference(values: list, reference: dict | None) -> float | None:
+    """用外部参照总体归一化原始实测值，禁止场内 Min-Max。
+
+    reference 至少包含 min/max/direction；常量场地仍可用外部范围得到确定分数。
+    """
+    clean = [float(value) for value in values if value is not None]
+    if not clean or not reference:
+        return None
+    lo, hi = reference.get("min"), reference.get("max")
+    if lo is None or hi is None or float(hi) <= float(lo):
+        return None
+    mean_value = sum(clean) / len(clean)
+    normalized = (mean_value - float(lo)) / (float(hi) - float(lo))
+    if reference.get("direction") == "negative":
+        normalized = 1.0 - normalized
+    return max(0.0, min(1.0, normalized))
 
 
 def _aggregate_pollutant_risk(factor_list: list, series: dict,
@@ -135,14 +149,13 @@ def _aggregate_pollutant_risk(factor_list: list, series: dict,
         thr_limit = float(thr_limit) if thr_limit and thr_limit > 0 else None
         fc_status = thr.get("resolution_status") if isinstance(thr, dict) else None
         if not fc_status:
-            fc_status = threshold_resolution_status.get(fc, "unknown")
+            fc_status = threshold_resolution_status.get(fc, "resolved" if thr_limit is not None else "unknown")
 
         # 判定该因子是否"实测但阈值未解析"(审计 P0-2.3: 这类必须 blocked)
         # 审计语义: 必须是上游已经解析过但确认"无阈值"(not_found/ambiguous/unit_conflict/mapping_conflict)
-        # 注意: "unknown" 表示上游没传该因子的解析信息(可能是 fixture 没传或确实没解析),
-        #       不等同于"阈值不存在"; 不直接拦截, 只标 review_required 让上游补解析。
-        # 这样 fixture 只传砷的 safety_thresholds 时不会误判 D16 其他重金属为 unresolved。
-        NOT_RESOLVED_BLOCK = {"not_found", "ambiguous", "unit_conflict", "mapping_conflict"}
+        # 任何实测污染物没有明确 resolved/fallback/heuristic 状态都必须拦截。
+        # "unknown" 不是安全证据，不能依靠其他已解析因子掩盖。
+        NOT_RESOLVED_BLOCK = {"unknown", "not_found", "ambiguous", "unit_conflict", "mapping_conflict"}
         if thr_limit is None or fc_status in NOT_RESOLVED_BLOCK:
             factor_details.append({
                 "factor": fc, "max_value": max_val, "threshold": None,
@@ -151,7 +164,6 @@ def _aggregate_pollutant_risk(factor_list: list, series: dict,
                 "resolution_status": fc_status, "ratio": None,
                 "exceeded": None, "controls_final_risk": False,
             })
-            # 只有明确"已解析但无阈值"才入 unresolved(blocked); unknown 不 blocked
             if fc_status in NOT_RESOLVED_BLOCK:
                 unresolved_factors.append(fc)
             continue
@@ -265,11 +277,20 @@ D_TO_FACTORS = {
 
 NEGATIVE_METAS = {"D1_土壤含盐量", "D16_重金属污染物", "D17_有机污染物"}
 
+D_COMPONENTS = {
+    "D10_有效态锌铁锰硼钙": [["有效锌"], ["有效铁"], ["有效锰"], ["有效硼"], ["有效钙"]],
+    "D11_氮磷钾": [["全氮", "总氮"], ["全磷"], ["速效钾"]],
+    "D12_土壤酶活性": [["过氧化氢酶"], ["脲酶"], ["磷酸酶"], ["蔗糖酶"]],
+}
+
 
 def evaluate(series: dict, scope: str = "production", t: float = 2.0,
              intensity: str = "medium", economic_data: dict | None = None,
              allow_proxy: bool = False, safety_thresholds: dict | None = None,
-             threshold_resolution_status: dict | None = None) -> dict:
+             threshold_resolution_status: dict | None = None,
+             safety_reference_ranges: dict | None = None,
+             economic_reference_data: dict | None = None,
+             pollutant_groups: dict | None = None) -> dict:
     """v1.0.2 + R3 + Round8: SSUI 完整 25 项评价。
 
     series: {factor_code: [跨采样点数值]} — D1-D17 安全性指标。
@@ -292,23 +313,22 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
     economic_data = economic_data or {}
     safety_thresholds = safety_thresholds or {}
     threshold_resolution_status = threshold_resolution_status or {}
+    safety_reference_ranges = safety_reference_ranges or {}
+    pollutant_groups = pollutant_groups or {}
 
     # Round9 P0-6: 经济参照集从 CSV 加载(不再读 JSON 手填 min/max)
-    # normalization_version 含 CSV 版本 + SHA-256 前 8 位, 指纹/审计可追溯
+    # normalization_version 含 CSV 版本 + 完整 SHA-256, 可直接审计追溯。
     try:
         from reference_loader import load_economic_reference
-        ref_data = load_economic_reference()
+        ref_data = economic_reference_data or load_economic_reference(scope=scope_key)
         ref_version = ref_data.get("version", "missing")
-        ref_sha = ref_data.get("sha256", "missing")[:8]
+        ref_sha = ref_data.get("sha256", "missing")
         normalization_version = f"{ref_version}_{ref_sha}"
     except Exception:
         ref_data = {"ranges": {}, "version": "missing", "sha256": "missing"}
         normalization_version = "missing"
-    # CSV 缺失/不可读时使用 deprecated JSON 兜底, 但 normalization_version 显式标 missing
-    if ref_data.get("sha256") in {"missing", "unreadable"}:
-        # 回退到 JSON(deprecated 路径, 但保留可用性)
-        ref_data = params.get("economic_reference_ranges", {"ranges": {}})
-        normalization_version = f"deprecated_json_{ref_data.get('version', 'unknown')}"
+    if not ref_data.get("valid"):
+        normalization_version = f"invalid_{ref_data.get('status', 'unknown')}"
 
     # 按准则层分组计算
     groups = {"限制因子C1": [], "风险因子C2": [], "经济成本C3": [], "经济效益C4": []}
@@ -339,8 +359,10 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
             # R3-P0-5 + Round9 P0-2: D16/D17 综合全部因子(取最严重超标比例)
             # 返回结构化 dict; 含 unresolved_factors 的因子进入 blocked
             if d_code in ("D16_重金属污染物", "D17_有机污染物"):
+                dynamic_factors = pollutant_groups.get("heavy_metals" if d_code.startswith("D16_") else "organics")
+                risk_factors = list(dict.fromkeys(dynamic_factors or factor_list))
                 pr = _aggregate_pollutant_risk(
-                    factor_list, series, safety_thresholds, d_code,
+                    risk_factors, series, safety_thresholds, d_code,
                     threshold_resolution_status=threshold_resolution_status)
                 # 跟踪全局最严重因子(供 severe exceedance 门禁)
                 if pr.get("worst_ratio") is not None:
@@ -366,19 +388,30 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
                     groups[criterion].append((d_code, None, weight, "missing"))
                 continue
 
-            # D1-D15: 保持场内 Min-Max(非污染物, 场内归一化有意义)
-            vals = None
-            for fc in factor_list:
-                if fc in series and any(x is not None for x in series[fc]):
-                    vals = series[fc]
-                    break
-            if vals is not None:
-                norm = _minmax(vals, negative=(d_code in NEGATIVE_METAS))
-                if norm is not None:
-                    groups[criterion].append((d_code, round(norm, 4), weight, "measured"))
-                else:
-                    # R3: min=max→None, 方差不足不纳入
-                    groups[criterion].append((d_code, None, weight, "insufficient_variance"))
+            # D1-D15: 使用外部参照总体；复合指标必须聚合所有定义分量。
+            components = D_COMPONENTS.get(d_code, [factor_list])
+            component_scores = []
+            missing_components = []
+            normalization_missing = []
+            for aliases in components:
+                selected = next((fc for fc in aliases
+                                 if fc in series and any(x is not None for x in series[fc])), None)
+                if selected is None:
+                    missing_components.append("/".join(aliases))
+                    continue
+                normalized = _normalize_against_external_reference(
+                    series[selected], safety_reference_ranges.get(selected))
+                if normalized is None:
+                    normalization_missing.append(selected)
+                    continue
+                component_scores.append(normalized)
+            if missing_components:
+                groups[criterion].append((d_code, None, weight, "missing_component"))
+            elif normalization_missing:
+                groups[criterion].append((d_code, None, weight, "normalization_missing"))
+            elif component_scores:
+                groups[criterion].append((d_code, round(sum(component_scores) / len(component_scores), 4),
+                                          weight, "measured"))
             else:
                 groups[criterion].append((d_code, None, weight, "missing"))
 
@@ -415,7 +448,8 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
         else:
             groups[criterion].append((d_code, None, weight, "missing"))
 
-    # R3 审计第五类: 风险/经济数据缺失检查 + 8/8 经济齐全门禁
+    # 25 项完整性门禁：不得对缺项重分权重后继续给正式等级。
+    c1_measured = [g for g in groups["限制因子C1"] if g[3] == "measured"]
     c2_measured = [g for g in groups["风险因子C2"] if g[3] in ("measured", "partial_resolved")]
     c3_measured = [g for g in groups["经济成本C3"] if g[3] == "measured"]
     c4_measured = [g for g in groups["经济效益C4"] if g[3] == "measured"]
@@ -460,10 +494,16 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
     has_only_site_actual = economic_source_types.issubset({"site_actual"}) if economic_source_types else False
     has_proxy = bool(economic_source_types & {"regional_official_proxy", "official_national_reference", "test_fixture"})
 
-    if not has_risk_data or not has_economic_data or not economic_all_present:
+    c1_missing = [g[0] for g in groups["限制因子C1"] if g[3] != "measured"]
+    c2_missing = [g[0] for g in groups["风险因子C2"] if g[3] != "measured"]
+    full_25_complete = len(c1_measured) == 15 and len(c2_measured) == 2 and economic_all_present
+
+    if not full_25_complete:
         missing_dims = []
-        if not has_risk_data:
-            missing_dims.append("风险因子C2")
+        if c1_missing:
+            missing_dims.append(f"限制因子C1不完整(缺{len(c1_missing)}项)")
+        if c2_missing:
+            missing_dims.append(f"风险因子C2不完整(缺{len(c2_missing)}项)")
         if not has_economic_data:
             missing_dims.append("经济成本C3/经济效益C4")
         elif not economic_all_present:
@@ -472,13 +512,13 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
             "scope": scope, "ssui": None, "grade": "blocked(数据不足)",
             "dimensions": {k: [g for g in v if g[3] == "measured"] for k, v in groups.items()},
             "explanation": f"SSUI=blocked。缺失: {', '.join(missing_dims)}。"
-                           f"方法学要求安全性(含风险因子)+经济性双重数据, "
-                           f"且 D18-D25 经济指标需 8/8 齐全才能生成正式 SSUI。"
+                           f"方法学要求 D1-D25 全部具备可审计实测值与外部归一化依据，"
+                           f"且 D18-D25 经济指标需 8/8 齐全。"
                            f"当前经济指标 {economic_measured_count}/8 项已提供。"
                            f"建议通过经济数据录入或 Excel 导入补齐缺失指标。",
             "calculation_trace": [
                 f"① 25项元指标数据覆盖检查:",
-                f"  限制因子C1: {len([g for g in groups['限制因子C1'] if g[3]=='measured'])} 项已测",
+                f"  限制因子C1: {len(c1_measured)}/15 项可评价",
                 f"  风险因子C2: {len(c2_measured)} 项已测",
                 f"  经济成本C3: {len(c3_measured)} 项已测",
                 f"  经济效益C4: {len(c4_measured)} 项已测",
@@ -490,13 +530,22 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
             "missing_dimensions": missing_dims,
             "missing_indicators": economic_missing,
             "d_coverage": {
-                "C1": len([g for g in groups["限制因子C1"] if g[3] == "measured"]),
+                "C1": len(c1_measured),
                 "C2": len(c2_measured),
                 "C3": len(c3_measured),
                 "C4": len(c4_measured),
             },
             "economic_details": economic_details,
             "normalization_version": normalization_version,
+            "missing_c1_indicators": c1_missing,
+            "missing_c2_indicators": c2_missing,
+            "worst_factor": worst_factor_global,
+            "worst_ratio": worst_ratio_global,
+            "severity_forced_downgrade": bool(worst_ratio_global is not None and worst_ratio_global > 1.0),
+            "pollutant_factor_details": pollutant_factor_details_all,
+            "has_fallback_threshold": has_fallback_threshold,
+            "source_type": "reference_threshold" if has_fallback_threshold else "incomplete_input",
+            "confidence": 0.6 if has_fallback_threshold else 0.0,
         }
 
     # R3 审计第五类: proxy 数据门禁
@@ -538,24 +587,16 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
     ft = 1 + params["time_weight_function"]["alpha"] * t
     M = _pick_M(params, scope, intensity)
     raw_ssui = (b1 * 0.5 + b2 * 0.5) * ft * M
-    ssui = round(min(raw_ssui, 1.0), 4)
+    bounded_ssui = max(0.0, min(raw_ssui, 1.0))
+    ssui = round(bounded_ssui, 4)
 
     # ──── Round9 P0-2.4 severe exceedance 安全门禁 ────
     # 审计 P0-2.4: D16/D17 最严重超标倍数 ≥ 5 (高风险档) → 等级不得为"优/高/低风险"
     # 即"严重超标却评价为优/良好"的矛盾结论, 审计明令禁止。
     # levels 实际: 高度可持续(0.8-1.0) / 中度可持续(0.6-0.8) / 低度可持续(0.4-0.6) / 不可持续(<0.4)
     # 触发后强制降级到"低度可持续"(score 也同步降到 0.4 区间)。
-    SEVERE_EXCEEDANCE_RATIO = 5.0
-    severe_exceedance_forced_downgrade = False
+    regulatory_veto = worst_ratio_global is not None and worst_ratio_global > 1.0
     base_grade = _grade(ssui, params)
-    if worst_ratio_global is not None and worst_ratio_global >= SEVERE_EXCEEDANCE_RATIO:
-        # 审计语义: 严重超标不能给"优/良好/高可持续/中可持续"评价
-        FORBIDDEN_GRADES_WHEN_SEVERE = {"高度可持续", "中度可持续", "优", "良好",
-                                          "高可持续性", "低风险"}
-        if base_grade in FORBIDDEN_GRADES_WHEN_SEVERE:
-            severe_exceedance_forced_downgrade = True
-            # 同步降级 score 到低度可持续上限(0.6)
-            ssui = min(ssui, 0.5999)
 
     # ──── Round9 P0-2.3 fallback/heuristic 阈值只能参考评价 ────
     # 即便 SSUI 算出来, 若 safety_thresholds 含 fallback/heuristic 状态, 强制标参考评价
@@ -569,8 +610,8 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
     # R3: proxy 数据标记(参考评价, 不是正式结论)
     # Round9 P0-2.3: fallback/heuristic 阈值也强制 is_reference
     # Round9 P0-2.4: severe exceedance 强制降级
-    if severe_exceedance_forced_downgrade:
-        grade = f"低可持续性(超标{worst_ratio_global:.1f}倍强制降级)"
+    if regulatory_veto:
+        grade = f"不可持续(法规超标{worst_ratio_global:.1f}倍)"
     elif is_reference:
         if forced_reference_reason:
             grade = f"参考评价-{forced_reference_reason}({_grade(ssui, params)})"
@@ -597,10 +638,11 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
 
     # Round9 P0-2.6: 显式返回最严重因子(供前端/报告/审计追溯)
     # severity_forced: severe exceedance 是否触发了强制降级
-    severity_forced = severe_exceedance_forced_downgrade
+    severity_forced = regulatory_veto
 
     return {
         "scope": scope, "ssui": ssui, "grade": grade,
+        "raw_score": round(raw_ssui, 6), "bounded_score": ssui,
         "dimensions": {
             "B1_safety": round(b1, 4),
             "B2_economy": round(b2, 4),
@@ -630,6 +672,9 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
         "has_fallback_threshold": has_fallback_threshold,
         "unresolved_threshold_factors": unresolved_threshold_factors,
         "coverage": {
+            "complete_25": full_25_complete,
+            "measured_total": len(c1_measured) + len(c2_measured) + economic_measured_count,
+            "required_total": 25,
             "economic_measured": economic_measured_count,
             "economic_total": 8,
             "economic_complete": economic_all_present,
@@ -638,16 +683,16 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
         "normalization_version": ref_version,
         "calculation_trace": [
             f"① 25项元指标按4个准则层分组计算(限制因子/风险因子/经济成本/经济效益)",
-            f"② D1-D17 安全性: 场内Min-Max归一化; D18-D25 经济: 参照区间归一化({ref_version})",
+            f"② D1-D15 安全性: 外部参照总体归一化; D16-D17: 法规阈值; D18-D25: 官方年度参照样本({ref_version})",
             f"③ 各准则层组内加权: SC1={round(sc.get('限制因子C1',0),4)}, SC2={round(sc.get('风险因子C2',0),4)}, "
             f"SC3={round(sc.get('经济成本C3',0),4)}, SC4={round(sc.get('经济效益C4',0),4)}",
             f"④ B1安全性={round(b1,4)}, B2经济性={round(b2,4)}",
             f"⑤ f(t)=1+0.03×{t}={round(ft,3)}, M={M}",
-            f"⑥ SSUI=(B1×0.5+B2×0.5)×f(t)×M={round(raw_ssui,4)}→min(,1.0)={ssui}",
+            f"⑥ 原始SSUI=(B1×0.5+B2×0.5)×f(t)×M={round(raw_ssui,4)}；展示边界值={ssui}",
             f"⑦ 等级: {grade}",
             f"⑧ 数据来源: {'区域代理数据(参考评价)' if is_reference else '场地实测数据(正式评价)'}",
             f"⑨ Round9 P0-2.4 门禁: 最严重因子={worst_factor_global}, 超标倍数={worst_ratio_global}, "
-            f"{'触发强制降级(≥5倍)' if severity_forced else '未触发(或<5倍)'}",
+            f"{'触发法规单因子否决' if severity_forced else '未触发'}",
         ],
         "explanation": f"SSUI(25项完整口径)={ssui}({grade})。"
                        f"B1安全性={round(b1,4)}, B2经济性={round(b2,4)}, f(t)={round(ft,3)}, M={M}。"
@@ -656,6 +701,6 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
                           else "当前为正式评价(基于场地实测经济数据)。")
                        + (f" 最严重超标因子={worst_factor_global}, 超标{worst_ratio_global:.2f}倍。"
                           if worst_ratio_global else "")
-                       + (" Round9 P0-2.4: 严重超标(≥5倍)触发等级强制降级。" if severity_forced else "")
+                       + (" 存在法规阈值超标，触发单因子否决，不得输出高可持续或低风险结论。" if severity_forced else "")
                        + (" Round9 P0-2.3: 阈值含 fallback/heuristic, 仅作参考评价。" if forced_reference_reason else ""),
     }

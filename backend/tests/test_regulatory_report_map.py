@@ -80,14 +80,22 @@ def _prepare_full_chain(site_id: int):
     """为指定场地运行完整诊断+评价+推荐链, 初始化工作流。"""
     from app.db.session import SessionLocal
     from app.db.load_kb import main as load_kb
-    from app.services.diagnosis_service import run_diagnosis
+    from app.api.diagnosis import trigger_kos_diagnosis
+    from app.main import app, _check_model_integrity
+    from app.models import User
     from app.services.evaluation_service import run_evaluation
     from app.services.recommend_service import run_recommendation
     from app.services import workflow_service as W
     load_kb()
     db = SessionLocal()
     try:
-        run_diagnosis(db, site_id, top_n=10)
+        app.state.model_health = _check_model_integrity()
+        assert app.state.model_health["ok"], app.state.model_health
+        user = db.query(User).filter_by(username="admin").one()
+        trigger_kos_diagnosis(
+            site_id, track="prod", subset="all", top_n=10,
+            user=user, db=db,
+        )
         run_evaluation(db, site_id)
         run_recommendation(db, site_id, top_k=5)
         W.init_stages(db, site_id)
@@ -943,20 +951,13 @@ class TestEvidenceCompleteness:
                     .order_by(DiagnosisResult.id.desc()).first())
             assert diag is not None, "无诊断结果"
 
-            # 检查 shap_global 中是否有 imputed_features 和 calculation_trace
-            sg = diag.shap_global or {}
-            assert "imputed_features" in sg, (
-                "shap_global 应包含 imputed_features(证据完整度代理)"
-            )
-            assert "calculation_trace" in sg, (
-                "shap_global 应包含 calculation_trace(计算可追溯性)"
-            )
-
-            # imputed_features 非空表示检测数据有缺失
-            # 这是证据不足的信号, 应在前端/报告中展示
-            imputed = sg.get("imputed_features", [])
-            # 无论是否为空, 存在这个字段就说明系统会标注
-            # 期望 future: evidence_completeness_score = 1 - len(imputed)/total_features
+            assert diag.diagnosis_method == "kos"
+            payload = diag.result_payload or {}
+            assert isinstance(payload.get("coverage"), (int, float))
+            assert "data_quality_flags" in payload
+            assert "mapping_details" in payload
+            assert "threshold_version" in payload
+            assert payload.get("interpretation_note"), "KOS必须保存解释口径"
         finally:
             db.close()
 
@@ -1002,9 +1003,7 @@ class TestEvidenceCompleteness:
 # ═══════════════════════════════════════════════════════════════════════
 
 class TestModelRegistry:
-    """T22: 模型注册表: meta.json 含 validation_strategy;
-    AUC/F1 展示带验证方式标注(通过检查 ObstacleAnalysis 前端代码)。
-    """
+    """T22: P3-Alpha 注册表、回归指标和分组验证信息完整。"""
 
     @needs_ml
     def test_meta_json_exists_and_has_required_fields(self):
@@ -1012,39 +1011,21 @@ class TestModelRegistry:
         当前 meta.json 含: model_name/version/algorithm/metrics(AUC,F1)/data_version
         validation_strategy 字段为未来增强项(当前通过 metrics+params 间接体现)。
         """
-        artifacts_dir = os.path.join(ROOT, "ml", "artifacts")
-        if not os.path.isdir(artifacts_dir):
-            pytest.skip("ml/artifacts 目录不存在, 请先训练模型")
-
-        meta_files = sorted(Path(artifacts_dir).glob("*.meta.json"))
-        assert len(meta_files) > 0, "没有找到 meta.json 文件"
-
-        # 取最新一个 meta.json 检查
-        latest_meta = meta_files[-1]
-        with open(latest_meta, encoding="utf-8") as f:
-            meta = json.load(f)
-
-        required_fields = ["model_name", "version", "algorithm",
-                          "metrics", "feature_list", "data_version"]
-        for field in required_fields:
-            assert field in meta, (
-                f"meta.json 缺字段 {field}: {latest_meta.name}"
-            )
-
-        # metrics 必须包含 auc 和 f1(接受 test_auc/cv_auc_mean 等变体)
-        metrics = meta.get("metrics", {})
-        assert any("auc" in k for k in metrics), (
-            f"metrics 缺 auc 变体: {latest_meta.name}")
-        assert any("f1" in k for k in metrics), (
-            f"metrics 缺 f1 变体: {latest_meta.name}")
-
-        # validation_strategy 当前未实现, 但 metadata 中有
-        # params + test_size 可推断验证方式(holdout 80/20)
-        # 检查是否有足够信息推断验证策略
-        params = meta.get("params", {})
-        assert params or "test_size" in metrics, (
-            f"无法推断验证策略: {latest_meta.name}"
-        )
+        registry_path = os.path.join(
+            ROOT, "ml", "artifacts", "p3_alpha", "model_registry_v0.8.json")
+        assert os.path.isfile(registry_path), "P3-Alpha 模型注册表缺失"
+        with open(registry_path, encoding="utf-8") as f:
+            registry = json.load(f)
+        enabled = [m for m in registry.get("models", {}).values()
+                   if m.get("frontend_enabled")]
+        assert enabled, "没有前端启用模型"
+        for meta in enabled:
+            for field in ("model_id", "subset", "track", "algorithm", "model_file",
+                          "metrics_file", "status", "limitations", "metrics", "n_features"):
+                assert meta.get(field) is not None, f"{meta.get('model_id')} 缺 {field}"
+            metrics = meta["metrics"]
+            assert all(k in metrics for k in ("test_spearman", "test_mae", "test_r2",
+                                               "cv_spearman_mean"))
 
     @needs_ml
     def test_model_registry_validation_strategy_inferable(self):
@@ -1054,41 +1035,14 @@ class TestModelRegistry:
         - data_version 含数据来源
         若未来增加显式 validation_strategy 字段, 此测试将直接校验。
         """
-        artifacts_dir = os.path.join(ROOT, "ml", "artifacts")
-        if not os.path.isdir(artifacts_dir):
-            pytest.skip("ml/artifacts 目录不存在")
-
-        meta_files = sorted(Path(artifacts_dir).glob("*.meta.json"))
-        assert len(meta_files) > 0
-
-        for mf in meta_files[-3:]:  # 检查最近3个
-            with open(mf, encoding="utf-8") as f:
-                meta = json.load(f)
-
-            # 直接检查 validation_strategy(未来字段)
-            if "validation_strategy" in meta:
-                # 若存在, 验证其值合法
-                vs = meta["validation_strategy"]
-                valid_strategies = ["holdout", "kfold_cv", "stratified_kfold",
-                                   "loo", "group_kfold", "time_series_split",
-                                   "none"]
-                assert vs in valid_strategies or isinstance(vs, str), (
-                    f"未知验证策略: {vs}"
-                )
-            else:
-                # 当前不存在时, 至少 metrics 中有足够信息
-                metrics = meta.get("metrics", {})
-                params = meta.get("params", {})
-                # test_size 存在 → holdout
-                # 至少 test_size 或 cv 信息有其一
-                has_validation_hint = (
-                    "test_size" in metrics
-                    or "random_state" in params
-                    or "cv" in str(params).lower()
-                )
-                assert has_validation_hint, (
-                    f"meta.json 无验证方式信息: {mf.name}"
-                )
+        registry_path = os.path.join(
+            ROOT, "ml", "artifacts", "p3_alpha", "model_registry_v0.8.json")
+        with open(registry_path, encoding="utf-8") as f:
+            registry = json.load(f)
+        for meta in registry["models"].values():
+            assert "source-level" in (meta.get("limitations") or ""), (
+                f"{meta['model_id']} 未披露 source-level 分组验证边界")
+            assert "cv_spearman_mean" in (meta.get("metrics") or {})
 
     @needs_ml
     def test_auc_f1_displayed_with_validation_annotation(self):

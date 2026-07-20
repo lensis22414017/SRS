@@ -39,9 +39,50 @@ def fresh_db():
 
 def _import_gejiu(db):
     """导入个旧真实数据, 返回 site_id。"""
-    from app.services.import_service import import_site_data
-    result = import_site_data(db, REAL_XLSX, enterprise_id=1)
+    from app.models import User
+    from app.services.import_service import smart_detect_and_map
+    from app.services.pipeline import run_import_with_mapping
+
+    user = db.query(User).filter_by(username="admin").first()
+    _, mapping, _ = smart_detect_and_map(REAL_XLSX)
+    result = run_import_with_mapping(
+        db,
+        REAL_XLSX,
+        mapping,
+        imported_by=user.id if user else None,
+        on_conflict="skip",
+    )
     return result["site_id"]
+
+
+def _diagnosis_inputs(db, site_id):
+    from app.models import FactorDictionary, Measurement
+
+    rows = (
+        db.query(
+            Measurement.value_used_for_model,
+            Measurement.value,
+            Measurement.sampling_point_id,
+            FactorDictionary.factor_name,
+        )
+        .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id, isouter=True)
+        .filter(Measurement.site_id == site_id, Measurement.value.isnot(None))
+        .all()
+    )
+    site_values = {}
+    per_point = {}
+    for value_used, value, point_id, factor_name in rows:
+        if not factor_name:
+            continue
+        raw_value = value_used if value_used is not None else value
+        try:
+            numeric = float(raw_value)
+        except (TypeError, ValueError):
+            continue
+        site_values[factor_name] = max(site_values.get(factor_name, numeric), numeric)
+        if point_id is not None:
+            per_point.setdefault(point_id, {})[factor_name] = numeric
+    return site_values, per_point
 
 
 @pytest.mark.skipif(not os.path.exists(REAL_XLSX),
@@ -52,28 +93,12 @@ def test_kos_prod_outputs_complete(fresh_db):
     db = fresh_db
     try:
         site_id = _import_gejiu(db)
-        from app.models import Measurement, FactorDictionary
-        rows = (db.query(Measurement.value_used_for_model, Measurement.value,
-                         FactorDictionary.factor_name)
-                .join(FactorDictionary,
-                      Measurement.factor_id == FactorDictionary.id, isouter=True)
-                .filter(Measurement.site_id == site_id,
-                        Measurement.value.isnot(None)).all())
-        sv = {}
-        for vu, v, fn in rows:
-            if not fn:
-                continue
-            val = vu if vu is not None else v
-            try:
-                vf = float(val)
-            except (TypeError, ValueError):
-                continue
-            if fn not in sv or vf > sv[fn]:
-                sv[fn] = vf
+        sv, per_point = _diagnosis_inputs(db, site_id)
         assert len(sv) > 0, "导入后应有测量数据"
 
         result = run_kos_diagnosis(sv, track="prod", subset="all",
-                                    site_pH=6.0, db_session=db)
+                                    site_pH=6.0, land_use_type="其他用地",
+                                    db_session=db, per_point_data=per_point)
 
         # 1) key_obstacles 必须非空
         assert len(result.get("key_obstacles", [])) > 0, "必须有障碍因子"
@@ -90,8 +115,10 @@ def test_kos_prod_outputs_complete(fresh_db):
         # 4) coverage > 0
         assert result.get("coverage", 0) > 0, f"coverage 应>0, 实际 {result.get('coverage')}"
 
-        # 5) unmapped_factors 列表存在(可为空)
-        assert "unmapped_factors" in result, "必须有 unmapped_factors 字段"
+        # 5) unmapped 列表存在(可为空)
+        assert "unmapped" in result, "必须有 unmapped 字段"
+        assert result["model_contribution_scope"] == "local_point", \
+            f"真实点位应产生局部解释，实际: {result.get('local_shap_status')}"
     finally:
         db.close()
 
@@ -104,27 +131,11 @@ def test_kos_eco_outputs_complete(fresh_db):
     db = fresh_db
     try:
         site_id = _import_gejiu(db)
-        from app.models import Measurement, FactorDictionary
-        rows = (db.query(Measurement.value_used_for_model, Measurement.value,
-                         FactorDictionary.factor_name)
-                .join(FactorDictionary,
-                      Measurement.factor_id == FactorDictionary.id, isouter=True)
-                .filter(Measurement.site_id == site_id,
-                        Measurement.value.isnot(None)).all())
-        sv = {}
-        for vu, v, fn in rows:
-            if not fn:
-                continue
-            val = vu if vu is not None else v
-            try:
-                vf = float(val)
-            except (TypeError, ValueError):
-                continue
-            if fn not in sv or vf > sv[fn]:
-                sv[fn] = vf
+        sv, per_point = _diagnosis_inputs(db, site_id)
 
         result = run_kos_diagnosis(sv, track="eco", subset="all",
-                                    site_pH=6.0, db_session=db)
+                                    site_pH=6.0, land_use_type="第二类用地",
+                                    db_session=db, per_point_data=per_point)
 
         assert len(result.get("key_obstacles", [])) > 0, "生态 KOS 必须有障碍因子"
         for k in result["key_obstacles"]:
@@ -132,6 +143,8 @@ def test_kos_eco_outputs_complete(fresh_db):
             for dim in ("R", "W", "M", "S", "E"):
                 assert dim in comps, f"{k['factor']} 缺五分量 {dim}"
         assert len(result.get("model_contribution", [])) > 0
+        assert result["model_contribution_scope"] == "local_point", \
+            f"真实点位应产生局部解释，实际: {result.get('local_shap_status')}"
     finally:
         db.close()
 
@@ -142,15 +155,11 @@ def test_old_diagnosis_endpoint_returns_410(fresh_db):
     from app.main import app
     db = fresh_db
     try:
-        # 种入一个场地
-        from app.services.import_service import import_site_data
-        REAL = os.path.join(BACKEND, "..", "data", "raw",
-                            "3.20250731_重金属污染场地数据表(云南个旧)_最终版.xlsx")
-        if not os.path.exists(REAL):
-            pytest.skip("个旧真实数据文件不存在")
-        result = import_site_data(db, REAL, enterprise_id=1)
-        site_id = result["site_id"]
+        from app.models import Site
+        site = Site(site_code="SRS-OLDENDPOINT", name="旧端点测试场地")
+        db.add(site)
         db.commit()
+        site_id = site.id
 
         # 登录获取 token
         client = TestClient(app)

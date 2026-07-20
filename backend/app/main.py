@@ -54,7 +54,7 @@ async def lifespan(app: FastAPI):
     backup_stop_event.set()
 
 
-def _check_model_integrity() -> dict:
+def _check_model_integrity(root_override: str | None = None) -> dict:
     """启动时检查模型工件完整性(KOS诊断必需)。
 
     R3 审计第七类 7.6: 解析 registry, 逐一核对 frontend_enabled 模型的:
@@ -64,7 +64,10 @@ def _check_model_integrity() -> dict:
     缺失时返回 {ok: False, reason: ..., missing: [...], load_errors: [...]}
     """
     import os, sys, json
-    root = sys._MEIPASS if getattr(sys, "frozen", False) else os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    root = root_override or (
+        sys._MEIPASS if getattr(sys, "frozen", False)
+        else os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    )
     # PyInstaller _internal 目录兼容
     if not os.path.isdir(os.path.join(root, "ml")):
         _internal = os.path.join(root, "_internal")
@@ -86,6 +89,10 @@ def _check_model_integrity() -> dict:
     load_errors = []
     n_ok = 0
 
+    def _artifact_path(raw_path: str) -> str:
+        normalized = raw_path.replace("\\", os.sep).replace("/", os.sep)
+        return normalized if os.path.isabs(normalized) else os.path.join(root, normalized)
+
     for model_id, info in reg_data.get("models", {}).items():
         # 只核对 frontend_enabled 的模型(生产可用集)
         if not info.get("frontend_enabled", False):
@@ -96,7 +103,7 @@ def _check_model_integrity() -> dict:
         issues = []
 
         # 1. joblib 存在且可加载
-        joblib_path = os.path.join(root, model_file) if model_file and not os.path.isabs(model_file) else model_file
+        joblib_path = _artifact_path(model_file) if model_file else ""
         if not model_file or not os.path.isfile(joblib_path):
             issues.append(f"joblib缺失: {model_file}")
             missing.append(f"{model_id}/joblib")
@@ -109,7 +116,7 @@ def _check_model_integrity() -> dict:
                 load_errors.append(f"{model_id}: {e}")
 
         # 2. shap parquet 存在且可读
-        shap_path = os.path.join(root, shap_file) if shap_file and not os.path.isabs(shap_file) else shap_file
+        shap_path = _artifact_path(shap_file) if shap_file else ""
         if not shap_file or not os.path.isfile(shap_path):
             issues.append(f"parquet缺失: {shap_file}")
             missing.append(f"{model_id}/shap_parquet")
@@ -122,7 +129,7 @@ def _check_model_integrity() -> dict:
                 load_errors.append(f"{model_id}/shap: {e}")
 
         # 3. metrics json 存在且可解析
-        metrics_path = os.path.join(root, metrics_file) if metrics_file and not os.path.isabs(metrics_file) else metrics_file
+        metrics_path = _artifact_path(metrics_file) if metrics_file else ""
         if metrics_file and not os.path.isfile(metrics_path):
             issues.append(f"metrics缺失: {metrics_file}")
             missing.append(f"{model_id}/metrics")
@@ -140,9 +147,13 @@ def _check_model_integrity() -> dict:
             checked_models.append({"model_id": model_id, "status": "ok"})
             n_ok += 1
 
-    # 至少一个模型 ok 才算整体 ok(允许部分模型异常但保留可用集)
-    if n_ok == 0:
-        return {"ok": False, "reason": "所有 frontend_enabled 模型均不可用",
+    n_required = len(checked_models)
+    if n_required == 0:
+        return {"ok": False, "reason": "注册表未声明 frontend_enabled 模型",
+                "checked_models": checked_models, "missing": missing,
+                "load_errors": load_errors, "checked_at": _now()}
+    if n_ok != n_required:
+        return {"ok": False, "reason": "一个或多个 frontend_enabled 模型工件不可用",
                 "checked_models": checked_models, "missing": missing,
                 "load_errors": load_errors, "checked_at": _now()}
     return {"ok": True, "n_models_ok": n_ok, "n_models_checked": len(checked_models),

@@ -41,20 +41,11 @@ def _format_site_code(db: Session, site_id: int):
     site_id 转 Base26 字母, 保证全库唯一且不含数字。
     采样点数量只放"采样点"独立列, 不拼入 site_code。
     """
-    import re as _re
+    from app.services.ingest_service import normalize_site_display_code
     site = db.get(Site, site_id)
     if not site:
         return
-    # 纯字母编码: SRS-{site_id的Base26}-{随机4字母}(确保唯一性+可读性)
-    code = f"SRS-{_to_base26(site_id)}"
-    # 如有原业务编号且含数字, 另存 original_site_code
-    if site.site_code and _re.search(r'[0-9]', str(site.site_code)):
-        if not getattr(site, 'original_site_code', None):
-            try:
-                site.original_site_code = site.site_code
-            except Exception:
-                pass  # 字段可能不存在
-    site.site_code = code
+    normalize_site_display_code(db, site, site.original_site_code or site.site_code)
     db.commit()
 
 router = APIRouter(prefix=get_settings().api_v1_prefix, tags=["data"])

@@ -18,6 +18,11 @@ REGISTRY = os.path.join(ROOT, "ml", "artifacts", "p3_alpha", "model_registry_v0.
 ARTIFACTS_DIR = os.path.join(ROOT, "ml", "artifacts", "p3_alpha")
 
 
+def _abs_path(raw_path):
+    normalized = raw_path.replace("\\", os.sep).replace("/", os.sep)
+    return normalized if os.path.isabs(normalized) else os.path.join(ROOT, normalized)
+
+
 def test_registry_exists():
     """模型注册表必须存在。"""
     assert os.path.exists(REGISTRY), f"模型注册表不存在: {REGISTRY}"
@@ -41,8 +46,7 @@ def test_all_registered_model_files_exist():
     for model_id, info in models.items():
         model_file = info.get("model_file", "")
         # model_file 可能是相对路径(相对项目根)
-        if not os.path.isabs(model_file):
-            model_file = os.path.join(ROOT, model_file.replace("\\", "/"))
+        model_file = _abs_path(model_file)
         if not os.path.exists(model_file):
             missing.append(f"{model_id}: {model_file}")
 
@@ -52,7 +56,7 @@ def test_all_registered_model_files_exist():
 def test_shap_global_files_exist():
     """每个模型的 SHAP 全局贡献 parquet 必须存在。"""
     if not os.path.exists(REGISTRY):
-        pytest.skip("注册表不存在")
+        pytest.fail("注册表不存在")
 
     with open(REGISTRY, encoding="utf-8") as f:
         registry = json.load(f)
@@ -60,20 +64,17 @@ def test_shap_global_files_exist():
     missing = []
     for model_id, info in registry.get("models", {}).items():
         shap_file = info.get("shap_global_file", "")
-        if not os.path.isabs(shap_file):
-            shap_file = os.path.join(ROOT, shap_file.replace("\\", "/"))
+        shap_file = _abs_path(shap_file)
         if not os.path.exists(shap_file):
             missing.append(f"{model_id}: {shap_file}")
 
-    # SHAP 文件缺失是警告(非致命), 因为有 fallback
-    if missing:
-        pytest.skip(f"SHAP 全局文件缺失(有 fallback): {missing[:3]}")
+    assert not missing, f"SHAP 全局文件缺失: {missing}"
 
 
 def test_approved_models_frontend_enabled():
     """approved_alpha 模型应 frontend_enabled=True。"""
     if not os.path.exists(REGISTRY):
-        pytest.skip("注册表不存在")
+        pytest.fail("注册表不存在")
 
     with open(REGISTRY, encoding="utf-8") as f:
         registry = json.load(f)

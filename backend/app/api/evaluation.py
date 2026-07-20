@@ -26,10 +26,11 @@ def _require_site(db: Session, user: User, site_id: int) -> Site:
 
 class EvaluationBody(BaseModel):
     """Round8 审计 1.4: 评价 API 用 Pydantic 模型严格校验 scope/scenario/intensity。"""
-    t: float | None = Field(default=None, description="时间年限, 缺省读参数文件")
+    t: float | None = Field(default=None, ge=0, le=100, description="时间年限, 缺省读参数文件")
     intensity: str | None = Field(default=None, description="管理强度: low/medium/high")
     allow_proxy: bool = Field(default=False, description="是否允许使用区域代理数据生成参考 SSUI")
-    evaluation_year: int | None = Field(default=None, description="经济数据年份, 不传则自动取最新")
+    evaluation_year: int | None = Field(default=None, ge=2000, le=2100,
+                                        description="经济数据年份, 不传则自动取最新")
     scenario: str = Field(default="production", description="经济数据场景(production/ecology)")
     scope: str = Field(default="production", description="评价请求场景(production/ecology)")
 
@@ -71,7 +72,9 @@ def trigger_evaluation(site_id: int,
     if payload.intensity is None:
         _INTENSITY_MAP = {"weak": "low", "medium": "medium", "strong": "high",
                           "low": "low", "high": "high"}
-        actual_intensity = _INTENSITY_MAP.get(actual_intensity, "medium")
+        if actual_intensity not in _INTENSITY_MAP:
+            raise HTTPException(422, "intensity 只允许 low/medium/high(或兼容 weak/strong)")
+        actual_intensity = _INTENSITY_MAP[actual_intensity]
     try:
         return run_evaluation(db, site_id, t=actual_t, intensity=actual_intensity,
                               allow_proxy=payload.allow_proxy,
@@ -94,7 +97,7 @@ def get_evaluation(site_id: int, user: User = Depends(get_current_user),
     _require_site(db, user, site_id)
     from app.services.versioning import (
         current_site_data_version, evaluation_input_fingerprint,
-        _eval_params_sha256, _economic_ref_csv_sha256,
+        _eval_params_sha256, _economic_ref_csv_sha256, _threshold_set_hash,
     )
     current_dv = current_site_data_version(db, site_id)
     rows = (db.query(EvaluationResult).filter_by(site_id=site_id)
@@ -104,8 +107,10 @@ def get_evaluation(site_id: int, user: User = Depends(get_current_user),
     # Round9 P0-1.7: 参数文件/CSV unreadable → 全部 stale(禁止复用)
     params_sha = _eval_params_sha256()
     csv_sha = _economic_ref_csv_sha256()
+    threshold_sha = _threshold_set_hash(db)
     params_unreadable = params_sha in {"missing", "unreadable"}
     csv_unreadable = csv_sha in {"missing", "unreadable"}
+    threshold_unreadable = threshold_sha in {"no_thr", "thr_err"}
 
     latest = {}
     for r in rows:
@@ -147,8 +152,11 @@ def get_evaluation(site_id: int, user: User = Depends(get_current_user),
         if csv_unreadable and r.eval_type == "ssui":
             is_stale = True
             stale_reason = f"economic_ref_csv_{csv_sha}"
+        if threshold_unreadable:
+            is_stale = True
+            stale_reason = f"threshold_set_{threshold_sha}"
 
-        latest[r.eval_type] = {
+        item = {
             "score": r.score, "grade": r.grade, "data_version": r.data_version,
             "is_stale": is_stale,
             "stale_reason": stale_reason,
@@ -160,6 +168,17 @@ def get_evaluation(site_id: int, user: User = Depends(get_current_user),
             "risk_factors": r.risk_factors, "explanation": r.explanation,
             "created_at": str(r.created_at),
         }
+        if r.eval_type == "ssui" and isinstance(r.dimensions, dict):
+            payload = r.dimensions.get("result_payload")
+            if isinstance(payload, dict):
+                item.update(payload)
+                item["score"] = payload.get("ssui")
+                item["data_version"] = r.data_version
+                item["is_stale"] = is_stale
+                item["stale_reason"] = stale_reason
+                item["created_at"] = str(r.created_at)
+                item["param_version"] = r.param_version
+        latest[r.eval_type] = item
     return {"site_id": site_id, "current_data_version": current_dv, "results": latest}
 
 

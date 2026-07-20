@@ -46,7 +46,11 @@ def test_ssui_na_when_missing_economic():
         "有机质": [30, 40, 50],
         "砷": [10, 30, 50],
     }
-    result = evaluate(series, scope="production", t=2.0, intensity="medium")
+    result = evaluate(
+        series, scope="production", t=2.0, intensity="medium",
+        safety_thresholds={"砷": {"limit": 30.0, "resolution_status": "resolved"}},
+        threshold_resolution_status={"砷": "resolved"},
+    )
     assert result.get("is_na") is True, "缺经济数据应 SSUI=blocked"
     assert result.get("is_blocked") is True, "缺经济数据应 blocked"
     assert result["ssui"] is None

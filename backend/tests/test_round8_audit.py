@@ -236,14 +236,14 @@ def test_param_version_separate_from_fingerprint(fresh_db):
         # param_version 必须是版本号字符串, 不是哈希
         assert PARAM_VERSION == "evaluation_params_v0.2", \
             f"PARAM_VERSION 必须是版本号, 实际 {PARAM_VERSION}"
-        # 验证 evaluation_input_fingerprint 返回的是哈希(20 字符 hex)
+        # 验证 evaluation_input_fingerprint 返回完整 SHA-256，禁止短哈希碰撞。
         from app.services.versioning import evaluation_input_fingerprint
         site = _make_test_site(db, code="SRS-TEST2")
         fp = evaluation_input_fingerprint(db, site.id, evaluation_year=2020,
                                           scenario="production", scope="production",
                                           t=2.0, intensity="medium", allow_proxy=False,
                                           param_version=PARAM_VERSION)
-        assert len(fp) == 20, f"指纹长度必须 20, 实际 {len(fp)}"
+        assert len(fp) == 64, f"指纹长度必须 64, 实际 {len(fp)}"
         assert all(c in "0123456789abcdef" for c in fp), "指纹必须是 hex"
     finally:
         db.close()
@@ -257,8 +257,8 @@ def test_param_file_sha_in_fingerprint(fresh_db):
     # 不能是空/missing/unreadable(参数文件必须存在且可读)
     assert sha not in ("missing", "unreadable", ""), \
         f"参数文件 SHA-256 必须可计算, 实际 {sha}"
-    # SHA 长度 16(hex 截断)
-    assert len(sha) == 16
+    # 保存完整 SHA-256，不再截断。
+    assert len(sha) == 64
     assert all(c in "0123456789abcdef" for c in sha)
 
 

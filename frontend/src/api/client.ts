@@ -41,10 +41,19 @@ export const api = {
     client.get(`/sites/${siteId}/economic-data`).then((r) => r.data),
   saveEconomicData: (siteId: number, body: any) =>
     client.post(`/sites/${siteId}/economic-data`, body).then((r) => r.data),
-  deleteEconomicData: (siteId: number, year?: number) =>
-    client.delete(`/sites/${siteId}/economic-data`, { params: year ? { year } : {} }).then((r) => r.data),
-  economicTemplateUrl: (siteId: number) =>
-    `/api/v1/sites/${siteId}/economic-data/template`,
+  deleteEconomicData: (siteId: number, year?: number, scenario?: "production" | "ecology") =>
+    client.delete(`/sites/${siteId}/economic-data`, { params: { year, scenario } }).then((r) => r.data),
+  downloadEconomicTemplate: (siteId: number) =>
+    client.get(`/sites/${siteId}/economic-data/template`, { responseType: "blob" }).then((r) => {
+      const url = URL.createObjectURL(r.data);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "ssui_economic_template.xlsx";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    }),
   importEconomicData: (siteId: number, file: File) => {
     const form = new FormData();
     form.append("file", file);

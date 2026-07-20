@@ -224,8 +224,10 @@ def _render_points_map_png(coord_points: list, exceed_by_point: dict[int, float]
 
 
 def _render_shap_figure_png(top_factors: list, site_name: str) -> str | None:
-    """用 matplotlib 画 Top-N 障碍因子模型全局贡献份额横向条形图(科研配图风格)。
-    报告增加模型全局贡献份额排名图(matplotlib 科研配图, 非 dashboard)。
+    """用 matplotlib 画模型贡献份额横向条形图(科研配图风格)。
+
+    ``contribution_scope=local_point`` 时明确标注为真实点位局部解释；
+    否则标注为训练集全局背景贡献。
     正向(加重)=npg红 #E64B35, 负向(缓解)=npg蓝 #4DBBD5; 去顶右边框, 数值标注。"""
     try:
         import matplotlib
@@ -233,6 +235,13 @@ def _render_shap_figure_png(top_factors: list, site_name: str) -> str | None:
         import matplotlib.pyplot as plt
     except Exception:
         return None
+    from matplotlib import font_manager as _fm
+    chinese_fonts = ["Microsoft YaHei", "SimHei", "Noto Sans CJK SC", "WenQuanYi Zen Hei"]
+    available_fonts = {font.name for font in _fm.fontManager.ttflist}
+    selected_font = next((font for font in chinese_fonts if font in available_fonts), None)
+    if selected_font:
+        plt.rcParams["font.sans-serif"] = [selected_font]
+        plt.rcParams["axes.unicode_minus"] = False
     if not top_factors:
         return None
     import io, base64
@@ -240,13 +249,19 @@ def _render_shap_figure_png(top_factors: list, site_name: str) -> str | None:
     names = [str(f.get("factor", "?")) for f in facts]
     vals = [float(f.get("importance", 0) or 0) for f in facts]
     dirs = [str(f.get("direction", "")) for f in facts]
+    is_local = any(f.get("contribution_scope") == "local_point" for f in facts)
+    scope_label = (
+        "真实点位局部 SHAP 贡献份额" if is_local else "训练集全局背景贡献份额"
+    ) if selected_font else ("Local point SHAP share" if is_local else "Global background share")
     colors = ["#E64B35" if d == "positive" else "#4DBBD5" for d in dirs]
     fig, ax = plt.subplots(figsize=(7, 3.4), dpi=150)
     ax.barh(range(len(names)), vals, color=colors, height=0.62, edgecolor="white", linewidth=0.6)
     ax.set_yticks(range(len(names)))
     ax.set_yticklabels(names, fontsize=9)
-    ax.set_xlabel("模型全局贡献份额", fontsize=9)
-    ax.set_title(f"关键障碍因子模型全局贡献份额 — {site_name}", fontsize=10.5, pad=8, color="#222")
+    ax.set_xlabel(scope_label, fontsize=9)
+    title = (f"关键障碍因子{scope_label} — {site_name}" if selected_font
+             else "Barrier factor contribution")
+    ax.set_title(title, fontsize=10.5, pad=8, color="#222")
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
     ax.tick_params(length=0)
@@ -345,9 +360,33 @@ def collect(db: Session, site_id: int, version: str) -> dict:
         # Round9 P0-3.4: KOS 记录从 result_payload 读完整审计信息(五分量/模型贡献度/开放集)
         if diag_method == "kos" and diag.result_payload:
             rp = diag.result_payload
+            diag_ctx["top_factors"] = [
+                {
+                    "rank": item.get("rank"),
+                    "factor": item.get("factor"),
+                    "category": item.get("category") or "—",
+                    "kos_score": item.get("KOS"),
+                    "direction": item.get("direction") or "—",
+                    "components": item.get("components") or {},
+                    "value": item.get("value"),
+                    "threshold_value": item.get("threshold_value"),
+                    "threshold_standard": item.get("threshold_standard") or "",
+                    "max_exceedance_ratio": (
+                        (rp.get("per_point_stats") or {})
+                        .get(item.get("factor"), {})
+                        .get("max_exceedance_ratio")
+                    ),
+                }
+                for item in (rp.get("key_obstacles") or [])
+            ]
             diag_ctx["kos"] = {
                 "key_obstacles": rp.get("key_obstacles", []),
                 "model_contribution": rp.get("model_contribution", []),
+                "model_contribution_scope": rp.get("model_contribution_scope", "global_model"),
+                "local_shap_status": rp.get("local_shap_status", ""),
+                "decision_point_id": rp.get("decision_point_id"),
+                "decision_point_code": rp.get("decision_point_code"),
+                "decision_point_selection": rp.get("decision_point_selection"),
                 "per_point_stats": rp.get("per_point_stats", {}),
                 "n_sampling_points": rp.get("n_sampling_points", 0),
                 "open_set": rp.get("open_set", {}),
@@ -447,7 +486,18 @@ def collect(db: Session, site_id: int, version: str) -> dict:
                 exceed_factor[pid] = fcode  # v0.2: 保留最严重因子
                 exceed_by_point[pid] = ratio
     map_image = _render_points_map_png(coord_points, exceed_by_point, exceed_factor)
-    shap_image = _render_shap_figure_png((diag_ctx or {}).get("top_factors", []), site.name)
+    contribution_rows = (diag_ctx or {}).get("top_factors", [])
+    if diag_ctx and diag_ctx.get("method") == "kos":
+        contribution_rows = [
+            {
+                "factor": item.get("factor"),
+                "importance": item.get("contribution"),
+                "direction": item.get("direction"),
+                "contribution_scope": item.get("contribution_scope"),
+            }
+            for item in (diag_ctx.get("kos", {}).get("model_contribution") or [])
+        ]
+    shap_image = _render_shap_figure_png(contribution_rows, site.name)
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     return {
@@ -512,8 +562,52 @@ def render_html(context: dict) -> str:
     return env.get_template("traceability_report.html").render(**context)
 
 
+def _plain_reportlab_pdf(html: str) -> bytes | None:
+    """无 Cairo 环境的最终 PDF 降级路径。
+
+    只使用 ReportLab 的 PDF canvas 与内置中文 CID 字体，避免 Windows
+    演示机因缺少 libcairo 导致报告接口直接 500。完整富文本仍由前两级渲染器负责。
+    """
+    try:
+        import html as html_lib
+        import re
+        from io import BytesIO
+        from reportlab.lib.pagesizes import A4
+        from reportlab.pdfbase import pdfmetrics
+        from reportlab.pdfbase.cidfonts import UnicodeCIDFont
+        from reportlab.pdfgen import canvas
+
+        text = re.sub(r"<(script|style)\b[^>]*>.*?</\1>", "", html,
+                      flags=re.IGNORECASE | re.DOTALL)
+        text = re.sub(r"</?(?:h[1-6]|p|div|tr|li|br|section|table|ul|ol)[^>]*>",
+                      "\n", text, flags=re.IGNORECASE)
+        text = html_lib.unescape(re.sub(r"<[^>]+>", "", text))
+        lines = [re.sub(r"\s+", " ", line).strip() for line in text.splitlines()]
+        lines = [line for line in lines if line]
+
+        buf = BytesIO()
+        pdfmetrics.registerFont(UnicodeCIDFont("STSong-Light"))
+        c = canvas.Canvas(buf, pagesize=A4)
+        width, height = A4
+        y = height - 42
+        c.setFont("STSong-Light", 9)
+        for line in lines:
+            # CID 字体下按字符数折行，避免依赖系统字体测量或 Cairo。
+            for start in range(0, len(line), 52):
+                if y < 42:
+                    c.showPage()
+                    c.setFont("STSong-Light", 9)
+                    y = height - 42
+                c.drawString(36, y, line[start:start + 52])
+                y -= 13
+        c.save()
+        return buf.getvalue()
+    except Exception:
+        return None
+
+
 def html_to_pdf(html: str) -> bytes | None:
-    """HTML → PDF: weasyprint 优先 (高质量), xhtml2pdf 降级, 均失败返回 None。"""
+    """HTML → PDF: WeasyPrint → xhtml2pdf → 纯 ReportLab。"""
     # 第一级: weasyprint (CSS3 完整支持, 中文排版好)
     try:
         from weasyprint import HTML
@@ -535,8 +629,9 @@ def html_to_pdf(html: str) -> bytes | None:
         if result.err:
             return None
         return buf.getvalue()
-    except ImportError:
-        return None
+    except (ImportError, OSError):
+        pass
+    return _plain_reportlab_pdf(html)
 
 
 def render_docx(context: dict) -> bytes:
@@ -632,14 +727,14 @@ def render_docx(context: dict) -> bytes:
     if context.get("diagnosis") and context["diagnosis"].get("top_factors"):
         table = doc.add_table(rows=1, cols=5)
         table.style = "Table Grid"
-        for i, h in enumerate(["排名", "因子", "类别", "重要性", "方向"]):
+        for i, h in enumerate(["排名", "因子", "类别", "KOS/贡献", "方向"]):
             table.rows[0].cells[i].text = h
         for t in context["diagnosis"]["top_factors"]:
             cells = table.add_row().cells
             cells[0].text = str(t["rank"])
             cells[1].text = str(t["factor"])
             cells[2].text = str(t["category"] or "")
-            cells[3].text = str(t["importance"])
+            cells[3].text = str(t.get("importance", t.get("kos_score", t.get("KOS", ""))))
             cells[4].text = str(t["direction"] or "")
     else:
         doc.add_paragraph("暂无诊断结果。")

@@ -52,14 +52,16 @@ def test_ssui_na_without_economic(fresh_db):
     assert result["ssui"] is None
 
 
-def test_kos_ph_missing_still_identifies_obstacles(fresh_db):
-    """KOS pH 缺失 → 用兜底阈值仍识别障碍(GPT 4.10)。"""
+def test_kos_ph_missing_requires_review_without_formal_obstacles(fresh_db):
+    """生产轨缺 pH 时不能用经验兜底生成正式法规 Top-N。"""
     from app.services.kos_service import run_kos_diagnosis
     db = fresh_db
     result = run_kos_diagnosis(
         {"砷_As(mg/kg)": 80.0, "铅_Pb(mg/kg)": 300.0},
         track="prod", subset="all", site_pH=None, db_session=db)
-    assert len(result["key_obstacles"]) > 0, "pH 缺失用兜底后必须有障碍"
+    assert result["key_obstacles"] == []
+    assert result["review_required"] is True
+    assert result.get("ambiguous_threshold_factors") or result.get("data_quality_flags")
     db.close()
 
 

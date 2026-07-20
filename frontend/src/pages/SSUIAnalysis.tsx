@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, Button, Empty, App, Row, Col, Statistic, Tag, Space, Table, Divider, Alert, Timeline, Typography, InputNumber, Select, Checkbox, Modal } from "antd";
+import { Card, Button, App, Row, Col, Statistic, Tag, Space, Table, Divider, Alert, Timeline, Typography, InputNumber, Select, Checkbox } from "antd";
 import { ApartmentOutlined, ExportOutlined, DatabaseOutlined } from "@ant-design/icons";
 import ReactECharts from "echarts-for-react";
 import { api } from "../api/client";
@@ -48,9 +48,9 @@ export default function SSUIAnalysis() {
         evaluation_year: evalYear, scenario: evalScenario,
         scope: evalScope, allow_proxy: allowProxy,
       });
-      setData(null);     // 清旧, 避免 load 完成前 race 显旧(M5)
-      setHasRun(true);   // 标记本次运行完成, 显示结果区(避免历史伪装成本次)
-      load(sid);         // 刷新最新结果(run 后已入库, is_stale=false)
+      const refreshed = await api.evaluation(sid);
+      setData(refreshed);
+      setHasRun(true);
       message.success("SSUI 评价完成");
     } catch (e: any) { message.error(e?.response?.data?.detail || "评价失败"); }
     finally { setBusy(false); }
@@ -75,9 +75,9 @@ export default function SSUIAnalysis() {
   const histS = data?.results?.ssui;   // 历史 SSUI(选场地即显元信息 + is_stale)
   const curDv = data?.current_data_version;
   const s = histS;                     // 完整结果(GET 含 score/dimensions/parts)
-  const showResult = hasRun && !!s;    // 仅点击运行后才显完整结果区
+  const showResult = !!s;
   const parts = (s?.dimensions?.parts || []) as any[];
-  const trace = (s?.dimensions?.calculation_trace || []) as string[];
+  const trace = (s?.calculation_trace || s?.dimensions?.calculation_trace || []) as string[];
   const gauge = s ? {
     series: [{ type: "gauge", min: 0, max: 1, splitNumber: 5,
       axisLine: { lineStyle: { width: 18, color: [[0.4, "#dc2626"], [0.6, "#f59e0b"], [0.8, "#3b82f6"], [1, "#16a34a"]] } },
@@ -105,12 +105,10 @@ export default function SSUIAnalysis() {
     ],
   } : null;
 
-  // Round7 追加: 安全-经济二维象限(从 parts 提取安全/经济类维度) + 趋势面积(f(t)) + 成本效益堆叠
-  const safetyPart = parts.find((p: any) => (p.meta || "").includes("安全") || (p.meta || "").includes("毒性"));
-  const econPart = parts.find((p: any) => (p.meta || "").includes("经济") || (p.meta || "").includes("成本"));
-  const safetyScore = safetyPart ? (safetyPart.normalized ?? 0) : (s?.score ?? 0);
-  const econScore = econPart ? (econPart.normalized ?? 0) : (s?.score ?? 0);
-  const seScatterOption = s ? {
+  // 只使用后端真实准则层结果，不从指标中文名称猜测维度。
+  const safetyScore = s?.dimensions?.B1_safety;
+  const econScore = s?.dimensions?.B2_economy;
+  const seScatterOption = Number.isFinite(safetyScore) && Number.isFinite(econScore) ? {
     tooltip: { trigger: "item", formatter: (p: any) => "安全性: " + p.data[0].toFixed(3) + "<br/>经济性: " + p.data[1].toFixed(3) },
     grid: { left: 60, right: 50, top: 50, bottom: 50 },
     xAxis: { name: "安全性", min: 0, max: 1, nameLocation: "middle", nameGap: 28 },
@@ -123,30 +121,21 @@ export default function SSUIAnalysis() {
       { type: "text", left: "15%", top: "62%", style: { text: "双弱区\n(需重点修复)", fill: "#dc2626", fontSize: 10 } },
     ],
   } : null;
-  // 趋势面积: f(t)=1+0.03t × SSUI score, 模拟修复后 0~10 年可持续性演变
-  const trendAreaOption = s ? {
-    tooltip: { trigger: "axis", formatter: (p: any) => "修复后 " + p[0].axisValue + " 年<br/>SSUI: " + p[0].value.toFixed(3) },
-    grid: { left: 50, right: 20, top: 40, bottom: 40 },
-    xAxis: { type: "category", data: ["0", "1", "2", "3", "5", "7", "10"], name: "修复后年数", nameLocation: "middle", nameGap: 25, axisLabel: { interval: 0 } },
-    yAxis: { type: "value", name: "SSUI", min: 0, max: 1.3 },
-    series: [{ type: "line", smooth: true, symbolSize: 6,
-      data: ["0", "1", "2", "3", "5", "7", "10"].map((t) => Math.min(1.29, (s.score ?? 0) * (1 + 0.03 * Number(t)))),
-      areaStyle: { color: "#4DBBD5", opacity: 0.22 }, lineStyle: { color: "#4DBBD5", width: 2 } }],
-  } : null;
-  // 成本效益堆叠: parts 按权重分堆(安全类/经济类/其他)
-  const safetyW = parts.filter((p: any) => (p.meta || "").includes("安全") || (p.meta || "").includes("毒性")).reduce((s2: number, p: any) => s2 + (p.weight ?? 0), 0);
-  const econW = parts.filter((p: any) => (p.meta || "").includes("经济") || (p.meta || "").includes("成本")).reduce((s2: number, p: any) => s2 + (p.weight ?? 0), 0);
-  const otherW = parts.reduce((s2: number, p: any) => s2 + (p.weight ?? 0), 0) - safetyW - econW;
-  const costBenefitOption = parts.length ? {
+  const criterionValues = [
+    s?.dimensions?.SC1_limit, s?.dimensions?.SC2_risk,
+    s?.dimensions?.SC3_cost, s?.dimensions?.SC4_benefit,
+  ];
+  const costBenefitOption = criterionValues.every((value) => Number.isFinite(value)) ? {
     tooltip: { trigger: "axis", formatter: (p: any) => p[0].name + ": " + (p[0].value * 100).toFixed(1) + "%" },
-    legend: { data: ["安全性", "经济性", "其他"], top: 0, itemWidth: 12, itemHeight: 8, textStyle: { fontSize: 10 } },
+    legend: { data: ["C1限制", "C2风险", "C3成本", "C4效益"], top: 0, itemWidth: 12, itemHeight: 8, textStyle: { fontSize: 10 } },
     grid: { left: 70, right: 30, top: 32, bottom: 24 },
-    xAxis: { type: "value", name: "权重占比", max: 1 },
-    yAxis: { type: "category", data: ["权重分布"] },
+    xAxis: { type: "value", name: "准则层得分", min: 0, max: 1 },
+    yAxis: { type: "category", data: ["本场地"] },
     series: [
-      { name: "安全性", type: "bar", stack: "w", color: "#3b82f6", barMaxWidth: 40, data: [safetyW || 0.001] },
-      { name: "经济性", type: "bar", stack: "w", color: "#f59e0b", barMaxWidth: 40, data: [econW || 0.001] },
-      { name: "其他", type: "bar", stack: "w", color: "#94a3b8", barMaxWidth: 40, data: [otherW || 0.001] },
+      { name: "C1限制", type: "bar", color: "#3b82f6", data: [criterionValues[0]] },
+      { name: "C2风险", type: "bar", color: "#dc2626", data: [criterionValues[1]] },
+      { name: "C3成本", type: "bar", color: "#f59e0b", data: [criterionValues[2]] },
+      { name: "C4效益", type: "bar", color: "#16a34a", data: [criterionValues[3]] },
     ],
   } : null;
 
@@ -155,15 +144,15 @@ export default function SSUIAnalysis() {
       <Space direction="vertical" style={{ width: "100%" }} size={16}>
       <Card>
         <Space style={{ width: "100%", flexWrap: "wrap", rowGap: 8 }}>
-          <SitePicker value={sid} onChange={setSid} style={{ maxWidth: 180 }} />
+          <SitePicker value={sid} onChange={setSid} style={{ width: 360, maxWidth: 360 }} />
           <Text type="secondary" style={{ fontSize: 12 }}>年限t:</Text>
           <InputNumber size="small" min={1} max={50} value={evalT} onChange={(v) => setEvalT(v ?? 2)} style={{ width: 56 }} />
           <Text type="secondary" style={{ fontSize: 12 }}>强度:</Text>
           <Select size="small" value={evalIntensity} onChange={setEvalIntensity} style={{ width: 90 }}
             options={[
-              { value: "weak", label: "粗放" },
+              { value: "low", label: "粗放" },
               { value: "medium", label: "中等" },
-              { value: "strong", label: "集约" },
+              { value: "high", label: "集约" },
             ]} />
           <Text type="secondary" style={{ fontSize: 12 }}>年份:</Text>
           <InputNumber size="small" min={2000} max={2100} placeholder="自动" value={evalYear}
@@ -190,7 +179,7 @@ export default function SSUIAnalysis() {
             note="其中 f(t) = 1 + 0.03·t 为时间修正函数，M 为管理调节因子（表3.49），等级边界见下方说明"
           >
             <Alert type="info" showIcon style={{ marginBottom: 12 }}
-              message="完整评价体系基于方法学 25 项元指标（D1-D25），按限制因子C1/风险因子C2/经济成本C3/经济效益C4 四个准则层分组。当前为 MVP 口径（场内 Min-Max 归一化），跨场地锚点/PCA 降维/博弈论赋权待后续版本接入多场地数据后启用。" />
+              message="正式评价仅在 D1-D25 全部具备可审计数据时生成：D1-D15 使用外部参照总体，D16-D17 使用法规阈值，D18-D25 使用版本化官方年度参照样本。缺项或阈值未解析会明确阻断。" />
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 4 }}>
               {[
                 { range: "≥ 0.80", label: "高可持续性", color: "#16a34a" },
@@ -212,7 +201,7 @@ export default function SSUIAnalysis() {
           />
         </div>
       </Card>
-      {sid && histS && (
+      {sid && histS && !hasRun && (
         <Card size="small" title="历史 SSUI 结果（仅供参考，非本次运行）">
           <Alert
             type={histS.is_stale ? "warning" : "info"}
@@ -235,18 +224,18 @@ export default function SSUIAnalysis() {
       ) : showResult && (s?.dimensions?.is_blocked || s?.grade?.startsWith("blocked")) ? (
         <Card title="土壤持续利用度（SSUI）评价 — 数据不足">
           <Alert type="warning" showIcon style={{ marginBottom: 16 }}
-            message="SSUI 评价受阻: 经济数据不完整"
-            description={s?.explanation || "D18-D25 经济指标需 8/8 齐全才能生成正式 SSUI。请录入场地经济数据。"}
+            message={`SSUI 评价受阻: ${s?.blocked_reason || "25项证据不完整"}`}
+            description={s?.explanation || "D1-D25 任一指标缺失、阈值未解析或归一化依据不足时不能生成正式 SSUI。"}
             action={
               <Space direction="vertical" size="small">
                 <Button type="primary" size="small" icon={<DatabaseOutlined />} onClick={() => setEcoOpen(true)}>补录经济数据</Button>
               </Space>
             } />
-          {s?.dimensions?.coverage && (
+          {(s?.coverage || s?.dimensions?.coverage) && (
             <div style={{ marginBottom: 16 }}>
-              <Text strong>经济指标覆盖: </Text>
-              <Tag color={s.dimensions.coverage.economic_complete ? "green" : "orange"}>
-                {s.dimensions.coverage.economic_measured}/{s.dimensions.coverage.economic_total}
+              <Text strong>25项覆盖: </Text>
+              <Tag color={s?.coverage?.complete_25 ? "green" : "orange"}>
+                {s?.coverage?.measured_total ?? "—"}/{s?.coverage?.required_total ?? 25}
               </Tag>
             </div>
           )}
@@ -278,7 +267,7 @@ export default function SSUIAnalysis() {
                 : undefined} />
           )}
           <Alert type="info" style={{ marginBottom: 16 }}
-            message={`25项完整口径（${s?.is_reference ? "参考评价" : "正式评价"}）`} description={s.explanation} />
+            message={`${s?.coverage?.complete_25 ? "25项完整口径" : "部分指标口径"}（${s?.is_reference ? "参考评价" : "正式评价"}）`} description={s.explanation} />
           <Row gutter={16} align="middle">
             <Col span={8}>{gauge && <ReactECharts option={gauge} theme="srs-light" opts={SVG_OPTS} style={{ height: 220 }} />}</Col>
             <Col span={8}><Statistic title="SSUI 指数" value={s.score} /></Col>
@@ -287,7 +276,7 @@ export default function SSUIAnalysis() {
                 style={{ fontSize: 16, padding: "4px 12px", marginTop: 8 }}>{s.grade}</Tag></Col>
           </Row>
           <Divider />
-          <h4>限制因子 C1 元指标得分</h4>
+          <h4>D1-D25 元指标得分</h4>
           <Table rowKey="meta" size="small" pagination={false} dataSource={parts}
             columns={[
               seqCol(64),
@@ -300,7 +289,7 @@ export default function SSUIAnalysis() {
               <ReactECharts option={partsOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 280 }} />
             </Card>
           )}
-          {/* Round7 追加: 安全经济象限 + 趋势面积 + 成本效益堆叠, 保留上方仪表盘/双轴条形图 */}
+          {/* 仅展示后端真实返回的准则层结果；没有真实时间序列时不绘制趋势。 */}
           <Row gutter={16} style={{ marginTop: 12 }}>
             {seScatterOption && (
               <Col span={8}>
@@ -309,16 +298,9 @@ export default function SSUIAnalysis() {
                 </Card>
               </Col>
             )}
-            {trendAreaOption && (
-              <Col span={8}>
-                <Card size="small" title="长期利用趋势（f(t) 修正 · 修复后 0~10 年）">
-                  <ReactECharts option={trendAreaOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 300 }} />
-                </Card>
-              </Col>
-            )}
             {costBenefitOption && (
-              <Col span={8}>
-                <Card size="small" title="成本效益权重堆叠（安全/经济/其他）">
+              <Col span={12}>
+                <Card size="small" title="C1-C4 准则层真实得分">
                   <ReactECharts option={costBenefitOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 280 }} />
                 </Card>
               </Col>

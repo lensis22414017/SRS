@@ -111,7 +111,6 @@ def test_evaluation_and_recommendation_persisted():
     from app.db.load_kb import main as load_kb
     from app.db.session import SessionLocal
     from app.models import EvaluationResult, Recommendation
-    from app.services.diagnosis_service import run_diagnosis
     from app.services.evaluation_service import run_evaluation
     from app.services.pipeline import run_import
     from app.services.recommend_service import run_recommendation
@@ -130,7 +129,8 @@ def test_evaluation_and_recommendation_persisted():
         ssui = db.query(EvaluationResult).filter_by(site_id=sid, eval_type="ssui").one()
         assert prod.dimensions["calculation_trace"]
         assert ssui.dimensions["calculation_trace"]
-        run_diagnosis(db, sid, top_n=10)
+        # 旧 RF 诊断端点已下线为 410；评价服务内部使用正式 KOS 链路。
+        # 推荐模块必须能够读取评价/KOS 的当前持久化结果，不能再依赖旧端点。
         rec = run_recommendation(db, sid, top_k=5)
         assert len(rec["recommendations"]) >= 0  # 推荐数量因数据变化可为零
         assert isinstance(db.query(Recommendation).filter_by(site_id=sid).count(), int)
@@ -171,11 +171,11 @@ def test_op_site_evaluation_degraded_with_organic_risk():
         db.commit()
 
         ev = run_evaluation(db, site.id)
-        # 降级标记 + 重构/SSUI 不评分(标"不适用(有机)")
+        # 降级标记 + 重构/SSUI 不评分；有机场地不是“不适用”，而是证据不足。
         assert ev["organic_degraded"] is True
-        assert ev["reconstruction_prod"]["grade"] == "不适用(有机)"
-        assert ev["reconstruction_eco"]["grade"] == "不适用(有机)"
-        assert ev["ssui"]["grade"] == "不适用(有机)"
+        assert ev["reconstruction_prod"]["grade"] == "证据不足/无法评价"
+        assert ev["reconstruction_eco"]["grade"] == "证据不足/无法评价"
+        assert ev["ssui"]["grade"] == "blocked(有机污染评价指标不足)"
         assert ev["ssui"]["ssui"] is None
         # organic_risk: 石油烃应被诊断超标
         assert ev["organic_risk"]["exceed_factors"], "应识别出超标有机因子"
@@ -188,7 +188,7 @@ def test_op_site_evaluation_degraded_with_organic_risk():
             site_id=site.id, eval_type="organic_risk").count() >= 1
         ssui_row = db.query(EvaluationResult).filter_by(
             site_id=site.id, eval_type="ssui").first()
-        assert ssui_row and ssui_row.grade == "不适用(有机)"
+        assert ssui_row and ssui_row.grade == "blocked(有机污染评价指标不足)"
     finally:
         db.close()
 

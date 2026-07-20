@@ -1555,6 +1555,8 @@ jobs:
 
     steps:
       - name: Check overall status
+        env:
+          NEEDS_JSON: ${{ toJSON(needs) }}
         run: |
           echo "============================================"
           echo "  SRS 监管红队验证 CI/CD 汇总"
@@ -1577,7 +1579,7 @@ jobs:
 
           ALL_PASSED=true
           for JOB in "${JOBS[@]}"; do
-            RESULT="${{ needs.${JOB}.result }}"
+            RESULT=$(jq -r --arg job "$JOB" '.[$job].result // "missing"' <<<"$NEEDS_JSON")
             if [ "$RESULT" = "success" ]; then
               echo "  ✅ $JOB: PASSED"
             elif [ "$RESULT" = "skipped" ]; then

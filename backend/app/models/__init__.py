@@ -85,6 +85,7 @@ class Site(Base, TimestampMixin):
     __tablename__ = "sites"
     id: Mapped[int] = mapped_column(primary_key=True)
     site_code: Mapped[str] = mapped_column(String(50), unique=True, index=True)
+    original_site_code: Mapped[str | None] = mapped_column(String(120), nullable=True, index=True)
     name: Mapped[str] = mapped_column(String(200))
     organization_id: Mapped[int | None] = mapped_column(ForeignKey("organizations.id"), nullable=True)
     pollution_type: Mapped[str | None] = mapped_column(String(20), nullable=True)  # heavy_metal/organic/composite

@@ -30,7 +30,7 @@
     - 17 列 schema 完整, 8 行 D18-D25
     - lower < upper
     - source_name/source_url 非空, source_document 可"待核查"但不可空
-    - normalization_version 含 SHA-256 前 8 位
+    - normalization_version 含完整 SHA-256
 
   P0-7 测试真实性:
     - 不用 app.state.model_health 冒充
@@ -512,46 +512,49 @@ def test_setup_real_concurrent_stable_10_rounds(fresh_db):
 # ═══════════════════════════════════════════════════════════════
 
 def test_csv_schema_complete():
-    """P0-6.4: 17 列 schema 完整 + 8 行 D18-D25。"""
+    """P0-6.4: 官方逐年观测 schema 完整 + 48 行 D18-D25。"""
     import csv
     assert os.path.exists(ECON_REF_CSV), f"CSV 必须存在: {ECON_REF_CSV}"
     with open(ECON_REF_CSV, encoding="utf-8") as f:
         reader = csv.DictReader(f)
         cols = reader.fieldnames or []
         required = ["indicator_code", "indicator_name", "scope", "crop", "region",
-                    "year", "unit", "lower", "upper", "direction",
+                    "year", "unit", "value", "direction",
                     "source_name", "source_url", "source_document", "table_or_page",
-                    "is_proxy", "version", "effective_date"]
+                    "is_proxy", "version", "effective_date", "derivation"]
         for c in required:
             assert c in cols, f"CSV 缺列 {c}"
         rows = list(reader)
-        assert len(rows) == 8, f"应有 8 行 D18-D25, 实际 {len(rows)}"
+        assert len(rows) == 48, f"应有 48 行(8指标×6年), 实际 {len(rows)}"
         codes = {r["indicator_code"] for r in rows}
         assert codes == {f"D{i}" for i in range(18, 26)}, f"代码必须 D18-D25, 实际 {codes}"
 
 
-def test_csv_lower_upper_consistent():
-    """P0-6.4: lower < upper。"""
-    import csv
-    with open(ECON_REF_CSV, encoding="utf-8") as f:
-        for r in csv.DictReader(f):
-            lo = float(r["lower"]); hi = float(r["upper"])
-            assert lo < hi, f"{r['indicator_code']}: lower({lo}) 必须小于 upper({hi})"
+def test_csv_ranges_are_computed_from_independent_years():
+    """P0-6.4: 范围必须由至少两个独立年份样本计算。"""
+    sys.path.insert(0, os.path.join(BACKEND, "..", "ml", "evaluation"))
+    from reference_loader import load_economic_reference
+    result = load_economic_reference()
+    assert result["valid"] is True, result["errors"]
+    for code, ref in result["ranges"].items():
+        assert ref["sample_count"] >= 2, code
+        assert len(ref["years"]) >= 2, code
+        assert ref["min"] < ref["max"], code
 
 
 def test_csv_source_complete():
-    """P0-6.4: source_name/source_url 非空, source_document 可"待核查"但不可空。"""
+    """P0-6.4: 来源必须可核查，不接受“待核查”。"""
     import csv
     with open(ECON_REF_CSV, encoding="utf-8") as f:
         for r in csv.DictReader(f):
             assert r["source_name"], f"{r['indicator_code']}: source_name 不可空"
             assert r["source_url"], f"{r['indicator_code']}: source_url 不可空"
-            assert r["source_document"], \
-                f"{r['indicator_code']}: source_document 不可空(可写'待核查', 但不可空)"
+            assert r["source_document"] and "待核查" not in r["source_document"]
+            assert r["table_or_page"] and "待核查" not in r["table_or_page"]
 
 
 def test_csv_sha_in_normalization_version():
-    """P0-6.4: ssui.evaluate() 返回的 normalization_version 含 SHA-256 前 8 位。"""
+    """P0-6.4: ssui.evaluate() 返回的 normalization_version 含完整 SHA-256。"""
     sys.path.insert(0, os.path.join(BACKEND, "..", "ml", "evaluation"))
     from reference_loader import load_economic_reference
     d = load_economic_reference()

@@ -84,7 +84,9 @@ def test_report_generation_full_chain():
     from app.db.session import SessionLocal
     from app.models import ReportRecord
     from app.services import report_service, workflow_service as W
-    from app.services.diagnosis_service import run_diagnosis
+    from app.api.diagnosis import trigger_kos_diagnosis
+    from app.main import app, _check_model_integrity
+    from app.models import User
     from app.services.evaluation_service import run_evaluation
     from app.services.pipeline import run_import
     from app.services.recommend_service import run_recommendation
@@ -93,7 +95,13 @@ def test_report_generation_full_chain():
     try:
         imp = run_import(db, GEJIU, "yunnan_gejiu")
         sid = imp["site_id"]
-        run_diagnosis(db, sid, top_n=10)
+        app.state.model_health = _check_model_integrity()
+        assert app.state.model_health["ok"], app.state.model_health
+        user = db.query(User).filter_by(username="admin").one()
+        trigger_kos_diagnosis(
+            sid, track="prod", subset="all", top_n=10,
+            user=user, db=db,
+        )
         run_evaluation(db, sid)
         run_recommendation(db, sid, top_k=5)
         W.init_stages(db, sid)
