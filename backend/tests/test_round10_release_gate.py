@@ -64,6 +64,26 @@ def test_regulatory_workflow_is_valid_yaml_without_dynamic_needs_expression():
     assert "redteam-summary" in parsed["jobs"]
 
 
+def test_ci_downloads_lfs_models_and_scopes_postgres_to_concurrency():
+    """真实模型由 LFS 管理；数据库专项作业只验证 PostgreSQL 并发锁。"""
+    path = ROOT / ".github" / "workflows" / "ci.yml"
+    workflow = yaml.safe_load(path.read_text(encoding="utf-8"))
+    jobs = workflow["jobs"]
+
+    backend_checkout = jobs["backend"]["steps"][0]
+    assert backend_checkout["uses"] == "actions/checkout@v4"
+    assert backend_checkout["with"]["lfs"] is True
+    assert any(
+        "_check_model_integrity" in step.get("run", "")
+        for step in jobs["backend"]["steps"]
+    )
+
+    postgres_test = jobs["backend-postgres"]["steps"][-1]["run"]
+    assert 'setup_real_concurrent' in postgres_test
+    assert ' or kos' not in postgres_test
+    assert ' or stale' not in postgres_test
+
+
 def test_packaging_gate_checks_missing_flow_directory_and_all_enabled_models():
     spec = (ROOT / "packaging" / "srs.spec").read_text(encoding="utf-8")
     assert "if not _flows_in_dist.is_dir()" in spec

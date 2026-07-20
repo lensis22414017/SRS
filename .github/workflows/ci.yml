@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          lfs: true
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -31,6 +33,9 @@ jobs:
           alembic downgrade 0005_round9
           alembic upgrade head
           alembic current
+      - name: Verify frontend-enabled model artifacts
+        run: |
+          cd backend && python -c "from app.main import _check_model_integrity; h = _check_model_integrity(); print(h); assert h.get('ok'), h"
       - name: Run pytest
         env:
           DATABASE_URL: "sqlite:///./ci_test.db"
@@ -70,13 +75,13 @@ jobs:
       - name: Compile check
         run: |
           python -m compileall backend/app backend/tests -q
-      - name: Run pytest (setup concurrency + Round9 audit)
+      - name: Run PostgreSQL setup concurrency tests
         env:
           DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/srs_test"
           SECRET_KEY: "ci_only_key_2026_at_least_32_characters_long"
           SRS_DEMO_SEED: "1"
         run: |
-          cd backend && python -m pytest tests/test_round9_audit.py -v --tb=short -k "setup or stale or kos"
+          cd backend && python -m pytest tests/test_round9_audit.py -v --tb=short -k "setup_real_concurrent"
 
   frontend:
     name: Frontend (Node)
