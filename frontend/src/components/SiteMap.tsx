@@ -49,27 +49,6 @@ function excColor(exc: number | null | undefined): string {
   return "#6b0f1a";                      // 暗红 超极重
 }
 
-// 凸包(Andrew monotone chain) — 输入 [lng,lat][], 返回凸包顶点 [lng,lat][]。
-// 用于在采样点最外围画虚线轮廓, 体现采样范围边界。
-function convexHull(pts: [number, number][]): [number, number][] {
-  if (pts.length < 3) return pts;
-  const p = [...pts].sort((a, b) => a[0] - b[0] || a[1] - b[1]);
-  const cross = (o: [number, number], a: [number, number], b: [number, number]) =>
-    (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
-  const lower: [number, number][] = [];
-  for (const pt of p) {
-    while (lower.length >= 2 && cross(lower[lower.length - 2], lower[lower.length - 1], pt) <= 0) lower.pop();
-    lower.push(pt);
-  }
-  const upper: [number, number][] = [];
-  for (let i = p.length - 1; i >= 0; i--) {
-    const pt = p[i];
-    while (upper.length >= 2 && cross(upper[upper.length - 2], upper[upper.length - 1], pt) <= 0) upper.pop();
-    upper.push(pt);
-  }
-  return lower.slice(0, -1).concat(upper.slice(0, -1));
-}
-
 // 高德 hybrid 瓦片 — 卫星影像 + 中文注记, 通过后端代理访问(无 IP 白名单, 换电脑/换网络均可用)
 const GAODE_PROXY = "/api/v1/map/tile/gaode/{z}/{x}/{y}";
 
@@ -186,8 +165,15 @@ export default function SiteMap({
     map.on("zoomend", onZoomMove);
     map.on("moveend", onZoomMove);
 
-    setTimeout(() => map.invalidateSize(), 200);
+    const invalidateTimer = window.setTimeout(() => {
+      if (mapRef.current === map && ref.current?.isConnected && (map as any)._loaded) {
+        map.invalidateSize({ animate: false });
+      }
+    }, 200);
     return () => {
+      window.clearTimeout(invalidateTimer);
+      map.off("zoomend", onZoomMove);
+      map.off("moveend", onZoomMove);
       map.remove();
       mapRef.current = null;
       adminLayersRef.current = [];
@@ -245,15 +231,8 @@ export default function SiteMap({
   useEffect(() => {
     const map = mapRef.current;
     if (!map) return;
-    // v1.0.1(): 创建独立 coordPane, 使坐标标签位于三色点下一层(不覆盖点位)
-    // Leaflet 默认 markerPane=600, tilePane=200, overlayPane=400
-    if (!map.getPane("coordPane")) {
-      map.createPane("coordPane", map.getPane("overlayPane"));
-      map.getPane("coordPane")!.style.zIndex = "350";  // 低于 markerPane(600), 三色点在上
-    }
     const layer = L.layerGroup().addTo(map);
     const pts: L.LatLng[] = [];
-    const lngLats: [number, number][] = [];
 
     if (layerFeatures.length) {
       layerFeatures.forEach((f) => {
@@ -264,7 +243,6 @@ export default function SiteMap({
         const selected = props.selected || {};
         const ll = L.latLng(lat, lon);
         pts.push(ll);
-        lngLats.push([lon, lat]);
         const color = excColor(selected.exceedance);
         const title = esc(props.point_code || "点位");
         const value = selected.value == null ? "—" : Number(selected.value).toFixed(3);
@@ -284,7 +262,6 @@ export default function SiteMap({
         if (s.longitude == null || s.latitude == null) return;
         const ll = L.latLng(s.latitude, s.longitude);
         pts.push(ll);
-        lngLats.push([s.longitude!, s.latitude!]);
         // v1.0.2(): null pollution_type 用中性灰, 不与重金属红撞色
         const color = s.color || POLLUTION_TYPE[s.pollution_type || ""] || "#64748b";
         const ptLabel = POLLUTION_LABEL[s.pollution_type || ""] || s.pollution_type || "—";
@@ -305,35 +282,29 @@ export default function SiteMap({
       });
     }
 
-    // 采样点标注(不画虚线轮廓)
-    if (lngLats.length >= 3) {
-      const hull = convexHull(lngLats);
-      if (hull.length >= 3) {
-        hull.forEach(([lon, lat]) => {
-          L.marker([lat, lon], {
-            interactive: false,
-            pane: "coordPane",  // v1.0.1: 坐标标签置于三色点下一层
-            icon: L.divIcon({
-              html: `<span style="font-size:10px;color:#0f3d6e;background:rgba(255,255,255,.88);padding:1px 4px;border-radius:3px;border:1px solid #0f3d6e55;white-space:nowrap;">${lon.toFixed(3)}, ${lat.toFixed(3)}</span>`,
-              className: "hull-vertex", iconSize: [64, 16], iconAnchor: [32, 8],
-            }),
-          }).addTo(layer);
-        });
-      }
-    }
-
-    if (pts.length) {
+    if (pts.length || scope === "overview") {
       // v1.0 P0: requestAnimationFrame 确保 fitBounds 在容器已完成渲染后执行, 避免点位挤在边缘
       // 修复 _leaflet_pos undefined: 需等地图 _loaded 且有 pane pos 后才 fitBounds
       const doFit = () => {
-        map.invalidateSize();
-        if ((map as any)._loaded && (map as any)._mapPane) {
-          map.fitBounds(L.latLngBounds(pts).pad(0.3), { maxZoom: 13, animate: false });
+        if (mapRef.current !== map || !ref.current?.isConnected || !(map as any)._loaded || !(map as any)._mapPane) return;
+        map.invalidateSize({ animate: false });
+        if (mapRef.current === map && scope === "overview") {
+          // 数字大屏是全国总览：不能因只有一个场地带坐标就缩放到县级，只剩孤立点。
+          map.setView([34, 104], zoom, { animate: false });
+        } else if (mapRef.current === map && pts.length) {
+          // 场地点位可能集中在百米尺度；限制到 13 级会把上百个点压成一个“圆环”。
+          // 允许放大到 18 级，保证点位颜色和空间差异能被辨认。
+          map.fitBounds(L.latLngBounds(pts).pad(0.3), { maxZoom: 18, animate: false });
         }
       };
-      requestAnimationFrame(doFit);
+      const frameId = requestAnimationFrame(doFit);
       // 兜底: rAF 仍可能早于 leaflet 初始化, 延迟再试一次
-      setTimeout(doFit, 300);
+      const fitTimer = window.setTimeout(doFit, 300);
+      return () => {
+        cancelAnimationFrame(frameId);
+        window.clearTimeout(fitTimer);
+        layer.remove();
+      };
     }
     return () => { layer.remove(); };
   }, [sites, layerData]);

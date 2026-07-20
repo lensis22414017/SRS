@@ -143,33 +143,33 @@ export default function SSUIAnalysis() {
     <>
       <Space direction="vertical" style={{ width: "100%" }} size={16}>
       <Card>
-        <Space style={{ width: "100%", flexWrap: "wrap", rowGap: 8 }}>
-          <SitePicker value={sid} onChange={setSid} style={{ width: 360, maxWidth: 360 }} />
-          <Text type="secondary" style={{ fontSize: 12 }}>年限t:</Text>
-          <InputNumber size="small" min={1} max={50} value={evalT} onChange={(v) => setEvalT(v ?? 2)} style={{ width: 56 }} />
-          <Text type="secondary" style={{ fontSize: 12 }}>强度:</Text>
-          <Select size="small" value={evalIntensity} onChange={setEvalIntensity} style={{ width: 90 }}
-            options={[
-              { value: "low", label: "粗放" },
-              { value: "medium", label: "中等" },
-              { value: "high", label: "集约" },
-            ]} />
-          <Text type="secondary" style={{ fontSize: 12 }}>年份:</Text>
-          <InputNumber size="small" min={2000} max={2100} placeholder="自动" value={evalYear}
-            onChange={(v) => setEvalYear(v ?? undefined)} style={{ width: 90 }} />
-          <Text type="secondary" style={{ fontSize: 12 }}>场景:</Text>
-          <Select size="small" value={evalScenario} onChange={(v) => setEvalScenario(v)} style={{ width: 100 }}
-            options={[{ value: "production", label: "生产" }, { value: "ecology", label: "生态" }]} />
-          <Text type="secondary" style={{ fontSize: 12 }}>scope:</Text>
-          <Select size="small" value={evalScope} onChange={(v) => setEvalScope(v)} style={{ width: 100 }}
-            options={[{ value: "production", label: "production" }, { value: "ecology", label: "ecology" }]} />
-          <Checkbox checked={allowProxy} onChange={(e) => toggleAllowProxy(e.target.checked)}>允许代理(参考)</Checkbox>
-          <Button icon={<DatabaseOutlined />} onClick={() => setEcoOpen(true)} disabled={!sid}>经济数据</Button>
-          <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
-          {data && <Button icon={<ExportOutlined />} onClick={() => {
-            api.generateReport(sid!, "pdf").then(() => message.success("SSUI 评价报告生成中...")).catch(() => message.error("导出失败"));
-            }}>导出报告</Button>}
-          <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行评价</Button>
+        <Space direction="vertical" style={{ width: "100%" }} size={12}>
+          <SitePicker value={sid} onChange={setSid} selectWidth={360} />
+          <Space style={{ width: "100%", flexWrap: "wrap", rowGap: 8 }} size={12}>
+            <Space size={4}><Text type="secondary">利用年限：</Text>
+              <InputNumber size="small" min={1} max={50} value={evalT} onChange={(v) => setEvalT(v ?? 2)} style={{ width: 70 }} /></Space>
+            <Space size={4}><Text type="secondary">管理强度：</Text>
+              <Select size="small" value={evalIntensity} onChange={setEvalIntensity} style={{ width: 90 }}
+                options={[{ value: "low", label: "粗放" }, { value: "medium", label: "中等" }, { value: "high", label: "集约" }]} /></Space>
+            <Space size={4}><Text type="secondary">评价年份：</Text>
+              <InputNumber size="small" min={2000} max={2100} placeholder="自动" value={evalYear}
+                onChange={(v) => setEvalYear(v ?? undefined)} style={{ width: 96 }} /></Space>
+            <Space size={4}><Text type="secondary">数据场景：</Text>
+              <Select size="small" value={evalScenario} onChange={(v) => setEvalScenario(v)} style={{ width: 96 }}
+                options={[{ value: "production", label: "生产" }, { value: "ecology", label: "生态" }]} /></Space>
+            <Space size={4}><Text type="secondary">评价用途：</Text>
+              <Select size="small" value={evalScope} onChange={(v) => setEvalScope(v)} style={{ width: 96 }}
+                options={[{ value: "production", label: "生产" }, { value: "ecology", label: "生态" }]} /></Space>
+            <Checkbox checked={allowProxy} onChange={(e) => toggleAllowProxy(e.target.checked)}>允许区域代理（参考评价）</Checkbox>
+          </Space>
+          <Space wrap>
+            <Button icon={<DatabaseOutlined />} onClick={() => setEcoOpen(true)} disabled={!sid}>经济数据</Button>
+            <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
+            {data && <Button icon={<ExportOutlined />} onClick={() => {
+              api.generateReport(sid!, "pdf").then(() => message.success("SSUI 评价报告生成中...")).catch(() => message.error("导出失败"));
+              }}>导出报告</Button>}
+            <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行评价</Button>
+          </Space>
         </Space>
         <div style={{ marginTop: 12 }}>
           <FormulaBlock

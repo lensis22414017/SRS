@@ -376,6 +376,13 @@ def test_kos_payload_deep_equal_post_vs_get(fresh_db):
         # 深度相等(不只 key_obstacles)
         assert post_kos == get_kos, \
             f"POST 与 GET 的 kos_result 必须深度相等(审计 P0-3.6)"
+
+        history = c.get(f"/api/v1/sites/{site_id}/diagnoses", headers=_auth_header(token))
+        assert history.status_code == 200
+        saved = next(item for item in history.json() if item["id"] == diag_id)
+        assert saved["diagnosis_method"] == "kos"
+        assert saved["track"] == "prod"
+        assert saved["subset"] == "all"
     finally:
         db.close()
 

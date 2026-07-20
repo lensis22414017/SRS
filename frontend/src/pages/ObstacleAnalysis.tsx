@@ -39,38 +39,58 @@ export default function ObstacleAnalysis() {
   const [kosBusy, setKosBusy] = useState(false);
   const [kosTrack, setKosTrack] = useState<"prod" | "eco">("prod");
 
-  const load = (id?: number, diagnosisId?: number | null) => {
-    const s = id ?? sid; if (!s) return;
-    // R3-P0-8 + Round8 审计四类 4.7: 旧 api.diagnosis(GET /diagnosis) 已废弃, 改为从历史取最新
-    // Round8 审计 4.7: 加载最新/历史详情时必须 setKosData(detail.kos_result)
-    // 刷新页面后完整 KOS 图表恢复
-    const diagPromise = diagnosisId
-      ? api.diagnosisDetail(diagnosisId)
-      : api.diagnosisHistory(s).then((list: any[]) => list[0] ? api.diagnosisDetail(list[0].id) : null);
-    diagPromise.then((d: any) => {
-      setDiag(d);
-      // Round8 审计 4.7: 从持久化 kos_result 字段恢复完整 KOS 结果
-      if (d?.kos_result) {
-        setKosData(d.kos_result);
-        // 同时恢复 kosTrack 状态(从持久化的 track 字段)
-        if (d.track === "prod" || d.track === "eco") {
-          setKosTrack(d.track);
-        }
-      } else if (d?.diagnosis_method !== "kos") {
-        // 非 KOS 记录(旧 RF+SHAP)清空 kosData
-        setKosData(null);
-      }
-    }).catch(() => {
+  const restoreDiagnosis = (d: any, expectedTrack: "prod" | "eco") => {
+    if (!d || (d.diagnosis_method === "kos" && d.track !== expectedTrack)) {
       setDiag(null);
       setKosData(null);
-    });
-    api.site(s).then((d: any) => {
-      setSite(d);
-      setLandUse(d.land_use_type || "生产用地");
-    }).catch(() => {});
-    // 加载历史诊断列表
-    if (!diagnosisId) {
-      api.diagnosisHistory(s).then(setHistoryList).catch(() => setHistoryList([]));
+      return;
+    }
+    setDiag(d);
+    if (d.kos_result) {
+      setKosData(d.kos_result);
+      setKosTrack(expectedTrack);
+    } else {
+      setKosData(null);
+    }
+  };
+
+  const load = async (id?: number, diagnosisId?: number | null, requestedTrack?: "prod" | "eco") => {
+    const s = id ?? sid; if (!s) return;
+    try {
+      const siteData = await api.site(s);
+      const expectedTrack = requestedTrack || (siteData.land_use_type === "生态用地" ? "eco" : "prod");
+      setSite(siteData);
+      setLandUse(expectedTrack === "eco" ? "生态用地" : "生产用地");
+      setKosTrack(expectedTrack);
+
+      const rawHistory = await api.diagnosisHistory(s) as any[];
+      // 兼容升级前创建的历史摘要：旧后端摘要没有 track/method，按详情补齐后再筛选。
+      const allHistory = await Promise.all(rawHistory.map(async (item) => {
+        if (item.track && item.diagnosis_method) return item;
+        try {
+          const detail = await api.diagnosisDetail(item.id);
+          return { ...item, track: detail.track, diagnosis_method: detail.diagnosis_method };
+        } catch {
+          return item;
+        }
+      }));
+      const trackHistory = allHistory.filter(
+        (item) => item.diagnosis_method === "kos" && item.track === expectedTrack,
+      );
+      setHistoryList(trackHistory);
+      const selected = diagnosisId
+        ? trackHistory.find((item) => item.id === diagnosisId)
+        : trackHistory[0];
+      if (!selected) {
+        restoreDiagnosis(null, expectedTrack);
+        return;
+      }
+      const detail = await api.diagnosisDetail(selected.id);
+      restoreDiagnosis(detail, expectedTrack);
+    } catch {
+      setDiag(null);
+      setKosData(null);
+      setHistoryList([]);
     }
   };
   useEffect(() => { if (sid) { load(sid); setHistoryId(null); } }, [sid]);
@@ -79,8 +99,10 @@ export default function ObstacleAnalysis() {
     if (!sid) return;
     try {
       await api.updateLandUse(sid, v);
+      const nextTrack = v === "生态用地" ? "eco" : "prod";
       setLandUse(v);
-      message.success(`修复后用途已切换为「${v}」，请重新运行诊断以获取对应轨结果`);
+      setHistoryId(null);
+      await load(sid, null, nextTrack);
     } catch (e: any) { message.error(e?.response?.data?.detail || "用途切换失败"); }
   };
 
@@ -97,11 +119,11 @@ export default function ObstacleAnalysis() {
       // (key_obstacles/model_contribution/factor_statistics 等都在顶层)
       setKosData(r);
       setKosTrack(t);
-      if (r.review_required) {
-        message.warning("诊断完成,但部分结果需人工复核(见数据质量提示)");
-      } else {
-        message.success(`KOS ${t === "prod" ? "生产" : "生态"}诊断完成`);
-      }
+      setDiag({ ...r, diagnosis_method: "kos", track: t, kos_result: r.kos_result || r });
+      setHistoryId(r.diagnosis_id || null);
+      api.diagnosisHistory(sid).then((items: any[]) => {
+        setHistoryList(items.filter((item) => item.diagnosis_method === "kos" && item.track === t));
+      }).catch(() => {});
     } catch (e: any) {
       // Round8 审计 4.3: 后端持久化失败会返回 503, 这里展示详细原因
       message.error(e?.response?.data?.detail || "KOS 诊断失败");
@@ -121,6 +143,7 @@ export default function ObstacleAnalysis() {
     return { factor: k.factor, R: Number(c.R || 0), W: Number(c.W || 0),
       M: Number(c.M || 0), S: Number(c.S || 0), E: Number(c.E || 0) };
   });
+  const qualityFlags = Array.from(new Set((kosData?.data_quality_flags || []).filter(Boolean))) as string[];
 
   const localRows = (diag?.local_explanation || []).slice(0, 12);
   const localOption = localRows.length ? {
@@ -256,18 +279,31 @@ export default function ObstacleAnalysis() {
           {kosData && (
             <>
               {/* 数据质量 + 复核标记 */}
-              {(kosData.review_required || kosData.data_quality_flags?.length > 0) && (
+              {(kosData.review_required || qualityFlags.length > 0) && (
                 <Alert
                   type={kosData.model_status === "exploratory" ? "warning" : "info"}
                   showIcon
                   style={{ marginBottom: 0 }}
                   message={kosData.model_status === "exploratory"
-                    ? "当前为探索性诊断,建议结合规则筛查和人工复核"
-                    : "诊断已完成,请注意以下数据质量提示"}
-                  description={kosData.data_quality_flags?.length > 0 ? (
-                    <ul style={{ margin: 0, paddingLeft: 18 }}>
-                      {kosData.data_quality_flags.map((f: string, i: number) => <li key={i} style={{ fontSize: 12 }}>{f}</li>)}
-                    </ul>
+                    ? `数据质量提示（探索性诊断，共 ${qualityFlags.length} 项）`
+                    : `数据质量提示（共 ${qualityFlags.length} 项）`}
+                  description={qualityFlags.length > 0 ? (
+                    <div style={{ fontSize: 12 }}>
+                      <ul style={{ margin: 0, paddingLeft: 18 }}>
+                        {qualityFlags.slice(0, 3).map((f, i) => <li key={i}>{f}</li>)}
+                      </ul>
+                      {qualityFlags.length > 3 && (
+                        <Collapse ghost size="small" style={{ marginTop: 4 }} items={[{
+                          key: "quality-details",
+                          label: `展开其余 ${qualityFlags.length - 3} 项详细提示`,
+                          children: <div style={{ maxHeight: 260, overflow: "auto" }}>
+                            <ul style={{ margin: 0, paddingLeft: 18 }}>
+                              {qualityFlags.slice(3).map((f, i) => <li key={i}>{f}</li>)}
+                            </ul>
+                          </div>,
+                        }]} />
+                      )}
+                    </div>
                   ) : undefined}
                 />
               )}

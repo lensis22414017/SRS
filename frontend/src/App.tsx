@@ -75,12 +75,12 @@ export default function AppLayout() {
         onCollapse={setCollapsed}
         style={{ position: "fixed", left: 0, top: 0, bottom: 0, height: "100vh", overflow: "auto", zIndex: 100 }}
       >
-        {/* 系统 Logo 区 */}
+        {/* 系统 Logo 区：仅保留图标，避免与各业务页面标题重复 */}
         <div style={{
           padding: "16px 16px 12px",
           borderBottom: "1px solid rgba(255,255,255,.08)",
         }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 4 }}>
             {/* SVG 图标 — 重构之盾(深蓝底板+白盾+双叶+数据节点) */}
             <svg width="28" height="28" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="24" y="24" width="464" height="464" rx="104" fill="#123B73" />
@@ -92,14 +92,6 @@ export default function AppLayout() {
               <circle cx="278" cy="159" r="14" fill="#65E0C0" stroke="#123B73" strokeWidth="8" />
               <circle cx="302" cy="304" r="14" fill="#65E0C0" stroke="#123B73" strokeWidth="8" />
             </svg>
-            <div>
-              <div style={{ color: "#fff", fontWeight: 700, fontSize: 13, lineHeight: 1.2 }}>
-                污染场地监管系统
-              </div>
-              <div style={{ color: "rgba(255,255,255,.45)", fontSize: 10 }}>
-                土壤生态-生产功能重构
-              </div>
-            </div>
           </div>
         </div>
 

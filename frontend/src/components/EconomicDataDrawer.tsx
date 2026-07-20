@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   Drawer, Table, Button, Form, InputNumber, Input, Select, Space,
-  Popconfirm, message, Tag, Alert, Upload, Divider, Typography, Switch,
+  Popconfirm, message, Tag, Alert, Upload, Divider, Typography, Switch, Row, Col,
 } from "antd";
 import {
   PlusOutlined, DeleteOutlined, DownloadOutlined, UploadOutlined,
@@ -291,7 +291,7 @@ export default function EconomicDataDrawer({
       {editModal && (
         <Drawer
           title={`${editModal.year} 年 ${editModal.scenario} — 经济指标录入`}
-          width={680} open={!!editModal} onClose={() => setEditModal(null)}
+          width={860} open={!!editModal} onClose={() => setEditModal(null)}
           extra={<Space>
             <Button onClick={() => setEditModal(null)}>取消</Button>
             <Button type="primary" loading={saving} onClick={save}>保存</Button>
@@ -318,37 +318,34 @@ export default function EconomicDataDrawer({
                 const code = editForm.getFieldValue(["indicators", field.name, "indicator_code"]);
                 const def = INDICATORS[code] || {};
                 return (
-                  <Space key={field.key} style={{ display: "flex", marginBottom: 8 }} align="baseline">
-                    <Text strong style={{ width: 60 }}>{code}</Text>
-                    <Text type="secondary" style={{ width: 200, fontSize: 12 }}>{def.name}</Text>
-                    <Form.Item name={[field.name, "value"]} label="值" rules={[{ required: true }]}>
-                      <InputNumber style={{ width: 130 }} />
-                    </Form.Item>
-                    <Form.Item name={[field.name, "unit"]} label="单位">
-                      <Input style={{ width: 90 }} />
-                    </Form.Item>
-                    <Form.Item name={[field.name, "source_type"]} label="来源类型">
-                      <Select style={{ width: 150 }} options={[
-                        { value: "site_actual", label: "场地实测(green)" },
-                        { value: "regional_official_proxy", label: "区域代理(orange)" },
-                      ]} />
-                    </Form.Item>
-                    <Form.Item name={[field.name, "is_proxy"]} label="代理" valuePropName="checked">
-                      <Switch disabled />
-                    </Form.Item>
-                    <Form.Item name={[field.name, "source_name"]} label="来源名称">
-                      <Input style={{ width: 150 }} />
-                    </Form.Item>
-                    <Form.Item name={[field.name, "source_url"]} label="来源URL">
-                      <Input style={{ width: 180 }} />
-                    </Form.Item>
-                    <Form.Item name={[field.name, "source_year"]} label="来源年">
-                      <InputNumber min={1900} max={2100} style={{ width: 90 }} />
-                    </Form.Item>
-                    <Form.Item name={[field.name, "source_geography"]} label="来源地域">
-                      <Input style={{ width: 100 }} />
-                    </Form.Item>
-                  </Space>
+                  <div key={field.key} style={{ border: "1px solid #e5e7eb", borderRadius: 8, padding: "12px 14px", marginBottom: 12 }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
+                      <Tag color="blue" style={{ margin: 0 }}>{code}</Tag>
+                      <Text strong>{def.name}</Text>
+                      <Text type="secondary">{def.direction === "negative" ? "负向指标" : "正向指标"}</Text>
+                    </div>
+                    <Row gutter={[12, 0]}>
+                      <Col span={6}><Form.Item name={[field.name, "value"]} label="数值" rules={[{ required: true }]}>
+                        <InputNumber style={{ width: "100%" }} /></Form.Item></Col>
+                      <Col span={6}><Form.Item name={[field.name, "unit"]} label="单位">
+                        <Input /></Form.Item></Col>
+                      <Col span={8}><Form.Item name={[field.name, "source_type"]} label="来源类型">
+                        <Select options={[
+                          { value: "site_actual", label: "场地真实记录" },
+                          { value: "regional_official_proxy", label: "区域官方代理" },
+                        ]} /></Form.Item></Col>
+                      <Col span={4}><Form.Item name={[field.name, "is_proxy"]} label="代理" valuePropName="checked">
+                        <Switch disabled /></Form.Item></Col>
+                      <Col span={12}><Form.Item name={[field.name, "source_name"]} label="来源名称">
+                        <Input placeholder="合同、发票或统计公报名称" /></Form.Item></Col>
+                      <Col span={12}><Form.Item name={[field.name, "source_url"]} label="来源 URL">
+                        <Input placeholder="可追溯链接（场地真实记录可留空）" /></Form.Item></Col>
+                      <Col span={8}><Form.Item name={[field.name, "source_year"]} label="来源年份">
+                        <InputNumber min={1900} max={2100} style={{ width: "100%" }} /></Form.Item></Col>
+                      <Col span={16}><Form.Item name={[field.name, "source_geography"]} label="来源地域">
+                        <Input placeholder="国家/省/市/县" /></Form.Item></Col>
+                    </Row>
+                  </div>
                 );
               })}
             </Form.List>
