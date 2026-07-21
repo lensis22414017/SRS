@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
-  Card, Steps, Tag, Button, Space, Upload, Select, Modal, Input, message, Table, Descriptions, Spin, Tooltip, Typography, Popconfirm,
+  Card, Steps, Tag, Button, Space, Upload, Select, Modal, Input, message, Table, Descriptions, Spin, Tooltip, Typography, Popconfirm, Row, Col,
 } from "antd";
 import { UploadOutlined, FileAddOutlined, DownloadOutlined, EyeOutlined, ApartmentOutlined, DeleteOutlined } from "@ant-design/icons";
 import { api } from "../api/client";
@@ -177,9 +177,9 @@ export default function TraceDetail() {
         )}
       </Card>
 
-      {/* Round7 追加: 证据链完整度环图 + 阶段材料缺口表(保留上方 Steps 时间线) */}
+      {/* Round7 追加: 证据链完整度环图 + 材料缺口(并排布局) */}
       {stages.length > 0 && (
-        <Card title="证据链完整度与材料缺口（Round7 追加）" size="small">
+        <Card title="证据链完整度与材料缺口" size="small">
           {(() => {
             const totalAttach = stages.reduce((s, st) => s + (st.n_attachments || 0), 0);
             const totalExpected = Object.values(FILE_ROLES).reduce((s, roles) => s + roles.length, 0);
@@ -193,29 +193,38 @@ export default function TraceDetail() {
               });
             });
             return (
-              <>
-                <ReactECharts option={{
-                  series: [{ type: "gauge", startAngle: 90, endAngle: -270, min: 0, max: 100,
-                    radius: "70%", center: ["22%", "50%"],
-                    progress: { show: true, overlap: false, roundCap: true, clip: false,
-                      itemStyle: { color: completeness >= 60 ? "#16a34a" : completeness >= 30 ? "#f59e0b" : "#dc2626" } },
-                    axisLine: { lineStyle: { width: 18, color: [[1, "#f0f0f0"]] } },
-                    splitLine: { show: false }, axisTick: { show: false }, axisLabel: { show: false },
-                    pointer: { show: false },
-                    detail: { valueAnimation: true, fontSize: 28, offsetCenter: [0, 0],
-                      formatter: "{value}%", color: "#333" },
-                    title: { offsetCenter: [0, "30%"], fontSize: 11 },
-                    data: [{ value: completeness, name: "证据链完整度" }] }],
-                  graphic: [{ type: "text", left: "52%", top: "18%", style: { text: "材料缺口明细", fill: "#666", fontSize: 14 } }],
-                }} theme="srs-light" opts={SVG_OPTS} style={{ height: 220 }} />
-                {gapRows.length > 0 ? (
-                  <Table rowKey="_key" size="small" pagination={{ pageSize: 6 }} style={{ marginTop: 8 }}
-                    dataSource={gapRows}
-                    columns={[textCol("阶段", "stage"), textCol("缺失材料角色", "role"),
-                      { title: "状态", dataIndex: "status", width: 80, align: "center",
-                        render: () => <Tag color="orange">缺失</Tag> }]} />
-                ) : <div style={{ marginTop: 8, color: "#16a34a", fontSize: 13 }}>✓ 所有阶段材料齐全，无缺口</div>}
-              </>
+              <Row gutter={24} align="middle">
+                <Col span={8}>
+                  <ReactECharts option={{
+                    series: [{ type: "gauge", startAngle: 90, endAngle: -270, min: 0, max: 100,
+                      radius: "75%", center: ["50%", "55%"],
+                      progress: { show: true, overlap: false, roundCap: true, clip: false,
+                        itemStyle: { color: completeness >= 60 ? "#16a34a" : completeness >= 30 ? "#f59e0b" : "#dc2626" } },
+                      axisLine: { lineStyle: { width: 14, color: [[1, "#f0f0f0"]] } },
+                      splitLine: { show: false }, axisTick: { show: false }, axisLabel: { show: false },
+                      pointer: { show: false },
+                      detail: { valueAnimation: true, fontSize: 24, offsetCenter: [0, 0],
+                        formatter: "{value}%", color: "#333" },
+                      title: { offsetCenter: [0, "32%"], fontSize: 10 },
+                      data: [{ value: completeness, name: "证据链完整度" }] }],
+                  }} theme="srs-light" opts={SVG_OPTS} style={{ height: 180 }} />
+                </Col>
+                <Col span={16}>
+                  <div style={{ fontSize: 14, fontWeight: 500, marginBottom: 8 }}>
+                    材料缺口明细
+                    <Tag color={completeness >= 60 ? "green" : "orange"} style={{ marginLeft: 8 }}>
+                      {completeness >= 60 ? "基本完整" : "缺口较多"}
+                    </Tag>
+                  </div>
+                  {gapRows.length > 0 ? (
+                    <Table rowKey="_key" size="small" bordered pagination={{ pageSize: 6 }}
+                      dataSource={gapRows}
+                      columns={[textCol("阶段", "stage"), textCol("缺失材料角色", "role"),
+                        { title: "状态", dataIndex: "status", width: 80, align: "center",
+                          render: () => <Tag color="orange">缺失</Tag> }]} />
+                  ) : <div style={{ marginTop: 8, color: "#16a34a", fontSize: 13 }}>✓ 所有阶段材料齐全，无缺口</div>}
+                </Col>
+              </Row>
             );
           })()}
         </Card>
@@ -227,8 +236,8 @@ export default function TraceDetail() {
           (s.attachments || []).map((a: any) => ({ ...a, stage: s.stage, stage_name: s.stage_name })));
         if (!allFiles.length) return null;
         return (
-          <Card title={<Space><FileAddOutlined />网盘 · 已上传文件库（{allFiles.length} 个文件）</Space>} size="small">
-            <Table rowKey={(r: any) => `${r.stage}_${r.id}`} size="small"
+          <Card title={<Space><FileAddOutlined />网盘 · 已上传文件库<Tag>{allFiles.length} 个文件</Tag></Space>} size="small">
+            <Table rowKey={(r: any) => `${r.stage}_${r.id}`} size="small" bordered
               pagination={{ pageSize: 8, current: filePage, onChange: setFilePage }} dataSource={allFiles}
               columns={[
                 seqCol(50, filePage, 8),
@@ -257,24 +266,28 @@ export default function TraceDetail() {
       })()}
 
       {reports.length > 0 && (
-        <Card title="已生成报告">
-          <Table rowKey="report_id" size="small" pagination={false} dataSource={reports}
+        <Card title="已生成报告" style={{ marginTop: 16 }}>
+          <Table rowKey="report_id" size="small" bordered pagination={false} dataSource={reports}
             columns={[seqCol(64, 1, reports.length), textCol("版本", "version"), textCol("生成时间", "generated_at"),
-              { title: "格式", align: "center", render: (_: any, r: any) => (r.data_snapshot?.format || "pdf").toUpperCase() },
-              { title: "操作", align: "center", render: (_: any, r: any) => {
+              { title: "格式", align: "center", width: 80, render: (_: any, r: any) => <Tag>{(r.data_snapshot?.format || "pdf").toUpperCase()}</Tag> },
+              { title: "操作", align: "center", width: 180, render: (_: any, r: any) => {
                   const fmt = r.data_snapshot?.format || "pdf";
                   return (
                     <Space>
                       {fmt === "pdf" && (
-                        <Button size="small" icon={<EyeOutlined />}
-                          onClick={() => openPreview(r.report_id, site.site_code, r.version)}>
+                        <Tooltip title="浏览器内预览 PDF 报告">
+                          <Button size="small" icon={<EyeOutlined />}
+                            onClick={() => openPreview(r.report_id, site.site_code, r.version)}>
                           预览
                         </Button>
+                        </Tooltip>
                       )}
-                      <Button size="small" icon={<DownloadOutlined />}
-                        onClick={() => api.downloadReport(r.report_id, `追溯报告_${site.site_code}_${r.version}.${fmt}`)}>
-                        下载
-                      </Button>
+                      <Tooltip title="下载报告文件">
+                        <Button size="small" icon={<DownloadOutlined />}
+                          onClick={() => api.downloadReport(r.report_id, `追溯报告_${site.site_code}_${r.version}.${fmt}`)}>
+                          下载
+                        </Button>
+                      </Tooltip>
                     </Space>
                   );
                 } }]} />

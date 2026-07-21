@@ -1,0 +1,72 @@
+{
+  "release_kind": "candidate",
+  "generated_at": "2026-07-21",
+  "version": "1.0.1",
+  "git": {
+    "branch": "codex/srs-round10-source-gate",
+    "commit": "72e145a6fc4d7c900d3302afb26f6b2e9d8db3c4",
+    "tracked_dirty": false,
+    "untracked_build_artifacts_only": true
+  },
+  "installer": {
+    "filename": "SRS-Setup-1.0.1-Windows-x64.exe",
+    "bytes": 233512315,
+    "sha256": "880AF09FF8C9A5157D7F494A1B84B26DD4824E937413C9051FC99B0888171C60"
+  },
+  "packed_application": {
+    "executable": "SRS.exe",
+    "bytes": 48737346,
+    "sha256": "B3D8104BDBE43A27ABEB946AC66056A6E8C2FFD8AE8945A8BC7DD38E947E6226",
+    "file_count": 5587,
+    "total_bytes": 976980492,
+    "frontend_files": 147,
+    "frontend_hash_mismatches": 0
+  },
+  "resource_hashes": {
+    "model_registry": "6F493EBB47AE2F7B472E69ACFDD64230222A8C622451B308561CDA6F91DF9604",
+    "ssui_economic_reference": "7B0C928496A265609EA01AD28855C18CD2E58D7DD1915667E2BB50E808AC7CA6",
+    "builtin_keys_file": "E1AFD209C8D811855BF717962FFBFA7F768A848AFD21E0A9C0E673964E4B881B",
+    "flows": {
+      "obstacle_analysis": "64E483E2FDC9C8147C5835A2E20A93EB79973F91712AF7529A9BD15CA355431B",
+      "reconstruction_eval": "2ED32D31F47A0E4E1A113EB000A7E7E8A65F6F8AF2909A6FA89B8B3D5E6C166D",
+      "ssui_eval": "DAB890ACEB0B3A3093CC8DBBB35E0948E3601725FA4C188A882BE92F25D58179",
+      "recommendation": "C35304DFBD8E7816A605AAA2F995D9BB0429C84F7F2C1BDEFF83806DA83687F1",
+      "trace_workflow": "46A6DCA1CA7A05523A833FB0C69446492834F052E63C1FB0292F8DA768B805A5",
+      "data_import": "FA1EA92B4CD8F89C75750548EE67F16FB60AA01EF00B8DB1C08283A1ECC2EA56",
+      "report_generation": "90AC45F011ED7BFEDFB0BFDD3D051850C8BF7196DA0FDF02EFBDA80C9A8B1B10"
+    }
+  },
+  "validation": {
+    "compileall": "passed",
+    "pytest": {
+      "passed": 453,
+      "skipped": 12,
+      "failed": 0
+    },
+    "release_gate_tests": {
+      "passed": 10,
+      "skipped": 0,
+      "failed": 0
+    },
+    "typescript": "passed",
+    "frontend_build": "passed",
+    "isolated_install_current_windows": "passed",
+    "isolated_install_exit_code": 0,
+    "installed_executable_matches_dist": true,
+    "installed_first_start_business_tables_empty": true,
+    "installed_model_health": "4/4",
+    "installed_flow_http_checks": "7/7",
+    "browser_visual_regression": "passed",
+    "clean_windows_vm": "not_run_environment_unavailable",
+    "github_actions_run": "https://github.com/lensis22414017/SRS/actions/runs/29778788971",
+    "github_actions_status": "success"
+  },
+  "accepted_demo_exceptions": [
+    "existing_appdata_directory_and_default_jwt_configuration",
+    "builtin_ai_and_map_configuration_written_to_appdata",
+    "pyinstaller_collects_builtin_keys",
+    "v1_0_1_appid_directory_and_filename_retained"
+  ],
+  "secrets_disclosed": false,
+  "delivery_gate": "pending_clean_vm_and_visual_acceptance"
+}

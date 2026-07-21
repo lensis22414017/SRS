@@ -75,26 +75,6 @@ export default function AppLayout() {
         onCollapse={setCollapsed}
         style={{ position: "fixed", left: 0, top: 0, bottom: 0, height: "100vh", overflow: "auto", zIndex: 100 }}
       >
-        {/* 系统 Logo 区：仅保留图标，避免与各业务页面标题重复 */}
-        <div style={{
-          padding: "16px 16px 12px",
-          borderBottom: "1px solid rgba(255,255,255,.08)",
-        }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 4 }}>
-            {/* SVG 图标 — 重构之盾(深蓝底板+白盾+双叶+数据节点) */}
-            <svg width="28" height="28" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="24" y="24" width="464" height="464" rx="104" fill="#123B73" />
-              <path d="M256 87C300 116 343 129 386 137V235C386 326 338 394 256 429C174 394 126 326 126 235V137C169 129 212 116 256 87Z"
-                fill="none" stroke="#FFFFFF" strokeWidth="18" strokeLinejoin="round" />
-              <path d="M267 225C230 225 196 203 188 168C225 163 260 178 275 207C277 214 275 220 267 225Z" fill="#19A980" />
-              <path d="M270 205C289 174 327 158 363 166C357 202 324 228 282 229C270 225 266 216 270 205Z" fill="#DCA75A" />
-              <circle cx="162" cy="251" r="14" fill="#65E0C0" stroke="#123B73" strokeWidth="8" />
-              <circle cx="278" cy="159" r="14" fill="#65E0C0" stroke="#123B73" strokeWidth="8" />
-              <circle cx="302" cy="304" r="14" fill="#65E0C0" stroke="#123B73" strokeWidth="8" />
-            </svg>
-          </div>
-        </div>
-
         {/* 导航菜单 — 按权限过滤 */}
         <Menu
           theme="dark"

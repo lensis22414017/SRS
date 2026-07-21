@@ -167,6 +167,13 @@
   margin-top: 2px;
 }
 
+.kpiLabel2 {
+  font-size: 12px;
+  color: #6b8db5;
+  margin-top: 0px;
+  line-height: 1.3;
+}
+
 .kpiSuffix {
   font-size: 13px;
   font-weight: 400;
@@ -242,6 +249,7 @@
 
 .mapWrap {
   flex: 1;
+  width: 100%;
   background: rgba(16, 26, 51, 0.7);
   border: 1px solid rgba(30, 144, 255, 0.12);
   border-radius: 6px;

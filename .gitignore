@@ -91,3 +91,8 @@ packaging/builtin_keys.py
 backend/.env
 release/SRS-1.0.1/installer/*.exe
 *.exe
+artifacts/package_validation/
+artifacts/release_validation/
+artifacts/full_screenshots_20260715/
+dist_new/
+build_round10/

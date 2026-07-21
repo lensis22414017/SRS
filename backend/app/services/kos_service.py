@@ -474,14 +474,25 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
                 continue
             thr_result = resolve_threshold_from_db(
                 db_session, fac, track=track, site_pH=site_pH, land_use_type=land_use_type)
-            if thr_result["threshold_resolution_status"] == "resolved":
+            status = thr_result["threshold_resolution_status"]
+            if status in ("resolved", "heuristic", "fallback"):
+                # resolved=国标, heuristic=文献兜底(GB15618扩展), fallback=最严档兜底
                 thresholds[fac] = thr_result["threshold"]
                 threshold_meta[fac] = thr_result
+                if status in ("heuristic", "fallback"):
+                    # 文献兜底阈值仍可参与KOS，但标记为待核实（证据等级自动降为C）
+                    data_quality_flags.append(
+                        f"threshold_{status}: {fac} 使用{thr_result.get('standard','文献')}兜底值, "
+                        f"限值={thr_result.get('threshold_value','?')} {thr_result.get('threshold_unit','')}, 待核实"
+                    )
+            elif status == "advisory":
+                # v1.0.2: 描述性指标（Sand/Silt/Clay/Elevation/MAP/Slope）不报错，静默跳过
+                threshold_meta[fac] = thr_result
             else:
-                # ambiguous / heuristic / fallback / not_found 均不得进入正式法规 Top-N。
+                # ambiguous / not_found 不得进入正式法规 Top-N。
                 ambiguous_factors.append(fac)
                 data_quality_flags.append(
-                    f"threshold_{thr_result['threshold_resolution_status']}: "
+                    f"threshold_{status}: "
                     f"{fac} 无法唯一解析权威阈值, 已退出正式KOS并要求复核"
                 )
 
@@ -554,16 +565,18 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
                     land_use_type=land_use_type,
                 )
                 status = resolved.get("threshold_resolution_status")
-                if status == "resolved":
+                if status in ("resolved", "heuristic", "fallback"):
                     point_threshold_map[factor] = resolved["threshold"]
                     point_meta_map[factor] = resolved
                 else:
-                    point_unresolved.append({
-                        "point_id": point_id,
-                        "factor": factor,
-                        "status": status,
-                        "reason": resolved.get("note") or resolved.get("fallback_note") or "无权威阈值",
-                    })
+                    # v1.0.3: advisory 因子（描述性指标）不参与告警，静默跳过
+                    if status != "advisory":
+                        point_unresolved.append({
+                            "point_id": point_id,
+                            "factor": factor,
+                            "status": status,
+                            "reason": resolved.get("note") or resolved.get("fallback_note") or "无权威阈值",
+                        })
             per_point_thresholds[point_id] = point_threshold_map
             per_point_meta[point_id] = point_meta_map
 
@@ -600,7 +613,7 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
                     "pH_condition": metadata.get("pH_condition", ""),
                     "land_use_type": metadata.get("land_use_type", ""),
                     "threshold_source_id": metadata.get("threshold_source_id"),
-                    "threshold_resolution_status": "resolved",
+                    "threshold_resolution_status": metadata.get("threshold_resolution_status", "resolved"),
                 })
                 previous = best_by_factor.get(factor)
                 if previous is None or candidate["KOS"] > previous["KOS"]:
@@ -691,7 +704,11 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
             fac, per_point_data, _thr_scalar)
 
     # 未知有机物三道防线
-    known_factors = set(thresholds.keys())
+    # v1.0.3: 已知因子包含所有系统认识的因子
+    from app.models import FactorDictionary
+    known_factors = (set(factors.keys()) | set(thresholds.keys())
+                     | {fd.factor_code for fd in db_session.query(FactorDictionary.factor_code).all() if fd.factor_code}
+                     | {fd.factor_name for fd in db_session.query(FactorDictionary.factor_name).all() if fd.factor_name})
     organic_result = guardrail_check(factors, known_factors)
 
     # 模型贡献度: 优先解释一个真实的最不利采样点; 不得把不同点位最大值

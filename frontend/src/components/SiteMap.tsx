@@ -369,11 +369,11 @@ export default function SiteMap({
         ))}
       </div>
 
-      {/* 层级指示 — 右下角 */}
+      {/* 层级指示 — 右下角, 紧贴 Leaflet Attribution 正上方 */}
       <div style={{
-        position: "absolute", right: 8, bottom: 8,
-        background: "rgba(255,255,255,0.88)", padding: "2px 8px",
-        borderRadius: 4, fontSize: 11, color: "#64748b", zIndex: 400,
+        position: "absolute", right: 0, bottom: 20,
+        background: "rgba(255,255,255,0.88)", padding: "2px 10px",
+        borderRadius: "4px 0 0 0", fontSize: 11, color: "#64748b", zIndex: 400,
       }}>
         {mapMode === "satellite" ? "高德影像" : "矢量底图"} ·{" "}
         {curLevel === "province" ? "省级" : curLevel === "prefecture" ? "地市级" : "县级"}

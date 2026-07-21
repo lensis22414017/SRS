@@ -9,6 +9,7 @@ import FormulaBlock from "../components/FormulaBlock";
 import OrganicDegradedCard from "../components/OrganicDegradedCard";
 import ReactECharts from "echarts-for-react";
 import { seqCol, numCol, textCol } from "../utils/table";
+import { formatFactor } from "../utils/factorFormat";
 import { SVG_OPTS } from "../theme/echarts";
 
 /** 功能重构分析 = 方法文件第2章 污染土壤生产-生态功能重构可行性评价(生产功能 + 生态功能) */
@@ -26,7 +27,7 @@ function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRi
   // 雷达图: 各评价指标 F 得分(0-100), 一眼识别短板(木桶效应可视化)
   const radarOption = dims.length >= 3 ? {
     tooltip: {},
-    radar: { indicator: dims.map((d: any) => ({ name: d.indicator ?? "?", max: 100 })), radius: "62%" },
+    radar: { indicator: dims.map((d: any) => ({ name: d.indicator ?? "?", max: 100 })), radius: "60%", center: ["55%", "52%"] },
     series: [{ type: "radar", data: [{ value: dims.map((d: any) => d.F ?? 0), name: title,
       areaStyle: { color: "#3C5488", opacity: 0.22 }, lineStyle: { color: "#3C5488", width: 2 },
       itemStyle: { color: "#3C5488" } }] }],
@@ -36,10 +37,10 @@ function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRi
   const contribOption = sortedDims.length ? {
     tooltip: { trigger: "axis", formatter: (p: any) => {
       const d = sortedDims[p[0].dataIndex];
-      return `${d.indicator}<br/>贡献分: ${p[0].value}<br/>权重: ${d.norm_weight != null ? (d.norm_weight * 100).toFixed(1) + "%" : "—"}`;
+      return `${d.indicator}<br/>贡献: ${p[0].value}<br/>权重: ${d.norm_weight != null ? (d.norm_weight * 100).toFixed(1) + "%" : "—"}`;
     } },
-    grid: { left: 110, right: 50, top: 16, bottom: 24 },
-    xAxis: { type: "value", name: "贡献分" },
+    grid: { left: 80, right: 40, top: 16, bottom: 24 },
+    xAxis: { type: "value", name: "贡献" },
     yAxis: { type: "category", inverse: true, data: sortedDims.map((d: any) => d.indicator),
       axisLabel: { fontSize: 11 } },
     series: [{ type: "bar", barMaxWidth: 22,
@@ -53,24 +54,33 @@ function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRi
       const d = sortedDims[p[0].dataIndex];
       return d.indicator + "<br/>贡献分: " + (d.contribution ?? 0);
     } },
-    grid: { left: 110, right: 30, top: 16, bottom: 24 },
-    xAxis: { type: "category", data: sortedDims.map((d: any) => d.indicator), axisLabel: { rotate: 45, fontSize: 10, interval: 0 } },
-    yAxis: { type: "value", name: "累计贡献" },
-    series: [{ type: "bar", barMaxWidth: 28,
+    grid: { left: 50, right: 30, top: 5, bottom: 130, containLabel: true },
+    xAxis: { type: "category", data: sortedDims.map((d: any) => d.indicator),
+      axisLabel: { rotate: 35, fontSize: 11, interval: 0, width: 120,
+        formatter: (v: string) => v.length > 8 ? v.substring(0, 7) + "…" : v },
+      axisLine: { onZero: true } },
+    yAxis: { type: "value", name: "累计贡献", nameTextStyle: { fontSize: 12, padding: [0, 0, 0, 30] },
+      nameLocation: "middle", nameGap: 35,
+      axisLabel: { fontSize: 10 } },
+    series: [{ type: "bar", barMaxWidth: 44, barGap: "10%",
       data: sortedDims.map((d: any, i: number) => {
         const cum = sortedDims.slice(0, i + 1).reduce((s: number, x: any) => s + (x.contribution ?? 0), 0);
         return { value: cum, itemStyle: { color: i < 2 ? "#E64B35" : "#4DBBD5" } };
       }),
-      label: { show: true, position: "top", fontSize: 9 } }],
+      label: { show: true, position: "top", fontSize: 10, formatter: ({ value }: any) => Math.round(value) } }],
   } : null;
   const minDim = sortedDims.length ? [...sortedDims].sort((a: any, b: any) => (a.F ?? 100) - (b.F ?? 100))[0] : null;
   const gaugeOption = minDim ? {
-    series: [{ type: "gauge", min: 0, max: 100, startAngle: 200, endAngle: -20,
-      progress: { show: true, width: 14 },
-      axisTick: { show: false }, splitLine: { length: 8 },
-      pointer: { width: 4 },
-      detail: { valueAnimation: true, formatter: "{value}", fontSize: 20, offsetCenter: [0, "30%"] },
-      data: [{ value: minDim.F ?? 0, name: minDim.indicator ?? "短板" }] }],
+    series: [{ type: "gauge", min: 0, max: 100, startAngle: 210, endAngle: -30, radius: "75%",
+      center: ["50%", "45%"],
+      progress: { show: true, width: 12 },
+      axisLine: { lineStyle: { width: 12 } },
+      axisTick: { show: false }, splitLine: { length: 6 },
+      axisLabel: { distance: 10, fontSize: 10 },
+      pointer: { width: 4, length: "60%" },
+      detail: { valueAnimation: true, formatter: "{value} 分", fontSize: 18, offsetCenter: [0, "35%"] },
+      title: { offsetCenter: [0, "85%"], fontSize: 12, color: "#555" },
+      data: [{ value: minDim.F ?? 0, name: (minDim.indicator ?? "短板").length > 8 ? (minDim.indicator ?? "短板").substring(0, 8) + "…" : (minDim.indicator ?? "短板") }] }],
   } : null;
   return (
     <Card type="inner" title={title} style={{ marginBottom: 16 }}>
@@ -78,7 +88,7 @@ function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRi
         <Col span={8}><Statistic title="综合得分" value={e.score} suffix="分"
           valueStyle={{ color: e.grade === "可行" ? "#15803d" : "#b91c1c" }} /></Col>
         <Col span={8}><div>评价等级</div><Tag color={e.grade === "可行" ? "green" : "red"} style={{ fontSize: 16, padding: "4px 12px", marginTop: 8 }}>{e.grade}</Tag></Col>
-        <Col span={8}><div>关键限制因子</div><div style={{ marginTop: 8 }}>{(e.limiting_factors || []).map((f: string) => <Tag color="orange" key={f}>{f}</Tag>) || "—"}</div></Col>
+        <Col span={8}><div>关键限制因子</div><div style={{ marginTop: 8 }}>{(e.limiting_factors || []).map((f: string) => <Tag color="orange" key={f}>{formatFactor(f)}</Tag>) || "—"}</div></Col>
       </Row>
       <p style={{ color: "#666", fontSize: 13 }}>{e.explanation}</p>
       <Divider style={{ margin: "12px 0" }} />
@@ -88,7 +98,7 @@ function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRi
           textCol("评价指标", "indicator"),
           numCol("指标得分 F", "F"),
           numCol("归一权重", "norm_weight", { render: (v: number) => v != null ? (v * 100).toFixed(2) + "%" : "—" }),
-          numCol("贡献分", "contribution"),
+          numCol("贡献", "contribution"),
           {
             title: "贡献可视化", dataIndex: "contribution", key: "bar",
             render: (v: number) => (
@@ -106,14 +116,14 @@ function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRi
         <Row gutter={16} style={{ marginTop: 12 }}>
           {radarOption && (
             <Col span={10}>
-              <Card size="small" title="各评价指标得分（雷达图 · 识别短板）">
+              <Card size="small" title="各评价指标得分">
                 <ReactECharts option={radarOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 260 }} />
               </Card>
             </Col>
           )}
           {contribOption && (
             <Col span={14}>
-              <Card size="small" title="指标贡献度排序（条形图 · 突出障碍因子）">
+              <Card size="small" title="指标贡献度排序（突出障碍因子）">
                 <ReactECharts option={contribOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 260 }} />
               </Card>
             </Col>
@@ -123,20 +133,20 @@ function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRi
       {/* Round7 追加: 瀑布图(累计贡献) + 短板仪表盘(最低维度), 保留上方雷达+条形图; 默认折叠避免双轨×4图过载 */}
       {(waterfallOption || gaugeOption) && (
         <Collapse size="small" style={{ marginTop: 12 }} items={[{
-          key: "advanced", label: "高级可视化（指标贡献瀑布图 + 短板仪表盘 · 点击展开）",
+          key: "advanced", label: "高级可视化（贡献瀑布图 + 短板仪表盘 · 点击展开）",
           children: (
             <Row gutter={16}>
               {waterfallOption && (
                 <Col span={14}>
-                  <Card size="small" title="指标贡献瀑布图（累计叠加 · 识别主导因子）">
-                    <ReactECharts option={waterfallOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 320 }} />
+                  <Card size="small" title="生产类指标贡献瀑布图（累计叠加 · 识别主导因子）">
+                    <ReactECharts option={waterfallOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 440 }} />
                   </Card>
                 </Col>
               )}
               {gaugeOption && (
                 <Col span={10}>
-                  <Card size="small" title="短板仪表盘（最低得分维度 · 木桶效应）">
-                    <ReactECharts option={gaugeOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 320 }} />
+                  <Card size="small" title="短板仪表盘（木桶效应 · 最低分）">
+                    <ReactECharts option={gaugeOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 440 }} />
                   </Card>
                 </Col>
               )}
@@ -188,7 +198,15 @@ export default function ReconstructionAnalysis() {
           <SitePicker value={sid} onChange={setSid} />
           <Space>
             {data && <Button icon={<ExportOutlined />} onClick={() => {
-              api.generateReport(sid!, "pdf").then(() => message.success("重构评价报告生成中...")).catch(() => message.error("导出失败"));
+              api.generateReport(sid!, "pdf").then((r: any) => {
+                if (r?.report_id) {
+                  const filename = r.file_name || `重构评价报告_场地${sid}_${r.version}.pdf`;
+                  api.downloadReport(r.report_id, filename);
+                  message.success("报告已下载");
+                } else {
+                  message.warning("报告已生成，请在追溯页面下载");
+                }
+              }).catch(() => message.error("导出失败"));
             }}>导出分析报告</Button>}
             <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
             <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行功能重构可行性评价</Button>

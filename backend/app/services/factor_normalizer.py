@@ -75,7 +75,7 @@ def _lookup_canonical(raw_name: str) -> str | None:
         return None
 
     # 第1级: 去单位后的精确匹配
-    _, factor_name = _extract_unit(raw_name)
+    _, factor_name, _ = _extract_unit(raw_name)
     k = _norm_key(factor_name)
     if k in _ALIAS_TO_CANONICAL:
         return _ALIAS_TO_CANONICAL[k]
@@ -144,33 +144,47 @@ _KEYWORD_TO_CANONICAL: dict[str, str] = {
     "阳离子交换": "CEC_cmolkg", "阳离子交换量": "CEC_cmolkg",
     "电导率": "EC_mScm",
     "有机碳": "OC_pct", "有机质": "OC_pct",
-    "全氮": "TN_gkg", "水解性氮": "TN_gkg", "碱解氮": "TN_gkg",
-    "全磷": "P_mgkg", "有效磷": "P_mgkg", "速效磷": "P_mgkg",
-    "全钾": "K_mgkg", "速效钾": "K_mgkg", "缓效钾": "K_mgkg",
+    # v0.8.1 拆分化学形态: 全氮=总量 TN_gkg; 水解性氮/碱解氮=速效 Hydrolyzable_N_mgkg
+    "全氮": "TN_gkg", "总氮": "TN_gkg",
+    "水解性氮": "Hydrolyzable_N_mgkg", "碱解氮": "Hydrolyzable_N_mgkg", "速效氮": "Hydrolyzable_N_mgkg",
+    # v0.8.1 拆分: 全磷=总量 Total_P_gkg; 有效磷/速效磷=速效 P_mgkg
+    "全磷": "Total_P_gkg", "总磷": "Total_P_gkg",
+    "有效磷": "P_mgkg", "速效磷": "P_mgkg",
+    # v0.8.1 拆分: 全钾=总量 Total_K_gkg; 速效钾/有效钾=速效 K_mgkg
+    "全钾": "Total_K_gkg", "总钾": "Total_K_gkg",
+    "速效钾": "K_mgkg", "有效钾": "K_mgkg", "缓效钾": "K_mgkg",
     "容重": "SoilBD_gcm3", "土壤容重": "SoilBD_gcm3",
     "质地": "Clay_pct", "粘粒": "Clay_pct", "黏粒": "Clay_pct",
     "砂粒": "Sand_pct", "粉粒": "Silt_pct",
     "坡度": "Slope_pct", "海拔": "Elevation_m",
     "全铁": "Fe_mgkg", "铁": "Fe_mgkg",
-    # ── PAH 多环芳烃(16种优先控制) ──
-    "萘": "PAH_Naphthalene", "苊": "PAH_Acenaphthylene", "芴": "PAH_Fluorene",
-    "菲": "PAH_Phenanthrene", "蒽": "PAH_Anthracene", "荧蒽": "PAH_Fluoranthene",
-    "芘": "PAH_Pyrene", "苯并[a]蒽": "PAH_Benz[a]anthracene",
-    "苯并芘": "PAH_Benzo[a]pyrene", "苯并[a]芘": "PAH_Benzo[a]pyrene",
-    "苯并[b]荧蒽": "PAH_Benzo[b]fluoranthene", "苯并[k]荧蒽": "PAH_Benzo[k]fluoranthene",
-    "茚并": "PAH_Indeno", "苝": "PAH_Perylene",
-    # ── OCP 有机氯农药 ──
-    "六六六": "OCP_HCH", "滴滴涕": "OCP_DDT", "氯丹": "OCP_Chlordane",
-    "七氯": "OCP_Heptachlor", "毒杀芬": "OCP_Camphechlor", "灭蚁灵": "OCP_Mirex",
-    "硫丹": "OCP_Endosulfan",
-    # ── PCB 多氯联苯 ──
-    "多氯联苯": "PCB_total", "联苯": "PCB_total",
-    # ── PFAS 全氟化合物 ──
-    "全氟": "PFAS_total", "全氟辛酸": "PFAS_PFOA", "全氟辛烷": "PFAS_PFOS",
-    # ── PAE 邻苯二甲酸酯(塑化剂) ──
-    "邻苯二甲酸": "PAE_total", "塑化剂": "PAE_total",
-    # ── TPH 石油烃 ──
-    "石油烃": "TPH_C10C40", "矿物油": "TPH_C10C40", "总石油": "TPH_C10C40",
+    # ── v0.8.1 PAH 单体（对齐 SHAP group 名：中文裸名）──
+    "萘": "萘", "䓛": "䓛", "菲": "菲", "芴": "芴", "蒽": "蒽", "芘": "芘",
+    "苯并[a]蒽": "苯并[a]蒽", "苯并(a)蒽": "苯并[a]蒽",
+    "苯并芘": "BaP_ngg", "苯并[a]芘": "BaP_ngg", "苯并(a)芘": "BaP_ngg",
+    "苯并[b]荧蒽": "苯并[b]荧蒽", "苯并[k]荧蒽": "苯并[k]荧蒽",
+    "茚并": "茚并[1,2,3-cd]芘",
+    "二苯并": "二苯并[a,h]蒽",
+    "二苯并[a,h]蒽": "二苯并[a,h]蒽", "二苯并[ah]蒽": "二苯并[ah]蒽",
+    # ── v0.8.1 有机汇总（对齐 SHAP group 名）──
+    "多环芳烃": "PAHs_total(族群)", "PAHs": "PAHs_total(族群)",
+    "高分子量PAH": "HMWPAH_ngg", "高分子量多环芳烃": "HMWPAH_ngg",
+    "低分子量PAH": "LMWPAH_ngg", "低分子量多环芳烃": "LMWPAH_ngg",
+    # ── OCP 有机氯农药（v0.8.1 统一到 SHAP group）──
+    "六六六": "SumHCHs_ngg", "滴滴涕": "SumDDTs_ngg",
+    "有机氯": "SumOCP_ngg", "有机氯农药": "SumOCP_ngg",
+    "氯丹": "SumOCP_ngg", "七氯": "SumOCP_ngg",
+    "毒杀芬": "SumOCP_ngg", "灭蚁灵": "SumOCP_ngg", "硫丹": "SumOCP_ngg",
+    # ── v0.8.1 PCB（注意: 删"联苯"关键词避免 PBDE 误配）──
+    "多氯联苯": "SumPCB_ngg",
+    # ── PFAS ──
+    "全氟": "SumPFAS_ngg", "全氟辛酸": "SumPFAS_ngg", "全氟辛烷": "SumPFAS_ngg",
+    # ── PAE ──
+    "邻苯二甲酸": "SumPAE_ugkg", "塑化剂": "SumPAE_ugkg",
+    # ── TPH ──
+    "石油烃": "TPH_ngg", "矿物油": "TPH_ngg", "总石油": "TPH_ngg",
+    # ── PBDE ──
+    "多溴联苯醚": "SumPBDE_ngg",
     # ── BTEX 苯系物 ──
     "苯乙烯": "BTEX_Styrene", "甲苯": "BTEX_Toluene",
     "乙苯": "BTEX_Ethylbenzene", "二甲苯": "BTEX_Xylene",
@@ -254,33 +268,150 @@ def _fuzzy_keyword_match(factor_name: str) -> str | None:
     return None
 
 
-def _extract_unit(col_name: str) -> tuple[str | None, str]:
-    """从列名提取单位信息。返回 (单位, 去单位后的因子名)。
+# ── v0.8.1 单位分类 ─────────────────────────────
+# unit_category 用于区分"原单位使用"（不报单位不明）与"需要转换"（mg/kg ↔ ng/g ↔ μg/kg）
+_UNIT_CATEGORY_MAP: dict[str, str] = {
+    # 质量浓度（需要互相转换）
+    "mg/kg": "concentration_mgkg", "mgkg": "concentration_mgkg",
+    "mg·kg": "concentration_mgkg", "mg·kg⁻¹": "concentration_mgkg",
+    "μg/kg": "concentration_ugkg", "ug/kg": "concentration_ugkg",
+    "ng/g": "concentration_ngg", "ngg": "concentration_ngg",
+    # 养分（原单位使用）
+    "g/kg": "native_g_kg", "g·kg⁻¹": "native_g_kg",
+    # 容重/密度（原单位使用）
+    "g/cm³": "native_density", "g·cm⁻³": "native_density", "g/cm3": "native_density",
+    # CEC（原单位使用）
+    "cmol/kg": "native_cmol", "cmol·kg⁻¹": "native_cmol",
+    "cmol(+)/kg": "native_cmol", "cmolkg": "native_cmol",
+    # 电导率（原单位使用）
+    "ms/cm": "native_ec", "mscm": "native_ec",
+    "ds/m": "native_ec", "μs/cm": "native_ec",
+    # 百分比（原单位使用）
+    "%": "native_percent", "％": "native_percent",
+    # 长度/角度（原单位使用）
+    "m": "native_length", "mm": "native_length", "度": "native_slope",
+}
 
-    如 "砷_As(μg/kg)" → ("μg/kg", "砷_As")
+# 单位标准规范名
+_UNIT_NORMALIZE: dict[str, str] = {
+    "mgkg": "mg/kg", "mg·kg": "mg/kg", "mg·kg⁻¹": "mg/kg",
+    "μg/kg": "μg/kg", "ug/kg": "μg/kg",
+    "ng/g": "ng/g", "ngg": "ng/g",
+    "g/kg": "g/kg", "g·kg⁻¹": "g/kg",
+    "g/cm³": "g/cm³", "g·cm⁻³": "g/cm³", "g/cm3": "g/cm³",
+    "cmol/kg": "cmol(+)/kg", "cmol·kg⁻¹": "cmol(+)/kg",
+    "cmol(+)/kg": "cmol(+)/kg", "cmolkg": "cmol(+)/kg",
+    "ms/cm": "mS/cm", "mscm": "mS/cm",
+    "ds/m": "dS/m", "μs/cm": "μS/cm",
+    "%": "%", "％": "%",
+    "m": "m", "mm": "mm", "度": "度",
+}
+
+# preferred_unit 到 unit_category 的映射
+_PREFERRED_UNIT_TO_CATEGORY: dict[str, str] = {
+    "mg/kg": "concentration_mgkg",
+    "μg/kg": "concentration_ugkg",
+    "ng/g": "concentration_ngg",
+    "g/kg": "native_g_kg",
+    "g/cm³": "native_density",
+    "cmol(+)/kg": "native_cmol",
+    "mS/cm": "native_ec", "dS/m": "native_ec", "μS/cm": "native_ec",
+    "%": "native_percent",
+    "m": "native_length", "mm": "native_length", "度": "native_slope",
+    "1": "dimensionless",
+}
+
+# unit_category 间的转换因子（μg/kg 等价于 0.001 mg/kg, 即与 ng/g 同数量级）
+_CONVERSION_MATRIX: dict[tuple[str, str], float] = {
+    ("concentration_mgkg", "concentration_ngg"): 1000.0,
+    ("concentration_mgkg", "concentration_ugkg"): 1000.0,
+    ("concentration_ngg", "concentration_mgkg"): 0.001,
+    ("concentration_ugkg", "concentration_mgkg"): 0.001,
+    ("concentration_ngg", "concentration_ugkg"): 1.0,
+    ("concentration_ugkg", "concentration_ngg"): 1.0,
+}
+
+
+def _extract_unit(col_name: str) -> tuple[str | None, str, str]:
+    """从列名提取单位信息。返回 (unit_raw, factor_name, unit_category)。
+
+    unit_raw: 识别到的原始单位文本（如"mg/kg"）
+    factor_name: 去单位括号后的因子名
+    unit_category: 单位分类标签（concentration_mgkg/native_percent/.../unknown）
+
+    如 "砷_As（μg/kg）" → ("μg/kg", "砷_As", "concentration_ugkg")
+    如 "有机质（%）" → ("%", "有机质", "native_percent")
+    如 "海拔（m）" → ("m", "海拔", "native_length")
     """
-    # 匹配括号内的单位
-    m = re.search(r"[（(]\s*(μg/kg|ug/kg|ng/g|mg/kg|mg·kg|mg·kg⁻¹)\s*[)）]", col_name, re.IGNORECASE)
+    if not col_name:
+        return None, str(col_name), "unknown"
+
+    # 匹配括号内的单位（中文括号 / 英文括号）
+    s = str(col_name)
+    m = re.search(r"[（(]\s*([^)）\s]*)\s*[)）]", s)
     if m:
-        unit = m.group(1).lower().replace("·", "").replace("⁻¹", "")
-        factor_name = re.sub(r"[（(]\s*[^)）]*[)）]", "", col_name).strip()
-        return unit, factor_name
-    return None, col_name
+        raw_unit = m.group(1).strip()
+        # 移除括号及其内容
+        factor_name = re.sub(r"[（(]\s*[^)）]*[)）]", "", s).strip()
+        # 归一化单位文本
+        unit_lower = raw_unit.lower().replace("·", "").replace("⁻¹", "")
+        category = _UNIT_CATEGORY_MAP.get(unit_lower, "unknown")
+        # 规范化单位名（用于展示）
+        normalized_unit = _UNIT_NORMALIZE.get(unit_lower, raw_unit)
+        return normalized_unit, factor_name, category
+
+    # 无括号单位：尝试从列名后缀推断（如 "pH"、"萘"）
+    return None, s, "unknown"
+
+
+def _resolve_conversion(input_category: str, canonical: str | None) -> tuple[float, str]:
+    """计算输入值需要乘的转换因子，以对齐 canonical 的 preferred_unit。
+
+    返回 (factor, target_unit_display)
+    - factor: 输入值需要乘的系数
+    - target_unit_display: canonical 的目标单位（如"ng/g"）
+
+    如 输入 category=concentration_mgkg, canonical=BaP_ngg(preferred_unit=ng/g)
+       → factor=1000.0, target="ng/g"
+    """
+    if canonical is None:
+        return 1.0, "unknown"
+    info = _ALIASES.get(canonical, {})
+    preferred = info.get("preferred_unit")
+    if not preferred:
+        # 无 preferred_unit 声明: 重金属默认 mg/kg
+        if canonical.endswith("_mgkg"):
+            preferred = "mg/kg"
+        elif canonical.endswith("_ngg"):
+            preferred = "ng/g"
+        elif canonical.endswith("_ugkg"):
+            preferred = "μg/kg"
+        else:
+            return 1.0, "native"
+    target_cat = _PREFERRED_UNIT_TO_CATEGORY.get(preferred, "unknown")
+    if input_category == target_cat or target_cat == "unknown":
+        return 1.0, preferred
+    factor = _CONVERSION_MATRIX.get((input_category, target_cat))
+    if factor is not None:
+        return factor, preferred
+    return 1.0, preferred
 
 
 def normalize_factor_name(raw_name: str) -> tuple[str | None, dict]:
     """精确匹配单个因子名到 canonical。
 
     返回 (canonical or None, metadata)
-    metadata 含: original_name, normalized_name, unit_raw, unit_converted, conversion_factor
+    metadata 含: original_name, normalized_name, unit_raw, unit_converted,
+               conversion_factor, unit_category, match_method, target_unit
     """
     meta: dict[str, Any] = {"original_name": raw_name}
 
     if raw_name is None or (isinstance(raw_name, float) and math.isnan(raw_name)):
         return None, meta
 
-    unit_raw, factor_name = _extract_unit(str(raw_name))
+    unit_raw, factor_name, unit_category = _extract_unit(str(raw_name))
     meta["unit_raw"] = unit_raw
+    meta["unit_category"] = unit_category
 
     normed = _norm_key(factor_name)
     meta["normalized_name"] = normed
@@ -299,14 +430,17 @@ def normalize_factor_name(raw_name: str) -> tuple[str | None, dict]:
     else:
         meta["match_method"] = "unmapped"
 
-    # 单位转换
-    if unit_raw and unit_raw in _UNIT_CONVERSION:
-        factor, target_unit = _UNIT_CONVERSION[unit_raw]
+    # ── v0.8.1 单位智能转换 ──
+    conversion_factor, target_unit = _resolve_conversion(unit_category, canonical)
+    meta["conversion_factor"] = conversion_factor
+    meta["target_unit"] = target_unit
+    meta["unit_converted"] = target_unit  # canonical 的目标单位
+
+    # 旧兼容: 保留原有 _UNIT_CONVERSION 逻辑（对没有 preferred_unit 的老因子仍生效）
+    if conversion_factor == 1.0 and unit_raw and unit_raw in _UNIT_CONVERSION:
+        factor, tgt = _UNIT_CONVERSION[unit_raw]
         meta["conversion_factor"] = factor
-        meta["unit_converted"] = target_unit
-    else:
-        meta["conversion_factor"] = 1.0
-        meta["unit_converted"] = unit_raw or "unknown"
+        meta["unit_converted"] = tgt
 
     return canonical, meta
 
@@ -386,11 +520,25 @@ def normalize_factors_v2(raw_values: dict) -> dict:
             # 同一来源列重复（key 相同），更新值
             factors[canonical] = converted_value
 
-    # 单位不明的因子标记
+    # v0.8.1: 只对真正"单位不明"的因子打标记（排除原生单位和 dimensionless）
+    # 如果 unit_category 是 unknown 但 canonical 有 preferred_unit，从 preferred_unit 推断类别
+    NATIVE_CATEGORIES = {"native_g_kg", "native_density", "native_cmol", "native_ec",
+                         "native_percent", "native_length", "native_slope", "dimensionless"}
     for d in mapping_details:
-        if d.get("unit_converted") == "unknown" and d["canonical"] not in ("pH",):
+        cat = d.get("unit_category", "unknown")
+        cano = d.get("canonical", "")
+        # 尝试从 canonical 的 preferred_unit 推断
+        if cat == "unknown" and cano:
+            info = _ALIASES.get(cano, {})
+            pref = info.get("preferred_unit", "")
+            inferred_cat = _PREFERRED_UNIT_TO_CATEGORY.get(pref, "unknown")
+            if inferred_cat != "unknown":
+                d["unit_category"] = inferred_cat
+                d["unit_converted"] = pref
+                cat = inferred_cat
+        if cat == "unknown" and cano not in ("pH",):
             data_quality_flags.append(
-                f"因子 {d['original_name']}（→{d['canonical']}）单位不明，未做单位转换"
+                f"因子 {d['original_name']}（→{cano}）单位不明，未做单位转换"
             )
 
     return {

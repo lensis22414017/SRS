@@ -209,6 +209,17 @@ def _aggregate_pollutant_risk(factor_list: list, series: dict,
                 "factor_details": factor_details, "unresolved_factors": unresolved_factors,
                 "resolved_count": resolved_count, "measured_count": measured_count}
     elif unresolved_factors:
+        # Round10 H4: 有机物阈值容错 — 全部因子阈值未解析但浓度极低时改为 advisory_low
+        if d_code.startswith("D17_"):
+            all_low = all(
+                fd["max_value"] is not None and fd["max_value"] < 1.0
+                for fd in factor_details
+            )
+            if all_low and has_any_data:
+                return {"score": 1.0, "status": "advisory_low",
+                        "worst_factor": None, "worst_ratio": None,
+                        "factor_details": factor_details, "unresolved_factors": unresolved_factors,
+                        "resolved_count": 0, "measured_count": measured_count}
         # 有实测但全部阈值未解析 → 禁止回退 Min-Max, 上游 blocked
         return {"score": None, "status": "unresolved_threshold",
                 "worst_factor": None, "worst_ratio": None,
@@ -248,7 +259,7 @@ def _grade(ssui, params):
 D_TO_FACTORS = {
     "D1_土壤含盐量": ["电导率", "含盐量"],
     "D2_土壤碱化度": ["碱化度", "交换性钠"],
-    "D3_土壤机械组成": ["机械组成", "质地", "土壤质地"],
+    "D3_土壤机械组成": ["机械组成", "质地", "土壤质地", "砂粒", "粉粒", "黏粒", "容重"],
     "D4_土壤含水率": ["含水率", "水分"],
     "D5_阳离子交换量": ["阳离子交换量", "CEC"],
     "D6_盐基饱和度": ["盐基饱和度"],
@@ -256,7 +267,7 @@ D_TO_FACTORS = {
     "D8_土壤有机质": ["有机质", "SOC"],
     "D9_水稳性团聚体": ["水稳性团聚体"],
     "D10_有效态锌铁锰硼钙": ["有效锌", "有效铁", "有效锰", "有效硼", "有效钙"],
-    "D11_氮磷钾": ["全氮", "总氮", "全磷", "速效钾"],
+    "D11_氮磷钾": ["全氮", "总氮", "全磷", "速效钾", "碱解氮", "速效磷", "全钾"],
     "D12_土壤酶活性": ["过氧化氢酶", "脲酶", "磷酸酶", "蔗糖酶"],
     "D13_土壤渗透率": ["渗透率", "饱和水力传导率"],
     "D14_有效土层厚度": ["有效土层", "土层厚度"],
@@ -279,7 +290,7 @@ NEGATIVE_METAS = {"D1_土壤含盐量", "D16_重金属污染物", "D17_有机污
 
 D_COMPONENTS = {
     "D10_有效态锌铁锰硼钙": [["有效锌"], ["有效铁"], ["有效锰"], ["有效硼"], ["有效钙"]],
-    "D11_氮磷钾": [["全氮", "总氮"], ["全磷"], ["速效钾"]],
+    "D11_氮磷钾": [["全氮", "总氮", "碱解氮"], ["全磷", "速效磷"], ["速效钾", "全钾"]],
     "D12_土壤酶活性": [["过氧化氢酶"], ["脲酶"], ["磷酸酶"], ["蔗糖酶"]],
 }
 
@@ -375,15 +386,21 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
                     if fd.get("resolution_status") in {"fallback", "heuristic"}:
                         has_fallback_threshold = True
                 # 收集实测但阈值未解析的因子(细到具体因子名, 不是 d_code)
-                for uf in pr.get("unresolved_factors", []):
-                    unresolved_threshold_factors.append(f"{d_code}:{uf}")
+                # Round10 H4: D17有机物无阈值不改blocked(已在上游转为missing处理)
+                if not d_code.startswith("D17_"):
+                    for uf in pr.get("unresolved_factors", []):
+                        unresolved_threshold_factors.append(f"{d_code}:{uf}")
 
-                if pr["status"] == "measured" and pr["score"] is not None:
+                if pr["status"] in ("measured", "advisory_low") and pr["score"] is not None:
                     groups[criterion].append((d_code, pr["score"], weight, "measured"))
                 elif pr["status"] == "partial_resolved" and pr["score"] is not None:
                     groups[criterion].append((d_code, pr["score"], weight, "partial_resolved"))
                 elif pr["status"] == "unresolved_threshold":
-                    groups[criterion].append((d_code, None, weight, "unresolved_threshold"))
+                    # Round10 H4: D17有机物无阈值 → 标记为"missing"而非blocked
+                    if d_code.startswith("D17_"):
+                        groups[criterion].append((d_code, None, weight, "missing"))
+                    else:
+                        groups[criterion].append((d_code, None, weight, "unresolved_threshold"))
                 else:
                     groups[criterion].append((d_code, None, weight, "missing"))
                 continue
@@ -454,6 +471,13 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
     c3_measured = [g for g in groups["经济成本C3"] if g[3] == "measured"]
     c4_measured = [g for g in groups["经济效益C4"] if g[3] == "measured"]
     economic_measured_count = len(c3_measured) + len(c4_measured)
+    # Round10 H4: 追踪 C1 缺失原因(缺数据 vs 缺参照范围)
+    c1_normalization_missing = [g[0] for g in groups["限制因子C1"] if g[3] == "normalization_missing"]
+    c1_missing_component = [g[0] for g in groups["限制因子C1"] if g[3] == "missing_component"]
+    c1_coverage_ratio = len(c1_measured) / 15 if (len(c1_measured) + len(c1_normalization_missing) + len(c1_missing_component)) > 0 else 0
+    # 实际有机会评分的比例(排除因缺数据而无法评分的)
+    c1_scorable = len(c1_measured) + len(c1_normalization_missing)
+    c1_scorable_ratio = c1_scorable / 15 if c1_scorable > 0 else 0
 
     # ──── Round9 P0-2.3 安全门禁: 实测因子阈值未解析 → blocked ────
     # 审计 P0-2.3: 任何有实测值的污染物, 若阈值 not_found/ambiguous/unit_conflict/mapping_conflict
@@ -498,10 +522,20 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
     c2_missing = [g[0] for g in groups["风险因子C2"] if g[3] != "measured"]
     full_25_complete = len(c1_measured) == 15 and len(c2_measured) == 2 and economic_all_present
 
-    if not full_25_complete:
+    # Round10 H4: C1 部分覆盖容忍(≥6/15 可生成参考评价)
+    # D16或D17任一缺失时C2≥1即可(有任一项风险因子可评价即可)
+    c2_any_missing = any(
+        g[3] not in ("measured", "partial_resolved")
+        for g in groups["风险因子C2"]
+    )
+    c2_min = 1 if c2_any_missing else 2
+    c1_partial_ok = (len(c1_measured) >= 6 and len(c2_measured) >= c2_min and economic_all_present
+                     and not economic_missing)
+
+    if not full_25_complete and not c1_partial_ok:
         missing_dims = []
         if c1_missing:
-            missing_dims.append(f"限制因子C1不完整(缺{len(c1_missing)}项)")
+            missing_dims.append(f"限制因子C1不完整(缺{len(c1_missing)}项, 当前{len(c1_measured)}/15)")
         if c2_missing:
             missing_dims.append(f"风险因子C2不完整(缺{len(c2_missing)}项)")
         if not has_economic_data:
@@ -539,6 +573,8 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
             "normalization_version": normalization_version,
             "missing_c1_indicators": c1_missing,
             "missing_c2_indicators": c2_missing,
+            "c1_normalization_missing": c1_normalization_missing,
+            "c1_coverage_ratio": round(c1_coverage_ratio, 3),
             "worst_factor": worst_factor_global,
             "worst_ratio": worst_ratio_global,
             "severity_forced_downgrade": bool(worst_ratio_global is not None and worst_ratio_global > 1.0),
@@ -551,9 +587,19 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
     # R3 审计第五类: proxy 数据门禁
     # 经济数据齐全但来自 proxy → 生成参考 SSUI(标记 is_reference)
     # is_reference: 只要数据含 proxy 且被允许使用, 结果就是参考评价
-    is_reference = has_proxy and allow_proxy
-    if has_proxy and not has_only_site_actual and not allow_proxy:
-        # proxy 数据但用户未勾选 allow_proxy → 返回 blocked, 提示用户主动选择
+    # Round10 H4: C1 部分覆盖(≥10/15 但非15/15)也标记 is_reference
+    # Round10 H6: 若用户无任何真实经济数据(全部为proxy), 自动允许并标记参考评价
+    all_proxy_no_real = has_proxy and economic_source_types.isdisjoint({"site_actual"})
+    is_reference = (has_proxy and allow_proxy) or all_proxy_no_real
+    c1_partial_reference = c1_partial_ok and not full_25_complete
+    if c1_partial_reference:
+        is_reference = True
+        c1_partial_reason = (f"限制因子C1仅{len(c1_measured)}/15项可评价"
+                             + (f"(缺参照范围: {', '.join(c1_normalization_missing[:5])})" if c1_normalization_missing else ""))
+    else:
+        c1_partial_reason = None
+    if has_proxy and not has_only_site_actual and not allow_proxy and not all_proxy_no_real:
+        # proxy 数据但用户未勾选 allow_proxy, 且存在部分真实数据 → 需用户明确选择
         return {
             "scope": scope, "ssui": None, "grade": "blocked(需确认代理数据)",
             "is_na": True, "is_blocked": True,
@@ -606,15 +652,21 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
         forced_reference_reason = "阈值待核实(fallback/heuristic)"
     else:
         forced_reference_reason = None
+    # Round10 H4: C1 部分覆盖原因追加到参考评价理由
+    if c1_partial_reference and not forced_reference_reason:
+        forced_reference_reason = c1_partial_reason
 
     # R3: proxy 数据标记(参考评价, 不是正式结论)
     # Round9 P0-2.3: fallback/heuristic 阈值也强制 is_reference
     # Round9 P0-2.4: severe exceedance 强制降级
+    # Round10 H4: C1 部分覆盖也标记参考评价
     if regulatory_veto:
         grade = f"不可持续(法规超标{worst_ratio_global:.1f}倍)"
     elif is_reference:
         if forced_reference_reason:
             grade = f"参考评价-{forced_reference_reason}({_grade(ssui, params)})"
+        elif c1_partial_reference:
+            grade = f"参考评价(C1仅{len(c1_measured)}/15)({_grade(ssui, params)})"
         else:
             grade = f"参考评价({_grade(ssui, params)})"
     else:
@@ -679,28 +731,37 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
             "economic_total": 8,
             "economic_complete": economic_all_present,
         },
+        # Round10 H4: C1 部分覆盖详细信息供前端展示
+        "c1_coverage_ratio": round(c1_coverage_ratio, 3),
+        "c1_normalization_missing": c1_normalization_missing,
+        "c1_missing_component": c1_missing_component,
+        "c1_partial_reference": c1_partial_reference,
+        "c1_partial_reason": c1_partial_reason,
         "economic_details": economic_details,
         "normalization_version": ref_version,
         "calculation_trace": [
-            f"① 25项元指标按4个准则层分组计算(限制因子/风险因子/经济成本/经济效益)",
-            f"② D1-D15 安全性: 外部参照总体归一化; D16-D17: 法规阈值; D18-D25: 官方年度参照样本({ref_version})",
-            f"③ 各准则层组内加权: SC1={round(sc.get('限制因子C1',0),4)}, SC2={round(sc.get('风险因子C2',0),4)}, "
-            f"SC3={round(sc.get('经济成本C3',0),4)}, SC4={round(sc.get('经济效益C4',0),4)}",
-            f"④ B1安全性={round(b1,4)}, B2经济性={round(b2,4)}",
-            f"⑤ f(t)=1+0.03×{t}={round(ft,3)}, M={M}",
-            f"⑥ 原始SSUI=(B1×0.5+B2×0.5)×f(t)×M={round(raw_ssui,4)}；展示边界值={ssui}",
-            f"⑦ 等级: {grade}",
-            f"⑧ 数据来源: {'区域代理数据(参考评价)' if is_reference else '场地实测数据(正式评价)'}",
-            f"⑨ Round9 P0-2.4 门禁: 最严重因子={worst_factor_global}, 超标倍数={worst_ratio_global}, "
-            f"{'触发法规单因子否决' if severity_forced else '未触发'}",
+            f"① 25项元指标按4个准则层分组计算（限制因子/风险因子/经济成本/经济效益）",
+            f"② D1-D15 基础土壤指标采用外部参照归一化，D16-D17 污染物指标采用国家法规阈值，D18-D25 经济指标采用全国平均参照值",
+            f"③ 各准则层得分：SC1限制因子={round(sc.get('限制因子C1',0),4)}, SC2风险因子={round(sc.get('风险因子C2',0),4)}, "
+            f"SC3经济成本={round(sc.get('经济成本C3',0),4)}, SC4经济效益={round(sc.get('经济效益C4',0),4)}",
+            f"④ 综合得分：安全性B1={round(b1,4)}, 经济可行性B2={round(b2,4)}",
+            f"⑤ 时间修正系数f(t)=1+0.03×{t}={round(ft,3)}, 管理调节因子M={M}",
+            f"⑥ 原始SSUI=(B1×0.5+B2×0.5)×f(t)×M={round(raw_ssui,4)}，展示值={ssui}",
+            f"⑦ 评价等级：{grade}",
+            f"⑧ 数据来源：{'全国平均参照数据' if is_reference else '场地实测数据'}",
+            f"⑨ 风险审查：最严重超标因子={worst_factor_global}, 超标{worst_ratio_global}倍"
+            f"{'（触发法规单因子否决，禁止评定为可持续等级）' if severity_forced else '（未触发法规否决）'}",
         ],
-        "explanation": f"SSUI(25项完整口径)={ssui}({grade})。"
-                       f"B1安全性={round(b1,4)}, B2经济性={round(b2,4)}, f(t)={round(ft,3)}, M={M}。"
-                       f"基于方法学25项元指标(D1-D25), 经济指标用{ref_version}参照区间归一化。"
-                       + ("当前为参考评价(基于区域代理数据), 不作为场地正式结论。" if is_reference
-                          else "当前为正式评价(基于场地实测经济数据)。")
-                       + (f" 最严重超标因子={worst_factor_global}, 超标{worst_ratio_global:.2f}倍。"
+        "explanation": (f"SSUI可持续利用综合指数为{ssui}，评价等级：{grade}。"
+                       f"土壤安全性得分{round(b1,4)}，经济可行性得分{round(b2,4)}。"
+                       + ("本评价基于全国平均经济参照数据，非场地实测经营数据，结论仅供参考。" if is_reference
+                          else "本评价基于场地实测数据，为正式评价结论。")
+                       + (f" 场地最严重的污染风险因子为{worst_factor_global}，浓度超标约{worst_ratio_global:.1f}倍。"
                           if worst_ratio_global else "")
-                       + (" 存在法规阈值超标，触发单因子否决，不得输出高可持续或低风险结论。" if severity_forced else "")
-                       + (" Round9 P0-2.3: 阈值含 fallback/heuristic, 仅作参考评价。" if forced_reference_reason else ""),
+                       + (" 该场地存在污染物超过《土壤环境质量 农用地土壤污染风险管控标准》（GB15618-2018）限制值，"
+                          "按评价规程不得评定为可持续等级。" if severity_forced else "")
+                       + (f" 场地基础土壤指标实测覆盖{len(c1_measured)}/15项"
+                          + ("（碱化度、含水率、微量元素、酶活性等指标未检测）" if c1_partial_reference else "")
+                          + "。" if c1_partial_reference else "")
+                       + (" 部分污染物指标采用参考标准值，建议补充检测后复核。" if forced_reference_reason else "")),
     }

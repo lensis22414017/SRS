@@ -10,6 +10,7 @@ RAG 检索为纯 DB 查询(可独立测试)。LLM 调用走 OpenAI 兼容 /chat/
 from __future__ import annotations
 
 import json
+import os
 import urllib.error
 import urllib.request
 
@@ -29,6 +30,7 @@ SYSTEM_PROMPT = (
     "你不能替代 RF/SHAP 诊断或阈值规则做最终达标判定, 只能解释与辅助。用简体中文、专业、简洁作答。"
     "输出格式要求: 用纯文本自然段表达, 禁止使用 markdown 加粗(**)、标题(#)、列表标记(-/*)、"
     "中文装饰引号("")、无意义的重复标点。直接陈述事实, 不加修饰性符号。"
+    "关于系统的诊断原理和方法论，请仔细阅读【方法论文档】中的内容并用通俗语言解释。"
 )
 
 
@@ -92,6 +94,8 @@ def retrieve(db: Session, query: str, site_id: int | None = None, k: int = 8) ->
     for v in vctx["technologies"]:
         if v["名称"] not in existing_tech:
             ctx["technologies"].append({"技术": v["名称"], "相似度": v["相似度"], "来源": "向量检索"})
+    # v1.0.2: 方法论文档检索（解释系统如何诊断障碍因子等）
+    ctx["methodologies"] = vctx.get("methodologies", [])
     return ctx
 
 
@@ -102,9 +106,9 @@ _VECTOR_CACHE: dict = {}  # {cache_key: {"matrix": ..., "names": ..., "vec": ...
 
 
 def _build_tfidf_index(db: Session) -> dict | None:
-    """构建因子字典+阈值规则+技术库的 TF-IDF 索引(惰性, 缓存到进程级)。"""
+    """构建因子字典+阈值规则+技术库+RAG文档的 TF-IDF 索引(惰性, 缓存到进程级)。"""
     import hashlib
-    cache_key = "tfidf_v1"
+    cache_key = "tfidf_v2"  # v2: 新增 rag_docs
     if cache_key in _VECTOR_CACHE:
         return _VECTOR_CACHE[cache_key]
     try:
@@ -114,16 +118,44 @@ def _build_tfidf_index(db: Session) -> dict | None:
     except ImportError:
         return None
 
-    docs, names, types = [], [], []
+    docs, names, types, contents = [], [], [], []  # contents 存储完整文档正文
+
+    # ── RAG 方法论文档（优先加载）──
+    import glob as _glob
+    rag_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(
+        os.path.abspath(__file__))))), "data", "knowledge", "rag_docs")
+    if os.path.isdir(rag_dir):
+        for mdfile in sorted(_glob.glob(os.path.join(rag_dir, "*.md"))):
+            with open(mdfile, encoding="utf-8") as f:
+                content = f.read()
+            # 按 ## 标题拆分为多个段落，每段作为一个独立文档
+            sections = content.split("\n## ")
+            for sec in sections:
+                sec = sec.strip()
+                if not sec or len(sec) < 20:
+                    continue
+                # 取第一行作为标题
+                lines = sec.split("\n", 1)
+                title = lines[0].lstrip("#").strip()[:80]
+                body = sec[:3000]  # 截断过长段落
+                docs.append(body)
+                names.append(f"[方法论文档] {title}")
+                types.append("methodology")
+                contents.append(body)
+
+    # ── 因子字典 ──
     for f in db.query(FactorDictionary).all():
         text = " ".join(filter(None, [f.factor_name, f.level1_category, f.default_unit]))
-        docs.append(text); names.append(f.factor_name); types.append("factor")
+        docs.append(text); names.append(f.factor_name); types.append("factor"); contents.append("")
+
+    # ── 阈值规则 ──
     for tr, fd in (db.query(ThresholdRule, FactorDictionary)
                    .join(FactorDictionary, ThresholdRule.factor_id == FactorDictionary.id).all()):
         text = " ".join(filter(None, [fd.factor_name, tr.land_type, tr.threshold_original, tr.standard_source]))
-        docs.append(text); names.append(fd.factor_name); types.append("threshold")
+        docs.append(text); names.append(fd.factor_name); types.append("threshold"); contents.append("")
+
+    # ── 技术库 ──
     for t in db.query(TechnologyLibrary).all():
-        # applicable_pollutants 是 JSON 字段(list/dict/None), 需安全展平为字符串
         poll = t.applicable_pollutants
         if isinstance(poll, (list, dict)):
             poll = " ".join(str(p) for p in (poll.values() if isinstance(poll, dict) else poll))
@@ -133,14 +165,16 @@ def _build_tfidf_index(db: Session) -> dict | None:
             poll = ""
         adv = t.advantages or ""
         text = " ".join(filter(None, [t.tech_name, poll, adv]))
-        docs.append(text); names.append(t.tech_name); types.append("technology")
+        docs.append(text); names.append(t.tech_name); types.append("technology"); contents.append("")
+
     if not docs:
         return None
 
-    vec = TfidfVectorizer(analyzer="char_wb", ngram_range=(1, 2))  # char_wb 适配中文
+    vec = TfidfVectorizer(analyzer="char_wb", ngram_range=(1, 3))  # ngram_range=3 适配更长的中文段落
     matrix = vec.fit_transform(docs)
     _VECTOR_CACHE[cache_key] = {"matrix": matrix, "names": names, "types": types,
-                                "vec": vec, "n_docs": len(docs)}
+                                "contents": contents, "vec": vec, "n_docs": len(docs)}
+    print(f"[AI-RAG] TF-IDF 索引构建完成: {len(docs)} 文档 (含 {sum(1 for t in types if t=='methodology')} 篇方法论文档)")
     return _VECTOR_CACHE[cache_key]
 
 
@@ -159,7 +193,7 @@ def vector_retrieve(db: Session, query: str, k: int = 5) -> dict:
     sims = cosine_similarity(qvec, idx["matrix"]).flatten()
     top_idx = np.argsort(sims)[::-1][:k * 3]  # 多取再按类型分
 
-    factors, thresholds, technologies = [], [], []
+    factors, thresholds, technologies, methodologies = [], [], [], []
     seen_names = set()
     for i in top_idx:
         if sims[i] < 0.05:
@@ -169,13 +203,19 @@ def vector_retrieve(db: Session, query: str, k: int = 5) -> dict:
             continue
         seen_names.add(name)
         entry = {"名称": name, "相似度": round(float(sims[i]), 3)}
+        # methodology 类型附带完整文档正文
+        if t == "methodology":
+            entry["内容"] = idx["contents"][i][:3000]  # 最长 3000 字符
         if t == "factor" and len(factors) < k:
             factors.append(entry)
         elif t == "threshold" and len(thresholds) < k:
             thresholds.append(entry)
         elif t == "technology" and len(technologies) < k:
             technologies.append(entry)
-    return {"factors": factors, "thresholds": thresholds, "technologies": technologies}
+        elif t == "methodology" and len(methodologies) < k:
+            methodologies.append(entry)
+    return {"factors": factors, "thresholds": thresholds, "technologies": technologies,
+            "methodologies": methodologies}
 
 
 _SINGLE_FACTORS = set("砷铅铜锌镉汞镍铬钒钴铍锑锰钼银铊钛锡钡")  # 单字金属因子
@@ -267,6 +307,9 @@ def build_context_text(ctx: dict) -> str:
     parts = []
     if ctx.get("site"):
         parts.append("【场地数据】\n" + json.dumps(ctx["site"], ensure_ascii=False))
+    if ctx.get("methodologies"):
+        parts.append("【方法论文档（系统诊断原理与方法论）】\n" +
+                     "\n---\n".join(m.get("内容", m.get("名称", "")) for m in ctx["methodologies"]))
     if ctx.get("factors"):
         parts.append("【因子字典】\n" + json.dumps(ctx["factors"], ensure_ascii=False))
     if ctx.get("thresholds"):

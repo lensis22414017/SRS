@@ -3,6 +3,7 @@ import { Card, Button, Row, Col, Space, Alert, Typography, App, Descriptions, Ta
 import { InfoCircleOutlined, ExportOutlined, HistoryOutlined, ApartmentOutlined } from "@ant-design/icons";
 import MethodFlowDrawer from "../components/MethodFlowDrawer";
 import MethodExplainCard from "../components/MethodExplainCard";
+import FactorDictionaryTable from "../components/FactorDictionaryTable";
 import { getFlowConfig } from "../config/methodFlows";
 import ReactECharts from "echarts-for-react";
 import dayjs from "dayjs";
@@ -226,7 +227,13 @@ export default function ObstacleAnalysis() {
             {diag && (
               <Button icon={<ExportOutlined />} onClick={() => {
                 api.generateReport(sid!, "pdf").then((r: any) => {
-                  message.success("诊断报告生成中...");
+                  if (r?.report_id) {
+                    const filename = r.file_name || `诊断报告_场地${sid}_${r.version}.pdf`;
+                    api.downloadReport(r.report_id, filename);
+                    message.success("报告已下载");
+                  } else {
+                    message.warning("报告已生成，请在追溯页面下载");
+                  }
                 }).catch(() => message.error("导出失败"));
               }}>导出诊断报告</Button>
             )}
@@ -278,35 +285,7 @@ export default function ObstacleAnalysis() {
           {/* ───── P4 KOS 三层诊断输出 ───── */}
           {kosData && (
             <>
-              {/* 数据质量 + 复核标记 */}
-              {(kosData.review_required || qualityFlags.length > 0) && (
-                <Alert
-                  type={kosData.model_status === "exploratory" ? "warning" : "info"}
-                  showIcon
-                  style={{ marginBottom: 0 }}
-                  message={kosData.model_status === "exploratory"
-                    ? `数据质量提示（探索性诊断，共 ${qualityFlags.length} 项）`
-                    : `数据质量提示（共 ${qualityFlags.length} 项）`}
-                  description={qualityFlags.length > 0 ? (
-                    <div style={{ fontSize: 12 }}>
-                      <ul style={{ margin: 0, paddingLeft: 18 }}>
-                        {qualityFlags.slice(0, 3).map((f, i) => <li key={i}>{f}</li>)}
-                      </ul>
-                      {qualityFlags.length > 3 && (
-                        <Collapse ghost size="small" style={{ marginTop: 4 }} items={[{
-                          key: "quality-details",
-                          label: `展开其余 ${qualityFlags.length - 3} 项详细提示`,
-                          children: <div style={{ maxHeight: 260, overflow: "auto" }}>
-                            <ul style={{ margin: 0, paddingLeft: 18 }}>
-                              {qualityFlags.slice(3).map((f, i) => <li key={i}>{f}</li>)}
-                            </ul>
-                          </div>,
-                        }]} />
-                      )}
-                    </div>
-                  ) : undefined}
-                />
-              )}
+              {/* ─── KOS 诊断结果 ─── */}
 
               {/* 第一层: 污染场地关键障碍因子 Top-N (优先展示, 规则层 B=1 + 实测 + 综合评分排序) */}
               <Card title={
@@ -315,8 +294,6 @@ export default function ObstacleAnalysis() {
                   <Tag color={kosTrack === "prod" ? "purple" : "green"}>
                     {kosTrack === "prod" ? "生产用途" : "生态用途"}
                   </Tag>
-                  <Tag color="blue">{kosData.model_id}</Tag>
-                  {kosData.model_status === "exploratory" && <Tag color="orange">探索性</Tag>}
                 </Space>
               }>
                 {kosData.key_obstacles?.length > 0 ? (
@@ -330,11 +307,6 @@ export default function ObstacleAnalysis() {
                           render: (v: string, r: any) => (
                             <Space size="small">
                               <span style={{ fontWeight: 600 }}>{formatFactor(v)}</span>
-                              {r.threshold_resolution_status === "heuristic" && (
-                                <Tooltip title="该因子为启发式识别(关键词匹配), 阈值已用 GB15618 通用档兜底, 待专家核实">
-                                  <Tag color="orange" style={{ fontSize: 10 }}>启发式·待核实</Tag>
-                                </Tooltip>
-                              )}
                               {r.threshold_resolution_status === "fallback" && (
                                 <Tooltip title="该因子阈值已用 GB15618 通用档兜底(无精确 pH/用地匹配)">
                                   <Tag color="gold" style={{ fontSize: 10 }}>兜底阈值</Tag>
@@ -426,109 +398,46 @@ export default function ObstacleAnalysis() {
                 </Card>
               )}
 
-              {/* 未知有机物防线(如有) */}
-              {kosData.organic_guardrails && (kosData.organic_guardrails.n_family_warning > 0 || kosData.organic_guardrails.n_unknown > 0) && (
-                <Alert type="warning" showIcon style={{ marginTop: 0 }}
-                  message={`检测到 ${kosData.organic_guardrails.n_family_warning} 个族群未收录物质,${kosData.organic_guardrails.n_unknown} 个完全未知物质`}
-                  description={`未收录因子不会丢失, 已进入模型候选识别、族群级近邻分析和未知因子预警(不强行套用阈值)。系统不会假装识别未知物质, 仅作为辅助识别参考, 非法规超标判定。请参考「建议补测」或安排深度检测。`} />
+              {/* 数据质量提示 — 折叠面板, 低调展示在模型贡献图之后 */}
+              {(kosData.review_required || qualityFlags.length > 0) && (
+                <Card size="small" style={{ marginTop: 12, borderLeft: "3px solid #d9d9d9" }}
+                  title={
+                    <span style={{ fontSize: 12, color: "#8c8c8c", fontWeight: 400 }}>
+                      ▎{kosData.model_status === "exploratory"
+                        ? `数据质量提示（探索性诊断，共 ${qualityFlags.length} 项）`
+                        : `数据质量提示（共 ${qualityFlags.length} 项）`}
+                    </span>
+                  }
+                >
+                  <Collapse ghost size="small" items={[{
+                    key: "quality-flags",
+                    label: <span style={{ fontSize: 12, color: "#8c8c8c" }}>展开查看详情</span>,
+                    children: <div style={{ maxHeight: 300, overflow: "auto", fontSize: 12 }}>
+                      <ul style={{ margin: 0, paddingLeft: 18 }}>
+                        {qualityFlags.map((f, i) => <li key={i}>{f}</li>)}
+                      </ul>
+                    </div>,
+                  }]} />
+                </Card>
               )}
 
-              {/* ───── M0-5: 开放集四层结果真实展示(模型候选 / 族群预警 / 未知因子) ───── */}
-              {(kosData.model_candidates?.length > 0 ||
-                kosData.family_alerts?.length > 0 ||
-                kosData.unknown_measured_factors?.length > 0) && (
-                <Card title={<Space><span>开放集识别结果（辅助识别 · 非法规超标结论）</span></Space>} size="small">
-                  <Paragraph type="secondary" style={{ fontSize: 12, marginBottom: 8 }}>
-                    以下三类结果属于辅助识别层, 与上方「关键障碍因子 Top-N」(法规超标层)严格区分, 仅供人工复核与补测决策。
-                  </Paragraph>
-                  <Collapse size="small" defaultActiveKey={["model_candidates", "family_alerts", "unknown_factors"]} items={[
-                    {
-                      key: "model_candidates",
-                      label: `① 模型候选障碍（${kosData.model_candidates?.length ?? 0}）`,
-                      children: (
-                        <>
-                          <Paragraph type="secondary" style={{ fontSize: 11, marginBottom: 8 }}>
-                            模型或文献数据提示其值得关注，但不属于法规超标结论。
-                          </Paragraph>
-                          <Table
-                            size="small" pagination={false} rowKey="original_name"
-                            dataSource={kosData.model_candidates || []}
-                            locale={{ emptyText: "无" }}
-                            columns={[
-                              textCol("原始名称", "original_name"),
-                              textCol("规范名称", "canonical"),
-                              textCol("候选原因", "reason"),
-                              { title: "模型贡献", dataIndex: "candidate_attention", align: "center", width: 110,
-                                render: (v: any) => {
-                                  if (v == null) return "—";
-                                  const score = typeof v === "object" ? v?.candidate_attention_score : v;
-                                  return score == null ? "—" : Number(score).toFixed(3);
-                                } },
-                              { title: "需复核", dataIndex: "review_required", align: "center", width: 80,
-                                render: (v: any) => v ? <Tag color="orange">是</Tag> : <Tag color="default">否</Tag> },
-                            ]}
-                          />
-                        </>
-                      ),
-                    },
-                    {
-                      key: "family_alerts",
-                      label: `② 族群级预警（${kosData.family_alerts?.length ?? 0}）`,
-                      children: (
-                        <>
-                          <Paragraph type="secondary" style={{ fontSize: 11, marginBottom: 8 }}>
-                            族群归类属于规则型辅助识别，不等同于具体化合物确认或法规判定。
-                          </Paragraph>
-                          <Table
-                            size="small" pagination={false} rowKey="original_name"
-                            dataSource={kosData.family_alerts || []}
-                            locale={{ emptyText: "无" }}
-                            columns={[
-                              textCol("原始名称", "original_name"),
-                              { title: "匹配族群", dataIndex: "matched_family", align: "center", width: 110,
-                                render: (v: string) => v ? <Tag color="blue">{v}</Tag> : "—" },
-                              { title: "置信度", dataIndex: "family_match_confidence", align: "center", width: 90,
-                                render: (v: any) => v == null ? "—" : Number(v).toFixed(3) },
-                              textCol("匹配理由", "family_match_reasons", {
-                                render: (v: any) => Array.isArray(v) && v.length ? v.join("；") : (v || "—"),
-                              }),
-                              textCol("原始单位", "original_unit"),
-                              { title: "需复核", dataIndex: "review_required", align: "center", width: 80,
-                                render: (v: any) => v ? <Tag color="orange">是</Tag> : <Tag color="default">否</Tag> },
-                            ]}
-                          />
-                        </>
-                      ),
-                    },
-                    {
-                      key: "unknown_factors",
-                      label: `③ 未知实测因子（${kosData.unknown_measured_factors?.length ?? 0}）`,
-                      children: (
-                        <>
-                          <Paragraph type="secondary" style={{ fontSize: 11, marginBottom: 8 }}>
-                            系统已保留该项实测数据，但目前无法可靠映射，建议补充 CAS、单位或检测方法。
-                          </Paragraph>
-                          <Table
-                            size="small" pagination={false} rowKey="original_name"
-                            dataSource={kosData.unknown_measured_factors || []}
-                            locale={{ emptyText: "无" }}
-                            columns={[
-                              textCol("原始名称", "original_name"),
-                              textCol("单位", "original_unit"),
-                              numCol("最大值", "max", { width: 90,
-                                render: (v: any) => v == null ? "—" : Number(v).toFixed(3) }),
-                              numCol("中位数", "median", { width: 90,
-                                render: (v: any) => v == null ? "—" : Number(v).toFixed(3) }),
-                              numCol("P95", "p95", { width: 90,
-                                render: (v: any) => v == null ? "—" : Number(v).toFixed(3) }),
-                              numCol("点位数", "n_points", { width: 80 }),
-                              textCol("未识别原因", "unknown_reason"),
-                            ]}
-                          />
-                        </>
-                      ),
-                    },
-                  ]} />
+              {/* 未知有机物防线(如有) */}
+              {/* 未知有机物防线 — 折叠面板 */}
+              {kosData.organic_guardrails && (kosData.organic_guardrails.n_family_warning > 0 || kosData.organic_guardrails.n_unknown > 0) && (
+                <Card size="small" style={{ marginTop: 12, borderLeft: "3px solid #faad14" }}
+                  title={
+                    <span style={{ fontSize: 12, color: "#8c8c8c", fontWeight: 400 }}>
+                      ▎检测到 {kosData.organic_guardrails.n_family_warning} 个族群未收录物质，{kosData.organic_guardrails.n_unknown} 个完全未知物质
+                    </span>
+                  }
+                >
+                  <Collapse ghost size="small" items={[{
+                    key: "unknown-guard",
+                    label: <span style={{ fontSize: 12, color: "#8c8c8c" }}>展开查看详情</span>,
+                    children: <div style={{ fontSize: 12, color: "#666" }}>
+                      <p style={{ margin: 0 }}>未收录因子不会丢失，已进入模型候选识别、族群级近邻分析和未知因子预警（不强行套用阈值）。系统不会假装识别未知物质，仅作为辅助识别参考，非法规超标判定。请参考「建议补测」或安排深度检测。</p>
+                    </div>,
+                  }]} />
                 </Card>
               )}
 
@@ -541,6 +450,9 @@ export default function ObstacleAnalysis() {
 
       <MethodFlowDrawer open={flowOpen} onClose={() => setFlowOpen(false)}
         config={getFlowConfig("obstacle_analysis")!} />
+
+      {/* v0.8.1 障碍因子集速查表（始终可见，供老专家参考） */}
+      <FactorDictionaryTable />
     </Space>
   );
 }

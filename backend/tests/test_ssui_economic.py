@@ -182,11 +182,11 @@ def test_06_no_degenerate_0_5(fresh_db, fixture_data):
     params = _load()
     from reference_loader import load_economic_reference
     ref_data = load_economic_reference()
-    # D18=467.41, 官方2015-2020区间 [467.41, 508.59], negative
+    # D18=467.41, 官方2015-2022区间 [457.13, 508.59], negative
     norm = _normalize_economic("D18", 467.41, params)
     norm = _normalize_economic("D18", 467.41, params, ref_data=ref_data)
     assert norm is not None
-    expected = 1 - (467.41 - 467.41) / (508.59 - 467.41)
+    expected = 1 - (467.41 - 457.13) / (508.59 - 457.13)
     assert abs(norm - expected) < 0.001, f"D18 归一化={norm}, 期望={expected}"
     assert norm != 0.5, "不应退化为 0.5"
 
@@ -198,11 +198,12 @@ def test_06_no_degenerate_0_5(fresh_db, fixture_data):
     assert norm22 != 0.5
 
 
-# ── 测试 7: 未勾选代理数据时不自动套用 ─────────────────────────────
+# ── 测试 7: 全部 proxy 数据自动放行(无真实数据时不阻断) ─────────────
 def test_07_proxy_data_not_used_without_consent(fresh_db, fixture_data):
-    """proxy 数据 + allow_proxy=False → blocked(需确认)。
+    """全部 proxy 数据 + allow_proxy=False → Round10 H6 自动放行, 标记 is_reference。
 
-    Round8 审计三类: D16 必须有阈值才能算 measured, 否则先因 C2 缺失而 blocked。
+    Round10 H6: 若用户无任何真实经济数据(全部为proxy), 自动允许并标记参考评价,
+    不再强制用户在 UI 上勾选复选框。
     """
     from ssui import evaluate
     db = fresh_db
@@ -216,10 +217,13 @@ def test_07_proxy_data_not_used_without_consent(fresh_db, fixture_data):
                      threshold_resolution_status=statuses,
                      safety_reference_ranges=safety_refs,
                      pollutant_groups=groups)
-        assert r.get("is_blocked") is True, "未勾选 proxy 应 blocked"
-        assert r.get("ssui") is None
-        assert "代理" in r.get("explanation", "") or "确认" in r.get("explanation", ""), \
-            f"explanation 应提示代理确认, 实际: {r.get('explanation')}"
+        # Round10 H6: 全部 proxy 数据自动放行, 不再 blocked
+        assert r.get("is_blocked") is not True, \
+            f"全部proxy时应自动放行, 实际 blocked={r.get('is_blocked')}"
+        assert r.get("is_reference") is True, \
+            "全部proxy数据应标记为参考评价"
+        assert r.get("ssui") is not None, \
+            "自动放行后应产出 SSUI 分数"
     finally:
         db.close()
 

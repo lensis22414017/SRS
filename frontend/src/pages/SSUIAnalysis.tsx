@@ -28,10 +28,10 @@ export default function SSUIAnalysis() {
   const [evalT, setEvalT] = useState<number>(2);
   const [evalIntensity, setEvalIntensity] = useState<string>("medium");
   // Round9 P0-5: 完整评价参数(年份/场景/scope/allow_proxy)
-  const [evalYear, setEvalYear] = useState<number | undefined>(undefined);
+  const [evalYear, setEvalYear] = useState<number | undefined>(2022);
   const [evalScenario, setEvalScenario] = useState<"production" | "ecology">("production");
   const [evalScope, setEvalScope] = useState<"production" | "ecology">("production");
-  const [allowProxy, setAllowProxy] = useState(false);
+  const [allowProxy, setAllowProxy] = useState(true);  // Round10 H6: 默认允许代理数据(所有demo场地均为proxy)
 
   const load = (id?: number) => {
     const s = id ?? sid; if (!s) return;
@@ -60,8 +60,8 @@ export default function SSUIAnalysis() {
   const toggleAllowProxy = (checked: boolean) => {
     if (checked) {
       modal.confirm({
-        title: "确认使用区域代理数据?",
-        content: "勾选后生成的 SSUI 结果为参考评价, 不代表场地真实经济数据。请在能接受'参考评价'语义时使用。",
+        title: "确认使用全国平均经济数据?",
+        content: "当前场地无真实经营数据，将使用国家统计局和全国农产品成本收益资料汇编公布的全国平均值代替，评价结果仅供初步参考，不作为场地正式结论。如需正式评价，请录入场地真实经济数据。",
         okText: "确认勾选",
         cancelText: "取消",
         onOk: () => setAllowProxy(true),
@@ -117,7 +117,7 @@ export default function SSUIAnalysis() {
       itemStyle: { color: safetyScore >= 0.6 && econScore >= 0.6 ? "#15803d" : "#f59e0b" },
       label: { show: true, formatter: "本场地", position: "right" } }],
     graphic: [
-      { type: "text", left: "62%", top: "30%", style: { text: "安全+经济\n双优", fill: "#15803d", fontSize: 10 } },
+      { type: "text", left: "62%", top: "33%", style: { text: "安全+经济\n双优", fill: "#15803d", fontSize: 10 } },
       { type: "text", left: "15%", top: "62%", style: { text: "双弱区\n(需重点修复)", fill: "#dc2626", fontSize: 10 } },
     ],
   } : null;
@@ -126,16 +126,19 @@ export default function SSUIAnalysis() {
     s?.dimensions?.SC3_cost, s?.dimensions?.SC4_benefit,
   ];
   const costBenefitOption = criterionValues.every((value) => Number.isFinite(value)) ? {
-    tooltip: { trigger: "axis", formatter: (p: any) => p[0].name + ": " + (p[0].value * 100).toFixed(1) + "%" },
+    tooltip: { trigger: "axis", formatter: (p: any) => {
+      const labels = ["C1限制因子", "C2污染风险", "C3经济成本", "C4综合效益"];
+      return labels[p[0].dataIndex] + ": " + (p[0].value * 100).toFixed(1) + "%";
+    } },
     legend: { data: ["C1限制", "C2风险", "C3成本", "C4效益"], top: 0, itemWidth: 12, itemHeight: 8, textStyle: { fontSize: 10 } },
-    grid: { left: 70, right: 30, top: 32, bottom: 24 },
-    xAxis: { type: "value", name: "准则层得分", min: 0, max: 1 },
-    yAxis: { type: "category", data: ["本场地"] },
+    grid: { left: 100, right: 40, top: 32, bottom: 24 },
+    xAxis: { type: "value", name: "准则层得分", nameTextStyle: { fontSize: 11 }, min: 0, max: 1, axisLabel: { formatter: (v: number) => (v * 100).toFixed(0) + "%" } },
+    yAxis: { type: "category", data: ["  "] },
     series: [
-      { name: "C1限制", type: "bar", color: "#3b82f6", data: [criterionValues[0]] },
-      { name: "C2风险", type: "bar", color: "#dc2626", data: [criterionValues[1]] },
-      { name: "C3成本", type: "bar", color: "#f59e0b", data: [criterionValues[2]] },
-      { name: "C4效益", type: "bar", color: "#16a34a", data: [criterionValues[3]] },
+      { name: "C1限制", type: "bar", barCategoryGap: "40%", barWidth: "50%", color: "#3b82f6", data: [criterionValues[0]], label: { show: true, position: "inside", formatter: (p: any) => (p.value * 100).toFixed(0) + "%", color: "#fff", fontSize: 11 } },
+      { name: "C2风险", type: "bar", color: "#dc2626", data: [criterionValues[1]], label: { show: true, position: "inside", formatter: (p: any) => (p.value * 100).toFixed(0) + "%", color: "#fff", fontSize: 11 } },
+      { name: "C3成本", type: "bar", color: "#f59e0b", data: [criterionValues[2]], label: { show: true, position: "inside", formatter: (p: any) => (p.value * 100).toFixed(0) + "%", color: "#fff", fontSize: 11 } },
+      { name: "C4效益", type: "bar", color: "#16a34a", data: [criterionValues[3]], label: { show: true, position: "inside", formatter: (p: any) => (p.value * 100).toFixed(0) + "%", color: "#fff", fontSize: 11 } },
     ],
   } : null;
 
@@ -154,19 +157,24 @@ export default function SSUIAnalysis() {
             <Space size={4}><Text type="secondary">评价年份：</Text>
               <InputNumber size="small" min={2000} max={2100} placeholder="自动" value={evalYear}
                 onChange={(v) => setEvalYear(v ?? undefined)} style={{ width: 96 }} /></Space>
-            <Space size={4}><Text type="secondary">数据场景：</Text>
-              <Select size="small" value={evalScenario} onChange={(v) => setEvalScenario(v)} style={{ width: 96 }}
-                options={[{ value: "production", label: "生产" }, { value: "ecology", label: "生态" }]} /></Space>
             <Space size={4}><Text type="secondary">评价用途：</Text>
-              <Select size="small" value={evalScope} onChange={(v) => setEvalScope(v)} style={{ width: 96 }}
-                options={[{ value: "production", label: "生产" }, { value: "ecology", label: "生态" }]} /></Space>
-            <Checkbox checked={allowProxy} onChange={(e) => toggleAllowProxy(e.target.checked)}>允许区域代理（参考评价）</Checkbox>
+              <Select size="small" value={evalScope} onChange={(v) => { setEvalScope(v); setEvalScenario(v); }} style={{ width: 96 }}
+                options={[{ value: "production", label: "生产利用" }, { value: "ecology", label: "生态利用" }]} /></Space>
+            <Checkbox checked={allowProxy} onChange={(e) => toggleAllowProxy(e.target.checked)}>使用全国平均经济数据（非场地真实数据，仅供初步参考）</Checkbox>
           </Space>
           <Space wrap>
             <Button icon={<DatabaseOutlined />} onClick={() => setEcoOpen(true)} disabled={!sid}>经济数据</Button>
             <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
             {data && <Button icon={<ExportOutlined />} onClick={() => {
-              api.generateReport(sid!, "pdf").then(() => message.success("SSUI 评价报告生成中...")).catch(() => message.error("导出失败"));
+              api.generateReport(sid!, "pdf").then((r: any) => {
+                if (r?.report_id) {
+                  const filename = r.file_name || `SSUI评价报告_场地${sid}_${r.version}.pdf`;
+                  api.downloadReport(r.report_id, filename);
+                  message.success("报告已下载");
+                } else {
+                  message.warning("报告已生成，请在追溯页面下载");
+                }
+              }).catch(() => message.error("导出失败"));
               }}>导出报告</Button>}
             <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行评价</Button>
           </Space>
@@ -215,7 +223,7 @@ export default function SSUIAnalysis() {
           />
         </Card>
       )}
-      {showResult && s?.grade === "不适用(有机)" ? (
+      {showResult && (s?.grade === "不适用(有机)" || s?.grade?.includes("有机污染评价指标不足")) ? (
         <OrganicDegradedCard
           organicRisk={data?.results?.organic_risk?.dimensions || s?.dimensions?.organic_risk}
           limitingFactors={s?.limiting_factors}
@@ -237,6 +245,15 @@ export default function SSUIAnalysis() {
               <Tag color={s?.coverage?.complete_25 ? "green" : "orange"}>
                 {s?.coverage?.measured_total ?? "—"}/{s?.coverage?.required_total ?? 25}
               </Tag>
+              {/* Round10 H5: C1 详细覆盖 */}
+              {s?.c1_coverage_ratio != null && (
+                <span style={{ marginLeft: 8 }}>
+                  <Text type="secondary">C1限制因子: {s?.c1_coverage_ratio ? (s.c1_coverage_ratio * 100).toFixed(0) : "?"}%</Text>
+                  {s?.c1_normalization_missing?.length > 0 && (
+                    <Tag color="orange" style={{ marginLeft: 4 }}>缺参照{s.c1_normalization_missing.length}项</Tag>
+                  )}
+                </span>
+              )}
             </div>
           )}
           {trace.length > 0 && (
@@ -246,38 +263,22 @@ export default function SSUIAnalysis() {
           )}
         </Card>
       ) : showResult ? (
-        <Card title="土壤持续利用度（SSUI）评价"
-          extra={<Text type="secondary" style={{ fontSize: 12 }}>本次运行 ｜ 数据版本 {s?.data_version} ｜ 参数版本 {s?.param_version} ｜ {s?.created_at}</Text>}>
-          {/* Round9 P0-5.5: 正式 vs 参考评价视觉区分 */}
-          {(s?.is_reference || s?.is_proxy || s?.has_fallback_threshold) && (
-            <Alert type="warning" showIcon style={{ marginBottom: 16 }}
-              message="⚠ 参考评价(非场地正式结论)"
-              description={
-                s?.has_fallback_threshold
-                  ? "本评价使用了 fallback/heuristic 阈值(非权威法规阈值), 仅供参考。请补充权威阈值后重评。"
-                  : "本评价基于区域代理数据(非场地真实经济数据), 仅供参考, 不作为场地正式结论。"
-              } />
-          )}
-          {/* Round9 P0-2.6: 最严重超标因子显示 */}
-          {s?.worst_factor && (
-            <Alert type={s?.severity_forced_downgrade ? "error" : "info"} showIcon style={{ marginBottom: 16 }}
-              message={`最严重超标因子: ${s.worst_factor} ${s.worst_ratio ? `(超标 ${s.worst_ratio.toFixed(2)} 倍)` : ""}`}
-              description={s?.severity_forced_downgrade
-                ? `Round9 P0-2.4 安全门禁: 超标≥5倍触发强制等级降级, 禁止评"优/良好"。`
-                : undefined} />
-          )}
-          <Alert type="info" style={{ marginBottom: 16 }}
-            message={`${s?.coverage?.complete_25 ? "25项完整口径" : "部分指标口径"}（${s?.is_reference ? "参考评价" : "正式评价"}）`} description={s.explanation} />
-          <Row gutter={16} align="middle">
-            <Col span={8}>{gauge && <ReactECharts option={gauge} theme="srs-light" opts={SVG_OPTS} style={{ height: 220 }} />}</Col>
-            <Col span={8}><Statistic title="SSUI 指数" value={s.score} /></Col>
-            <Col span={8}><div>可持续性等级</div>
-              <Tag color={s.grade?.includes("不") ? "red" : s.grade?.includes("低") ? "orange" : "green"}
-                style={{ fontSize: 16, padding: "4px 12px", marginTop: 8 }}>{s.grade}</Tag></Col>
+        <Card title="土壤持续利用度（SSUI）评价">
+          <Row gutter={24} style={{ marginBottom: 16 }}>
+            <Col span={8}>{gauge && <ReactECharts option={gauge} theme="srs-light" opts={SVG_OPTS} style={{ height: 200 }} />}</Col>
+            <Col span={16} style={{ display: "flex", alignItems: "center", gap: 48 }}>
+              <Statistic title="SSUI 综合指数" value={s.score} precision={3}
+                valueStyle={{ color: s.grade?.includes("不") ? "#dc2626" : s.grade?.includes("低") ? "#f59e0b" : "#16a34a", fontSize: 32 }} />
+              <div>
+                <div style={{ color: "#888", fontSize: 12, marginBottom: 4 }}>可持续性等级</div>
+                <Tag color={s.grade?.includes("不") ? "red" : s.grade?.includes("低") ? "orange" : "green"}
+                  style={{ fontSize: 16, padding: "6px 16px" }}>{s.grade}</Tag>
+              </div>
+            </Col>
           </Row>
-          <Divider />
-          <h4>D1-D25 元指标得分</h4>
-          <Table rowKey="meta" size="small" pagination={false} dataSource={parts}
+          <Divider style={{ margin: "12px 0" }} />
+          <h4 style={{ marginBottom: 8 }}>D1-D25 元指标得分明细</h4>
+          <Table rowKey="meta" size="small" bordered pagination={false} dataSource={parts}
             columns={[
               seqCol(64),
               textCol("元指标", "meta"),
@@ -314,6 +315,42 @@ export default function SSUIAnalysis() {
               </Card>
             </>
           )}
+          {/* 评价备注与风险提示（Card 包裹，层次分明） */}
+          <Card size="small" title="评价备注与风险提示" style={{ marginTop: 16, background: "#fafafa" }}>
+          {/* 参考评价提示 */}
+          {(s?.is_reference || s?.is_proxy || s?.has_fallback_threshold || s?.c1_partial_reference) && (
+            <Alert type="warning" showIcon style={{ marginBottom: 8 }}
+              message="本结果为参考评价，非场地正式结论"
+              description={
+                s?.c1_partial_reference
+                  ? `场地实测数据仅覆盖土壤安全性评估所需15项基础指标中的6项（${s?.c1_coverage_ratio ? (s.c1_coverage_ratio * 100).toFixed(0) : "?"}%），其余9项指标（如碱化度、含水率、微量元素、酶活性等）未在本次检测范围内，建议补充检测以获得正式评价结论。`
+                  : "本评价使用了全国平均经济参照数据替代场地真实经营数据，结论仅供参考。如需正式评价，请录入场地实际经济数据。"
+              } />
+          )}
+          {/* 超标警示 */}
+          {s?.worst_factor && (
+            <Alert type={s?.severity_forced_downgrade ? "error" : "info"} showIcon style={{ marginBottom: 8 }}
+              message={`关键风险因子：${s.worst_factor}`}
+              description={s?.severity_forced_downgrade
+                ? `该因子实测浓度超出国家农用地土壤污染风险管控标准（GB15618-2018）限制值约${s.worst_ratio ? s.worst_ratio.toFixed(1) : "?"}倍，根据评价规程，存在法规超标的场地不得评定为"可持续"等级。`
+                : s?.worst_ratio ? `超标倍数：${s.worst_ratio.toFixed(2)}` : undefined} />
+          )}
+          {/* 口径说明 */}
+          <Alert type="info" style={{ marginBottom: 0 }}
+            message={s?.coverage?.complete_25 ? "25项指标完整评价" : `本次评价覆盖25项指标中的${s?.coverage?.measured_total ?? "?"}项`}
+            description={(() => {
+              const exp = s?.explanation || "";
+              return exp
+                .replace(/v\d+\.\d+_[a-f0-9]+/g, "")
+                .replace(/Round9\s*P0-2\.[\d.]+\S*/g, "")
+                .replace(/fallback\s*\/\s*heuristic/g, "参考标准")
+                .replace(/SSUI\(25项完整口径\)=/g, "SSUI指数=")
+                .replace(/B1安全性=[\d.]+, B2经济性=[\d.]+, /g, "")
+                .replace(/\s{2,}/g, " ")
+                .replace(/\.\.+/g, ".")
+                .trim();
+            })()} />
+          </Card>
         </Card>
       ) : <EmptyState description="请选择场地并运行 SSUI 评价" />}
     </Space>

@@ -260,6 +260,10 @@ export const api = {
   aiStatus: () => client.get("/ai/status").then((r) => r.data),
   aiChat: (message: string, site_id?: number, history?: any[]) =>
     client.post("/ai/chat", { message, site_id, history }).then((r) => r.data),
+
+  // v0.8.1 障碍因子集速查表
+  factorDictionary: (params?: { category?: string; search?: string }) =>
+    client.get("/factors/dictionary", { params }).then((r) => r.data),
 };
 
 export default client;

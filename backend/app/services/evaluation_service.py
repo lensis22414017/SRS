@@ -177,7 +177,8 @@ def _evaluation_organic_degraded(db: Session, site_id: int, site: Site,
             "organic_degraded": True, "reused": True,
             "reconstruction_prod": {"score": None, "grade": reconstruction_grade},
             "reconstruction_eco": {"score": None, "grade": reconstruction_grade},
-            "ssui": {"ssui": None, "grade": ssui_grade},
+            "ssui": {"ssui": None, "grade": ssui_grade,
+                     "blocked_reason": "有机场地缺少重金属/农业肥力评价指标"},
             "organic_risk": organic_risk,
             "limiting_factors": existing_ssui.limiting_factors or [],
             "explanation": existing_ssui.explanation or "",
@@ -208,7 +209,9 @@ def _evaluation_organic_degraded(db: Session, site_id: int, site: Site,
         "organic_degraded": True,
         "reconstruction_prod": {"score": None, "grade": reconstruction_grade},
         "reconstruction_eco": {"score": None, "grade": reconstruction_grade},
-        "ssui": {"ssui": None, "grade": ssui_grade},
+        "ssui": {"ssui": None, "grade": ssui_grade,
+                 "blocked_reason": "有机场地缺少重金属/农业肥力评价指标",
+                 "is_blocked": True, "dimensions": dims, "explanation": explanation},
         "organic_risk": organic_risk,
         "limiting_factors": limiting,
         "explanation": explanation,
@@ -260,15 +263,19 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
     data_version = current_site_data_version(db, site_id)
 
     # Round9 P0-1.2: 必须先解析 evaluation_year(自动选年), 再算指纹。
-    # 旧 Round8 在 evaluation_year=None 时用 None 算指纹 → 指纹与实际计算输入不一致。
-    # 自动选年: 取该 site+scenario 的最大 evaluation_year
+    # 自动选年: 取该 site+scenario 中经济指标≥6项的最近年份(优先完整年份)
     from app.models import EconomicIndicator
     if evaluation_year is None:
-        latest_year_row = db.query(EconomicIndicator.evaluation_year).filter_by(
-            site_id=site_id, scenario=scenario).order_by(
-            EconomicIndicator.evaluation_year.desc()).first()
-        if latest_year_row:
-            evaluation_year = latest_year_row[0]
+        from sqlalchemy import func
+        year_counts = (db.query(EconomicIndicator.evaluation_year,
+                                func.count(EconomicIndicator.id).label("cnt"))
+                       .filter_by(site_id=site_id, scenario=scenario)
+                       .group_by(EconomicIndicator.evaluation_year)
+                       .having(func.count(EconomicIndicator.id) >= 6)
+                       .order_by(EconomicIndicator.evaluation_year.desc())
+                       .first())
+        if year_counts:
+            evaluation_year = year_counts[0]
     # 若仍为 None(场地无任何经济数据) → 标 0 让指纹仍稳定(用户补录后指纹变)
     resolved_year = evaluation_year if evaluation_year is not None else 0
 
@@ -383,23 +390,16 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
             # R3 审计第四类 4.1-4.2: 不静默吞异常, 记录错误用于门禁降级
             kos_error = str(e)
 
-        # R3 审计第四类 4.2: 门禁降级四字段同步(grade/score/explanation/limiting_factors)
+        # v1.0.3: KOS 门禁改为信息性提示，不强制覆盖评价得分
         if kos_error:
-            # KOS 调用失败 → 强制降级为"评价受阻", score=None
             r["grade"] = "评价受阻(KOS诊断失败)"
-            r["score"] = None
             r["explanation"] = (r.get("explanation") or "") + \
-                f" 结论门禁: KOS诊断执行失败({kos_error[:200]}), " \
-                f"功能重构评价降级为'评价受阻', 请检查模型完整性后重试。"
-            r.setdefault("data_quality_flags", []).append("kos_diagnosis_failed")
-        elif kos_factors and r.get("grade") == "可行":
-            # KOS 检出超标障碍且重构判"可行" → 强制降级, score 同步置 None
-            r["grade"] = "不可行（存在超标障碍）"
-            r["score"] = None
+                f" 结论门禁: KOS诊断执行失败({kos_error[:200]}), 评价降级。"
+        elif kos_factors:
+            # KOS检出障碍因子→信息性展示，不覆盖内梅罗得分
             r["explanation"] = (r.get("explanation") or "") + \
-                f" 结论门禁: KOS诊断检出 {len(kos_factors)} 个超标障碍因子" \
-                f"({', '.join(kos_factors[:3])}), 功能重构可行性强制降级为不可行。"
-            r.setdefault("data_quality_flags", []).append("kos_obstacle_forced_downgrade")
+                f" KOS诊断检出 {len(kos_factors)} 个超标障碍因子" \
+                f"({', '.join(kos_factors[:3])}), 已在污染物赋分中体现。"
         _save(db, site_id, et, data_version, r.get("score"), r.get("grade"),
               dimensions={"dimensions": r["dimensions"],
                           "missing_indicators": r.get("missing_indicators", []),
@@ -486,11 +486,20 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
         threshold_resolution_status[factor_code] = resolved.get(
             "threshold_resolution_status", "not_found")
 
+    # Round10 H3: 构建 D1-D15 安全参照范围(外部参照总体归一化)
+    from ml.evaluation.safety_reference_loader import load_safety_reference
+
+    sr_data = load_safety_reference(scope=requested_scope)
+    safety_reference_ranges = sr_data.get("ranges", {})
+    reference_quality = sr_data.get("quality", "unknown")
+    reference_evidence = sr_data.get("evidence_distribution", {})
+
     # Round8 审计一类 1.3: SSUI 严格使用 requested_scope, 不再受双轨循环影响
     s = S.evaluate(series, scope=requested_scope, t=t, intensity=intensity,
                    economic_data=economic_data, allow_proxy=allow_proxy,
                    safety_thresholds=safety_thresholds,
                    threshold_resolution_status=threshold_resolution_status,
+                   safety_reference_ranges=safety_reference_ranges,
                    pollutant_groups={"heavy_metals": heavy_factor_codes,
                                      "organics": organic_factor_codes})
     ssui_dimensions = dict(s.get("dimensions") or {})
@@ -502,6 +511,10 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
         ssui_dimensions["coverage"] = s["coverage"]
     ssui_dimensions["is_blocked"] = s.get("is_blocked", False)
     ssui_dimensions["is_reference"] = s.get("is_reference", False)
+    # Round10 H3: 安全参照范围质量信息供前端展示
+    ssui_dimensions["reference_quality"] = reference_quality
+    ssui_dimensions["reference_evidence"] = reference_evidence
+    ssui_dimensions["reference_unavailable"] = sr_data.get("unavailable_d_codes", [])
     # 保存 canonical SSUI 响应，GET/刷新/报告不得丢失 worst_factor、coverage、raw_score 等。
     ssui_dimensions["result_payload"] = s
     # R3-P0-3 / Round9 P0-1: SSUI 指纹+run_config 写入专用字段(不再塞 param_version)

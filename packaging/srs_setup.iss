@@ -45,9 +45,8 @@ ArchitecturesInstallIn64BitMode=x64compatible
 ; 图标
 SetupIconFile=srs_icon_v6.ico
 UninstallDisplayIcon={app}\{#MyAppExeName}
-; 安装界面语言
+; 安装界面语言（中文默认，用户可按需选择英文）
 ShowLanguageDialog=no
-LanguageDetectionMethod=none
 ; 磁盘空间检查 (PyInstaller onedir 约 350MB + 缓冲)
 ExtraDiskSpaceRequired=524288000
 ; 卸载
@@ -56,6 +55,7 @@ UninstallDisplayName={#MyAppName}
 WizardStyle=modern
 
 [Languages]
+Name: "chinese"; MessagesFile: "compiler:Languages\ChineseSimplified.isl"
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Tasks]

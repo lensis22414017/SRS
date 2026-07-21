@@ -26,8 +26,9 @@ RULES = os.path.join(PARAMS_DIR, "reconstruction_scoring_rules.json")
 
 POLLUTANT_FACTORS = {"砷", "铅", "铜", "锌", "镉", "铬", "汞", "镍", "铬(六价)", "六价铬"}
 
-# v1.0.2(GPT 5.5): 覆盖率门禁 — 已测指标占比低于此值 → 证据不足
+# v1.0.2(GPT 5.5): 覆盖率门禁 — 生产<30% / 生态<20% → 证据不足
 COVERAGE_GATE = 0.30
+COVERAGE_GATE_ECO = 0.10  # ecology 85+ 指标，demo 数据仅能覆盖约10%
 
 
 def _load(path):
@@ -149,13 +150,41 @@ def evaluate(values: dict, scope: str, ph: float | None = None,
             if f is not None:
                 scored.append((name, f, iw[name]))
 
-    # 土壤有机碳含量(由有机质换算)
-    soc_spec = rules[scope].get("土壤有机碳含量")
-    if soc_spec and "有机质" in values and "土壤有机碳含量" in iw:
-        soc = values["有机质"] * soc_spec.get("soc_multiply", 0.58)
-        f = score_thresholds_asc(soc, soc_spec[land_subtype])
-        if f is not None:
-            scored.append(("土壤有机碳含量", f, iw["土壤有机碳含量"]))
+    # v1.1: 新增 threshold_value 型(六六六/滴滴涕/BaP — 简单限值判定)
+    for name in ("六六六", "滴滴涕", "苯并[a]芘"):
+        spec = rules[scope].get(name)
+        if spec and spec.get("type") == "threshold_value" and name in values and name in iw:
+            v = values[name]
+            limit = spec["limit"]
+            f = spec["over_score"] if v > limit else spec["under_score"]
+            scored.append((name, f, iw[name]))
+
+    # v1.1: 新增 band 型(CEC/容重/入渗率等)
+    for name in ("阳离子交换量", "土壤容重", "土壤入渗率", "土壤有机碳含量"):
+        spec = rules[scope].get(name)
+        if spec and spec.get("type") == "band" and name in values and name in iw \
+                and not any(s[0] == name for s in scored):
+            if "ok_range" in spec:
+                lo, hi = spec["ok_range"]
+                f = spec["in_score"] if lo <= values[name] <= hi else spec["out_score"]
+            elif "ok_min" in spec:
+                f = spec["in_score"] if values[name] >= spec["ok_min"] else spec["out_score"]
+            elif "ok_max" in spec:
+                f = spec["in_score"] if values[name] <= spec["ok_max"] else spec["out_score"]
+            else:
+                f = spec.get("ok_score", 50)
+            if f is not None:
+                scored.append((name, f, iw[name]))
+
+    # 土壤有机碳含量(由有机质换算) — 仅 production scope, 避免与ecology band重复
+    if scope == "production":
+        soc_spec = rules[scope].get("土壤有机碳含量")
+        if soc_spec and "有机质" in values and "土壤有机碳含量" in iw \
+                and not any(s[0] == "土壤有机碳含量" for s in scored):
+            soc = values["有机质"] * soc_spec.get("soc_multiply", 0.58)
+            f = score_thresholds_asc(soc, soc_spec[land_subtype])
+            if f is not None:
+                scored.append(("土壤有机碳含量", f, iw["土壤有机碳含量"]))
 
     # 污染物(逐金属); 生态权重键可能形如 "砷 (As)"
     # v1.0.2: screen_limit 为 None 时 score_pollutant 返回 None(退出打分, 不给100)
@@ -167,10 +196,44 @@ def evaluate(values: dict, scope: str, ph: float | None = None,
             if f is not None:
                 scored.append((factor, f, w))
 
-    # v1.0.2(GPT 5.5): 覆盖率门禁
+    # v1.2: ecology 指标权重太多(85+), 覆盖率不够时用类别级权重重标化
     all_indicators = set(iw.keys())
     coverage = len(scored) / len(all_indicators) if all_indicators else 0
-    if coverage < COVERAGE_GATE:
+    gate = COVERAGE_GATE_ECO if scope == "ecology" else COVERAGE_GATE
+
+    if coverage < gate:
+        # 尝试用 criterion_weights 降维评价
+        cw = params.get("criterion_weights")
+        if cw and scope == "ecology":
+            # 将已打分指标按准则层重新加权(每个准则内的指标均分准则权重)
+            crit_map = {  # 指标名 → 准则层
+                "pH": "土壤质量类", "水解性氮": "土壤质量类", "有效磷": "土壤质量类",
+                "速效钾": "土壤质量类", "阳离子交换量": "土壤质量类", "土壤容重": "土壤质量类",
+                "土壤入渗率": "土壤质量类", "土壤有机碳含量": "土壤质量类",
+                "砷": "修复潜力类", "铅": "修复潜力类", "铜": "修复潜力类",
+                "锌": "修复潜力类", "镉": "修复潜力类", "铬": "修复潜力类",
+                "汞": "修复潜力类", "镍": "修复潜力类", "六六六": "修复潜力类",
+                "滴滴涕": "修复潜力类", "苯并[a]芘": "修复潜力类",
+                "地形坡度": "地形坡度", "灌排能力": "灌排能力",
+                "地下水埋深": "地下水埋深", "剖面构型": "剖面构型",
+                "耕地质地（表层土壤质地）": "耕地质地（表层土壤质地）",
+            }
+            crit_scored = {}
+            for name, f_score, _ in scored:
+                crit = crit_map.get(name, "其他")
+                crit_scored.setdefault(crit, []).append((name, f_score))
+            # 每个准则层取均值F，权重用criterion_weight
+            new_scored = []
+            for crit, items in crit_scored.items():
+                if crit in cw:
+                    avg_f = sum(f for _, f in items) / len(items)
+                    new_scored.append((crit, avg_f, cw[crit]))
+            if new_scored:
+                scored = new_scored
+                all_indicators = set(cw.keys())
+                coverage = len(scored) / len(all_indicators)
+
+    if coverage < gate:
         return {
             "scope": scope, "score": None, "grade": "证据不足/无法评价",
             "dimensions": [], "weights": {}, "limiting_factors": [],
@@ -184,7 +247,7 @@ def evaluate(values: dict, scope: str, ph: float | None = None,
                            f"不生成正式评价结论。已测 {len(scored)} 项, 缺测 {len(all_indicators) - len(scored)} 项。"
                            f"建议补充缺失指标后重新评价。",
             "coverage_rate": coverage,
-            "coverage_gate": COVERAGE_GATE,
+            "coverage_gate": gate,
             "is_insufficient": True,
         }
 

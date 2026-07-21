@@ -1,3 +1,18 @@
+# factor_aliases_v0.8.yaml — 因子名称规范化别名表（v0.8.1 扩展版）
+#
+# 设计原则：
+# 1. canonical code 与 SHAP measured_contribution group 名严格对齐（BaP_ngg / SumDDTs_ngg 等）
+# 2. aliases 覆盖所有可能的列名变体（含中文括号 / 无斜杠单位 / 双语混合）
+# 3. 化学形态不同的因子必须独立 canonical（如 TN_gkg vs Hydrolyzable_N_mgkg）
+# 4. preferred_unit 指明该 canonical 的目标单位（mg/kg / ng/g / μg/kg），用于智能转换
+# 5. EC（电导率）与 CEC（阳离子交换量）严格分离（化学量纲不同）
+#
+# 修订记录：
+# - v0.8.1 (2026-07-21): 新增 12 个有机物 canonical + 9 个 PAH 单体 + 拆分 3 条化学形态冲突
+
+# ════════════════════════════════════════════════════
+# 一、理化性质基础
+# ════════════════════════════════════════════════════
 pH:
   canonical: pH
   coalesce:
@@ -9,6 +24,8 @@ pH:
   - 酸碱度
   - SoilpH
   - pH_merged
+  preferred_unit: "1"
+
 OC_pct:
   canonical: OC_pct
   coalesce:
@@ -19,7 +36,13 @@ OC_pct:
   - SOC
   - SOM
   - 有机质(g/kg)
+  - 有机质（g/kg）
+  - 有机质(%)
+  - 有机质（%）
+  - 有机质(％)
   - 有机碳含量
+  preferred_unit: "%"
+
 CEC_cmolkg:
   canonical: CEC_cmolkg
   coalesce:
@@ -28,8 +51,15 @@ CEC_cmolkg:
   - 阳离子交换量
   - CEC
   - 阳离子交换量(cmol/kg)
+  - 阳离子交换量（cmol/kg）
+  - CEC(cmol/kg)
+  - CEC（cmol/kg）
+  - 阳离子交换量(cmol(+)/kg)
+  preferred_unit: "cmol(+)/kg"
   proxy:
   - gee_cec_cmol_kg
+  note: CEC（阳离子交换量, cmol(+)/kg, 测胶体交换位点, 反映保肥能力）与 EC（电导率）是两个完全不同的土壤学指标, 不可合并
+
 SoilBD_gcm3:
   canonical: SoilBD_gcm3
   coalesce:
@@ -38,8 +68,13 @@ SoilBD_gcm3:
   - 土壤容重
   - 容重
   - BD
+  - 容重(g/cm³)
+  - 容重（g/cm³）
+  - 容重(g/cm3)
+  preferred_unit: "g/cm³"
   proxy:
   - gee_bulk_density_g_cm3
+
 EC_mScm:
   canonical: EC_mScm
   coalesce:
@@ -49,25 +84,59 @@ EC_mScm:
   - EC
   - 含盐量
   - 盐渍化程度
-  note: EC与含盐量不严格等价, 仅作related
+  - 电导率(mS/cm)
+  - 电导率（mS/cm）
+  - 电导率(mScm)
+  - 电导率（mScm）
+  - 电导率(dS/m)
+  preferred_unit: "mS/cm"
+  note: EC（电导率, mS/cm, 测可溶盐, 反映盐渍化）与 CEC 是两个完全不同的土壤学指标, 不可合并
+
+# ════════════════════════════════════════════════════
+# 二、重金属（8 项 SHAP 实测 + 8 项扩展）
+# ════════════════════════════════════════════════════
 Cd_mgkg:
   canonical: Cd_mgkg
   aliases:
   - 镉
   - Cd
   - 镉(mg/kg)
+  - 镉_Cd(mg/kg)
+  - 镉_Cd（mg/kg）
+  - 镉_Cd(mgkg)
+  - 镉_Cd（mgkg）
+  - 镉(mgkg)
+  - 镉（mgkg）
+  preferred_unit: "mg/kg"
+
 Pb_mgkg:
   canonical: Pb_mgkg
   aliases:
   - 铅
   - Pb
   - 铅(mg/kg)
+  - 铅_Pb(mg/kg)
+  - 铅_Pb（mg/kg）
+  - 铅_Pb(mgkg)
+  - 铅_Pb（mgkg）
+  - 铅(mgkg)
+  - 铅（mgkg）
+  preferred_unit: "mg/kg"
+
 As_mgkg:
   canonical: As_mgkg
   aliases:
   - 砷
   - As
   - 砷(mg/kg)
+  - 砷_As(mg/kg)
+  - 砷_As（mg/kg）
+  - 砷_As(mgkg)
+  - 砷_As（mgkg）
+  - 砷(mgkg)
+  - 砷（mgkg）
+  preferred_unit: "mg/kg"
+
 Cr_mgkg:
   canonical: Cr_mgkg
   aliases:
@@ -75,88 +144,180 @@ Cr_mgkg:
   - Cr
   - 总铬
   - 铬(mg/kg)
+  - 铬_Cr(mg/kg)
+  - 铬_Cr（mg/kg）
+  - 铬_Cr(mgkg)
+  - 铬_Cr（mgkg）
+  - 铬(mgkg)
+  - 铬（mgkg）
+  preferred_unit: "mg/kg"
+
 Hg_mgkg:
   canonical: Hg_mgkg
   aliases:
   - 汞
   - Hg
   - 汞(mg/kg)
+  - 汞_Hg(mg/kg)
+  - 汞_Hg（mg/kg）
+  - 汞_Hg(mgkg)
+  - 汞_Hg（mgkg）
+  - 汞(mgkg)
+  - 汞（mgkg）
+  preferred_unit: "mg/kg"
+
 Cu_mgkg:
   canonical: Cu_mgkg
   aliases:
   - 铜
   - Cu
   - 铜(mg/kg)
+  - 铜_Cu(mg/kg)
+  - 铜_Cu（mg/kg）
+  - 铜_Cu(mgkg)
+  - 铜_Cu（mgkg）
+  - 铜(mgkg)
+  - 铜（mgkg）
+  preferred_unit: "mg/kg"
+
 Zn_mgkg:
   canonical: Zn_mgkg
   aliases:
   - 锌
   - Zn
   - 锌(mg/kg)
+  - 锌_Zn(mg/kg)
+  - 锌_Zn（mg/kg）
+  - 锌_Zn(mgkg)
+  - 锌_Zn（mgkg）
+  - 锌(mgkg)
+  - 锌（mgkg）
+  preferred_unit: "mg/kg"
+
 Ni_mgkg:
   canonical: Ni_mgkg
   aliases:
   - 镍
   - Ni
   - 镍(mg/kg)
+  - 镍_Ni(mg/kg)
+  - 镍_Ni（mg/kg）
+  - 镍_Ni(mgkg)
+  - 镍_Ni（mgkg）
+  - 镍(mgkg)
+  - 镍（mgkg）
+  preferred_unit: "mg/kg"
+
 Co_mgkg:
   canonical: Co_mgkg
   aliases:
   - 钴
   - Co
   - 钴(mg/kg)
+  - 钴_Co(mg/kg)
+  - 钴(mgkg)
+  preferred_unit: "mg/kg"
+
 V_mgkg:
   canonical: V_mgkg
   aliases:
   - 钒
   - V
   - 钒(mg/kg)
+  - 钒_V(mg/kg)
+  - 钒(mgkg)
+  preferred_unit: "mg/kg"
+
 Sb_mgkg:
   canonical: Sb_mgkg
   aliases:
   - 锑
   - Sb
   - 锑(mg/kg)
+  - 锑_Sb(mg/kg)
+  - 锑(mgkg)
+  preferred_unit: "mg/kg"
+
 Be_mgkg:
   canonical: Be_mgkg
   aliases:
   - 铍
   - Be
   - 铍(mg/kg)
+  - 铍_Be(mg/kg)
+  - 铍(mgkg)
+  preferred_unit: "mg/kg"
+
 Ba_mgkg:
   canonical: Ba_mgkg
   aliases:
   - 钡
   - Ba
   - 钡(mg/kg)
+  - 钡(mgkg)
+  preferred_unit: "mg/kg"
+
 Mn_mgkg:
   canonical: Mn_mgkg
   aliases:
   - 锰
   - Mn
   - 锰(mg/kg)
+  - 锰(mgkg)
+  preferred_unit: "mg/kg"
+
 Fe_mgkg:
   canonical: Fe_mgkg
   aliases:
   - 铁
   - Fe
+  - 全铁
   - 铁(mg/kg)
+  - 铁(mgkg)
+  preferred_unit: "mg/kg"
+
 Cr6_mgkg:
   canonical: Cr6_mgkg
   aliases:
   - 六价铬
   - 铬(六价)
+  - 铬（六价）
   - Cr(VI)
   - Cr6+
+  preferred_unit: "mg/kg"
+
+# ════════════════════════════════════════════════════
+# 三、养分（化学形态拆分）
+# ════════════════════════════════════════════════════
+# 注：原 TN_gkg/P_mgkg/K_mgkg 把"总量"和"速效态"混在一起, v0.8.1 拆分
 TN_gkg:
   canonical: TN_gkg
   aliases:
   - 全氮
   - 总氮
   - TN
-  - 水解性氮
+  - 全氮(g/kg)
+  - 全氮（g/kg）
+  - 全氮（gkg）
+  preferred_unit: "g/kg"
   proxy:
   - gee_nitrogen_g_kg
+
+# 新增：水解性氮（碱解氮）独立 canonical（化学形态不同于全氮）
+Hydrolyzable_N_mgkg:
+  canonical: Hydrolyzable_N_mgkg
+  aliases:
+  - 水解性氮
+  - 碱解氮
+  - 速效氮
+  - 有效氮
+  - 碱解氮(mg/kg)
+  - 碱解氮（mg/kg）
+  - 碱解氮(mgkg)
+  - 碱解氮（mgkg）
+  - 水解氮
+  preferred_unit: "mg/kg"
+
 P_mgkg:
   canonical: P_mgkg
   aliases:
@@ -164,6 +325,24 @@ P_mgkg:
   - 速效磷
   - Olsen_P
   - Available_P
+  - 速效磷(mg/kg)
+  - 速效磷（mg/kg）
+  - 速效磷(mgkg)
+  - 速效磷（mgkg）
+  preferred_unit: "mg/kg"
+
+# 新增：全磷独立 canonical
+Total_P_gkg:
+  canonical: Total_P_gkg
+  aliases:
+  - 全磷
+  - 总磷
+  - TP
+  - 全磷(g/kg)
+  - 全磷（g/kg）
+  - 全磷（gkg）
+  preferred_unit: "g/kg"
+
 K_mgkg:
   canonical: K_mgkg
   aliases:
@@ -171,28 +350,66 @@ K_mgkg:
   - 有效钾
   - Available_K
   - AK
+  - 速效钾(mg/kg)
+  - 速效钾（mg/kg）
+  - 速效钾(mgkg)
+  - 速效钾（mgkg）
+  preferred_unit: "mg/kg"
+
+# 新增：全钾独立 canonical
+Total_K_gkg:
+  canonical: Total_K_gkg
+  aliases:
+  - 全钾
+  - 总钾
+  - TK
+  - 全钾(g/kg)
+  - 全钾（g/kg）
+  - 全钾（gkg）
+  preferred_unit: "g/kg"
+
+# ════════════════════════════════════════════════════
+# 四、土壤物理性质
+# ════════════════════════════════════════════════════
 Sand_pct:
   canonical: Sand_pct
   aliases:
   - 砂粒
   - 砂粒含量
+  - 砂粒(%)
+  - 砂粒（%）
+  - 砂粒(％)
+  preferred_unit: "%"
   proxy:
   - gee_sand_pct
+
 Silt_pct:
   canonical: Silt_pct
   aliases:
   - 粉粒
   - 粉粒含量
+  - 粉粒(%)
+  - 粉粒（%）
+  - 粉粒(％)
+  preferred_unit: "%"
   proxy:
   - gee_silt_pct
+
 Clay_pct:
   canonical: Clay_pct
   aliases:
   - 黏粒
   - 粘粒
   - 黏粒含量
+  - 黏粒(%)
+  - 黏粒（%）
+  - 黏粒(％)
+  - 粘粒(%)
+  - 粘粒（%）
+  preferred_unit: "%"
   proxy:
   - gee_clay_pct
+
 Elevation_m:
   canonical: Elevation_m
   coalesce:
@@ -202,19 +419,284 @@ Elevation_m:
   - 海拔
   - 高程
   - DEM
+  - 海拔(m)
+  - 海拔（m）
+  preferred_unit: "m"
   proxy:
   - gee_elevation_m
+
 MAP_mm:
   canonical: MAP_mm
   aliases:
   - 年均降水量
   - 降水
+  - 年均降水
+  - 年均降水(mm)
+  - 年均降水（mm）
+  preferred_unit: "mm"
   proxy:
   - gee_precip_annual_mm
+
 Slope_pct:
   canonical: Slope_pct
   aliases:
   - 坡度
   - 地形坡度
+  - 坡度(度)
+  - 坡度（度）
+  preferred_unit: "度"
   proxy:
   - gee_slope_deg
+
+# ════════════════════════════════════════════════════
+# 五、有机污染物（对齐 SHAP measured_contribution group 名）
+# ════════════════════════════════════════════════════
+# PAHs 汇总
+PAHs_total(族群):
+  canonical: PAHs_total(族群)
+  aliases:
+  - 多环芳烃
+  - 多环芳烃_PAHs
+  - 多环芳烃_PAHs(mg/kg)
+  - 多环芳烃_PAHs（mg/kg）
+  - 多环芳烃_PAHs(mgkg)
+  - 多环芳烃_PAHs（mgkg）
+  - PAHs
+  - Sum_PAH
+  - SumPAH
+  - PAHs总量
+  - 多环芳烃(总量)
+  - 多环芳烃（总量）
+  - 多环芳烃总量
+  - PAHs_total
+  - Sum_PAH_ngg
+  preferred_unit: "ng/g"
+
+BaP_ngg:
+  canonical: BaP_ngg
+  aliases:
+  - 苯并[a]芘
+  - 苯并芘
+  - 苯并[a]pyrene
+  - Benzo[a]pyrene
+  - 苯并芘_BaP
+  - 苯并芘_BaP(mg/kg)
+  - 苯并芘_BaP（mg/kg）
+  - 苯并芘_BaP(mgkg)
+  - 苯并芘_BaP（mgkg）
+  - 苯并(a)芘
+  - BaP
+  preferred_unit: "ng/g"
+
+HMWPAH_ngg:
+  canonical: HMWPAH_ngg
+  aliases:
+  - 高分子量PAHs
+  - 高分子量多环芳烃
+  - 高分子量PAHs(mg/kg)
+  - 高分子量PAHs（mg/kg）
+  - 高分子量PAHs(mgkg)
+  - 高分子量PAHs（mgkg）
+  - HMWPAH
+  preferred_unit: "ng/g"
+
+LMWPAH_ngg:
+  canonical: LMWPAH_ngg
+  aliases:
+  - 低分子量PAHs
+  - 低分子量多环芳烃
+  - 低分子量PAHs(mg/kg)
+  - 低分子量PAHs（mg/kg）
+  - 低分子量PAHs(mgkg)
+  - 低分子量PAHs（mgkg）
+  - LMWPAH
+  preferred_unit: "ng/g"
+
+# PAH 单体（9 种, 对齐 SHAP measured_contribution group 名, 裴总决定本次不补数据但 canonical 预留）
+萘:
+  canonical: 萘
+  aliases:
+  - 萘
+  - Naphthalene
+  - 萘(mg/kg)
+  - 萘（mgkg）
+  preferred_unit: "ng/g"
+
+䓛:
+  canonical: 䓛
+  aliases:
+  - 䓛
+  - Chrysene
+  - 䓛(mg/kg)
+  preferred_unit: "ng/g"
+
+苯并[a]蒽:
+  canonical: 苯并[a]蒽
+  aliases:
+  - 苯并[a]蒽
+  - 苯并(a)蒽
+  - Benz[a]anthracene
+  preferred_unit: "ng/g"
+
+苯并[b]荧蒽:
+  canonical: 苯并[b]荧蒽
+  aliases:
+  - 苯并[b]荧蒽
+  - 苯并(b)荧蒽
+  - Benzo[b]fluoranthene
+  preferred_unit: "ng/g"
+
+苯并[k]荧蒽:
+  canonical: 苯并[k]荧蒽
+  aliases:
+  - 苯并[k]荧蒽
+  - 苯并(k)荧蒽
+  - Benzo[k]fluoranthene
+  preferred_unit: "ng/g"
+
+茚并[1,2,3-cd]芘:
+  canonical: 茚并[1,2,3-cd]芘
+  aliases:
+  - 茚并[1,2,3-cd]芘
+  - 茚并(1,2,3-cd)芘
+  - Indeno[1,2,3-cd]pyrene
+  preferred_unit: "ng/g"
+
+茚并[123-cd]芘:
+  canonical: 茚并[123-cd]芘
+  aliases:
+  - 茚并[123-cd]芘
+  - 茚并(123-cd)芘
+  preferred_unit: "ng/g"
+
+二苯并[a,h]蒽:
+  canonical: 二苯并[a,h]蒽
+  aliases:
+  - 二苯并[a,h]蒽
+  - 二苯并(a,h)蒽
+  - Dibenz[a,h]anthracene
+  preferred_unit: "ng/g"
+
+二苯并[ah]蒽:
+  canonical: 二苯并[ah]蒽
+  aliases:
+  - 二苯并[ah]蒽
+  - 二苯并(ah)蒽
+  preferred_unit: "ng/g"
+
+# OCP 有机氯农药
+SumOCP_ngg:
+  canonical: SumOCP_ngg
+  aliases:
+  - 有机氯
+  - 有机氯农药
+  - 有机氯_OCPs
+  - 有机氯_OCPs(mg/kg)
+  - 有机氯_OCPs（mg/kg）
+  - 有机氯_OCPs(mgkg)
+  - 有机氯_OCPs（mgkg）
+  - OCPs
+  - SumOCP
+  preferred_unit: "ng/g"
+
+SumDDTs_ngg:
+  canonical: SumDDTs_ngg
+  aliases:
+  - 滴滴涕
+  - 滴滴涕总量
+  - 滴滴涕_DDTs
+  - 滴滴涕_DDTs(mg/kg)
+  - 滴滴涕_DDTs（mg/kg）
+  - 滴滴涕_DDTs(mgkg)
+  - 滴滴涕_DDTs（mgkg）
+  - DDTs
+  - SumDDT
+  - p,p'-DDT
+  - 多氯联苯_DDTs
+  preferred_unit: "ng/g"
+
+SumHCHs_ngg:
+  canonical: SumHCHs_ngg
+  aliases:
+  - 六六六
+  - 六六六总量
+  - 六六六_HCHs
+  - 六六六_HCHs(mg/kg)
+  - 六六六_HCHs（mg/kg）
+  - 六六六_HCHs(mgkg)
+  - 六六六_HCHs（mgkg）
+  - HCHs
+  - SumHCH
+  preferred_unit: "ng/g"
+
+SumPCB_ngg:
+  canonical: SumPCB_ngg
+  aliases:
+  - 多氯联苯
+  - 多氯联苯(总量)
+  - 多氯联苯（总量）
+  - 多氯联苯_PCBs
+  - 多氯联苯_PCBs(mg/kg)
+  - 多氯联苯_PCBs（mg/kg）
+  - 多氯联苯_PCBs(mgkg)
+  - 多氯联苯_PCBs（mgkg）
+  - PCBs
+  - SumPCB
+  preferred_unit: "ng/g"
+
+SumPAE_ugkg:
+  canonical: SumPAE_ugkg
+  aliases:
+  - 邻苯二甲酸酯
+  - 邻苯二甲酸酯_PAEs
+  - 邻苯二甲酸酯_PAEs(mg/kg)
+  - 邻苯二甲酸酯_PAEs（mg/kg）
+  - 邻苯二甲酸酯_PAEs(mgkg)
+  - 邻苯二甲酸酯_PAEs（mgkg）
+  - PAEs
+  - SumPAE
+  - 塑化剂
+  preferred_unit: "μg/kg"
+
+SumPBDE_ngg:
+  canonical: SumPBDE_ngg
+  aliases:
+  - 多溴联苯醚
+  - 多溴联苯醚_PBDEs
+  - 多溴联苯醚_PBDEs(mg/kg)
+  - 多溴联苯醚_PBDEs（mg/kg）
+  - 多溴联苯醚_PBDEs(mgkg)
+  - 多溴联苯醚_PBDEs（mgkg）
+  - PBDEs
+  - SumPBDE
+  preferred_unit: "ng/g"
+
+SumPFAS_ngg:
+  canonical: SumPFAS_ngg
+  aliases:
+  - 全氟化合物
+  - 全氟化合物_PFASs
+  - 全氟化合物_PFASs(mg/kg)
+  - 全氟化合物_PFASs（mg/kg）
+  - 全氟化合物_PFASs(mgkg)
+  - 全氟化合物_PFASs（mgkg）
+  - PFASs
+  - SumPFAS
+  - 全氟烷基物质
+  preferred_unit: "ng/g"
+
+TPH_ngg:
+  canonical: TPH_ngg
+  aliases:
+  - 总石油烃
+  - 总石油烃_TPH
+  - 总石油烃_TPH(mg/kg)
+  - 总石油烃_TPH（mg/kg）
+  - 总石油烃_TPH(mgkg)
+  - 总石油烃_TPH（mgkg）
+  - TPH
+  - 石油烃
+  - 矿物油
+  - 总石油
+  - TPH_C10C40
+  preferred_unit: "ng/g"

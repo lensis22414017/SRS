@@ -218,9 +218,6 @@ def _render_points_map_png(coord_points: list, exceed_by_point: dict[int, float]
     plt.close(fig)
     buf.seek(0)
     return f"data:image/png;base64,{_b64.b64encode(buf.read()).decode('ascii')}"
-    fig.savefig(buf, format="png", bbox_inches="tight")
-    plt.close(fig)
-    return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode("ascii")
 
 
 def _render_shap_figure_png(top_factors: list, site_name: str) -> str | None:

@@ -235,7 +235,7 @@ export default function Dashboard() {
           {
             title: "场地总数", value: sites.length,
             icon: <DatabaseOutlined style={{ fontSize: 20, color: "#0f3d6e" }} />,
-            color: "#0f3d6e", suffix: "个",
+            color: "#0f3d6e", suffix: "个场地",
           },
           {
             title: "覆盖省份", value: provinces,
@@ -273,7 +273,7 @@ export default function Dashboard() {
                 {k.suffix === "个场地" ? (
                   <div>
                     <div style={{ fontSize: 12, color: "#888", marginBottom: 2 }}>{k.title}</div>
-                    <div style={{ fontSize: 24, color: k.color, fontWeight: 700, lineHeight: 1.2 }}>{k.value}</div>
+                    <div style={{ fontSize: 24, color: k.color, fontWeight: 700, lineHeight: 1.2 }}>{k.value}个</div>
                     <div style={{ fontSize: 24, color: k.color, fontWeight: 700, lineHeight: 1.2 }}>场地</div>
                   </div>
                 ) : (

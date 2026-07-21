@@ -253,7 +253,7 @@ export default function DashboardScreen() {
       series: [{
         type: "funnel", left: 20, right: 30, top: 4, bottom: 4,
         minSize: "20%", maxSize: "80%", sort: "descending", gap: 2,
-        label: { color: DARK_TEXT, fontSize: 11, formatter: "{b} {c}", position: "inside" },
+        label: { color: "#ff4d4f", fontSize: 12, fontWeight: 600, formatter: "{b} {c}", position: "inside" },
         labelLine: { length: 8, lineStyle: { color: DARK_AXIS_LINE } },
         itemStyle: { borderColor: "rgba(10,16,36,0.6)", borderWidth: 1 },
         data: data.length ? data : [{ name: "暂无工作流数据", value: 0 }],
@@ -293,7 +293,7 @@ export default function DashboardScreen() {
 
   // ── KPI 卡片配置 ──────────────────────────────────────────
   const kpiCards = [
-    { title: "场地总数", value: sites.length, suffix: "个", icon: <DatabaseOutlined />, color: "#1e90ff", bg: "rgba(30,144,255,0.12)" },
+    { title: "", value: sites.length, suffix: "个", labelLine2: "场地总数", icon: <DatabaseOutlined />, color: "#1e90ff", bg: "rgba(30,144,255,0.12)" },
     { title: "高风险场地", value: highRisk, suffix: "个", icon: <WarningOutlined />, color: "#ff6b6b", bg: "rgba(255,107,107,0.12)" },
     { title: "检测记录", value: totalMeasurements ?? "—", suffix: totalMeasurements ? "条" : "", icon: <ApartmentOutlined />, color: "#00d4ff", bg: "rgba(0,212,255,0.12)",
       demo: totalMeasurements == null },
@@ -361,7 +361,7 @@ export default function DashboardScreen() {
         <div style={{ flex: 1 }} />
         {/* 中间标题(绝对定位居中) */}
         <div style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", display: "flex", alignItems: "center", gap: 8 }}>
-          <DashboardOutlined style={{ color: "#4da3ff", fontSize: 18 }} />
+          <DashboardOutlined style={{ color: "#4da3ff", fontSize: 20 }} />
           <span className={styles.headerTitle} style={{ fontSize: 16, whiteSpace: "nowrap" }}>污染场地土壤生态-生产功能重构监管系统</span>
         </div>
         {/* 右侧时钟/版本/返回(绝对定位右对齐) */}
@@ -390,6 +390,7 @@ export default function DashboardScreen() {
                   <>{k.value}{k.suffix && <span className={styles.kpiSuffix}>{k.suffix}</span>}</>
                 )}
               </div>
+              {'labelLine2' in k && <div className={styles.kpiLabel2}>{k.labelLine2}</div>}
               <div className={styles.kpiLabel}>
                 {k.title}
                 {k.demo && <span className={styles.demoTag} style={{ marginLeft: 6 }}>示例数据</span>}
@@ -433,8 +434,8 @@ export default function DashboardScreen() {
 
         {/* 中央：地图占满 */}
         <div className={styles.centerCol}>
-          <div className={styles.mapWrap} style={{ flex: "1 1 100%" }} data-testid="screen-map">
-            <SiteMap sites={mapSites} onMarkerClick={(s) => s.id && nav(`/sites/${s.id}`)} />
+          <div className={styles.mapWrap} data-testid="screen-map">
+            <SiteMap sites={mapSites} zoom={4} onMarkerClick={(s) => s.id && nav(`/sites/${s.id}`)} />
             {topAlerts.length > 0 && (
               <div className={styles.mapOverlay}>
                 <div className={styles.mapOverlayLabel}>全国场地分布总览</div>
@@ -509,7 +510,7 @@ export default function DashboardScreen() {
             )}
             {/* Round7 追加: 阶段流转漏斗 */}
             <div data-testid="screen-trace-funnel" style={{ marginTop: 8, borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 6 }}>
-              <div style={{ color: DARK_TEXT, fontSize: 10, marginBottom: 2 }}>阶段场地流转漏斗</div>
+              <div style={{ color: "#ff4d4f", fontSize: 11, fontWeight: 600, marginBottom: 2 }}>阶段场地流转漏斗</div>
               {hasFunnelData
                 ? <ReactECharts option={funnelOption} theme="srs-light" opts={SVG_OPTS} style={{ height: 170 }} />
                 : <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="暂无工作流数据" style={{ marginBlock: 24 }} />}

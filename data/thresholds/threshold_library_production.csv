@@ -182,3 +182,17 @@
 122,有机质,production,,土壤复垦质量控制标准TD/T1036-2013,lower,,1.0,1.0,,,,西南山地丘陵区 ≥1%,%,V1.0,B,nan
 123,有机质,production,,土壤复垦质量控制标准TD/T1036-2013,lower,,1.0,1.0,,,,长江中下游平原区 ≥1%,%,V1.0,B,nan
 124,有机质,production,,土壤复垦质量控制标准TD/T1036-2013,lower,,1.0,1.0,,,,东南沿海山地丘陵区 ≥1%,%,V1.0,B,nan
+multiring_001,多环芳烃(PAHs总量),production,生产,GB 15618-2018 参考(苯并[a]芘为PAHs指示物),upper,0.55,,,0.55,,,全国通用，参考苯并[a]芘限值≤0.55mg/kg,mg/kg,V1.2,A,PAHs总量以苯并[a]芘为代表指标
+multiring_002,高分子量PAHs,production,生产,GB 15618-2018 参考(苯并[a]芘为PAHs指示物),upper,0.55,,,0.55,,,全国通用，参考苯并[a]芘限值,mg/kg,V1.2,B,高分子量PAHs以苯并[a]芘为代表指标
+multiring_003,低分子量PAHs,production,生产,CJ/T 340-2016 绿化种植土壤参考,upper,1.0,,,1.0,,,低分子量PAHs毒性较低，参考萘限值,mg/kg,V1.2,B,低分子量PAHs以萘为代表指标
+multiring_004,有机氯(OCPs总量),production,生产,GB 15618-2018 六六六+滴滴涕,upper,0.2,,,0.2,,,全国通用，六六六≤0.1+滴滴涕≤0.1,mg/kg,V1.2,A,有机氯农药总量参考值
+multiring_005,邻苯二甲酸酯(PAEs总量),production,生产,GB 36600-2018 一类用地参考,upper,10.0,,,10.0,,,参考GB36600邻苯二甲酸酯类限值,mg/kg,V1.2,B,PAEs总量参考国内外标准
+multiring_006,多溴联苯醚(PBDEs总量),production,生产,EPA RSL 2024 参考,upper,1.0,,,1.0,,,参考EPA区域筛选值(RSL)住宅用地,mg/kg,V1.2,C,国内暂无PBDEs标准;参考EPA RSL
+multiring_007,总石油烃(TPH),production,生产,CJ/T 340-2016 绿化种植土壤,upper,500.0,,,500.0,,,参考绿化种植土壤标准,mg/kg,V1.2,B,TPH暂无农用地标准;参考CJ/T340
+multiring_008,全氟化合物(PFASs总量),production,生产,EPA RSL 2024 参考(PFOA),upper,0.001,,,0.001,,,参考EPA区域筛选值(RSL)住宅用地PFOA,mg/kg,V1.2,C,国内暂无PFAS标准;参考EPA RSL
+multiring_009,多环芳烃,production,生产,GB 15618-2018 参考(苯并[a]芘为PAHs指示物),upper,0.55,,,0.55,,,全国通用，参考苯并[a]芘限值≤0.55mg/kg,mg/kg,V1.2,A,PAHs总量以苯并[a]芘为代表(因子别名)
+multiring_010,有机氯,production,生产,GB 15618-2018 六六六+滴滴涕,upper,0.2,,,0.2,,,全国通用，六六六≤0.1+滴滴涕≤0.1,mg/kg,V1.2,A,有机氯农药总量(因子别名)
+multiring_011,邻苯二甲酸酯,production,生产,GB 36600-2018 一类用地参考,upper,10.0,,,10.0,,,参考GB36600邻苯二甲酸酯类限值,mg/kg,V1.2,B,PAEs总量(因子别名)
+multiring_012,多溴联苯醚,production,生产,EPA RSL 2024 参考,upper,1.0,,,1.0,,,参考EPA区域筛选值(RSL)住宅用地,mg/kg,V1.2,C,PBDEs总量(因子别名)
+multiring_013,总石油烃,production,生产,CJ/T 340-2016 绿化种植土壤,upper,500.0,,,500.0,,,参考绿化种植土壤标准,mg/kg,V1.2,B,TPH(因子别名)
+multiring_014,全氟化合物,production,生产,EPA RSL 2024 参考(PFOA),upper,0.001,,,0.001,,,参考EPA区域筛选值(RSL)住宅用地PFOA,mg/kg,V1.2,C,PFASs总量(因子别名)

@@ -64,12 +64,32 @@ async def import_data(mapping_id: str = Form(...), file: UploadFile = File(...),
     # 自动重命名: 时间戳_区域_污染类型.ext (便于管理)
     ext = os.path.splitext(file.filename or "data.xlsx")[1] or ".xlsx"
     region = pollution = ""
+    # Round10: 从原始文件名提取省份+污染类型关键词，保留到重命名文件
+    orig = file.filename or ""
+    orig_lower = orig.lower()
+    # 省份提取
+    prov_keywords = ["北京","天津","上海","重庆","河北","山西","辽宁","吉林","黑龙江",
+                     "江苏","浙江","安徽","福建","江西","山东","河南","湖北","湖南",
+                     "广东","广西","海南","四川","贵州","云南","陕西","甘肃","青海",
+                     "内蒙古","西藏","宁夏","新疆"]
+    for pk in prov_keywords:
+        if pk in orig:
+            region = pk
+            break
+    # 污染类型提取
+    if not pollution:
+        if any(k in orig_lower for k in ["复合", "composite"]):
+            pollution = "复合"
+        elif any(k in orig_lower for k in ["有机", "organic", "petroleum", "op"]):
+            pollution = "有机"
+        elif any(k in orig_lower for k in ["重金属", "heavy_metal", "hm", "metal"]):
+            pollution = "重金属"
     try:
         mp = os.path.join(os.path.dirname(__file__), "..", "services", "mappings", f"{mapping_id}.json")
         if os.path.exists(mp):
             meta = _json.load(open(mp, encoding="utf-8")).get("site", {})
             region = (meta.get("city") or meta.get("province") or "").replace("市", "").replace("省", "")
-            pollution = {"heavy_metal": "重金属", "organic": "有机", "composite": "复合"}.get(meta.get("pollution_type", ""), "")
+            pollution = {"heavy_metal": "重金属", "organic": "有机", "composite": "复合"}.get(meta.get("pollution_type", ""), pollution)
     except Exception:  # noqa: BLE001
         pass
     ts = _dt.datetime.now().strftime("%Y%m%d-%H%M%S")
@@ -1119,11 +1139,88 @@ def validation_report(batch_id: int, user: User = Depends(get_current_user),
         site = db.get(Site, b.site_id)
         if site:
             assert_site_access(db, user, site)
+        return {
+            "batch_id": b.id, "site_id": b.site_id, "source_file": b.source_file,
+            "row_count": b.row_count, "valid_count": b.valid_count,
+            "invalid_count": b.invalid_count, "status": b.status,
+            "report": b.validation_report,
+        }
+
+
+# ── v0.8.1 障碍因子集速查表 ──
+@router.get("/factors/dictionary")
+def factor_dictionary(
+    category: str | None = Query(None, description="按 level1_category 筛选：化学性质/物理性质/环境指标/生物指标/肥力指标"),
+    search: str | None = Query(None, description="按因子名模糊搜索（中英文）"),
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """返回障碍因子集速查表（122 项，5 大类）。"""
+    q = db.query(FactorDictionary)
+    if category:
+        q = q.filter(FactorDictionary.level1_category == category)
+    if search:
+        pattern = f"%{search}%"
+        q = q.filter(
+            FactorDictionary.factor_name.like(pattern) |
+            FactorDictionary.factor_code.like(pattern)
+        )
+    # v0.8.2: 按 物理→化学→生物→肥力→环境 排序
+    from sqlalchemy import case
+    cat_order = case(
+        (FactorDictionary.level1_category == "物理性质", 1),
+        (FactorDictionary.level1_category == "化学性质", 2),
+        (FactorDictionary.level1_category == "生物指标", 3),
+        (FactorDictionary.level1_category == "肥力指标", 4),
+        (FactorDictionary.level1_category == "环境指标", 5),
+        else_=6,
+    )
+    rows = (
+        db.query(
+            FactorDictionary.factor_name,
+            FactorDictionary.level1_category,
+            FactorDictionary.default_unit,
+            FactorDictionary.factor_type,
+            FactorDictionary.factor_code,
+            FactorDictionary.description,
+        )
+        .filter(FactorDictionary.id.in_(q.with_entities(FactorDictionary.id).subquery()))
+        .order_by(cat_order, FactorDictionary.factor_name.asc())
+        .all()
+    )
+    # 去重（按 factor_name + level1_category 唯一）
+    seen: set[tuple[str, str]] = set()
+    items: list[dict] = []
+    idx = 0
+    for fn, lc, du, ft, fc, desc in rows:
+        key = (fn or "", lc or "")
+        if key in seen:
+            continue
+        seen.add(key)
+        idx += 1
+        items.append({
+            "id": idx,
+            "factor_name": fn or "—",
+            "factor_code": fc or "—",
+            "level1_category": lc or "",
+            "default_unit": du or "",
+            "factor_type": ft or "",
+            "description": desc or "",
+        })
+
+    # 按 level1_category 统计
+    from collections import Counter
+    cat_counts = Counter(i["level1_category"] for i in items)
+    categories = [
+        {"name": "物理性质", "count": cat_counts.get("物理性质", 0)},
+        {"name": "化学性质", "count": cat_counts.get("化学性质", 0)},
+        {"name": "生物指标", "count": cat_counts.get("生物指标", 0)},
+        {"name": "肥力指标", "count": cat_counts.get("肥力指标", 0)},
+        {"name": "环境指标", "count": cat_counts.get("环境指标", 0)},
+    ]
+
     return {
-        "batch_id": b.id, "site_id": b.site_id, "source_file": b.source_file,
-        "row_count": b.row_count, "valid_count": b.valid_count,
-        "invalid_count": b.invalid_count, "status": b.status,
-        "report": b.validation_report,
+        "total": len(items),
+        "categories": categories,
+        "items": items,
     }
-
-

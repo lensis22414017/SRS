@@ -1,6 +1,6 @@
 {
   "_source": "(2025年)评价方法+年度报告.docx 表2.22 指标分等赋值表",
-  "_note": "结构化转录, 仅含 MVP 可计算指标。耕作类型默认旱地(dryland), 个旧为生产用地。数值禁止手改。",
+  "_note": "v1.1 扩展版 — 补充 CEC/容重/有机碳/地形/剖面/六六六/滴滴涕/BaP 等常用指标",
   "land_subtype_default": "dryland",
   "production": {
     "pH": {"type": "segments_value", "segments": [
@@ -19,8 +19,16 @@
     "土壤有机碳含量": {"type": "thresholds_asc", "unit": "g/kg",
       "from_factor": "有机质", "soc_multiply": 0.58,
       "dryland": [[3.5, 20], [5.8, 40], [11.6, 60], [17.4, 80], [23.2, 90], [null, 100]]},
+    "阳离子交换量": {"type": "thresholds_asc", "unit": "cmol(+)/kg",
+      "dryland": [[6, 10], [12, 50], [null, 100]]},
+    "土壤容重": {"type": "band", "unit": "g/cm³", "ok_max": 1.5, "in_score": 100, "out_score": 50},
+    "剖e构型": {"type": "band", "unit": "—", "ok_score": 70, "out_score": 50, "_note": "无实测时默认70分"},
+    "地形坡度": {"type": "band", "unit": "°", "ok_max": 15, "in_score": 80, "out_score": 40, "_note": "无实测时默认60分"},
+    "六六六": {"type": "threshold_value", "unit": "mg/kg", "limit": 0.1, "over_score": 10, "under_score": 100},
+    "滴滴涕": {"type": "threshold_value", "unit": "mg/kg", "limit": 0.1, "over_score": 10, "under_score": 100},
+    "苯并[a]芘": {"type": "threshold_value", "unit": "mg/kg", "limit": 0.55, "over_score": 10, "under_score": 100},
     "污染物": {"type": "pollutant_screen", "rule": "超管制值=10; 超筛选未超管制=50; 未超筛选=100; 无管制值时仅按50/100",
-      "applies_to": ["砷", "铅", "铜", "锌", "镉", "铬", "汞", "镍"]}
+      "applies_to": ["砷", "铅", "铜", "锌", "镉", "铬", "汞", "镍", "六六六", "滴滴涕", "苯并[a]芘", "PAHs", "石油烃"]}
   },
   "ecology": {
     "pH": {"type": "segments_value", "segments": [
@@ -30,7 +38,12 @@
     "水解性氮": {"type": "band", "unit": "mg/kg", "ok_range": [40, 200], "in_score": 100, "out_score": 50},
     "有效磷": {"type": "band", "unit": "mg/kg", "ok_range": [5, 60], "in_score": 100, "out_score": 50},
     "速效钾": {"type": "band", "unit": "mg/kg", "ok_range": [60, 300], "in_score": 100, "out_score": 50},
+    "阳离子交换量": {"type": "band", "unit": "cmol(+)/kg", "ok_min": 10, "in_score": 100, "out_score": 50},
+    "土壤容重": {"type": "band", "unit": "g/cm³", "ok_max": 1.35, "in_score": 100, "out_score": 50},
+    "土壤入渗率": {"type": "band", "unit": "mm/h", "ok_min": 6, "in_score": 100, "out_score": 50},
+    "土壤有机碳含量": {"type": "band", "unit": "g/kg", "ok_range": [11.6, 46.4],
+      "from_factor": "有机质", "soc_multiply": 0.58, "in_score": 100, "out_score": 50},
     "污染物": {"type": "pollutant_screen", "rule": "超第一类用地管制值=10; 超筛选未超管制=50; 未超筛选=100",
-      "applies_to": ["砷", "铅", "铜", "锌", "镉", "铬", "汞", "镍"]}
+      "applies_to": ["砷", "铅", "铜", "锌", "镉", "铬", "汞", "镍", "六六六", "滴滴涕", "苯并[a]芘"]}
   }
 }

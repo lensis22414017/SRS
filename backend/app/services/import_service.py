@@ -342,28 +342,31 @@ def smart_detect_and_map(path: str) -> tuple[str, dict, list[dict]]:
         except Exception:
             return False
 
+    def _col_valid_count(col_name: str) -> int:
+        """返回列中有效非空数值的总数（用于比较 HM/ORG 强度）。"""
+        if col_name not in df.columns:
+            return 0
+        try:
+            valid = pd.to_numeric(df[col_name], errors="coerce").dropna()
+            return len(valid)
+        except Exception:
+            return 0
+
     has_hm = (any(d["type"] == "pollutant" and d.get("category") == "环境指标" for d in detail)
               and any(_matches_heavy_metal_token(str(fc["column"]).lower()) and _col_has_valid_values(fc["column"])
                       for fc in factor_columns))
     has_org = any(any(k in str(fc["column"]).lower() for k in _ORG) and _col_has_valid_values(fc["column"])
                   for fc in factor_columns)
 
-    # v1.0.1 final-audit: 污染类型判定优先级
-    # a.文件名语义(重金属/有机/复合) > b.实际有效测量值 > c.unknown(禁止默认composite)
-    fname_lower = os.path.basename(path).lower() if isinstance(path, str) else ""
-    fname_has_hm = any(k in fname_lower for k in ["重金属", "hm", "metal", "heavy_metal"])
-    fname_has_org = any(k in fname_lower for k in ["有机", "op", "organic", "petroleum"])
-    fname_has_comp = any(k in fname_lower for k in ["复合", "composite", "hm+op", "hm_op"])
-
-    # 只有至少一个有效重金属实测值+至少一个有效有机物实测值才能自动判为 composite
-    if (has_hm and has_org) or fname_has_comp:
+    # Round10: 纯数据驱动判定
+    # 只有重金属 → heavy_metal | 只有有机物 → organic | 两者都有 → composite | 都没有 → unknown
+    if has_hm and has_org:
         pollution_type = "composite"
-    elif has_hm or fname_has_hm:
+    elif has_hm:
         pollution_type = "heavy_metal"
-    elif has_org or fname_has_org:
+    elif has_org:
         pollution_type = "organic"
     else:
-        # v1.0.1 final-audit: 无法判断时设 unknown(禁止默认 composite)
         pollution_type = "unknown"
 
     import os as _os
@@ -374,6 +377,26 @@ def smart_detect_and_map(path: str) -> tuple[str, dict, list[dict]]:
     ts = _time.strftime("%Y%m%d%H%M%S")
     rand_suffix = f"{_random.randint(1000, 9999)}"
     unique_code = f"AUTO-{ts}-{rand_suffix}"
+    # Round10: 优先从Excel列读取province（如demo_sites文件含"省份"列）
+    detected_province = None
+    for col in df.columns:
+        if str(col).strip() in ("省份", "province", "Province", "省"):
+            vals = df[col].dropna().unique()
+            if len(vals) > 0:
+                from collections import Counter
+                cnt = Counter(str(v) for v in vals)
+                detected_province = cnt.most_common(1)[0][0]
+            break
+    if not detected_province:
+        detected_province = _infer_province_from_name(site_name)
+    # 标准化省份名（去掉"省""市""自治区"后缀）
+    prov_clean = str(detected_province or "")
+    for suffix in ["省", "市", "自治区", "壮族自治区", "回族自治区", "维吾尔自治区"]:
+        if prov_clean.endswith(suffix):
+            prov_clean = prov_clean[:-len(suffix)]
+            break
+    if not prov_clean:
+        prov_clean = None
     mapping = {
         "mapping_id": "smart_auto",
         "description": f"通用智能识别(自动生成): {site_name}",
@@ -384,7 +407,7 @@ def smart_detect_and_map(path: str) -> tuple[str, dict, list[dict]]:
             "site_code": unique_code,
             "name": site_name,
             "pollution_type": pollution_type,
-            "province": _infer_province_from_name(site_name), "city": None,
+            "province": prov_clean, "city": None,
             "land_use_type": None, "sampled_at": None,
         },
         "point_columns": {
