@@ -200,8 +200,18 @@ def health():
     model_health = getattr(app.state, "model_health", {})
     # R3 审计第七类 7.7: 模型不完整时 status=degraded(不再恒为 ok)
     status = "ok" if model_health.get("ok") else "degraded"
-    return {"status": status, "app": settings.app_name, "version": "1.0.1",
-            "model_health": model_health}
+    # v1.0.2(Round10): 汇报前端资源目录与流程图可用性, 辅助打包验收
+    _dist = FRONTEND_DIST or _resolve_dist()
+    _flows = {}
+    if _dist:
+        _flows_dir = os.path.join(_dist, "assets", "flows")
+        if os.path.isdir(_flows_dir):
+            _flows = {f"flows/{fn}": os.path.getsize(os.path.join(_flows_dir, fn))
+                      for fn in sorted(os.listdir(_flows_dir)) if fn.endswith(".svg")}
+    return {"status": status, "app": settings.app_name, "version": "1.0.2",
+            "model_health": model_health,
+            "frontend_dist": _dist or None,
+            "flow_diagrams": _flows}
 
 
 @app.get(settings.api_v1_prefix + "/info")
@@ -250,8 +260,21 @@ if FRONTEND_DIST:
     _assets = os.path.join(FRONTEND_DIST, "assets")
     if os.path.isdir(_assets):
         app.mount("/assets", StaticFiles(directory=_assets), name="assets")
+        print(f"[SRS] ✅ 前端静态资源已挂载: /assets -> {_assets}")
+        _flows_dir = os.path.join(_assets, "flows")
+        if os.path.isdir(_flows_dir):
+            _flow_files = [f for f in os.listdir(_flows_dir) if f.endswith(".svg")]
+            print(f"[SRS] ✅ 流程图已就绪: {len(_flow_files)} 张 ({', '.join(sorted(_flow_files))})")
+        else:
+            print(f"[SRS] ⚠️ 流程图目录缺失: {_flows_dir}")
+    else:
+        print(f"[SRS] ⚠️ FRONTEND_DIST 下无 assets 目录: {_assets}")
+else:
+    print(f"[SRS] ⚠️ 未找到前端 dist 目录 (搜索路径: {_candidate_dist_dirs()})")
 
-_RESERVED = ("api/", "health", "docs", "redoc", "openapi.json", "assets/")
+_RESERVED = ("api/", "health", "docs", "redoc", "openapi.json")
+# v1.0.2(Round10 P0): 移除 "assets/" 保留前缀, 允许 SPA fallback 直接服务静态资源
+# (流程图 SVG / JS / CSS), 防止 StaticFiles mount 因打包时序/路径问题未命中时返回 404
 _DIAG_HTML = (
     "<!doctype html><meta charset=utf-8><title>SRS</title>"
     "<div style='font-family:system-ui;max-width:640px;margin:80px auto;color:#1f2937'>"
