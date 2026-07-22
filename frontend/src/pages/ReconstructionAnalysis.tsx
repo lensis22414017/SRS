@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Card, Button, Empty, App, Row, Col, Statistic, Tag, Space, Table, Divider, Timeline, Progress, Alert, Collapse } from "antd";
-import { ExportOutlined, ApartmentOutlined } from "@ant-design/icons";
+import { ApartmentOutlined } from "@ant-design/icons";
 import { api } from "../api/client";
 import SitePicker from "../components/SitePicker";
 import MethodFlowDrawer from "../components/MethodFlowDrawer";
@@ -8,6 +8,7 @@ import { getFlowConfig } from "../config/methodFlows";
 import FormulaBlock from "../components/FormulaBlock";
 import OrganicDegradedCard from "../components/OrganicDegradedCard";
 import ReactECharts from "echarts-for-react";
+import ReportActions from "../components/ReportActions";
 import { seqCol, numCol, textCol } from "../utils/table";
 import { formatFactor } from "../utils/factorFormat";
 import { SVG_OPTS } from "../theme/echarts";
@@ -197,17 +198,7 @@ export default function ReconstructionAnalysis() {
         <Space style={{ width: "100%", justifyContent: "space-between" }}>
           <SitePicker value={sid} onChange={setSid} />
           <Space>
-            {data && <Button icon={<ExportOutlined />} onClick={() => {
-              api.generateReport(sid!, "pdf").then((r: any) => {
-                if (r?.report_id) {
-                  const filename = r.file_name || `重构评价报告_场地${sid}_${r.version}.pdf`;
-                  api.downloadReport(r.report_id, filename);
-                  message.success("报告已下载");
-                } else {
-                  message.warning("报告已生成，请在追溯页面下载");
-                }
-              }).catch(() => message.error("导出失败"));
-            }}>导出分析报告</Button>}
+            {data && <ReportActions siteId={sid!} reportScope="reconstruction" label="功能重构评价报告" />}
             <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
             <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行功能重构可行性评价</Button>
           </Space>

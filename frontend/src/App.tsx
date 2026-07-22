@@ -3,7 +3,7 @@ import { Layout, Menu, Dropdown, Avatar, Space, Typography, Breadcrumb, App as A
 import {
   DashboardOutlined, DatabaseOutlined, SearchOutlined, ExperimentOutlined,
   LineChartOutlined, NodeIndexOutlined, SettingOutlined, UserOutlined, LogoutOutlined,
-  BulbOutlined,
+  BulbOutlined, FolderOutlined,
 } from "@ant-design/icons";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "./auth";
@@ -21,6 +21,7 @@ const ALL_NAV = [
   { key: "/ssui", icon: <LineChartOutlined />, label: "SSUI评价", perm: "data:query" },
   { key: "/recommend", icon: <BulbOutlined />, label: "方案推荐", perm: "data:query" },
   { key: "/trace", icon: <NodeIndexOutlined />, label: "全流程追溯", perm: "workflow:view" },
+  { key: "/files", icon: <FolderOutlined />, label: "文件管理", perm: "file:read" },
   { key: "/system", icon: <SettingOutlined />, label: "系统管理", perm: "user:manage" },
 ];
 
@@ -33,6 +34,7 @@ const BREADCRUMB: Record<string, string> = {
   "/ssui": "SSUI 可持续利用评价",
   "/recommend": "方案推荐",
   "/trace": "全流程追溯",
+  "/files": "文件管理",
   "/system": "系统管理",
 };
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Card, Button, Row, Col, Space, Alert, Typography, App, Descriptions, Table, Tag, Timeline, Segmented, Tooltip, Select, Collapse } from "antd";
-import { InfoCircleOutlined, ExportOutlined, HistoryOutlined, ApartmentOutlined } from "@ant-design/icons";
+import { InfoCircleOutlined, HistoryOutlined, ApartmentOutlined } from "@ant-design/icons";
 import MethodFlowDrawer from "../components/MethodFlowDrawer";
 import MethodExplainCard from "../components/MethodExplainCard";
 import FactorDictionaryTable from "../components/FactorDictionaryTable";
@@ -8,6 +8,7 @@ import { getFlowConfig } from "../config/methodFlows";
 import ReactECharts from "echarts-for-react";
 import dayjs from "dayjs";
 import { api } from "../api/client";
+import ReportActions from "../components/ReportActions";
 import SitePicker from "../components/SitePicker";
 import EmptyState from "../components/EmptyState";
 import { seqCol, numCol, textCol } from "../utils/table";
@@ -224,19 +225,7 @@ export default function ObstacleAnalysis() {
               style={{ background: "#e6f4ff", padding: 4, borderRadius: 6 }} />
           </Space>
           <Space>
-            {diag && (
-              <Button icon={<ExportOutlined />} onClick={() => {
-                api.generateReport(sid!, "pdf").then((r: any) => {
-                  if (r?.report_id) {
-                    const filename = r.file_name || `诊断报告_场地${sid}_${r.version}.pdf`;
-                    api.downloadReport(r.report_id, filename);
-                    message.success("报告已下载");
-                  } else {
-                    message.warning("报告已生成，请在追溯页面下载");
-                  }
-                }).catch(() => message.error("导出失败"));
-              }}>导出诊断报告</Button>
-            )}
+            {diag && <ReportActions siteId={sid!} siteCode={site?.site_code} reportScope="diagnosis" label="障碍因子诊断报告" />}
             <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
             {/* v1.0.2(GPT 4.4-4.5): 单一运行按钮, 按顶部 Segmented 选轨跑 KOS */}
             <Button type="primary" loading={kosBusy} onClick={() => runKos(landUse === "生态用地" ? "eco" : "prod")} disabled={!sid}>运行障碍因子诊断</Button>

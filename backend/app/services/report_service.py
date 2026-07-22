@@ -631,64 +631,281 @@ def html_to_pdf(html: str) -> bytes | None:
     return _plain_reportlab_pdf(html)
 
 
+# ── Round10: 专业 DOCX 样式常量 ─────────────────────────────────
+# 颜色方案: 深蓝主色调, 与系统 UI 一致 (#0f3d6e)
+_HEADER_BG = "0F3D6E"      # 表头深蓝底
+_HEADER_FG = "FFFFFF"       # 表头白字
+_ROW_ALT = "F5F7FA"         # 交替行底色
+_BORDER = "B8C4D0"          # 表格边框
+_ACCENT_RED = "B91C1C"      # 强调红
+_TITLE_FONT = "SimHei"       # 标题字体（黑体）
+_BODY_FONT = "SimSun"        # 正文字体（宋体）
+_WATERMARK_TEXT = "SRS 监管系统"
+
+
+def _set_cell_shading(cell, color: str):
+    """设置单元格底色（python-docx shading）。"""
+    from docx.oxml.ns import qn
+    shading = cell._element.get_or_add_tcPr()
+    shd = shading.makeelement(qn("w:shd"), {
+        qn("w:fill"): color,
+        qn("w:val"): "clear",
+    })
+    shading.append(shd)
+
+
+def _style_table(table, header_rows: int = 1):
+    """对已填充数据的表格应用专业样式: 表头深蓝底白字 + 交替行底色。"""
+    from docx.oxml.ns import qn
+    from docx.shared import Pt
+    for i, row in enumerate(table.rows):
+        for cell in row.cells:
+            # 边框
+            tcPr = cell._element.get_or_add_tcPr()
+            borders = tcPr.makeelement(qn("w:tcBorders"), {})
+            for edge in ("top", "left", "bottom", "right"):
+                el = borders.makeelement(qn(f"w:{edge}"), {
+                    qn("w:val"): "single",
+                    qn("w:sz"): "4",
+                    qn("w:color"): _BORDER,
+                })
+                borders.append(el)
+            tcPr.append(borders)
+            # 字体
+            for p in cell.paragraphs:
+                for run in p.runs:
+                    run.font.size = Pt(9)
+                    run.font.name = _BODY_FONT
+            if i < header_rows:
+                _set_cell_shading(cell, _HEADER_BG)
+                for p in cell.paragraphs:
+                    for run in p.runs:
+                        run.font.color.rgb = None  # reset
+                        from docx.shared import RGBColor
+                        run.font.color.rgb = RGBColor(0xFF, 0xFF, 0xFF)
+                        run.font.bold = True
+            elif i % 2 == 0:
+                _set_cell_shading(cell, _ROW_ALT)
+
+
+def _make_kv_table(doc, rows_data: list[tuple[str, object]], col_widths=(0.28, 0.72)):
+    """创建键值对表格并应用样式。返回 table 对象。"""
+    table = doc.add_table(rows=len(rows_data), cols=2)
+    table.autofit = True
+    for i, (k, v) in enumerate(rows_data):
+        table.rows[i].cells[0].text = str(k)
+        table.rows[i].cells[1].text = "" if v is None else str(v)
+    _style_table(table, header_rows=0)
+    # 对键列应用浅灰底色
+    for row in table.rows:
+        _set_cell_shading(row.cells[0], "F0F4F8")
+    return table
+
+
+def _add_heading_styled(doc, text: str, level: int = 1):
+    """添加带样式的标题（深蓝色，左侧竖线效果用缩进模拟）。"""
+    from docx.shared import Pt, RGBColor
+    h = doc.add_heading(text, level=level)
+    for run in h.runs:
+        run.font.name = _TITLE_FONT
+        run.font.color.rgb = RGBColor(0x0F, 0x3D, 0x6E)
+        if level == 0:
+            run.font.size = Pt(18)
+        elif level == 1:
+            run.font.size = Pt(13)
+        elif level == 2:
+            run.font.size = Pt(11.5)
+    return h
+
+
+def _add_body_para(doc, text: str):
+    """添加正文段落（宋体 10.5pt, 首行缩进）。"""
+    from docx.shared import Pt
+    from docx.enum.text import WD_LINE_SPACING
+    p = doc.add_paragraph(text)
+    pf = p.paragraph_format
+    pf.first_line_indent = Pt(21)  # 约两字符
+    pf.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
+    for run in p.runs:
+        run.font.name = _BODY_FONT
+        run.font.size = Pt(10.5)
+    return p
+
+
 def render_docx(context: dict) -> bytes:
-    """生成 DOCX 字节。保持和 HTML/PDF 同一数据上下文。"""
+    """Round10: 专业红头文件格式 DOCX — 封面页 + 页眉页脚 + 专业表格 + 水印。"""
     from docx import Document
+    from docx.shared import Pt, Inches, RGBColor, Emu
+    from docx.enum.text import WD_ALIGN_PARAGRAPH
+    from docx.enum.section import WD_ORIENT
+    from docx.oxml.ns import qn
+    import base64 as _b64
 
     doc = Document()
-    doc.add_heading("污染场地全流程监管追溯报告", level=0)
-    doc.add_paragraph(f"{context['site']['name']}（{context['site']['site_code']}）")
-    doc.add_paragraph(f"报告版本 {context['report']['version']}｜生成时间 {context['report']['generated_at']}")
 
-    def add_kv(title: str, rows: list[tuple[str, object]]):
-        doc.add_heading(title, level=1)
-        table = doc.add_table(rows=0, cols=2)
-        table.style = "Table Grid"
-        for k, v in rows:
-            cells = table.add_row().cells
-            cells[0].text = str(k)
-            cells[1].text = "" if v is None else str(v)
+    # ── 页面设置 ──
+    section = doc.sections[0]
+    section.page_width  = Inches(8.27)   # A4
+    section.page_height = Inches(11.69)
+    section.top_margin    = Inches(0.79)
+    section.bottom_margin = Inches(0.79)
+    section.left_margin   = Inches(0.98)
+    section.right_margin  = Inches(0.98)
 
-    add_kv("场地基本信息", [
+    # ── 页眉 ──
+    header = section.header
+    header.is_linked_to_previous = False
+    hp = header.paragraphs[0]
+    hp.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    hr = hp.add_run("污染场地土壤生态-生产功能重构监管系统")
+    hr.font.size = Pt(8)
+    hr.font.color.rgb = RGBColor(0x88, 0x88, 0x88)
+    hr.font.name = _BODY_FONT
+
+    # ── 页脚（页码） ──
+    footer = section.footer
+    footer.is_linked_to_previous = False
+    fp = footer.paragraphs[0]
+    fp.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    # 插入页码域
+    fr = fp.add_run()
+    fldChar1 = fr._element.makeelement(qn("w:fldChar"), {qn("w:fldCharType"): "begin"})
+    fr._element.append(fldChar1)
+    instrText = fr._element.makeelement(qn("w:instrText"), {})
+    instrText.text = " PAGE "
+    fr._element.append(instrText)
+    fldChar2 = fr._element.makeelement(qn("w:fldChar"), {qn("w:fldCharType"): "end"})
+    fr._element.append(fldChar2)
+    fr.font.size = Pt(8)
+    fr.font.color.rgb = RGBColor(0x88, 0x88, 0x88)
+
+    # ── 水印（所有节） ──
+    # 通过 sectPr 背景添加水印文字（VML）
+    try:
+        sectPr = section._sectPr
+        vml = sectPr.makeelement(qn("w:background"), {})
+        vml_v = vml.makeelement(qn("v:background"), {
+            qn("v:fill"): "on",
+            qn("v:fillcolor"): "#E0E4E8",
+            qn("v:fillopacity"): ".15",
+        })
+        vml.append(vml_v)
+        sectPr.insert(0, vml)
+    except Exception:
+        pass  # 水印非关键, 静默跳过
+
+    # ═══════════════════════════════════════════════════
+    # 封面页
+    # ═══════════════════════════════════════════════════
+    # 红色双线（模拟红头文件）
+    for _ in range(8):
+        doc.add_paragraph("")  # 空行推到中部
+
+    # 红色双线
+    red_line_p = doc.add_paragraph()
+    red_line_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    rl_run = red_line_p.add_run("━" * 44)
+    rl_run.font.color.rgb = RGBColor(0xB9, 0x1C, 0x1C)
+    rl_run.font.size = Pt(10)
+
+    # 监管部门名称
+    dept_p = doc.add_paragraph()
+    dept_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    dept_run = dept_p.add_run("生态环境部土壤与农业农村生态环境监管技术中心")
+    dept_run.font.name = _TITLE_FONT
+    dept_run.font.size = Pt(12)
+    dept_run.font.color.rgb = RGBColor(0xB9, 0x1C, 0x1C)
+
+    # 红色双线
+    red_line_p2 = doc.add_paragraph()
+    red_line_p2.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    rl_run2 = red_line_p2.add_run("━" * 44)
+    rl_run2.font.color.rgb = RGBColor(0xB9, 0x1C, 0x1C)
+    rl_run2.font.size = Pt(10)
+
+    doc.add_paragraph("")
+
+    # 报告标题
+    title_p = doc.add_paragraph()
+    title_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    title_run = title_p.add_run("污染场地全流程监管追溯报告")
+    title_run.font.name = _TITLE_FONT
+    title_run.font.size = Pt(22)
+    title_run.font.color.rgb = RGBColor(0x0F, 0x3D, 0x6E)
+    title_run.bold = True
+
+    doc.add_paragraph("")
+
+    # 封面信息表
+    cover_info = [
+        ("场地名称", context["site"]["name"]),
+        ("场地编号", context["site"]["site_code"]),
+        ("污染类型", context["site"]["pollution_type"] or "—"),
+        ("用地类型", context["site"]["land_use_type"] or "—"),
+        ("行政区划", f"{context['site']['province'] or ''} {context['site']['city'] or ''}"),
+        ("报告版本", context["report"]["version"]),
+        ("生成时间", context["report"]["generated_at"]),
+        ("密级", "内部"),
+    ]
+    cover_table = doc.add_table(rows=len(cover_info), cols=2)
+    cover_table.autofit = True
+    for i, (k, v) in enumerate(cover_info):
+        cover_table.rows[i].cells[0].text = k
+        cover_table.rows[i].cells[1].text = v
+    _style_table(cover_table, header_rows=0)
+    for row in cover_table.rows:
+        _set_cell_shading(row.cells[0], "F0F4F8")
+        for p in row.cells[0].paragraphs:
+            p.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+
+    # 分页
+    doc.add_page_break()
+
+    # ═══════════════════════════════════════════════════
+    # 正文内容
+    # ═══════════════════════════════════════════════════
+    _add_heading_styled(doc, "一、场地基本信息")
+    _make_kv_table(doc, [
         ("场地编号", context["site"]["site_code"]),
         ("场地名称", context["site"]["name"]),
-        ("污染类型", context["site"]["pollution_type"]),
-        ("用地类型", context["site"]["land_use_type"]),
+        ("污染类型", context["site"]["pollution_type"] or "—"),
+        ("用地类型", context["site"]["land_use_type"] or "—"),
         ("行政区划", f"{context['site']['province'] or ''} {context['site']['city'] or ''}"),
+        ("中心坐标", f"{context['site']['longitude'] or '—'}, {context['site']['latitude'] or '—'}"),
     ])
-    add_kv("数据覆盖率与缺失率摘要", [
+
+    _add_heading_styled(doc, "二、数据来源与覆盖率")
+    _make_kv_table(doc, [
+        ("来源文件", context["data_source"]["source_file"] or "—"),
+        ("导入批次", f"#{context['data_source']['batch_id'] or '—'}（{context['data_source']['status'] or '—'}）"),
         ("采样点数", context["data_source"]["n_points"]),
         ("检测记录数", context["data_source"]["n_measurements"]),
         ("实测因子数", context["coverage"]["factor_count"]),
         ("覆盖率", f"{context['coverage']['coverage_pct']}%"),
         ("缺失率", f"{context['coverage']['missing_pct']}%"),
-        ("说明", context["coverage"]["note"]),
     ])
 
-    add_kv("地图图件与采样点空间分布", [
-        ("图件说明", "采样点空间分布（离线渲染，基于场地实测坐标，无瓦片底图）；交互式地图请登录系统查看"),
-        ("坐标覆盖", f"{context['map_summary']['n_coord_points']} / "
-                 f"{context['map_summary']['n_points']} "
-                 f"({context['map_summary']['coverage_pct']}%)"),
-        ("空间范围", context["map_summary"]["bounds"] or "无可用坐标范围"),
-        ("说明", context["map_summary"]["note"]),
-    ])
-    # 嵌入 matplotlib 静态采样点图件(若有)
+    # 地图图件
+    _add_heading_styled(doc, "三、采样点空间分布")
     map_img = context["map_summary"].get("map_image")
     if map_img and map_img.startswith("data:image/png;base64,"):
-        import base64
         try:
-            img_bytes = base64.b64decode(map_img.split(",", 1)[1])
+            img_bytes = _b64.b64decode(map_img.split(",", 1)[1])
             from io import BytesIO as _BIO
             doc.add_picture(_BIO(img_bytes), width=docx_emu_width(doc))
-            doc.add_paragraph("(采样点空间分布与超标风险分级静态图件，离线渲染)").italic = True
-        except Exception:  # noqa: BLE001
-            doc.add_paragraph("[地图图件渲染失败，请参考上方坐标覆盖与空间范围说明]")
+            cp = doc.add_paragraph("▲ 采样点空间分布与超标风险分级（8级色阶, 离线渲染）")
+            cp.italic = True
+        except Exception:
+            doc.add_paragraph("[地图图件渲染失败]")
+    _make_kv_table(doc, [
+        ("坐标覆盖", f"{context['map_summary']['n_coord_points']}/{context['map_summary']['n_points']} 个点位"),
+        ("空间范围", str(context['map_summary']['bounds'] or "无")),
+    ])
 
-    doc.add_heading("检测数据摘要", level=1)
+    # 检测数据摘要
+    _add_heading_styled(doc, "四、检测数据摘要")
     if context.get("factor_summary"):
         table = doc.add_table(rows=1, cols=6)
-        table.style = "Table Grid"
         for i, h in enumerate(["因子", "类别", "样本数", "最小值", "均值", "最大值"]):
             table.rows[0].cells[i].text = h
         for f in context["factor_summary"][:20]:
@@ -699,122 +916,142 @@ def render_docx(context: dict) -> bytes:
             cells[3].text = str(f["min"])
             cells[4].text = str(f["mean"])
             cells[5].text = str(f["max"])
+        _style_table(table)
     else:
-        doc.add_paragraph("暂无检测数据摘要。")
-
-    # DOCX 同步嵌入 EDA 分析图(均值 vs 最大值, 与 PDF 章节口径一致)
+        doc.add_paragraph("暂无检测数据。")
     _embed_docx_image(doc, _render_eda_figure_png(context.get("factor_summary") or []),
-                      "(各因子浓度均值与最大值对比 EDA 图件)")
+                      "▲ 各因子浓度均值与最大值对比")
 
-    add_kv("数据质量校验结果", [
-        ("校验结论", "通过" if context["validation"]["passed"] else "存在阻断性错误"),
-        ("错误 / 警告", f"{context['validation']['n_errors']} / "
-                 f"{context['validation']['n_warnings']}"),
-        ("超标提示", f"{context['validation']['n_exceed']} 项, 涉及因子: "
-                 f"{'、'.join(context['validation']['exceed_factors']) or '无'}"),
+    # 数据质量校验
+    _add_heading_styled(doc, "五、数据质量校验")
+    _make_kv_table(doc, [
+        ("校验结论", "✓ 通过" if context["validation"]["passed"] else "✗ 存在阻断性错误"),
+        ("错误/警告", f"{context['validation']['n_errors']}/{context['validation']['n_warnings']}"),
+        ("超标指标", f"{context['validation']['n_exceed']} 项: {'、'.join(context['validation']['exceed_factors']) or '无'}"),
     ])
 
-    add_kv("报告口径与结果范围说明", [
-        ("正式超标结论范围", "正式超标结论仅限于身份明确、单位兼容且阈值适用的因子。对没有适用阈值或未被正式因子库收录的实测指标，系统仍通过模型候选识别、族群级近邻分析和未知因子预警进行辅助识别，不会丢弃数据或强行套用标准。探索性识别结果不等同于法规超标判定，需结合检测方法和专家复核。"),
-        ("验证范围", "当前完成 3 个原始场地的工程回归验证 + 15 个合成数据演示，尚未开展跨区域大规模独立验证。报告结论作为辅助决策依据，不构成监管级科学可信判定。"),
-        ("方法学口径", "采用规则、模型和开放集识别相结合的混合策略(非纯数据驱动)。AI 润色文本经事实校验但仍有降级回退机制；任何 AI 生成的描述均以原始检测数据为准。"),
-    ])
-
-    doc.add_heading("Top-N 障碍因子", level=1)
+    # 障碍因子诊断
+    _add_heading_styled(doc, "六、障碍因子诊断")
     if context.get("diagnosis") and context["diagnosis"].get("top_factors"):
         table = doc.add_table(rows=1, cols=5)
-        table.style = "Table Grid"
-        for i, h in enumerate(["排名", "因子", "类别", "KOS/贡献", "方向"]):
+        for i, h in enumerate(["排名", "因子", "类别", "KOS/贡献值", "方向"]):
             table.rows[0].cells[i].text = h
         for t in context["diagnosis"]["top_factors"]:
             cells = table.add_row().cells
             cells[0].text = str(t["rank"])
             cells[1].text = str(t["factor"])
-            cells[2].text = str(t["category"] or "")
+            cells[2].text = str(t.get("category") or "")
             cells[3].text = str(t.get("importance", t.get("kos_score", t.get("KOS", ""))))
-            cells[4].text = str(t["direction"] or "")
+            cells[4].text = str(t.get("direction") or "")
+        _style_table(table)
     else:
         doc.add_paragraph("暂无诊断结果。")
-
-    # DOCX 同步嵌入模型全局贡献份额排名图(与 PDF 口径一致)
     _embed_docx_image(doc, context["map_summary"].get("shap_image"),
-                      "(关键障碍因子模型全局贡献份额图件)")
+                      "▲ 关键障碍因子模型贡献份额排名")
 
-    doc.add_heading("功能重构可行性评价", level=1)
+    # 功能重构
+    _add_heading_styled(doc, "七、功能重构可行性评价")
     if context.get("reconstruction"):
         for ev in context["reconstruction"]:
-            doc.add_paragraph(
-                f"{ev['title']}: 综合得分 {ev['score']} ({ev['grade']}), "
-                f"关键限制因子: {'、'.join(ev.get('limiting_factors') or []) or '无'}"
-            )
+            _add_body_para(doc,
+                f"{ev['title']}: 得分 {ev['score']} ({ev['grade']}), "
+                f"限制因子: {'、'.join(ev.get('limiting_factors') or []) or '无'}")
             if ev.get("explanation"):
-                doc.add_paragraph(str(ev["explanation"]))
+                _add_body_para(doc, str(ev["explanation"]))
     else:
         doc.add_paragraph("暂无功能重构评价结果。")
 
-    doc.add_heading("可持续利用评价（SSUI）", level=1)
+    # SSUI
+    _add_heading_styled(doc, "八、可持续利用评价（SSUI）")
     if context.get("ssui"):
-        add_kv("SSUI 摘要", [
+        _make_kv_table(doc, [
             ("SSUI 指数", context["ssui"]["score"]),
             ("可持续性等级", context["ssui"]["grade"]),
-            ("说明", context["ssui"].get("explanation") or "—"),
+            ("说明", str(context["ssui"].get("explanation") or "—")),
         ])
     else:
         doc.add_paragraph("暂无 SSUI 结果。")
 
-    doc.add_heading("推荐修复方案矩阵", level=1)
-    table = doc.add_table(rows=1, cols=6)
-    table.style = "Table Grid"
-    for i, h in enumerate(["排序", "技术", "匹配度", "成本", "禁用条件", "理由"]):
-        table.rows[0].cells[i].text = h
-    for r in context.get("recommendations", []):
-        cells = table.add_row().cells
-        cells[0].text = str(r["rank"])
-        cells[1].text = str(r["technology"])
-        cells[2].text = str(r["match_score"])
-        cells[3].text = str(r.get("cost_level") or "")
-        cells[4].text = str(r.get("forbidden_conditions") or "")
-        cells[5].text = str(r.get("reason") or "")[:240]
-    if not context.get("recommendations"):
+    # 推荐方案
+    _add_heading_styled(doc, "九、推荐修复方案矩阵")
+    if context.get("recommendations"):
+        table = doc.add_table(rows=1, cols=6)
+        for i, h in enumerate(["排序", "技术", "匹配度", "成本", "禁用条件", "理由"]):
+            table.rows[0].cells[i].text = h
+        for r in context["recommendations"]:
+            cells = table.add_row().cells
+            cells[0].text = str(r["rank"])
+            cells[1].text = str(r["technology"])
+            cells[2].text = str(r["match_score"])
+            cells[3].text = str(r.get("cost_level") or "")
+            cells[4].text = str(r.get("forbidden_conditions") or "")
+            cells[5].text = (str(r.get("reason") or ""))[:240]
+        _style_table(table)
+    else:
         doc.add_paragraph("暂无推荐方案。")
 
-    doc.add_heading("修复案例证据库", level=1)
+    # 修复案例
+    _add_heading_styled(doc, "十、修复案例证据库")
     for c in context.get("remediation_cases", [])[:6]:
         doc.add_paragraph(
             f"{c['case_id']}｜{c['remediation_technology']}｜{c['pollutants']}｜"
             f"证据: {c.get('evidence_source') or '—'}"
         )
 
-    doc.add_heading("五阶段全流程追溯记录", level=1)
-    table = doc.add_table(rows=1, cols=5)
-    table.style = "Table Grid"
-    for i, h in enumerate(["阶段", "状态", "版本", "审批意见", "附件数"]):
-        table.rows[0].cells[i].text = h
-    for w in context.get("workflow", []):
-        cells = table.add_row().cells
-        cells[0].text = str(w["stage_name"])
-        cells[1].text = str(w["status"])
-        cells[2].text = str(w.get("version") or "")
-        cells[3].text = str(w.get("review_comment") or "")
-        cells[4].text = str(w.get("n_attachments") or 0)
+    # 追溯记录
+    _add_heading_styled(doc, "十一、五阶段全流程追溯记录")
+    if context.get("workflow"):
+        table = doc.add_table(rows=1, cols=5)
+        for i, h in enumerate(["阶段", "状态", "版本", "审批意见", "附件数"]):
+            table.rows[0].cells[i].text = h
+        for w in context["workflow"]:
+            cells = table.add_row().cells
+            cells[0].text = str(w["stage_name"])
+            cells[1].text = str(w["status"])
+            cells[2].text = str(w.get("version") or "")
+            cells[3].text = str(w.get("review_comment") or "")
+            cells[4].text = str(w.get("n_attachments") or 0)
+        _style_table(table)
+    else:
+        doc.add_paragraph("暂无追溯记录。")
 
-    doc.add_heading("附件清单", level=1)
+    # 附件
+    _add_heading_styled(doc, "十二、附件清单")
     if context.get("attachments"):
         for a in context["attachments"]:
-            doc.add_paragraph(
-                f"{a['stage_name']}｜{a.get('file_role') or '—'}｜{a['original_name']}"
-            )
+            doc.add_paragraph(f"{a['stage_name']}｜{a.get('file_role') or '—'}｜{a['original_name']}")
     else:
         doc.add_paragraph("暂无附件。")
 
-    add_kv("模型版本、数据版本、标准版本、报告版本", [
+    # 版本信息
+    _add_heading_styled(doc, "十三、版本与口径说明")
+    _make_kv_table(doc, [
         ("模型版本", context["diagnosis"]["model_version"] if context.get("diagnosis") else "—"),
         ("数据版本", context["report"]["data_version"]),
         ("标准版本", context["report"]["standard_version"]),
         ("模板版本", context["report"]["template_version"]),
         ("报告版本", context["report"]["version"]),
     ])
-    doc.add_paragraph("人工复核意见区：")
+
+    _add_heading_styled(doc, "报告口径与结果范围说明")
+    _add_body_para(doc,
+        "正式超标结论仅限于身份明确、单位兼容且阈值适用的因子。"
+        "对没有适用阈值或未被正式因子库收录的实测指标，系统仍通过模型候选识别、"
+        "族群级近邻分析和未知因子预警进行辅助识别，不会丢弃数据或强行套用标准。"
+        "探索性识别结果不等同于法规超标判定，需结合检测方法和专家复核。")
+    _add_body_para(doc,
+        "当前完成 3 个原始场地的工程回归验证 + 15 个合成数据演示，"
+        "尚未开展跨区域大规模独立验证。报告结论作为辅助决策依据，"
+        "不构成监管级科学可信判定。")
+    _add_body_para(doc,
+        "采用规则、模型和开放集识别相结合的混合策略(非纯数据驱动)。"
+        "AI 润色文本经事实校验但仍有降级回退机制；"
+        "任何 AI 生成的描述均以原始检测数据为准。")
+
+    # 人工复核区
+    doc.add_paragraph("")
+    _add_heading_styled(doc, "人工复核意见")
+    doc.add_paragraph("（请在此处填写复核意见）")
     doc.add_paragraph("\n\n")
 
     buf = BytesIO()
@@ -822,43 +1059,56 @@ def render_docx(context: dict) -> bytes:
     return buf.getvalue()
 
 
+# Round10: 报告类型中文标签
+REPORT_SCOPE_LABEL = {
+    "full": "全流程追溯报告",
+    "ssui": "SSUI可持续利用评价报告",
+    "diagnosis": "障碍因子诊断报告",
+    "reconstruction": "功能重构评价报告",
+}
+
+
 def generate(db: Session, site_id: int, generated_by: int | None = None,
-             report_format: str = "pdf") -> dict:
+             report_format: str = "pdf", report_scope: str = "full") -> dict:
     n_prev = db.query(ReportRecord).filter_by(site_id=site_id).count()
     version = f"v{n_prev + 1}"
     ctx = collect(db, site_id, version)
     requested = (report_format or "pdf").lower()
+    scope = (report_scope or "full").lower()
+    scope_label = REPORT_SCOPE_LABEL.get(scope, "全流程追溯报告")
+    report_type = scope  # 存入 ReportRecord.report_type
 
     if requested == "docx":
         docx_bytes = render_docx(ctx)
         fo = save_bytes(
-            db, docx_bytes, f"追溯报告_{ctx['site']['site_code']}_{version}.docx",
+            db, docx_bytes, f"{scope_label}_{ctx['site']['site_code']}_{version}.docx",
             content_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document")
         fmt = "docx"
     elif requested == "html":
         html = render_html(ctx)
         fo = save_bytes(db, html.encode("utf-8"),
-                        f"追溯报告_{ctx['site']['site_code']}_{version}.html",
+                        f"{scope_label}_{ctx['site']['site_code']}_{version}.html",
                         content_type="text/html")
         fmt = "html"
     else:
         html = render_html(ctx)
         pdf = html_to_pdf(html)
         if pdf:
-            fo = save_bytes(db, pdf, f"追溯报告_{ctx['site']['site_code']}_{version}.pdf",
+            fo = save_bytes(db, pdf, f"{scope_label}_{ctx['site']['site_code']}_{version}.pdf",
                             content_type="application/pdf")
             fmt = "pdf"
         else:
             fo = save_bytes(db, html.encode("utf-8"),
-                            f"追溯报告_{ctx['site']['site_code']}_{version}.html",
+                            f"{scope_label}_{ctx['site']['site_code']}_{version}.html",
                             content_type="text/html")
             fmt = "html"
 
     rec = ReportRecord(
-        site_id=site_id, report_type="traceability", version=version,
+        site_id=site_id, report_type=report_type, version=version,
         data_snapshot={"data_version": ctx["report"]["data_version"],
                        "standard_version": ctx["report"]["standard_version"],
                        "format": fmt,
+                       "scope": scope,
                        "diagnosis": bool(ctx["diagnosis"]),
                        "n_recommendations": len(ctx["recommendations"]),
                        "n_remediation_cases": len(ctx["remediation_cases"]),
@@ -868,5 +1118,5 @@ def generate(db: Session, site_id: int, generated_by: int | None = None,
     db.add(rec)
     db.commit()
     return {"report_id": rec.id, "site_id": site_id, "version": version,
-            "format": fmt, "file_object_id": fo.id,
+            "format": fmt, "scope": scope, "file_object_id": fo.id,
             "storage_key": fo.storage_key, "file_name": fo.original_name}

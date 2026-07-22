@@ -421,6 +421,19 @@ class WorkflowRecord(Base, TimestampMixin):
     payload: Mapped[dict | None] = mapped_column(JSON, nullable=True)
 
 
+# Round10: 文件分类枚举
+FILE_CATEGORIES = {
+    "pollution_data": "污染点位数据",
+    "construction_plan": "施工方案",
+    "approval_doc": "审批方案",
+    "survey_report": "场地调查报告",
+    "effect_report": "效果评估报告",
+    "maintenance_plan": "管护方案",
+    "monitoring_data": "监测数据",
+    "other": "其他材料",
+}
+
+
 class FileObject(Base, TimestampMixin):
     __tablename__ = "file_objects"
     id: Mapped[int] = mapped_column(primary_key=True)
@@ -431,6 +444,9 @@ class FileObject(Base, TimestampMixin):
     sha256: Mapped[str | None] = mapped_column(String(64), nullable=True)
     organization_id: Mapped[int | None] = mapped_column(ForeignKey("organizations.id"), nullable=True)
     uploaded_by: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+    # Round10: 文件管理增强 — 独立分类与描述
+    category: Mapped[str | None] = mapped_column(String(40), nullable=True)
+    description: Mapped[str | None] = mapped_column(Text, nullable=True)
 
 
 class WorkflowAttachment(Base, TimestampMixin):

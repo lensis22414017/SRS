@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Card, Button, App, Row, Col, Statistic, Tag, Space, Table, Divider, Alert, Timeline, Typography, InputNumber, Select, Checkbox } from "antd";
-import { ApartmentOutlined, ExportOutlined, DatabaseOutlined } from "@ant-design/icons";
+import { ApartmentOutlined, DatabaseOutlined } from "@ant-design/icons";
 import ReactECharts from "echarts-for-react";
 import { api } from "../api/client";
 import SitePicker from "../components/SitePicker";
@@ -8,6 +8,7 @@ import FormulaBlock from "../components/FormulaBlock";
 import OrganicDegradedCard from "../components/OrganicDegradedCard";
 import EmptyState from "../components/EmptyState";
 import MethodFlowDrawer from "../components/MethodFlowDrawer";
+import ReportActions from "../components/ReportActions";
 import EconomicDataDrawer from "../components/EconomicDataDrawer";
 import { seqCol, numCol, textCol } from "../utils/table";
 import { SVG_OPTS } from "../theme/echarts";
@@ -165,17 +166,7 @@ export default function SSUIAnalysis() {
           <Space wrap>
             <Button icon={<DatabaseOutlined />} onClick={() => setEcoOpen(true)} disabled={!sid}>经济数据</Button>
             <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
-            {data && <Button icon={<ExportOutlined />} onClick={() => {
-              api.generateReport(sid!, "pdf").then((r: any) => {
-                if (r?.report_id) {
-                  const filename = r.file_name || `SSUI评价报告_场地${sid}_${r.version}.pdf`;
-                  api.downloadReport(r.report_id, filename);
-                  message.success("报告已下载");
-                } else {
-                  message.warning("报告已生成，请在追溯页面下载");
-                }
-              }).catch(() => message.error("导出失败"));
-              }}>导出报告</Button>}
+            {data && <ReportActions siteId={sid!} reportScope="ssui" label="SSUI评价报告" />}
             <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行评价</Button>
           </Space>
         </Space>

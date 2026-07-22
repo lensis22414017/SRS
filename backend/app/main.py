@@ -20,6 +20,7 @@ from app.api.backup import router as backup_router  # v1.0.2: 备份恢复
 from app.api.data import router as data_router
 from app.api.diagnosis import router as diagnosis_router
 from app.api.evaluation import router as evaluation_router
+from app.api.files import router as files_router  # Round10: 文件管理
 from app.api.map import router as map_router
 from app.api.system import router as system_router
 from app.api.workflow import router as workflow_router
@@ -186,6 +187,7 @@ app.include_router(economic_router)  # R3 审计第五类: SSUI D18-D25 经济�
 app.include_router(data_router)
 app.include_router(diagnosis_router)
 app.include_router(evaluation_router)
+app.include_router(files_router)  # Round10: 文件管理
 app.include_router(map_router)
 app.include_router(workflow_router)
 app.include_router(system_router)

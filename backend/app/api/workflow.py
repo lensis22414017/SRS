@@ -145,12 +145,13 @@ def delete_attachment(site_id: int, stage: str, attachment_id: int,
 @router.post("/sites/{site_id}/report")
 def generate_report(site_id: int,
                     format: str = Query("pdf", pattern="^(pdf|docx|html)$"),
+                    scope: str = Query("full", pattern="^(full|ssui|diagnosis|reconstruction)$"),
                     user: User = Depends(require_permission("report:generate")),
                     db: Session = Depends(get_db)):
     _require_site(db, user, site_id)
     try:
         return report_service.generate(db, site_id, generated_by=user.id,
-                                       report_format=format)
+                                       report_format=format, report_scope=scope)
     except ValueError as e:
         raise HTTPException(404, str(e))
 

@@ -4,6 +4,7 @@
 <meta charset="utf-8"/>
 <style>
   @page { size: A4; margin: 1.8cm 1.5cm; }
+  @page cover { margin: 2cm 2cm; }
   body { font-family: STSong-Light, SimSun, serif; font-size: 10.5pt; color: #1f2937; line-height: 1.6; }
   h1 { font-size: 18pt; color: #0f3d6e; text-align: center; margin-bottom: 2pt; }
   .subtitle { text-align: center; color: #555; font-size: 10pt; margin-bottom: 14pt; }
@@ -11,7 +12,8 @@
   table { width: 100%; border-collapse: collapse; margin-top: 6pt; }
   th, td { border: 0.5pt solid #b8c4d0; padding: 4pt 6pt; font-size: 9.5pt; text-align: left; vertical-align: top; }
   th { background: #eaf1f8; color: #0f3d6e; }
-  .kv td:first-child { background: #f5f8fb; width: 28%; color: #374151; }
+  tr:nth-child(even) td { background: #fafbfc; }
+  .kv td:first-child { background: #f0f4f8; width: 28%; color: #374151; }
   .muted { color: #6b7280; font-size: 9pt; }
   .badge { font-weight: bold; }
   .ok { color: #15803d; } .bad { color: #b91c1c; } .warn { color: #b45309; }
@@ -26,13 +28,47 @@
   .bar { background: #0f3d6e; height: 9pt; border-radius: 2pt; }
   .bar-red { background: #b91c1c; }
   .map-panel { border: 0.5pt solid #b8c4d0; background: #f8fbfd; padding: 8pt; margin-top: 6pt; }
+  /* 封面页样式 */
+  .cover-page { page: cover; text-align: center; padding-top: 60pt; }
+  .cover-red-line { color: #b91c1c; font-size: 10pt; letter-spacing: 2pt; margin: 6pt 0; }
+  .cover-dept { font-family: SimHei, sans-serif; font-size: 14pt; color: #b91c1c; margin: 8pt 0; }
+  .cover-title { font-family: SimHei, sans-serif; font-size: 24pt; color: #0f3d6e; font-weight: bold; margin: 24pt 0 16pt 0; }
+  .cover-info { margin: 30pt auto 0 auto; width: 76%; }
+  .cover-info td { border: 0.5pt solid #b8c4d0; padding: 5pt 8pt; font-size: 10pt; }
+  .cover-info td:first-child { background: #f0f4f8; width: 36%; text-align: right; color: #374151; }
+  .cover-info td:last-child { color: #1f2937; }
+  .page-break { page-break-before: always; }
 </style>
 </head>
 <body>
+
+<!-- ═══════════════════ 封面页 ═══════════════════ -->
+<div class="cover-page">
+  <div class="cover-red-line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+  <div class="cover-dept">生态环境部土壤与农业农村生态环境监管技术中心</div>
+  <div class="cover-red-line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+  <div style="height:16pt"></div>
+  <div class="cover-title">污染场地全流程监管<br/>追溯报告</div>
+  <table class="cover-info">
+    <tr><td>场地名称</td><td>{{ site.name }}</td></tr>
+    <tr><td>场地编号</td><td>{{ site.site_code }}</td></tr>
+    <tr><td>污染类型</td><td>{{ site.pollution_type or '—' }}</td></tr>
+    <tr><td>用地类型</td><td>{{ site.land_use_type or '—' }}</td></tr>
+    <tr><td>行政区划</td><td>{{ site.province or '' }} {{ site.city or '' }}</td></tr>
+    <tr><td>报告版本</td><td>{{ report.version }}</td></tr>
+    <tr><td>生成时间</td><td>{{ report.generated_at }}</td></tr>
+    <tr><td>密级</td><td>内部</td></tr>
+  </table>
+</div>
+
+<!-- ═══════════════════ 正文 ═══════════════════ -->
+<div class="page-break"></div>
+
   <h1>污染场地全流程监管追溯报告</h1>
   <div class="subtitle">{{ site.name }}（{{ site.site_code }}）｜报告版本 {{ report.version }}｜生成时间 {{ report.generated_at }}</div>
 
-  <table class="cards">
+  <div class="cards"> <!-- Round10: 增强卡片面板 -->
+    <table class="cards">
     <tr>
       <td style="width:25%"><div class="card card-blue">
         <div class="label">采样点 / 检测记录</div>
@@ -49,7 +85,8 @@
         <div class="value">{% if ssui %}{{ ssui.score }}{% else %}—{% endif %}</div>
         <div class="label">{% if ssui %}{{ ssui.grade }}{% endif %}</div></div></td>
     </tr>
-  </table>
+    </table>
+  </div>
 
   <h2>一、场地基本信息</h2>
   <table class="kv">

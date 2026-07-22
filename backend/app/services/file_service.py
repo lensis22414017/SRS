@@ -51,7 +51,9 @@ def _validate_upload(data: bytes, original_name: str, content_type: str | None):
 def save_bytes(db: Session, data: bytes, original_name: str,
                content_type: str | None = None,
                organization_id: int | None = None,
-               uploaded_by: int | None = None) -> FileObject:
+               uploaded_by: int | None = None,
+               category: str | None = None,
+               description: str | None = None) -> FileObject:
     settings = get_settings()
     # v0.2 P0-2: 文件安全校验
     safe_name = _sanitize_filename(original_name)
@@ -70,7 +72,8 @@ def save_bytes(db: Session, data: bytes, original_name: str,
     obj = FileObject(storage_key=key, original_name=safe_name,
                      content_type=content_type, size_bytes=len(data),
                      sha256=sha, organization_id=organization_id,
-                     uploaded_by=uploaded_by)
+                     uploaded_by=uploaded_by,
+                     category=category, description=description)
     db.add(obj)
     db.flush()
     return obj
@@ -79,9 +82,12 @@ def save_bytes(db: Session, data: bytes, original_name: str,
 def save_upload(db: Session, file_obj, original_name: str,
                 content_type: str | None = None,
                 organization_id: int | None = None,
-                uploaded_by: int | None = None) -> FileObject:
+                uploaded_by: int | None = None,
+                category: str | None = None,
+                description: str | None = None) -> FileObject:
     data = file_obj.read()
-    return save_bytes(db, data, original_name, content_type, organization_id, uploaded_by)
+    return save_bytes(db, data, original_name, content_type, organization_id, uploaded_by,
+                      category=category, description=description)
 
 
 def abs_path(storage_key: str) -> str:

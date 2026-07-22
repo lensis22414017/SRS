@@ -24,6 +24,7 @@ const SystemManagement = lazy(() => import("./pages/SystemManagement"));
 const RecommendationPage = lazy(() => import("./pages/RecommendationPage"));
 const FieldMappingPage = lazy(() => import("./pages/FieldMappingPage"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
+const FileManagement = lazy(() => import("./pages/FileManagement"));  // Round10: 文件管理
 const Register = lazy(() => import("./pages/Register"));
 const ForgotPassword = lazy(() => import("./pages/ForgotPassword"));
 const DashboardScreen = lazy(() => import("./pages/DashboardScreen"));
@@ -102,6 +103,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <Route path="recommend" element={<RequirePermission code="data:query"><RecommendationPage /></RequirePermission>} />
                   <Route path="trace" element={<RequirePermission code="workflow:view"><TraceList /></RequirePermission>} />
                   <Route path="trace/:id" element={<RequirePermission code="workflow:view"><TraceDetail /></RequirePermission>} />
+                  <Route path="files" element={<RequirePermission code="file:read"><FileManagement /></RequirePermission>} />
                   <Route path="system" element={<AdminOnly><SystemManagement /></AdminOnly>} />
                   <Route path="*" element={<ErrorPage />} />
                 </Route>

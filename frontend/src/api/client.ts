@@ -185,8 +185,8 @@ export const api = {
       { headers: { "Content-Type": "multipart/form-data" } }).then((r) => r.data);
   },
   reports: (id: number) => client.get(`/sites/${id}/reports`).then((r) => r.data),
-  generateReport: (id: number, format: "pdf" | "docx" | "html" = "pdf") =>
-    client.post(`/sites/${id}/report`, null, { params: { format } }).then((r) => r.data),
+  generateReport: (id: number, format: "pdf" | "docx" | "html" = "pdf", scope: "full" | "ssui" | "diagnosis" | "reconstruction" = "full") =>
+    client.post(`/sites/${id}/report`, null, { params: { format, scope } }).then((r) => r.data),
   downloadReport: async (reportId: number, filename: string) => {
     const r = await client.get(`/reports/${reportId}/download`, { responseType: "blob" });
     const url = URL.createObjectURL(r.data as Blob);
@@ -208,6 +208,38 @@ export const api = {
       URL.revokeObjectURL(url);
     }
   },
+
+  // Round10: 文件管理
+  fileCategories: () => client.get("/files/categories").then((r) => r.data) as Promise<{
+    categories: { value: string; label: string }[];
+  }>,
+  listFiles: (params?: { site_id?: number; category?: string; search?: string; page?: number; page_size?: number }) =>
+    client.get("/files", { params }).then((r) => r.data) as Promise<{
+      total: number; page: number; page_size: number;
+      items: {
+        id: number; original_name: string; content_type: string;
+        size_bytes: number; category: string; category_label: string;
+        description: string; organization_name: string;
+        uploaded_by_name: string; site_name: string; created_at: string;
+      }[];
+    }>,
+  uploadFile: (file: File, category: string, description?: string, siteId?: number) => {
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("category", category);
+    if (description) fd.append("description", description);
+    if (siteId != null) fd.append("site_id", String(siteId));
+    return client.post("/files/upload", fd, { headers: { "Content-Type": "multipart/form-data" } }).then((r) => r.data);
+  },
+  updateFileMeta: (fileId: number, category?: string, description?: string) => {
+    const fd = new FormData();
+    if (category) fd.append("category", category);
+    if (description !== undefined) fd.append("description", description);
+    return client.put(`/files/${fileId}`, fd).then((r) => r.data);
+  },
+  deleteFile: (fileId: number) => client.delete(`/files/${fileId}`).then((r) => r.data),
+  previewFileUrl: (fileId: number) => `/api/v1/files/${fileId}/preview`,
+  downloadFileUrl: (fileId: number) => `/api/v1/files/${fileId}/download`,
 
   // 系统
   changePassword: (old_password: string, new_password: string) =>
