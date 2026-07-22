@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
+  <defs>
+    <linearGradient id="bgRc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <marker id="arrRc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#64748b"/></marker>
+    <filter id="shRc" x="-5%" y="-5%" width="110%" height="115%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="900" height="380" fill="url(#bgRc)" rx="12"/>
+  <text x="450" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1e293b">方案推荐 — 诊断结果驱动的技术库智能匹配</text>
+  <line x1="100" y1="48" x2="800" y2="48" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- Inputs -->
+  <rect x="30" y="65" width="170" height="200" rx="8" fill="#dbeafe" opacity="0.25"/>
+  <text x="115" y="85" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">上游结果</text>
+  <rect x="40" y="95" width="150" height="36" rx="6" fill="#bfdbfe" filter="url(#shRc)"/><text x="115" y="117" text-anchor="middle" font-size="10" fill="#1e3a5f">障碍因子诊断</text>
+  <rect x="40" y="138" width="150" height="36" rx="6" fill="#bfdbfe" filter="url(#shRc)"/><text x="115" y="160" text-anchor="middle" font-size="10" fill="#1e3a5f">功能重构评价</text>
+  <rect x="40" y="181" width="150" height="36" rx="6" fill="#bfdbfe" filter="url(#shRc)"/><text x="115" y="203" text-anchor="middle" font-size="10" fill="#1e3a5f">SSUI 评价</text>
+  <rect x="40" y="224" width="150" height="36" rx="6" fill="#a7f3d0" filter="url(#shRc)"/><text x="115" y="246" text-anchor="middle" font-size="10" font-weight="600" fill="#065f46">修复技术库</text>
+
+  <!-- Arrow -->
+  <path d="M200 165 L245 165" stroke="#64748b" stroke-width="2" marker-end="url(#arrRc)" fill="none"/>
+
+  <!-- Filter funnel -->
+  <path d="M250 80 L450 80 L400 260 L300 260 Z" fill="#fef3c7" opacity="0.4" stroke="#f59e0b" stroke-width="1.5" filter="url(#shRc)"/>
+  <text x="350" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">技术筛选漏斗</text>
+  <rect x="265" y="110" width="170" height="22" rx="4" fill="#fde68a"/><text x="350" y="125" text-anchor="middle" font-size="10" fill="#78350f">① 障碍因子匹配</text>
+  <rect x="275" y="138" width="150" height="22" rx="4" fill="#fde68a"/><text x="350" y="153" text-anchor="middle" font-size="10" fill="#78350f">② 条件适配过滤</text>
+  <rect x="285" y="166" width="130" height="22" rx="4" fill="#fbbf24"/><text x="350" y="181" text-anchor="middle" font-size="10" font-weight="600" fill="#78350f">③ 禁用条件排除</text>
+  <rect x="295" y="194" width="110" height="22" rx="4" fill="#fbbf24"/><text x="350" y="209" text-anchor="middle" font-size="10" font-weight="600" fill="#78350f">④ 多维度评分</text>
+  <rect x="310" y="230" width="80" height="22" rx="4" fill="#d97706"/><text x="350" y="245" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">⑤ 组合方案</text>
+
+  <!-- Arrow to scoring -->
+  <path d="M400 170 L490 170" stroke="#64748b" stroke-width="2" marker-end="url(#arrRc)" fill="none"/>
+
+  <!-- Five-dimension scoring radar -->
+  <rect x="490" y="65" width="160" height="200" rx="8" fill="#ede9fe" opacity="0.25" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="570" y="85" text-anchor="middle" font-size="12" font-weight="700" fill="#5b21b6">五维度评分</text>
+  <text x="570" y="110" text-anchor="middle" font-size="10" fill="#6d28d9">有效性（能否去除污染物）</text>
+  <text x="570" y="130" text-anchor="middle" font-size="10" fill="#6d28d9">成本（修复+维护总费用）</text>
+  <text x="570" y="150" text-anchor="middle" font-size="10" fill="#6d28d9">工期（施工周期长短）</text>
+  <text x="570" y="170" text-anchor="middle" font-size="10" fill="#6d28d9">二次风险（副产物/残留）</text>
+  <text x="570" y="190" text-anchor="middle" font-size="10" fill="#6d28d9">成熟度（工程应用案例）</text>
+  <rect x="510" y="210" width="120" height="20" rx="4" fill="#7c3aed" opacity="0.3"/><text x="570" y="224" text-anchor="middle" font-size="10" font-weight="600" fill="#5b21b6">→ 雷达图对比</text>
+  <text x="570" y="248" text-anchor="middle" font-size="10" font-weight="600" fill="#5b21b6">综合匹配分排序</text>
+
+  <!-- Arrow to output -->
+  <path d="M650 165 L695 165" stroke="#64748b" stroke-width="2" marker-end="url(#arrRc)" fill="none"/>
+
+  <!-- Output -->
+  <rect x="695" y="65" width="175" height="200" rx="8" fill="#d1fae5" opacity="0.25" stroke="#10b981" stroke-width="1.5"/>
+  <text x="782" y="85" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">推荐输出</text>
+  <rect x="710" y="95" width="145" height="34" rx="6" fill="#a7f3d0" filter="url(#shRc)"/>
+  <text x="782" y="111" text-anchor="middle" font-size="10" font-weight="600" fill="#064e3b">推荐方案列表</text>
+  <text x="782" y="124" text-anchor="middle" font-size="9" fill="#047857">按匹配分降序</text>
+  <rect x="710" y="138" width="145" height="34" rx="6" fill="#a7f3d0" filter="url(#shRc)"/>
+  <text x="782" y="154" text-anchor="middle" font-size="10" font-weight="600" fill="#064e3b">评分分解雷达图</text>
+  <text x="782" y="167" text-anchor="middle" font-size="9" fill="#047857">五维度对比</text>
+  <rect x="710" y="181" width="145" height="34" rx="6" fill="#a7f3d0" filter="url(#shRc)"/>
+  <text x="782" y="197" text-anchor="middle" font-size="10" font-weight="600" fill="#064e3b">障碍因子覆盖率</text>
+  <text x="782" y="210" text-anchor="middle" font-size="9" fill="#047857">覆盖/未覆盖因子</text>
+  <rect x="710" y="224" width="145" height="34" rx="6" fill="#34d399" filter="url(#shRc)"/>
+  <text x="782" y="245" text-anchor="middle" font-size="10" font-weight="700" fill="#064e3b">推荐报告 (PDF)</text>
+
+  <!-- Bottom: composite pollution note -->
+  <rect x="30" y="290" width="840" height="70" rx="8" fill="#fff" stroke="#e2e8f0"/>
+  <text x="50" y="312" font-size="11" font-weight="600" fill="#334155">复合污染组合策略</text>
+  <text x="50" y="332" font-size="10" fill="#64748b">单一技术难以覆盖全部障碍因子时，系统自动生成多技术联用组合方案。如：重金属+有机复合场地 → 固化/稳定化（重金属）+ 化学氧化（有机）联用。</text>
+  <text x="50" y="350" font-size="10" fill="#64748b">依据：污染场地修复技术目录（第一批）· HJ 25.5-2018 · 修复技术筛选指南（中国环科院）</text>
+</svg>

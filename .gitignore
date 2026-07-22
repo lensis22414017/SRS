@@ -78,6 +78,16 @@ logs/
 参考文件*/
 000/
 
+# 交付包 (体积大, 不入代码仓库)
+SRS_v1.0.2_交付/
+*交付*/
+
+# 散落截图 (临时测试截图, 不入代码仓库)
+dashboard.png
+dashboard_screen.png
+srs_login.png
+ssui_running.png
+
 # 注: data/raw 原始数据本地留档, 是否纳入版本控制由裴总决定
 data/raw/真实数据集.csv
 data/raw/merged_std33,zh .xlsx
