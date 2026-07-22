@@ -1062,9 +1062,9 @@ def render_docx(context: dict) -> bytes:
 # Round10: 报告类型中文标签
 REPORT_SCOPE_LABEL = {
     "full": "全流程追溯报告",
-    "ssui": "SSUI可持续利用评价报告",
+    "ssui": "SSUI可持续利用分析报告",
     "diagnosis": "障碍因子诊断报告",
-    "reconstruction": "功能重构评价报告",
+    "reconstruction": "功能重构分析报告",
 }
 
 

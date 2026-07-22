@@ -166,7 +166,7 @@ export default function SSUIAnalysis() {
           <Space wrap>
             <Button icon={<DatabaseOutlined />} onClick={() => setEcoOpen(true)} disabled={!sid}>经济数据</Button>
             <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
-            {data && <ReportActions siteId={sid!} reportScope="ssui" label="SSUI评价报告" />}
+            {data && <ReportActions siteId={sid!} reportScope="ssui" label="SSUI分析报告" />}
             <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行评价</Button>
           </Space>
         </Space>

@@ -198,7 +198,7 @@ export default function ReconstructionAnalysis() {
         <Space style={{ width: "100%", justifyContent: "space-between" }}>
           <SitePicker value={sid} onChange={setSid} />
           <Space>
-            {data && <ReportActions siteId={sid!} reportScope="reconstruction" label="功能重构评价报告" />}
+            {data && <ReportActions siteId={sid!} reportScope="reconstruction" label="功能重构分析报告" />}
             <Button icon={<ApartmentOutlined />} onClick={() => setFlowOpen(true)}>方法说明</Button>
             <Button type="primary" loading={busy} onClick={run} disabled={!sid}>运行功能重构可行性评价</Button>
           </Space>

@@ -22,9 +22,9 @@ export default function ReportActions({ siteId, siteCode, reportScope, label, di
   const [previewTitle, setPreviewTitle] = useState("");
 
   const scopeLabels: Record<string, string> = {
-    ssui: "SSUI 可持续利用评价",
+    ssui: "SSUI 可持续利用分析",
     diagnosis: "障碍因子诊断",
-    reconstruction: "功能重构评价",
+    reconstruction: "功能重构分析",
     full: "全流程追溯",
   };
   const scopeLabel = label || scopeLabels[reportScope] || "报告";
