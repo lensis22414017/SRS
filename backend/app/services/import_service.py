@@ -352,10 +352,10 @@ def smart_detect_and_map(path: str) -> tuple[str, dict, list[dict]]:
         except Exception:
             return 0
 
-    has_hm = (any(d["type"] == "pollutant" and d.get("category") == "环境指标" for d in detail)
-              and any(_matches_heavy_metal_token(str(fc["column"]).lower()) and _col_has_valid_values(fc["column"])
+    has_hm = (any(d.get("type") == "pollutant" and d.get("category") == "环境指标" for d in detail)
+              and any(_matches_heavy_metal_token(str(fc.get("column","")).lower()) and _col_has_valid_values(fc.get("column",""))
                       for fc in factor_columns))
-    has_org = any(any(k in str(fc["column"]).lower() for k in _ORG) and _col_has_valid_values(fc["column"])
+    has_org = any(any(k in str(fc.get("column","")).lower() for k in _ORG) and _col_has_valid_values(fc.get("column",""))
                   for fc in factor_columns)
 
     # Round10: 纯数据驱动判定

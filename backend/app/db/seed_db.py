@@ -129,6 +129,9 @@ def seed_reference():
         seed_factor_dictionary(db)
         seed_standard_thresholds(db)
 
+        # Round10: 自动迁移 — 为旧数据库添加 file_objects.category/description 列(幂等)
+        _migrate_file_objects_round10(db)
+
         # v1.0.2(GPT P0-5): 首启管理员初始化
         # R3 审计第六类: 不再随机生成密码打印控制台(console=False 看不到)
         # 改为标记 setup_status=pending, 由前端首启向导设置管理员密码
@@ -174,6 +177,18 @@ def _mark_setup_pending(db):
     print("   请通过浏览器访问系统, 完成首启管理员设置向导")
     print("   (setup_status=pending, 等待前端向导设置管理员密码)")
     print("=" * 60)
+
+
+def _migrate_file_objects_round10(db):
+    """Round10 自动迁移: 为 file_objects 添加 category/description 列(幂等)。"""
+    from sqlalchemy import text, inspect as sa_inspect
+    existing = {c["name"] for c in sa_inspect(db.bind).get_columns("file_objects")}
+    if "category" not in existing:
+        db.execute(text("ALTER TABLE file_objects ADD COLUMN category VARCHAR(40)"))
+    if "description" not in existing:
+        db.execute(text("ALTER TABLE file_objects ADD COLUMN description TEXT"))
+    if "category" not in existing or "description" not in existing:
+        db.commit()
 
 
 def _seed_first_admin_with_password(db, password: str):
