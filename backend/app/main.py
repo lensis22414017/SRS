@@ -195,6 +195,30 @@ app.include_router(ai_router)
 app.include_router(backup_router)  # v1.0.2: 备份恢复
 
 
+# ══════════════════════════════════════════════════════════════
+# v1.0.2(Round10 P0): 流程图专属路由 — 先于 /assets mount 注册
+# 直接 FileResponse 服务 SVG, 完全绕过 StaticFiles mount/
+# _resolve_dist 时序/SVG MIME 等一切潜在问题。
+# ══════════════════════════════════════════════════════════════
+def _find_flow_svg(name: str) -> str | None:
+    """在候选 dist 目录中搜索指定名称的流程 SVG, 返回绝对路径或 None。"""
+    for p in _candidate_dist_dirs():
+        fp = os.path.join(p, "assets", "flows", f"{name}.svg")
+        if os.path.isfile(fp):
+            return fp
+    return None
+
+
+@app.get("/assets/flows/{name}.svg", name="serve_flow_svg")
+async def serve_flow_svg(name: str):
+    """直接服务流程图 SVG, 不依赖 StaticFiles mount。"""
+    fp = _find_flow_svg(name)
+    if fp:
+        return FileResponse(fp, media_type="image/svg+xml",
+                           headers={"Cache-Control": "public, max-age=3600"})
+    raise HTTPException(status_code=404, detail=f"流程图不存在: {name}")
+
+
 @app.get("/health")
 def health():
     model_health = getattr(app.state, "model_health", {})
