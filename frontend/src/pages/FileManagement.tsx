@@ -155,7 +155,10 @@ export default function FileManagement() {
     const a = document.createElement("a");
     a.href = api.downloadFileUrl(file.id);
     a.download = file.original_name;
+    document.body.appendChild(a);
     a.click();
+    document.body.removeChild(a);
+    message.success(`正在下载: ${file.original_name}`);
   };
 
   return (

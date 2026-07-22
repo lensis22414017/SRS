@@ -640,7 +640,6 @@ _BORDER = "B8C4D0"          # 表格边框
 _ACCENT_RED = "B91C1C"      # 强调红
 _TITLE_FONT = "SimHei"       # 标题字体（黑体）
 _BODY_FONT = "SimSun"        # 正文字体（宋体）
-_WATERMARK_TEXT = "SRS 监管系统"
 
 
 def _set_cell_shading(cell, color: str):
@@ -779,34 +778,46 @@ def render_docx(context: dict) -> bytes:
     fr.font.size = Pt(8)
     fr.font.color.rgb = RGBColor(0x88, 0x88, 0x88)
 
-    # ── 水印（所有节） ──
-    # 通过 sectPr 背景添加水印文字（VML）
+    # ── 水印（页面背景色，弱可见） ──
+    # 使用 sectPr 背景填充代替文字水印(VML 文字水印跨平台兼容性差)
     try:
         sectPr = section._sectPr
-        vml = sectPr.makeelement(qn("w:background"), {})
-        vml_v = vml.makeelement(qn("v:background"), {
-            qn("v:fill"): "on",
-            qn("v:fillcolor"): "#E0E4E8",
-            qn("v:fillopacity"): ".15",
+        background = sectPr.makeelement(qn("w:background"), {
+            qn("w:color"): "F5F7FA",
         })
-        vml.append(vml_v)
-        sectPr.insert(0, vml)
+        sectPr.insert(0, background)
     except Exception:
         pass  # 水印非关键, 静默跳过
 
     # ═══════════════════════════════════════════════════
     # 封面页
     # ═══════════════════════════════════════════════════
-    # 红色双线（模拟红头文件）
-    for _ in range(8):
+    for _ in range(6):
         doc.add_paragraph("")  # 空行推到中部
 
-    # 红色双线
-    red_line_p = doc.add_paragraph()
-    red_line_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    rl_run = red_line_p.add_run("━" * 44)
-    rl_run.font.color.rgb = RGBColor(0xB9, 0x1C, 0x1C)
-    rl_run.font.size = Pt(10)
+    # 红色双线 — 用段落底部边框替代 Unicode box-drawing 字符(跨字体兼容)
+    def _add_red_line_para(text: str = "", font_size: int = 10):
+        p = doc.add_paragraph()
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        # 底部红色边框
+        pPr = p._element.get_or_add_pPr()
+        pBdr = pPr.makeelement(qn("w:pBdr"), {})
+        bottom = pBdr.makeelement(qn("w:bottom"), {
+            qn("w:val"): "single",
+            qn("w:sz"): "12",
+            qn("w:space"): "1",
+            qn("w:color"): "B91C1C",
+        })
+        pBdr.append(bottom)
+        pPr.append(pBdr)
+        if text:
+            run = p.add_run(text)
+            run.font.color.rgb = RGBColor(0xB9, 0x1C, 0x1C)
+            run.font.size = Pt(font_size)
+        return p
+
+    _add_red_line_para()  # 上红线
+    doc.add_paragraph("")
 
     # 监管部门名称
     dept_p = doc.add_paragraph()
@@ -816,12 +827,8 @@ def render_docx(context: dict) -> bytes:
     dept_run.font.size = Pt(12)
     dept_run.font.color.rgb = RGBColor(0xB9, 0x1C, 0x1C)
 
-    # 红色双线
-    red_line_p2 = doc.add_paragraph()
-    red_line_p2.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    rl_run2 = red_line_p2.add_run("━" * 44)
-    rl_run2.font.color.rgb = RGBColor(0xB9, 0x1C, 0x1C)
-    rl_run2.font.size = Pt(10)
+    doc.add_paragraph("")
+    _add_red_line_para()  # 下红线
 
     doc.add_paragraph("")
 

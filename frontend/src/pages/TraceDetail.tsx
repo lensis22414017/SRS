@@ -99,9 +99,28 @@ export default function TraceDetail() {
 
   const genReport = async (format: "pdf" | "docx" = "pdf") => {
     setBusy(true);
-    try { const r = await api.generateReport(sid, format); message.success(`${format.toUpperCase()} 报告 ${r.version} 已生成`); await load(); }
-    catch (e: any) { message.error(e?.response?.data?.detail || "生成失败(需 report:generate 权限)"); }
-    finally { setBusy(false); }
+    try {
+      const r = await api.generateReport(sid, format, "full");
+      if (format === "pdf" && r?.report_id) {
+        // PDF: 先预览
+        const blob = await api.reportBlob(r.report_id);
+        if (previewUrl) URL.revokeObjectURL(previewUrl);
+        const url = URL.createObjectURL(blob);
+        setPreviewUrl(url);
+        setPreviewTitle(`全流程追溯报告预览 — ${site.site_code} ${r.version}`);
+        message.success(`${format.toUpperCase()} 报告 ${r.version} 已生成`);
+      } else if (r?.report_id) {
+        // DOCX: 直接下载
+        const filename = r.file_name || `全流程追溯报告_${site.site_code}_${r.version}.docx`;
+        api.downloadReport(r.report_id, filename);
+        message.success(`${format.toUpperCase()} 报告 ${r.version} 已下载`);
+      }
+      await load();
+    } catch (e: any) {
+      message.error(e?.response?.data?.detail || `生成失败(需 report:generate 权限)`);
+    } finally {
+      setBusy(false);
+    }
   };
 
   if (!site) return <Spin style={{ marginTop: 80 }} />;
@@ -182,7 +201,8 @@ export default function TraceDetail() {
         <Card title="证据链完整度与材料缺口" size="small">
           {(() => {
             const totalAttach = stages.reduce((s, st) => s + (st.n_attachments || 0), 0);
-            const totalExpected = Object.values(FILE_ROLES).reduce((s, roles) => s + roles.length, 0);
+            // 只统计已有阶段(已初始化)的预期文件角色数, 避免未开始阶段拉低完整度
+            const totalExpected = stages.reduce((s, st) => s + (FILE_ROLES[st.stage] || []).length, 0);
             const completeness = totalExpected > 0 ? Math.min(100, Math.round(totalAttach / totalExpected * 100)) : 0;
             const gapRows: any[] = [];
             stages.forEach((st) => {
@@ -256,10 +276,33 @@ export default function TraceDetail() {
                   render: (v: any) => v || "—" },
                 { title: "上传时间", dataIndex: "uploaded_at", align: "center", width: 150,
                   render: (v: any) => v || "—" },
-                { title: "操作", align: "center", width: 80,
+                { title: "操作", align: "center", width: 140,
                   render: (_: any, r: any) => (
-                    <Button size="small" icon={<DownloadOutlined />}
-                      onClick={() => api.downloadAttachment(sid, r.stage, r.id, r.original_name || r.file_role || "附件")}>下载</Button>) },
+                    <Space size="small">
+                      <Tooltip title="预览">
+                        <Button size="small" icon={<EyeOutlined />}
+                          onClick={() => api.downloadAttachment(sid, r.stage, r.id, r.original_name || r.file_role || "附件", true)} />
+                      </Tooltip>
+                      <Tooltip title="下载">
+                        <Button size="small" icon={<DownloadOutlined />}
+                          onClick={() => {
+                            api.downloadAttachment(sid, r.stage, r.id, r.original_name || r.file_role || "附件");
+                            message.success(`正在下载: ${r.original_name || r.file_role}`);
+                          }} />
+                      </Tooltip>
+                      <Popconfirm title="确认删除该附件?" onConfirm={async () => {
+                        try {
+                          await api.deleteAttachment(sid, r.stage, r.id);
+                          message.success("附件已删除");
+                          load();
+                        } catch (e: any) { message.error(e?.response?.data?.detail || "删除失败"); }
+                      }} okText="删除" cancelText="取消" okButtonProps={{ danger: true }}>
+                        <Tooltip title="删除">
+                          <Button size="small" danger icon={<DeleteOutlined />} />
+                        </Tooltip>
+                      </Popconfirm>
+                    </Space>
+                  ) },
               ]} />
           </Card>
         );
