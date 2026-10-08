@@ -73,7 +73,7 @@ class Deck:
                      fill="white", line="red", dash="dash", size=12, color="red")
 
 
-def build(shots, out):
+def build(shots, out, public=False):
     D = Deck(shots)
     prs = D.prs
     # 1 封面
@@ -108,7 +108,7 @@ def build(shots, out):
             ["C6", "用户手册和 PPT", "用户操作手册（DOCX/PDF）+ 本演示 PPT", "已实现"]]
     deck_table(s, 0.9, 1.7, 11.55, 4.6, rows, [0.8, 3.4, 5.95, 1.4], font=13, status_col=3,
                status_map={"已实现": "verified", "待确认": "pending"})
-    deck_textbox(s, 0.9, 6.45, 11.5, 0.6, [[("自动测试：", {"bold": True}), ("后端 491 项通过、0 项失败；CI 6 个合同/红队作业全部通过。Windows 安装包实机验收待执行（见第十四页）。", {})]], size=13)
+    deck_textbox(s, 0.9, 6.45, 11.5, 0.6, [[("自动测试：", {"bold": True}), ("后端 491 项通过、0 项失败；CI 6 个合同/红队作业全部通过。Windows 安装包实机验收待执行（见最后一页）。", {})]], size=13)
 
     # 3 三个课题与数据阶段
     s = D.slide("二、三个课题与数据阶段", "修复前数据只进课题一、二；修复后数据只能经课题三独立导入，两者物理分离",
@@ -254,21 +254,22 @@ def build(shots, out):
                                               ("GB 36600 表 1 中 12 项 VOC 尚无经核实阈值，生态门禁暂时只能得到“未通过”或“证据不足”，需按标准原文录入复核。", {})]],
              fill="F9E3E3", line=None, size=12.5, align=PP_ALIGN.LEFT, margin=0.15)
 
-    # 11 真实数据个旧
-    s = D.slide("十、真实数据复核：云南个旧", "134 点 As、Pb 全部超管制值 → 两轨均不支持（旧版曾判生态可行 63.29）",
-                "这是甲方提供的真实修复前数据。旧版本通过准则层降维把超标污染物与土壤质量指标平均，导致严重超标场地被判生态可行（63.29）。"
-                "v1.1 删除了该兜底，并增加法规门禁：As、Pb 在 134/134 个点位超过管制值，结论为均不支持；该结论属修复前情景判断。",
-                "来源：data/raw/3.20250731_…云南个旧…xlsx；test_gejiu_full_chain_import_evaluate_decide_via_api；baseline 36aabf4 证据")
-    deck_table(s, 0.95, 1.8, 11.45, 2.6, [["项目", "旧版 v1.0.x（36aabf4）", f"v{VERSION}"],
-                                           ["生态重构可行性", "可行 63.29", "证据不足/无法评价（指标覆盖不足）"],
-                                           ["生产门禁（GB 15618）", "无", "未通过：As、Pb 134/134 点超管制值"],
-                                           ["生态门禁（GB 36600 第一类）", "无", "未通过：As、Pb 134/134 点超管制值"],
-                                           ["修复前情景判断", "—", "均不支持；修复目标含 As、Pb"]], [3.4, 3.6, 4.45], font=13)
-    deck_box(s, 0.95, 4.7, 11.45, 2.2, text=[[("意义", {"bold": True, "size": 15, "color": "brown"})],
-                                             "1  严重超标的场地不会再因为土壤质量指标较好而被“平均”成可行；",
-                                             "2  结论可追溯：每个门禁列出超标因子、超标点位数和所用标准；",
-                                             "3  个旧为修复前数据，修复后的利用方向须导入修复后数据（课题三）再判定。"],
-             fill="panel", line=None, size=13.5, align=PP_ALIGN.LEFT, margin=0.18)
+    # 11 真实数据个旧(公开发布版省略: 含甲方真实数据汇总)
+    if not public:
+        s = D.slide("十、真实数据复核：云南个旧", "134 点 As、Pb 全部超管制值 → 两轨均不支持（旧版曾判生态可行 63.29）",
+                    "这是甲方提供的真实修复前数据。旧版本通过准则层降维把超标污染物与土壤质量指标平均，导致严重超标场地被判生态可行（63.29）。"
+                    "v1.1 删除了该兜底，并增加法规门禁：As、Pb 在 134/134 个点位超过管制值，结论为均不支持；该结论属修复前情景判断。",
+                    "来源：data/raw/3.20250731_…云南个旧…xlsx；test_gejiu_full_chain_import_evaluate_decide_via_api；baseline 36aabf4 证据")
+        deck_table(s, 0.95, 1.8, 11.45, 2.6, [["项目", "旧版 v1.0.x（36aabf4）", f"v{VERSION}"],
+                                               ["生态重构可行性", "可行 63.29", "证据不足/无法评价（指标覆盖不足）"],
+                                               ["生产门禁（GB 15618）", "无", "未通过：As、Pb 134/134 点超管制值"],
+                                               ["生态门禁（GB 36600 第一类）", "无", "未通过：As、Pb 134/134 点超管制值"],
+                                               ["修复前情景判断", "—", "均不支持；修复目标含 As、Pb"]], [3.4, 3.6, 4.45], font=13)
+        deck_box(s, 0.95, 4.7, 11.45, 2.2, text=[[("意义", {"bold": True, "size": 15, "color": "brown"})],
+                                                 "1  严重超标的场地不会再因为土壤质量指标较好而被“平均”成可行；",
+                                                 "2  结论可追溯：每个门禁列出超标因子、超标点位数和所用标准；",
+                                                 "3  个旧为修复前数据，修复后的利用方向须导入修复后数据（课题三）再判定。"],
+                 fill="panel", line=None, size=13.5, align=PP_ALIGN.LEFT, margin=0.18)
 
     # 12 报告、备份、模拟数据
     s = D.slide("十一、报告、备份与模拟数据标签", "报告新增利用方向结论；模拟数据从导入到报告全程带标签，不能混入正式结果",
@@ -322,5 +323,6 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--shots", default=None)
     ap.add_argument("--out", required=True)
+    ap.add_argument("--public", action="store_true", help="公开发布版: 省略含甲方真实数据汇总的页面")
     a = ap.parse_args()
-    print(json.dumps(build(a.shots, a.out), ensure_ascii=False, indent=1))
+    print(json.dumps(build(a.shots, a.out, a.public), ensure_ascii=False, indent=1))

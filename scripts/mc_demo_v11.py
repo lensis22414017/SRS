@@ -123,7 +123,9 @@ def _guard_db(db: str):
 
 def _boot(db: str):
     os.environ["DATABASE_URL"] = "sqlite:///" + _guard_db(db)
-    os.environ.setdefault("SRS_FIRST_ADMIN_PASSWORD", "Demo@2026x")
+    import secrets
+    # 演示库仅供脚本直接调用服务层, 无需登录; 管理员密码每次随机生成且不输出
+    os.environ.setdefault("SRS_FIRST_ADMIN_PASSWORD", "Aa1!" + secrets.token_urlsafe(18))
     for p in (os.path.join(ROOT, "backend"), os.path.join(ROOT, "ml", "evaluation"), os.path.join(ROOT, "ml", "models"),
               os.path.join(ROOT, "ml", "explain"), os.path.join(ROOT, "ml", "recommend")):
         if p not in sys.path:
