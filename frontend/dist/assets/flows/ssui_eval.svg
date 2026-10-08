@@ -5,27 +5,27 @@
     <filter id="shS" x="-5%" y="-5%" width="110%" height="115%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/></filter>
   </defs>
   <rect width="900" height="380" fill="url(#bgS)" rx="12"/>
-  <text x="450" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1e293b">SSUI 可持续利用评价 — 修复后场地中长期潜力评估</text>
+  <text x="450" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1e293b">SSUI 可持续利用评价（课题三·修复后数据）</text>
   <line x1="100" y1="48" x2="800" y2="48" stroke="#cbd5e1" stroke-width="1.5"/>
 
   <!-- Three input pillars -->
   <!-- Safety -->
   <rect x="30" y="65" width="200" height="110" rx="8" fill="#fee2e2" opacity="0.3" stroke="#ef4444" stroke-width="1.5"/>
-  <text x="130" y="85" text-anchor="middle" font-size="13" font-weight="700" fill="#991b1b">安全性维度</text>
-  <text x="130" y="105" text-anchor="middle" font-size="10" fill="#7f1d1d">残余污染物浓度</text>
-  <text x="130" y="121" text-anchor="middle" font-size="10" fill="#7f1d1d">生态毒性</text>
-  <text x="130" y="137" text-anchor="middle" font-size="10" fill="#7f1d1d">地下水影响</text>
-  <text x="130" y="153" text-anchor="middle" font-size="10" fill="#7f1d1d">人体健康风险</text>
-  <rect x="50" y="160" width="160" height="14" rx="3" fill="#ef4444" opacity="0.5"/><text x="130" y="171" text-anchor="middle" font-size="10" font-weight="600" fill="#7f1d1d">→ 安全性评分 S</text>
+  <text x="130" y="85" text-anchor="middle" font-size="13" font-weight="700" fill="#991b1b">安全性 B1（C1 + C2）</text>
+  <text x="130" y="105" text-anchor="middle" font-size="10" fill="#7f1d1d">D1–D15 土壤限制因子</text>
+  <text x="130" y="121" text-anchor="middle" font-size="10" fill="#7f1d1d">D16 重金属污染物</text>
+  <text x="130" y="137" text-anchor="middle" font-size="10" fill="#7f1d1d">D17 有机污染物</text>
+  <text x="130" y="153" text-anchor="middle" font-size="10" fill="#7f1d1d">得分 s_i ∈ [0,1]（导入模板提供）</text>
+  <rect x="50" y="160" width="160" height="14" rx="3" fill="#ef4444" opacity="0.5"/><text x="130" y="171" text-anchor="middle" font-size="10" font-weight="600" fill="#7f1d1d">→ S_C1、S_C2</text>
 
   <!-- Economy -->
   <rect x="30" y="185" width="200" height="110" rx="8" fill="#dbeafe" opacity="0.3" stroke="#3b82f6" stroke-width="1.5"/>
-  <text x="130" y="205" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">经济性维度</text>
-  <text x="130" y="225" text-anchor="middle" font-size="10" fill="#1e3a5f">修复成本</text>
-  <text x="130" y="241" text-anchor="middle" font-size="10" fill="#1e3a5f">维护费用</text>
-  <text x="130" y="257" text-anchor="middle" font-size="10" fill="#1e3a5f">土地增值潜力</text>
-  <text x="130" y="273" text-anchor="middle" font-size="10" fill="#1e3a5f">开发收益预估</text>
-  <rect x="50" y="280" width="160" height="14" rx="3" fill="#3b82f6" opacity="0.5"/><text x="130" y="291" text-anchor="middle" font-size="10" font-weight="600" fill="#1e3a5f">→ 经济性评分 E</text>
+  <text x="130" y="205" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">经济性 B2（C3 + C4）</text>
+  <text x="130" y="225" text-anchor="middle" font-size="10" fill="#1e3a5f">D18–D21 经济成本</text>
+  <text x="130" y="241" text-anchor="middle" font-size="10" fill="#1e3a5f">D22 土地生产率 · D23 效益费用比</text>
+  <text x="130" y="257" text-anchor="middle" font-size="10" fill="#1e3a5f">D24 人均可支配收入</text>
+  <text x="130" y="273" text-anchor="middle" font-size="10" fill="#1e3a5f">D25 土地产出系数</text>
+  <rect x="50" y="280" width="160" height="14" rx="3" fill="#3b82f6" opacity="0.5"/><text x="130" y="291" text-anchor="middle" font-size="10" font-weight="600" fill="#1e3a5f">→ S_C3、S_C4</text>
 
   <!-- Arrows to formula -->
   <path d="M230 167 L300 167" stroke="#64748b" stroke-width="2" marker-end="url(#arrS)" fill="none"/>
@@ -35,14 +35,14 @@
   <rect x="295" y="120" width="200" height="200" rx="12" fill="#fff" stroke="#7c3aed" stroke-width="2" filter="url(#shS)"/>
   <text x="395" y="145" text-anchor="middle" font-size="13" font-weight="700" fill="#5b21b6">SSUI 综合指数</text>
   <line x1="315" y1="155" x2="475" y2="155" stroke="#c4b5fd"/>
-  <text x="395" y="185" text-anchor="middle" font-size="16" font-weight="700" fill="#7c3aed">SSUI = S × E</text>
-  <text x="395" y="210" text-anchor="middle" font-size="11" fill="#6d28d9">× T(t) 时间衰减权重</text>
-  <text x="395" y="230" text-anchor="middle" font-size="11" fill="#6d28d9">× M 管理调节因子</text>
+  <text x="395" y="185" text-anchor="middle" font-size="16" font-weight="700" fill="#7c3aed">SSUI = f(t)·Σ v_j·S_j·M</text>
+  <text x="395" y="210" text-anchor="middle" font-size="11" fill="#6d28d9">f(t) = 1 + 0.03 t（t 为修复后年数）</text>
+  <text x="395" y="230" text-anchor="middle" font-size="11" fill="#6d28d9">M：生产 1.1–1.2 / 生态 1.05–1.1</text>
   <line x1="315" y1="245" x2="475" y2="245" stroke="#c4b5fd" stroke-dasharray="3,3"/>
-  <text x="395" y="265" text-anchor="middle" font-size="10" fill="#94a3b8">S: 安全性 [0,1]</text>
-  <text x="395" y="280" text-anchor="middle" font-size="10" fill="#94a3b8">E: 经济性 [0,1]</text>
-  <text x="395" y="295" text-anchor="middle" font-size="10" fill="#94a3b8">T(t): 衰减函数</text>
-  <text x="395" y="310" text-anchor="middle" font-size="10" fill="#94a3b8">M: 管理因子 [0.5-1.5]</text>
+  <text x="395" y="265" text-anchor="middle" font-size="10" fill="#94a3b8">S_j = Σ w_ij · s_i（PPT 第13/14页权重）</text>
+  <text x="395" y="280" text-anchor="middle" font-size="10" fill="#94a3b8">v_j：准则层权重 C1–C4</text>
+  <text x="395" y="295" text-anchor="middle" font-size="10" fill="#94a3b8">结果不截断，>1.0 时标记待确认</text>
+  <text x="395" y="310" text-anchor="middle" font-size="10" fill="#94a3b8">方法状态：暂定（待课题组确认）</text>
 
   <!-- Arrow to grades -->
   <path d="M495 220 L545 220" stroke="#64748b" stroke-width="2" marker-end="url(#arrS)" fill="none"/>
@@ -52,8 +52,8 @@
   <text x="707" y="85" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">可持续等级判定</text>
 
   <rect x="560" y="98" width="295" height="34" rx="6" fill="#10b981" opacity="0.15"/><text x="707" y="120" text-anchor="middle" font-size="12" font-weight="600" fill="#065f46">高度可持续（SSUI ≥ 0.8）</text>
-  <rect x="560" y="138" width="295" height="34" rx="6" fill="#3b82f6" opacity="0.15"/><text x="707" y="160" text-anchor="middle" font-size="12" font-weight="600" fill="#1e40af">可持续（0.6 ≤ SSUI &lt; 0.8）</text>
-  <rect x="560" y="178" width="295" height="34" rx="6" fill="#f59e0b" opacity="0.15"/><text x="707" y="200" text-anchor="middle" font-size="12" font-weight="600" fill="#92400e">基本可持续（0.4 ≤ SSUI &lt; 0.6）</text>
+  <rect x="560" y="138" width="295" height="34" rx="6" fill="#3b82f6" opacity="0.15"/><text x="707" y="160" text-anchor="middle" font-size="12" font-weight="600" fill="#1e40af">中度可持续（0.6 ≤ SSUI &lt; 0.8）</text>
+  <rect x="560" y="178" width="295" height="34" rx="6" fill="#f59e0b" opacity="0.15"/><text x="707" y="200" text-anchor="middle" font-size="12" font-weight="600" fill="#92400e">低度可持续（0.4 ≤ SSUI &lt; 0.6）</text>
   <rect x="560" y="218" width="295" height="34" rx="6" fill="#ef4444" opacity="0.15"/><text x="707" y="240" text-anchor="middle" font-size="12" font-weight="600" fill="#991b1b">不可持续（SSUI &lt; 0.4）</text>
 
   <line x1="560" y1="265" x2="855" y2="265" stroke="#cbd5e1"/>
@@ -62,5 +62,5 @@
 
   <!-- Bottom -->
   <rect x="30" y="340" width="840" height="25" rx="6" fill="#f1f5f9"/>
-  <text x="450" y="357" text-anchor="middle" font-size="10" fill="#64748b">依据：HJ 25.5-2018 · GB/T 21010-2017 土地利用分类 · SURF 可持续修复框架 · 时间权重反映风险随时间衰减趋势</text>
+  <text x="450" y="357" text-anchor="middle" font-size="10" fill="#64748b">依据：《场地土壤持续利用经济性与安全性评价指标体系构建方法和结果》第13–15页 · 法规安全门禁另按 GB 15618 / GB 36600 判定</text>
 </svg>

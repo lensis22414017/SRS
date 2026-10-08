@@ -24,7 +24,7 @@
 
 | 项 | 基线 36aabf4 | v1.1 |
 |---|---|---|
-| 后端 pytest | 472：447 通过 / 12 失败 / 13 跳过 | 503：**491 通过 / 0 失败 / 12 跳过**（最终提交 `bbe3c10` 复跑，`pytest/pytest_v11_final.xml`）；中间轮 487/0/12 见 `pytest_v11_full.*` |
+| 后端 pytest | 472：447 通过 / 12 失败 / 13 跳过 | 503：**491 通过 / 0 失败 / 12 跳过**（提交 `6a3bf9a`（之后的提交未改动 backend/ml/reporting/frontend 代码）复跑，`pytest/pytest_v11_final.xml`）；中间轮 487/0/12 见 `pytest_v11_full.*` |
 | 跳过项 | — | 12 项均为既有、自带说明的废弃路径（预设映射模板已删、旧 SHAP/RF 训练路径已下线），或隔离运行时缺数据的用例；无新增跳过 |
 | 前端 | tsc + vite 通过 | `tsc --noEmit` 0 错误；`vite build` 通过 |
 | CI `ci.yml` | 红（Backend SQLite） | compileall 通过；Alembic `upgrade head → downgrade 0005 → upgrade head` 结束于 `0007_v11_stage_provenance (head)`；模型完整性 4/4 |
