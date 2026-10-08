@@ -1,0 +1,160 @@
+name: Windows Release Candidate (build + install + acceptance)
+
+# v1.1 G8: 在 Windows 上从源码构建安装包, 静默安装到含中文与空格的路径(当前用户权限),
+# 首启 → 关键流程(课题一/二/三 + 利用结论 + 报告) → 重启一致性 → 卸载; 全部证据上传为构件。
+# 只使用合成的蒙特卡洛演示数据(demo/mc_v11), 不使用甲方真实数据。
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["fix/v1.1-client-acceptance"]
+    tags: ["v1.1.*"]
+
+permissions:
+  contents: read
+
+env:
+  PYTHONUTF8: "1"
+  PYTHONIOENCODING: "utf-8"
+  SRS_PORT: "18080"
+
+jobs:
+  windows-rc:
+    runs-on: windows-latest
+    timeout-minutes: 150
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Checkout (with LFS models)
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Verify LFS model binaries are real files
+        run: |
+          $f = Get-ChildItem ml/artifacts/p3_alpha -Filter *.joblib | Select-Object -First 1
+          if ($f.Length -lt 100000) { throw "LFS pointer instead of model binary: $($f.Name) $($f.Length) bytes" }
+          "model sample: $($f.Name) $($f.Length) bytes"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Frontend build
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run build
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: backend/requirements.txt
+
+      - name: Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements.txt pyinstaller requests openpyxl playwright
+          python -m playwright install chromium
+
+      - name: Backend v1.1 gate tests (Windows)
+        working-directory: backend
+        env:
+          SRS_DEMO_SEED: "1"
+          SECRET_KEY: "ci_only_key_2026_at_least_32_characters_long"
+        run: python -m pytest -q tests/test_v11_utilization_ssui.py tests/test_v11_stage_model.py tests/test_v11_persistence_recovery.py tests/test_v11_version_consistency.py tests/test_round10_release_gate.py
+
+      - name: PyInstaller build
+        run: python -m PyInstaller packaging/srs.spec --clean --noconfirm --distpath dist_new
+
+      - name: Inspect bundle (no databases / env files / client raw data)
+        run: |
+          $bad = Get-ChildItem dist_new/SRS -Recurse -Include *.db,*.sqlite,.env,*.env | Select-Object -ExpandProperty FullName
+          $raw = Get-ChildItem dist_new/SRS -Recurse -Filter "*20250731*" | Select-Object -ExpandProperty FullName
+          if ($bad -or $raw) { $bad; $raw; throw "bundle contains forbidden files" }
+          "bundle size MB: " + [math]::Round(((Get-ChildItem dist_new/SRS -Recurse | Measure-Object Length -Sum).Sum / 1MB), 1)
+
+      - name: Inno Setup compile
+        run: |
+          $iscc = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
+          if (-not (Test-Path $iscc)) { choco install innosetup -y --no-progress; }
+          $lang = Join-Path (Split-Path $iscc) "Languages"
+          Copy-Item packaging/ChineseSimplified.isl (Join-Path $lang "ChineseSimplified.isl") -Force
+          & $iscc packaging\srs_setup.iss
+          if ($LASTEXITCODE -ne 0) { throw "ISCC failed" }
+          $exe = Get-ChildItem packaging\Output -Filter "SRS-Setup-*-Windows-x64.exe" | Sort-Object LastWriteTime | Select-Object -Last 1
+          $h = (Get-FileHash $exe.FullName -Algorithm SHA256).Hash.ToLower()
+          "$h  $($exe.Name)" | Out-File -Encoding ascii "$($exe.FullName).sha256"
+          "INSTALLER=$($exe.FullName)" | Out-File -Append $env:GITHUB_ENV
+          "installer: $($exe.Name) $([math]::Round($exe.Length/1MB,1)) MB sha256=$h"
+
+      - name: Silent install (current user, Chinese + space path)
+        run: |
+          $dir = "C:\SRS 验收\安装 目录"
+          "INSTALL_DIR=$dir" | Out-File -Append $env:GITHUB_ENV
+          $p = Start-Process $env:INSTALLER -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/CURRENTUSER',"/DIR=`"$dir`"",'/LOG=install.log' -Wait -PassThru
+          if ($p.ExitCode -ne 0) { throw "installer exit $($p.ExitCode)" }
+          if (-not (Test-Path "$dir\SRS.exe")) { throw "SRS.exe missing after install" }
+          if (Test-Path "$env:APPDATA\SRS\srs.db") { throw "business database existed before first launch" }
+
+      - name: First launch + key workflow acceptance
+        run: |
+          New-Item -ItemType Directory -Force acceptance_out | Out-Null
+          $app = Start-Process "$env:INSTALL_DIR\SRS.exe" -ArgumentList '--port',$env:SRS_PORT,'--no-browser','--no-tray' -PassThru
+          python packaging/ci/windows_acceptance.py --base "http://127.0.0.1:$env:SRS_PORT" --demo demo/mc_v11 --out acceptance_out --phase full
+          $code = $LASTEXITCODE
+          python packaging/ci/ui_screenshots.py --base "http://127.0.0.1:$env:SRS_PORT" --out acceptance_out/screenshots
+          Stop-Process -Id $app.Id -Force; Start-Sleep 5
+          Get-Process SRS -ErrorAction SilentlyContinue | Stop-Process -Force
+          if ($code -ne 0) { throw "acceptance full phase failed" }
+
+      - name: Restart consistency (repeated launch)
+        run: |
+          $app = Start-Process "$env:INSTALL_DIR\SRS.exe" -ArgumentList '--port',$env:SRS_PORT,'--no-browser','--no-tray' -PassThru
+          python packaging/ci/windows_acceptance.py --base "http://127.0.0.1:$env:SRS_PORT" --demo demo/mc_v11 --out acceptance_out --phase restart
+          $code = $LASTEXITCODE
+          Stop-Process -Id $app.Id -Force; Start-Sleep 3
+          Get-Process SRS -ErrorAction SilentlyContinue | Stop-Process -Force
+          Copy-Item "$env:APPDATA\SRS\logs" acceptance_out\app_logs -Recurse -ErrorAction SilentlyContinue
+          if ($code -ne 0) { throw "acceptance restart phase failed" }
+
+      - name: Uninstall (user data retained in APPDATA)
+        run: |
+          $u = Get-ChildItem $env:INSTALL_DIR -Filter "unins*.exe" | Select-Object -First 1
+          Start-Process $u.FullName -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART' -Wait
+          Start-Sleep 5
+          if (Test-Path "$env:INSTALL_DIR\SRS.exe") { throw "SRS.exe still present after uninstall" }
+          "appdata db retained: " + (Test-Path "$env:APPDATA\SRS\srs.db")
+
+      - name: Environment record
+        if: always()
+        run: |
+          $o = @{ os = (Get-CimInstance Win32_OperatingSystem).Caption; build = [Environment]::OSVersion.VersionString;
+                  user = $env:USERNAME; commit = $env:GITHUB_SHA; ref = $env:GITHUB_REF; run = $env:GITHUB_RUN_ID;
+                  install_dir = $env:INSTALL_DIR; is_admin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator) }
+          New-Item -ItemType Directory -Force acceptance_out | Out-Null
+          $o | ConvertTo-Json | Out-File -Encoding utf8 acceptance_out/environment.json
+          Get-Content acceptance_out/environment.json
+
+      - name: Upload installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: srs-installer
+          path: |
+            packaging/Output/SRS-Setup-*-Windows-x64.exe
+            packaging/Output/SRS-Setup-*-Windows-x64.exe.sha256
+          retention-days: 30
+
+      - name: Upload acceptance evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: srs-windows-acceptance
+          path: |
+            acceptance_out
+            install.log
+          retention-days: 30

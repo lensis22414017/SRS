@@ -500,3 +500,32 @@ def test_ssui_hand_computed_reference_examples():
     r3 = SV.compute({c: 0.5 for c in codes}, "ecology", 2, 1.075, W)
     assert r3["ssui"] == pytest.approx(0.599237281, abs=1e-6) and r3["grade"] == "低度可持续"
     assert r3["feasible"] is False  # 支持阈值 0.6(暂定)
+
+
+def test_ui_import_of_labelled_demo_file_is_marked_simulated(tmp_path):
+    """G5: 通过常规导入入口导入带标签的演示文件, 测值/批次/场地名/决策均标记为模拟数据。"""
+    from app.api.v11 import build_pre_template
+    from app.db.session import SessionLocal
+    from app.models import ImportBatch, Measurement, Site
+    from app.services import utilization_service as US
+    from app.services.import_service import smart_detect_and_map
+    from app.services.pipeline import run_import_with_mapping
+    from openpyxl import load_workbook
+    wb = load_workbook(io.BytesIO(build_pre_template())); ws = wb["检测数据"]
+    for r in range(2, 5):
+        for c, v in enumerate([f"D{r}", 103.1, 23.3, 0, 20, "红壤", 6.5, 0.2, 0.1, 15, 40, 70, 30, 30, 90, 0.5, 20, 1.2, 15,
+                               "模拟数据——仅供测试/演示"], 1):
+            ws.cell(r, c, v)
+    f = tmp_path / "demo.xlsx"; wb.save(f)
+    db = SessionLocal()
+    try:
+        _, m, _ = smart_detect_and_map(str(f))
+        res = run_import_with_mapping(db, str(f), m)
+        sid = res["site_id"]
+        assert res["data_origin"] == "monte_carlo_demo"
+        assert "模拟数据——仅供测试/演示" in db.get(Site, sid).name
+        assert {o for (o,) in db.query(Measurement.data_origin).filter_by(site_id=sid).distinct()} == {"monte_carlo_demo"}
+        assert {o for (o,) in db.query(ImportBatch.data_origin).filter_by(site_id=sid).distinct()} == {"monte_carlo_demo"}
+        assert US.run(db, sid, "pre_remediation")["data_origin"] == "monte_carlo_demo"
+    finally:
+        db.close()
