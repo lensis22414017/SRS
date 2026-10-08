@@ -326,7 +326,12 @@ def decide(stage: str, points: list[dict], *, pollution_type: str | None = None,
         for p in g["partial_required"]:
             missing_evidence.append(f"{name}门禁 {p['factor']} 仅 {p['measured_points']}/{p['n_points']} 个点位有测值")
     if pg.get("undetermined"):
-        missing_evidence.append("生产门禁需点位 pH 才能判定: " + "、".join(pg["undetermined"]))
+        why = []
+        if pg["farmland_type"] == "未指定":
+            why.append("农用地类型(水田/其他)")
+        if any("pH 未知" in n for n in pg["notes"]):
+            why.append("点位 pH")
+        missing_evidence.append(f"生产门禁需补充{'与'.join(why) or '判定条件'}才能判定: " + "、".join(pg["undetermined"]))
     if eg.get("threshold_missing"):
         missing_evidence.append("生态门禁缺权威阈值: " + "、".join(eg["threshold_missing"]))
     if eg.get("low_confidence_threshold"):

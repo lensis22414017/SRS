@@ -431,3 +431,14 @@ def test_legacy_ssui_path_uses_pptx_weights_and_is_not_clipped():
     assert S._grade(1.05, p) == "高度可持续"  # D-06: 不截断后 >1 不得落入"不可持续"
     src = open(S.__file__, encoding="utf-8").read()
     assert "min(raw_ssui, 1.0)" not in src
+
+
+def test_mc_demo_refuses_user_database_paths():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("mc_demo_v11", os.path.join(ROOT, "scripts", "mc_demo_v11.py"))
+    m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+    for bad in ("/tmp/srs.db", os.path.expanduser("~/Library/Application Support/SRS/srs.db"), "/tmp/mydata.db"):
+        with pytest.raises(SystemExit):
+            m._guard_db(bad)
+    assert m._guard_db("/tmp/srs_demo_x.db").endswith("srs_demo_x.db")
+    assert m.LABEL == "模拟数据——仅供测试/演示"

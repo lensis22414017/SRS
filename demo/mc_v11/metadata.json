@@ -1,0 +1,89 @@
+{
+ "label": "模拟数据——仅供测试/演示",
+ "generator": "mc_demo_v11.0",
+ "seed": 20261008,
+ "generated_at": "2026-10-08T13:08:03+00:00",
+ "site_code": "MCDEMO",
+ "site_name": "【模拟数据——仅供测试/演示】蒙特卡洛演示场地 · 复合重金属农用地",
+ "design": {
+  "n_pre_points": 24,
+  "n_post_points": 12,
+  "pre_lognormal_median_gsd": {
+   "镉_Cd(mg/kg)": [
+    0.9,
+    1.5
+   ],
+   "汞_Hg(mg/kg)": [
+    0.25,
+    1.4
+   ],
+   "砷_As(mg/kg)": [
+    32,
+    1.3
+   ],
+   "铅_Pb(mg/kg)": [
+    140,
+    1.4
+   ],
+   "铬_Cr(mg/kg)": [
+    85,
+    1.2
+   ],
+   "铜_Cu(mg/kg)": [
+    42,
+    1.3
+   ],
+   "镍_Ni(mg/kg)": [
+    38,
+    1.2
+   ],
+   "锌_Zn(mg/kg)": [
+    150,
+    1.3
+   ],
+   "六价铬_Cr(VI)(mg/kg)": [
+    0.8,
+    1.5
+   ],
+   "有机质(g/kg)": [
+    18,
+    1.3
+   ],
+   "全氮(g/kg)": [
+    1.1,
+    1.3
+   ],
+   "阳离子交换量(cmol/kg)": [
+    14,
+    1.2
+   ]
+  },
+  "pH_normal_mean_sd": [
+   6.3,
+   0.35
+  ],
+  "removal_beta_ab": [
+   7.0,
+   3.0
+  ],
+  "ssui_score_beta_ab": {
+   "production": [
+    7.0,
+    3.0
+   ],
+   "ecology": [
+    6.0,
+    4.0
+   ]
+  },
+  "t_years": 3,
+  "intensity": "中等强度"
+ },
+ "intended_scenario": "修复前 Cd/Pb/As 超 GB15618 筛选值但低于管制值(安全利用类); 修复后浓度按 Beta 去除率降低",
+ "files": {
+  "MCDEMO_修复前检测数据_模拟数据_仅供测试演示.xlsx": "2a4061b4c36cd38bbe6c8f70cc84a7e108114170accd7ec81b5adaae78052c8f",
+  "MCDEMO_课题三修复后SSUI_生产_模拟数据_仅供测试演示.xlsx": "d9f3e6186f4f236aa7cec381cfd8ca1dd312307cbfd7703b733e9d8377d3785d",
+  "MCDEMO_课题三修复后SSUI_生态_模拟数据_仅供测试演示.xlsx": "e7140189c57746b982183e1a2207d8c97d73dfc4d54d576973b11618c01d8325"
+ },
+ "usage_rule": "仅用于测试/演示; 只能导入独立演示库; 所有结果显示模拟数据标签; 不得用于正式报告"
+}

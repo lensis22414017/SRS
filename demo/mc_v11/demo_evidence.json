@@ -1,0 +1,124 @@
+{
+ "label": "模拟数据——仅供测试/演示",
+ "generator": "mc_demo_v11.0",
+ "seed": 20261008,
+ "db": "/Users/lensis/.claude-science/orgs/9c507497-8aa7-4b8a-92ec-ab8dd1d6535d/workspaces/ed164bff-6862-4272-8014-3894f3493ac2/srs_wt/demo/mc_v11/srs_demo.db",
+ "site": {
+  "id": 1,
+  "code": "MCDEMO",
+  "n_measurements": 312
+ },
+ "S1_kos": {
+  "upstream": {
+   "kos": "available",
+   "reconstruction": "not_computed",
+   "ssui": "not_computed"
+  },
+  "factors": [
+   [
+    "镉",
+    "铅",
+    "砷",
+    "铜"
+   ],
+   [
+    "镉",
+    "铅",
+    "砷",
+    "铜"
+   ],
+   [
+    "镉",
+    "铅",
+    "砷",
+    "铜"
+   ]
+  ],
+  "recommendation_type": "rule_based"
+ },
+ "S2_reconstruction": {
+  "reconstruction_prod": {
+   "score": 88.33,
+   "grade": "可行"
+  },
+  "reconstruction_eco": {
+   "score": null,
+   "grade": "证据不足/无法评价"
+  }
+ },
+ "decision_pre": {
+  "decision_state": "insufficient_evidence",
+  "conclusion_text": "【修复前情景判断, 非修复后利用结论】证据不足, 暂不能给出利用结论。生产门禁未通过(GB 15618-2018): Cd 超风险管制值, 不可被评分抵消。生态门禁证据不足。修复完成后应导入修复后数据(课题三 SSUI)重新判定。方法状态: provisional(待课题组确认)。",
+  "remediation_targets": {
+   "production": [
+    "As",
+    "Cd",
+    "Pb",
+    "Zn"
+   ],
+   "ecology": [
+    "As"
+   ],
+   "note": "修复目标 = 将对应因子降至所选用途的风险筛选值以下; 修复后须以修复后数据重新评价"
+  },
+  "data_origin": "monte_carlo_demo",
+  "gates": {
+   "production": "fail",
+   "ecology": "insufficient"
+  }
+ },
+ "S3_ssui": {
+  "production": {
+   "batch_id": 1,
+   "ssui": 0.876013,
+   "grade": "高度可持续",
+   "exceeds_unit_range": false,
+   "feasible": true,
+   "criterion_scores": {
+    "C1": 0.706294,
+    "C2": 0.646539,
+    "C3": 0.674151,
+    "C4": 0.751486
+   },
+   "warnings": [
+    "C4 组内权重和 = 1.047 ≠ 1(方法文件原值, 未归一化, 待课题组确认)",
+    "D 编号以第 13/14 页权重表为准; 第 6 页层次图有 10 处编号不一致"
+   ],
+   "export": "export_SSUI_production_batch1.xlsx"
+  },
+  "ecology": {
+   "batch_id": 2,
+   "ssui": 0.778188,
+   "grade": "中度可持续",
+   "exceeds_unit_range": false,
+   "feasible": true,
+   "criterion_scores": {
+    "C1": 0.664485,
+    "C2": 0.756281,
+    "C3": 0.686604,
+    "C4": 0.588722
+   },
+   "warnings": [
+    "C4 组内权重和 = 1.214 ≠ 1(方法文件原值, 未归一化, 待课题组确认)",
+    "D 编号以第 13/14 页权重表为准; 第 6 页层次图有 10 处编号不一致"
+   ],
+   "export": "export_SSUI_ecology_batch2.xlsx"
+  }
+ },
+ "decision_post": {
+  "decision_state": "production_supported",
+  "conclusion_text": "支持生产(农用地)利用。生产门禁为条件通过: Cd、As、Pb 超风险筛选值。生态门禁证据不足。条件: 安全利用类: 须采取农艺调控、替代种植等安全利用措施并开展农产品协同监测。方法状态: provisional(待课题组确认)。",
+  "missing_evidence": [
+   "生态门禁缺测必测项目 38 项: 四氯化碳、氯仿、氯甲烷、1,1-二氯乙烷、1,2-二氯乙烷、1,1-二氯乙烯、顺-1,2-二氯乙烯、反-1,2-二氯乙烯、二氯甲烷、1,2-二氯丙烷、1,1,1,2-四氯乙烷、1,1,2,2-四氯乙烷 等"
+  ],
+  "data_origin": "monte_carlo_demo",
+  "gates": {
+   "production": "conditional",
+   "ecology": "insufficient"
+  },
+  "track_status": {
+   "production": "supported",
+   "ecology": "insufficient"
+  }
+ }
+}
