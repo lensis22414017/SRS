@@ -34,6 +34,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--base", default="http://127.0.0.1:18080")
     ap.add_argument("--out", required=True)
+    ap.add_argument("--chrome", default=None, help="可选: 使用系统 Chrome 可执行文件(macOS 本机采集)")
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
     r = requests.post(f"{a.base}/api/v1/auth/login", json={"username": ADMIN[0], "password": ADMIN[1]}).json()
@@ -41,7 +42,7 @@ def main():
     sid = requests.get(f"{a.base}/api/v1/sites", headers={"Authorization": f"Bearer {tok}"}).json()["items"][0]["id"]
     shots = []
     with sync_playwright() as p:
-        b = p.chromium.launch()
+        b = p.chromium.launch(executable_path=a.chrome) if a.chrome else p.chromium.launch()
         ctx = b.new_context(viewport={"width": 1440, "height": 900}, locale="zh-CN", device_scale_factor=1)
         page = ctx.new_page()
         page.goto(a.base + "/login"); page.wait_for_timeout(1500)

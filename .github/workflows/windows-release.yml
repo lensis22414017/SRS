@@ -119,7 +119,7 @@ jobs:
           $code = $LASTEXITCODE
           Stop-Process -Id $app.Id -Force; Start-Sleep 3
           Get-Process SRS -ErrorAction SilentlyContinue | Stop-Process -Force
-          Copy-Item "$env:APPDATA\SRS\logs" acceptance_out\app_logs -Recurse -ErrorAction SilentlyContinue
+          Copy-Item "$env:APPDATA\SRS\launcher.log" acceptance_out\launcher.log -ErrorAction SilentlyContinue
           if ($code -ne 0) { throw "acceptance restart phase failed" }
 
       - name: Uninstall (user data retained in APPDATA)
