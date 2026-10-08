@@ -167,7 +167,8 @@ def _now() -> str:
     from datetime import datetime
     return datetime.now().isoformat()
 
-app = FastAPI(title=settings.app_name, version="1.0.1", lifespan=lifespan)
+from app.version import __version__  # v1.1 单一版本来源
+app = FastAPI(title=settings.app_name, version=__version__, lifespan=lifespan)
 
 # ── CORS: 开发模式 (Vite dev server) + 同源部署均兼容 ──────────────
 app.add_middleware(
@@ -234,7 +235,7 @@ def health():
         if os.path.isdir(_flows_dir):
             _flows = {f"flows/{fn}": os.path.getsize(os.path.join(_flows_dir, fn))
                       for fn in sorted(os.listdir(_flows_dir)) if fn.endswith(".svg")}
-    return {"status": status, "app": settings.app_name, "version": "1.0.2",
+    return {"status": status, "app": settings.app_name, "version": __version__,
             "model_health": model_health,
             "frontend_dist": _dist or None,
             "flow_diagrams": _flows}

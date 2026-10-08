@@ -41,6 +41,7 @@
 </style>
 </head>
 <body>
+{% if simulation_label %}<div style="border:3px solid #b91c1c;color:#b91c1c;font-weight:bold;text-align:center;padding:8px;margin:8px 0;font-size:16px">【{{ simulation_label }}】</div>{% endif %}
 
 <!-- ═══════════════════ 封面页 ═══════════════════ -->
 <div class="cover-page">
@@ -322,6 +323,13 @@
     <tr><td>说明</td><td class="muted">{{ ssui.explanation }}</td></tr>
   </table>
   {% else %}<div class="muted">本场地尚未运行 SSUI 可持续性评价。请在「SSUI 评价」页面执行后重新生成报告。</div>{% endif %}
+
+  <h2>十、(续) 利用方向结论（法规门禁 + 功能评分）</h2>
+  {% if utilization %}{% for u in utilization %}
+  <p><b>{{ u.stage_label }}：{{ u.state }}</b>（决策 #{{ u.decision_id }} · {{ u.method_version }} · 方法状态 {{ u.method_status }} · {{ u.created_at }}）</p>
+  <p>{{ u.conclusion }}</p>
+  {% if u.missing_evidence %}<ul>{% for m in u.missing_evidence[:6] %}<li>需补充：{{ m }}</li>{% endfor %}</ul>{% endif %}
+  {% endfor %}{% else %}<p>尚未运行利用方向判定。</p>{% endif %}
 
   <h2>十一、推荐重构方案与推荐修复方案矩阵</h2>
   {% if recommendations %}

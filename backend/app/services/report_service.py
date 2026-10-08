@@ -497,7 +497,28 @@ def collect(db: Session, site_id: int, version: str) -> dict:
     shap_image = _render_shap_figure_png(contribution_rows, site.name)
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    # v1.1 (G5): 模拟数据标签贯穿报告; (C3): 修复前/后利用方向结论入报告
+    from app.models import SSUIImportBatch, UtilizationDecision
+    _origins = {o for (o,) in db.query(Measurement.data_origin).filter_by(site_id=site_id).distinct().all()}
+    _origins |= {o for (o,) in db.query(SSUIImportBatch.data_origin).filter_by(site_id=site_id).distinct().all()}
+    simulation_label = ("模拟数据——仅供测试/演示，不得用于正式报告"
+                        if _origins & {"monte_carlo_demo", "test_fixture"} else None)
+    _STATE_CN = {"both_supported": "生产与生态均支持", "production_supported": "支持生产利用",
+                 "ecology_supported": "支持生态利用", "neither_supported": "均不支持",
+                 "insufficient_evidence": "证据不足"}
+    utilization = []
+    for _stage, _label in (("pre_remediation", "修复前情景判断"), ("post_remediation", "修复后利用结论")):
+        _d = (db.query(UtilizationDecision).filter_by(site_id=site_id, stage=_stage)
+              .order_by(UtilizationDecision.id.desc()).first())
+        if _d:
+            utilization.append({"stage_label": _label, "state": _STATE_CN.get(_d.decision_state, _d.decision_state),
+                                "conclusion": _d.conclusion_text, "method_version": _d.method_version,
+                                "method_status": _d.method_status, "decision_id": _d.id,
+                                "missing_evidence": _d.missing_evidence or [], "assumptions": _d.assumptions or [],
+                                "created_at": _d.created_at.strftime("%Y-%m-%d %H:%M") if _d.created_at else ""})
     return {
+        "simulation_label": simulation_label,
+        "utilization": utilization,
         "site": {"site_code": site.site_code, "name": site.name,
                  "pollution_type": site.pollution_type, "land_use_type": site.land_use_type,
                  "province": site.province, "city": site.city,
@@ -832,6 +853,11 @@ def render_docx(context: dict) -> bytes:
 
     doc.add_paragraph("")
 
+    if context.get("simulation_label"):
+        sp = doc.add_paragraph(); sp.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        sr = sp.add_run("【" + context["simulation_label"] + "】"); sr.bold = True
+        sr.font.size = Pt(14); sr.font.color.rgb = RGBColor(0xB9, 0x1C, 0x1C)
+
     # 报告标题
     title_p = doc.add_paragraph()
     title_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -1008,6 +1034,16 @@ def render_docx(context: dict) -> bytes:
         )
 
     # 追溯记录
+    _add_heading_styled(doc, "十、(续) 利用方向结论（法规门禁 + 功能评分）")
+    if context.get("utilization"):
+        for u in context["utilization"]:
+            doc.add_paragraph(f"{u['stage_label']}：{u['state']}（决策 #{u['decision_id']}，{u['method_version']}，"
+                              f"方法状态 {u['method_status']}，{u['created_at']}）")
+            doc.add_paragraph(u["conclusion"])
+            for m in u["missing_evidence"][:6]:
+                doc.add_paragraph("需补充：" + m)
+    else:
+        doc.add_paragraph("尚未运行利用方向判定。")
     _add_heading_styled(doc, "十一、五阶段全流程追溯记录")
     if context.get("workflow"):
         table = doc.add_table(rows=1, cols=5)

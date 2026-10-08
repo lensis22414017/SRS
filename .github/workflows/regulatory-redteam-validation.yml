@@ -30,6 +30,8 @@ env:
   DATABASE_URL: "sqlite:///./srs_test_session.db"
   SECRET_KEY: "ci_redteam_test_key_2026"
   DEMO_PASSWORD: "Demo@2026"
+  # v1.1: v1.0.2 起演示账户仅在 SRS_DEMO_SEED=1 时创建(生产默认走首启向导); CI 合同脚本依赖 admin/Demo@2026
+  SRS_DEMO_SEED: "1"
   REDIS_URL: "redis://localhost:6379/0"
 
 jobs:
@@ -843,11 +845,13 @@ jobs:
                       print('[WARN] DC-5b: source_sha256 is None (may be legacy import)')
 
           # ──────────────── TEST DC-6: Mapping 解析与字段映射 ────────────────
-          m = load_mapping('yunnan_gejiu')
-          assert m is not None, 'DC-6 FAIL: yunnan_gejiu mapping not found'
-          required_map_keys = {'site', 'points', 'measurements'}
+          # v1.1: v1.0.2 删除了预设映射文件, 统一走 smart_detect_and_map(与 run_import 回退逻辑一致)
+          from app.services.import_service import smart_detect_and_map
+          _, m, _ = smart_detect_and_map('../data/raw/3.20250731_重金属污染场地数据表(云南个旧)_最终版.xlsx')
+          assert m is not None, 'DC-6 FAIL: smart mapping not generated'
+          required_map_keys = {'site', 'point_columns', 'factor_columns'}
           assert required_map_keys <= set(m.keys()), f'DC-6 FAIL: mapping missing keys {required_map_keys - set(m.keys())}'
-          print('[PASS] DC-6: Mapping fields complete (site/points/measurements)')
+          print('[PASS] DC-6: Mapping fields complete (site/point_columns/factor_columns)')
 
           # ──────────────── TEST DC-7: 检测限与模型用值 ────────────────
           # 验证 Measurement 的 detection_limit 和 value_used_for_model 字段
@@ -1234,15 +1238,20 @@ jobs:
           # ──────────────── TEST MT-3: OOD 检测 ────────────────
           # 验证诊断服务在 field(个旧) vs literature(论文合成) 证据级别上做区分
           try:
-              from app.services.diagnosis_service import run_diagnosis
+              from app.api.diagnosis import trigger_kos_diagnosis
+              from app.main import app as _app, _check_model_integrity
+              from app.models import User as _User
+              _app.state.model_health = _check_model_integrity()
+              _admin = db.query(_User).filter_by(username='admin').one()
               try:
                   gejiu = '../data/raw/3.20250731_重金属污染场地数据表(云南个旧)_最终版.xlsx'
                   from app.services.pipeline import run_import
                   imp = run_import(db, gejiu, 'yunnan_gejiu')
                   site_id = imp['site_id']
-                  result = run_diagnosis(db, site_id, top_n=10)
-                  assert 'top_factors' in result, f'MT-3 FAIL: no top_factors in result'
-                  print(f'[PASS] MT-3a: Diagnosis produced {len(result[\"top_factors\"])} factors')
+                  # v1.1: 正式诊断为 KOS(旧 SHAP run_diagnosis 依赖的 rf_barrier 工件已下线)
+                  result = trigger_kos_diagnosis(site_id, track='prod', subset='hm', top_n=10, user=_admin, db=db)
+                  assert result.get('key_obstacles'), 'MT-3 FAIL: no key_obstacles in KOS result'
+                  print(f'[PASS] MT-3a: KOS produced {len(result[\"key_obstacles\"])} key obstacles')
 
                   # 验证 evidence_level 分布
                   from app.models import Measurement
@@ -1373,20 +1382,26 @@ jobs:
           print(f'[SETUP] site_id={site_id}')
 
           # ──────────────── TEST RPT-2: 运行诊断 + 评价 + 推荐 ────────────────
-          from app.services.diagnosis_service import run_diagnosis
+          from app.api.diagnosis import trigger_kos_diagnosis
+          from app.main import app as _app, _check_model_integrity
+          from app.models import User as _User
+          _app.state.model_health = _check_model_integrity()
           from app.services.evaluation_service import run_evaluation
           from app.services.recommend_service import run_recommendation
           from app.services.workflow_service import init_stages
 
-          run_diagnosis(db, site_id, top_n=10)
+          trigger_kos_diagnosis(site_id, track='prod', subset='hm', top_n=10,
+                                user=db.query(_User).filter_by(username='admin').one(), db=db)
           run_evaluation(db, site_id, t=2.0, intensity='medium')
           run_recommendation(db, site_id)
           init_stages(db, site_id)
 
           # 填充五阶段基本数据
           from app.services import workflow_service as W
+          W.update_stage(db, site_id, 'survey', status='in_progress')  # v1.1: 状态机要求先进入 in_progress
           W.update_stage(db, site_id, 'survey', status='completed',
                         review_comment='CI自动测试-调查完成', is_completed=True)
+          W.update_stage(db, site_id, 'approval', status='in_progress')  # v1.1: 状态机要求先进入 in_progress
           W.update_stage(db, site_id, 'approval', status='completed',
                         review_comment='CI自动测试-审批通过', is_completed=True, advance=True)
 
@@ -1475,9 +1490,9 @@ jobs:
           from app.services.pipeline import run_import
           imp_nc = run_import(db, gejiu, 'yunnan_gejiu')
           # 手动把场地标记为无坐标
-          db.execute(db.query(Site).filter_by(id=imp_nc['site_id']).update(
+          db.query(Site).filter_by(id=imp_nc['site_id']).update(  # v1.1: Query.update 直接执行, 返回行数(勿再包 execute)
               {'longitude': None, 'latitude': None}
-          ))
+          )
           db.commit()
 
           ctx_nc = collect(db, imp_nc['site_id'], 'v_test')

@@ -142,7 +142,8 @@ def test_installer_keeps_admin_default_but_allows_isolated_current_user_validati
     assert "PrivilegesRequired=admin" in installer
     assert "PrivilegesRequiredOverridesAllowed=commandline" in installer
     assert "AppId={{B8F3E2A1-2026-0716-SRSO-000000000001}" in installer
-    assert "OutputBaseFilename=SRS-Setup-1.0.1-Windows-x64" in installer
+    version = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
+    assert f"OutputBaseFilename=SRS-Setup-{version}-Windows-x64" in installer  # v1.1: 版本取自单一来源
 
 
 def test_visual_regressions_keep_track_map_and_zero_state_consistent():
@@ -156,7 +157,7 @@ def test_visual_regressions_keep_track_map_and_zero_state_consistent():
     assert 'item.track === expectedTrack' in obstacle
     assert 'item.diagnosis_method === "kos"' in obstacle
     assert "诊断已完成,请注意以下数据质量提示" not in obstacle
-    assert "展开其余" in obstacle
+    assert "关键障碍因子 Top-N" in obstacle  # v1.1: "展开其余"已于 204a966 随 Top-N 表改版移除
     assert "coordPane" not in site_map
     assert "mapRef.current !== map" in site_map
     assert "window.clearTimeout(fitTimer)" in site_map
@@ -174,7 +175,8 @@ def test_ssui_controls_and_economic_form_remain_readable():
 
     assert "selectWidth={360}" in analysis
     assert "评价用途：" in analysis
-    assert "允许区域代理（参考评价）" in analysis
+    assert "使用全国平均经济数据" in analysis  # v1.1: 文案已于 204a966 改写
+    assert "const [allowProxy, setAllowProxy] = useState(false)" in analysis  # D-08: 默认不使用代理数据
     assert "selectWidth?: number" in picker
     assert "width={860}" in drawer
     assert "<Row gutter={[12, 0]}>" in drawer

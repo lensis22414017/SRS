@@ -442,3 +442,61 @@ def test_mc_demo_refuses_user_database_paths():
             m._guard_db(bad)
     assert m._guard_db("/tmp/srs_demo_x.db").endswith("srs_demo_x.db")
     assert m.LABEL == "模拟数据——仅供测试/演示"
+
+
+def test_reports_carry_simulation_label_and_utilization_conclusion():
+    """G5/C3: 演示来源数据的报告(HTML+DOCX)必须带模拟数据标签与利用方向结论; 真实数据报告不带标签。"""
+    from fastapi.testclient import TestClient
+    from docx import Document
+    from app.db.session import SessionLocal
+    from app.main import app
+    from app.services.report_service import collect, render_docx, render_html
+    db = SessionLocal()
+    try:
+        sid, code = _make_site(db, "REPORTDEMO")
+        rid, rcode = _make_site(db, "REPORTREAL")
+    finally:
+        db.close()
+    c = TestClient(app); h = _login(c)
+    t = c.get("/api/v1/templates/ssui-post?track=production", headers=h).content
+    for s_id, s_code, origin in ((sid, code, "模拟数据——仅供测试/演示"), (rid, rcode, "真实数据(甲方/课题组提供)")):
+        pj = c.post(f"/api/v1/sites/{s_id}/ssui-post/preview", headers=h,
+                    files={"file": (f"{s_code}.xlsx", _fill_template(t, s_code, origin=origin), "application/octet-stream")}).json()
+        c.post(f"/api/v1/ssui-post/batches/{pj['batch_id']}/confirm", headers=h)
+        c.post(f"/api/v1/sites/{s_id}/utilization?stage=post_remediation", headers=h)
+    db = SessionLocal()
+    try:
+        ctx = collect(db, sid, "v_t")
+        assert ctx["simulation_label"] and ctx["utilization"][0]["stage_label"] == "修复后利用结论"
+        html = render_html(ctx)
+        assert "模拟数据——仅供测试/演示" in html and "利用方向结论" in html
+        doc = Document(io.BytesIO(render_docx(ctx)))
+        text = "\n".join(p.text for p in doc.paragraphs)
+        assert "模拟数据——仅供测试/演示" in text and "修复后利用结论" in text
+        real = collect(db, rid, "v_t")
+        assert real["simulation_label"] is None and "模拟数据——仅供测试/演示" not in render_html(real)
+    finally:
+        db.close()
+
+
+def test_ssui_hand_computed_reference_examples():
+    """G4 独立参考算例: 期望值按方法 PPT 第 13–15 页数值手工推导(非调用实现计算)。
+
+    例1 生产, s_i 全 1, t=0, M=1.1:
+        Σv·S = 0.3445×1.0 + 0.2012×1.0 + 0.2072×1.0001 + 0.2472×1.047 = 1.01173912
+        SSUI = 1.0 × 1.01173912 × 1.1 = 1.112913032  (>1, 不截断)
+    例2 生产, 仅 D16=1, t=2, M=1.15:  SSUI = 1.06 × 0.2012 × 0.8341 × 1.15 = 0.204573701 → 不可持续
+    例3 生态, s_i 全 0.5, t=2, M=1.075:
+        Σv·S = 0.5×(0.3838×0.9999 + 0.141×1.0 + 0.2325×0.9999 + 0.2426×1.214) = 0.525877385
+        SSUI = 0.525877385 × 1.06 × 1.075 = 0.599237281 → 低度可持续(紧邻 0.6 边界)
+    """
+    W = SV.load_weights()
+    codes = [i["code"] for i in W["indicators"]]
+    r1 = SV.compute({c: 1.0 for c in codes}, "production", 0, 1.1, W)
+    assert r1["ssui"] == pytest.approx(1.112913032, abs=1e-6) and r1["grade"] == "高度可持续"
+    r2 = SV.compute({c: (1.0 if c == "D16" else 0.0) for c in codes}, "production", 2, 1.15, W)
+    assert r2["ssui"] == pytest.approx(0.204573701, abs=1e-6) and r2["grade"] == "不可持续"
+    assert r2["feasible"] is False
+    r3 = SV.compute({c: 0.5 for c in codes}, "ecology", 2, 1.075, W)
+    assert r3["ssui"] == pytest.approx(0.599237281, abs=1e-6) and r3["grade"] == "低度可持续"
+    assert r3["feasible"] is False  # 支持阈值 0.6(暂定)
