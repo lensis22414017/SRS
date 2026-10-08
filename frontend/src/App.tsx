@@ -3,7 +3,7 @@ import { Layout, Menu, Dropdown, Avatar, Space, Typography, Breadcrumb, App as A
 import {
   DashboardOutlined, DatabaseOutlined, SearchOutlined, ExperimentOutlined,
   LineChartOutlined, NodeIndexOutlined, SettingOutlined, UserOutlined, LogoutOutlined,
-  BulbOutlined, FolderOutlined,
+  BulbOutlined, FolderOutlined, CloudUploadOutlined,
 } from "@ant-design/icons";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "./auth";
@@ -16,9 +16,10 @@ const { Text } = Typography;
 const ALL_NAV = [
   { key: "/", icon: <DashboardOutlined />, label: "数据概览", perm: null },
   { key: "/sites", icon: <DatabaseOutlined />, label: "场地管理", perm: "data:query" },
-  { key: "/obstacle", icon: <SearchOutlined />, label: "障碍因子分析", perm: "data:query" },
-  { key: "/reconstruction", icon: <ExperimentOutlined />, label: "功能重构分析", perm: "data:query" },
-  { key: "/ssui", icon: <LineChartOutlined />, label: "SSUI评价", perm: "data:query" },
+  { key: "/obstacle", icon: <SearchOutlined />, label: "障碍因子分析（课题一）", perm: "data:query" },
+  { key: "/reconstruction", icon: <ExperimentOutlined />, label: "功能重构分析（课题二）", perm: "data:query" },
+  { key: "/ssui-post", icon: <CloudUploadOutlined />, label: "修复后SSUI（课题三）", perm: "data:query" },
+  { key: "/ssui", icon: <LineChartOutlined />, label: "SSUI参考评价（修复前）", perm: "data:query" },
   { key: "/recommend", icon: <BulbOutlined />, label: "方案推荐", perm: "data:query" },
   { key: "/trace", icon: <NodeIndexOutlined />, label: "全流程追溯", perm: "workflow:view" },
   { key: "/files", icon: <FolderOutlined />, label: "文件管理", perm: "file:read" },
@@ -31,7 +32,8 @@ const BREADCRUMB: Record<string, string> = {
   "/sites": "场地管理",
   "/obstacle": "障碍因子分析",
   "/reconstruction": "功能重构分析",
-  "/ssui": "SSUI 可持续利用评价",
+  "/ssui": "SSUI 参考评价（修复前数据）",
+  "/ssui-post": "课题三 · 修复后 SSUI 导入",
   "/recommend": "方案推荐",
   "/trace": "全流程追溯",
   "/files": "文件管理",

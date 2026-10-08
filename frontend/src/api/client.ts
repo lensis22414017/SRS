@@ -296,6 +296,41 @@ export const api = {
   // v0.8.1 障碍因子集速查表
   factorDictionary: (params?: { category?: string; search?: string }) =>
     client.get("/factors/dictionary", { params }).then((r) => r.data),
+
+  // ── v1.1: 全流程追溯引导 / 真实进度(C5) ──
+  traceGuide: () => client.get("/trace/guide").then((r) => r.data),
+  traceProgress: (siteId: number) => client.get(`/sites/${siteId}/trace/progress`).then((r) => r.data),
+  /** 下载模板(url 为 /api/v1 开头的相对路径) */
+  downloadTemplate: async (url: string, filename: string) => {
+    const r = await client.get(url.replace(/^\/api\/v1/, ""), { responseType: "blob" });
+    saveBlob(r.data as Blob, filename);
+  },
+
+  // ── v1.1: 课题三 修复后 SSUI 独立导入(C4) ──
+  ssuiPostPreview: (siteId: number, file: File, track: string) => {
+    const fd = new FormData(); fd.append("file", file); fd.append("track", track);
+    return client.post(`/sites/${siteId}/ssui-post/preview`, fd).then((r) => r.data);
+  },
+  ssuiPostConfirm: (batchId: number) => client.post(`/ssui-post/batches/${batchId}/confirm`).then((r) => r.data),
+  ssuiPostReject: (batchId: number) => client.post(`/ssui-post/batches/${batchId}/reject`).then((r) => r.data),
+  ssuiPostBatches: (siteId: number) => client.get(`/sites/${siteId}/ssui-post/batches`).then((r) => r.data),
+  ssuiPostExport: async (batchId: number) => {
+    const r = await client.get(`/ssui-post/batches/${batchId}/export`, { responseType: "blob" });
+    saveBlob(r.data as Blob, `SRS_课题三SSUI结果_批次${batchId}.xlsx`);
+  },
+
+  // ── v1.1: 利用决策(C3) ──
+  utilizationRun: (siteId: number, stage: string, params?: { farmland_type?: string; eco_land_class?: string }) =>
+    client.post(`/sites/${siteId}/utilization`, null, { params: { stage, ...(params || {}) } }).then((r) => r.data),
+  utilizationLatest: (siteId: number, stage?: string) =>
+    client.get(`/sites/${siteId}/utilization`, { params: stage ? { stage } : {} }).then((r) => r.data),
 };
+
+export function saveBlob(blob: Blob, filename: string) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = filename; document.body.appendChild(a); a.click();
+  a.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
 
 export default client;

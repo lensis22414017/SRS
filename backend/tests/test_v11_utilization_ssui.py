@@ -419,3 +419,15 @@ def test_gejiu_full_chain_import_evaluate_decide_via_api():
     for k in ("reconstruction_prod", "reconstruction_eco"):
         assert ev[k]["grade"].startswith("证据不足"), (k, ev[k]["grade"])
     assert d["production"]["score"]["feasible"] is None
+
+
+def test_legacy_ssui_path_uses_pptx_weights_and_is_not_clipped():
+    import ssui as S
+    p = S._load()
+    prod = S._pptx_meta_weights("production", p["production"]["meta_weights_25"])
+    eco = S._pptx_meta_weights("ecology", p["ecology"]["meta_weights_25"])
+    assert prod["D1_土壤含盐量"]["weight"] == 0.1209 and eco["D1_土壤含盐量"]["weight"] == 0.1153  # D-05
+    assert prod["D22_单位面积总产值"]["weight"] == 0.3095 and eco["D22_单位面积总产值"]["weight"] == 0.3847
+    assert S._grade(1.05, p) == "高度可持续"  # D-06: 不截断后 >1 不得落入"不可持续"
+    src = open(S.__file__, encoding="utf-8").read()
+    assert "min(raw_ssui, 1.0)" not in src

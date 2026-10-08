@@ -4,6 +4,7 @@ import { ReloadOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/client";
 import { seqCol, numCol, textCol } from "../utils/table";
+import { TraceGuide } from "../components/TraceGuide";
 
 export default function TraceList() {
   const { message } = App.useApp();
@@ -17,6 +18,9 @@ export default function TraceList() {
   useEffect(() => { load(); }, []);
 
   return (
+    <Space direction="vertical" style={{ width: "100%" }} size={16}>
+    {/* v1.1 (C5): 进入即展示全流程引导(只读) */}
+    <TraceGuide />
     <Card title="全流程追溯 — 选择场地"
       extra={<Space>
         <Input.Search placeholder="搜索场地" allowClear onChange={(e) => setQ(e.target.value)} onSearch={load} style={{ width: 240 }} />
@@ -34,5 +38,6 @@ export default function TraceList() {
           { title: "操作", align: "center", render: (_: any, r: any) => <a onClick={() => nav(`/trace/${r.id}`)}>进入追溯</a> },
         ]} />
     </Card>
+    </Space>
   );
 }

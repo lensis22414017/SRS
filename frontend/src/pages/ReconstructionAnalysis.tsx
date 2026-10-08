@@ -12,6 +12,7 @@ import ReportActions from "../components/ReportActions";
 import { seqCol, numCol, textCol } from "../utils/table";
 import { formatFactor } from "../utils/factorFormat";
 import { SVG_OPTS } from "../theme/echarts";
+import UtilizationPanel from "../components/UtilizationPanel";
 
 /** 功能重构分析 = 方法文件第2章 污染土壤生产-生态功能重构可行性评价(生产功能 + 生态功能) */
 function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRisk?: any }) {
@@ -243,6 +244,8 @@ export default function ReconstructionAnalysis() {
           <EvalBlock title="生态功能重构可行性" e={eco} organicRisk={data?.results?.organic_risk?.dimensions} />
         </Card>
       ) : <Empty description="请选择场地并点击「运行」生成功能重构评价" />}
+      {/* v1.1 (C3): 修复前情景判断 — 法规门禁 + 课题二评分 */}
+      <UtilizationPanel siteId={sid} stage="pre_remediation" />
       <MethodFlowDrawer open={flowOpen} onClose={() => setFlowOpen(false)} config={getFlowConfig("reconstruction_eval")!} />
     </Space>
   );

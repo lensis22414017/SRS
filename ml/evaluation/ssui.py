@@ -241,7 +241,32 @@ def _pick_M(params, scope: str, intensity: str):
     return params["default_M"]["production" if scope == "production" else "ecology"]
 
 
+def _pptx_meta_weights(scope_key: str, repo_meta: dict) -> dict:
+    """v1.1 (D-05): D1–D25 权重按轨道取自方法 PPT(生产第14页/生态第13页)。
+
+    旧 evaluation_params.json 中两轨互换(生产用了生态表值, 生态用了重归一化的生产值),
+    且 D22–D25 被静默重归一化。这里按指标编码覆盖为 PPT 原值, 不做归一化。
+    """
+    import json as _j
+    path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+                        "data", "standards", "ssui_weights_pptx_v1.json")
+    try:
+        with open(path, encoding="utf-8") as fh:
+            ind = {i["code"]: i for i in _j.load(fh)["indicators"]}
+    except (OSError, ValueError, KeyError):
+        return repo_meta
+    out = {}
+    for k, v in repo_meta.items():
+        code = k.split("_", 1)[0]
+        w = ind.get(code, {}).get("w_" + scope_key)
+        out[k] = {**v, "weight": w} if w is not None else v
+    return out
+
+
 def _grade(ssui, params):
+    if ssui is not None and ssui > 1.0:
+        # v1.1 (D-06): SSUI 不再截断; 超过 1.0 的值属最高等级, 由调用方标记 exceeds_unit_range
+        return params["levels"][0]["label"]
     for lv in params["levels"]:
         rng = lv["range"].replace("＜", "<")
         if rng.startswith("<"):
@@ -320,7 +345,7 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
     """
     params = _load()
     scope_key = "production" if scope == "production" else "ecology"
-    meta_w = params[scope_key].get("meta_weights_25", {})
+    meta_w = _pptx_meta_weights(scope_key, params[scope_key].get("meta_weights_25", {}))
     economic_data = economic_data or {}
     safety_thresholds = safety_thresholds or {}
     threshold_resolution_status = threshold_resolution_status or {}
@@ -632,9 +657,13 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
     # SSUI = (B1×0.5 + B2×0.5) × f(t) × M
     ft = 1 + params["time_weight_function"]["alpha"] * t
     M = _pick_M(params, scope, intensity)
-    raw_ssui = (b1 * 0.5 + b2 * 0.5) * ft * M
-    bounded_ssui = max(0.0, min(raw_ssui, 1.0))
-    ssui = round(bounded_ssui, 4)
+    # v1.1 (D-14): 按方法 PPT 第 15 页 SSUI = f(t)·Σ_j(v_j·S_j)·M 聚合(旧实现在 B 层内重归一化 C 再 ×0.5)
+    weighted_c = sum(sc.get(c, 0) * cw.get(c, 0) for c in ("限制因子C1", "风险因子C2", "经济成本C3", "经济效益C4"))
+    raw_ssui = weighted_c * ft * M
+    # v1.1 (D-06): 不再截断到 [0,1]; 原值即正式值, 超 1 时显式标记
+    bounded_ssui = raw_ssui
+    ssui = round(raw_ssui, 4)
+    exceeds_unit_range = raw_ssui > 1.0
 
     # ──── Round9 P0-2.4 severe exceedance 安全门禁 ────
     # 审计 P0-2.4: D16/D17 最严重超标倍数 ≥ 5 (高风险档) → 等级不得为"优/高/低风险"
@@ -694,7 +723,7 @@ def evaluate(series: dict, scope: str = "production", t: float = 2.0,
 
     return {
         "scope": scope, "ssui": ssui, "grade": grade,
-        "raw_score": round(raw_ssui, 6), "bounded_score": ssui,
+        "raw_score": round(raw_ssui, 6), "bounded_score": ssui, "exceeds_unit_range": exceeds_unit_range,
         "dimensions": {
             "B1_safety": round(b1, 4),
             "B2_economy": round(b2, 4),

@@ -5,6 +5,7 @@ import {
 } from "antd";
 import { UploadOutlined, FileAddOutlined, DownloadOutlined, EyeOutlined, ApartmentOutlined, DeleteOutlined } from "@ant-design/icons";
 import { api } from "../api/client";
+import { TraceProgress } from "../components/TraceGuide";
 import MethodFlowDrawer from "../components/MethodFlowDrawer";
 import { getFlowConfig } from "../config/methodFlows";
 import { seqCol, textCol } from "../utils/table";
@@ -127,6 +128,7 @@ export default function TraceDetail() {
 
   return (
     <Space direction="vertical" style={{ width: "100%" }} size={16}>
+      <TraceProgress siteId={sid} />
       <Card title={`全流程追溯 — ${site.name}`}
         extra={<Space>
           <Button onClick={() => nav("/trace")}>返回列表</Button>

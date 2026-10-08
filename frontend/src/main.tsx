@@ -18,6 +18,7 @@ const DataUpload = lazy(() => import("./pages/DataUpload"));
 const ObstacleAnalysis = lazy(() => import("./pages/ObstacleAnalysis"));
 const ReconstructionAnalysis = lazy(() => import("./pages/ReconstructionAnalysis"));
 const SSUIAnalysis = lazy(() => import("./pages/SSUIAnalysis"));
+const SSUIPostImport = lazy(() => import("./pages/SSUIPostImport"));  // v1.1 课题三
 const TraceList = lazy(() => import("./pages/TraceList"));
 const TraceDetail = lazy(() => import("./pages/TraceDetail"));
 const SystemManagement = lazy(() => import("./pages/SystemManagement"));
@@ -100,6 +101,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <Route path="obstacle" element={<RequirePermission code="data:query"><ObstacleAnalysis /></RequirePermission>} />
                   <Route path="reconstruction" element={<RequirePermission code="data:query"><ReconstructionAnalysis /></RequirePermission>} />
                   <Route path="ssui" element={<RequirePermission code="data:query"><SSUIAnalysis /></RequirePermission>} />
+                  <Route path="ssui-post" element={<RequirePermission code="data:query"><SSUIPostImport /></RequirePermission>} />
                   <Route path="recommend" element={<RequirePermission code="data:query"><RecommendationPage /></RequirePermission>} />
                   <Route path="trace" element={<RequirePermission code="workflow:view"><TraceList /></RequirePermission>} />
                   <Route path="trace/:id" element={<RequirePermission code="workflow:view"><TraceDetail /></RequirePermission>} />

@@ -32,7 +32,7 @@ export default function SSUIAnalysis() {
   const [evalYear, setEvalYear] = useState<number | undefined>(2022);
   const [evalScenario, setEvalScenario] = useState<"production" | "ecology">("production");
   const [evalScope, setEvalScope] = useState<"production" | "ecology">("production");
-  const [allowProxy, setAllowProxy] = useState(true);  // Round10 H6: 默认允许代理数据(所有demo场地均为proxy)
+  const [allowProxy, setAllowProxy] = useState(false);  // v1.1 (D-08): 默认不使用区域代理数据; 勾选后结果标"参考评价"
 
   const load = (id?: number) => {
     const s = id ?? sid; if (!s) return;
@@ -146,6 +146,10 @@ export default function SSUIAnalysis() {
   return (
     <>
       <Space direction="vertical" style={{ width: "100%" }} size={16}>
+      <Alert type="warning" showIcon
+        message="本页为基于修复前检测数据的 SSUI 参考评价（旧版口径）"
+        description={<span>按李老师 7 月 30 日意见，课题三 SSUI 使用<b>修复后</b>数据并单独导入。正式 SSUI 与修复后利用结论请使用
+          <a href="/ssui-post"> 修复后 SSUI 导入（课题三）</a> 页面。本页权重已按方法 PPT 第 13/14 页逐轨修正，结果不再截断到 1.0。</span>} />
       <Card>
         <Space direction="vertical" style={{ width: "100%" }} size={12}>
           <SitePicker value={sid} onChange={setSid} selectWidth={360} />
