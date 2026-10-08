@@ -1,0 +1,309 @@
+{
+ "_source": "场地土壤持续利用经济性与安全性评价指标体系构建方法和结果.pptx (05_其他子课题提供) 第13页(生态)/第14页(生产)权重表, 第15页公式与等级",
+ "_status": "provisional — D编号以权重表(13/14页)为准; 第6页层次图有10处编号不一致; C4组内权重和 生态1.214/生产1.047 原样保留未归一化",
+ "formula": "SSUI = f(t) × Σ_{j=1..4}(v_j × S_j) × M;  S_j = Σ_i w_ij × s_i;  f(t) = 1 + 0.03 t",
+ "time_alpha": 0.03,
+ "M_range": {
+  "production": [
+   1.1,
+   1.2
+  ],
+  "ecology": [
+   1.05,
+   1.1
+  ]
+ },
+ "criterion_weights": {
+  "production": {
+   "C1": 0.3445,
+   "C2": 0.2012,
+   "C3": 0.2072,
+   "C4": 0.2472
+  },
+  "ecology": {
+   "C1": 0.3838,
+   "C2": 0.141,
+   "C3": 0.2325,
+   "C4": 0.2426
+  }
+ },
+ "levels": [
+  {
+   "min": 0.8,
+   "max": 1.0,
+   "label": "高度可持续"
+  },
+  {
+   "min": 0.6,
+   "max": 0.8,
+   "label": "中度可持续"
+  },
+  {
+   "min": 0.4,
+   "max": 0.6,
+   "label": "低度可持续"
+  },
+  {
+   "min": null,
+   "max": 0.4,
+   "label": "不可持续"
+  }
+ ],
+ "support_threshold": {
+  "value": 0.6,
+  "status": "provisional",
+  "note": "≥0.6(中度可持续及以上)视为功能评分支持; 方法文件未规定, 待课题组确认"
+ },
+ "indicators": [
+  {
+   "code": "D1",
+   "name": "土壤含盐量[电导率、无机盐浓度]",
+   "criterion": "C1",
+   "hierarchy_code_slide6": "D1",
+   "id_conflict": false,
+   "w_production": 0.1209,
+   "w_ecology": 0.1153,
+   "direction": "positive"
+  },
+  {
+   "code": "D2",
+   "name": "土壤碱化度[交换性钠离子]",
+   "criterion": "C1",
+   "hierarchy_code_slide6": "D2",
+   "id_conflict": false,
+   "w_production": 0.0615,
+   "w_ecology": 0.0562,
+   "direction": "positive"
+  },
+  {
+   "code": "D3",
+   "name": "土壤机械组成[土壤质地、孔径分布]",
+   "criterion": "C1",
+   "hierarchy_code_slide6": "D3",
+   "id_conflict": false,
+   "w_production": 0.0676,
+   "w_ecology": 0.0659,
+   "direction": "positive"
+  },
+  {
+   "code": "D4",
+   "name": "土壤含水率",
+   "criterion": "C1",
+   "hierarchy_code_slide6": "D5",
+   "id_conflict": true,
+   "w_production": 0.0679,
+   "w_ecology": 0.0686,
+   "direction": "positive"
+  },
+  {
+   "code": "D5",
+   "name": "阳离子交换量",
+   "criterion": "C1",
+   "hierarchy_code_slide6": "D6",
+   "id_conflict": true,
+   "w_production": 0.0312,
+   "w_ecology": 0.0305,
+   "direction": "positive"
+  },
+  {
+   "code": "D6",
+   "name": "盐基饱和度",
+   "criterion": "C1",
+   "hierarchy_code_slide6": "D7",
+   "id_conflict": true,
+   "w_production": 0.1322,
+   "w_ecology": 0.1316,
+   "direction": "positive"
+  },
+  {
+   "code": "D7",
+   "name": "pH",
+   "criterion": "C1",
+   "hierarchy_code_slide6": "D8",
+   "id_conflict": true,
+   "w_production": 0.0642,
+   "w_ecology": 0.0653,
+   "direction": "positive"
+  },
+  {
+   "code": "D8",
+   "name": "土壤有机质",
+   "criterion": "C1",
+   "hierarchy_code_slide6": "D9",
+   "id_conflict": true,
+   "w_production": 0.0363,
+   "w_ecology": 0.0344,
+   "direction": "positive"
+  },
+  {
+   "code": "D9",
+   "name": "水稳性团聚体",
+   "criterion": "C1",
+   "hierarchy_code_slide6": "D10",
+   "id_conflict": true,
+   "w_production": 0.0264,
+   "w_ecology": 0.0257,
+   "direction": "positive"
+  },
+  {
+   "code": "D10",
+   "name": "有效态锌、铁、锰、硼、钙",
+   "criterion": "C1",
+   "hierarchy_code_slide6": "D11",
+   "id_conflict": true,
+   "w_production": 0.1348,
+   "w_ecology": 0.1406,
+   "direction": "positive"
+  },
+  {
+   "code": "D11",
+   "name": "氮磷钾（总氮、总磷、速效钾）",
+   "criterion": "C1",
+   "hierarchy_code_slide6": "D12",
+   "id_conflict": true,
+   "w_production": 0.0547,
+   "w_ecology": 0.0535,
+   "direction": "positive"
+  },
+  {
+   "code": "D12",
+   "name": "土壤酶活性(过氧化氢酶、脲酶、磷酸酶、蔗糖酶)",
+   "criterion": "C1",
+   "hierarchy_code_slide6": "D13",
+   "id_conflict": true,
+   "w_production": 0.0317,
+   "w_ecology": 0.0346,
+   "direction": "positive"
+  },
+  {
+   "code": "D13",
+   "name": "土壤渗透率[饱和水力传导率]",
+   "criterion": "C1",
+   "hierarchy_code_slide6": "D4",
+   "id_conflict": true,
+   "w_production": 0.0627,
+   "w_ecology": 0.065,
+   "direction": "positive"
+  },
+  {
+   "code": "D14",
+   "name": "有效土层厚度",
+   "criterion": "C1",
+   "hierarchy_code_slide6": "D14",
+   "id_conflict": false,
+   "w_production": 0.0243,
+   "w_ecology": 0.0269,
+   "direction": "positive"
+  },
+  {
+   "code": "D15",
+   "name": "土壤表面粗糙度",
+   "criterion": "C1",
+   "hierarchy_code_slide6": "D15",
+   "id_conflict": false,
+   "w_production": 0.0836,
+   "w_ecology": 0.0858,
+   "direction": "positive"
+  },
+  {
+   "code": "D16",
+   "name": "重金属污染物(铬、铅、镉、汞、砷)",
+   "criterion": "C2",
+   "hierarchy_code_slide6": "D16",
+   "id_conflict": false,
+   "w_production": 0.8341,
+   "w_ecology": 0.7984,
+   "direction": "negative"
+  },
+  {
+   "code": "D17",
+   "name": "有机污染物(苯系物(苯、甲苯等)、氯代烃(氯苯、二氯苯、氯乙烷、氯甲烷等)、石油烃(多环芳烃等))",
+   "criterion": "C2",
+   "hierarchy_code_slide6": "D17",
+   "id_conflict": false,
+   "w_production": 0.1659,
+   "w_ecology": 0.2016,
+   "direction": "negative"
+  },
+  {
+   "code": "D18",
+   "name": "劳动力成本(种植、除草、浇水、追肥)",
+   "criterion": "C3",
+   "hierarchy_code_slide6": "D18",
+   "id_conflict": false,
+   "w_production": 0.3585,
+   "w_ecology": 0.3339,
+   "direction": "cost"
+  },
+  {
+   "code": "D19",
+   "name": "机械化成本(机械翻耕、机械免耕播种、机械压倒和清理秸秆、机械耙地、机械喷灌)",
+   "criterion": "C3",
+   "hierarchy_code_slide6": "D19",
+   "id_conflict": false,
+   "w_production": 0.2891,
+   "w_ecology": 0.2556,
+   "direction": "cost"
+  },
+  {
+   "code": "D20",
+   "name": "土地成本(面积)",
+   "criterion": "C3",
+   "hierarchy_code_slide6": "D20",
+   "id_conflict": false,
+   "w_production": 0.2053,
+   "w_ecology": 0.1781,
+   "direction": "cost"
+  },
+  {
+   "code": "D21",
+   "name": "非机械化成本(种子、化肥、除草剂、营养液、农药)",
+   "criterion": "C3",
+   "hierarchy_code_slide6": "D21",
+   "id_conflict": false,
+   "w_production": 0.1472,
+   "w_ecology": 0.2323,
+   "direction": "cost"
+  },
+  {
+   "code": "D22",
+   "name": "土地生产率",
+   "criterion": "C4",
+   "hierarchy_code_slide6": "D22",
+   "id_conflict": false,
+   "w_production": 0.3095,
+   "w_ecology": 0.3847,
+   "direction": "positive"
+  },
+  {
+   "code": "D23",
+   "name": "效益费用比[投入产出比]",
+   "criterion": "C4",
+   "hierarchy_code_slide6": "D23",
+   "id_conflict": false,
+   "w_production": 0.3292,
+   "w_ecology": 0.2702,
+   "direction": "positive"
+  },
+  {
+   "code": "D24",
+   "name": "人均可支配收入(劳动报酬、租金、经营收益)",
+   "criterion": "C4",
+   "hierarchy_code_slide6": "D24",
+   "id_conflict": false,
+   "w_production": 0.2145,
+   "w_ecology": 0.254,
+   "direction": "positive"
+  },
+  {
+   "code": "D25",
+   "name": "土地产出系数",
+   "criterion": "C4",
+   "hierarchy_code_slide6": "D25",
+   "id_conflict": false,
+   "w_production": 0.1938,
+   "w_ecology": 0.3051,
+   "direction": "positive"
+  }
+ ]
+}

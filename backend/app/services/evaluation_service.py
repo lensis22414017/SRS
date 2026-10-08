@@ -562,4 +562,9 @@ def _save(db, site_id, eval_type, data_version, score, grade,
         run_config=run_config,
         score=score, grade=grade,
         dimensions=dimensions, weights=weights,
-        limiting_factors=limiting, risk_factors=risk, explanation=explanation))
+        limiting_factors=limiting, risk_factors=risk, explanation=explanation,
+        # v1.1: 本服务只处理修复前检测数据(课题一/二); 修复后 SSUI 走 ssui_post_service(课题三)
+        stage=PRE_REMEDIATION,
+        subproject="S2" if str(eval_type).startswith("reconstruction") else ("S1" if eval_type == "organic_risk" else "S2-legacy-ssui"),
+        method_version=param_version or PARAM_VERSION,
+        method_status="provisional"))

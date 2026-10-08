@@ -17,6 +17,7 @@ from app.api.auth import router as auth_router
 from app.api.setup import router as setup_router
 from app.api.economic import router as economic_router
 from app.api.backup import router as backup_router  # v1.0.2: 备份恢复
+from app.api.v11 import router as v11_router  # v1.1: 课题三 SSUI / 利用决策 / 追溯引导
 from app.api.data import router as data_router
 from app.api.diagnosis import router as diagnosis_router
 from app.api.evaluation import router as evaluation_router
@@ -193,6 +194,7 @@ app.include_router(workflow_router)
 app.include_router(system_router)
 app.include_router(ai_router)
 app.include_router(backup_router)  # v1.0.2: 备份恢复
+app.include_router(v11_router)  # v1.1
 
 
 # ══════════════════════════════════════════════════════════════

@@ -666,4 +666,5 @@ __all__ = [
     "SystemConfig", "AuditLog",
     "DatasetVersion", "SamplingEvent", "ProjectAuthorization",
     "EconomicIndicator", "EconomicRawInput",
+    "SSUIImportBatch", "SSUIRecord", "UtilizationDecision", "PRE_REMEDIATION", "POST_REMEDIATION",
 ]
