@@ -344,15 +344,25 @@ def resolve_threshold_from_db(
                 "note": f"因子 {factor_canonical} 需要 pH 确定阈值档，场地缺 pH"}
 
     if len(matched) > 1:
-        # v1.0.2: land_use_type 为空时默认"其他"（最通用的农用地子类）
-        effective_lu = land_use_type or "其他"
-        lu_m = [r for r in matched if (r.land_use_type or "其他") == effective_lu]
+        # v1.0.2: 生产轨 land_use_type 为空时默认"其他"（GB15618 通用农用地子类, 有标准依据）
+        # v1.1: 生态轨(GB36600)第一类/第二类用地限值不同, 未指定用地时不得任取一条 → ambiguous
+        effective_lu = land_use_type or ("其他" if track == "prod" else None)
+        lu_m = ([r for r in matched if (r.land_use_type or "其他") == effective_lu]
+                if effective_lu else [])
         if len(lu_m) >= 1:
             matched = [lu_m[0]]
         else:
-            # v1.0.3: 无精确匹配时取第一条（最保守/通用值），不报 ambiguous
-            # 覆盖行标的多用地类型（旱地/水田/普通绿化区等）
-            matched = [matched[0]]
+            distinct = {float(r.screening_value) for r in matched if r.screening_value is not None}
+            if len(distinct) <= 1:
+                # 各用地档限值相同 → 结论与用地无关, 可唯一确定
+                matched = [matched[0]]
+            else:
+                # v1.1: 不再"取第一条"静默决定用地档(旧 v1.0.3 行为会任意选第一类/第二类)
+                return {**not_found_result,
+                        "threshold_resolution_status": "ambiguous",
+                        "candidate_limits": sorted(distinct),
+                        "note": (f"因子 {factor_canonical} 在 {standards[0]} 中按用地类型有多档限值"
+                                 f"{sorted(distinct)}, 场地未指定用地类型, 需人工确认")}
 
     r = matched[0]
     limit = float(r.screening_value) if r.screening_value is not None else None

@@ -1,0 +1,92 @@
+[
+ {
+  "db": "02_SRS_主仓库___gb.db",
+  "tables": 25,
+  "rows": 596,
+  "columns_added": 10,
+  "rows_preserved": true,
+  "integrity": "ok",
+  "error": null
+ },
+ {
+  "db": "02_SRS_主仓库__backend__srs.db",
+  "tables": 29,
+  "rows": 3262,
+  "columns_added": 10,
+  "rows_preserved": true,
+  "integrity": "ok",
+  "error": null
+ },
+ {
+  "db": "02_SRS_主仓库__backend__srs_dev.db",
+  "tables": 29,
+  "rows": 2244,
+  "columns_added": 10,
+  "rows_preserved": true,
+  "integrity": "ok",
+  "error": null
+ },
+ {
+  "db": "02_SRS_主仓库__backend__srs_screenshot.db",
+  "tables": 29,
+  "rows": 2763,
+  "columns_added": 10,
+  "rows_preserved": true,
+  "integrity": "ok",
+  "error": null
+ },
+ {
+  "db": "02_SRS_主仓库__backend__srs_test_eval.db",
+  "tables": 29,
+  "rows": 2756,
+  "columns_added": 10,
+  "rows_preserved": true,
+  "integrity": "ok",
+  "error": null
+ },
+ {
+  "db": "02_SRS_主仓库__backend__srs_test_session.db",
+  "tables": 29,
+  "rows": 222,
+  "columns_added": 10,
+  "rows_preserved": true,
+  "integrity": "ok",
+  "error": null
+ },
+ {
+  "db": "02_SRS_主仓库__frontend__srs_test.db",
+  "tables": 25,
+  "rows": 2102,
+  "columns_added": 10,
+  "rows_preserved": true,
+  "integrity": "ok",
+  "error": null
+ },
+ {
+  "db": "02_SRS_主仓库__srs_dev.db",
+  "tables": 29,
+  "rows": 25082,
+  "columns_added": 10,
+  "rows_preserved": true,
+  "integrity": "ok",
+  "error": null
+ },
+ {
+  "db": "02_SRS_主仓库__srs_test.db",
+  "tables": 25,
+  "rows": 72,
+  "columns_added": 10,
+  "rows_preserved": true,
+  "integrity": "ok",
+  "error": null
+ },
+ {
+  "db": "02_SRS_主仓库__srs_test_session.db",
+  "tables": 29,
+  "rows": 2754,
+  "columns_added": 10,
+  "rows_preserved": true,
+  "integrity": "ok",
+  "error": null
+ }
+]

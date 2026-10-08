@@ -28,7 +28,7 @@ POLLUTANT_FACTORS = {"砷", "铅", "铜", "锌", "镉", "铬", "汞", "镍", "�
 
 # v1.0.2(GPT 5.5): 覆盖率门禁 — 生产<30% / 生态<20% → 证据不足
 COVERAGE_GATE = 0.30
-COVERAGE_GATE_ECO = 0.10  # ecology 85+ 指标，demo 数据仅能覆盖约10%
+COVERAGE_GATE_ECO = 0.10  # ecology 110 项指标; 方法文件未给覆盖率门禁, 0.10 为工程下限(待陈亮/伟杰确认)
 
 
 def _load(path):
@@ -201,38 +201,10 @@ def evaluate(values: dict, scope: str, ph: float | None = None,
     coverage = len(scored) / len(all_indicators) if all_indicators else 0
     gate = COVERAGE_GATE_ECO if scope == "ecology" else COVERAGE_GATE
 
-    if coverage < gate:
-        # 尝试用 criterion_weights 降维评价
-        cw = params.get("criterion_weights")
-        if cw and scope == "ecology":
-            # 将已打分指标按准则层重新加权(每个准则内的指标均分准则权重)
-            crit_map = {  # 指标名 → 准则层
-                "pH": "土壤质量类", "水解性氮": "土壤质量类", "有效磷": "土壤质量类",
-                "速效钾": "土壤质量类", "阳离子交换量": "土壤质量类", "土壤容重": "土壤质量类",
-                "土壤入渗率": "土壤质量类", "土壤有机碳含量": "土壤质量类",
-                "砷": "修复潜力类", "铅": "修复潜力类", "铜": "修复潜力类",
-                "锌": "修复潜力类", "镉": "修复潜力类", "铬": "修复潜力类",
-                "汞": "修复潜力类", "镍": "修复潜力类", "六六六": "修复潜力类",
-                "滴滴涕": "修复潜力类", "苯并[a]芘": "修复潜力类",
-                "地形坡度": "地形坡度", "灌排能力": "灌排能力",
-                "地下水埋深": "地下水埋深", "剖面构型": "剖面构型",
-                "耕地质地（表层土壤质地）": "耕地质地（表层土壤质地）",
-            }
-            crit_scored = {}
-            for name, f_score, _ in scored:
-                crit = crit_map.get(name, "其他")
-                crit_scored.setdefault(crit, []).append((name, f_score))
-            # 每个准则层取均值F，权重用criterion_weight
-            new_scored = []
-            for crit, items in crit_scored.items():
-                if crit in cw:
-                    avg_f = sum(f for _, f in items) / len(items)
-                    new_scored.append((crit, avg_f, cw[crit]))
-            if new_scored:
-                scored = new_scored
-                all_indicators = set(cw.keys())
-                coverage = len(scored) / len(all_indicators)
-
+    # v1.1: 删除 v1.2 "覆盖率不足时用准则层均值降维" 的兜底。该兜底不在方法文件中,
+    # 会把分母从 110 项指标换成 9 个准则(覆盖率被抬高), 并把超标污染物与土壤质量
+    # 指标平均, 导致重度超标场地被判"可行"(个旧场地复核, 缺陷 D-07)。
+    # 现在覆盖率不足一律返回"证据不足", 由上层利用决策给出补测清单。
     if coverage < gate:
         return {
             "scope": scope, "score": None, "grade": "证据不足/无法评价",

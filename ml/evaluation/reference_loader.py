@@ -117,6 +117,10 @@ def load_economic_reference(csv_path: str | None = None, *, scope: str = "produc
             "derivation": (row.get("derivation") or "").strip(),
             "version": (row.get("version") or "").strip(), "is_proxy": True,
         }
+        # v1.1: 同一指标同一年份重复行会虚增独立样本数, 直接判为数据错误
+        if any(o["year"] == year for o in grouped[code]):
+            errors.append(f"第{row_number}行{code} {year}年重复")
+            continue
         observations.append(observation)
         grouped[code].append(observation)
 

@@ -104,7 +104,7 @@ def test_official_reference_is_computed_from_48_observations():
     from reference_loader import load_economic_reference
     data = load_economic_reference()
     assert data["valid"] is True, data["errors"]
-    assert data["sample_count"] == 72  # 2015-2022(8yr×8)+2023(D24/D25)+2024(D24/D25)
+    assert data["sample_count"] == 68  # 2015-2022(8yr×8=64)+2023(D24/D25)+2024(D24/D25); v1.1 去除 2024 重复行(D-04)
     assert data["year_range"] == [2015, 2024]
     assert set(data["ranges"]) == {f"D{i}" for i in range(18, 26)}
     assert data["ranges"]["D18"]["min"] == 457.13  # 2022年劳动力成本为8年最低

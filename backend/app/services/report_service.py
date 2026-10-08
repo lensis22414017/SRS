@@ -893,7 +893,7 @@ def render_docx(context: dict) -> bytes:
     ])
 
     # 地图图件
-    _add_heading_styled(doc, "三、采样点空间分布")
+    _add_heading_styled(doc, "三、地图图件（采样点空间分布）")
     map_img = context["map_summary"].get("map_image")
     if map_img and map_img.startswith("data:image/png;base64,"):
         try:
@@ -904,6 +904,8 @@ def render_docx(context: dict) -> bytes:
             cp.italic = True
         except Exception:
             doc.add_paragraph("[地图图件渲染失败]")
+    else:
+        doc.add_paragraph("[无可用坐标或离线底图, 未生成地图图件]")
     _make_kv_table(doc, [
         ("坐标覆盖", f"{context['map_summary']['n_coord_points']}/{context['map_summary']['n_points']} 个点位"),
         ("空间范围", str(context['map_summary']['bounds'] or "无")),
@@ -1057,7 +1059,7 @@ def render_docx(context: dict) -> bytes:
 
     # 人工复核区
     doc.add_paragraph("")
-    _add_heading_styled(doc, "人工复核意见")
+    _add_heading_styled(doc, "十四、人工复核意见区")
     doc.add_paragraph("（请在此处填写复核意见）")
     doc.add_paragraph("\n\n")
 

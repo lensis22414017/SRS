@@ -8,6 +8,7 @@ from collections import defaultdict
 
 from sqlalchemy.orm import Session
 
+from app.models import PRE_REMEDIATION
 from app.models import (EvaluationResult, FactorDictionary, Measurement, SamplingPoint,
                         Site, StandardThreshold, ThresholdRule)
 from app.services.threshold_resolver import build_pollutant_limits, resolve_limit
@@ -55,7 +56,7 @@ def _series_and_means(db: Session, site_id: int):
     rows = (db.query(SamplingPoint.point_code, FactorDictionary.factor_code, Measurement.value)
             .join(Measurement, Measurement.sampling_point_id == SamplingPoint.id)
             .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id)
-            .filter(Measurement.site_id == site_id).all())
+            .filter(Measurement.site_id == site_id, Measurement.stage == PRE_REMEDIATION).all())
     series = defaultdict(list)
     for _, fc, v in rows:
         if v is not None:
@@ -81,7 +82,7 @@ def _organic_risk(db: Session, site_id: int, series: dict, means: dict) -> dict:
     rows = (db.query(FactorDictionary.factor_code, FactorDictionary.factor_name,
                      FactorDictionary.level1_category)
             .join(Measurement, Measurement.factor_id == FactorDictionary.id)
-            .filter(Measurement.site_id == site_id).distinct().all())
+            .filter(Measurement.site_id == site_id, Measurement.stage == PRE_REMEDIATION).distinct().all())
     info = {fc: (name, cat) for fc, name, cat in rows}
     organic = {fc: name for fc, (name, cat) in info.items()
                if cat == "环境指标" and name not in HM_EVAL_FACTORS and fc != "pH"}
@@ -357,7 +358,7 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
             mrows = (db.query(Measurement.value_used_for_model, Measurement.value,
                               Measurement.sampling_point_id, FactorDictionary.factor_name)
                      .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id, isouter=True)
-                     .filter(Measurement.site_id == site_id, Measurement.value.isnot(None)).all())
+                     .filter(Measurement.site_id == site_id, Measurement.stage == PRE_REMEDIATION, Measurement.value.isnot(None)).all())
             sv = {}
             per_point = {}
             for value_used, value, point_id, fn in mrows:
@@ -437,7 +438,7 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
     measured_factor_rows = (db.query(FactorDictionary.factor_code, FactorDictionary.factor_name,
                                      FactorDictionary.level1_category)
                             .join(Measurement, Measurement.factor_id == FactorDictionary.id)
-                            .filter(Measurement.site_id == site_id).distinct().all())
+                            .filter(Measurement.site_id == site_id, Measurement.stage == PRE_REMEDIATION).distinct().all())
     heavy_factor_codes = []
     organic_factor_codes = []
     factor_names = {}

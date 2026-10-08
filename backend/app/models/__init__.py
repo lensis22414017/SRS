@@ -23,6 +23,11 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.db.base import Base, TimestampMixin
 
 
+# v1.1 (C4): 数据阶段常量。课题一(KOS)/课题二(重构)只读修复前数据; 课题三(SSUI)读 ssui_records。
+PRE_REMEDIATION = "pre_remediation"
+POST_REMEDIATION = "post_remediation"
+
+
 # ---------------- 权限与组织 ----------------
 class Organization(Base, TimestampMixin):
     __tablename__ = "organizations"
@@ -185,6 +190,11 @@ class ImportBatch(Base, TimestampMixin):
     script_version: Mapped[str | None] = mapped_column(String(30), nullable=True)
     status: Mapped[str] = mapped_column(String(20), default="success")
     imported_by: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+    # v1.1 (C4): 数据阶段/子课题/来源真实性/方法版本 — 修复前与修复后数据分离
+    stage: Mapped[str] = mapped_column(String(30), default="pre_remediation", index=True)  # pre_remediation/post_remediation
+    subproject: Mapped[str | None] = mapped_column(String(10), nullable=True, index=True)   # S1/S2/S3
+    data_origin: Mapped[str] = mapped_column(String(30), default="field")                  # field/client_real/monte_carlo_demo/test_fixture
+    method_version: Mapped[str | None] = mapped_column(String(40), nullable=True)
 
 
 class Measurement(Base, TimestampMixin):
@@ -210,6 +220,8 @@ class Measurement(Base, TimestampMixin):
     evidence_level: Mapped[str] = mapped_column(String(20), default="A")
     data_origin: Mapped[str] = mapped_column(String(30), default="field")
     source_file_id: Mapped[int | None] = mapped_column(ForeignKey("file_objects.id"), nullable=True)
+    # v1.1 (C4): 测值所属阶段; 课题一/二只读取 pre_remediation
+    stage: Mapped[str] = mapped_column(String(30), default="pre_remediation", index=True)
 
 
 # v0.2 P1-2: 数据集版本 — 统一管理数据快照
@@ -343,6 +355,85 @@ class EvaluationResult(Base, TimestampMixin):
     limiting_factors: Mapped[dict | None] = mapped_column(JSON, nullable=True)
     risk_factors: Mapped[dict | None] = mapped_column(JSON, nullable=True)
     explanation: Mapped[str | None] = mapped_column(Text, nullable=True)
+    # v1.1: 阶段/子课题/方法状态(provisional=方法待课题组确认)
+    stage: Mapped[str | None] = mapped_column(String(30), nullable=True)
+    subproject: Mapped[str | None] = mapped_column(String(10), nullable=True)
+    method_version: Mapped[str | None] = mapped_column(String(40), nullable=True)
+    method_status: Mapped[str | None] = mapped_column(String(20), nullable=True)
+    source_batch_id: Mapped[int | None] = mapped_column(Integer, nullable=True)
+
+
+# ---------------- v1.1 课题三: 修复后 SSUI 独立导入 ----------------
+class SSUIImportBatch(Base, TimestampMixin):
+    """修复后 SSUI 数据批次(课题三), 与修复前检测数据(import_batches)物理分离。
+
+    status: previewed(仅校验, 未入库) → confirmed(事务入库) / rejected / superseded
+    """
+    __tablename__ = "ssui_import_batches"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    site_id: Mapped[int] = mapped_column(ForeignKey("sites.id"), index=True)
+    source_file: Mapped[str] = mapped_column(String(300))
+    source_sha256: Mapped[str] = mapped_column(String(64), index=True)
+    template_version: Mapped[str] = mapped_column(String(30))
+    stage: Mapped[str] = mapped_column(String(30), default="post_remediation")
+    track: Mapped[str] = mapped_column(String(20))  # production/ecology
+    evaluation_year: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    years_since_remediation: Mapped[float | None] = mapped_column(Float, nullable=True)  # t
+    multiplier_m: Mapped[float | None] = mapped_column(Float, nullable=True)            # M
+    data_origin: Mapped[str] = mapped_column(String(30), default="client_real")
+    status: Mapped[str] = mapped_column(String(20), default="previewed")
+    row_count: Mapped[int] = mapped_column(Integer, default=0)
+    valid_count: Mapped[int] = mapped_column(Integer, default=0)
+    error_count: Mapped[int] = mapped_column(Integer, default=0)
+    validation_report: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    mapping_snapshot: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    method_version: Mapped[str | None] = mapped_column(String(40), nullable=True)
+    imported_by: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+    confirmed_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+
+
+class SSUIRecord(Base, TimestampMixin):
+    """修复后 D1–D25 指标值(每批次每指标一行), 保留源表 sheet/行/列。"""
+    __tablename__ = "ssui_records"
+    __table_args__ = (UniqueConstraint("batch_id", "indicator_code", name="uq_ssui_record"),)
+    id: Mapped[int] = mapped_column(primary_key=True)
+    batch_id: Mapped[int] = mapped_column(ForeignKey("ssui_import_batches.id"), index=True)
+    site_id: Mapped[int] = mapped_column(ForeignKey("sites.id"), index=True)
+    indicator_code: Mapped[str] = mapped_column(String(10))  # D1..D25
+    indicator_name: Mapped[str | None] = mapped_column(String(80), nullable=True)
+    raw_value: Mapped[float | None] = mapped_column(Float, nullable=True)
+    unit: Mapped[str | None] = mapped_column(String(30), nullable=True)
+    score: Mapped[float | None] = mapped_column(Float, nullable=True)  # S_j 分级得分 0–1
+    source_sheet: Mapped[str | None] = mapped_column(String(60), nullable=True)
+    source_row: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    source_col: Mapped[str | None] = mapped_column(String(10), nullable=True)
+    note: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+
+class UtilizationDecision(Base, TimestampMixin):
+    """v1.1 (C3): 修复后利用方向结论。法规安全门禁不可被评分抵消。
+
+    decision_state: production_supported / ecology_supported / both_supported /
+                    neither_supported / insufficient_evidence
+    """
+    __tablename__ = "utilization_decisions"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    site_id: Mapped[int] = mapped_column(ForeignKey("sites.id"), index=True)
+    stage: Mapped[str] = mapped_column(String(30))
+    decision_state: Mapped[str] = mapped_column(String(40))
+    conclusion_text: Mapped[str] = mapped_column(Text)
+    production_gate: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    ecology_gate: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    production_score: Mapped[float | None] = mapped_column(Float, nullable=True)
+    ecology_score: Mapped[float | None] = mapped_column(Float, nullable=True)
+    evidence: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    assumptions: Mapped[list | None] = mapped_column(JSON, nullable=True)
+    missing_evidence: Mapped[list | None] = mapped_column(JSON, nullable=True)
+    method_version: Mapped[str] = mapped_column(String(40))
+    method_status: Mapped[str] = mapped_column(String(20), default="provisional")
+    input_fingerprint: Mapped[str | None] = mapped_column(String(64), nullable=True, index=True)
+    data_origin: Mapped[str] = mapped_column(String(30), default="field")
+    created_by: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
 
 
 # ---------------- 推荐与技术库 ----------------

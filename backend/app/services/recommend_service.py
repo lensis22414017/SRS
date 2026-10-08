@@ -9,6 +9,7 @@ import sys
 
 from sqlalchemy.orm import Session
 
+from app.models import PRE_REMEDIATION
 from app.models import (
     DiagnosisFactorDetail, DiagnosisResult, FactorDictionary, Measurement,
     Recommendation, Site, TechnologyLibrary,
@@ -29,7 +30,7 @@ def _organic_factors_of(db: Session, site_id: int) -> list[str]:
     """场地实测有机污染物因子名(环境指标 - 重金属), 用于 OP 降级推荐匹配。"""
     return [name for (name,) in (db.query(FactorDictionary.factor_name)
             .join(Measurement, Measurement.factor_id == FactorDictionary.id)
-            .filter(Measurement.site_id == site_id,
+            .filter(Measurement.site_id == site_id, Measurement.stage == PRE_REMEDIATION,
                     FactorDictionary.level1_category == "环境指标",
                     ~FactorDictionary.factor_name.in_(
                         ["砷", "铅", "铜", "锌", "镉", "铬", "汞", "镍"]))
@@ -84,7 +85,7 @@ def run_recommendation(db: Session, site_id: int, top_k: int = 5) -> dict:
                              Measurement.sampling_point_id,
                              FactorDictionary.factor_name, FactorDictionary.factor_code)
                     .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id, isouter=True)
-                    .filter(Measurement.site_id == site_id, Measurement.value.isnot(None)).all())
+                    .filter(Measurement.site_id == site_id, Measurement.stage == PRE_REMEDIATION, Measurement.value.isnot(None)).all())
             sv = {}
             per_point = {}
             for value_used, value, point_id, fn, fc in rows:

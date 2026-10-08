@@ -332,6 +332,14 @@ _CONVERSION_MATRIX: dict[tuple[str, str], float] = {
 }
 
 
+_SPECIATION_TOKENS = ("六价", "三价", "vi", "iii", "6+", "3+", "有效态", "水溶态", "交换态", "甲基", "无机")
+
+
+def _is_speciation_qualifier(text: str) -> bool:
+    t = (text or "").strip().lower()
+    return bool(t) and any(t == k or t.startswith(k) for k in _SPECIATION_TOKENS)
+
+
 def _extract_unit(col_name: str) -> tuple[str | None, str, str]:
     """从列名提取单位信息。返回 (unit_raw, factor_name, unit_category)。
 
@@ -349,6 +357,10 @@ def _extract_unit(col_name: str) -> tuple[str | None, str, str]:
     # 匹配括号内的单位（中文括号 / 英文括号）
     s = str(col_name)
     m = re.search(r"[（(]\s*([^)）\s]*)\s*[)）]", s)
+    if m and _is_speciation_qualifier(m.group(1)):
+        # v1.1: "(六价)" / "(VI)" / "(有效态)" 是形态限定词而非单位, 不得剥离
+        # (旧逻辑把 "铬(六价)" 剥成 "铬" → 误判为总铬, 六价铬限值远低于总铬)
+        return None, s, "unknown"
     if m:
         raw_unit = m.group(1).strip()
         # 移除括号及其内容

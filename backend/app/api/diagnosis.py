@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 from app.core.config import get_settings
 from app.core.deps import assert_site_access, get_current_user
 from app.db.session import get_db
+from app.models import PRE_REMEDIATION
 from app.models import (
     DiagnosisFactorDetail, DiagnosisResult, FactorDictionary, MLModel, SamplingPoint, Site, User,
 )
@@ -252,7 +253,7 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
                      Measurement.qa_status, Measurement.sampling_point_id,
                      FactorDictionary.factor_name, FactorDictionary.factor_code)
             .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id, isouter=True)
-            .filter(Measurement.site_id == site_id)
+            .filter(Measurement.site_id == site_id, Measurement.stage == PRE_REMEDIATION)
             .all())
 
     EXTREME_THRESHOLD_MGKG = 10000.0
@@ -323,7 +324,7 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
             FactorDictionary.factor_code.in_(["pH", "pH_value", "SoilpH"])).first()
         if ph_factor:
             ph_meas = db.query(Measurement).filter(
-                Measurement.site_id == site_id,
+                Measurement.site_id == site_id, Measurement.stage == PRE_REMEDIATION,
                 Measurement.factor_id == ph_factor.id,
                 Measurement.qa_status != "rejected").order_by(Measurement.value.desc()).first()
             if ph_meas:

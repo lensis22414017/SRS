@@ -706,9 +706,11 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
     # 未知有机物三道防线
     # v1.0.3: 已知因子包含所有系统认识的因子
     from app.models import FactorDictionary
-    known_factors = (set(factors.keys()) | set(thresholds.keys())
-                     | {fd.factor_code for fd in db_session.query(FactorDictionary.factor_code).all() if fd.factor_code}
-                     | {fd.factor_name for fd in db_session.query(FactorDictionary.factor_name).all() if fd.factor_name})
+    known_factors = set(factors.keys()) | set(thresholds.keys())
+    # v1.1: db_session 可为空(纯函数调用/单元测试); 仅在有会话时补充因子字典, 不再 NoneType 崩溃
+    if db_session is not None:
+        known_factors |= {fd.factor_code for fd in db_session.query(FactorDictionary.factor_code).all() if fd.factor_code}
+        known_factors |= {fd.factor_name for fd in db_session.query(FactorDictionary.factor_name).all() if fd.factor_name}
     organic_result = guardrail_check(factors, known_factors)
 
     # 模型贡献度: 优先解释一个真实的最不利采样点; 不得把不同点位最大值

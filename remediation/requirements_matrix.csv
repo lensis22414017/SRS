@@ -1,0 +1,18 @@
+﻿req_id,requirement,source,current_implementation_36aabf4,gap,change_location,acceptance_test,evidence,status,blocker
+C1,与陈亮、伟杰对齐方法/数据/结果颗粒度,Notes_260731 §1；任务书§4/§5,无版本化映射,需 source→schema→method→result 映射与差异记录,remediation/crosswalk/*,G1 审阅：每个指标有来源/单位/方向/权重版本,,open,
+C2,演示全部数据，三个课题不同,Notes §2,仅 30 个演示场地 + 3 个甲方场地；课题无区分,每课题独立导入/分析/导出 + 覆盖率台账,backend subproject 字段；demo 包,G2 每课题 e2e + coverage_accounting.csv,,open,
+C3,修复后适合生产还是生态的结论,Notes §3,仅两轨各自得分；生态轨缺污染物约束（缺陷）,五种利用结论状态 + 安全门禁 + 证据,ml/evaluation/utilization.py；evaluation_service,G3 参考算例测试,,open,
+C4,课题一二修复前、课题三修复后 SSUI，SSUI 增加导入,Notes §4,SSUI 无独立导入；无修复阶段字段,阶段/批次/来源分离 + SSUI 导入流程,models + alembic 0007；api/ssui_import,G4/G5 测试,,open,
+C5,全流程追溯点进即见全流程，指导上传下载,Notes §5,需先选场地并初始化,选场地前展示五阶段与材料要求；之后显示真实进度,frontend Trace*.tsx；api/workflow,G6 UI + 权限测试,,open,
+C6,用户手册 + PPT 形式,Notes §6,手册为 07-23 版，截图旧,按最终版本更新手册 docx/pdf + 可编辑操作 PPT + 演示脚本,docs/；release assets,G9 一致性检查,,open,
+R1,数据录入/存储/查询/校验/导出,甲方需求.docx §1,已实现（导入/列表/EDA/导出）,回归验证,—,回归测试 + UI,,to_verify,
+R2,可视化：图表/场地地图；单/多场地统计,甲方需求.docx §1,已实现,回归验证；地图标签重叠,—,UI,,to_verify,
+R3,关键障碍因子识别,甲方需求.docx §2,KOS 双轨,启发式阈值不得进正式 Top-N,kos_service,G3,,to_verify,
+R4,功能重构可行性评价,甲方需求.docx §2,内梅罗综合；生态轨缺陷,见 C3,reconstruction.py,G3,,open,
+R5,可持续利用评价,甲方需求.docx §2,SSUI D1–D25；缺经济阻断,见 C4,ssui.py,G4,,to_verify,
+R6,重构方案推荐（技术库）,甲方需求.docx §2,规则匹配；有机兜底失败,修复有机兜底,recommend_service,测试,,open,
+R7,全流程追溯五阶段 + 一键报告,甲方需求.docx §3,已实现；DOCX 缺地图章节,见 C5,report_service,G6,,open,
+R8,权限分级四类用户,甲方需求.docx §4,RBAC 四角色,站点级隔离回归,auth,G6,,to_verify,
+R9,操作日志,甲方需求.docx §4,audit_logs,日志准确性,audit_service,G7,,to_verify,
+R10,加密存储/定期备份/登录安全,甲方需求.docx §4,AES-GCM、备份服务,恢复演练,backup_service,G7,,to_verify,
+R11,Windows 安装包与发布,合同交付物/任务书§14,1.0.1 exe 已编译；无安装验收,CI 构建+安装+工作流验收；发布,packaging/；.github/workflows,G8,,blocked,需 GitHub 凭据

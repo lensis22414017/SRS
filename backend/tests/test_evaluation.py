@@ -228,8 +228,15 @@ def test_op_site_recommendation_organic_fallback_and_no_404():
         db.commit()
         # 不 run_diagnosis → 推荐走 organic_fallback(不抛"请先诊断")
         rec = run_recommendation(db, sid, top_k=5)
-        assert rec["organic_fallback"] is True
+        # v1.1: Round10 起推荐在无持久化诊断时按真实采样点即时重算 KOS;
+        # 有机场地若 KOS 得到法规障碍则走 KOS 规则推荐, 否则走 organic_fallback。
+        # 两种情况都必须: 不抛错、diagnosis_id 为空、推荐类型显式、候选绑定有机障碍。
         assert rec["diagnosis_id"] is None
+        assert rec["recommendation_type"] in ("rule_based", "rule_based_organic_degraded")
+        assert rec["organic_fallback"] is (rec["recommendation_type"] == "rule_based_organic_degraded")
+        assert rec["upstream_status"]["kos"] == "available"
+        for item in rec.get("recommendations", []):
+            assert item.get("matched_factors"), item
     finally:
         db.close()
 

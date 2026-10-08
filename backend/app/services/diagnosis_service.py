@@ -14,6 +14,7 @@ import sys
 import pandas as pd
 from sqlalchemy.orm import Session
 
+from app.models import PRE_REMEDIATION
 from app.models import (
     DiagnosisFactorDetail, DiagnosisResult, FactorDictionary, MLModel,
     Measurement, SamplingPoint, Site,
@@ -106,7 +107,7 @@ def pivot_site_measurements(db: Session, site_id: int) -> pd.DataFrame:
                      Measurement.value)
             .join(Measurement, Measurement.sampling_point_id == SamplingPoint.id)
             .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id)
-            .filter(Measurement.site_id == site_id).all())
+            .filter(Measurement.site_id == site_id, Measurement.stage == PRE_REMEDIATION).all())
     if not rows:
         return pd.DataFrame()
     df = pd.DataFrame(rows, columns=["point_code", "factor_code", "value"])

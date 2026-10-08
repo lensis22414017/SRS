@@ -532,9 +532,15 @@ def test_csv_schema_complete():
         for c in required:
             assert c in cols, f"CSV 缺列 {c}"
         rows = list(reader)
-        assert len(rows) == 48, f"应有 48 行(8指标×6年), 实际 {len(rows)}"
         codes = {r["indicator_code"] for r in rows}
         assert codes == {f"D{i}" for i in range(18, 26)}, f"代码必须 D18-D25, 实际 {codes}"
+        # v1.1: 原断言"恰好 48 行"在 Round10 扩充参照年份(2015-2024)后过时;
+        # 改为结构性约束: 每指标每年唯一、每指标至少 6 个独立年份。
+        keys = [(r["indicator_code"], r["scope"], r["crop"], r["region"], r["year"]) for r in rows]
+        assert len(keys) == len(set(keys)), "同一指标同一年份不得重复"
+        for code in codes:
+            years = {r["year"] for r in rows if r["indicator_code"] == code}
+            assert len(years) >= 6, f"{code} 独立年份不足 6 个: {sorted(years)}"
 
 
 def test_csv_ranges_are_computed_from_independent_years():
@@ -593,3 +599,21 @@ def test_real_p3alpha_artifact_loaded():
     # reason 不能是 "test_mode"(P0-7.1 明确禁止的冒充标记)
     reason = health.get("reason", "")
     assert reason != "test_mode", "P0-7.1: reason 不能是冒充标记 test_mode"
+
+
+def test_reference_loader_rejects_duplicate_years(tmp_path):
+    """v1.1: 重复年份行不能被当作独立样本(原 CSV 中 D24/D25 2024 年各出现 3 次)。"""
+    import csv, sys
+    sys.path.insert(0, os.path.join(os.path.dirname(ECON_REF_CSV), "..", "..", "ml", "evaluation"))
+    from reference_loader import load_economic_reference
+    with open(ECON_REF_CSV, encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        fields, rows = reader.fieldnames, list(reader)
+    dup = [r for r in rows if r["indicator_code"] == "D24"][0]
+    bad = tmp_path / "dup.csv"
+    with open(bad, "w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=fields)
+        w.writeheader(); w.writerows(rows + [dup])
+    res = load_economic_reference(str(bad))
+    assert res["valid"] is False
+    assert any("重复" in e for e in res["errors"])
