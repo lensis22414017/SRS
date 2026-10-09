@@ -84,7 +84,7 @@ def phase_snapshot(base, demo, out):
     old = json.load(open(p, encoding="utf-8"))
     os.replace(p, os.path.join(out, "state_after_full_phase.json"))
     H = http(base); DR.ensure_admin(H, ADMIN)
-    st = _write_state(H, {c: v["site_id"] for c, v in old["sites"].items()}, out)
+    st = json.loads(json.dumps(_write_state(H, {c: v["site_id"] for c, v in old["sites"].items()}, out), default=str))  # 元组→列表, 与读回的旧状态同型
     for c, v in st["sites"].items():
         check(f"snapshot [{c}]: post decision unchanged by screenshot stage",
               json.dumps(v["decision_post"], sort_keys=True, default=str) == json.dumps(old["sites"][c]["decision_post"], sort_keys=True, default=str))
