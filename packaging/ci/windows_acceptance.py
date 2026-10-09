@@ -62,17 +62,35 @@ def phase_full(base, demo, out):
     res = DR.run_all(H, demo, os.path.join(out, "demo_actual"), admin=ADMIN)
     for c in res["checks"]:
         check("demo " + c["check"], c["passed"], c["detail"])
+    _write_state(H, {code: s["site_id"] for code, s in res["scenarios"].items()}, out)
+
+
+def _write_state(H, site_ids, out, name="state_before_restart.json"):
     state = {"sites": {}}
-    for code, s in res["scenarios"].items():
-        sid = s["site_id"]
+    for code, sid in site_ids.items():
         dec = H.get(f"/api/v1/sites/{sid}/utilization", params={"stage": "post_remediation"}).json()["decision"]
         rb = H.get(f"/api/v1/sites/{sid}/recon/batches").json()["batches"]
         sb = H.get(f"/api/v1/sites/{sid}/ssui-post/batches").json()["batches"]
         state["sites"][code] = {"site_id": sid, "decision_post": dec,
                                 "recon": [(b["batch_id"], b["status"], b["production"], b["ecology"]) for b in rb],
                                 "ssui": sorted([(b["track"], b["ssui"]) for b in sb if b["status"] == "confirmed"])}
-    json.dump(state, open(os.path.join(out, "state_before_restart.json"), "w", encoding="utf-8"), ensure_ascii=False,
-              indent=1, default=str)
+    json.dump(state, open(os.path.join(out, name), "w", encoding="utf-8"), ensure_ascii=False, indent=1, default=str)
+    return state
+
+
+def phase_snapshot(base, demo, out):
+    """截图阶段(会上传夹具生成预览批次)之后、停止程序之前, 重新记录重启前状态。"""
+    p = os.path.join(out, "state_before_restart.json")
+    old = json.load(open(p, encoding="utf-8"))
+    os.replace(p, os.path.join(out, "state_after_full_phase.json"))
+    H = http(base); DR.ensure_admin(H, ADMIN)
+    st = _write_state(H, {c: v["site_id"] for c, v in old["sites"].items()}, out)
+    for c, v in st["sites"].items():
+        check(f"snapshot [{c}]: post decision unchanged by screenshot stage",
+              json.dumps(v["decision_post"], sort_keys=True, default=str) == json.dumps(old["sites"][c]["decision_post"], sort_keys=True, default=str))
+        check(f"snapshot [{c}]: confirmed S2/S3 unchanged by screenshot stage",
+              [b for b in v["recon"] if b[1] == "confirmed"] == [b for b in old["sites"][c]["recon"] if b[1] == "confirmed"]
+              and v["ssui"] == old["sites"][c]["ssui"], len(v["recon"]) - len(old["sites"][c]["recon"]))
 
 
 def phase_restart(base, demo, out):
@@ -158,7 +176,7 @@ def phase_portable(base, demo, out):
     check("portable: evaluation", r.status_code == 200, r.status_code)
 
 
-PHASES = {"full": phase_full, "restart": phase_restart, "seed_v11": phase_seed_v11, "upgrade": phase_upgrade,
+PHASES = {"full": phase_full, "snapshot": phase_snapshot, "restart": phase_restart, "seed_v11": phase_seed_v11, "upgrade": phase_upgrade,
           "portable": phase_portable}
 
 if __name__ == "__main__":

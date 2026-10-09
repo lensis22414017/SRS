@@ -153,10 +153,13 @@ jobs:
           $code = $LASTEXITCODE
           python packaging/ci/ui_screenshots.py --base "http://127.0.0.1:$env:SRS_PORT" --out acceptance_out/screenshots --stage main --demo demo/mc_v12
           $shot = $LASTEXITCODE
+          python packaging/ci/windows_acceptance.py --base "http://127.0.0.1:$env:SRS_PORT" --demo demo/mc_v12 --out acceptance_out --phase snapshot
+          $snap = $LASTEXITCODE
           Stop-Process -Id $env:APP_PID -Force -ErrorAction SilentlyContinue; Start-Sleep 5
           Get-Process SRS -ErrorAction SilentlyContinue | Stop-Process -Force
           if ($code -ne 0) { throw "acceptance full phase failed" }
           if ($shot -ne 0) { throw "screenshot capture failed" }
+          if ($snap -ne 0) { throw "pre-restart snapshot failed" }
 
       - name: Restart consistency (repeated launch)
         run: |

@@ -44,7 +44,8 @@ def content():
     h2("1.1 系统定位")
     p("SRS 面向污染场地修复与再利用监管，支持从修复前调查数据到修复后可持续利用评价的全过程记录、计算与追溯。"
       "系统由生态环境部土壤与农业农村生态环境监管技术中心委托，浙江大学环境与资源学院研制。本手册对应 v" + VERSION +
-      "（年度验收候选版），界面截图均采集自 Windows 实际安装的 v" + VERSION + " 程序。")
+      "（年度验收候选版），界面截图均采集自 Windows 实际安装的 v" + VERSION + " 程序，数据为合成演示数据；"
+      "较长页面在手册中只截取上部，完整页面见截图包。")
     h2("1.2 三个课题与数据阶段")
     p("修复前数据只进入课题一、课题二的计算；修复后数据只能通过课题三的独立导入功能进入系统。两类数据在数据库中分表存储，不会互相替代，也不会自动复制。")
     tb(["课题", "功能", "数据阶段", "入口", "主要输出"], [
@@ -337,7 +338,12 @@ def build_docx(C, shots, out_path):
             f, cap = x
             path = os.path.join(shots, f) if shots else None
             if path and os.path.isfile(path):
-                doc.add_picture(path, width=Cm(16.5))
+                from PIL import Image as PI
+                w0, h0 = PI.open(path).size
+                if 16.5 * h0 / w0 > 20:
+                    doc.add_picture(path, height=Cm(20))
+                else:
+                    doc.add_picture(path, width=Cm(16.5))
                 doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
             else:
                 missing.append(f)
