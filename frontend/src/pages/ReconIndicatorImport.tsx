@@ -119,12 +119,12 @@ export default function ReconIndicatorImport() {
             <Descriptions.Item label="工作表">{preview.sheet}</Descriptions.Item>
             <Descriptions.Item label="SHA-256"><Text copyable style={{ fontSize: 12 }}>{preview.sha256?.slice(0, 16)}…</Text></Descriptions.Item>
             <Descriptions.Item label="点位数">{preview.point_count}</Descriptions.Item>
-            <Descriptions.Item label="已映射指标">{Object.keys(preview.mapping || {}).length} / 28</Descriptions.Item>
+            <Descriptions.Item label="已识别指标列">{Object.keys(preview.mapping || {}).length} 列（含生态附加指标）</Descriptions.Item>
             <Descriptions.Item label="未提供的指标" span={2}>{(preview.absent_features || []).join("、") || "无"}</Descriptions.Item>
             <Descriptions.Item label="清洗记录">{preview.cleaning_log?.length || 0} 个单元格</Descriptions.Item>
             <Descriptions.Item label="告警">{preview.warning_count}</Descriptions.Item>
             <Descriptions.Item label="预览得分">{["production", "ecology"].map((s) => preview.preview_evaluation?.[s]
-              ? `${s === "production" ? "生产" : "生态"} ${preview.preview_evaluation[s].score ?? "—"}（${preview.preview_evaluation[s].grade}）` : "").join("；")}</Descriptions.Item>
+              ? `${s === "production" ? "生产" : "生态"} ${preview.preview_evaluation[s].score ?? "—"}（${preview.preview_evaluation[s].grade}）` : "").filter(Boolean).join("；") || "—"}</Descriptions.Item>
           </Descriptions>
           {preview.errors?.length > 0
             ? <Table size="small" rowKey={(_, i) => String(i)} pagination={{ pageSize: 10 }} dataSource={preview.errors}

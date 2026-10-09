@@ -99,7 +99,7 @@ function EvalBlock({ title, e, organicRisk }: { title: string; e: any; organicRi
           seqCol(64),
           textCol("评价指标", "indicator"),
           numCol("指标得分 F", "F"),
-          numCol("归一权重", "norm_weight", { render: (v: number) => v != null ? (v * 100).toFixed(2) + "%" : "—" }),
+          numCol("权重 W", "weight", { render: (v: number, r: any) => { const w = v ?? r.norm_weight; return w != null ? Number(w).toFixed(4) : "—"; } }),
           numCol("贡献", "contribution"),
           {
             title: "贡献可视化", dataIndex: "contribution", key: "bar",
@@ -208,15 +208,13 @@ export default function ReconstructionAnalysis() {
           <FormulaBlock
             title="功能重构可行性综合得分"
             latex={"T_{total} = \\sum_{i=1}^{n} \\left(F_i \\times W_i\\right)"}
-            source="《污染场地土壤生态-生产功能障碍识别与重构利用的评价方法》第二章 §2.3 改进模糊综合评价法"
-            note="F_i 为第 i 项指标得分（1~100 分等），W_i 为归一化权重；T_total > 50 判定为可行"
+            source="《（2025年）污染场地土壤生态-生产功能障碍识别与重构利用的评价方法+年度报告》表2.18–2.23、§2.3.3（方法 M-REC-2025）"
+            note="F_i 为第 i 项指标按表2.22 的分等赋值，W_i 为表2.18/2.20 指标层权重（原值，不归一）；缺测时按表2.19/2.21 准则层计算，土壤质量类与修复潜力类用内梅罗指数；T_total > 50 可行，≤ 50 不可行"
           >
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 4 }}>
               {[
-                { range: "> 70", label: "高度可行", color: "#16a34a" },
-                { range: "50 ~ 70", label: "基本可行", color: "#3b82f6" },
-                { range: "30 ~ 50", label: "有条件可行", color: "#f59e0b" },
-                { range: "< 30", label: "不可行", color: "#dc2626" },
+                { range: "> 50", label: "可行", color: "#16a34a" },
+                { range: "≤ 50", label: "不可行", color: "#dc2626" },
               ].map((g) => (
                 <Tag key={g.range} color={g.color} style={{ fontSize: 11 }}>
                   {g.range}：{g.label}
