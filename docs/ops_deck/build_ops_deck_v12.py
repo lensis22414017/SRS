@@ -9,6 +9,7 @@ import argparse
 import copy
 import json
 import os
+import re
 
 from pptx import Presentation
 from pptx.enum.text import PP_ALIGN
@@ -287,7 +288,7 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
     deck_textbox(s, 0.95, 6.5, 11.5, 0.5, ["单位 mg/kg；GB 36600-2018 表1，标准第 3–4 页。规划用途不明确时按第一类用地（5.3.1）。"], size=11, color="grey")
     # 13 个旧(内部)
     if not public and gejiu:
-        s = D.slide("十二、真实数据复核：个旧（内部版）", "评分可行≠可利用：子课题测试表生产 " + str(gejiu.get("prod_score")) + " 可行；甲方个旧场地 As、Pb 超管制值 → 两轨均不支持",
+        s = D.slide("十二、真实数据复核：个旧（内部版）", "评分可行≠可利用：甲方个旧场地 As、Pb 超管制值 → 两轨均不支持",
                     "两份不同的数据: (1) 甲方个旧场地表 134 点(修复前), 旧版 v1.0.x 曾判生态可行 63.29, v1.1 起法规门禁 As、Pb 134/134 点超管制值 → 均不支持, v1.2 不变; "
                     "(2) 子课题个旧测试表 81 点(来源未核实), v1.2 按冻结方法 生产 " + str(gejiu.get("prod_score")) + "、生态 " + str(gejiu.get("eco_score")) + "。说明方法得分与法规门禁的分工。",
                     "来源：D09 包；data/raw 甲方个旧工作簿；test_gejiu_real_data_fails_both_gates_and_score_cannot_offset")
@@ -334,6 +335,10 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
     for k, lab in (("full", "首启 + 5 场景 + 8 夹具"), ("restart", "重启一致性"), ("seed_v11", "v1.1.0 旧版准备"), ("upgrade", f"升级到 v{VERSION}"),
                    ("portable", "便携版"), ("standard_user", "标准(非管理员)账户")):
         v = acc.get(k)
+        if not v and k == "standard_user" and os.path.exists(os.path.join(evidence, "standard_user.txt")):
+            t = open(os.path.join(evidence, "standard_user.txt"), encoding="utf-8", errors="ignore").read()
+            m = re.search(r"installer exit: (\d+)", t)
+            rows.append([lab, f"已尝试：安装程序退出码 {m.group(1) if m else '?'}，未完成，待实机复测"]); continue
         rows.append([lab, f"{v[0]}/{v[1]} 通过" if v else "未执行（见验收记录）"])
     deck_table(s, 0.95, 1.75, 6.0, 4.0, rows, [3.2, 2.8], font=12.5)
     deck_box(s, 7.15, 1.75, 5.3, 4.0, text=[[("发布信息", {"bold": True, "size": 14, "color": "brown"})],
