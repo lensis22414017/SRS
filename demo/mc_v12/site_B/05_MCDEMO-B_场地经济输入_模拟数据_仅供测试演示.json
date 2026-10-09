@@ -1,0 +1,16 @@
+{
+ "unit": "元/亩·年",
+ "area_mu": 1.0,
+ "labour_cost": 959.4,
+ "machinery_cost": 446.0,
+ "fertilizer_cost": 416.3,
+ "seed_cost": 106.0,
+ "irrigation_cost": 100.4,
+ "total_cost": 2028.0,
+ "yield_kg": 572.6,
+ "price_yuan_per_kg": 2.622,
+ "revenue": 1501.3,
+ "net_income": -526.7,
+ "benefit_cost_ratio": 0.7403,
+ "derivation": "total_cost=Σ组分; revenue=yield×price; ratio=revenue/total_cost"
+}

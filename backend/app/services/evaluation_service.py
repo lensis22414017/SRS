@@ -219,6 +219,30 @@ def _evaluation_organic_degraded(db: Session, site_id: int, site: Site,
     }
 
 
+def _evaluate_m2025(db: Session, site_id: int, means: dict, scope: str, ph) -> dict:
+    import reconstruction_m2025 as M2
+    from app.services import recon_import_service as RI
+    values: dict = {}
+    sources: dict = {}
+    for name, v in (means or {}).items():
+        fid = M2.feature_id(name)
+        if fid and not fid.startswith("__") and v is not None:
+            values[fid] = v
+            sources[fid] = "检测数据(measurements)"
+    b = RI.latest_confirmed(db, site_id)
+    land_subtype, eco_class = None, "第一类用地"
+    if b is not None:
+        bv, _meta = M2.site_representative(RI.batch_points(db, b))
+        for fid, v in bv.items():
+            values[fid] = v
+            sources[fid] = f"课题二指标批次 #{b.id}"
+        land_subtype, eco_class = b.land_subtype, b.eco_land_class or "第一类用地"
+    r = M2.evaluate(values, scope, ph=ph, land_subtype=land_subtype, eco_land_class=eco_class)
+    r["value_sources"] = sources
+    r.pop("items", None)
+    return r
+
+
 def _integrate_weighting_and_mice(means: dict, scope: str) -> dict:
     """返回不伪造的单场地评价参数。
 
@@ -337,14 +361,9 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
     results = {}
     # Round8 审计一类: 双轨重构用独立循环变量 recon_scope, 严禁覆盖入参 requested_scope
     for recon_scope in ("production", "ecology"):
-        screen = {}
-        for f in ("砷", "铅", "铜", "锌", "镉", "铬", "汞", "镍"):
-            lim = (resolve_limit(_limits(), f, ph, scope=recon_scope,
-                                 land_subtype="其他用地") or {}).get("limit")
-            screen[f] = lim
-        # v1.0.2(GPT P0-3): AHP主观权重 + MICE插补集成
-        eval_kwargs = _integrate_weighting_and_mice(means, recon_scope)
-        r = R.evaluate(means, recon_scope, ph=ph, screen_limits=screen, **eval_kwargs)
+        # v1.2: 冻结方法基线 M-REC-2025(表2.18–2.23); 检测数据按别名映射到 28 项指标,
+        # 若有已确认的课题二指标批次, 以该批次场地代表值为准(逐指标覆盖)。
+        r = _evaluate_m2025(db, site_id, means, recon_scope, ph)
         et = "reconstruction_prod" if recon_scope == "production" else "reconstruction_eco"
         # P4: 合并 KOS key_obstacles 到 limiting_factors(功能重构读 KOS Top)
         # R3 审计第四类: 删除 except Exception: pass, 改为结构化错误处理

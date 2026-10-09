@@ -319,6 +319,22 @@ export const api = {
     saveBlob(r.data as Blob, `SRS_课题三SSUI结果_批次${batchId}.xlsx`);
   },
 
+
+  // ── v1.2: 课题二 28 项重构指标导入(修复前) ──
+  reconBaseline: () => client.get("/methods/reconstruction-baseline").then((r) => r.data),
+  reconPreview: (siteId: number, file: File, opts: Record<string, string>) => {
+    const fd = new FormData(); fd.append("file", file);
+    Object.entries(opts).forEach(([k, v]) => { if (v) fd.append(k, v); });
+    return client.post(`/sites/${siteId}/recon/preview`, fd).then((r) => r.data);
+  },
+  reconConfirm: (batchId: number) => client.post(`/recon/batches/${batchId}/confirm`).then((r) => r.data),
+  reconReject: (batchId: number) => client.post(`/recon/batches/${batchId}/reject`).then((r) => r.data),
+  reconBatches: (siteId: number) => client.get(`/sites/${siteId}/recon/batches`).then((r) => r.data),
+  reconBatch: (batchId: number) => client.get(`/recon/batches/${batchId}`).then((r) => r.data),
+  reconExport: async (batchId: number) => {
+    const r = await client.get(`/recon/batches/${batchId}/export`, { responseType: "blob" });
+    saveBlob(r.data as Blob, `SRS_课题二重构评价_批次${batchId}.xlsx`);
+  },
   // ── v1.1: 利用决策(C3) ──
   utilizationRun: (siteId: number, stage: string, params?: { farmland_type?: string; eco_land_class?: string }) =>
     client.post(`/sites/${siteId}/utilization`, null, { params: { stage, ...(params || {}) } }).then((r) => r.data),

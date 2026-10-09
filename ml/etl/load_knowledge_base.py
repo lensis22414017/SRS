@@ -35,8 +35,47 @@ def _num(v):
         return None
 
 
+# v1.2: 知识库 GB 36600 记录的确定性更正(不改源文件, 入库时更正并记录)。
+#   1) 场景字段与原文类别冲突: 原文"一类用地区"对应 特殊绿地, "二类用地区"对应 一般绿地
+#      (知识库其余 160 余条均遵循此对应; 氯甲烷、氯苯两条的场景字段对调)。
+#   2) threshold_max 未解析 "×10⁻ⁿ" 指数(PCB126、PCB169、二噁英类 6 条), 以原文数值为准。
+_SUP = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹⁻", "0123456789-")
+KB_CORRECTIONS: list[dict] = []
+
+
+def _parse_original_threshold(text):
+    import re as _re
+    if not text:
+        return None, None
+    t = str(text).translate(_SUP).replace(" ", "")
+    cat = "一类" if "一类" in t else ("二类" if "二类" in t else None)
+    m = _re.search(r"≤([0-9.]+)(?:[×x\*]10\^?(-?[0-9]+))?", t)
+    if not m:
+        return cat, None
+    v = float(m.group(1)) * (10 ** int(m.group(2)) if m.group(2) else 1)
+    return cat, v
+
+
+def _correct_gb36600_row(rule: dict, name: str) -> dict:
+    if "36600" not in str(rule.get("standard_source") or ""):
+        return rule
+    cat, v = _parse_original_threshold(rule.get("threshold_original"))
+    scen = rule.get("application_scenario")
+    want = {"一类": "特殊绿地", "二类": "一般绿地"}.get(cat)
+    if want and scen in ("特殊绿地", "一般绿地") and scen != want:
+        KB_CORRECTIONS.append({"factor": name, "field": "application_scenario", "from": scen, "to": want,
+                               "reason": f"原文为{cat}用地区"})
+        rule["application_scenario"] = want
+    if v is not None and rule.get("threshold_max") is not None and abs(rule["threshold_max"] - v) > 1e-12:
+        KB_CORRECTIONS.append({"factor": name, "field": "threshold_max", "from": rule["threshold_max"], "to": v,
+                               "reason": "原文 ×10⁻ⁿ 指数未解析"})
+        rule["threshold_max"] = v
+    return rule
+
+
 def parse_knowledge_base(csv_path: str):
     """返回 (factors, rules)。factors 按 factor_name 去重。"""
+    KB_CORRECTIONS.clear()
     df = pd.read_csv(csv_path)
     df.columns = [c.strip().lstrip("﻿") for c in df.columns]
 
@@ -74,6 +113,7 @@ def parse_knowledge_base(csv_path: str):
                                 if pd.notna(r.get("standard_source")) else None),
             "version": "V1.0",
         })
+        rules[-1] = _correct_gb36600_row(rules[-1], name)
     return list(factors.values()), rules
 
 

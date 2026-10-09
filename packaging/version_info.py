@@ -4,8 +4,8 @@
 """
 VSVersionInfo(
     ffi=FixedFileInfo(
-        filevers=(1, 1, 0, 0),
-        prodvers=(1, 1, 0, 0),
+        filevers=(1, 2, 0, 0),
+        prodvers=(1, 2, 0, 0),
         mask=0x3f,
         flags=0x0,
         OS=0x40004,
@@ -21,13 +21,13 @@ VSVersionInfo(
                     [
                         StringStruct('CompanyName', '生态环境部土壤与农业农村生态环境监管技术中心'),
                         StringStruct('FileDescription', 'Soil Remediation Supervision System (SRS) - Contaminated Site Ecological-Productive Function Reconstruction'),
-                        StringStruct('FileVersion', '1.1.0.0'),
+                        StringStruct('FileVersion', '1.2.0.0'),
                         StringStruct('InternalName', 'SRS'),
                         StringStruct('LegalCopyright', 'Copyright (c) 2026 生态环境部土壤与农业农村生态环境监管技术中心'),
                         StringStruct('OriginalFilename', 'SRS.exe'),
                         StringStruct('ProductName', 'SRS - Contaminated Site Supervision System'),
-                        StringStruct('ProductVersion', '1.1.0.0'),
-                        StringStruct('Comments', 'v1.1.0 - client acceptance remediation'),
+                        StringStruct('ProductVersion', '1.2.0.0'),
+                        StringStruct('Comments', 'v1.2.0 - annual acceptance candidate'),
                     ]
                 )
             ]

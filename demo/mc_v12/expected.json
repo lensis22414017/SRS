@@ -1,0 +1,324 @@
+{
+ "generator": "mc_demo_v12.0",
+ "seed": 20261009,
+ "method": "独立实现(不调用 SRS 评价代码)",
+ "scenarios": {
+  "A": {
+   "title": "两轨均支持(both_supported)",
+   "site_code_template": "MCDEMO-A",
+   "post_gates": {
+    "production": "pass",
+    "ecology": "pass"
+   },
+   "post_decision": "both_supported",
+   "ssui": {
+    "production": {
+     "ssui": 1.019189,
+     "feasible_threshold_provisional": 0.6,
+     "feasible": true,
+     "criterion_scores": {
+      "C1": 0.807841,
+      "C2": 0.885415,
+      "C3": 0.750086,
+      "C4": 0.813956
+     },
+     "M": 1.15,
+     "t": 3
+    },
+    "ecology": {
+     "ssui": 0.968728,
+     "feasible_threshold_provisional": 0.6,
+     "feasible": true,
+     "criterion_scores": {
+      "C1": 0.768003,
+      "C2": 0.838765,
+      "C3": 0.808991,
+      "C4": 0.93001
+     },
+     "M": 1.075,
+     "t": 3
+    }
+   },
+   "economics": {
+    "unit": "元/亩·年",
+    "area_mu": 1.0,
+    "labour_cost": 715.9,
+    "machinery_cost": 398.9,
+    "fertilizer_cost": 378.7,
+    "seed_cost": 122.4,
+    "irrigation_cost": 84.4,
+    "total_cost": 1700.4,
+    "yield_kg": 523.0,
+    "price_yuan_per_kg": 2.646,
+    "revenue": 1383.8,
+    "net_income": -316.5,
+    "benefit_cost_ratio": 0.8138,
+    "derivation": "total_cost=Σ组分; revenue=yield×price; ratio=revenue/total_cost"
+   },
+   "recon_points": 20,
+   "recon_features_provided": 41
+  },
+  "B": {
+   "title": "仅生产支持(production_supported)",
+   "site_code_template": "MCDEMO-B",
+   "post_gates": {
+    "production": "pass",
+    "ecology": "pass"
+   },
+   "post_decision": "production_supported",
+   "ssui": {
+    "production": {
+     "ssui": 1.036062,
+     "feasible_threshold_provisional": 0.6,
+     "feasible": true,
+     "criterion_scores": {
+      "C1": 0.795963,
+      "C2": 0.938711,
+      "C3": 0.79128,
+      "C4": 0.807055
+     },
+     "M": 1.15,
+     "t": 3
+    },
+    "ecology": {
+     "ssui": 0.362517,
+     "feasible_threshold_provisional": 0.6,
+     "feasible": false,
+     "criterion_scores": {
+      "C1": 0.322427,
+      "C2": 0.254832,
+      "C3": 0.290008,
+      "C4": 0.339137
+     },
+     "M": 1.075,
+     "t": 3
+    }
+   },
+   "economics": {
+    "unit": "元/亩·年",
+    "area_mu": 1.0,
+    "labour_cost": 959.4,
+    "machinery_cost": 446.0,
+    "fertilizer_cost": 416.3,
+    "seed_cost": 106.0,
+    "irrigation_cost": 100.4,
+    "total_cost": 2028.0,
+    "yield_kg": 572.6,
+    "price_yuan_per_kg": 2.622,
+    "revenue": 1501.3,
+    "net_income": -526.7,
+    "benefit_cost_ratio": 0.7403,
+    "derivation": "total_cost=Σ组分; revenue=yield×price; ratio=revenue/total_cost"
+   },
+   "recon_points": 20,
+   "recon_features_provided": 41
+  },
+  "C": {
+   "title": "仅生态支持(ecology_supported)",
+   "site_code_template": "MCDEMO-C",
+   "post_gates": {
+    "production": "fail",
+    "ecology": "pass"
+   },
+   "post_decision": "ecology_supported",
+   "ssui": {
+    "production": {
+     "ssui": 1.00737,
+     "feasible_threshold_provisional": 0.6,
+     "feasible": true,
+     "criterion_scores": {
+      "C1": 0.79636,
+      "C2": 0.788176,
+      "C3": 0.761249,
+      "C4": 0.8616
+     },
+     "M": 1.15,
+     "t": 3
+    },
+    "ecology": {
+     "ssui": 0.954234,
+     "feasible_threshold_provisional": 0.6,
+     "feasible": true,
+     "criterion_scores": {
+      "C1": 0.754576,
+      "C2": 0.850131,
+      "C3": 0.794454,
+      "C4": 0.907589
+     },
+     "M": 1.075,
+     "t": 3
+    }
+   },
+   "economics": {
+    "unit": "元/亩·年",
+    "area_mu": 1.0,
+    "labour_cost": 783.9,
+    "machinery_cost": 387.2,
+    "fertilizer_cost": 392.8,
+    "seed_cost": 126.5,
+    "irrigation_cost": 90.3,
+    "total_cost": 1780.8,
+    "yield_kg": 503.2,
+    "price_yuan_per_kg": 2.64,
+    "revenue": 1328.6,
+    "net_income": -452.2,
+    "benefit_cost_ratio": 0.7461,
+    "derivation": "total_cost=Σ组分; revenue=yield×price; ratio=revenue/total_cost"
+   },
+   "recon_points": 20,
+   "recon_features_provided": 41
+  },
+  "D": {
+   "title": "两轨均不支持·重度超标(neither_supported)",
+   "site_code_template": "MCDEMO-D",
+   "post_gates": {
+    "production": "fail",
+    "ecology": "fail"
+   },
+   "post_decision": "neither_supported",
+   "ssui": {
+    "production": {
+     "ssui": 1.079447,
+     "feasible_threshold_provisional": 0.6,
+     "feasible": true,
+     "criterion_scores": {
+      "C1": 0.820847,
+      "C2": 0.920182,
+      "C3": 0.899133,
+      "C4": 0.837071
+     },
+     "M": 1.15,
+     "t": 3
+    },
+    "ecology": {
+     "ssui": 0.998802,
+     "feasible_threshold_provisional": 0.6,
+     "feasible": true,
+     "criterion_scores": {
+      "C1": 0.78886,
+      "C2": 0.826637,
+      "C3": 0.813969,
+      "C4": 1.005085
+     },
+     "M": 1.075,
+     "t": 3
+    }
+   },
+   "economics": {
+    "unit": "元/亩·年",
+    "area_mu": 1.0,
+    "labour_cost": 814.0,
+    "machinery_cost": 411.0,
+    "fertilizer_cost": 395.7,
+    "seed_cost": 123.3,
+    "irrigation_cost": 82.1,
+    "total_cost": 1826.2,
+    "yield_kg": 450.7,
+    "price_yuan_per_kg": 2.543,
+    "revenue": 1146.3,
+    "net_income": -679.9,
+    "benefit_cost_ratio": 0.6277,
+    "derivation": "total_cost=Σ组分; revenue=yield×price; ratio=revenue/total_cost"
+   },
+   "recon_points": 20,
+   "recon_features_provided": 41
+  },
+  "E": {
+   "title": "证据不足·缺测关键项目(insufficient_evidence)",
+   "site_code_template": "MCDEMO-E",
+   "post_gates": {
+    "production": "insufficient",
+    "ecology": "insufficient"
+   },
+   "post_decision": "insufficient_evidence",
+   "ssui": {
+    "production": {
+     "ssui": 1.040996,
+     "feasible_threshold_provisional": 0.6,
+     "feasible": true,
+     "criterion_scores": {
+      "C1": 0.804201,
+      "C2": 0.894063,
+      "C3": 0.758137,
+      "C4": 0.875617
+     },
+     "M": 1.15,
+     "t": 3
+    },
+    "ecology": {
+     "ssui": 1.007641,
+     "feasible_threshold_provisional": 0.6,
+     "feasible": true,
+     "criterion_scores": {
+      "C1": 0.777459,
+      "C2": 0.858941,
+      "C3": 0.817048,
+      "C4": 1.03249
+     },
+     "M": 1.075,
+     "t": 3
+    }
+   },
+   "economics": {
+    "unit": "元/亩·年",
+    "area_mu": 1.0,
+    "labour_cost": 1083.6,
+    "machinery_cost": 446.4,
+    "fertilizer_cost": 323.6,
+    "seed_cost": 150.8,
+    "irrigation_cost": 74.0,
+    "total_cost": 2078.4,
+    "yield_kg": 581.8,
+    "price_yuan_per_kg": 2.87,
+    "revenue": 1669.8,
+    "net_income": -408.6,
+    "benefit_cost_ratio": 0.8034,
+    "derivation": "total_cost=Σ组分; revenue=yield×price; ratio=revenue/total_cost"
+   },
+   "recon_points": 20,
+   "recon_features_provided": 41
+  }
+ },
+ "fixtures": {
+  "F01_wrong_stage": {
+   "file": "fixtures/F01_课题二_阶段填修复后_应拒绝.xlsx",
+   "expect": "error",
+   "message_contains": "数据阶段"
+  },
+  "F02_invalid_category": {
+   "file": "fixtures/F02_课题二_非法类别_应拒绝.xlsx",
+   "expect": "error",
+   "message_contains": "无法识别的类别"
+  },
+  "F03_duplicate_point": {
+   "file": "fixtures/F03_课题二_点位重复_应拒绝.xlsx",
+   "expect": "error",
+   "message_contains": "重复"
+  },
+  "F04_unit_error_pH": {
+   "file": "fixtures/F04_课题二_pH超物理范围_应拒绝.xlsx",
+   "expect": "error",
+   "message_contains": "超出物理范围"
+  },
+  "F05_constant_column": {
+   "file": "fixtures/F05_课题二_常数列_仅告警.xlsx",
+   "expect": "warning",
+   "message_contains": "常数列"
+  },
+  "F06_single_row": {
+   "file": "fixtures/F06_课题二_单点位_仅告警.xlsx",
+   "expect": "warning",
+   "message_contains": "仅 1 个点位"
+  },
+  "F07_post_unit_error": {
+   "file": "fixtures/F07_课题三_浓度单位非mgkg_应拒绝.xlsx",
+   "expect": "error",
+   "message_contains": "单位"
+  },
+  "F08_duplicate_import": {
+   "file": "site_A/02_MCDEMO-A_课题二重构指标_模拟数据_仅供测试演示.xlsx",
+   "expect": "error_on_second",
+   "message_contains": "已在批次"
+  }
+ }
+}

@@ -36,7 +36,15 @@ def resource_root() -> str:
 
 
 def _app_data_dir() -> str:
-    """返回平台标准应用数据目录, 不存在则自动创建。"""
+    """返回平台标准应用数据目录, 不存在则自动创建。
+
+    v1.2: 设置环境变量 SRS_DATA_DIR 时使用该目录(便携版由启动器在 exe 同级目录存在
+    SRS_PORTABLE.txt 时设为 <exe 目录>/SRS_data)。
+    """
+    override = _os.environ.get("SRS_DATA_DIR")
+    if override:
+        _os.makedirs(override, exist_ok=True)
+        return _os.path.abspath(override)
     if _sys.platform == "darwin":
         base = _os.path.expanduser("~/Library/Application Support/SRS")
     elif _sys.platform == "win32":

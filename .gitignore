@@ -106,3 +106,7 @@ artifacts/release_validation/
 artifacts/full_screenshots_20260715/
 dist_new/
 build_round10/
+
+# v1.2 demo run outputs (regenerated)
+demo/mc_v12/actual/
+demo/mc_v12/_gen_unused.db

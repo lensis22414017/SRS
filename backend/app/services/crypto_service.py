@@ -16,7 +16,11 @@ from pathlib import Path
 
 
 def _get_app_data_dir() -> Path:
-    """返回 AppData/SRS 目录。"""
+    """返回 AppData/SRS 目录(v1.2: 与 app.core.config 一致, 支持 SRS_DATA_DIR 便携目录)。"""
+    if os.environ.get("SRS_DATA_DIR"):
+        p = Path(os.environ["SRS_DATA_DIR"])
+        p.mkdir(parents=True, exist_ok=True)
+        return p
     if os.name == 'nt':
         base = os.environ.get("APPDATA", os.path.expanduser("~"))
     elif os.sys.platform == 'darwin':

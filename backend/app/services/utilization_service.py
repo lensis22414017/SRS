@@ -56,6 +56,20 @@ def _pre_points(db: Session, site_id: int) -> tuple[list[dict], list[str], str]:
         v = float(val) * _UNIT[u]
         p[canon] = max(p.get(canon, float("-inf")), v)
     notes = [f"单位无法识别, 未参与门禁: {', '.join(sorted(skipped))}"] if skipped else []
+    # v1.2: 课题二 28 项指标批次中的污染物与 pH 同属修复前点位数据, 一并参与法规门禁
+    from app.services import recon_import_service as RI
+    b = RI.latest_confirmed(db, site_id)
+    if b is not None:
+        _s2 = {"cd": "Cd", "hg": "Hg", "as": "As", "pb": "Pb", "cr": "Cr", "cu": "Cu", "ni": "Ni", "zn": "Zn",
+               "bap": "苯并[a]芘"}
+        for p2 in RI.batch_points(db, b):
+            q = {"point": f"S2:{p2['point']}", "pH": p2.get("ph")}
+            for fid, canon in _s2.items():
+                if isinstance(p2.get(fid), (int, float)):
+                    q[canon] = float(p2[fid])
+            pts[q["point"]] = q
+        origins.add(b.data_origin or "client_real")
+        notes.append(f"已纳入课题二指标批次 #{b.id} 的 {b.point_count} 个点位污染物/pH 数据")
     origin = "monte_carlo_demo" if "monte_carlo_demo" in origins else (
         "test_fixture" if "test_fixture" in origins else ("client_real" if origins else "field"))
     return list(pts.values()), notes, origin

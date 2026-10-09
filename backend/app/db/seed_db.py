@@ -44,6 +44,8 @@ PERMISSIONS = [
     ("data:delete", "场地删除", "数据"),  # v1.0.2 新增: 场地删除权限
     ("report:generate", "报告生成", "报告"), ("map:view", "地图查看", "数据"),
     ("workflow:view", "全流程查看", "追溯"), ("file:download", "文档下载", "文件"),
+    # v1.2: 文件列表/详情接口与前端路由使用 file:read, 但 v1.1 及之前从未登记该权限 → 所有角色访问文件管理均 403
+    ("file:read", "文档查看", "文件"),
     ("user:manage", "用户管理", "系统"), ("role:manage", "角色管理", "系统"),
     ("audit:view", "日志审计", "系统"), ("param:config", "参数设置", "系统"),
     ("model:manage", "模型管理", "算法"), ("tech:manage", "技术库管理", "决策"),
@@ -53,9 +55,9 @@ PERMISSIONS = [
 ROLE_PERMS = {
     "admin": [p[0] for p in PERMISSIONS],
     "enterprise": ["data:input", "data:query", "data:export", "report:generate",
-                   "map:view", "workflow:view", "file:download"],
-    "agency": ["data:input", "data:query", "workflow:view", "file:download"],
-    "regulator": ["data:query", "map:view", "workflow:view", "file:download",
+                   "map:view", "workflow:view", "file:download", "file:read"],
+    "agency": ["data:input", "data:query", "workflow:view", "file:download", "file:read"],
+    "regulator": ["data:query", "map:view", "workflow:view", "file:download", "file:read",
                   "report:generate", "audit:view"],
 }
 
@@ -295,9 +297,9 @@ def seed_factor_dictionary(db):
 def seed_standard_thresholds(db):
     """标准阈值种子(幂等)。GB15618 + GB36600。"""
     from app.models import StandardThreshold
-    if db.query(StandardThreshold).count() > 0:
-        print("标准阈值已有数据, 跳过")
-        return
+    # v1.2: 不再"已有数据即跳过" — load() 为幂等 upsert, 并就地更正 GB 36600 旧种子值、
+    # 移除非标准替代阈值; 升级安装后首启即生效。
+    _ = StandardThreshold
     try:
         from app.db.load_standard_thresholds import load as load_std
         n = load_std(db)

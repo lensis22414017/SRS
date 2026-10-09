@@ -31,7 +31,7 @@ POST = "post_remediation"
 
 GB15618_REQUIRED = ["Cd", "Hg", "As", "Pb", "Cr", "Cu", "Ni", "Zn"]  # 4.1.1 基本项目(必测)
 
-# GB 36600-2018 表1 基本项目 45 项(名称; 阈值来自 gb36600_2018_v11.csv, 缺阈值的项目无法判定)
+# GB 36600-2018 表1 基本项目 45 项(名称; 阈值来自 gb36600_2018_v12.csv, 缺阈值的项目无法判定)
 GB36600_BASIC_METALS = ["As", "Cd", "Cr(VI)", "Cu", "Pb", "Hg", "Ni"]
 GB36600_BASIC_VOC = [
     "四氯化碳", "氯仿", "氯甲烷", "1,1-二氯乙烷", "1,2-二氯乙烷", "1,1-二氯乙烯", "顺-1,2-二氯乙烯",
@@ -94,18 +94,18 @@ def _standards_dir(root: str | None = None) -> str:
 def load_standards(root: str | None = None) -> dict:
     d = _standards_dir(root)
     gb15618: dict = {}
-    with open(os.path.join(d, "gb15618_2018_v11.csv"), encoding="utf-8") as fh:
+    with open(os.path.join(d, "gb15618_2018_v12.csv"), encoding="utf-8") as fh:
         for r in csv.DictReader(fh):
             gb15618.setdefault((r["factor"], r["value_type"], r["farmland"]), {})[r["pH_bin"]] = {
                 "value": float(r["value"]), "confidence": r["confidence"], "source": r["source"]}
     gb36600: dict = {}
-    with open(os.path.join(d, "gb36600_2018_v11.csv"), encoding="utf-8") as fh:
+    with open(os.path.join(d, "gb36600_2018_v12.csv"), encoding="utf-8") as fh:
         for r in csv.DictReader(fh):
             gb36600[(_key(r["factor"]), r["land_class"])] = {
                 "factor": r["factor"], "screening": float(r["screening"]) if r["screening"] else None,
                 "control": float(r["control"]) if r["control"] else None,
                 "confidence": r["confidence"], "table_ref": r["table_ref"]}
-    with open(os.path.join(d, "gb15618_2018_v11.csv"), "rb") as a, open(os.path.join(d, "gb36600_2018_v11.csv"), "rb") as b:
+    with open(os.path.join(d, "gb15618_2018_v12.csv"), "rb") as a, open(os.path.join(d, "gb36600_2018_v12.csv"), "rb") as b:
         sha = hashlib.sha256(a.read() + b.read()).hexdigest()
     return {"gb15618": gb15618, "gb36600": gb36600, "sha256": sha}
 

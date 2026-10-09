@@ -410,6 +410,61 @@ class SSUIRecord(Base, TimestampMixin):
     note: Mapped[str | None] = mapped_column(Text, nullable=True)
 
 
+class ReconImportBatch(Base, TimestampMixin):
+    """v1.2 课题二 重构可行性指标批次(修复前, 28 项指标, 数值+类别), 与 KOS 检测数据批次分离。
+
+    status: previewed → confirmed / rejected / superseded(同场地新批次确认后)
+    provenance_status: verified(来源已核实) / unverified(子课题测试表等未核实来源)
+    """
+    __tablename__ = "recon_import_batches"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    site_id: Mapped[int] = mapped_column(ForeignKey("sites.id"), index=True)
+    source_file: Mapped[str] = mapped_column(String(300))
+    source_sha256: Mapped[str] = mapped_column(String(64), index=True)
+    template_version: Mapped[str] = mapped_column(String(30))
+    stage: Mapped[str] = mapped_column(String(30), default="pre_remediation")
+    subproject: Mapped[str] = mapped_column(String(10), default="S2")
+    data_origin: Mapped[str] = mapped_column(String(30), default="client_real")
+    provenance_status: Mapped[str] = mapped_column(String(20), default="unverified")
+    land_subtype: Mapped[str | None] = mapped_column(String(10), nullable=True)   # 旱地/水田/None
+    farmland: Mapped[str | None] = mapped_column(String(10), nullable=True)       # GB15618 水田/其他/None
+    eco_land_class: Mapped[str | None] = mapped_column(String(20), nullable=True)
+    status: Mapped[str] = mapped_column(String(20), default="previewed")
+    point_count: Mapped[int] = mapped_column(Integer, default=0)
+    cell_count: Mapped[int] = mapped_column(Integer, default=0)
+    error_count: Mapped[int] = mapped_column(Integer, default=0)
+    warning_count: Mapped[int] = mapped_column(Integer, default=0)
+    validation_report: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    mapping_snapshot: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    cleaning_log: Mapped[list | None] = mapped_column(JSON, nullable=True)
+    method_version: Mapped[str | None] = mapped_column(String(60), nullable=True)
+    imported_by: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+    confirmed_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+
+
+class ReconObservation(Base, TimestampMixin):
+    """课题二 点位 × 指标 观测值; 数值与类别分列存储, 保留原文与清洗变换。"""
+    __tablename__ = "recon_observations"
+    __table_args__ = (UniqueConstraint("batch_id", "point_label", "feature_id", name="uq_recon_obs"),)
+    id: Mapped[int] = mapped_column(primary_key=True)
+    batch_id: Mapped[int] = mapped_column(ForeignKey("recon_import_batches.id"), index=True)
+    site_id: Mapped[int] = mapped_column(ForeignKey("sites.id"), index=True)
+    point_label: Mapped[str] = mapped_column(String(60))
+    feature_id: Mapped[str] = mapped_column(String(40), index=True)
+    feature_cn: Mapped[str | None] = mapped_column(String(60), nullable=True)
+    value_num: Mapped[float | None] = mapped_column(Float, nullable=True)
+    value_cat: Mapped[str | None] = mapped_column(String(200), nullable=True)
+    original_text: Mapped[str | None] = mapped_column(Text, nullable=True)
+    transform: Mapped[str | None] = mapped_column(String(120), nullable=True)
+    qualifier: Mapped[str | None] = mapped_column(String(10), nullable=True)
+    unit: Mapped[str | None] = mapped_column(String(30), nullable=True)
+    source_sheet: Mapped[str | None] = mapped_column(String(60), nullable=True)
+    source_row: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    source_col: Mapped[str | None] = mapped_column(String(10), nullable=True)
+    stage: Mapped[str] = mapped_column(String(30), default="pre_remediation")
+    data_origin: Mapped[str] = mapped_column(String(30), default="client_real")
+
+
 class UtilizationDecision(Base, TimestampMixin):
     """v1.1 (C3): 修复后利用方向结论。法规安全门禁不可被评分抵消。
 

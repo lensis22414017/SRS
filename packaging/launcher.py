@@ -29,6 +29,13 @@ import webbrowser
 _windowed_log_handle = None
 
 
+
+# v1.2 便携版: exe 同级目录存在 SRS_PORTABLE.txt 时, 全部数据写入 <exe 目录>/SRS_data(不写 %APPDATA%)
+if getattr(sys, "frozen", False) and not os.environ.get("SRS_DATA_DIR"):
+    _exe_dir = os.path.dirname(os.path.abspath(sys.executable))
+    if os.path.exists(os.path.join(_exe_dir, "SRS_PORTABLE.txt")):
+        os.environ["SRS_DATA_DIR"] = os.path.join(_exe_dir, "SRS_data")
+
 def _ensure_windowed_stdio():
     """为 PyInstaller windowed 模式提供可写标准流。
 
@@ -39,7 +46,7 @@ def _ensure_windowed_stdio():
     global _windowed_log_handle
     if sys.stdout is not None and sys.stderr is not None:
         return
-    log_dir = os.path.join(
+    log_dir = os.environ.get("SRS_DATA_DIR") or os.path.join(
         os.environ.get("APPDATA", os.path.expanduser("~")),
         "SRS",
     )

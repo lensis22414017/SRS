@@ -1,27 +1,30 @@
 name: Windows Release Candidate (build + install + acceptance)
 
-# v1.1 G8: 在 Windows 上从源码构建安装包, 静默安装到含中文与空格的路径(当前用户权限),
-# 首启 → 关键流程(课题一/二/三 + 利用结论 + 报告) → 重启一致性 → 卸载; 全部证据上传为构件。
-# 只使用合成的蒙特卡洛演示数据(demo/mc_v11), 不使用甲方真实数据。
+# v1.2 年度验收: 在 Windows 上从源码构建安装包与便携版, 并对"实际安装的程序"执行验收:
+#   空库首启 → 首启截图 → 5 个合成场景 + 8 个夹具(与独立期望值比对) → 全功能截图 → 重启一致性 →
+#   卸载 → v1.1.0 → v1.2.0 覆盖升级 → 便携版 → 标准(非管理员)账户安装与运行(尽力而为, 结果如实记录)。
+# 只使用合成的蒙特卡洛演示数据(demo/mc_v12, demo/mc_v11), 不使用甲方真实数据。
 
 on:
   workflow_dispatch:
   push:
-    branches: ["fix/v1.1-client-acceptance"]
-    tags: ["v1.1.*"]
+    branches: ["fix/v1.1-client-acceptance", "release/v1.2-annual"]
+    tags: ["v1.2.*"]
 
 permissions:
   contents: read
+  actions: read
 
 env:
   PYTHONUTF8: "1"
   PYTHONIOENCODING: "utf-8"
   SRS_PORT: "18080"
+  V11_RUN_ID: "37866554895"
 
 jobs:
   windows-rc:
     runs-on: windows-latest
-    timeout-minutes: 150
+    timeout-minutes: 170
     defaults:
       run:
         shell: pwsh
@@ -60,23 +63,39 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r backend/requirements.txt pyinstaller requests openpyxl playwright
           python -m playwright install chromium
+          pip freeze | Out-File -Encoding utf8 pip_freeze_windows.txt
 
-      - name: Backend v1.1 gate tests (Windows)
+      - name: Backend gate tests (Windows)
         working-directory: backend
         env:
           SRS_DEMO_SEED: "1"
           SECRET_KEY: "ci_only_key_2026_at_least_32_characters_long"
-        run: python -m pytest -q tests/test_v11_utilization_ssui.py tests/test_v11_stage_model.py tests/test_v11_persistence_recovery.py tests/test_v11_version_consistency.py tests/test_round10_release_gate.py
+        run: python -m pytest -q tests/test_v12_recon_thresholds.py tests/test_v11_utilization_ssui.py tests/test_v11_stage_model.py tests/test_v11_persistence_recovery.py tests/test_v11_version_consistency.py tests/test_round10_release_gate.py
 
       - name: PyInstaller build
         run: python -m PyInstaller packaging/srs.spec --clean --noconfirm --distpath dist_new
 
-      - name: Inspect bundle (no databases / env files / client raw data)
+      - name: Inspect bundle (no databases / env files / client raw data / demo outputs)
         run: |
           $bad = Get-ChildItem dist_new/SRS -Recurse -Include *.db,*.sqlite,.env,*.env | Select-Object -ExpandProperty FullName
-          $raw = Get-ChildItem dist_new/SRS -Recurse -Filter "*20250731*" | Select-Object -ExpandProperty FullName
+          $raw = Get-ChildItem dist_new/SRS -Recurse | Where-Object { $_.Name -match '20250731|Special for Python|Data weight calculation|data_dictionary' } | Select-Object -ExpandProperty FullName
           if ($bad -or $raw) { $bad; $raw; throw "bundle contains forbidden files" }
+          $std = Get-ChildItem dist_new/SRS -Recurse -Filter "gb36600_2018_official.csv"
+          if (-not $std) { throw "official GB 36600 table missing from bundle" }
           "bundle size MB: " + [math]::Round(((Get-ChildItem dist_new/SRS -Recurse | Measure-Object Length -Sum).Sum / 1MB), 1)
+
+      - name: Portable ZIP
+        run: |
+          $v = (Get-Content VERSION).Trim()
+          New-Item -ItemType Directory -Force packaging/Output | Out-Null
+          Set-Content -Encoding utf8 dist_new/SRS/SRS_PORTABLE.txt "SRS 便携版: 数据保存在本目录 SRS_data 子目录; 删除本文件即恢复为安装版数据目录(%APPDATA%\SRS)。"
+          Compress-Archive -Path dist_new/SRS -DestinationPath "packaging/Output/SRS-Portable-$v-Windows-x64.zip" -Force
+          Remove-Item dist_new/SRS/SRS_PORTABLE.txt
+          $z = Get-Item "packaging/Output/SRS-Portable-$v-Windows-x64.zip"
+          $h = (Get-FileHash $z.FullName -Algorithm SHA256).Hash.ToLower()
+          "$h  $($z.Name)" | Out-File -Encoding ascii "$($z.FullName).sha256"
+          "PORTABLE=$($z.FullName)" | Out-File -Append $env:GITHUB_ENV
+          "portable: $($z.Name) $([math]::Round($z.Length/1MB,1)) MB sha256=$h"
 
       - name: Inno Setup compile
         run: |
@@ -92,34 +111,58 @@ jobs:
           "INSTALLER=$($exe.FullName)" | Out-File -Append $env:GITHUB_ENV
           "installer: $($exe.Name) $([math]::Round($exe.Length/1MB,1)) MB sha256=$h"
 
+      - name: Upload installer + portable (before acceptance, for diagnosis)
+        uses: actions/upload-artifact@v4
+        with:
+          name: srs-installer
+          path: |
+            packaging/Output/SRS-Setup-*-Windows-x64.exe
+            packaging/Output/SRS-Setup-*-Windows-x64.exe.sha256
+            packaging/Output/SRS-Portable-*-Windows-x64.zip
+            packaging/Output/SRS-Portable-*-Windows-x64.zip.sha256
+          retention-days: 30
+
       - name: Silent install (current user, Chinese + space path)
         run: |
           $dir = "C:\SRS 验收\安装 目录"
           "INSTALL_DIR=$dir" | Out-File -Append $env:GITHUB_ENV
+          if (Test-Path "$env:APPDATA\SRS") { throw "APPDATA\SRS exists before install" }
           $p = Start-Process $env:INSTALLER -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/CURRENTUSER',"/DIR=`"$dir`"",'/LOG=install.log' -Wait -PassThru
           if ($p.ExitCode -ne 0) { throw "installer exit $($p.ExitCode)" }
           if (-not (Test-Path "$dir\SRS.exe")) { throw "SRS.exe missing after install" }
-          if (Test-Path "$env:APPDATA\SRS\srs.db") { throw "business database existed before first launch" }
-
-      - name: First launch + key workflow acceptance
-        run: |
+          $std = Get-ChildItem $dir -Recurse -Filter "gb36600_2018_official.csv" | Select-Object -First 1
+          if (-not $std) { throw "standards not installed" }
           New-Item -ItemType Directory -Force acceptance_out | Out-Null
+          Get-ChildItem $dir -Recurse -Include *.csv,*.json,*.joblib | Where-Object { $_.FullName -match 'standards|params|p3_alpha' } |
+            Select-Object @{n='file';e={$_.FullName.Replace($dir,'')}}, Length |
+            ConvertTo-Json | Out-File -Encoding utf8 acceptance_out/installed_resources.json
+
+      - name: First launch screenshots (before admin setup)
+        run: |
           $app = Start-Process "$env:INSTALL_DIR\SRS.exe" -ArgumentList '--port',$env:SRS_PORT,'--no-browser','--no-tray' -PassThru
-          python packaging/ci/windows_acceptance.py --base "http://127.0.0.1:$env:SRS_PORT" --demo demo/mc_v11 --out acceptance_out --phase full
+          for ($i=0; $i -lt 90; $i++) { try { if ((Invoke-WebRequest "http://127.0.0.1:$env:SRS_PORT/health" -UseBasicParsing -TimeoutSec 3).StatusCode -eq 200) { break } } catch {}; Start-Sleep 2 }
+          python packaging/ci/ui_screenshots.py --base "http://127.0.0.1:$env:SRS_PORT" --out acceptance_out/screenshots --stage first_run
+          "APP_PID=$($app.Id)" | Out-File -Append $env:GITHUB_ENV
+
+      - name: Key workflow acceptance (5 scenarios + fixtures) + full screenshots
+        run: |
+          python packaging/ci/windows_acceptance.py --base "http://127.0.0.1:$env:SRS_PORT" --demo demo/mc_v12 --out acceptance_out --phase full
           $code = $LASTEXITCODE
-          python packaging/ci/ui_screenshots.py --base "http://127.0.0.1:$env:SRS_PORT" --out acceptance_out/screenshots
-          Stop-Process -Id $app.Id -Force; Start-Sleep 5
+          python packaging/ci/ui_screenshots.py --base "http://127.0.0.1:$env:SRS_PORT" --out acceptance_out/screenshots --stage main --demo demo/mc_v12
+          $shot = $LASTEXITCODE
+          Stop-Process -Id $env:APP_PID -Force -ErrorAction SilentlyContinue; Start-Sleep 5
           Get-Process SRS -ErrorAction SilentlyContinue | Stop-Process -Force
           if ($code -ne 0) { throw "acceptance full phase failed" }
+          if ($shot -ne 0) { throw "screenshot capture failed" }
 
       - name: Restart consistency (repeated launch)
         run: |
           $app = Start-Process "$env:INSTALL_DIR\SRS.exe" -ArgumentList '--port',$env:SRS_PORT,'--no-browser','--no-tray' -PassThru
-          python packaging/ci/windows_acceptance.py --base "http://127.0.0.1:$env:SRS_PORT" --demo demo/mc_v11 --out acceptance_out --phase restart
+          python packaging/ci/windows_acceptance.py --base "http://127.0.0.1:$env:SRS_PORT" --demo demo/mc_v12 --out acceptance_out --phase restart
           $code = $LASTEXITCODE
           Stop-Process -Id $app.Id -Force; Start-Sleep 3
           Get-Process SRS -ErrorAction SilentlyContinue | Stop-Process -Force
-          Copy-Item "$env:APPDATA\SRS\launcher.log" acceptance_out\launcher.log -ErrorAction SilentlyContinue
+          Copy-Item "$env:APPDATA\SRS\launcher.log" acceptance_out\launcher_main.log -ErrorAction SilentlyContinue
           if ($code -ne 0) { throw "acceptance restart phase failed" }
 
       - name: Uninstall (user data retained in APPDATA)
@@ -128,7 +171,81 @@ jobs:
           Start-Process $u.FullName -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART' -Wait
           Start-Sleep 5
           if (Test-Path "$env:INSTALL_DIR\SRS.exe") { throw "SRS.exe still present after uninstall" }
-          "appdata db retained: " + (Test-Path "$env:APPDATA\SRS\srs.db")
+          $kept = Test-Path "$env:APPDATA\SRS\srs.db"
+          "appdata db retained after uninstall: $kept" | Tee-Object -FilePath acceptance_out/uninstall.txt
+          if (-not $kept) { throw "user database removed by uninstall" }
+          Rename-Item "$env:APPDATA\SRS" "SRS_after_main_acceptance"
+
+      - name: Download v1.1.0 installer (previous release candidate build)
+        uses: actions/download-artifact@v4
+        with:
+          name: srs-installer
+          path: v11_installer
+          run-id: ${{ env.V11_RUN_ID }}
+          github-token: ${{ github.token }}
+
+      - name: Upgrade v1.1.0 → v1.2.0 (in place, data retained)
+        run: |
+          $old = Get-ChildItem v11_installer -Filter "SRS-Setup-1.1.0-Windows-x64.exe" | Select-Object -First 1
+          if (-not $old) { throw "v1.1.0 installer artifact not found" }
+          $dir = "C:\SRS 升级\安装 目录"
+          $p = Start-Process $old.FullName -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/CURRENTUSER',"/DIR=`"$dir`"",'/LOG=install_v11.log' -Wait -PassThru
+          if ($p.ExitCode -ne 0) { throw "v1.1 installer exit $($p.ExitCode)" }
+          $app = Start-Process "$dir\SRS.exe" -ArgumentList '--port',$env:SRS_PORT,'--no-browser','--no-tray' -PassThru
+          python packaging/ci/windows_acceptance.py --base "http://127.0.0.1:$env:SRS_PORT" --demo demo/mc_v11 --out acceptance_out --phase seed_v11
+          $c1 = $LASTEXITCODE
+          Stop-Process -Id $app.Id -Force; Start-Sleep 3; Get-Process SRS -ErrorAction SilentlyContinue | Stop-Process -Force
+          if ($c1 -ne 0) { throw "v1.1 seed phase failed" }
+          (Get-Item "$env:APPDATA\SRS\srs.db").Length | Out-File acceptance_out\pre_upgrade_db_size.txt
+          $p = Start-Process $env:INSTALLER -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/CURRENTUSER',"/DIR=`"$dir`"",'/LOG=install_upgrade.log' -Wait -PassThru
+          if ($p.ExitCode -ne 0) { throw "upgrade installer exit $($p.ExitCode)" }
+          $app = Start-Process "$dir\SRS.exe" -ArgumentList '--port',$env:SRS_PORT,'--no-browser','--no-tray' -PassThru
+          python packaging/ci/windows_acceptance.py --base "http://127.0.0.1:$env:SRS_PORT" --demo demo/mc_v12 --out acceptance_out --phase upgrade
+          $c2 = $LASTEXITCODE
+          Stop-Process -Id $app.Id -Force; Start-Sleep 3; Get-Process SRS -ErrorAction SilentlyContinue | Stop-Process -Force
+          Copy-Item "$env:APPDATA\SRS\launcher.log" acceptance_out\launcher_upgrade.log -ErrorAction SilentlyContinue
+          $u = Get-ChildItem $dir -Filter "unins*.exe" | Select-Object -First 1
+          Start-Process $u.FullName -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART' -Wait
+          if ($c2 -ne 0) { throw "upgrade phase failed" }
+          Rename-Item "$env:APPDATA\SRS" "SRS_after_upgrade"
+
+      - name: Portable package (Chinese + space path, data beside exe)
+        run: |
+          $dest = "C:\SRS 便携 测试"
+          Expand-Archive $env:PORTABLE -DestinationPath $dest -Force
+          if (-not (Test-Path "$dest\SRS\SRS_PORTABLE.txt")) { throw "portable marker missing" }
+          $app = Start-Process "$dest\SRS\SRS.exe" -ArgumentList '--port',$env:SRS_PORT,'--no-browser','--no-tray' -PassThru
+          python packaging/ci/windows_acceptance.py --base "http://127.0.0.1:$env:SRS_PORT" --demo demo/mc_v12 --out acceptance_out --phase portable
+          $c = $LASTEXITCODE
+          Stop-Process -Id $app.Id -Force; Start-Sleep 3; Get-Process SRS -ErrorAction SilentlyContinue | Stop-Process -Force
+          $inside = Test-Path "$dest\SRS\SRS_data\srs.db"
+          $appdata = Test-Path "$env:APPDATA\SRS\srs.db"
+          "portable db beside exe: $inside; APPDATA db created: $appdata" | Tee-Object -FilePath acceptance_out/portable.txt
+          if ($c -ne 0 -or -not $inside -or $appdata) { throw "portable acceptance failed" }
+
+      - name: Standard (non-administrator) user install + run (best effort)
+        continue-on-error: true
+        run: |
+          $pw = "Srs!" + [guid]::NewGuid().ToString("N").Substring(0,16)
+          $sec = ConvertTo-SecureString $pw -AsPlainText -Force
+          New-LocalUser -Name "srsstd" -Password $sec -PasswordNeverExpires | Out-Null
+          Add-LocalGroupMember -Group "Users" -Member "srsstd"
+          $cred = New-Object System.Management.Automation.PSCredential("$env:COMPUTERNAME\srsstd", $sec)
+          $groups = (Get-LocalGroupMember -Group "Administrators" | Select-Object -ExpandProperty Name) -join ","
+          "Administrators members: $groups" | Tee-Object -FilePath acceptance_out/standard_user.txt
+          Copy-Item $env:INSTALLER "C:\Users\Public\srs_setup.exe"
+          $p = Start-Process "C:\Users\Public\srs_setup.exe" -Credential $cred -LoadUserProfile -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/CURRENTUSER','/LOG=C:\Users\Public\install_std.log' -Wait -PassThru
+          "standard-user installer exit: $($p.ExitCode)" | Tee-Object -Append -FilePath acceptance_out/standard_user.txt
+          $exe = Get-ChildItem "C:\Users\srsstd\AppData\Local\Programs" -Recurse -Filter SRS.exe -ErrorAction SilentlyContinue | Select-Object -First 1
+          "installed exe: $($exe.FullName)" | Tee-Object -Append -FilePath acceptance_out/standard_user.txt
+          $app = Start-Process $exe.FullName -Credential $cred -LoadUserProfile -ArgumentList '--port','18090','--no-browser','--no-tray' -PassThru
+          python packaging/ci/windows_acceptance.py --base "http://127.0.0.1:18090" --demo demo/mc_v12 --out acceptance_out/standard_user --phase portable
+          $c = $LASTEXITCODE
+          $owner = (Get-Process -Id $app.Id -IncludeUserName -ErrorAction SilentlyContinue).UserName
+          "process owner: $owner; acceptance exit: $c" | Tee-Object -Append -FilePath acceptance_out/standard_user.txt
+          Copy-Item C:\Users\Public\install_std.log acceptance_out\install_std.log -ErrorAction SilentlyContinue
+          Stop-Process -Id $app.Id -Force -ErrorAction SilentlyContinue
+          if ($c -ne 0) { throw "standard user acceptance failed" }
 
       - name: Environment record
         if: always()
@@ -138,16 +255,8 @@ jobs:
                   install_dir = $env:INSTALL_DIR; is_admin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator) }
           New-Item -ItemType Directory -Force acceptance_out | Out-Null
           $o | ConvertTo-Json | Out-File -Encoding utf8 acceptance_out/environment.json
+          Copy-Item pip_freeze_windows.txt acceptance_out\ -ErrorAction SilentlyContinue
           Get-Content acceptance_out/environment.json
-
-      - name: Upload installer
-        uses: actions/upload-artifact@v4
-        with:
-          name: srs-installer
-          path: |
-            packaging/Output/SRS-Setup-*-Windows-x64.exe
-            packaging/Output/SRS-Setup-*-Windows-x64.exe.sha256
-          retention-days: 30
 
       - name: Upload acceptance evidence
         if: always()
@@ -157,4 +266,6 @@ jobs:
           path: |
             acceptance_out
             install.log
+            install_v11.log
+            install_upgrade.log
           retention-days: 30

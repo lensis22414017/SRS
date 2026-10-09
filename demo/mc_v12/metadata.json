@@ -1,0 +1,383 @@
+{
+ "label": "模拟数据——仅供测试/演示",
+ "generator": "mc_demo_v12.0",
+ "seed": 20261009,
+ "numpy": "2.3.3",
+ "generated_at": "2026-10-09T02:09:04+00:00",
+ "param_source": "场景假设: 量级参照 GB 15618/GB 36600 阈值与表2.22 分档设计以覆盖各分支; 未用任何甲方/子课题真实记录拟合分布(子课题宽表含赋分值/来源未核实, 不宜作原始浓度分布)。",
+ "n_points_per_site": 20,
+ "distributions": {
+  "metals": "对数正态, 中位数×GSD, Gaussian copula 相关",
+  "metal_gsd": {
+   "cd": 1.4,
+   "hg": 1.4,
+   "as": 1.3,
+   "pb": 1.35,
+   "cr": 1.2,
+   "cu": 1.3,
+   "ni": 1.2,
+   "zn": 1.3
+  },
+  "metal_corr_order": [
+   "cd",
+   "hg",
+   "as",
+   "pb",
+   "cr",
+   "cu",
+   "ni",
+   "zn"
+  ],
+  "metal_corr": [
+   [
+    1.0,
+    0.3,
+    0.6,
+    0.6,
+    0.3,
+    0.3,
+    0.3,
+    0.6
+   ],
+   [
+    0.3,
+    1.0,
+    0.3,
+    0.3,
+    0.3,
+    0.3,
+    0.3,
+    0.3
+   ],
+   [
+    0.6,
+    0.3,
+    1.0,
+    0.6,
+    0.3,
+    0.3,
+    0.3,
+    0.6
+   ],
+   [
+    0.6,
+    0.3,
+    0.6,
+    1.0,
+    0.3,
+    0.3,
+    0.3,
+    0.6
+   ],
+   [
+    0.3,
+    0.3,
+    0.3,
+    0.3,
+    1.0,
+    0.3,
+    0.3,
+    0.3
+   ],
+   [
+    0.3,
+    0.3,
+    0.3,
+    0.3,
+    0.3,
+    1.0,
+    0.3,
+    0.3
+   ],
+   [
+    0.3,
+    0.3,
+    0.3,
+    0.3,
+    0.3,
+    0.3,
+    1.0,
+    0.3
+   ],
+   [
+    0.6,
+    0.3,
+    0.6,
+    0.6,
+    0.3,
+    0.3,
+    0.3,
+    1.0
+   ]
+  ],
+  "pre_median": {
+   "cd": 0.9,
+   "hg": 0.25,
+   "as": 32,
+   "pb": 160,
+   "cr": 85,
+   "cu": 45,
+   "ni": 38,
+   "zn": 160
+  },
+  "pH_pre_normal": [
+   6.4,
+   0.3
+  ],
+  "pH_post_normal": [
+   6.9,
+   0.15
+  ],
+  "SOC": "对数正态 中位数15 g/kg GSD1.3, 截断[3,60]",
+  "C:N": "正态(10,1.2) 截断[7,14]; TN=SOC/C:N",
+  "CEC": "4+0.55·SOC+N(0,1.5)",
+  "盐渍化等级": "由含盐量派生: <1 无、轻度; 1–3 轻度、中度; >3 中度、重度(场景假设)",
+  "categorical": "多项分布(概率见源码 _recon_point)",
+  "SSUI 得分 s_i": "Beta(a,b), 各场景见 scenarios",
+  "organics_post": "表1 VOC/SVOC 38 项, 取第一类筛选值的 1%–5% 均匀分布(低于筛选值)",
+  "removal(仅场地A)": "修复后 = 修复前 × (1−r), r~Beta(7,3)"
+ },
+ "constraints": [
+  "浓度非负",
+  "pH∈[4.5,8.5]",
+  "场地 C: 修复后 Cd 下限 3.1 mg/kg(>水田管制值 3.0)",
+  "场地 D: 修复后 As 下限 125 mg/kg(>GB15618 与 GB36600 一类管制值 120)"
+ ],
+ "stage_assumptions": [
+  "修复前文件只进入课题一/二; 修复后文件只经课题三导入",
+  "场地 A 的修复前/后为显式生成的关联情景, 不代表真实修复效果",
+  "课题三 t=3 年, 管理强度 中等强度; 生产门禁农用地类型 水田; 生态 第一类用地"
+ ],
+ "units": {
+  "重金属/有机物": "mg/kg",
+  "全氮/有机碳": "g/kg",
+  "有效磷/速效钾": "mg/kg",
+  "CEC": "cmol(+)/kg",
+  "有效土层": "cm",
+  "地下水埋深": "m",
+  "坡度": "°"
+ },
+ "scenarios": {
+  "A": {
+   "title": "两轨均支持(both_supported)",
+   "design": {
+    "post_median": {
+     "cd": 0.18,
+     "hg": 0.08,
+     "as": 11,
+     "pb": 40,
+     "cr": 60,
+     "cu": 24,
+     "ni": 28,
+     "zn": 85
+    },
+    "crvi": 0.4,
+    "organics": true,
+    "ssui_beta": {
+     "production": [
+      16,
+      4
+     ],
+     "ecology": [
+      16,
+      4
+     ]
+    },
+    "linked_pre": true
+   }
+  },
+  "B": {
+   "title": "仅生产支持(production_supported)",
+   "design": {
+    "post_median": {
+     "cd": 0.18,
+     "hg": 0.08,
+     "as": 11,
+     "pb": 40,
+     "cr": 60,
+     "cu": 24,
+     "ni": 28,
+     "zn": 85
+    },
+    "crvi": 0.4,
+    "organics": true,
+    "ssui_beta": {
+     "production": [
+      16,
+      4
+     ],
+     "ecology": [
+      6,
+      14
+     ]
+    }
+   }
+  },
+  "C": {
+   "title": "仅生态支持(ecology_supported)",
+   "design": {
+    "post_median": {
+     "cd": 3.6,
+     "hg": 0.08,
+     "as": 11,
+     "pb": 40,
+     "cr": 60,
+     "cu": 24,
+     "ni": 28,
+     "zn": 85
+    },
+    "crvi": 0.4,
+    "organics": true,
+    "ssui_beta": {
+     "production": [
+      16,
+      4
+     ],
+     "ecology": [
+      16,
+      4
+     ]
+    },
+    "cd_floor": 3.1
+   }
+  },
+  "D": {
+   "title": "两轨均不支持·重度超标(neither_supported)",
+   "design": {
+    "post_median": {
+     "cd": 0.3,
+     "hg": 0.1,
+     "as": 190,
+     "pb": 60,
+     "cr": 60,
+     "cu": 24,
+     "ni": 28,
+     "zn": 85
+    },
+    "crvi": 0.4,
+    "organics": true,
+    "ssui_beta": {
+     "production": [
+      16,
+      4
+     ],
+     "ecology": [
+      16,
+      4
+     ]
+    },
+    "as_floor": 125
+   }
+  },
+  "E": {
+   "title": "证据不足·缺测关键项目(insufficient_evidence)",
+   "design": {
+    "post_median": {
+     "hg": 0.08,
+     "as": 11,
+     "pb": 40,
+     "cr": 60,
+     "cu": 24,
+     "ni": 28,
+     "zn": 85
+    },
+    "crvi": null,
+    "organics": false,
+    "ssui_beta": {
+     "production": [
+      16,
+      4
+     ],
+     "ecology": [
+      16,
+      4
+     ]
+    }
+   }
+  }
+ },
+ "files": {
+  "site_A/01_MCDEMO-A_修复前检测数据_模拟数据_仅供测试演示.xlsx": "2349f4bf2eff1ba4d18755cb5f96c1a73e40c2d0bda067a8485064683b028de2",
+  "site_A/02_MCDEMO-A_课题二重构指标_模拟数据_仅供测试演示.xlsx": "87bf90e32b1784e473f9c9a01fe2ad84255d606fb780baf410c6939719b2ee4f",
+  "site_A/03_MCDEMO-A_课题三SSUI_生产_模拟数据_仅供测试演示.xlsx": "628e7dc27780f287fee25b8de83ffcfc53776fc931957291f47d1aa2aeb2bc6a",
+  "site_A/04_MCDEMO-A_课题三SSUI_生态_模拟数据_仅供测试演示.xlsx": "190bc1ae57459075c5339588b25c0db36d713723308d46e18a51d38e3d2a83e3",
+  "site_A/05_MCDEMO-A_场地经济输入_模拟数据_仅供测试演示.json": "a72a3ee7713ebfd1749477322d6063dd647dcb14baeda983bcb19995193b42c6",
+  "site_B/01_MCDEMO-B_修复前检测数据_模拟数据_仅供测试演示.xlsx": "b0bdfbdf07441d036d1c97d2094ba830679d785755dd47fd29c8fe3cc165d541",
+  "site_B/02_MCDEMO-B_课题二重构指标_模拟数据_仅供测试演示.xlsx": "96b94b9d3813403590501a41d284b8532a291188e87466f83a722f25899b22a2",
+  "site_B/03_MCDEMO-B_课题三SSUI_生产_模拟数据_仅供测试演示.xlsx": "dbb84a46625980a610dac4cd472a6c1df3abf433c4d3c7a2f768e2ee00513523",
+  "site_B/04_MCDEMO-B_课题三SSUI_生态_模拟数据_仅供测试演示.xlsx": "ddcbe84c92eb4bf52573aea881bfd195a96b312f913c622b9215da1ec6fcc62c",
+  "site_B/05_MCDEMO-B_场地经济输入_模拟数据_仅供测试演示.json": "51166d8b287937e22506954557c4a52e5d118dcbfe1d9303f9b5b6e06cd47728",
+  "site_C/01_MCDEMO-C_修复前检测数据_模拟数据_仅供测试演示.xlsx": "0272b7ece5d2f6eee0acc91056d497fe549814e0a5d1eb9bdb73a35320f5b22f",
+  "site_C/02_MCDEMO-C_课题二重构指标_模拟数据_仅供测试演示.xlsx": "69b71d5b3432efbd1a01aaf27c627aa5fc9bb4b42339ed2288f1abf0b5765c6c",
+  "site_C/03_MCDEMO-C_课题三SSUI_生产_模拟数据_仅供测试演示.xlsx": "65d09baa497702ceb856c8f438e8b2d356f0e9766a5b1f2d9b0833db21939e7e",
+  "site_C/04_MCDEMO-C_课题三SSUI_生态_模拟数据_仅供测试演示.xlsx": "e5fdf4801cc4e4db3be135acfad0c5b2a2599500e543b97b2b62f2c2a3b83dba",
+  "site_C/05_MCDEMO-C_场地经济输入_模拟数据_仅供测试演示.json": "8a5b02930f353d85821080283cc57748e30d9bdcad0cf934b5c7639305e263cf",
+  "site_D/01_MCDEMO-D_修复前检测数据_模拟数据_仅供测试演示.xlsx": "f9e2024bc57bc84affc9732a0fa10820a7e1f8a8e2c71c2d760969dfa3c155ca",
+  "site_D/02_MCDEMO-D_课题二重构指标_模拟数据_仅供测试演示.xlsx": "3b73a27553c455d9e3c3afcdc5fd25be645b17327bd2a9c5a93dbd451e426fb0",
+  "site_D/03_MCDEMO-D_课题三SSUI_生产_模拟数据_仅供测试演示.xlsx": "db043556d8135fda212315c66d79db0ed823f0f3e5e52f40d22e979a3eab682a",
+  "site_D/04_MCDEMO-D_课题三SSUI_生态_模拟数据_仅供测试演示.xlsx": "9dc863f8b7e309a18cd35eabef57cfe65b35469511e399c61629e449d21d6b9e",
+  "site_D/05_MCDEMO-D_场地经济输入_模拟数据_仅供测试演示.json": "86a7f6e248aeea150b1266c29db7cb9c62e374a1f6e2a7515d7cf6cb9f2ff210",
+  "site_E/01_MCDEMO-E_修复前检测数据_模拟数据_仅供测试演示.xlsx": "7fa9134b69bf62600199d5d6aa514142c1f37668043f2e8e47c6547213bcaf02",
+  "site_E/02_MCDEMO-E_课题二重构指标_模拟数据_仅供测试演示.xlsx": "168c1d2b01bf7fdfca87c84939b518f66b3c538d99188691ed9da9c3e0f3de49",
+  "site_E/03_MCDEMO-E_课题三SSUI_生产_模拟数据_仅供测试演示.xlsx": "1578cdeab8e47b0aef5117ee284971e4caa118bc713870f1a9f23b2ff515cde2",
+  "site_E/04_MCDEMO-E_课题三SSUI_生态_模拟数据_仅供测试演示.xlsx": "accdc50b178b881efdc617fbd119dce71a8219b2e5c714766bc817fee9206626",
+  "site_E/05_MCDEMO-E_场地经济输入_模拟数据_仅供测试演示.json": "c41b7f334310d4ee04ea5cf50e821bfdc0c39147a15b389a52aa4e1d0b829902",
+  "fixtures/F01_课题二_阶段填修复后_应拒绝.xlsx": "573f6dddc890e4b5275135df330c47bdb0707268127a7a6313ad0705ba212e91",
+  "fixtures/F02_课题二_非法类别_应拒绝.xlsx": "a7ca629e932d5dbf02bb02ba02c1d2972fba837be760b9ed563698b0208d0bd3",
+  "fixtures/F03_课题二_点位重复_应拒绝.xlsx": "1cfd0e9f4261051776184722463ac9188dee9a517f21fe777c1cf79e4bd9026f",
+  "fixtures/F04_课题二_pH超物理范围_应拒绝.xlsx": "d20a0e11c8eda73bdf2b3ec92b2226f0ab81204842e602b53289cd3b94391f7a",
+  "fixtures/F05_课题二_常数列_仅告警.xlsx": "be45cc4e8dd415259e34f972cb67c79d66e81f7dfd9ad5c2f40c7843aae4fae9",
+  "fixtures/F06_课题二_单点位_仅告警.xlsx": "9e5647a005791e557a187301201a6c48b46ee14c99166accff056c0452127a57",
+  "fixtures/F07_课题三_浓度单位非mgkg_应拒绝.xlsx": "d499f6640603866dfd0424699826d0fced6372a77ca511528a65d40c22996f49"
+ },
+ "fixtures": {
+  "F01_wrong_stage": {
+   "file": "fixtures/F01_课题二_阶段填修复后_应拒绝.xlsx",
+   "expect": "error",
+   "message_contains": "数据阶段"
+  },
+  "F02_invalid_category": {
+   "file": "fixtures/F02_课题二_非法类别_应拒绝.xlsx",
+   "expect": "error",
+   "message_contains": "无法识别的类别"
+  },
+  "F03_duplicate_point": {
+   "file": "fixtures/F03_课题二_点位重复_应拒绝.xlsx",
+   "expect": "error",
+   "message_contains": "重复"
+  },
+  "F04_unit_error_pH": {
+   "file": "fixtures/F04_课题二_pH超物理范围_应拒绝.xlsx",
+   "expect": "error",
+   "message_contains": "超出物理范围"
+  },
+  "F05_constant_column": {
+   "file": "fixtures/F05_课题二_常数列_仅告警.xlsx",
+   "expect": "warning",
+   "message_contains": "常数列"
+  },
+  "F06_single_row": {
+   "file": "fixtures/F06_课题二_单点位_仅告警.xlsx",
+   "expect": "warning",
+   "message_contains": "仅 1 个点位"
+  },
+  "F07_post_unit_error": {
+   "file": "fixtures/F07_课题三_浓度单位非mgkg_应拒绝.xlsx",
+   "expect": "error",
+   "message_contains": "单位"
+  },
+  "F08_duplicate_import": {
+   "file": "site_A/02_MCDEMO-A_课题二重构指标_模拟数据_仅供测试演示.xlsx",
+   "expect": "error_on_second",
+   "message_contains": "已在批次"
+  }
+ },
+ "import_order": [
+  "1 场地管理→数据导入: 01_修复前检测数据(创建场地, 课题一 KOS)",
+  "2 课题二重构指标导入: 02_课题二重构指标(修复前)",
+  "3 课题三: 03_课题三SSUI_生产, 04_课题三SSUI_生态(修复后)",
+  "4 利用方向结论: 修复前情景 + 修复后结论",
+  "5 报告导出 / 全流程追溯"
+ ],
+ "usage_rule": "仅用于测试/演示; 只能导入独立演示库或演示账号; 所有结果显示模拟数据标签; 不得用于正式报告或模型训练"
+}

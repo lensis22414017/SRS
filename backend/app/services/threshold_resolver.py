@@ -32,6 +32,11 @@ def parse_threshold_original(text: str) -> dict | None:
     if not text:
         return None
     t = text.strip()
+    # v1.2: 展开 "a×10⁻ⁿ" 科学计数(知识库 PCB126/PCB169/二噁英类), 否则该行被整体丢弃
+    t_num = t.translate(str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹⁻", "0123456789-"))
+    t_num = re.sub(r"([0-9.]+)\s*[×x\*]\s*10\^?(-?[0-9]+)",
+                   lambda m: format(float(m.group(1)) * 10 ** int(m.group(2)), ".10g"), t_num)
+    t = t_num
     ph_min = ph_max = None
     mb = _PH_BETWEEN.search(t)
     if mb:
@@ -81,6 +86,13 @@ def build_pollutant_limits(kb_csv: str) -> dict:
         scope = {"生产用地": "production", "生态用地": "ecology"}.get(scope_raw, scope_raw)
         key = (name, scope)
         scen = (r.get("application_scenario") or "").strip()
+        # v1.2: GB 36600 记录以原文"一类/二类用地区"为准(知识库氯甲烷、氯苯两条场景字段对调)
+        if "36600" in (r.get("standard_source") or "") and scen in ("特殊绿地", "一般绿地"):
+            orig = r.get("threshold_original") or ""
+            if "一类" in orig:
+                scen = "特殊绿地"
+            elif "二类" in orig:
+                scen = "一般绿地"
         if scen:
             last_scenario_by_key[key] = scen
         scen_eff = last_scenario_by_key.get(key, "其他用地")

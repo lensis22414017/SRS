@@ -1,0 +1,171 @@
+factor,land_class,screening,control,unit,table_ref,confidence,note
+As,第一类用地,20.0,120.0,mg/kg,表1#1,official_verified,CAS 7440-38-2; p.3 (PDF p.7); MEE official PDF; 注a
+As,第二类用地,60.0,140.0,mg/kg,表1#1,official_verified,CAS 7440-38-2; p.3 (PDF p.7); MEE official PDF; 注a
+Cd,第一类用地,20.0,47.0,mg/kg,表1#2,official_verified,CAS 7440-43-9; p.3 (PDF p.7); MEE official PDF
+Cd,第二类用地,65.0,172.0,mg/kg,表1#2,official_verified,CAS 7440-43-9; p.3 (PDF p.7); MEE official PDF
+Cr(VI),第一类用地,3.0,30.0,mg/kg,表1#3,official_verified,CAS 18540-29-9; p.3 (PDF p.7); MEE official PDF
+Cr(VI),第二类用地,5.7,78.0,mg/kg,表1#3,official_verified,CAS 18540-29-9; p.3 (PDF p.7); MEE official PDF
+Cu,第一类用地,2000.0,8000.0,mg/kg,表1#4,official_verified,CAS 7440-50-8; p.3 (PDF p.7); MEE official PDF
+Cu,第二类用地,18000.0,36000.0,mg/kg,表1#4,official_verified,CAS 7440-50-8; p.3 (PDF p.7); MEE official PDF
+Pb,第一类用地,400.0,800.0,mg/kg,表1#5,official_verified,CAS 7439-92-1; p.3 (PDF p.7); MEE official PDF
+Pb,第二类用地,800.0,2500.0,mg/kg,表1#5,official_verified,CAS 7439-92-1; p.3 (PDF p.7); MEE official PDF
+Hg,第一类用地,8.0,33.0,mg/kg,表1#6,official_verified,CAS 7439-97-6; p.3 (PDF p.7); MEE official PDF
+Hg,第二类用地,38.0,82.0,mg/kg,表1#6,official_verified,CAS 7439-97-6; p.3 (PDF p.7); MEE official PDF
+Ni,第一类用地,150.0,600.0,mg/kg,表1#7,official_verified,CAS 7440-02-0; p.3 (PDF p.7); MEE official PDF
+Ni,第二类用地,900.0,2000.0,mg/kg,表1#7,official_verified,CAS 7440-02-0; p.3 (PDF p.7); MEE official PDF
+四氯化碳,第一类用地,0.9,9.0,mg/kg,表1#8,official_verified,CAS 56-23-5; p.3 (PDF p.7); MEE official PDF
+四氯化碳,第二类用地,2.8,36.0,mg/kg,表1#8,official_verified,CAS 56-23-5; p.3 (PDF p.7); MEE official PDF
+氯仿,第一类用地,0.3,5.0,mg/kg,表1#9,official_verified,CAS 67-66-3; p.3 (PDF p.7); MEE official PDF
+氯仿,第二类用地,0.9,10.0,mg/kg,表1#9,official_verified,CAS 67-66-3; p.3 (PDF p.7); MEE official PDF
+氯甲烷,第一类用地,12.0,21.0,mg/kg,表1#10,official_verified,CAS 74-87-3; p.3 (PDF p.7); MEE official PDF
+氯甲烷,第二类用地,37.0,120.0,mg/kg,表1#10,official_verified,CAS 74-87-3; p.3 (PDF p.7); MEE official PDF
+"1,1-二氯乙烷",第一类用地,3.0,20.0,mg/kg,表1#11,official_verified,CAS 75-34-3; p.3 (PDF p.7); MEE official PDF
+"1,1-二氯乙烷",第二类用地,9.0,100.0,mg/kg,表1#11,official_verified,CAS 75-34-3; p.3 (PDF p.7); MEE official PDF
+"1,2-二氯乙烷",第一类用地,0.52,6.0,mg/kg,表1#12,official_verified,CAS 107-06-2; p.3 (PDF p.7); MEE official PDF
+"1,2-二氯乙烷",第二类用地,5.0,21.0,mg/kg,表1#12,official_verified,CAS 107-06-2; p.3 (PDF p.7); MEE official PDF
+"1,1-二氯乙烯",第一类用地,12.0,40.0,mg/kg,表1#13,official_verified,CAS 75-35-4; p.3 (PDF p.7); MEE official PDF
+"1,1-二氯乙烯",第二类用地,66.0,200.0,mg/kg,表1#13,official_verified,CAS 75-35-4; p.3 (PDF p.7); MEE official PDF
+"顺-1,2-二氯乙烯",第一类用地,66.0,200.0,mg/kg,表1#14,official_verified,CAS 156-59-2; p.3 (PDF p.7); MEE official PDF
+"顺-1,2-二氯乙烯",第二类用地,596.0,2000.0,mg/kg,表1#14,official_verified,CAS 156-59-2; p.3 (PDF p.7); MEE official PDF
+"反-1,2-二氯乙烯",第一类用地,10.0,31.0,mg/kg,表1#15,official_verified,CAS 156-60-5; p.3 (PDF p.7); MEE official PDF
+"反-1,2-二氯乙烯",第二类用地,54.0,163.0,mg/kg,表1#15,official_verified,CAS 156-60-5; p.3 (PDF p.7); MEE official PDF
+二氯甲烷,第一类用地,94.0,300.0,mg/kg,表1#16,official_verified,CAS 75-09-2; p.3 (PDF p.7); MEE official PDF
+二氯甲烷,第二类用地,616.0,2000.0,mg/kg,表1#16,official_verified,CAS 75-09-2; p.3 (PDF p.7); MEE official PDF
+"1,2-二氯丙烷",第一类用地,1.0,5.0,mg/kg,表1#17,official_verified,CAS 78-87-5; p.3 (PDF p.7); MEE official PDF
+"1,2-二氯丙烷",第二类用地,5.0,47.0,mg/kg,表1#17,official_verified,CAS 78-87-5; p.3 (PDF p.7); MEE official PDF
+"1,1,1,2-四氯乙烷",第一类用地,2.6,26.0,mg/kg,表1#18,official_verified,CAS 630-20-6; p.3 (PDF p.7); MEE official PDF
+"1,1,1,2-四氯乙烷",第二类用地,10.0,100.0,mg/kg,表1#18,official_verified,CAS 630-20-6; p.3 (PDF p.7); MEE official PDF
+"1,1,2,2-四氯乙烷",第一类用地,1.6,14.0,mg/kg,表1#19,official_verified,CAS 79-34-5; p.3 (PDF p.7); MEE official PDF
+"1,1,2,2-四氯乙烷",第二类用地,6.8,50.0,mg/kg,表1#19,official_verified,CAS 79-34-5; p.3 (PDF p.7); MEE official PDF
+四氯乙烯,第一类用地,11.0,34.0,mg/kg,表1#20,official_verified,CAS 127-18-4; p.3 (PDF p.7); MEE official PDF
+四氯乙烯,第二类用地,53.0,183.0,mg/kg,表1#20,official_verified,CAS 127-18-4; p.3 (PDF p.7); MEE official PDF
+"1,1,1-三氯乙烷",第一类用地,701.0,840.0,mg/kg,表1#21,official_verified,CAS 71-55-6; p.3 (PDF p.7); MEE official PDF
+"1,1,1-三氯乙烷",第二类用地,840.0,840.0,mg/kg,表1#21,official_verified,CAS 71-55-6; p.3 (PDF p.7); MEE official PDF
+"1,1,2-三氯乙烷",第一类用地,0.6,5.0,mg/kg,表1#22,official_verified,CAS 79-00-5; p.3 (PDF p.7); MEE official PDF
+"1,1,2-三氯乙烷",第二类用地,2.8,15.0,mg/kg,表1#22,official_verified,CAS 79-00-5; p.3 (PDF p.7); MEE official PDF
+三氯乙烯,第一类用地,0.7,7.0,mg/kg,表1#23,official_verified,CAS 79-01-6; p.3 (PDF p.7); MEE official PDF
+三氯乙烯,第二类用地,2.8,20.0,mg/kg,表1#23,official_verified,CAS 79-01-6; p.3 (PDF p.7); MEE official PDF
+"1,2,3-三氯丙烷",第一类用地,0.05,0.5,mg/kg,表1#24,official_verified,CAS 96-18-4; p.3 (PDF p.7); MEE official PDF
+"1,2,3-三氯丙烷",第二类用地,0.5,5.0,mg/kg,表1#24,official_verified,CAS 96-18-4; p.3 (PDF p.7); MEE official PDF
+氯乙烯,第一类用地,0.12,1.2,mg/kg,表1#25,official_verified,CAS 75-01-4; p.3 (PDF p.7); MEE official PDF
+氯乙烯,第二类用地,0.43,4.3,mg/kg,表1#25,official_verified,CAS 75-01-4; p.3 (PDF p.7); MEE official PDF
+苯,第一类用地,1.0,10.0,mg/kg,表1#26,official_verified,CAS 71-43-2; p.3 (PDF p.7); MEE official PDF
+苯,第二类用地,4.0,40.0,mg/kg,表1#26,official_verified,CAS 71-43-2; p.3 (PDF p.7); MEE official PDF
+氯苯,第一类用地,68.0,200.0,mg/kg,表1#27,official_verified,CAS 108-90-7; p.3 (PDF p.7); MEE official PDF
+氯苯,第二类用地,270.0,1000.0,mg/kg,表1#27,official_verified,CAS 108-90-7; p.3 (PDF p.7); MEE official PDF
+"1,2-二氯苯",第一类用地,560.0,560.0,mg/kg,表1#28,official_verified,CAS 95-50-1; p.3 (PDF p.7); MEE official PDF
+"1,2-二氯苯",第二类用地,560.0,560.0,mg/kg,表1#28,official_verified,CAS 95-50-1; p.3 (PDF p.7); MEE official PDF
+"1,4-二氯苯",第一类用地,5.6,56.0,mg/kg,表1#29,official_verified,CAS 106-46-7; p.3 (PDF p.7); MEE official PDF
+"1,4-二氯苯",第二类用地,20.0,200.0,mg/kg,表1#29,official_verified,CAS 106-46-7; p.3 (PDF p.7); MEE official PDF
+乙苯,第一类用地,7.2,72.0,mg/kg,表1#30,official_verified,CAS 100-41-4; p.3 (PDF p.7); MEE official PDF
+乙苯,第二类用地,28.0,280.0,mg/kg,表1#30,official_verified,CAS 100-41-4; p.3 (PDF p.7); MEE official PDF
+苯乙烯,第一类用地,1290.0,1290.0,mg/kg,表1#31,official_verified,CAS 100-42-5; p.3 (PDF p.7); MEE official PDF
+苯乙烯,第二类用地,1290.0,1290.0,mg/kg,表1#31,official_verified,CAS 100-42-5; p.3 (PDF p.7); MEE official PDF
+甲苯,第一类用地,1200.0,1200.0,mg/kg,表1#32,official_verified,CAS 108-88-3; p.3 (PDF p.7); MEE official PDF
+甲苯,第二类用地,1200.0,1200.0,mg/kg,表1#32,official_verified,CAS 108-88-3; p.3 (PDF p.7); MEE official PDF
+间-二甲苯+对-二甲苯,第一类用地,163.0,500.0,mg/kg,表1#33,official_verified,"CAS 108-38-3,106-42-3; p.4 (PDF p.8); MEE official PDF"
+间-二甲苯+对-二甲苯,第二类用地,570.0,570.0,mg/kg,表1#33,official_verified,"CAS 108-38-3,106-42-3; p.4 (PDF p.8); MEE official PDF"
+邻-二甲苯,第一类用地,222.0,640.0,mg/kg,表1#34,official_verified,CAS 95-47-6; p.4 (PDF p.8); MEE official PDF
+邻-二甲苯,第二类用地,640.0,640.0,mg/kg,表1#34,official_verified,CAS 95-47-6; p.4 (PDF p.8); MEE official PDF
+硝基苯,第一类用地,34.0,190.0,mg/kg,表1#35,official_verified,CAS 98-95-3; p.4 (PDF p.8); MEE official PDF
+硝基苯,第二类用地,76.0,760.0,mg/kg,表1#35,official_verified,CAS 98-95-3; p.4 (PDF p.8); MEE official PDF
+苯胺,第一类用地,92.0,211.0,mg/kg,表1#36,official_verified,CAS 62-53-3; p.4 (PDF p.8); MEE official PDF
+苯胺,第二类用地,260.0,663.0,mg/kg,表1#36,official_verified,CAS 62-53-3; p.4 (PDF p.8); MEE official PDF
+2-氯酚,第一类用地,250.0,500.0,mg/kg,表1#37,official_verified,CAS 95-57-8; p.4 (PDF p.8); MEE official PDF
+2-氯酚,第二类用地,2256.0,4500.0,mg/kg,表1#37,official_verified,CAS 95-57-8; p.4 (PDF p.8); MEE official PDF
+苯并[a]蒽,第一类用地,5.5,55.0,mg/kg,表1#38,official_verified,CAS 56-55-3; p.4 (PDF p.8); MEE official PDF
+苯并[a]蒽,第二类用地,15.0,151.0,mg/kg,表1#38,official_verified,CAS 56-55-3; p.4 (PDF p.8); MEE official PDF
+苯并[a]芘,第一类用地,0.55,5.5,mg/kg,表1#39,official_verified,CAS 50-32-8; p.4 (PDF p.8); MEE official PDF
+苯并[a]芘,第二类用地,1.5,15.0,mg/kg,表1#39,official_verified,CAS 50-32-8; p.4 (PDF p.8); MEE official PDF
+苯并[b]荧蒽,第一类用地,5.5,55.0,mg/kg,表1#40,official_verified,CAS 205-99-2; p.4 (PDF p.8); MEE official PDF
+苯并[b]荧蒽,第二类用地,15.0,151.0,mg/kg,表1#40,official_verified,CAS 205-99-2; p.4 (PDF p.8); MEE official PDF
+苯并[k]荧蒽,第一类用地,55.0,550.0,mg/kg,表1#41,official_verified,CAS 207-08-9; p.4 (PDF p.8); MEE official PDF
+苯并[k]荧蒽,第二类用地,151.0,1500.0,mg/kg,表1#41,official_verified,CAS 207-08-9; p.4 (PDF p.8); MEE official PDF
+䓛,第一类用地,490.0,4900.0,mg/kg,表1#42,official_verified,CAS 218-01-9; p.4 (PDF p.8); MEE official PDF
+䓛,第二类用地,1293.0,12900.0,mg/kg,表1#42,official_verified,CAS 218-01-9; p.4 (PDF p.8); MEE official PDF
+"二苯并[a,h]蒽",第一类用地,0.55,5.5,mg/kg,表1#43,official_verified,CAS 53-70-3; p.4 (PDF p.8); MEE official PDF
+"二苯并[a,h]蒽",第二类用地,1.5,15.0,mg/kg,表1#43,official_verified,CAS 53-70-3; p.4 (PDF p.8); MEE official PDF
+"茚并[1,2,3-cd]芘",第一类用地,5.5,55.0,mg/kg,表1#44,official_verified,CAS 193-39-5; p.4 (PDF p.8); MEE official PDF
+"茚并[1,2,3-cd]芘",第二类用地,15.0,151.0,mg/kg,表1#44,official_verified,CAS 193-39-5; p.4 (PDF p.8); MEE official PDF
+萘,第一类用地,25.0,255.0,mg/kg,表1#45,official_verified,CAS 91-20-3; p.4 (PDF p.8); MEE official PDF
+萘,第二类用地,70.0,700.0,mg/kg,表1#45,official_verified,CAS 91-20-3; p.4 (PDF p.8); MEE official PDF
+锑,第一类用地,20.0,40.0,mg/kg,表2#1,official_verified,CAS 7440-36-0; p.4 (PDF p.8); MEE official PDF
+锑,第二类用地,180.0,360.0,mg/kg,表2#1,official_verified,CAS 7440-36-0; p.4 (PDF p.8); MEE official PDF
+铍,第一类用地,15.0,98.0,mg/kg,表2#2,official_verified,CAS 7440-41-7; p.4 (PDF p.8); MEE official PDF
+铍,第二类用地,29.0,290.0,mg/kg,表2#2,official_verified,CAS 7440-41-7; p.4 (PDF p.8); MEE official PDF
+钴,第一类用地,20.0,190.0,mg/kg,表2#3,official_verified,CAS 7440-48-4; p.4 (PDF p.8); MEE official PDF; 注a
+钴,第二类用地,70.0,350.0,mg/kg,表2#3,official_verified,CAS 7440-48-4; p.4 (PDF p.8); MEE official PDF; 注a
+甲基汞,第一类用地,5.0,10.0,mg/kg,表2#4,official_verified,CAS 22967-92-6; p.4 (PDF p.8); MEE official PDF
+甲基汞,第二类用地,45.0,120.0,mg/kg,表2#4,official_verified,CAS 22967-92-6; p.4 (PDF p.8); MEE official PDF
+钒,第一类用地,165.0,330.0,mg/kg,表2#5,official_verified,CAS 7440-62-2; p.4 (PDF p.8); MEE official PDF; 注a(第一类筛选值)
+钒,第二类用地,752.0,1500.0,mg/kg,表2#5,official_verified,CAS 7440-62-2; p.4 (PDF p.8); MEE official PDF; 注a(第一类筛选值)
+氰化物,第一类用地,22.0,44.0,mg/kg,表2#6,official_verified,CAS 57-12-5; p.4 (PDF p.8); MEE official PDF
+氰化物,第二类用地,135.0,270.0,mg/kg,表2#6,official_verified,CAS 57-12-5; p.4 (PDF p.8); MEE official PDF
+一溴二氯甲烷,第一类用地,0.29,2.9,mg/kg,表2#7,official_verified,CAS 75-27-4; p.4 (PDF p.8); MEE official PDF
+一溴二氯甲烷,第二类用地,1.2,12.0,mg/kg,表2#7,official_verified,CAS 75-27-4; p.4 (PDF p.8); MEE official PDF
+溴仿,第一类用地,32.0,320.0,mg/kg,表2#8,official_verified,CAS 75-25-2; p.4 (PDF p.8); MEE official PDF
+溴仿,第二类用地,103.0,1030.0,mg/kg,表2#8,official_verified,CAS 75-25-2; p.4 (PDF p.8); MEE official PDF
+二溴氯甲烷,第一类用地,9.3,93.0,mg/kg,表2#9,official_verified,CAS 124-48-1; p.4 (PDF p.8); MEE official PDF
+二溴氯甲烷,第二类用地,33.0,330.0,mg/kg,表2#9,official_verified,CAS 124-48-1; p.4 (PDF p.8); MEE official PDF
+"1,2-二溴乙烷",第一类用地,0.07,0.7,mg/kg,表2#10,official_verified,CAS 106-93-4; p.4 (PDF p.8); MEE official PDF
+"1,2-二溴乙烷",第二类用地,0.24,2.4,mg/kg,表2#10,official_verified,CAS 106-93-4; p.4 (PDF p.8); MEE official PDF
+六氯环戊二烯,第一类用地,1.1,2.3,mg/kg,表2#11,official_verified,CAS 77-47-4; p.4 (PDF p.8); MEE official PDF
+六氯环戊二烯,第二类用地,5.2,10.0,mg/kg,表2#11,official_verified,CAS 77-47-4; p.4 (PDF p.8); MEE official PDF
+"2,4-二硝基甲苯",第一类用地,1.8,18.0,mg/kg,表2#12,official_verified,CAS 121-14-2; p.4 (PDF p.8); MEE official PDF
+"2,4-二硝基甲苯",第二类用地,5.2,52.0,mg/kg,表2#12,official_verified,CAS 121-14-2; p.4 (PDF p.8); MEE official PDF
+"2,4-二氯酚",第一类用地,117.0,234.0,mg/kg,表2#13,official_verified,CAS 120-83-2; p.4 (PDF p.8); MEE official PDF
+"2,4-二氯酚",第二类用地,843.0,1690.0,mg/kg,表2#13,official_verified,CAS 120-83-2; p.4 (PDF p.8); MEE official PDF
+"2,4,6-三氯酚",第一类用地,39.0,78.0,mg/kg,表2#14,official_verified,CAS 88-06-2; p.4 (PDF p.8); MEE official PDF
+"2,4,6-三氯酚",第二类用地,137.0,560.0,mg/kg,表2#14,official_verified,CAS 88-06-2; p.4 (PDF p.8); MEE official PDF
+"2,4-二硝基酚",第一类用地,78.0,156.0,mg/kg,表2#15,official_verified,CAS 51-28-5; p.4 (PDF p.8); MEE official PDF
+"2,4-二硝基酚",第二类用地,562.0,1130.0,mg/kg,表2#15,official_verified,CAS 51-28-5; p.4 (PDF p.8); MEE official PDF
+五氯酚,第一类用地,1.1,12.0,mg/kg,表2#16,official_verified,CAS 87-86-5; p.4 (PDF p.8); MEE official PDF
+五氯酚,第二类用地,2.7,27.0,mg/kg,表2#16,official_verified,CAS 87-86-5; p.4 (PDF p.8); MEE official PDF
+邻苯二甲酸二(2-乙基己基)酯,第一类用地,42.0,420.0,mg/kg,表2#17,official_verified,CAS 117-81-7; p.4 (PDF p.8); MEE official PDF
+邻苯二甲酸二(2-乙基己基)酯,第二类用地,121.0,1210.0,mg/kg,表2#17,official_verified,CAS 117-81-7; p.4 (PDF p.8); MEE official PDF
+邻苯二甲酸丁基苄酯,第一类用地,312.0,3120.0,mg/kg,表2#18,official_verified,CAS 85-68-7; p.4 (PDF p.8); MEE official PDF
+邻苯二甲酸丁基苄酯,第二类用地,900.0,9000.0,mg/kg,表2#18,official_verified,CAS 85-68-7; p.4 (PDF p.8); MEE official PDF
+邻苯二甲酸二正辛酯,第一类用地,390.0,800.0,mg/kg,表2#19,official_verified,CAS 117-84-0; p.5 (PDF p.9); MEE official PDF
+邻苯二甲酸二正辛酯,第二类用地,2812.0,5700.0,mg/kg,表2#19,official_verified,CAS 117-84-0; p.5 (PDF p.9); MEE official PDF
+"3,3'-二氯联苯胺",第一类用地,1.3,13.0,mg/kg,表2#20,official_verified,CAS 91-94-1; p.5 (PDF p.9); MEE official PDF
+"3,3'-二氯联苯胺",第二类用地,3.6,36.0,mg/kg,表2#20,official_verified,CAS 91-94-1; p.5 (PDF p.9); MEE official PDF
+阿特拉津,第一类用地,2.6,26.0,mg/kg,表2#21,official_verified,CAS 1912-24-9; p.5 (PDF p.9); MEE official PDF
+阿特拉津,第二类用地,7.4,74.0,mg/kg,表2#21,official_verified,CAS 1912-24-9; p.5 (PDF p.9); MEE official PDF
+氯丹,第一类用地,2.0,20.0,mg/kg,表2#22,official_verified,CAS 12789-03-6; p.5 (PDF p.9); MEE official PDF; 注b α-氯丹+γ-氯丹
+氯丹,第二类用地,6.2,62.0,mg/kg,表2#22,official_verified,CAS 12789-03-6; p.5 (PDF p.9); MEE official PDF; 注b α-氯丹+γ-氯丹
+"p,p'-滴滴滴",第一类用地,2.5,25.0,mg/kg,表2#23,official_verified,CAS 72-54-8; p.5 (PDF p.9); MEE official PDF
+"p,p'-滴滴滴",第二类用地,7.1,71.0,mg/kg,表2#23,official_verified,CAS 72-54-8; p.5 (PDF p.9); MEE official PDF
+"p,p'-滴滴伊",第一类用地,2.0,20.0,mg/kg,表2#24,official_verified,CAS 72-55-9; p.5 (PDF p.9); MEE official PDF
+"p,p'-滴滴伊",第二类用地,7.0,70.0,mg/kg,表2#24,official_verified,CAS 72-55-9; p.5 (PDF p.9); MEE official PDF
+滴滴涕,第一类用地,2.0,21.0,mg/kg,表2#25,official_verified,"CAS 50-29-3; p.5 (PDF p.9); MEE official PDF; 注c o,p'-滴滴涕+p,p'-滴滴涕"
+滴滴涕,第二类用地,6.7,67.0,mg/kg,表2#25,official_verified,"CAS 50-29-3; p.5 (PDF p.9); MEE official PDF; 注c o,p'-滴滴涕+p,p'-滴滴涕"
+敌敌畏,第一类用地,1.8,18.0,mg/kg,表2#26,official_verified,CAS 62-73-7; p.5 (PDF p.9); MEE official PDF
+敌敌畏,第二类用地,5.0,50.0,mg/kg,表2#26,official_verified,CAS 62-73-7; p.5 (PDF p.9); MEE official PDF
+乐果,第一类用地,86.0,170.0,mg/kg,表2#27,official_verified,CAS 60-51-5; p.5 (PDF p.9); MEE official PDF
+乐果,第二类用地,619.0,1240.0,mg/kg,表2#27,official_verified,CAS 60-51-5; p.5 (PDF p.9); MEE official PDF
+硫丹,第一类用地,234.0,470.0,mg/kg,表2#28,official_verified,CAS 115-29-7; p.5 (PDF p.9); MEE official PDF; 注d α-硫丹+β-硫丹
+硫丹,第二类用地,1687.0,3400.0,mg/kg,表2#28,official_verified,CAS 115-29-7; p.5 (PDF p.9); MEE official PDF; 注d α-硫丹+β-硫丹
+七氯,第一类用地,0.13,1.3,mg/kg,表2#29,official_verified,CAS 76-44-8; p.5 (PDF p.9); MEE official PDF
+七氯,第二类用地,0.37,3.7,mg/kg,表2#29,official_verified,CAS 76-44-8; p.5 (PDF p.9); MEE official PDF
+α-六六六,第一类用地,0.09,0.9,mg/kg,表2#30,official_verified,CAS 319-84-6; p.5 (PDF p.9); MEE official PDF
+α-六六六,第二类用地,0.3,3.0,mg/kg,表2#30,official_verified,CAS 319-84-6; p.5 (PDF p.9); MEE official PDF
+β-六六六,第一类用地,0.32,3.2,mg/kg,表2#31,official_verified,CAS 319-85-7; p.5 (PDF p.9); MEE official PDF
+β-六六六,第二类用地,0.92,9.2,mg/kg,表2#31,official_verified,CAS 319-85-7; p.5 (PDF p.9); MEE official PDF
+γ-六六六,第一类用地,0.62,6.2,mg/kg,表2#32,official_verified,CAS 58-89-9; p.5 (PDF p.9); MEE official PDF
+γ-六六六,第二类用地,1.9,19.0,mg/kg,表2#32,official_verified,CAS 58-89-9; p.5 (PDF p.9); MEE official PDF
+六氯苯,第一类用地,0.33,3.3,mg/kg,表2#33,official_verified,CAS 118-74-1; p.5 (PDF p.9); MEE official PDF
+六氯苯,第二类用地,1.0,10.0,mg/kg,表2#33,official_verified,CAS 118-74-1; p.5 (PDF p.9); MEE official PDF
+灭蚁灵,第一类用地,0.03,0.3,mg/kg,表2#34,official_verified,CAS 2385-85-5; p.5 (PDF p.9); MEE official PDF
+灭蚁灵,第二类用地,0.09,0.9,mg/kg,表2#34,official_verified,CAS 2385-85-5; p.5 (PDF p.9); MEE official PDF
+多氯联苯(总量),第一类用地,0.14,1.4,mg/kg,表2#35,official_verified,CAS —; p.5 (PDF p.9); MEE official PDF; 注e 12种PCB总和
+多氯联苯(总量),第二类用地,0.38,3.8,mg/kg,表2#35,official_verified,CAS —; p.5 (PDF p.9); MEE official PDF; 注e 12种PCB总和
+"3,3',4,4',5-五氯联苯(PCB 126)",第一类用地,4e-05,0.0004,mg/kg,表2#36,official_verified,CAS 57465-28-8; p.5 (PDF p.9); MEE official PDF
+"3,3',4,4',5-五氯联苯(PCB 126)",第二类用地,0.0001,0.001,mg/kg,表2#36,official_verified,CAS 57465-28-8; p.5 (PDF p.9); MEE official PDF
+"3,3',4,4',5,5'-六氯联苯(PCB 169)",第一类用地,0.0001,0.001,mg/kg,表2#37,official_verified,CAS 32774-16-6; p.5 (PDF p.9); MEE official PDF
+"3,3',4,4',5,5'-六氯联苯(PCB 169)",第二类用地,0.0004,0.004,mg/kg,表2#37,official_verified,CAS 32774-16-6; p.5 (PDF p.9); MEE official PDF
+二噁英类(总毒性当量),第一类用地,1e-05,0.0001,mg/kg,表2#38,official_verified,CAS —; p.5 (PDF p.9); MEE official PDF
+二噁英类(总毒性当量),第二类用地,4e-05,0.0004,mg/kg,表2#38,official_verified,CAS —; p.5 (PDF p.9); MEE official PDF
+多溴联苯(总量),第一类用地,0.02,0.2,mg/kg,表2#39,official_verified,CAS —; p.5 (PDF p.9); MEE official PDF
+多溴联苯(总量),第二类用地,0.06,0.6,mg/kg,表2#39,official_verified,CAS —; p.5 (PDF p.9); MEE official PDF
+石油烃(C10-C40),第一类用地,826.0,5000.0,mg/kg,表2#40,official_verified,CAS —; p.5 (PDF p.9); MEE official PDF
+石油烃(C10-C40),第二类用地,4500.0,9000.0,mg/kg,表2#40,official_verified,CAS —; p.5 (PDF p.9); MEE official PDF

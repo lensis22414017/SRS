@@ -61,6 +61,6 @@
   <!-- Bottom -->
   <rect x="30" y="320" width="840" height="56" rx="8" fill="#fff" stroke="#e2e8f0"/>
   <text x="50" y="340" font-size="11" font-weight="600" fill="#334155">权重体系</text>
-  <text x="50" y="358" font-size="10" fill="#64748b">W = Normalize(0.5 × 准则层权重 + 0.4 × 指标层权重 + 0.1 × 标准优先级修正) — 锚定课题二 AHP/熵值组合赋权</text>
-  <text x="450" y="400" text-anchor="middle" font-size="10" fill="#64748b">依据：HJ 25.5-2018 · GB 15618-2018 · 极差归一化 + 熵权法 · 课题二功能重构评价体系</text>
+  <text x="50" y="358" font-size="10" fill="#64748b">综合得分 = Σ(F × T)：表2.22 分等赋值 F × 表2.18/2.20 组合权重 T（原值, 不归一）；指标缺失时按表2.19/2.21 准则层权重, 土壤质量类与修复潜力类用内梅罗指数</text>
+  <text x="450" y="400" text-anchor="middle" font-size="10" fill="#64748b">方法基线 M-REC-2025 · 课题二《评价方法+年度报告》表2.18–2.23 · 污染物按 GB 15618-2018 / GB 36600-2018 三档赋分</text>
 </svg>
