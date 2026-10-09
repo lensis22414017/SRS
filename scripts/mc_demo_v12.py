@@ -262,7 +262,8 @@ def generate(out: str) -> dict:
         wb["说明"].cell(8, 1, f"本文件为{LABEL}; 生成器 {GEN_VERSION}, 种子 {SEED}, 场景 {code}: {sc['title']}")
         f1 = os.path.join(d, f"01_{site_code}_修复前检测数据_{FILE_LABEL}.xlsx"); wb.save(f1)
         # 02 课题二 重构指标
-        wb = load_workbook(io.BytesIO(RI.build_template(site_code)))
+        # 场地编号 B2 留空: 修复前导入时系统分配编号(SRS-<字母>), 留空即以页面所选场地为准, 演示时无需改表
+        wb = load_workbook(io.BytesIO(RI.build_template("")))
         m = wb["批次信息"]; m["B4"] = LABEL; m["B5"] = RI.PROVENANCE["verified"]; m["B6"] = "水田"; m["B7"] = ECO_CLASS
         m["B8"] = f"{GEN_VERSION} seed={SEED} 场景{code}"
         ws = wb["指标数据"]
@@ -296,7 +297,7 @@ def generate(out: str) -> dict:
             post_pts.append(pt)
         ssui_files, exp_ssui = {}, {}
         for track, cn in (("production", "生产"), ("ecology", "生态")):
-            wb = load_workbook(io.BytesIO(ssui_template(track, site_code)))
+            wb = load_workbook(io.BytesIO(ssui_template(track, "")))
             mm = wb["批次信息"]; mm["B4"] = 2026; mm["B5"] = T_YEARS; mm["B6"] = INTENSITY; mm["B8"] = LABEL
             mm["B9"] = f"{GEN_VERSION} seed={SEED} 场景{code}"
             s = wb["指标得分"]

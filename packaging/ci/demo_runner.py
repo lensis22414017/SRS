@@ -85,7 +85,7 @@ def run_all(http: Http, demo: str, out: str, admin: tuple[str, str], report: boo
         a["S1_kos_top"] = [k.get("factor") for k in r.json().get("key_obstacles", [])][:6] if r.status_code == 200 else None
         check(f"[{code}] 课题一 KOS 诊断", r.status_code == 200 and bool(a["S1_kos_top"]), a["S1_kos_top"])
         f2 = [f for f in files if f.startswith("02_")][0]
-        content = _set_code(os.path.join(d, f2), "批次信息", "B2", scode)
+        content = open(os.path.join(d, f2), "rb").read()  # 演示文件原样导入(B2 留空 = 所选场地)
         pv = http.post(f"/api/v1/sites/{sid}/recon/preview", files={"file": (f2, content, XLSX)}).json()
         check(f"[{code}] 课题二 指标预览通过", pv.get("can_confirm") is True, (pv.get("errors") or [])[:3])
         cf = http.post(f"/api/v1/recon/batches/{pv.get('batch_id')}/confirm").json()
@@ -108,7 +108,7 @@ def run_all(http: Http, demo: str, out: str, admin: tuple[str, str], report: boo
         a["S3"] = {}
         for track, prefix in (("production", "03_"), ("ecology", "04_")):
             fn = [f for f in files if f.startswith(prefix)][0]
-            content = _set_code(os.path.join(d, fn), "批次信息", "B2", scode)
+            content = open(os.path.join(d, fn), "rb").read()
             pv3 = http.post(f"/api/v1/sites/{sid}/ssui-post/preview", data={"track": track},
                             files={"file": (fn, content, XLSX)}).json()
             ok = pv3.get("can_confirm") is True

@@ -1,4 +1,5 @@
 import { useEffect, useState, useMemo, useCallback } from "react";
+import { APP_VERSION } from "../version";
 import { App, Button, Tag, Spin, Typography, Tooltip, Empty } from "antd";
 import {
   RollbackOutlined, DatabaseOutlined, WarningOutlined,
@@ -367,7 +368,7 @@ export default function DashboardScreen() {
         {/* 右侧时钟/版本/返回(绝对定位右对齐) */}
         <div className={styles.headerMeta} style={{ position: "absolute", right: 16, display: "flex", alignItems: "center", gap: 16 }}>
           <span className={styles.clock}>{now.format("YYYY-MM-DD HH:mm:ss")}</span>
-          <span className={styles.dataVersion}>系统版本 v1.2.0</span>
+          <span className={styles.dataVersion}>系统版本 v{APP_VERSION}</span>
           <Button type="text" className={styles.backBtn} icon={<RollbackOutlined />}
             onClick={() => nav("/")}>返回工作台</Button>
         </div>

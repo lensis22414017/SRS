@@ -1,2 +1,5 @@
 *.joblib filter=lfs diff=lfs merge=lfs -text
 *.parquet filter=lfs diff=lfs merge=lfs -text
+
+# 演示包文件按字节固定(metadata.json 记录 sha256), 禁止换行符转换
+demo/** -text

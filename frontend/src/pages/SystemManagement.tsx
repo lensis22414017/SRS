@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { APP_VERSION } from "../version";
 import {
   Card, Tabs, Form, Input, Button, message, Table, Tag, Descriptions,
   Space, Row, Col, Statistic, Badge, Typography, Alert, Divider, List,
@@ -829,7 +830,7 @@ function AboutSystem() {
         <Descriptions bordered size="small" column={1}>
           <Descriptions.Item label="系统名称">污染场地土壤生态-生产功能重构监管系统</Descriptions.Item>
           <Descriptions.Item label="英文名称">Soil Remediation Supervision System (SRS)</Descriptions.Item>
-          <Descriptions.Item label="版本">v1.0.1 (2026-07-18)</Descriptions.Item>
+          <Descriptions.Item label="版本">v{APP_VERSION}</Descriptions.Item>
           <Descriptions.Item label="开发者">
             生态环境部土壤与农业农村生态环境监管技术中心<br/>
             <Text type="secondary" style={{ fontSize: 12 }}>

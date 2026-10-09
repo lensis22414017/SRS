@@ -194,8 +194,9 @@ TRACE_GUIDE = {
     "principle": "查看本引导不会创建任何记录; 选择场地并点击'初始化追溯'后才建立五阶段记录。",
     "stages": [
         {"stage": "survey", "name": "调查评估", "data_stage": PRE_REMEDIATION, "subprojects": ["课题一", "课题二"],
-         "system_steps": ["下载修复前检测数据模板并导入", "障碍因子识别(KOS)", "功能重构可行性评价", "修复前情景利用判断"],
-         "uploads": ["场地调查报告", "采样布点方案", "检测报告(CMA)"], "downloads": ["修复前检测数据模板"]},
+         "system_steps": ["下载修复前检测数据模板并导入", "障碍因子识别(KOS)", "下载课题二重构指标模板(28 项)并导入",
+                          "功能重构可行性评价(M-REC-2025)", "修复前情景利用判断"],
+         "uploads": ["场地调查报告", "采样布点方案", "检测报告(CMA)"], "downloads": ["修复前检测数据模板", "课题二重构指标模板", "课题二结果导出"]},
         {"stage": "approval", "name": "方案审批", "data_stage": PRE_REMEDIATION, "subprojects": ["课题一", "课题二"],
          "system_steps": ["修复技术推荐", "方案比选"], "uploads": ["修复方案", "专家评审意见", "批复文件"], "downloads": []},
         {"stage": "construction", "name": "施工监理", "data_stage": None, "subprojects": [],
@@ -209,6 +210,7 @@ TRACE_GUIDE = {
     ],
     "templates": [
         {"name": "修复前检测数据模板", "url": "/api/v1/templates/pre-remediation"},
+        {"name": "课题二重构指标模板(28 项, 修复前)", "url": "/api/v1/templates/recon-pre"},
         {"name": "课题三修复后 SSUI 模板(生产)", "url": "/api/v1/templates/ssui-post?track=production"},
         {"name": "课题三修复后 SSUI 模板(生态)", "url": "/api/v1/templates/ssui-post?track=ecology"},
     ],

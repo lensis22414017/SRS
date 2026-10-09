@@ -151,7 +151,7 @@ export default function ReconIndicatorImport() {
           columns={[
             { title: "批次", dataIndex: "batch_id", width: 70 },
             { title: "状态", dataIndex: "status", render: (v: string) => <Tag color={STATUS[v]?.color}>{STATUS[v]?.label || v}</Tag> },
-            { title: "来源", dataIndex: "data_origin_label", render: (v: string, r: any) => <Tag color={r.data_origin === "monte_carlo_demo" ? "red" : "default"}>{v}</Tag> },
+            { title: "来源", dataIndex: "data_origin_label", width: 210, render: (v: string, r: any) => <Tag style={{ whiteSpace: "normal" }} color={r.data_origin === "monte_carlo_demo" ? "red" : "default"}>{v}</Tag> },
             { title: "核实", dataIndex: "provenance_label" },
             { title: "点位", dataIndex: "point_count" },
             { title: "生产", render: (_: any, r: any) => r.production ? `${r.production.score ?? "—"}（${r.production.grade}）` : "—" },

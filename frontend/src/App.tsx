@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { APP_VERSION } from "./version";
 import { Layout, Menu, Dropdown, Avatar, Space, Typography, Breadcrumb, App as AntApp } from "antd";
 import {
   DashboardOutlined, DatabaseOutlined, SearchOutlined, ExperimentOutlined,
@@ -99,7 +100,7 @@ export default function AppLayout() {
           fontSize: 10,
           userSelect: "none",
         }}>
-          v1.0.1 · SRS
+          v{APP_VERSION} · SRS
         </div>
       </Sider>
 

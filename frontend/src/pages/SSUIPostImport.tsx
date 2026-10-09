@@ -117,8 +117,8 @@ export default function SSUIPostImport() {
             { title: "批次", dataIndex: "batch_id", width: 70 },
             { title: "轨道", dataIndex: "track", render: (v: string) => TRACK_CN[v] || v },
             { title: "状态", dataIndex: "status", render: (v: string) => <Tag color={STATUS[v]?.color}>{STATUS[v]?.label || v}</Tag> },
-            { title: "来源", dataIndex: "data_origin_label", render: (v: string, r: any) =>
-                <Tag color={r.data_origin === "monte_carlo_demo" ? "red" : "default"}>{v}</Tag> },
+            { title: "来源", dataIndex: "data_origin_label", width: 210, render: (v: string, r: any) =>
+                <Tag style={{ whiteSpace: "normal" }} color={r.data_origin === "monte_carlo_demo" ? "red" : "default"}>{v}</Tag> },
             { title: "t / M", render: (_: any, r: any) => `${r.t ?? "—"} / ${r.M ?? "—"}` },
             { title: "SSUI", dataIndex: "ssui", render: (v: number, r: any) => v == null ? "—" :
                 <span>{v.toFixed(4)} {r.exceeds_unit_range && <Tag color="orange">&gt;1</Tag>}</span> },

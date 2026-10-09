@@ -1,6 +1,6 @@
 """从已安装并完成验收流程的 SRS 实例采集真实界面截图(用户手册/PPT/截图包使用)。
 
-  --stage first_run   在管理员设置之前采集: 登录页 + 首启设置向导
+  --stage first_run   在管理员设置之前采集: 首启设置向导(登录页在 main 阶段采集)
   --stage main        在 windows_acceptance.py --phase full 完成后采集全部功能页面(含上传校验错误的真实界面)
 截图索引 index.json 记录: 文件、标题、路由、场景/场地、版本、提交、环境、采集时间、视口。
 """
@@ -54,8 +54,6 @@ def main():
         if a.stage == "first_run":
             page.goto(a.base + "/setup"); page.wait_for_load_state("networkidle")
             shot("00_first_run_setup.png", "首次启动 · 管理员设置向导(空数据库)", "/setup", full=False)
-            page.goto(a.base + "/login"); page.wait_for_load_state("networkidle")
-            shot("01_login.png", "登录页", "/login", full=False)
         else:
             r = requests.post(f"{a.base}/api/v1/auth/login", json={"username": ADMIN[0], "password": ADMIN[1]}).json()
             tok, user = r["access_token"], r["user"]
@@ -68,6 +66,7 @@ def main():
                         by[code] = s["id"]
             sid = by.get("A", sites[0]["id"])
             page.goto(a.base + "/login"); page.wait_for_load_state("networkidle")
+            shot("01_login.png", "登录页(管理员设置完成后)", "/login", full=False)
             page.evaluate("""([t,u,s]) => { localStorage.setItem('srs_token', t); localStorage.setItem('srs_user', u);
                              sessionStorage.setItem('srs_current_site_id', String(s)); }""", [tok, json.dumps(user), sid])
 
@@ -81,7 +80,12 @@ def main():
             go(f"/sites/{sid}"); shot("04_site_detail.png", "场地详情", f"/sites/{sid}", "A")
             go("/sites/import"); shot("05_import.png", "修复前检测数据导入(课题一/二)", "/sites/import")
             go("/obstacle", sid); shot("06_obstacle_S1.png", "课题一 障碍因子识别(KOS)", "/obstacle", "A")
-            go("/reconstruction", sid); shot("07_reconstruction_S2.png", "课题二 功能重构分析", "/reconstruction", "A")
+            go("/reconstruction", sid)
+            try:
+                page.get_by_role("button", name="运行功能重构可行性评价").first.click(); page.wait_for_timeout(5000)
+            except Exception as e:  # noqa: BLE001
+                print("reconstruction click failed:", e)
+            shot("07_reconstruction_S2.png", "课题二 功能重构分析(运行后, M-REC-2025)", "/reconstruction", "A")
             go("/recon-import", sid)
             try:
                 page.get_by_text("查看", exact=True).first.click(); page.wait_for_timeout(1500)
@@ -120,7 +124,12 @@ def main():
             go("/ssui", sid); shot("19_ssui_reference.png", "SSUI 参考评价(修复前数据, 非课题三结论)", "/ssui", "A")
             go("/trace"); shot("20_trace_guide.png", "全流程追溯 · 进入即见五阶段引导", "/trace")
             go(f"/trace/{sid}"); shot("21_trace_detail.png", "全流程追溯 · 场地真实进度与报告", f"/trace/{sid}", "A")
-            go("/recommend", sid); shot("22_recommend.png", "修复方案推荐", "/recommend", "A")
+            go("/recommend", sid)
+            try:  # 运行一次推荐再截图(仅为页面展示, 推荐结果不参与验收判定)
+                page.get_by_role("button", name="运行方案推荐").first.click(); page.wait_for_timeout(6000)
+            except Exception as e:  # noqa: BLE001
+                print("recommend click failed:", e)
+            shot("22_recommend.png", "修复方案推荐(演示场地 A, 运行后)", "/recommend", "A")
             go("/files"); shot("23_files.png", "文件管理", "/files")
             go("/system"); shot("24_system.png", "系统管理(用户/备份恢复/日志)", "/system")
         b.close()

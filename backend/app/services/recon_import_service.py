@@ -78,7 +78,7 @@ def build_template(site_code: str = "") -> bytes:
         ws.cell(i, 1, t)
     ws.column_dimensions["A"].width = 130
     m = wb.create_sheet("批次信息")
-    meta = [("场地编号", site_code, "必填, 与系统中场地编号一致"),
+    meta = [("场地编号", site_code, "可留空(以页面所选场地为准); 填写时须与系统中场地编号一致"),
             ("数据阶段", "修复前", "固定为 修复前"),
             ("数据来源", DATA_ORIGINS["client_real"], " / ".join(DATA_ORIGINS.values())),
             ("来源核实", PROVENANCE["verified"], " / ".join(PROVENANCE.values())),

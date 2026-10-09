@@ -81,7 +81,7 @@ def build_template(track: str = "production", site_code: str = "") -> bytes:
     ws.column_dimensions["A"].width = 130
 
     wb2 = wb.create_sheet("批次信息")
-    meta = [("场地编号", site_code, "必填, 与系统中场地编号一致"),
+    meta = [("场地编号", site_code, "可留空(以页面所选场地为准); 填写时须与系统中场地编号一致"),
             ("评价轨道", TRACKS[track], "生产利用 / 生态利用"),
             ("评价年份", "", "如 2026"),
             ("修复后年数t", "", "≥0, 单位: 年"),
