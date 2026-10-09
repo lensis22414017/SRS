@@ -56,7 +56,7 @@ def content():
     h2("1.3 方法版本")
     tb(["模块", "方法版本", "说明"], [
         ["课题二", M.METHOD_VERSION, "《(2025年)…评价方法+年度报告》表2.18–2.23：综合得分 = Σ(F×T)，表2.18 权重原值（Σ=0.9643）不归一；缺测时按表2.19/2.21 准则层权重，土壤质量类与修复潜力类用内梅罗指数计类别分；>50 可行"],
-        ["课题三", "SSUI-PPTX-v1（得分录入模式）", "SSUI = f(t)·Σvⱼ·Sⱼ·M；D1–D25 由课题组按分级标准给出得分 s（0–1），系统不做原始值到得分的换算"],
+        ["课题三", "SSUI-PPTX-v1（得分录入模式）", "SSUI = f(t)·Σv{_j}·S{_j}·M；D1–D25 由课题组按分级标准给出得分 s（0–1），系统不做原始值到得分的换算"],
         ["法规阈值", "GB 15618-2018 / GB 36600-2018", "由生态环境部官网发布的标准 PDF 逐行转录；GB 36600 表1 45 项、表2 40 项全部可用"],
     ])
     note("课题二、三的部分方法细节（如 C 库因子赋分笔误、SSUI 支持阈值 0.6）仍待陈亮、宋伟杰老师确认，相关结果标注“方法状态：冻结基线/暂定”，系统不静默修改。")
@@ -357,7 +357,7 @@ def build_docx(C, shots, out_path):
 
 def _sub_html(t):
     import re
-    return re.sub(r"\{_([a-z]+)\}", r"<sub>\1</sub>", H.escape(t))
+    return re.sub(r"\{_([a-z]+)\}", r'<font size="7">\1</font>', H.escape(t))  # CJK 字体下 <sub> 不显示
 
 
 def build_pdf(C, shots, out_path):
@@ -377,9 +377,9 @@ def build_pdf(C, shots, out_path):
     registerFontFamily("Deng", normal="Deng", bold="DengB", italic="Deng", boldItalic="DengB")
     base = dict(fontName="Deng", fontSize=10.5, leading=16, wordWrap="CJK")
     sty = {"p": ParagraphStyle("p", **base, spaceAfter=4),
-           "h1": ParagraphStyle("h1", fontName="SimHei", fontSize=16, leading=22, textColor=colors.HexColor("#1F3A5F"),
+           "h1": ParagraphStyle("h1", keepWithNext=1, fontName="SimHei", fontSize=16, leading=22, textColor=colors.HexColor("#1F3A5F"),
                                 spaceBefore=10, spaceAfter=8, wordWrap="CJK"),
-           "h2": ParagraphStyle("h2", fontName="SimHei", fontSize=12.5, leading=18, textColor=colors.HexColor("#1F3A5F"),
+           "h2": ParagraphStyle("h2", keepWithNext=1, fontName="SimHei", fontSize=12.5, leading=18, textColor=colors.HexColor("#1F3A5F"),
                                 spaceBefore=8, spaceAfter=4, wordWrap="CJK"),
            "cell": ParagraphStyle("cell", fontName="Deng", fontSize=9, leading=12.5, wordWrap="CJK"),
            "th": ParagraphStyle("th", fontName="DengB", fontSize=9, leading=12.5, wordWrap="CJK"),

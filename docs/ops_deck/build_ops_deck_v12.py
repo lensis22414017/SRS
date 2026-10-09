@@ -76,6 +76,14 @@ class Deck:
 
 DECISION_CN = {"both_supported": "生产与生态均支持", "production_supported": "支持生产利用", "ecology_supported": "支持生态利用",
                "neither_supported": "均不支持", "insufficient_evidence": "证据不足"}
+FACTOR_CN = {"Cd_mgkg": "镉", "Pb_mgkg": "铅", "As_mgkg": "砷", "Hg_mgkg": "汞", "Cu_mgkg": "铜", "Zn_mgkg": "锌", "Ni_mgkg": "镍",
+             "Cr_mgkg": "铬", "OC_pct": "有机碳", "OM_gkg": "有机质", "TN_gkg": "全氮", "CEC_cmolkg": "阳离子交换量", "pH": "pH"}
+
+
+def fcn(codes):
+    return "、".join(FACTOR_CN.get(c, c) for c in (codes or []))
+
+
 GATE_CN = {"pass": "通过", "conditional": "条件通过", "fail": "未通过", "insufficient": "证据不足"}
 
 
@@ -132,7 +140,7 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
     full = acc.get("full", (0, 0))
     deck_textbox(s, 0.9, 6.45, 11.5, 0.6, [[("Windows 实装验收：", {"bold": True}),
                  (f"关键流程 {full[0]}/{full[1]} 项通过；重启 {acc.get('restart', (0, 0))[0]}/{acc.get('restart', (0, 0))[1]}；"
-                  f"v1.1.0→v{VERSION} 升级 {acc.get('upgrade', (0, 0))[0]}/{acc.get('upgrade', (0, 0))[1]}；便携版 {acc.get('portable', (0, 0))[0]}/{acc.get('portable', (0, 0))[1]}。", {})]], size=13)
+                  f"v1.1.0→v{VERSION} 升级 {acc.get('upgrade', (0, 0))[0]}/{acc.get('upgrade', (0, 0))[1]}；便携版 {acc.get('portable', (0, 0))[0]}/{acc.get('portable', (0, 0))[1]}（GitHub Actions Windows）。", {})]], size=13)
     # 3 数据阶段
     s = D.slide("二、三个课题与数据阶段", "修复前数据进课题一、二；修复后数据只经课题三导入；三类批次分表存储、不自动复制",
                 "强调分离: 课题二 28 项指标也是修复前数据, 有独立批次; 修复后 SSUI 与修复后污染物检测只进入课题三。",
@@ -181,13 +189,13 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
     # 6 课题一
     a = sc.get("A", {})
     s = D.slide("五、课题一：障碍因子识别（KOS）", "修复前检测数据 → 规则判定 → KOS 综合评分 → 关键障碍因子",
-                f"演示场地 SRS-A(合成): KOS 关键障碍因子 {', '.join((a.get('S1_kos_top') or [])[:4])}。模型为已验证的 p3_alpha, 未用合成数据重训。",
+                f"演示场地 SRS-A(合成): KOS 关键障碍因子 {fcn((a.get('S1_kos_top') or [])[:4])}。模型为已验证的 p3_alpha, 未用合成数据重训。",
                 "来源：Windows 验收 demo_actual/comparison.json")
     deck_textbox(s, 0.95, 1.7, 4.6, 5.3, [
         [("操作步骤", {"bold": True, "size": 16, "color": "brown"})],
         "1  场地管理 → 导入数据（修复前模板）", "2  查看校验报告（错误、警告、超标）", "3  障碍因子分析（课题一）→ 运行诊断", "",
         [("演示结果（模拟数据）", {"bold": True, "size": 16, "color": "brown"})],
-        "关键障碍因子：" + "、".join((a.get("S1_kos_top") or [])[:4]),
+        "关键障碍因子：" + fcn((a.get("S1_kos_top") or [])[:4]),
         "KOS = B×(0.30R+0.25W+0.15M+0.20S+0.10E)"], size=14, spacing=1.1)
     D.shot(s, "06_obstacle_S1.png", 5.8, 1.7, 6.7, 5.3, "障碍因子分析（课题一）")
     # 7 课题二导入
@@ -199,8 +207,8 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
         s2 = sc.get(c, {}).get("S2", {})
         rows.append([f"SRS-{c}", f"{s2.get('production', {}).get('score')} / {s2.get('production', {}).get('grade')}",
                      f"{s2.get('ecology', {}).get('score')} / {s2.get('ecology', {}).get('grade')}",
-                     f"{'全指标' if s2.get('production', {}).get('path') == 'full' else '缺失数据'} / 缺失数据"])
-    deck_table(s, 0.95, 1.75, 6.2, 3.0, rows, [1.3, 1.8, 1.8, 1.3], font=11.5)
+                     " / ".join("全指标" if s2.get(t, {}).get("path") == "full" else "缺失数据" for t in ("production", "ecology"))])
+    deck_table(s, 0.95, 1.75, 6.2, 3.0, rows, [1.1, 1.65, 1.65, 1.8], font=11.5)
     deck_box(s, 0.95, 4.95, 6.2, 2.05, text=[[("子课题个旧测试表（来源未核实，仅作软件演示）", {"bold": True, "color": "brown"})],
                                             "v1.1：19/28 项可用（类别列与含空格数值未解析）",
                                             "v1.2：生产 28/28 项、81/81 点位可赋分；生态 18 项有规则",
@@ -260,7 +268,7 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
              fill="panel", line=None, size=12.5, align=PP_ALIGN.LEFT, margin=0.15)
     D.shot(s, "16_decision_D_neither.png", 8.15, 1.75, 4.3, 5.25, "SRS-D：重度超标两轨均不支持")
     # 12 阈值
-    s = D.slide("十一、法规阈值：按官方标准全文核实", "GB 36600 表1 45 项 + 表2 40 项、GB 15618 表1–3 由生态环境部官网 PDF 转录；12 项 VOC 已核实",
+    s = D.slide("十一、法规阈值：按官方标准全文核实", "两项国标由生态环境部官网 PDF 逐行转录；GB 36600 的 12 项 VOC 已核实",
                 "知识库 12 项 VOC 的 24 条记录与官方表1 全部一致; 氯甲烷/氯苯场景标签对调已更正; 旧版非标准替代阈值全部移除。",
                 "来源：D10_threshold_verification_pack；data/standards/*_official.csv")
     deck_table(s, 0.95, 1.75, 6.4, 4.6, [["污染物", "筛选值 一类/二类", "管制值 一类/二类"],
@@ -279,20 +287,21 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
     deck_textbox(s, 0.95, 6.5, 11.5, 0.5, ["单位 mg/kg；GB 36600-2018 表1，标准第 3–4 页。规划用途不明确时按第一类用地（5.3.1）。"], size=11, color="grey")
     # 13 个旧(内部)
     if not public and gejiu:
-        s = D.slide("十二、真实数据复核：个旧（内部版）", "评分可行不等于可利用：生产重构 " + str(gejiu.get("prod_score")) + " 可行，但 As、Pb 超管制值 → 两轨均不支持",
-                    "子课题个旧测试表(来源未核实) 按冻结方法: 生产 " + str(gejiu.get("prod_score")) + "、生态 " + str(gejiu.get("eco_score")) +
-                    "; 甲方个旧场地表 134 点 As、Pb 全部超管制值, 门禁未通过。说明方法得分与法规门禁的分工。",
-                    "来源：D09 包；test_gejiu_real_data_fails_both_gates_and_score_cannot_offset")
-        deck_table(s, 0.95, 1.8, 11.45, 2.6, [["项目", "v1.0.x（36aabf4）", "v1.1.0", f"v{VERSION}"],
-                                               ["课题二 生产重构", "—", "证据不足（类别列未解析）", f"{gejiu.get('prod_score')} 可行（28/28 项）"],
-                                               ["课题二 生态重构", "可行 63.29", "证据不足", f"{gejiu.get('eco_score')} 可行（缺失数据路径）"],
-                                               ["法规门禁（甲方个旧场地表 134 点）", "无", "As、Pb 超管制值", "As、Pb 超管制值（不变）"],
-                                               ["利用方向（修复前情景）", "—", "均不支持", "均不支持；修复目标含 As、Pb"]], [3.4, 2.4, 2.6, 3.05], font=12)
-        deck_box(s, 0.95, 4.7, 11.45, 2.2, text=[[("意义", {"bold": True, "size": 15, "color": "brown"})],
+        s = D.slide("十二、真实数据复核：个旧（内部版）", "评分可行≠可利用：子课题测试表生产 " + str(gejiu.get("prod_score")) + " 可行；甲方个旧场地 As、Pb 超管制值 → 两轨均不支持",
+                    "两份不同的数据: (1) 甲方个旧场地表 134 点(修复前), 旧版 v1.0.x 曾判生态可行 63.29, v1.1 起法规门禁 As、Pb 134/134 点超管制值 → 均不支持, v1.2 不变; "
+                    "(2) 子课题个旧测试表 81 点(来源未核实), v1.2 按冻结方法 生产 " + str(gejiu.get("prod_score")) + "、生态 " + str(gejiu.get("eco_score")) + "。说明方法得分与法规门禁的分工。",
+                    "来源：D09 包；data/raw 甲方个旧工作簿；test_gejiu_real_data_fails_both_gates_and_score_cannot_offset")
+        deck_table(s, 0.95, 1.8, 11.45, 2.9, [["数据", "项目", "v1.0.x（36aabf4）", "v1.1.0", f"v{VERSION}"],
+                                               ["甲方个旧场地表（134 点）", "生态重构", "可行 63.29", "无法评价（指标覆盖不足）", "本版未单独复核（门禁已否决）"],
+                                               ["甲方个旧场地表（134 点）", "法规门禁 / 结论", "无门禁", "As、Pb 134/134 超管制值 → 均不支持", "同左（不变）"],
+                                               ["子课题个旧测试表（81 点）", "可赋分指标", "—", "19/28 项", "生产 28/28 项"],
+                                               ["子课题个旧测试表（81 点）", "课题二得分", "—", "—", f"生产 {gejiu.get('prod_score')} 可行；生态 {gejiu.get('eco_score')} 可行（缺失数据路径）"]],
+                   [2.6, 1.7, 1.7, 2.6, 2.85], font=11.5)
+        deck_box(s, 0.95, 4.95, 11.45, 1.95, text=[[("意义", {"bold": True, "size": 15, "color": "brown"})],
                                                  "1  方法得分按冻结基线如实计算，不为“好看”而调整；",
                                                  "2  利用方向由法规门禁优先决定，严重超标场地不会被“平均”成可利用；",
-                                                 "3  测试表来源未核实，结论只说明软件能力，不作为场地结论。"],
-                 fill="panel", line=None, size=13.5, align=PP_ALIGN.LEFT, margin=0.18)
+                                                 "3  子课题测试表来源未核实（多列取值与权重计算表重合），只说明软件能力，不作为场地结论。"],
+                 fill="panel", line=None, size=13, align=PP_ALIGN.LEFT, margin=0.18)
     # 14 报告/备份
     s = D.slide("十三、报告、备份与模拟数据标签", "报告含利用方向结论；模拟数据从导入到报告全程带标签；备份恢复前自动快照",
                 "报告 PDF/DOCX/HTML; 模拟数据自动识别并全链路标记; 备份每天 02:00, 恢复前快照。",
@@ -325,7 +334,7 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
     for k, lab in (("full", "首启 + 5 场景 + 8 夹具"), ("restart", "重启一致性"), ("seed_v11", "v1.1.0 旧版准备"), ("upgrade", f"升级到 v{VERSION}"),
                    ("portable", "便携版"), ("standard_user", "标准(非管理员)账户")):
         v = acc.get(k)
-        rows.append([lab, f"{v[0]}/{v[1]} 通过" if v else "未执行/见说明"])
+        rows.append([lab, f"{v[0]}/{v[1]} 通过" if v else "未执行（见验收记录）"])
     deck_table(s, 0.95, 1.75, 6.0, 4.0, rows, [3.2, 2.8], font=12.5)
     deck_box(s, 7.15, 1.75, 5.3, 4.0, text=[[("发布信息", {"bold": True, "size": 14, "color": "brown"})],
                                             f"版本：v{VERSION}（预发布）", f"标签：{release.get('tag', '—')}", f"提交：{(release.get('commit') or '—')[:12]}",
