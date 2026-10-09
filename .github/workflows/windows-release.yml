@@ -126,7 +126,10 @@ jobs:
         run: |
           $dir = "C:\SRS 验收\安装 目录"
           "INSTALL_DIR=$dir" | Out-File -Append $env:GITHUB_ENV
-          if (Test-Path "$env:APPDATA\SRS") { throw "APPDATA\SRS exists before install" }
+          New-Item -ItemType Directory -Force acceptance_out | Out-Null
+          # 构建步骤(导入 backend 生成资源)会在 runner 上创建 %APPDATA%\SRS; 记录后清除, 模拟干净机器
+          if (Test-Path "$env:APPDATA\SRS") { Get-ChildItem "$env:APPDATA\SRS" -Recurse | Select-Object FullName, Length | ConvertTo-Json | Out-File -Encoding utf8 acceptance_out/appdata_before_install_build_residue.json; Remove-Item -Recurse -Force "$env:APPDATA\SRS" }
+          if (Test-Path "$env:APPDATA\SRS") { throw "APPDATA\SRS still exists before install" }
           $p = Start-Process $env:INSTALLER -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/CURRENTUSER',"/DIR=`"$dir`"",'/LOG=install.log' -Wait -PassThru
           if ($p.ExitCode -ne 0) { throw "installer exit $($p.ExitCode)" }
           if (-not (Test-Path "$dir\SRS.exe")) { throw "SRS.exe missing after install" }
