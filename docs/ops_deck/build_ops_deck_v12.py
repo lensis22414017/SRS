@@ -196,7 +196,7 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
              fill="panel", line=None, size=12, align=PP_ALIGN.LEFT, margin=0.15)
     # 6 课题一
     a = sc.get("A", {})
-    s = D.slide("五、课题一：障碍因子识别（KOS）", "正式 Top-N 只收录本轨官方标准证据；文献参考/启发式阈值只作探索性提示，并区分上限/下限方向",
+    s = D.slide("五、课题一：障碍因子识别（KOS）", "正式 Top-N 只收本轨官方标准证据；文献/启发式阈值仅作探索提示，区分上限与下限",
                 f"演示场地 SRS-A(合成): 正式关键障碍因子 {fcn((a.get('S1_kos_top') or [])[:5])}; 探索性 {fcn(a.get('S1_kos_exploratory') or [])}(下限不足, 文献参考)。"
                 "v1.2.1 修复: 阳离子交换量/全氮等为下限指标, 高值不再被判为障碍; 有机质(g/kg)与有机碳(%)分开, 不做换算; 单位不可换算即排除。模型 p3_alpha 未重训。",
                 "来源：Windows 验收 demo_actual/comparison.json")
@@ -313,7 +313,7 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
                                                  "3  子课题测试表来源未核实（多列取值与权重计算表重合），只说明软件能力，不作为场地结论。"],
                  fill="panel", line=None, size=13, align=PP_ALIGN.LEFT, margin=0.18)
     # 14 报告/备份
-    s = D.slide("十三、报告、备份与模拟数据标签", "报告由同一评价快照生成：首页、正文、Excel、PDF、DOCX 数字一致；修复前/后与批次分开统计",
+    s = D.slide("十三、报告、备份与模拟数据标签", "报告由同一评价快照生成：正文、Excel、PDF、DOCX 数字一致；修复前/后与批次分开统计",
                 "v1.2.1: 评价快照(SHA-256)保存在报告记录中, 之后的新数据不改变已出报告; 修复后两条轨道重复导入的同一批样品按样品编号去重; "
                 "场地级超标按阶段由法规门禁给出, 不再用最新批次校验代替; PDF 用 ReportLab 排版并嵌入中文字体。",
                 "来源：evaluation_snapshot.py；report_document.py；report_invariants.py；test_v121_report_consistency.py")
