@@ -230,6 +230,7 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
                           subset: str = Query("all", pattern="^(all|hm|op|hm_op)$"),
                           top_n: int = Query(10, ge=3, le=30),
                           farmland_type: str | None = Query(None, pattern="^(水田|其他)$"),
+                          eco_land_class: str | None = Query(None, pattern="^(第一类用地|第二类用地)$"),
                           user: User = Depends(get_current_user), db: Session = Depends(get_db)):
     """运行 KOS 诊断(三层输出:明确障碍 + 关键障碍 KOS + 补测建议)。
 
@@ -316,6 +317,8 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
         land_use_type = None
     if track == "prod" and farmland_type:
         land_use_type = farmland_type
+    if track == "eco" and eco_land_class:
+        land_use_type = eco_land_class
 
     result = run_kos_diagnosis(site_values, track=track, subset=subset, top_n=top_n,
                                 site_pH=site_pH, land_use_type=land_use_type, db_session=db,
@@ -430,6 +433,7 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
         kos_data_version = current_site_data_version(db, site_id)
         # Round9 P0-3.1: canonical payload 自动收集所有审计要求字段
         result["threshold_condition"] = {"farmland_type": (land_use_type if track == "prod" else None) or ("其他(默认)" if track == "prod" else None),
+                                         "eco_land_class": (land_use_type if track == "eco" else None),
                                          "site_pH_fallback": site_pH}
         kos_payload = _kos_canonical_payload(result, track=track, subset=subset, top_n=top_n)
         # 模型版本(从 model_registry_v0.8.json 读, 没有则用 p3_alpha_v0.8)

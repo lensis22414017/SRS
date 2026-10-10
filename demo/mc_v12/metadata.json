@@ -379,5 +379,88 @@
   "4 利用方向结论: 修复前情景 + 修复后结论",
   "5 报告导出 / 全流程追溯"
  ],
- "usage_rule": "仅用于测试/演示; 只能导入独立演示库或演示账号; 所有结果显示模拟数据标签; 不得用于正式报告或模型训练"
+ "usage_rule": "仅用于测试/演示; 只能导入独立演示库或演示账号; 所有结果显示模拟数据标签; 不得用于正式报告或模型训练",
+ "cases_v121": {
+  "generator": "mc_demo_v121_cases.1",
+  "seed": "SeedSequence([20261009, 121])",
+  "label": "模拟数据——仅供测试/演示",
+  "cases": {
+   "F": {
+    "title": "有机-重金属复合污染(生态轨 GB 36600 第一类用地)",
+    "file": "cases_v121/01_MCDEMO-F_有机重金属复合_修复前检测数据_模拟数据_仅供测试演示.xlsx",
+    "kos": {
+     "track": "eco",
+     "subset": "all",
+     "eco_land_class": "第一类用地"
+    },
+    "expected": {
+     "official_factors": [
+      "BaP_ngg",
+      "Cd_mgkg",
+      "TPH_ngg"
+     ],
+     "official_detail": {
+      "Cd_mgkg": {
+       "max_mgkg": 26.84,
+       "screening_mgkg": 20.0,
+       "ratio": 1.342
+      },
+      "BaP_ngg": {
+       "max_mgkg": 2.4214,
+       "screening_mgkg": 0.55,
+       "ratio": 4.4025,
+       "value_unit_in_system": "ng/g",
+       "threshold_in_system": 550.0
+      },
+      "TPH_ngg": {
+       "max_mgkg": 1132.4,
+       "screening_mgkg": 826.0,
+       "ratio": 1.3709,
+       "value_unit_in_system": "ng/g",
+       "threshold_in_system": 826000.0
+      }
+     },
+     "exploratory_must_include": [
+      "Mn_mgkg"
+     ],
+     "official_must_exclude": [
+      "Mn_mgkg",
+      "CEC_cmolkg",
+      "TN_gkg",
+      "OM_gkg"
+     ]
+    },
+    "checks": "正式 Top-N = GB 36600 第一类筛选值超标因子(有机物经 mg/kg→ng/g 同单位比较); 锰仅探索性"
+   },
+   "G": {
+    "title": "无官方阈值超标、仅肥力下限不足(生产轨)",
+    "file": "cases_v121/01_MCDEMO-G_仅文献参考阈值_修复前检测数据_模拟数据_仅供测试演示.xlsx",
+    "kos": {
+     "track": "prod",
+     "subset": "hm",
+     "farmland_type": "其他"
+    },
+    "expected": {
+     "official_ranking_status": "insufficient_evidence",
+     "official_factors": [],
+     "exploratory_must_include": [
+      "CEC_cmolkg",
+      "OM_gkg",
+      "TN_gkg"
+     ],
+     "exploratory_direction": "lower"
+    },
+    "checks": "8 项重金属均 < GB 15618 筛选值(其他, 按点位 pH); CEC/全氮/有机质低于文献参考下限 → 只在探索性列表"
+   }
+  },
+  "files": {
+   "cases_v121/01_MCDEMO-F_有机重金属复合_修复前检测数据_模拟数据_仅供测试演示.xlsx": "e18cf54cb49da053e0e16233e2ade015b3e1922f61ca320cb4f5cfa1af5696c5",
+   "cases_v121/01_MCDEMO-G_仅文献参考阈值_修复前检测数据_模拟数据_仅供测试演示.xlsx": "289fc3c7fc0a2893584cb7cb59bfaf187a3414d1ab9f0285eead7277ecc2d6d3"
+  }
+ },
+ "economic_inputs_note": "05_*_场地经济输入 JSON 为独立演示文件, 当前版本课题三 SSUI 采用得分录入模式(D1–D25/D18–D25 得分由 Beta 分布生成), 不读取经济 JSON; 经济原值→得分的计算闭环未实现, 不得表述为“经济原值计算 SSUI 已完成”。",
+ "score_input_mode": {
+  "S3": "得分录入(D1–D25 生产 / D1–D25 生态, 其中 D18–D25 为经济类指标得分); 原始值/单位列为空",
+  "raw_value_closure": "未实现(待课题三提供原始指标→得分规则)"
+ }
 }

@@ -179,6 +179,45 @@ def run_all(http: Http, demo: str, out: str, admin: tuple[str, str], report: boo
             check(f"[{code}] 七项软件操作里程碑与五阶段业务记录分开报告",
                   pg.get("milestone_kind") == "software_operation" and pg.get("business_total") == 5, a["trace_progress"])
         actual["scenarios"][code] = a
+    # ───── v1.2.1 补充场景 F/G(课题一 正式/探索性分层, 有机物单位对齐) ─────
+    for code, cs in ((meta.get("cases_v121") or {}).get("cases") or {}).items():
+        path = os.path.join(demo, cs["file"])
+        got = hashlib.sha256(open(path, "rb").read()).hexdigest()
+        check(f"[{code}] 补充场景文件未改动", got == meta["cases_v121"]["files"][cs["file"]], got[:12])
+        r = http.post("/api/v1/import", data={"mapping_id": "auto", "on_conflict": "skip"},
+                      files={"file": (os.path.basename(path), open(path, "rb").read(), XLSX)})
+        check(f"[{code}] 修复前检测数据导入", r.status_code == 200, r.status_code)
+        items = http.get("/api/v1/sites", params={"page_size": 100}).json().get("items", [])
+        new = [x for x in items if x["id"] not in sites0]
+        if not new:
+            check(f"[{code}] 场地已创建", False); continue
+        sid = new[0]["id"]; sites0.add(sid)
+        k = cs["kos"]
+        q = f"track={k['track']}&subset={k['subset']}&top_n=10"
+        q += f"&eco_land_class={k['eco_land_class']}" if k.get("eco_land_class") else ""
+        q += f"&farmland_type={k['farmland_type']}" if k.get("farmland_type") else ""
+        kj = http.post(f"/api/v1/sites/{sid}/kos-diagnosis?{q}").json()
+        ex = cs["expected"]
+        off = {o["factor"]: o for o in kj.get("key_obstacles", [])}
+        exp_ = {o["factor"]: o for o in kj.get("exploratory_obstacles", [])}
+        a = {"site_id": sid, "official": sorted(off), "exploratory": sorted(exp_), "status": kj.get("official_ranking_status")}
+        check(f"[{code}] 正式 Top-N 因子 = 独立期望", sorted(off) == sorted(ex.get("official_factors", [])),
+              f"actual {sorted(off)} expected {ex.get('official_factors')}")
+        if ex.get("official_ranking_status"):
+            check(f"[{code}] 正式排名状态 = {ex['official_ranking_status']}", kj.get("official_ranking_status") == ex["official_ranking_status"],
+                  kj.get("official_ranking_status"))
+        for f, d_ in (ex.get("official_detail") or {}).items():
+            o = off.get(f, {})
+            check(f"[{code}] {f} 超标倍数 = 独立期望 {d_['ratio']}", abs((o.get("exceedance_ratio") or 0) - d_["ratio"]) < 1e-3,
+                  {"value": o.get("value"), "threshold": o.get("threshold_value"), "unit": o.get("threshold_unit")})
+        for f in ex.get("exploratory_must_include", []):
+            check(f"[{code}] {f} 仅在探索性列表", f in exp_ and f not in off, sorted(exp_))
+            if ex.get("exploratory_direction"):
+                check(f"[{code}] {f} 方向 = {ex['exploratory_direction']}", (exp_.get(f) or {}).get("threshold_type") == ex["exploratory_direction"],
+                      (exp_.get(f) or {}).get("threshold_type"))
+        for f in ex.get("official_must_exclude", []):
+            check(f"[{code}] {f} 不进入正式 Top-N", f not in off)
+        actual["scenarios"][code] = a
     # ───── 夹具 ─────
     sA = actual["scenarios"].get("A", {})
     sidA, codeA = sA.get("site_id"), sA.get("site_code")

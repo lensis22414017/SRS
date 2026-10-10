@@ -178,7 +178,8 @@ hidden_imports = [
     "shap", "shap.explainers", "shap.explainers._tree",
     # 报告
     "jinja2", "xhtml2pdf", "reportlab",
-    "reportlab.pdfbase", "reportlab.pdfbase.cidfonts",
+    "reportlab.pdfbase", "reportlab.pdfbase.cidfonts", "reportlab.pdfbase.ttfonts",
+    "reportlab.platypus", "reportlab.lib.styles", "reportlab.lib.utils",
     "weasyprint", "docx", "PIL", "PIL.Image", "PIL._imaging",
     # 报告内采样点静态图件(离线渲染, 不依赖地图服务)
     "matplotlib", "matplotlib.pyplot", "matplotlib.backends.backend_agg",
@@ -202,6 +203,7 @@ hidden_imports = [
     "app.services.open_set_classifier",
     "app.services.diagnosis_fact_check",
     "app.services.threshold_resolver",
+    "app.services.evaluation_snapshot", "app.services.report_document",
     # v1.0.1 final-audit: PyYAML 及其数据(factor_normalizer 依赖)
     "yaml",
 ]

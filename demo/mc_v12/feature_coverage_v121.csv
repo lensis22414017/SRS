@@ -1,0 +1,23 @@
+subproject,feature,demo_scenarios,verified_by,status,note
+S1 课题一,修复前检测数据导入(表头单位/形态解析),A–G,demo_runner [*] 修复前检测数据导入; test_v121_kos_semantics::test_import_header_parser_skips_speciation_group,covered,Cr(VI) 不再被解析为单位
+S1 课题一,KOS 正式 Top-N 仅本轨官方标准证据,A–G,demo_runner [*] 正式 Top-N 仅含官方证据; report_invariants FERTILITY,covered,
+S1 课题一,探索性列表(文献参考/跨路径/启发式),A F G,demo_runner [F]/[G] 仅在探索性列表,covered,
+S1 课题一,下限指标方向(CEC/全氮/有机质不足),G,demo_runner [G] 方向 = lower; oracle_A_site_rule_layer.py,covered,
+S1 课题一,有机物 mg/kg↔ng/g 与 GB 36600 阈值同单位比较,F,demo_runner [F] BaP/TPH 超标倍数 = 独立期望,covered,
+S1 课题一,"证据不足(insufficient_evidence) / 部分(partial)",G; 真实场地 A/B,demo_runner [G] 正式排名状态; real_sites_regression,covered,
+S1 课题一,生态轨 GB 36600 用地类别选择,F,demo_runner [F] (eco_land_class=第一类用地),covered,
+S1 课题一,模型局部 SHAP 解释,A–E,报告第九章(仅展示; 非判定依据),display_only,模型未重训; 有机质 OM_gkg 无模型贡献
+S2 课题二,28 项指标导入/预览/确认/导出,A–E,demo_runner [*] 课题二 指标预览/确认/导出,covered,
+S2 课题二,重构可行性评分(冻结方法 M-REC-2025),A–E,demo_runner 课题二 确认并计算,covered,"所有场景均为'可行'; 不可行分支未在合成场景出现"
+S2 课题二,不可行 / 证据不足分支,—,test_v12_recon_* (单元测试),partial,演示包未提供课题二不可行场景(审计 105 行); 待课题组提供判定样例
+S2 课题二,错误夹具(阶段/类别/重复/pH 范围/常数列/单点位/重复导入),F01–F08,demo_runner 夹具 F01–F08,covered,
+S3 课题三,修复后 SSUI 得分录入(D1–D25),A–E,demo_runner SSUI = 独立期望值; validate_demo_package 独立重算,covered,得分录入模式
+S3 课题三,原始指标值→得分计算,—,—,not_covered,规则未提供; 原始值/单位列为空
+S3 课题三,经济原值→D18–D25 得分,—,validate_demo_package 经济 JSON 派生关系,not_covered,经济 JSON 不参与 SSUI(metadata.economic_inputs_note)
+S3 课题三,修复后污染物检测 → 法规门禁,A–E,demo_runner 修复后门禁 = 独立期望值,covered,
+S3 课题三,单位错误夹具(ppm),F07,demo_runner 夹具 F07,covered,
+共享,利用方向五类分支,A–E,demo_runner 修复后利用结论 = 期望分支,covered,方法 provisional
+共享,评价快照跨渠道一致(API=报告记录=Excel=PDF=DOCX),A–E; 真实场地 3 个,report_invariants.check_channels; test_v121_report_consistency,covered,
+共享,修复前/修复后/批次分离与重复导入去重,A–E,test_v121_report_consistency; 报告第二章,covered,
+共享,五阶段业务记录 vs 七项软件里程碑,A–E,demo_runner 七项软件操作里程碑与五阶段业务记录分开报告,covered,演示未上传五阶段材料 → 全部显示'未开展'
+共享,五阶段材料上传/审批/方案推荐演示,—,—,not_covered,需甲方提供真实材料; 操作脚本中以空状态说明
