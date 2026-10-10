@@ -213,10 +213,10 @@ def test_report_renders_local_kos_five_components_and_point_stats():
 
         assert context["diagnosis"]["top_factors"][0]["kos_score"] == 0.88
         assert context["diagnosis"]["kos"]["decision_point_code"] == "P-KOS"
-        assert "真实采样点 P-KOS 的局部 SHAP" in html
+        assert "采样点 P-KOS 的局部 SHAP" in html
         assert "R=1.0 / W=0.9 / M=0.2 / S=0.8 / E=A" in html
         assert "2/3" in html
-        assert "20.0" in html
+        assert "<td>Cd_mgkg</td><td>2/3</td>" in html and "<td>20</td>" in html  # v1.2.1: 数值去尾零
     finally:
         db.close()
 

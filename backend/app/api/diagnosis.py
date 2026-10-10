@@ -229,8 +229,13 @@ def latest_diagnosis(site_id: int, user: User = Depends(get_current_user),
 def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(prod|eco)$"),
                           subset: str = Query("all", pattern="^(all|hm|op|hm_op)$"),
                           top_n: int = Query(10, ge=3, le=30),
+                          farmland_type: str | None = Query(None, pattern="^(水田|其他)$"),
                           user: User = Depends(get_current_user), db: Session = Depends(get_db)):
-    """运行 KOS 诊断(三层输出:明确障碍 + 关键障碍 KOS + 补测建议)。"""
+    """运行 KOS 诊断(三层输出:明确障碍 + 关键障碍 KOS + 补测建议)。
+
+    v1.2.1: farmland_type(水田/其他)用于 GB 15618 阈值档选择, 与利用方向门禁使用同一农用地类型;
+    未指定时按 GB 15618“其他”档(既有默认), 并在结果中写明。
+    """
     # v1.0.1 final-audit: 模型完整性阻断(缺失模型不允许诊断)
     from fastapi import Request
     from starlette.requests import Request as StarletteRequest
@@ -306,6 +311,11 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
                 except (TypeError, ValueError):
                     site_pH = None
     land_use_type = getattr(site, "land_use_type", None)
+    # 场地“修复后用途”(生产用地/生态用地)不是 GB 15618 农用地子类, 不能作为阈值档条件
+    if land_use_type in ("生产用地", "生态用地"):
+        land_use_type = None
+    if track == "prod" and farmland_type:
+        land_use_type = farmland_type
 
     result = run_kos_diagnosis(site_values, track=track, subset=subset, top_n=top_n,
                                 site_pH=site_pH, land_use_type=land_use_type, db_session=db,
@@ -419,6 +429,8 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
         import json
         kos_data_version = current_site_data_version(db, site_id)
         # Round9 P0-3.1: canonical payload 自动收集所有审计要求字段
+        result["threshold_condition"] = {"farmland_type": (land_use_type if track == "prod" else None) or ("其他(默认)" if track == "prod" else None),
+                                         "site_pH_fallback": site_pH}
         kos_payload = _kos_canonical_payload(result, track=track, subset=subset, top_n=top_n)
         # 模型版本(从 model_registry_v0.8.json 读, 没有则用 p3_alpha_v0.8)
         model_version = result.get("model_version") or "p3_alpha_v0.8"

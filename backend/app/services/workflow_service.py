@@ -183,3 +183,66 @@ def attach_file(db: Session, site_id: int, stage: str, file_object_id: int,
         commit=False)
     db.commit()
     return get_stages(db, site_id)
+
+
+# ───────── v1.2.1(R03): 软件操作里程碑 与 五阶段业务记录 分开统计 ─────────
+BUSINESS_STATUS_CN = {
+    "not_initialized": "未开展(无记录)",
+    "not_started": "未开展(无材料)",
+    "in_progress_no_docs": "进行中(无材料)",
+    "in_progress": "进行中(有材料)",
+    "completed_no_docs": "已标记完成(无材料, 需补证)",
+    "completed": "已完成(有材料)",
+    "returned": "已退回",
+}
+
+
+def software_milestones(db: Session, site_id: int) -> list[dict]:
+    """七项软件操作里程碑(只读): 数据导入/分析/结论/报告是否在系统内执行过。"""
+    from app.models import (POST_REMEDIATION, PRE_REMEDIATION, DiagnosisResult, EvaluationResult, ImportBatch,
+                            ReportRecord, SSUIImportBatch, UtilizationDecision)
+    pre_batches = db.query(ImportBatch).filter_by(site_id=site_id, stage=PRE_REMEDIATION).count()
+    diag = db.query(DiagnosisResult).filter_by(site_id=site_id).count()
+    recon = db.query(EvaluationResult).filter(EvaluationResult.site_id == site_id,
+                                              EvaluationResult.eval_type.like("reconstruction%")).count()
+    post_conf = db.query(SSUIImportBatch).filter_by(site_id=site_id, status="confirmed").count()
+    post_prev = db.query(SSUIImportBatch).filter_by(site_id=site_id, status="previewed").count()
+    dec_pre = db.query(UtilizationDecision).filter_by(site_id=site_id, stage=PRE_REMEDIATION).count()
+    dec_post = db.query(UtilizationDecision).filter_by(site_id=site_id, stage=POST_REMEDIATION).count()
+    reports = db.query(ReportRecord).filter_by(site_id=site_id).count()
+    return [
+        {"key": "pre_import", "name": "修复前数据导入", "done": pre_batches > 0, "count": pre_batches},
+        {"key": "kos", "name": "障碍因子识别(课题一)", "done": diag > 0, "count": diag},
+        {"key": "reconstruction", "name": "重构可行性(课题二)", "done": recon > 0, "count": recon},
+        {"key": "decision_pre", "name": "修复前情景判断", "done": dec_pre > 0, "count": dec_pre},
+        {"key": "ssui_post", "name": "修复后 SSUI 导入(课题三)", "done": post_conf > 0, "count": post_conf,
+         "pending_preview": post_prev},
+        {"key": "decision_post", "name": "修复后利用结论", "done": dec_post > 0, "count": dec_post},
+        {"key": "report", "name": "全流程报告", "done": reports > 0, "count": reports},
+    ]
+
+
+def business_stage_status(db: Session, site_id: int) -> dict:
+    """五阶段业务记录(调查评估→后期管护)的真实状态: 无记录/无材料 一律显示为未开展, 不以软件操作代替。"""
+    rows = {w["stage"]: w for w in get_stages(db, site_id)}
+    out = []
+    for code, name in STAGES:
+        w = rows.get(code)
+        if w is None:
+            st = "not_initialized"
+        else:
+            n_att = w.get("n_attachments", 0)
+            if w.get("is_returned"):
+                st = "returned"
+            elif w.get("is_completed"):
+                st = "completed" if n_att else "completed_no_docs"
+            elif (w.get("status") or "pending") in ("pending", "not_started", None, ""):
+                st = "not_started" if not n_att else "in_progress"
+            else:
+                st = "in_progress" if n_att else "in_progress_no_docs"
+        out.append({"stage": code, "name": name, "status": st, "status_cn": BUSINESS_STATUS_CN[st],
+                    "n_attachments": (w or {}).get("n_attachments", 0),
+                    "operated_at": (w or {}).get("operated_at"), "review_comment": (w or {}).get("review_comment"),
+                    "attachments": [a.get("original_name") for a in (w or {}).get("attachments", [])]})
+    return {"stages": out, "n_completed": sum(1 for s in out if s["status"] == "completed"),
+            "n_with_documents": sum(1 for s in out if s["n_attachments"] > 0)}

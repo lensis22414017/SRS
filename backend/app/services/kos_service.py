@@ -329,6 +329,11 @@ def _compute_per_point_stats_dynamic(normalized_points: dict,
             "p95": round(values[min(int(count * 0.95), count - 1)], 4) if count else None,
             "median": round(values[count // 2], 4) if count else None,
             "point_details": rows,
+            # v1.2.1: 方向与证据层级, 下限因子的"超标点"含义为"不足点"
+            "threshold_type": (threshold_type := (per_point_thresholds.get(rows[0]["point_id"], {}).get(factor) or {}).get("type")),
+            "threshold_resolution_status": rows[0]["threshold_resolution_status"],
+            "count_meaning": "below_lower_limit" if threshold_type == "lower" else "above_upper_limit",
+            "layer": "formal" if rows[0]["threshold_resolution_status"] in OFFICIAL_STATUSES else "exploratory",
         }
     return output
 
@@ -350,6 +355,35 @@ def _normalize_per_point_data(per_point_data: dict | None, units: dict | None = 
 OFFICIAL_EVIDENCE = ("A", "B")
 OFFICIAL_STATUSES = ("resolved",)
 EXPLORATORY_STATUSES = ("heuristic", "fallback", "cross_track_fallback", "secondary_standard", "provisional", "strictest_tier_fallback")
+
+
+def _align_threshold_unit(fac: str, thr: dict) -> dict:
+    """v1.2.1(R01): 阈值单位与因子数值单位对齐(如 GB 36600 苯并[a]芘 mg/kg ↔ 归一化值 ng/g)。
+
+    无法证明换算时把状态改为 unit_unresolved(不进入任何排名)。
+    """
+    from app.services.factor_normalizer import canonical_unit, unit_factor
+    if not thr or thr.get("threshold") is None or thr.get("threshold_value") is None:
+        return thr
+    vu = canonical_unit(fac)
+    tu = thr.get("threshold_unit")
+    if not vu or not tu or tu in ("—", "无量纲"):
+        return thr
+    k = unit_factor(tu, vu)
+    if k is None:
+        return {**thr, "threshold": None, "threshold_resolution_status": "unit_unresolved", "review_required": True,
+                "note": f"阈值单位 {tu} 无法换算为数值单位 {vu}"}
+    if k == 1.0:
+        return thr
+    lim = float(thr["threshold_value"]) * k
+    return {**thr, "threshold": {**thr["threshold"], "limit": lim}, "threshold_value": round(lim, 6),
+            "threshold_unit": vu, "threshold_value_source": thr["threshold_value"], "threshold_unit_source": tu,
+            "threshold_unit_conversion": k}
+
+
+def _resolve_aligned(db_session, fac, **kw) -> dict:
+    from app.services.threshold_resolver import resolve_threshold_from_db
+    return _align_threshold_unit(fac, resolve_threshold_from_db(db_session, fac, **kw))
 
 
 def _evidence_from_meta(meta: dict | None) -> str:
@@ -497,7 +531,7 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
                 continue
             if fac in set(norm_result.get("unmapped", [])):
                 continue
-            thr_result = resolve_threshold_from_db(
+            thr_result = _resolve_aligned(
                 db_session, fac, track=track, site_pH=site_pH, land_use_type=land_use_type)
             status = thr_result["threshold_resolution_status"]
             if status in OFFICIAL_STATUSES + EXPLORATORY_STATUSES:
@@ -574,7 +608,7 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
                     point_meta_map[factor] = {**_PH_META, "threshold": PH_THRESHOLD[track],
                                               "land_use_type": land_use_type or ""}
                     continue
-                resolved = resolve_threshold_from_db(
+                resolved = _resolve_aligned(
                     db_session,
                     factor,
                     track=track,

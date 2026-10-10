@@ -10,6 +10,11 @@ import io
 import json
 import os
 
+try:
+    import report_invariants as RI
+except ImportError:  # pragma: no cover
+    from packaging.ci import report_invariants as RI  # type: ignore
+
 LABEL = "模拟数据——仅供测试/演示"
 XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 
@@ -81,9 +86,17 @@ def run_all(http: Http, demo: str, out: str, admin: tuple[str, str], report: boo
         site = new[0]; sites0.add(site["id"]); sid, scode = site["id"], site["site_code"]
         a.update({"site_id": sid, "site_code": scode})
         check(f"[{code}] 场地编号为纯字母约定", all(ch.isalpha() or ch == "-" for ch in scode), scode)
-        r = http.post(f"/api/v1/sites/{sid}/kos-diagnosis?track=prod&subset=hm&top_n=10")
-        a["S1_kos_top"] = [k.get("factor") for k in r.json().get("key_obstacles", [])][:6] if r.status_code == 200 else None
-        check(f"[{code}] 课题一 KOS 诊断", r.status_code == 200 and bool(a["S1_kos_top"]), a["S1_kos_top"])
+        # v1.2.1: KOS 与利用方向门禁使用同一 GB 15618 农用地类型(水田)
+        r = http.post(f"/api/v1/sites/{sid}/kos-diagnosis?track=prod&subset=hm&top_n=10&farmland_type=水田")
+        kj = r.json() if r.status_code == 200 else {}
+        a["S1_kos_top"] = [k.get("factor") for k in kj.get("key_obstacles", [])][:6] if r.status_code == 200 else None
+        a["S1_kos_status"] = kj.get("official_ranking_status")
+        a["S1_kos_exploratory"] = [k.get("factor") for k in kj.get("exploratory_obstacles", [])]
+        check(f"[{code}] 课题一 KOS 诊断(正式/探索性分层)", r.status_code == 200 and a["S1_kos_status"] in
+              ("available", "partial", "insufficient_evidence"), {"status": a["S1_kos_status"], "top": a["S1_kos_top"]})
+        check(f"[{code}] 课题一 正式 Top-N 仅含官方证据(无肥力下限指标)",
+              not (set(a["S1_kos_top"] or []) & RI.FERTILITY)
+              and all(k.get("evidence") in ("A", "B") for k in kj.get("key_obstacles", [])), a["S1_kos_top"])
         f2 = [f for f in files if f.startswith("02_")][0]
         content = open(os.path.join(d, f2), "rb").read()  # 演示文件原样导入(B2 留空 = 所选场地)
         pv = http.post(f"/api/v1/sites/{sid}/recon/preview", files={"file": (f2, content, XLSX)}).json()
@@ -133,19 +146,38 @@ def run_all(http: Http, demo: str, out: str, admin: tuple[str, str], report: boo
         check(f"[{code}] 修复后利用结论 = 期望分支 {ex['post_decision']}", dq.get("decision_state") == ex["post_decision"],
               dq.get("decision_state"))
         check(f"[{code}] 结论带模拟数据标签", dq.get("data_origin") == "monte_carlo_demo", dq.get("data_origin"))
-        if report and code == "A":
+        if report:
+            # v1.2.1(R03): 每个场景都出 PDF/DOCX/快照 Excel, 并做跨渠道一致性断言
+            files_b, rsnaps = {}, []
             for fmt in ("pdf", "docx"):
                 rr = http.post(f"/api/v1/sites/{sid}/report?format={fmt}")
                 ok = rr.status_code == 200
                 if ok:
                     rid = rr.json().get("report_id") or rr.json().get("id")
                     dl = http.get(f"/api/v1/reports/{rid}/download")
-                    open(os.path.join(out, f"A_report.{fmt}"), "wb").write(dl.content)
+                    open(os.path.join(out, f"{code}_report.{fmt}"), "wb").write(dl.content)
+                    files_b[fmt] = dl.content
                     ok = dl.status_code == 200 and len(dl.content) > 1000
-                check(f"[A] 报告 {fmt} 生成与下载", ok, rr.status_code)
+                    rsnaps.append({**http.get(f"/api/v1/reports/{rid}/snapshot").json(), "format": fmt})
+                check(f"[{code}] 报告 {fmt} 生成与下载", ok, rr.status_code)
+            sj = http.get(f"/api/v1/sites/{sid}/evaluation-snapshot").json()
+            a["snapshot_headline"] = sj.get("headline")
+            json.dump(sj.get("snapshot"), open(os.path.join(out, f"{code}_evaluation_snapshot.json"), "w", encoding="utf-8"),
+                      ensure_ascii=False, indent=1, default=str)
+            xb = http.get(f"/api/v1/sites/{sid}/evaluation-snapshot.xlsx").content
+            open(os.path.join(out, f"{code}_evaluation_snapshot.xlsx"), "wb").write(xb)
+            for c_ in RI.check_channels(sj.get("headline") or {}, [{k: v for k, v in r_.items() if k != "snapshot"} for r_ in rsnaps],
+                                        xb, files_b.get("pdf"), files_b.get("docx")):
+                check(f"[{code}] 跨渠道 {c_['check']}", c_["passed"], c_["detail"])
+            hl = sj.get("headline") or {}
+            check(f"[{code}] 报告修复后结论 = 利用方向结论", hl.get("decision_post") == dq.get("decision_state"),
+                  hl.get("decision_post"))
             pg = http.get(f"/api/v1/sites/{sid}/trace/progress").json()
-            a["trace_progress"] = {"completed": pg.get("completed"), "total": pg.get("total")}
-            check("[A] 全流程追溯进度反映真实操作", (pg.get("completed") or 0) >= 6, a["trace_progress"])
+            a["trace_progress"] = {"software_milestones": f"{pg.get('completed')}/{pg.get('total')}",
+                                   "business_stages_completed": f"{pg.get('business_completed')}/{pg.get('business_total')}",
+                                   "milestone_kind": pg.get("milestone_kind")}
+            check(f"[{code}] 七项软件操作里程碑与五阶段业务记录分开报告",
+                  pg.get("milestone_kind") == "software_operation" and pg.get("business_total") == 5, a["trace_progress"])
         actual["scenarios"][code] = a
     # ───── 夹具 ─────
     sA = actual["scenarios"].get("A", {})

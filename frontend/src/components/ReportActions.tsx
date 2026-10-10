@@ -106,6 +106,12 @@ export default function ReportActions({ siteId, siteCode, reportScope, label, di
             下载 DOCX
           </Button>
         </Tooltip>
+        <Tooltip title="导出评价快照 Excel(首页关键数、分阶段批次、法规门禁、KOS 正式/探索性、SSUI、五阶段), 与 PDF/DOCX 同一数据来源">
+          <Button icon={<DownloadOutlined />} onClick={() => api.evaluationSnapshotXlsx(siteId, siteCode)
+            .catch((e: any) => message.error(e?.response?.data?.detail || "导出失败"))}>
+            评价快照 Excel
+          </Button>
+        </Tooltip>
       </Space>
 
       {/* PDF 预览 Modal */}

@@ -223,3 +223,24 @@ def test_official_items_carry_full_evidence_chain(db):
     assert ch["threshold_standard"].startswith("GB 15618") and ch["threshold_type"] == "upper"
     assert ch["raw_factor"] == "镉(mg/kg)" and ch["conversion_status"] in ("identity", "converted")
     assert ch["decision_point_id"] == 1 and ch["threshold_source_id"]
+
+
+# ───────── R01 补充: 有机物数值单位(ng/g)与 GB 36600 阈值单位(mg/kg)对齐 ─────────
+def test_organic_threshold_unit_aligned_with_value_unit(db):
+    from app.services.kos_service import run_kos_diagnosis
+    pt = {"pH": 6.8, "苯并[a]芘(mg/kg)": 2.5, "石油烃(C10-C40)(mg/kg)": 600.0, "镉(mg/kg)": 25.0}
+    r = run_kos_diagnosis(dict(pt), track="eco", subset="all", top_n=10, site_pH=6.8, land_use_type="第一类用地",
+                          db_session=db, per_point_data={1: dict(pt)}, units={k: "mg/kg" for k in pt if k != "pH"})
+    off = {k["factor"]: k for k in r["key_obstacles"]}
+    # 2.5 mg/kg = 2500 ng/g, 第一类筛选值 0.55 mg/kg = 550 ng/g → 超标 4.5 倍; 不能出现 2500 vs 0.55
+    assert off["BaP_ngg"]["threshold_value"] == pytest.approx(550.0) and off["BaP_ngg"]["threshold_unit"] == "ng/g"
+    assert off["BaP_ngg"]["exceedance_ratio"] == pytest.approx(2500 / 550, rel=1e-3)
+    # 石油烃 600 mg/kg < 826 mg/kg 第一类筛选值 → 不得进入正式 Top-N(此前单位错配会误判为超标)
+    assert "TPH_ngg" not in off
+    assert off["Cd_mgkg"]["threshold_value"] == pytest.approx(20.0)
+
+
+def test_unit_factor_matrix():
+    from app.services.factor_normalizer import unit_factor
+    assert unit_factor("mg/kg", "ng/g") == 1000.0 and unit_factor("μg/kg", "mg/kg") == 0.001
+    assert unit_factor("%", "g/kg") == 10.0 and unit_factor("mg/kg", "cmol(+)/kg") is None

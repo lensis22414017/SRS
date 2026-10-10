@@ -228,25 +228,7 @@ def trace_progress(site_id: int, user: User = Depends(get_current_user), db: Ses
     """真实进度: 只读查询, 不创建任何记录。"""
     site = _site(db, user, site_id)
     wf = {w["stage"]: w for w in WS.get_stages(db, site_id)}
-    pre_batches = db.query(ImportBatch).filter_by(site_id=site_id, stage=PRE_REMEDIATION).count()
-    diag = db.query(DiagnosisResult).filter_by(site_id=site_id).count()
-    recon = db.query(EvaluationResult).filter(EvaluationResult.site_id == site_id,
-                                              EvaluationResult.eval_type.like("reconstruction%")).count()
-    post_conf = db.query(SSUIImportBatch).filter_by(site_id=site_id, status="confirmed").count()
-    post_prev = db.query(SSUIImportBatch).filter_by(site_id=site_id, status="previewed").count()
-    dec_pre = db.query(UtilizationDecision).filter_by(site_id=site_id, stage=PRE_REMEDIATION).count()
-    dec_post = db.query(UtilizationDecision).filter_by(site_id=site_id, stage=POST_REMEDIATION).count()
-    reports = db.query(ReportRecord).filter_by(site_id=site_id).count()
-    milestones = [
-        {"key": "pre_import", "name": "修复前数据导入", "done": pre_batches > 0, "count": pre_batches},
-        {"key": "kos", "name": "障碍因子识别(课题一)", "done": diag > 0, "count": diag},
-        {"key": "reconstruction", "name": "重构可行性(课题二)", "done": recon > 0, "count": recon},
-        {"key": "decision_pre", "name": "修复前情景判断", "done": dec_pre > 0, "count": dec_pre},
-        {"key": "ssui_post", "name": "修复后 SSUI 导入(课题三)", "done": post_conf > 0, "count": post_conf,
-         "pending_preview": post_prev},
-        {"key": "decision_post", "name": "修复后利用结论", "done": dec_post > 0, "count": dec_post},
-        {"key": "report", "name": "全流程报告", "done": reports > 0, "count": reports},
-    ]
+    milestones = WS.software_milestones(db, site_id)
     nxt = next((m for m in milestones if not m["done"]), None)
     stages = []
     for g in TRACE_GUIDE["stages"]:
@@ -254,7 +236,46 @@ def trace_progress(site_id: int, user: User = Depends(get_current_user), db: Ses
         stages.append({"stage": g["stage"], "name": g["name"],
                        "status": w["status"] if w else "not_initialized",
                        "is_completed": bool(w and w["is_completed"]), "n_attachments": w["n_attachments"] if w else 0})
+    biz = WS.business_stage_status(db, site_id)
     return {"site_id": site_id, "site_code": site.site_code, "workflow_initialized": bool(wf),
             "stages": stages, "milestones": milestones,
+            # v1.2.1(R03): completed/total 只统计七项软件操作里程碑, 不等于五阶段业务完成
+            "milestone_kind": "software_operation",
+            "milestone_label": "七项软件操作里程碑(不等于五阶段业务完成)",
             "completed": sum(m["done"] for m in milestones), "total": len(milestones),
+            "business_stages": biz["stages"], "business_completed": biz["n_completed"],
+            "business_with_documents": biz["n_with_documents"], "business_total": len(biz["stages"]),
             "next_step": nxt["name"] if nxt else None}
+
+
+# ───────── v1.2.1(R03): 评价快照(界面摘要/Excel/报告/比较 JSON 同一来源) ─────────
+@router.get("/sites/{site_id}/evaluation-snapshot")
+def evaluation_snapshot(site_id: int, user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    from app.services import evaluation_snapshot as ES
+    _site(db, user, site_id)
+    snap = ES.build(db, site_id)
+    return {"headline": ES.headline(snap), "snapshot": snap}
+
+
+@router.get("/sites/{site_id}/evaluation-snapshot.xlsx")
+def evaluation_snapshot_xlsx(site_id: int, user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    from app.services import evaluation_snapshot as ES
+    site = _site(db, user, site_id)
+    snap = ES.build(db, site_id)
+    return _xlsx(ES.to_xlsx(snap), f"评价快照_{site.site_code}_{snap['snapshot_id']}.xlsx")
+
+
+@router.get("/reports/{report_id}/snapshot")
+def report_snapshot(report_id: int, user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    """报告生成时保存的快照(不随后续数据变化); verified=重算 SHA-256 与记录一致。"""
+    from app.models import ReportRecord
+    from app.services import evaluation_snapshot as ES
+    rec = db.get(ReportRecord, report_id)
+    if rec is None:
+        raise HTTPException(404, "报告不存在")
+    _site(db, user, rec.site_id)
+    ds = rec.data_snapshot or {}
+    snap = ds.get("evaluation_snapshot")
+    return {"report_id": rec.id, "version": rec.version, "format": ds.get("format"),
+            "snapshot_id": ds.get("snapshot_id"), "headline": ds.get("headline"),
+            "verified": bool(snap) and ES.verify(snap), "snapshot": snap, "pdf_font": ds.get("pdf_font")}

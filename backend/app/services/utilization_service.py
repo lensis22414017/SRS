@@ -62,14 +62,36 @@ def _pre_points(db: Session, site_id: int) -> tuple[list[dict], list[str], str]:
     if b is not None:
         _s2 = {"cd": "Cd", "hg": "Hg", "as": "As", "pb": "Pb", "cr": "Cr", "cu": "Cu", "ni": "Ni", "zn": "Zn",
                "bap": "苯并[a]芘"}
+        merged, separate, conflicts = 0, 0, []
         for p2 in RI.batch_points(db, b):
             q = {"point": f"S2:{p2['point']}", "pH": p2.get("ph")}
             for fid, canon in _s2.items():
                 if isinstance(p2.get(fid), (int, float)):
                     q[canon] = float(p2[fid])
+            # v1.2.1(R03): 点位编号与修复前检测点相同且共有因子数值一致 → 同一样品, 合并而不重复计数
+            base = pts.get(str(p2["point"]))
+            if base is not None:
+                diff = [k for k, v in q.items() if k not in ("point", "pH") and k in base
+                        and abs(float(base[k]) - v) > 1e-6 * max(1.0, abs(v))]
+                if not diff:
+                    for k, v in q.items():
+                        if k == "point":
+                            continue
+                        if k == "pH":
+                            if base.get("pH") is None and v is not None:
+                                base["pH"] = float(v)
+                        elif k not in base:
+                            base[k] = v
+                    merged += 1
+                    continue
+                conflicts.append(f"{p2['point']}({'、'.join(diff)})")
             pts[q["point"]] = q
+            separate += 1
         origins.add(b.data_origin or "client_real")
-        notes.append(f"已纳入课题二指标批次 #{b.id} 的 {b.point_count} 个点位污染物/pH 数据")
+        notes.append(f"已纳入课题二指标批次 #{b.id} 的 {b.point_count} 个点位污染物/pH 数据"
+                     f"(与修复前检测点同一样品合并 {merged} 个, 单独计入 {separate} 个)")
+        if conflicts:
+            notes.append("课题二批次与修复前检测同编号点位数值不一致, 已分别计入并需复核: " + "、".join(conflicts[:10]))
     origin = "monte_carlo_demo" if "monte_carlo_demo" in origins else (
         "test_fixture" if "test_fixture" in origins else ("client_real" if origins else "field"))
     return list(pts.values()), notes, origin

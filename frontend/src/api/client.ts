@@ -314,6 +314,12 @@ export const api = {
   ssuiPostConfirm: (batchId: number) => client.post(`/ssui-post/batches/${batchId}/confirm`).then((r) => r.data),
   ssuiPostReject: (batchId: number) => client.post(`/ssui-post/batches/${batchId}/reject`).then((r) => r.data),
   ssuiPostBatches: (siteId: number) => client.get(`/sites/${siteId}/ssui-post/batches`).then((r) => r.data),
+  // v1.2.1(R03): 评价快照(界面摘要/Excel/PDF/DOCX 同一来源)
+  evaluationSnapshot: (siteId: number) => client.get(`/sites/${siteId}/evaluation-snapshot`).then((r) => r.data),
+  evaluationSnapshotXlsx: async (siteId: number, siteCode?: string) => {
+    const r = await client.get(`/sites/${siteId}/evaluation-snapshot.xlsx`, { responseType: "blob" });
+    saveBlob(r.data as Blob, `SRS_评价快照_${siteCode || siteId}.xlsx`);
+  },
   ssuiPostExport: async (batchId: number) => {
     const r = await client.get(`/ssui-post/batches/${batchId}/export`, { responseType: "blob" });
     saveBlob(r.data as Blob, `SRS_课题三SSUI结果_批次${batchId}.xlsx`);

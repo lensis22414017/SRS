@@ -40,17 +40,28 @@ export function TraceGuide() {
   );
 }
 
-/** v1.1 (C5): 选中场地后的真实进度(只读查询)。 */
+/** v1.1 (C5) / v1.2.1 (R03): 软件操作里程碑与五阶段业务记录分开显示(只读查询)。 */
 export function TraceProgress({ siteId }: { siteId: number }) {
   const [p, setP] = useState<any>(null);
   useEffect(() => { api.traceProgress(siteId).then(setP).catch(() => setP(null)); }, [siteId]);
   if (!p) return null;
   return (
-    <Card size="small" title="本场地真实进度" extra={p.next_step ? <Tag color="blue">下一步：{p.next_step}</Tag> : <Tag color="green">全部完成</Tag>}>
+    <Card size="small" title="七项软件操作里程碑（不等于五阶段业务完成）" extra={p.next_step ? <Tag color="blue">下一步：{p.next_step}</Tag> : <Tag color="green">软件操作已全部执行</Tag>}>
       <Space direction="vertical" style={{ width: "100%" }}>
         <Progress percent={Math.round((p.completed / p.total) * 100)} format={() => `${p.completed}/${p.total}`} />
         <Space wrap>{p.milestones.map((m: any) => <Tag key={m.key} color={m.done ? "green" : "default"}>
           {m.done ? "✓" : "○"} {m.name}{m.count ? `（${m.count}）` : ""}{m.pending_preview ? ` · 待确认 ${m.pending_preview}` : ""}</Tag>)}</Space>
+        {Array.isArray(p.business_stages) && (
+          <div>
+            <Text strong>五阶段业务记录：{p.business_completed}/{p.business_total} 阶段已完成并有材料</Text>
+            <div style={{ marginTop: 4 }}>
+              <Space wrap>{p.business_stages.map((b: any) => (
+                <Tag key={b.stage} color={b.status === "completed" ? "green" : b.status.startsWith("in_progress") ? "blue" : "default"}>
+                  {b.name}：{b.status_cn}{b.n_attachments ? `（附件 ${b.n_attachments}）` : ""}
+                </Tag>))}</Space>
+            </div>
+          </div>
+        )}
         {!p.workflow_initialized && <Text type="secondary">五阶段追溯记录尚未初始化（查看本页不会创建记录）。</Text>}
       </Space>
     </Card>

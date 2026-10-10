@@ -617,3 +617,22 @@ def normalize_factors_v2(raw_values: dict, units: dict | None = None) -> dict:
         "unit_unresolved": unit_unresolved,
         "data_quality_flags": data_quality_flags,
     }
+
+
+def unit_factor(from_unit: str | None, to_unit: str | None) -> float | None:
+    """v1.2.1(R01): 同一物理量单位间的换算系数(value_in_to = value_in_from × factor); 无法证明则 None。"""
+    if not from_unit or not to_unit:
+        return None
+    a = _UNIT_CATEGORY_MAP.get(str(from_unit).strip().lower().replace(" ", ""), _UNIT_CATEGORY_MAP.get(str(from_unit).strip()))
+    b = _UNIT_CATEGORY_MAP.get(str(to_unit).strip().lower().replace(" ", ""), _UNIT_CATEGORY_MAP.get(str(to_unit).strip()))
+    if a is None or b is None:
+        return None
+    if a == b:
+        return 1.0
+    return _CONVERSION_MATRIX.get((a, b))
+
+
+def canonical_unit(canonical: str | None) -> str | None:
+    """canonical 因子的值单位(normalize 后的数值所处单位)。"""
+    _, u = _resolve_conversion("unknown", canonical)
+    return None if u in ("unknown", "native") else u
