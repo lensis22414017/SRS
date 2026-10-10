@@ -84,7 +84,13 @@ def run_import_with_mapping(db: Session, file_path: str, mapping: dict,
                     imported_by=imported_by, source_path=file_path,
                     on_conflict=on_conflict)
     # v1.1 (G5): 文件内含"模拟数据——仅供测试/演示"标签 → 批次/测值/场地名统一标记, 防止模拟数据混入正式结果
-    if _file_has_simulation_label(file_path) and result.get("site_id"):
+    # v1.2.1: 上传文件名(进入场地名)带模拟标签而内容未标注时, 同样按模拟数据处理, 避免“名称为模拟、来源为实测”的矛盾
+    _site_name_label = False
+    if result.get("site_id"):
+        from app.models import Site as _Site
+        _s = db.get(_Site, result["site_id"])
+        _site_name_label = bool(_s and SIMULATION_LABEL in (_s.name or ""))
+    if (_site_name_label or _file_has_simulation_label(file_path)) and result.get("site_id"):
         mark_site_simulated(db, result["site_id"])
         result["data_origin"] = "monte_carlo_demo"
     result["validation"] = {

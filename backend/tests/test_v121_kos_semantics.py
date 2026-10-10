@@ -254,3 +254,11 @@ def test_paddy_tier_used_when_farmland_is_paddy(db):
     assert r_o["threshold_value"] == 0.3 and r_o["threshold_resolution_status"] == "resolved"
     # 铜/镍/锌 无水田专列 → 水田时仍唯一解析
     assert TR.resolve_threshold_from_db(db, "Zn_mgkg", track="prod", site_pH=6.9, land_use_type="水田")["threshold_resolution_status"] == "resolved"
+
+
+def test_saturated_severity_reports_true_worst_point(db):
+    # 各点均远超筛选值(R 饱和)时, 正式结果须报告超标倍数最大的点, 而非第一个点
+    pts = {i: {"pH": 6.0, "镉(mg/kg)": 6.5 + i} for i in range(1, 6)}
+    r = _run(db, pts)
+    cd = [k for k in r["key_obstacles"] if k["factor"] == "Cd_mgkg"][0]
+    assert cd["decision_point_id"] == 5 and cd["value"] == pytest.approx(11.5)

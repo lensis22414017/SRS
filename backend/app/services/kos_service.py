@@ -669,7 +669,9 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
                     "threshold_resolution_status": metadata.get("threshold_resolution_status", "resolved"),
                 })
                 previous = best_by_factor.get(factor)
-                if previous is None or candidate["KOS"] > previous["KOS"]:
+                # v1.2.1: R 饱和(=1.0)时 KOS 相同, 以超标倍数决定最不利点(否则会报告首个点而非最不利点)
+                if previous is None or (candidate["KOS"], candidate.get("exceedance_ratio") or 0) > \
+                        (previous["KOS"], previous.get("exceedance_ratio") or 0):
                     best_by_factor[factor] = candidate
             for item in point_result.get("exploratory_obstacles", []):
                 factor = item["factor"]
@@ -678,7 +680,8 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
                 candidate = dict(item)
                 candidate["decision_point_id"] = point_id
                 prev = best_explo.get(factor)
-                if prev is None or candidate["KOS"] > prev["KOS"]:
+                if prev is None or (candidate["KOS"], candidate.get("exceedance_ratio") or 0) > \
+                        (prev["KOS"], prev.get("exceedance_ratio") or 0):
                     best_explo[factor] = candidate
 
         point_formal = sorted(
