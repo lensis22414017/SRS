@@ -133,14 +133,22 @@ def chart_ssui(ssui: dict) -> bytes | None:
         plt = _mpl()
     except Exception:
         return None
-    fig, ax = plt.subplots(figsize=(4.2, 2.4))
-    ax.bar([v[0] for v in vals], [v[1] for v in vals], color=["#2E7D32", "#00897B"][:len(vals)], width=0.5)
+    fig, ax = plt.subplots(figsize=(4.6, 2.4))
+    xs = list(range(len(vals)))
+    ood = [v[1] > 1.0 or v[1] < 0 for v in vals]
+    base = ["#2E7D32", "#00897B"]
+    # v1.2.2: 定义域外的柱用灰色斜线, 不与已分级结果同色; 阈值标注放在柱区右侧留白, 不压在柱上
+    ax.bar(xs, [v[1] for v in vals], width=0.5, color=["#BDBDBD" if o else base[i] for i, o in enumerate(ood)],
+           hatch=["//" if o else "" for o in ood], edgecolor=["#757575" if o else base[i] for i, o in enumerate(ood)])
+    ax.set_xticks(xs, [v[0] for v in vals])
+    xr = len(vals) - 0.5
+    ax.set_xlim(-0.5, xr + 0.95)
     ax.axhline(0.6, color="#C0392B", lw=0.8, ls="--")
-    ax.text(-0.45, 0.62, "0.6 暂定支持阈值", fontsize=7, ha="left", color="#C0392B")
+    ax.text(xr + 0.05, 0.615, "0.6 暂定支持阈值", fontsize=7, ha="left", va="bottom", color="#C0392B")
     ax.axhline(1.0, color="#777", lw=0.6, ls=":")
-    ax.text(len(vals) - 0.55, 1.01, "等级定义域上限 1.0", fontsize=6.5, ha="right", color="#555")
+    ax.text(xr + 0.05, 1.012, "等级定义域上限 1.0", fontsize=6.5, ha="left", va="bottom", color="#555")
     for i, v in enumerate(vals):
-        ax.text(i, v[1], f"{v[1]:.3f}" + ("（域外）" if v[1] > 1.0 else ""), ha="center", va="bottom", fontsize=8)
+        ax.text(i, v[1], f"{v[1]:.3f}" + ("（域外，不分级）" if ood[i] else ""), ha="center", va="bottom", fontsize=8)
     ax.set_ylim(0, max(1.15, max(v[1] for v in vals) + 0.1))
     ax.set_title("课题三 修复后 SSUI(每轨最新已确认批次)", fontsize=9)
     ax.tick_params(labelsize=8)
