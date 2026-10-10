@@ -143,7 +143,7 @@ _KEYWORD_TO_CANONICAL: dict[str, str] = {
     # ── 理化性质 ──
     "阳离子交换": "CEC_cmolkg", "阳离子交换量": "CEC_cmolkg",
     "电导率": "EC_mScm",
-    "有机碳": "OC_pct", "有机质": "OC_pct",
+    "有机碳": "OC_pct", "有机质": "OM_gkg",  # v1.2.1(R01): 有机质≠有机碳
     # v0.8.1 拆分化学形态: 全氮=总量 TN_gkg; 水解性氮/碱解氮=速效 Hydrolyzable_N_mgkg
     "全氮": "TN_gkg", "总氮": "TN_gkg",
     "水解性氮": "Hydrolyzable_N_mgkg", "碱解氮": "Hydrolyzable_N_mgkg", "速效氮": "Hydrolyzable_N_mgkg",
@@ -282,14 +282,16 @@ _UNIT_CATEGORY_MAP: dict[str, str] = {
     "g/cm³": "native_density", "g·cm⁻³": "native_density", "g/cm3": "native_density",
     # CEC（原单位使用）
     "cmol/kg": "native_cmol", "cmol·kg⁻¹": "native_cmol",
-    "cmol(+)/kg": "native_cmol", "cmolkg": "native_cmol",
+    "cmol(+)/kg": "native_cmol", "cmolkg": "native_cmol", "cmol+/kg": "native_cmol",
     # 电导率（原单位使用）
     "ms/cm": "native_ec", "mscm": "native_ec",
-    "ds/m": "native_ec", "μs/cm": "native_ec",
+    "ds/m": "native_ec", "μs/cm": "native_ec_us", "us/cm": "native_ec_us",
     # 百分比（原单位使用）
     "%": "native_percent", "％": "native_percent",
     # 长度/角度（原单位使用）
-    "m": "native_length", "mm": "native_length", "度": "native_slope",
+    "m": "native_length", "mm": "native_length_mm", "度": "native_slope",
+    # v1.2.1(R01): 无量纲
+    "无量纲": "dimensionless", "1": "dimensionless", "-": "dimensionless",
 }
 
 # 单位标准规范名
@@ -300,7 +302,7 @@ _UNIT_NORMALIZE: dict[str, str] = {
     "g/kg": "g/kg", "g·kg⁻¹": "g/kg",
     "g/cm³": "g/cm³", "g·cm⁻³": "g/cm³", "g/cm3": "g/cm³",
     "cmol/kg": "cmol(+)/kg", "cmol·kg⁻¹": "cmol(+)/kg",
-    "cmol(+)/kg": "cmol(+)/kg", "cmolkg": "cmol(+)/kg",
+    "cmol(+)/kg": "cmol(+)/kg", "cmolkg": "cmol(+)/kg", "cmol+/kg": "cmol(+)/kg",
     "ms/cm": "mS/cm", "mscm": "mS/cm",
     "ds/m": "dS/m", "μs/cm": "μS/cm",
     "%": "%", "％": "%",
@@ -315,9 +317,9 @@ _PREFERRED_UNIT_TO_CATEGORY: dict[str, str] = {
     "g/kg": "native_g_kg",
     "g/cm³": "native_density",
     "cmol(+)/kg": "native_cmol",
-    "mS/cm": "native_ec", "dS/m": "native_ec", "μS/cm": "native_ec",
+    "mS/cm": "native_ec", "dS/m": "native_ec", "μS/cm": "native_ec_us",
     "%": "native_percent",
-    "m": "native_length", "mm": "native_length", "度": "native_slope",
+    "m": "native_length", "mm": "native_length_mm", "度": "native_slope",
     "1": "dimensionless",
 }
 
@@ -329,6 +331,18 @@ _CONVERSION_MATRIX: dict[tuple[str, str], float] = {
     ("concentration_ugkg", "concentration_mgkg"): 0.001,
     ("concentration_ngg", "concentration_ugkg"): 1.0,
     ("concentration_ugkg", "concentration_ngg"): 1.0,
+    # v1.2.1(R01): 质量分数精确换算(1 % = 10 g/kg = 10000 mg/kg); 仅同一物理量的单位换算,
+    # 不做有机质↔有机碳、全氮↔水解性氮、总铬↔六价铬等化学/方法换算。
+    ("native_percent", "native_g_kg"): 10.0,
+    ("native_g_kg", "native_percent"): 0.1,
+    ("native_g_kg", "concentration_mgkg"): 1000.0,
+    ("concentration_mgkg", "native_g_kg"): 0.001,
+    ("native_percent", "concentration_mgkg"): 10000.0,
+    ("concentration_mgkg", "native_percent"): 0.0001,
+    ("native_ec_us", "native_ec"): 0.001,
+    ("native_ec", "native_ec_us"): 1000.0,
+    ("native_length_mm", "native_length"): 0.001,
+    ("native_length", "native_length_mm"): 1000.0,
 }
 
 
@@ -355,36 +369,35 @@ def _extract_unit(col_name: str) -> tuple[str | None, str, str]:
         return None, str(col_name), "unknown"
 
     # 匹配括号内的单位（中文括号 / 英文括号）
-    s = str(col_name)
-    m = re.search(r"[（(]\s*([^)）\s]*)\s*[)）]", s)
-    if m and _is_speciation_qualifier(m.group(1)):
-        # v1.1: "(六价)" / "(VI)" / "(有效态)" 是形态限定词而非单位, 不得剥离
-        # (旧逻辑把 "铬(六价)" 剥成 "铬" → 误判为总铬, 六价铬限值远低于总铬)
-        return None, s, "unknown"
-    if m:
+    # v1.2.1(R01): 取最后一个"非形态限定词"的括号作为单位, 形态限定词(六价/VI/有效态)保留在因子名中,
+    # 修复 "六价铬_Cr(VI)(mg/kg)" 被解析为单位 "VI" 的问题。
+    s = re.sub(r"cmol\s*[（(]\s*\+\s*[)）]", "cmol+", str(col_name), flags=re.IGNORECASE)
+    groups = list(re.finditer(r"[（(]\s*([^()（）]*?)\s*[)）]", s))
+    unit_groups = [g for g in groups if g.group(1) and not _is_speciation_qualifier(g.group(1))]
+    if unit_groups:
+        m = unit_groups[-1]
         raw_unit = m.group(1).strip()
-        # 移除括号及其内容
-        factor_name = re.sub(r"[（(]\s*[^)）]*[)）]", "", s).strip()
-        # 归一化单位文本
+        factor_name = (s[:m.start()] + s[m.end():]).strip()
         unit_lower = raw_unit.lower().replace("·", "").replace("⁻¹", "")
         category = _UNIT_CATEGORY_MAP.get(unit_lower, "unknown")
-        # 规范化单位名（用于展示）
         normalized_unit = _UNIT_NORMALIZE.get(unit_lower, raw_unit)
         return normalized_unit, factor_name, category
+    if groups:
+        # 只有形态限定词括号 → 无单位, 因子名保持原样
+        return None, s, "unknown"
 
     # 无括号单位：尝试从列名后缀推断（如 "pH"、"萘"）
     return None, s, "unknown"
 
 
-def _resolve_conversion(input_category: str, canonical: str | None) -> tuple[float, str]:
+def _resolve_conversion(input_category: str, canonical: str | None) -> tuple[float | None, str]:
     """计算输入值需要乘的转换因子，以对齐 canonical 的 preferred_unit。
 
     返回 (factor, target_unit_display)
-    - factor: 输入值需要乘的系数
+    - factor: 输入值需要乘的系数; v1.2.1(R01): 无法证明的换算返回 None(开放失败 → 调用方排除)
     - target_unit_display: canonical 的目标单位（如"ng/g"）
 
-    如 输入 category=concentration_mgkg, canonical=BaP_ngg(preferred_unit=ng/g)
-       → factor=1000.0, target="ng/g"
+    input_category="unknown" 表示未记录单位(由调用方决定是否按目标单位假定)。
     """
     if canonical is None:
         return 1.0, "unknown"
@@ -401,15 +414,15 @@ def _resolve_conversion(input_category: str, canonical: str | None) -> tuple[flo
         else:
             return 1.0, "native"
     target_cat = _PREFERRED_UNIT_TO_CATEGORY.get(preferred, "unknown")
-    if input_category == target_cat or target_cat == "unknown":
+    if input_category == "unknown" or target_cat == "unknown" or input_category == target_cat:
         return 1.0, preferred
     factor = _CONVERSION_MATRIX.get((input_category, target_cat))
     if factor is not None:
         return factor, preferred
-    return 1.0, preferred
+    return None, preferred
 
 
-def normalize_factor_name(raw_name: str) -> tuple[str | None, dict]:
+def normalize_factor_name(raw_name: str, unit: str | None = None) -> tuple[str | None, dict]:
     """精确匹配单个因子名到 canonical。
 
     返回 (canonical or None, metadata)
@@ -422,6 +435,21 @@ def normalize_factor_name(raw_name: str) -> tuple[str | None, dict]:
         return None, meta
 
     unit_raw, factor_name, unit_category = _extract_unit(str(raw_name))
+    # v1.2.1(R01): 调用方显式提供的单位(如 Measurement.unit)优先于列名
+    unit_given = None if unit is None else str(unit).strip()
+    meta["unit_source"] = "column_name" if unit_raw else "not_recorded"
+    if unit_given:
+        if _is_speciation_qualifier(unit_given):
+            meta["unit_artifact"] = unit_given  # 旧版导入把 "(VI)" 当作单位的残留
+            if not unit_raw:
+                meta["unit_source"] = "not_recorded"
+        else:
+            ul = unit_given.lower().replace("·", "").replace("⁻¹", "")
+            unit_raw = _UNIT_NORMALIZE.get(ul, unit_given)
+            unit_category = _UNIT_CATEGORY_MAP.get(ul, "unknown_given")
+            meta["unit_source"] = "explicit"
+    if unit_raw and unit_category == "unknown":
+        unit_category = "unknown_given"  # 列名写了单位但无法识别 → 开放失败
     meta["unit_raw"] = unit_raw
     meta["unit_category"] = unit_category
 
@@ -442,14 +470,27 @@ def normalize_factor_name(raw_name: str) -> tuple[str | None, dict]:
     else:
         meta["match_method"] = "unmapped"
 
-    # ── v0.8.1 单位智能转换 ──
-    conversion_factor, target_unit = _resolve_conversion(unit_category, canonical)
+    # ── v0.8.1 单位智能转换; v1.2.1(R01) 开放失败 ──
+    if unit_category == "unknown_given":
+        conversion_factor, target_unit = None, (_ALIASES.get(canonical or "", {}).get("preferred_unit") or "unknown")
+    else:
+        conversion_factor, target_unit = _resolve_conversion(unit_category, canonical)
     meta["conversion_factor"] = conversion_factor
     meta["target_unit"] = target_unit
     meta["unit_converted"] = target_unit  # canonical 的目标单位
+    if canonical is None:
+        meta["conversion_status"] = "unmapped"
+    elif conversion_factor is None:
+        meta["conversion_status"] = "unresolved"
+    elif meta["unit_source"] == "not_recorded":
+        meta["conversion_status"] = "unit_not_recorded_assumed_target"
+    elif conversion_factor == 1.0:
+        meta["conversion_status"] = "identity"
+    else:
+        meta["conversion_status"] = "converted"
 
     # 旧兼容: 保留原有 _UNIT_CONVERSION 逻辑（对没有 preferred_unit 的老因子仍生效）
-    if conversion_factor == 1.0 and unit_raw and unit_raw in _UNIT_CONVERSION:
+    if conversion_factor == 1.0 and target_unit == "native" and unit_raw and unit_raw in _UNIT_CONVERSION:
         factor, tgt = _UNIT_CONVERSION[unit_raw]
         meta["conversion_factor"] = factor
         meta["unit_converted"] = tgt
@@ -457,7 +498,7 @@ def normalize_factor_name(raw_name: str) -> tuple[str | None, dict]:
     return canonical, meta
 
 
-def normalize_factors_v2(raw_values: dict) -> dict:
+def normalize_factors_v2(raw_values: dict, units: dict | None = None) -> dict:
     """因子名规范化 + 单位转换 + 冲突检测（P0-1 核心函数）。
 
     返回:
@@ -466,10 +507,13 @@ def normalize_factors_v2(raw_values: dict) -> dict:
             "mapping_details": [{original_name, canonical, unit_raw, unit_converted, conversion_factor}],
             "mapping_conflicts": [{canonical, sources: [original_names]}],
             "unmapped": [original_names],
+            "unit_unresolved": [{original_name, canonical, unit_raw, target_unit}],  # v1.2.1 开放失败
             "data_quality_flags": [str],
         }
+    units: 可选 {raw_name: 单位文本}, 如 Measurement.unit; 优先于列名中的单位。
     """
     factors: dict[str, float] = {}
+    unit_unresolved: list[dict] = []
     mapping_details: list[dict] = []
     mapping_conflicts: list[dict] = []
     unmapped: list[str] = []
@@ -482,7 +526,7 @@ def normalize_factors_v2(raw_values: dict) -> dict:
         if raw_value is None or (isinstance(raw_value, float) and math.isnan(raw_value)):
             continue
 
-        canonical, meta = normalize_factor_name(raw_name)
+        canonical, meta = normalize_factor_name(raw_name, (units or {}).get(raw_name))
 
         if canonical is None:
             unmapped.append(str(raw_name))
@@ -500,6 +544,18 @@ def normalize_factors_v2(raw_values: dict) -> dict:
             data_quality_flags.append(f"因子 {raw_name} 值无法转为数值: {raw_value}")
             continue
 
+        if meta.get("conversion_factor") is None:
+            # v1.2.1(R01): 单位无法证明可换算 → 不进入任何数值比较
+            unit_unresolved.append({"original_name": str(raw_name), "canonical": canonical,
+                                    "unit_raw": meta.get("unit_raw"), "target_unit": meta.get("target_unit")})
+            data_quality_flags.append(
+                f"unit_unresolved: {raw_name}（→{canonical}）单位 {meta.get('unit_raw')!r} 无法换算为 "
+                f"{meta.get('target_unit')}, 已排除出正式与探索性计算")
+            meta["canonical"] = canonical
+            meta["original_value"] = value
+            meta["converted_value"] = None
+            mapping_details.append(meta)
+            continue
         converted_value = value * meta.get("conversion_factor", 1.0)
 
         meta["canonical"] = canonical
@@ -558,5 +614,6 @@ def normalize_factors_v2(raw_values: dict) -> dict:
         "mapping_details": mapping_details,
         "mapping_conflicts": mapping_conflicts,
         "unmapped": unmapped,
+        "unit_unresolved": unit_unresolved,
         "data_quality_flags": data_quality_flags,
     }

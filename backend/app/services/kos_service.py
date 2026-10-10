@@ -333,18 +333,40 @@ def _compute_per_point_stats_dynamic(normalized_points: dict,
     return output
 
 
-def _normalize_per_point_data(per_point_data: dict | None) -> dict:
+def _normalize_per_point_data(per_point_data: dict | None, units: dict | None = None) -> dict:
     if not per_point_data:
         return {}
     from app.services.factor_normalizer import normalize_factors_v2
-    return {
-        point_id: normalize_factors_v2(values).get("factors", {})
-        for point_id, values in per_point_data.items()
-    }
+    out = {}
+    for point_id, values in per_point_data.items():
+        r = normalize_factors_v2(values, units=units)
+        # v1.2.1(R01): 未映射因子(原名)不进入逐点阈值计算
+        unm = set(r.get("unmapped", []))
+        out[point_id] = {k: v for k, v in r.get("factors", {}).items() if k not in unm}
+    return out
+
+
+# v1.2.1(R02): 进入正式 Top-N 的阈值证据等级; 其余(C/D)只进入探索性结果
+OFFICIAL_EVIDENCE = ("A", "B")
+OFFICIAL_STATUSES = ("resolved",)
+EXPLORATORY_STATUSES = ("heuristic", "fallback", "cross_track_fallback")
+
+
+def _evidence_from_meta(meta: dict | None) -> str:
+    if not meta:
+        return "C"
+    if meta.get("threshold_resolution_status") in OFFICIAL_STATUSES and meta.get("evidence_grade") in OFFICIAL_EVIDENCE:
+        return meta["evidence_grade"]
+    return "C"
+
+
+_PH_META = {"threshold_value": None, "threshold_unit": "无量纲", "threshold_standard": "土壤 pH 适宜区间(系统参考, 非 GB 15618/36600 限值)",
+            "threshold_version": "v1", "pH_condition": "", "threshold_resolution_status": "heuristic",
+            "threshold_type": "interval", "evidence_grade": "C", "review_required": True}
 
 
 def _select_decision_point(per_point_data: dict | None, thresholds: dict,
-                           per_point_thresholds: dict | None = None) -> dict | None:
+                           per_point_thresholds: dict | None = None, units: dict | None = None) -> dict | None:
     """选择一个真实采样点用于局部模型解释。
 
     选择顺序为最大法规超标倍数、超标因子数、超标倍数总和、有效因子数。
@@ -354,7 +376,7 @@ def _select_decision_point(per_point_data: dict | None, thresholds: dict,
         return None
 
     candidates = []
-    normalized_points = _normalize_per_point_data(per_point_data)
+    normalized_points = _normalize_per_point_data(per_point_data, units)
     for point_id, normalized in normalized_points.items():
         if not normalized:
             continue
@@ -403,7 +425,7 @@ def _select_decision_point(per_point_data: dict | None, thresholds: dict,
 def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all",
                       top_n: int = 10, site_pH: float | None = None,
                       land_use_type: str | None = None, db_session=None,
-                      per_point_data: dict | None = None) -> dict:
+                      per_point_data: dict | None = None, units: dict | None = None) -> dict:
     """运行完整 KOS 诊断。
     site_values: {因子名(各种格式): 浓度值} — 全场地每因子最大值(兼容)
     track: prod / eco
@@ -416,7 +438,7 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
     """
     # M0-1: 归一化使用 normalize_factors_v2(精确匹配, 替代旧 substring)
     from app.services.factor_normalizer import normalize_factors_v2
-    norm_result = normalize_factors_v2(site_values)
+    norm_result = normalize_factors_v2(site_values, units=units)
     factors = norm_result["factors"]
     mapping_details = norm_result["mapping_details"]
     mapping_conflicts = norm_result["mapping_conflicts"]
@@ -471,16 +493,19 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
         for fac in list(factors.keys()):
             if fac == "pH":
                 thresholds["pH"] = PH_THRESHOLD[track]
+                threshold_meta["pH"] = {**_PH_META, "threshold": PH_THRESHOLD[track], "land_use_type": land_use_type or ""}
+                continue
+            if fac in set(norm_result.get("unmapped", [])):
                 continue
             thr_result = resolve_threshold_from_db(
                 db_session, fac, track=track, site_pH=site_pH, land_use_type=land_use_type)
             status = thr_result["threshold_resolution_status"]
-            if status in ("resolved", "heuristic", "fallback"):
+            if status in OFFICIAL_STATUSES + EXPLORATORY_STATUSES:
                 # resolved=国标, heuristic=文献兜底(GB15618扩展), fallback=最严档兜底
                 thresholds[fac] = thr_result["threshold"]
                 threshold_meta[fac] = thr_result
-                if status in ("heuristic", "fallback"):
-                    # 文献兜底阈值仍可参与KOS，但标记为待核实（证据等级自动降为C）
+                if status in EXPLORATORY_STATUSES:
+                    # v1.2.1(R02): 文献兜底/交叉轨/最严档 → 证据等级 C, 只进探索性结果
                     data_quality_flags.append(
                         f"threshold_{status}: {fac} 使用{thr_result.get('standard','文献')}兜底值, "
                         f"限值={thr_result.get('threshold_value','?')} {thr_result.get('threshold_unit','')}, 待核实"
@@ -509,8 +534,8 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
 
     weights = PROD_WEIGHTS if track == "prod" else ECO_WEIGHTS
 
-    # 证据等级: 实测=A, 否则 C
-    evidence = {f: "A" for f in factors}
+    # v1.2.1(R02): 证据等级来自阈值来源(本轨国标=A), 不再对所有实测因子统一赋 A
+    evidence = {f: _evidence_from_meta(threshold_meta.get(f)) for f in factors}
 
     # v1.0.2(): S 用模型层 Top-5 稳定性(从 metrics_file 读)
     factor_stability = {}
@@ -533,7 +558,7 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
 
     # 每个采样点按该点 pH 独立解析阈值。只有 resolved 权威阈值进入正式 KOS；
     # ambiguous/heuristic/fallback 仅进入复核层，不能冒充法规超标结论。
-    normalized_points = _normalize_per_point_data(per_point_data)
+    normalized_points = _normalize_per_point_data(per_point_data, units)
     per_point_thresholds: dict = {}
     per_point_meta: dict = {}
     point_unresolved = []
@@ -546,16 +571,8 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
             for factor in point_values:
                 if factor == "pH":
                     point_threshold_map[factor] = PH_THRESHOLD[track]
-                    point_meta_map[factor] = {
-                        "threshold": PH_THRESHOLD[track],
-                        "threshold_value": None,
-                        "threshold_unit": "无量纲",
-                        "threshold_standard": "土壤用途适宜区间",
-                        "threshold_version": "v1",
-                        "pH_condition": "",
-                        "land_use_type": land_use_type or "",
-                        "threshold_resolution_status": "resolved",
-                    }
+                    point_meta_map[factor] = {**_PH_META, "threshold": PH_THRESHOLD[track],
+                                              "land_use_type": land_use_type or ""}
                     continue
                 resolved = resolve_threshold_from_db(
                     db_session,
@@ -565,7 +582,7 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
                     land_use_type=land_use_type,
                 )
                 status = resolved.get("threshold_resolution_status")
-                if status in ("resolved", "heuristic", "fallback"):
+                if status in OFFICIAL_STATUSES + EXPLORATORY_STATUSES:
                     point_threshold_map[factor] = resolved["threshold"]
                     point_meta_map[factor] = resolved
                 else:
@@ -588,6 +605,7 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
     )
     if normalized_points and per_point_thresholds:
         best_by_factor = {}
+        best_explo = {}
         for point_id, point_values in normalized_points.items():
             point_threshold_map = per_point_thresholds.get(point_id, {})
             point_result = compute_kos(
@@ -595,7 +613,8 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
                 point_values,
                 point_threshold_map,
                 weights,
-                {factor: "A" for factor in point_values},
+                {factor: _evidence_from_meta(per_point_meta.get(point_id, {}).get(factor))
+                 for factor in point_values},
                 top_n=max(top_n, len(point_values)),
                 op_model=is_op,
                 factor_stability=factor_stability,
@@ -618,6 +637,15 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
                 previous = best_by_factor.get(factor)
                 if previous is None or candidate["KOS"] > previous["KOS"]:
                     best_by_factor[factor] = candidate
+            for item in point_result.get("exploratory_obstacles", []):
+                factor = item["factor"]
+                if factor in best_by_factor:
+                    continue
+                candidate = dict(item)
+                candidate["decision_point_id"] = point_id
+                prev = best_explo.get(factor)
+                if prev is None or candidate["KOS"] > prev["KOS"]:
+                    best_explo[factor] = candidate
 
         point_formal = sorted(
             best_by_factor.values(), key=lambda item: item["KOS"], reverse=True
@@ -641,6 +669,12 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
             for item in point_formal
         ]
         kos_result["n_formal"] = len(best_by_factor)
+        explo_sorted = sorted((v for f, v in best_explo.items() if f not in best_by_factor),
+                              key=lambda item: item["KOS"], reverse=True)
+        for rank, item in enumerate(explo_sorted, 1):
+            item["rank"] = rank
+        kos_result["exploratory_obstacles"] = explo_sorted
+        kos_result["n_exploratory"] = len(explo_sorted)
         kos_result["review_required"] = (
             kos_result.get("review_required", False) or bool(point_unresolved)
         )
@@ -649,8 +683,8 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
                 f"{len(point_unresolved)} 个点位-因子组合因阈值未解析而退出正式KOS"
             )
 
-    # M0-2: 给 key_obstacles 附加阈值元数据
-    for k in kos_result.get("key_obstacles", []):
+    # M0-2: 给 key_obstacles / 探索性结果 附加阈值元数据
+    for k in kos_result.get("key_obstacles", []) + kos_result.get("exploratory_obstacles", []):
         fac = k.get("factor")
         point_id = k.get("decision_point_id")
         tm = ((per_point_meta.get(point_id, {}) if point_id is not None else {}).get(fac)
@@ -665,6 +699,8 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
             k["threshold_source_id"] = tm.get("threshold_source_id")
             # v1.0.2: 阈值解析状态 + 兜底说明
             k["threshold_resolution_status"] = tm.get("threshold_resolution_status", "resolved")
+            k["threshold_type"] = tm.get("threshold_type") or (tm.get("threshold") or {}).get("type")
+            k["evidence_grade_source"] = tm.get("evidence_grade")
             if tm.get("fallback_note"):
                 k["fallback_note"] = tm["fallback_note"]
 
@@ -720,7 +756,7 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
     local_shap_status = "not_attempted"
     decision_point = _select_decision_point(
         per_point_data, thresholds, per_point_thresholds
-    )
+    , units=units)
     if len(shap_measured) > 0:
         if decision_point:
             try:
@@ -912,6 +948,32 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
             "局部SHAP不可用，当前仅展示训练集全局mean|SHAP|背景贡献；非因果、非法规判定依据"
         ),
     }
+    # v1.2.1(R02): 正式 Top-N 与探索性结果分开; 正式结果不足时如实标注
+    def _shape(k):
+        return {"rank": k.get("rank"), "factor": k["factor"], "KOS": k.get("KOS"),
+                "components": {"R": k.get("R"), "W": k.get("W"), "M": k.get("M"), "S": k.get("S"), "E": k.get("E")},
+                "value": k.get("value"), "evidence": k.get("E"), "layer": k.get("layer", "exploratory"),
+                "exceedance_ratio": k.get("exceedance_ratio", 0.0),
+                "threshold_value": k.get("threshold_value"), "threshold_unit": k.get("threshold_unit", ""),
+                "threshold_type": k.get("threshold_type"), "threshold_standard": k.get("threshold_standard", ""),
+                "threshold_resolution_status": k.get("threshold_resolution_status"),
+                "decision_point_id": k.get("decision_point_id"), "fallback_note": k.get("fallback_note", ""),
+                "reason": k.get("reason", "")}
+    for k, src in zip(output["key_obstacles"], kos_result["key_obstacles"]):
+        k["threshold_type"] = src.get("threshold_type")
+        k["decision_point_id"] = src.get("decision_point_id")
+        k["layer"] = "formal"
+    output["exploratory_obstacles"] = [_shape(k) for k in kos_result.get("exploratory_obstacles", [])]
+    n_off = len(output["key_obstacles"])
+    output["n_official"] = n_off
+    output["n_exploratory"] = len(output["exploratory_obstacles"])
+    output["official_ranking_status"] = ("insufficient_evidence" if n_off == 0
+                                         else "partial" if n_off < min(top_n, 3) else "available")
+    output["official_ranking_rule"] = ("正式 Top-N 仅收录本轨权威标准(生产 GB 15618-2018 / 生态 GB 36600-2018)筛选值、"
+                                       "单位可证、实测超标(B=1)且证据等级 A/B 的因子; 文献兜底、交叉轨参考、最严档兜底与 pH 参考区间"
+                                       "列入 exploratory_obstacles, 仅供复核。")
+    output["unit_unresolved"] = list(norm_result.get("unit_unresolved", []))
+
     return output
 
 
@@ -954,3 +1016,50 @@ def selftest():
 
 if __name__ == "__main__":
     selftest()
+
+
+def load_site_kos_inputs(db, site_id: int, stage: str = "pre_remediation") -> dict:
+    """v1.2.1(R01/R03): 课题一 KOS 的统一输入装载(修复前阶段, 带单位)。
+
+    - 只读指定阶段(默认 pre_remediation); 跳过 qa_status=rejected;
+    - 优先 value_used_for_model; 携带 Measurement.unit, 交给 normalize_factors_v2 换算/开放失败;
+    - 同一因子名出现多种单位时按 "名称[单位]" 分键 → 规范化后形成映射冲突, 不静默混算。
+    返回 {site_values, per_point_data, units, per_factor_raw, n_rejected, n_rows}
+    """
+    from app.models import FactorDictionary, Measurement
+    rows = (db.query(Measurement.value_used_for_model, Measurement.value, Measurement.qa_status,
+                     Measurement.sampling_point_id, Measurement.unit,
+                     FactorDictionary.factor_name, FactorDictionary.factor_code)
+            .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id, isouter=True)
+            .filter(Measurement.site_id == site_id, Measurement.stage == stage)
+            .all())
+    units_seen: dict[str, set] = {}
+    for _vu, _v, _qa, _pid, unit, fname, fcode in rows:
+        fn = fname or fcode
+        if fn:
+            units_seen.setdefault(fn, set()).add((unit or "").strip() or None)
+    site_values, per_point, units, per_factor_raw = {}, {}, {}, {}
+    n_rejected = 0
+    for value_used, value, qa_status, point_id, unit, fname, fcode in rows:
+        fn = fname or fcode
+        if not fn:
+            continue
+        if qa_status == "rejected":
+            n_rejected += 1
+            continue
+        v = value_used if value_used is not None else value
+        try:
+            vf = float(v)
+        except (TypeError, ValueError):
+            continue
+        u = (unit or "").strip() or None
+        key = fn if len(units_seen.get(fn, ())) <= 1 else f"{fn}[{u or '未记录'}]"
+        if u:
+            units[key] = u
+        per_factor_raw.setdefault(key, []).append(vf)
+        if key not in site_values or vf > site_values[key]:
+            site_values[key] = vf
+        if point_id is not None:
+            per_point.setdefault(point_id, {})[key] = vf
+    return {"site_values": site_values, "per_point_data": per_point, "units": units,
+            "per_factor_raw": per_factor_raw, "n_rejected": n_rejected, "n_rows": len(rows)}

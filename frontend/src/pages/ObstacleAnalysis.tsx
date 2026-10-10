@@ -279,7 +279,12 @@ export default function ObstacleAnalysis() {
               {/* 第一层: 污染场地关键障碍因子 Top-N (优先展示, 规则层 B=1 + 实测 + 综合评分排序) */}
               <Card title={
                 <Space>
-                  <span>污染场地关键障碍因子 Top-N</span>
+                  <span>正式关键障碍因子 Top-N（仅官方标准证据）</span>
+                  {kosData.official_ranking_status && (
+                    <Tag color={kosData.official_ranking_status === "available" ? "green" : kosData.official_ranking_status === "partial" ? "gold" : "red"}>
+                      {{ available: "正式结果可用", partial: "正式因子不足 3 个(部分)", insufficient_evidence: "证据不足,无正式排名" }[kosData.official_ranking_status as string] || kosData.official_ranking_status}
+                    </Tag>
+                  )}
                   <Tag color={kosTrack === "prod" ? "purple" : "green"}>
                     {kosTrack === "prod" ? "生产用途" : "生态用途"}
                   </Tag>
@@ -317,18 +322,55 @@ export default function ObstacleAnalysis() {
                             </Tooltip>
                             );
                           } },
+                        { title: "判定值 / 阈值", key: "thr", width: 200,
+                          render: (_: any, r: any) => (
+                            <Tooltip title={`${r.threshold_standard || ""} ${r.threshold_resolution_status || ""}${r.decision_point_id ? " · 判定点 " + r.decision_point_id : ""}`}>
+                              <span style={{ fontSize: 12 }}>
+                                {r.value ?? "—"} {r.threshold_type === "lower" ? "<" : ">"} {r.threshold_value ?? "—"} {r.threshold_unit || ""}
+                                <Tag style={{ fontSize: 10, marginLeft: 4 }}>{r.threshold_type === "lower" ? "下限(不足)" : "上限(超标)"}</Tag>
+                              </span>
+                            </Tooltip>
+                          ) },
                         { title: "证据等级", dataIndex: "evidence", width: 80, align: "center",
                           render: (v: string) => <Tag color={v === "A" ? "green" : v === "B" ? "blue" : v === "C" ? "orange" : "red"}>{v}</Tag> },
                       ]} />
                     <Paragraph type="secondary" style={{ fontSize: 11, marginTop: 8, marginBottom: 0 }}>
                       KOS = B × (0.30×R严重度 + 0.25×W用途权重 + 0.15×M模型贡献度 + 0.20×S稳定性 + 0.10×E证据等级)。
-                      只有规则判定超标(B=1)且实测的因子进入排名。
+                      只有规则判定超标(B=1)、实测、单位可证明换算,且阈值来自本路径官方标准(生产 GB 15618 / 生态 GB 36600, 证据 A/B)的因子进入正式排名。
                     </Paragraph>
                   </>
                 ) : (
-                  <EmptyState description="未生成关键障碍排名(可能因 pH/用地缺失已用兜底阈值,请核对场地数据完整性)" />
+                  <EmptyState description="证据不足:无因子同时满足官方标准阈值、单位可换算与超标条件,未生成正式排名(见下方探索性提示)" />
                 )}
               </Card>
+
+              {/* v1.2.1 R02: 探索性/待复核因子(文献参考、跨路径参考、启发式区间), 不进入正式 Top-N */}
+              {(kosData.exploratory_obstacles?.length > 0 || kosData.unit_unresolved?.length > 0) && (
+                <Card size="small" title={<Space><span>探索性提示(待复核,不作为正式结论)</span><Tag color="orange">非官方阈值</Tag></Space>}>
+                  {kosData.exploratory_obstacles?.length > 0 && (
+                    <Table rowKey={(r: any) => "x" + r.rank + r.factor} size="small" pagination={false}
+                      dataSource={kosData.exploratory_obstacles}
+                      columns={[
+                        { title: "序", dataIndex: "rank", width: 50, align: "center" },
+                        { title: "因子", dataIndex: "factor", width: 160, render: (v: string) => formatFactor(v) },
+                        { title: "判定值 / 参考值", key: "thr", width: 220,
+                          render: (_: any, r: any) => `${r.value ?? "—"} ${r.threshold_type === "lower" ? "<" : ">"} ${r.threshold_value ?? "—"} ${r.threshold_unit || ""}` },
+                        { title: "参考来源", dataIndex: "threshold_standard", ellipsis: true },
+                        { title: "状态", dataIndex: "threshold_resolution_status", width: 140,
+                          render: (v: string) => <Tag color="orange">{({ fallback: "文献参考兜底", heuristic: "启发式参考", cross_track_fallback: "跨路径参考", strictest_tier_fallback: "最严档兜底" } as any)[v] || v}</Tag> },
+                        { title: "证据", dataIndex: "evidence", width: 60, align: "center", render: (v: string) => <Tag color="orange">{v}</Tag> },
+                        { title: "参考分", dataIndex: "KOS", width: 80, align: "center", render: (v: number) => (v ?? 0).toFixed(3) },
+                      ]} />
+                  )}
+                  {kosData.unit_unresolved?.length > 0 && (
+                    <Alert style={{ marginTop: 8 }} type="warning" showIcon
+                      message={`以下因子单位无法证明换算,已排除: ${kosData.unit_unresolved.map((u: any) => (u.original_name || u.canonical || u) + (u.unit_raw ? "(" + u.unit_raw + ")" : "")).join("、")}`} />
+                  )}
+                  <Paragraph type="secondary" style={{ fontSize: 11, marginTop: 8, marginBottom: 0 }}>
+                    探索性因子使用文献参考值、跨路径参考值或启发式区间判定,方向已区分上限(超标)与下限(不足);仅供复核,不进入正式排名、报告结论或推荐依据。
+                  </Paragraph>
+                </Card>
+              )}
 
               {/* Round7 追加: 五分量证据堆叠条(R+W+M+S+E), 保留上方 Top-N 进度条表, 此处追加堆叠可视化 */}
               {barrierStackData.length > 0 && (

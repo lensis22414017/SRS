@@ -16,6 +16,32 @@ import pandas as pd
 MAPPINGS_DIR = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "mappings"))
 
 
+
+def split_header_unit(raw: str) -> tuple[str, str | None]:
+    """导入列名 → (因子名, 单位)。v1.2.1(R01)
+
+    - 单位取最后一个"非形态限定词"的括号内容; (VI)/(六价)/(有效态) 等是化学形态, 不是单位;
+    - cmol(+)/kg 视为一个单位;
+    - 因子名取下划线前的中文部分(v1.0.2 约定: "铜_Cu" → "铜"), 去掉所有括号。
+    """
+    import re as _r
+    from app.services.factor_normalizer import _is_speciation_qualifier
+    s = _r.sub(r"cmol\s*[（(]\s*\+\s*[)）]", "cmol(+)", str(raw), flags=_r.IGNORECASE)
+    groups = [g for g in _r.finditer(r"[（(]\s*([^()（）]*?)\s*[)）]", s.replace("cmol(+)", "cmol⁺"))]
+    unit = None
+    for g in reversed(groups):
+        if g.group(1) and not _is_speciation_qualifier(g.group(1)):
+            unit = g.group(1).strip().replace("cmol⁺", "cmol(+)")
+            break
+    s2 = s.replace("cmol(+)", "cmol⁺")
+    # 只去掉单位括号; 形态限定词括号保留在因子名中(如 "铬(六价)")
+    name = _r.sub(r"[（(]\s*([^()（）]*?)\s*[)）]",
+                  lambda g: g.group(0) if _is_speciation_qualifier(g.group(1)) else "", s2).strip()
+    if "_" in name:
+        head = name.split("_")[0].strip()
+        name = head if head else name
+    return name, unit
+
 def load_mapping(mapping_id: str) -> dict:
     """按 mapping_id 或文件名加载映射配置。
 
@@ -305,13 +331,8 @@ def smart_detect_and_map(path: str) -> tuple[str, dict, list[dict]]:
                 or any(kw in col_name_clean for kw in ("上限", "下限", "经度", "纬度", "深度", "序号"))):
             continue
         raw = str(c)
-        # 提取单位 (xxx)
-        m = _re.search(r"[（(]([^)）]*)[)）]", raw)
-        unit = m.group(1) if m else None
-        name = _re.sub(r"[（(][^)）]*[)）]", "", raw).strip()
-        # v1.0.2(GPT 3a): 因子名取下划线前的中文部分(如"铜_Cu"→"铜"),
-        # 与知识库/阈值/评价系统的中文因子命名规范一致; 无下划线时取整体
-        name = name.split("_")[0].strip() if "_" in name else name
+        # v1.2.1(R01): 单位取最后一个非形态限定词括号; "六价铬_Cr(VI)(mg/kg)" → ("六价铬", "mg/kg")
+        name, unit = split_header_unit(raw)
         is_hm = _matches_heavy_metal_token(cl)
         is_org = any(k in cl for k in _ORG)
         if is_hm:

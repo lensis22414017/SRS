@@ -201,6 +201,7 @@ def compute_kos(
         m_map = {}
 
     results = []              # formal: 实测+有阈值+B=1+E(A/B)
+    exploratory = []          # v1.2.1(R02): 实测+B=1 但阈值证据为 C/D(文献兜底/交叉轨/最严档) → 探索性, 不进正式 Top-N
     model_attention = []      # candidate: 实测+模型见过+无阈值或B不可判 → 需专家复核
     recommended = []          # 未实测的重要因子 → 补测建议
     all_factors = set(factor_thresholds.keys()) | set(factor_values.keys())
@@ -277,6 +278,14 @@ def compute_kos(
             entry["KOS"] = round(kos, 4)
             entry["layer"] = "formal"
             results.append(entry)
+        elif b == 1 and is_measured:
+            # v1.2.1(R02): 阈值证据不足以支撑正式结论 → 探索性层(同一公式计算, 仅作排序参考)
+            kos = 1.0 * (KOS_W["R"] * r + KOS_W["W"] * w + KOS_W["M"] * m + KOS_W["S"] * s + KOS_W["E"] * e)
+            entry["KOS"] = round(kos, 4)
+            entry["layer"] = "exploratory"
+            entry["review_required"] = True
+            entry["reason"] = f"阈值证据等级 {e_str}(非本轨权威标准), 仅列为探索性障碍, 不进入正式 Top-N"
+            exploratory.append(entry)
         elif is_measured and b == 0 and in_model and m > 0.01:
             # 有阈值但未超标 + 模型关注 → model_attention
             entry["KOS"] = 0.0
@@ -291,6 +300,7 @@ def compute_kos(
 
     # 排序
     results.sort(key=lambda x: x["KOS"], reverse=True)
+    exploratory.sort(key=lambda x: x["KOS"], reverse=True)
     model_attention.sort(key=lambda x: x.get("M", 0), reverse=True)
     key_obstacles = results[:top_n]
 
@@ -312,6 +322,8 @@ def compute_kos(
                                 "threshold": k["threshold"], "severity_R": k["R"],
                                 "source": "规则判障碍"} for k in key_obstacles],
         "key_obstacles": [{"rank": i + 1, **k} for i, k in enumerate(key_obstacles)],
+        "exploratory_obstacles": [{"rank": i + 1, **k} for i, k in enumerate(exploratory)],
+        "n_exploratory": len(exploratory),
         "model_attention_factors": model_attention[:15],
         "recommended_tests": recommended[:10],
         "data_quality_flags": data_quality_flags,

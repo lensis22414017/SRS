@@ -371,25 +371,10 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
         kos_error = None
         kos_factors = []
         try:
-            from app.services.kos_service import run_kos_diagnosis
-            from app.models import Measurement
+            from app.services.kos_service import run_kos_diagnosis, load_site_kos_inputs
             track = "prod" if recon_scope == "production" else "eco"
-            mrows = (db.query(Measurement.value_used_for_model, Measurement.value,
-                              Measurement.sampling_point_id, FactorDictionary.factor_name)
-                     .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id, isouter=True)
-                     .filter(Measurement.site_id == site_id, Measurement.stage == PRE_REMEDIATION, Measurement.value.isnot(None)).all())
-            sv = {}
-            per_point = {}
-            for value_used, value, point_id, fn in mrows:
-                if fn:
-                    try:
-                        vv = float(value_used if value_used is not None else value)
-                        if fn not in sv or vv > sv[fn]:
-                            sv[fn] = vv
-                        if point_id is not None:
-                            per_point.setdefault(point_id, {})[fn] = vv
-                    except (TypeError, ValueError):
-                        continue
+            _ki = load_site_kos_inputs(db, site_id, PRE_REMEDIATION)  # v1.2.1: 带单位、跳过 rejected
+            sv, per_point = _ki["site_values"], _ki["per_point_data"]
             if sv:
                 # R3 审计第四类 4.3: 传同一 db_session, 统一使用数据库动态阈值
                 kos_r = run_kos_diagnosis(
@@ -400,6 +385,7 @@ def run_evaluation(db: Session, site_id: int, t: float | None = None,
                     land_use_type=site.land_use_type,
                     db_session=db,
                     per_point_data=per_point,
+                    units=_ki["units"],
                 )
                 kos_factors = [k["factor"] for k in kos_r.get("key_obstacles", [])][:5]
                 # KOS 因子优先,合并去重

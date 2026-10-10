@@ -81,30 +81,14 @@ def run_recommendation(db: Session, site_id: int, top_k: int = 5) -> dict:
             track = "eco" if (site.land_use_type or "").startswith("生态") else "prod"
             subset = {"heavy_metal": "hm", "organic": "op"}.get(site.pollution_type or "", "all")
             # 无历史时按真实采样点重算；pH、用途和 value_used_for_model 必须与正式链路一致。
-            rows = (db.query(Measurement.value_used_for_model, Measurement.value,
-                             Measurement.sampling_point_id,
-                             FactorDictionary.factor_name, FactorDictionary.factor_code)
-                    .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id, isouter=True)
-                    .filter(Measurement.site_id == site_id, Measurement.stage == PRE_REMEDIATION, Measurement.value.isnot(None)).all())
-            sv = {}
-            per_point = {}
-            for value_used, value, point_id, fn, fc in rows:
-                n = fn or fc
-                if not n:
-                    continue
-                try:
-                    vv = float(value_used if value_used is not None else value)
-                except (TypeError, ValueError):
-                    continue
-                if n not in sv or vv > sv[n]:
-                    sv[n] = vv
-                if point_id is not None:
-                    per_point.setdefault(point_id, {})[n] = vv
+            from app.services.kos_service import load_site_kos_inputs
+            _ki = load_site_kos_inputs(db, site_id, PRE_REMEDIATION)  # v1.2.1: 带单位
+            sv, per_point = _ki["site_values"], _ki["per_point_data"]
             if sv:
                 kos_r = run_kos_diagnosis(
                     sv, track=track, subset=subset, site_pH=sv.get("pH"),
                     land_use_type=site.land_use_type, db_session=db,
-                    per_point_data=per_point,
+                    per_point_data=per_point, units=_ki["units"],
                 )
                 kos_factor_names = [k["factor"] for k in kos_r.get("key_obstacles", [])][:5]
                 kos_review_required = bool(kos_r.get("review_required"))

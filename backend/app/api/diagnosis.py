@@ -249,50 +249,22 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
     # 4) aggregation_method="maximum_valid_measurement" (取每因子最大值, 最不利点)
     #    v1.0.2(GPT 4.7): 同时按采样点分组, 支持按点位计算超标率/P95
     # 5) As/Cd/Pb/Hg 浓度 >10000 mg/kg 触发 extreme_value_warning (不改值, 只标记)
-    rows = (db.query(Measurement.value_used_for_model, Measurement.value,
-                     Measurement.qa_status, Measurement.sampling_point_id,
-                     FactorDictionary.factor_name, FactorDictionary.factor_code)
-            .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id, isouter=True)
-            .filter(Measurement.site_id == site_id, Measurement.stage == PRE_REMEDIATION)
-            .all())
+    # v1.2.1(R01): 统一装载(修复前阶段, 携带 Measurement.unit 做单位换算/开放失败)
+    from app.services.kos_service import load_site_kos_inputs
+    _ki = load_site_kos_inputs(db, site_id, PRE_REMEDIATION)
+    site_values, per_point_data = _ki["site_values"], _ki["per_point_data"]
+    per_factor_raw, n_rejected, kos_units = _ki["per_factor_raw"], _ki["n_rejected"], _ki["units"]
 
     EXTREME_THRESHOLD_MGKG = 10000.0
     # 极端值检查覆盖的因子 (中英文)
     EXTREME_FACTOR_PATTERNS = ("As_mgkg", "Cd_mgkg", "Pb_mgkg", "Hg_mgkg",
                                "砷", "镉", "铅", "汞")
-
-    site_values = {}
-    per_factor_raw = {}    # factor -> [values] 用于统计
-    # v1.0.2: 按采样点分组 {point_id: {factor_name: value}}
-    per_point_data = {}
-    n_rejected = 0
     extreme_warnings = []
-
-    for value_used, value, qa_status, point_id, fname, fcode in rows:
-        fn = fname or fcode
-        if not fn:
-            continue
-        if qa_status == "rejected":
-            n_rejected += 1
-            continue
-        v = value_used if value_used is not None else value
-        if v is None:
-            continue
-        try:
-            vf = float(v)
-        except (TypeError, ValueError):
-            continue
-        per_factor_raw.setdefault(fn, []).append(vf)
-        # 取最大值 (最不利点, 兼容旧逻辑)
-        if fn not in site_values or vf > site_values[fn]:
-            site_values[fn] = vf
-        # v1.0.2: 按采样点分组
-        if point_id is not None:
-            per_point_data.setdefault(point_id, {})[fn] = vf
-        # 极端值检查 (不改值, 只标记到 data_quality_flags)
-        if any(p in fn for p in EXTREME_FACTOR_PATTERNS) and vf > EXTREME_THRESHOLD_MGKG:
-            extreme_warnings.append(
-                f"extreme_value_warning: {fn}={vf} mg/kg 超过 10000 mg/kg 极端值阈值")
+    for fn, vals in per_factor_raw.items():
+        for vf in vals:
+            if any(p in fn for p in EXTREME_FACTOR_PATTERNS) and vf > EXTREME_THRESHOLD_MGKG:
+                extreme_warnings.append(
+                    f"extreme_value_warning: {fn}={vf} mg/kg 超过 10000 mg/kg 极端值阈值")
 
     if not site_values:
         raise HTTPException(400, "场地无检测数据,无法诊断")
@@ -337,7 +309,7 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
 
     result = run_kos_diagnosis(site_values, track=track, subset=subset, top_n=top_n,
                                 site_pH=site_pH, land_use_type=land_use_type, db_session=db,
-                                per_point_data=per_point_data)
+                                per_point_data=per_point_data, units=kos_units)
     # M0-6: 按 canonical key 保存统计量, 用动态阈值计算 exceedance_count/ratio
     # 建立 canonical→原始因子名 映射(从 normalize_factors_v2 的 mapping_details)
     canonical_to_raw = {}

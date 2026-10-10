@@ -202,7 +202,7 @@ _CANONICAL_TO_DB_NAME = {
     "Hydrolyzable_N_mgkg": "水解性氮",
     "P_mgkg": "有效磷", "K_mgkg": "速效钾",
     "Total_P_gkg": "全磷", "Total_K_gkg": "全钾",
-    "TN_gkg": "全氮", "OC_pct": "有机质",
+    "TN_gkg": "全氮", "OC_pct": "有机碳", "OM_gkg": "有机质",
     "CEC_cmolkg": "阳离子交换量",
     "SoilBD_gcm3": "容重", "EC_mScm": "电导率",
     # 无标准阈值的描述性指标（advisory-only，不报 not_found）
@@ -217,32 +217,33 @@ _CANONICAL_TO_DB_NAME = {
 # v1.0.1: GB15618 扩展重金属通用阈值兜底(DB无精确值时的 fallback)
 # v1.0.2: 扩展养分/理化/新兴污染物文献兜底值
 _GB15618_EXTENDED_FALLBACK = {
-    # ── 重金属扩展（GB15618通用档）──
-    "Mn": {"limit": 1500, "unit": "mg/kg", "standard": "GB15618 通用档(锰)"},
-    "Co": {"limit": 40, "unit": "mg/kg", "standard": "GB15618 通用档(钴)"},
-    "Mo": {"limit": 40, "unit": "mg/kg", "standard": "GB15618 通用档(钼)"},
-    "Sb": {"limit": 10, "unit": "mg/kg", "standard": "GB15618 通用档(锑)"},
-    "Tl": {"limit": 1.0, "unit": "mg/kg", "standard": "GB15618 通用档(铊)"},
-    "Be": {"limit": 15, "unit": "mg/kg", "standard": "GB15618 通用档(铍)"},
-    "Ba": {"limit": 750, "unit": "mg/kg", "standard": "GB15618 通用档(钡)"},
-    "V": {"limit": 165, "unit": "mg/kg", "standard": "GB15618 通用档(钒)"},
-    "Fe": {"limit": 50000, "unit": "mg/kg", "standard": "GB15618 通用档(铁)"},
-    # ── 有机质 + 全氮（肥力下限参考）──
-    "OC_pct": {"limit": 0.35, "unit": "%", "standard": "全国二普 SOM 贫乏下限 (6 g/kg → OC≈0.35%)"},
-    "TN_gkg": {"limit": 1.0, "unit": "g/kg", "standard": "NY/T 1749-2009 旱地全氮标准值"},
-    # ── v1.0.2 扩展 ──
-    # 养分（全国第二次土壤普查 + NY/T 1749）
-    "Total_P_gkg": {"limit": 0.4, "unit": "g/kg", "standard": "全国二普 全磷中等下限 (0.4 g/kg)"},
-    "Total_K_gkg": {"limit": 10, "unit": "g/kg", "standard": "全国二普 全钾中等下限 (10 g/kg)"},
-    "P_mgkg": {"limit": 5, "unit": "mg/kg", "standard": "全国二普 有效磷贫乏上限 (Olsen-P <5 mg/kg)"},
-    "K_mgkg": {"limit": 50, "unit": "mg/kg", "standard": "全国二普 速效钾贫乏上限 (<50 mg/kg)"},
-    "Hydrolyzable_N_mgkg": {"limit": 60, "unit": "mg/kg", "standard": "全国二普 碱解氮贫乏上限 (<60 mg/kg)"},
-    # 物理指标（国标/行标）
-    "CEC_cmolkg": {"limit": 10, "unit": "cmol(+)/kg", "standard": "CJ/T 340-2016 保肥下限 (≥10 cmol/kg)"},
-    "SoilBD_gcm3": {"limit": 1.5, "unit": "g/cm³", "standard": "TD/T1036-2013 容重上限 (≤1.5 g/cm³)"},
-    "EC_mScm": {"limit": 2.0, "unit": "mS/cm", "standard": "USDA 盐渍化阈值 (ECe≤2 dS/m = 2 mS/cm)"},
-    # 新兴污染物（文献/EPA兜底）
-    "SumPAE_ugkg": {"limit": 42000, "unit": "μg/kg", "standard": "GB36600 DEHP 一类用地筛选值 (42 mg/kg → 42000 μg/kg)"},
+    # v1.2.1(R01/R02): 每条兜底值显式记录方向(type)。肥力"下限"(低于才构成不足)不得按污染物上限判定。
+    # 这些值均为文献/行业参考(heuristic, 证据等级 C), 只进入探索性结果, 不进入正式 KOS Top-N。
+    # ── 重金属扩展（GB15618 未列项, 通用参考上限）──
+    "Mn": {"type": "upper", "limit": 1500, "unit": "mg/kg", "standard": "GB15618 未列项·通用参考(锰)"},
+    "Co": {"type": "upper", "limit": 40, "unit": "mg/kg", "standard": "GB15618 未列项·通用参考(钴)"},
+    "Mo": {"type": "upper", "limit": 40, "unit": "mg/kg", "standard": "GB15618 未列项·通用参考(钼)"},
+    "Sb": {"type": "upper", "limit": 10, "unit": "mg/kg", "standard": "GB15618 未列项·通用参考(锑)"},
+    "Tl": {"type": "upper", "limit": 1.0, "unit": "mg/kg", "standard": "GB15618 未列项·通用参考(铊)"},
+    "Be": {"type": "upper", "limit": 15, "unit": "mg/kg", "standard": "GB15618 未列项·通用参考(铍)"},
+    "Ba": {"type": "upper", "limit": 750, "unit": "mg/kg", "standard": "GB15618 未列项·通用参考(钡)"},
+    "V": {"type": "upper", "limit": 165, "unit": "mg/kg", "standard": "GB15618 未列项·通用参考(钒)"},
+    "Fe": {"type": "upper", "limit": 50000, "unit": "mg/kg", "standard": "GB15618 未列项·通用参考(铁)"},
+    # ── 肥力指标: 下限(缺乏) ──
+    "OM_gkg": {"type": "lower", "limit": 6.0, "unit": "g/kg", "standard": "全国第二次土壤普查 有机质分级 极缺档 (<6 g/kg) · 文献参考"},
+    "OC_pct": {"type": "lower", "limit": 0.35, "unit": "%", "standard": "由有机质 6 g/kg 按 1.724 推算的有机碳参考下限 · 文献参考(换算系数未经课题组批准)"},
+    "TN_gkg": {"type": "lower", "limit": 1.0, "unit": "g/kg", "standard": "NY/T 1749-2009 旱地全氮参考值 (缺乏 <1.0 g/kg) · 文献参考"},
+    "Total_P_gkg": {"type": "lower", "limit": 0.4, "unit": "g/kg", "standard": "全国二普 全磷分级 (缺乏 <0.4 g/kg) · 文献参考"},
+    "Total_K_gkg": {"type": "lower", "limit": 10, "unit": "g/kg", "standard": "全国二普 全钾分级 (缺乏 <10 g/kg) · 文献参考"},
+    "P_mgkg": {"type": "lower", "limit": 5, "unit": "mg/kg", "standard": "全国二普 有效磷分级 (缺乏 <5 mg/kg) · 文献参考"},
+    "K_mgkg": {"type": "lower", "limit": 50, "unit": "mg/kg", "standard": "全国二普 速效钾分级 (缺乏 <50 mg/kg) · 文献参考"},
+    "Hydrolyzable_N_mgkg": {"type": "lower", "limit": 60, "unit": "mg/kg", "standard": "全国二普 碱解氮分级 (缺乏 <60 mg/kg) · 文献参考"},
+    "CEC_cmolkg": {"type": "lower", "limit": 10, "unit": "cmol(+)/kg", "standard": "CJ/T 340-2016 保肥性参考下限 (≥10 cmol(+)/kg) · 文献参考"},
+    # ── 物理/盐分: 上限 ──
+    "SoilBD_gcm3": {"type": "upper", "limit": 1.5, "unit": "g/cm³", "standard": "TD/T 1036-2013 容重参考上限 (≤1.5 g/cm³) · 文献参考"},
+    "EC_mScm": {"type": "upper", "limit": 2.0, "unit": "mS/cm", "standard": "USDA 盐渍化参考 (ECe≤2 dS/m) · 文献参考"},
+    # ── 新兴污染物 ──
+    "SumPAE_ugkg": {"type": "upper", "limit": 42000, "unit": "μg/kg", "standard": "以 GB36600 DEHP 一类用地筛选值作参考 (42 mg/kg) · 非本物质标准值"},
 }
 
 
@@ -277,6 +278,7 @@ def resolve_threshold_from_db(
             "pH_condition": "", "land_use_type": land_use_type or "",
             "threshold_source_id": None,
             "threshold_resolution_status": "advisory", "review_required": False,
+            "evidence_grade": None,
             "note": f"因子 {factor_canonical} 为描述性指标，无超标概念，不参与KOS排名",
         }
 
@@ -308,12 +310,14 @@ def resolve_threshold_from_db(
             return {
                 "threshold": {"type": "upper", "limit": limit},
                 "threshold_value": limit, "threshold_unit": best.unit or "mg/kg",
-                "threshold_standard": f"{best.standard_code} (交叉轨兜底)",
+                "threshold_standard": f"{best.standard_code} (交叉轨参考, 非本轨适用标准)",
                 "threshold_version": str(best.version),
                 "pH_condition": best.pH_condition or "",
                 "land_use_type": best.land_use_type or "",
                 "threshold_source_id": best.id,
-                "threshold_resolution_status": "resolved", "review_required": False,
+                # v1.2.1(R02): 另一用途标准的限值不能冒充本轨权威阈值
+                "threshold_resolution_status": "cross_track_fallback", "review_required": True,
+                "evidence_grade": "C", "threshold_type": "upper",
                 "fallback_note": f"生产/生态轨无精确匹配, 已用{best.standard_code}交叉轨兜底({limit} {best.unit or 'mg/kg'})",
             }
 
@@ -324,7 +328,8 @@ def resolve_threshold_from_db(
               or _GB15618_EXTENDED_FALLBACK.get(factor_canonical))
         if fb:
             return {
-                "threshold": {"type": "upper", "limit": fb["limit"]},
+                "threshold": {"type": fb["type"], "limit": fb["limit"]},
+                "threshold_type": fb["type"], "evidence_grade": "C",
                 "threshold_value": fb["limit"], "threshold_unit": fb["unit"],
                 "threshold_standard": fb["standard"], "threshold_version": "文献兜底",
                 "pH_condition": "通用", "land_use_type": land_use_type or "",
@@ -341,10 +346,12 @@ def resolve_threshold_from_db(
                           "min": 5.5 if track == "prod" else 5.0,
                           "max": 8.5 if track == "prod" else 8.3},
             "threshold_value": None, "threshold_unit": "无量纲",
-            "threshold_standard": standards[0], "threshold_version": "2018",
+            "threshold_standard": "土壤 pH 适宜区间(系统参考)", "threshold_version": "2018",
             "pH_condition": "", "land_use_type": land_use_type or "",
             "threshold_source_id": rows[0].id if rows else None,
-            "threshold_resolution_status": "resolved", "review_required": False,
+            # v1.2.1(R02): GB 15618/36600 不规定 pH 限值; 该区间为参考 → 探索性
+            "threshold_resolution_status": "heuristic", "review_required": True,
+            "threshold_type": "interval", "evidence_grade": "C",
         }
 
     # 按 pH 条件筛选
@@ -380,6 +387,9 @@ def resolve_threshold_from_db(
     limit = float(r.screening_value) if r.screening_value is not None else None
     return {
         "threshold": {"type": "upper", "limit": limit},
+        # v1.2.1(R02): 本轨国标(GB 15618 农用地 / GB 36600 建设用地)筛选值 = 证据 A
+        "threshold_type": "upper",
+        "evidence_grade": "A" if r.standard_code in standards else "B",
         "threshold_value": limit,
         "threshold_unit": r.unit or "mg/kg",
         "threshold_standard": r.standard_code,
@@ -449,6 +459,7 @@ def resolve_threshold_fallback(
         "threshold_source_id": strictest.id,
         "threshold_resolution_status": "fallback",
         "review_required": True,
+        "threshold_type": "upper", "evidence_grade": "C",
         "fallback_note": f"pH/用地缺失, 已用{factor_canonical}最严档({limit})兜底, 请核实场地pH/用地类型",
     }
 

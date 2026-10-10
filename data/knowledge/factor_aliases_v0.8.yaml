@@ -31,17 +31,33 @@ OC_pct:
   coalesce:
   - OC_pct
   aliases:
-  - 有机质
   - 有机碳
+  - 土壤有机碳
   - SOC
+  - 有机碳含量
+  - 有机碳(%)
+  - 有机碳（%）
+  - 有机碳(g/kg)
+  - 有机碳（g/kg）
+  preferred_unit: "%"
+  note: "v1.2.1(R01): 有机碳(SOC)。不与有机质(SOM, OM_gkg)合并; 系统不做 SOM↔SOC 换算(Van Bemmelen 系数未经课题组批准)。"
+
+OM_gkg:
+  canonical: OM_gkg
+  aliases:
+  - 有机质
+  - 土壤有机质
   - SOM
   - 有机质(g/kg)
   - 有机质（g/kg）
   - 有机质(%)
   - 有机质（%）
   - 有机质(％)
-  - 有机碳含量
-  preferred_unit: "%"
+  - 土壤有机质(g/kg)
+  - 土壤有机质(%)
+  - 有机质含量
+  preferred_unit: g/kg
+  note: "v1.2.1(R01): 有机质(SOM)独立因子; % 与 g/kg 按质量分数等价换算(1 % = 10 g/kg); 不换算为有机碳。"
 
 CEC_cmolkg:
   canonical: CEC_cmolkg
