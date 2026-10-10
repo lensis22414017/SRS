@@ -36,6 +36,8 @@ DECISION_CN = {"both_supported": "生产与生态均支持", "production_support
                "insufficient_evidence": "证据不足",
                "needs_manual_use_selection": "须选择用途(仅保守假设筛查, 无正式结论)",
                "regulatory_applicability_unresolved": "法规适用性未定(无正式结论)"}
+SSUI_STATUS_CN = {"ok": "定义域内(暂定分级, 非正式结论)", "out_of_domain": "超出有效域 [0, 1.0], 不分级、不作支持判断",
+                  "insufficient": "得分不足/缺失, 不计算", "invalid": "得分无效, 不计算"}
 OFFICIAL_STATUS_CN = {"available": "正式结果可用", "partial": "正式因子不足 3 个(部分结果)",
                       "insufficient_evidence": "证据不足, 无正式排名"}
 _SPECIATION_UNITS = {"VI", "III", "Ⅵ", "Ⅲ", "6+", "3+", "六价", "三价"}
@@ -477,7 +479,7 @@ def headline(snap: dict) -> dict:
 
 
 def to_xlsx(snap: dict) -> bytes:
-    """快照 Excel: 首页关键数 + 分阶段批次 + 门禁 + KOS 正式/探索性 + SSUI + 五阶段。"""
+    """快照 Excel: 首页关键数 + 分阶段批次 + 门禁 + KOS 正式/探索性 + SSUI(含状态) + 利用结论与用途 + 五阶段。"""
     from openpyxl import Workbook
     from openpyxl.styles import Font, PatternFill
     wb = Workbook()
@@ -526,11 +528,29 @@ def to_xlsx(snap: dict) -> bytes:
     srows = []
     for t, cn in (("production", "生产"), ("ecology", "生态")):
         p = snap["ssui"]["post"][t]; e = p["evaluation"] or {}
-        srows.append(["修复后", cn, p["batch_id"], p["source_file"], e.get("score"), e.get("grade"), e.get("method_status")])
+        st = e.get("status")
+        srows.append(["修复后", cn, p["batch_id"], p["source_file"], e.get("score"), st, SSUI_STATUS_CN.get(st, st),
+                      e.get("grade") if st != "out_of_domain" else "超出有效域, 不分级", e.get("method_status")])
     pr = snap["ssui"]["pre_reference"]
     if pr:
-        srows.append(["修复前(参考, 旧口径)", "—", None, None, pr.get("score"), pr.get("grade"), pr.get("method_status")])
-    sheet("SSUI", ["阶段", "轨道", "批次", "来源文件", "SSUI", "等级", "方法状态"], srows)
+        srows.append(["修复前(参考, 旧口径)", "—", None, None, pr.get("score"), pr.get("status"), SSUI_STATUS_CN.get(pr.get("status"), pr.get("status")),
+                      pr.get("grade"), pr.get("method_status")])
+    sheet("SSUI", ["阶段", "轨道", "批次", "来源文件", "SSUI", "状态", "状态说明", "等级", "方法状态"], srows)
+    # v1.2.2(T03): 利用结论与用途状态独立成表, 与 API / PDF / DOCX 同源(snap["utilization"])
+    _UCN = {"explicit": "已选择", "needs_manual_use_selection": "未选择(须人工选择用途)",
+            "regulatory_applicability_unresolved": "法规适用性未定"}
+    urows = []
+    for s_ in (PRE_REMEDIATION, POST_REMEDIATION):
+        u = (snap.get("utilization") or {}).get(s_)
+        if not u:
+            urows.append([STAGE_CN[s_], None, "尚未运行", None, None, None, None, None, None, None]); continue
+        us = u.get("use_state") or {}
+        urows.append([STAGE_CN[s_], u["decision_id"], u["state"], u["state_cn"],
+                      u.get("farmland_type") or "—", _UCN.get(us.get("production"), us.get("production") or "—"),
+                      u.get("eco_land_class") or "—", _UCN.get(us.get("ecology"), us.get("ecology") or "—"),
+                      "是(保守假设筛查, 非正式结论)" if u.get("hypothetical_screen") else "否", u.get("conclusion")])
+    sheet("利用结论与用途", ["阶段", "决策记录", "结论代码", "结论", "农用地类型", "生产用途状态", "建设用地类别", "生态用途状态",
+                        "假设筛查", "结论说明"], urows)
     wf = snap["workflow"]
     sheet("五阶段与软件里程碑", ["类别", "名称", "状态", "附件数"],
           [["五阶段业务记录", b["name"], b["status_cn"], b["n_attachments"]] for b in wf["business_stages"]]

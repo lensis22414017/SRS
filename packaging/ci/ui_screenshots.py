@@ -76,7 +76,7 @@ def main():
                 page.goto(a.base + route); page.wait_for_load_state("networkidle")
 
             go("/"); shot("02_dashboard.png", "数据概览", "/")
-            go("/sites"); shot("03_sites.png", "场地管理(5 个合成演示场地, 纯字母编号)", "/sites")
+            go("/sites"); shot("03_sites.png", "场地管理(9 个合成演示场地 A–H 与 SRS-I, 纯字母编号)", "/sites")
             go(f"/sites/{sid}"); shot("04_site_detail.png", "场地详情", f"/sites/{sid}", "A")
             go("/sites/import"); shot("05_import.png", "修复前检测数据导入(课题一/二)", "/sites/import")
             go("/obstacle", sid); shot("06_obstacle_S1.png", "课题一 障碍因子识别(KOS)", "/obstacle", "A")
@@ -150,6 +150,38 @@ def main():
             if "P" in by:
                 go("/obstacle", by["P"]); page.wait_for_timeout(2500)
                 shot("28_obstacle_phthalate_P.png", "课题一 邻苯二甲酸酯: DEHP 按 CAS 绑定官方值; 总量不判定; 未登记单体待复核", "/obstacle", "P")
+            # v1.2.2(T03): 界面上不选择用途 / 选择“非建设用地生态用途” / 恢复明确选择(修复前情景判断, 场地 A)。
+            # 只改修复前决策; snapshot/restart 阶段核对的是修复后决策, 不受影响。最后恢复演示的 水田 + 第一类用地。
+            t03 = []
+            try:
+                def _panel():
+                    return page.locator(".ant-card", has_text="修复前情景利用判断").first
+
+                def _pick(idx, text):
+                    _panel().locator(".ant-select").nth(idx).click(); page.wait_for_timeout(400)
+                    page.locator(".ant-select-dropdown:visible .ant-select-item-option", has_text=text).first.click(); page.wait_for_timeout(300)
+
+                def _run_and_check(fn, title, want_ui, want_use):
+                    _panel().get_by_role("button", name="运行判定").click(); page.wait_for_timeout(3500)
+                    _panel().scroll_into_view_if_needed(); page.wait_for_timeout(500)
+                    _panel().screenshot(path=os.path.join(a.out, fn)); rec(fn, title, "/reconstruction", "A·用途")
+                    txt = "".join(_panel().inner_text().split())
+                    api = requests.get(f"{a.base}/api/v1/sites/{sid}/utilization", headers=H, params={"stage": "pre_remediation"}).json()["decision"] or {}
+                    us = (api.get("evidence") or {}).get("use_state") or api.get("use_state")
+                    t03.append({"file": fn, "ui_text_ok": all(w in txt for w in want_ui), "ui_missing": [w for w in want_ui if w not in txt],
+                                "api_decision_state": api.get("decision_state"), "api_use_state": us, "use_state_ok": us == want_use})
+                go("/reconstruction", sid); page.wait_for_timeout(2000)
+                _run_and_check("29_use_not_selected.png", "利用判断 · 未选择用途: 只作保守假设筛查, 无正式结论(场地 A, 修复前情景)",
+                               ["须选择用途", "未选择用途"], {"production": "needs_manual_use_selection", "ecology": "needs_manual_use_selection"})
+                _pick(0, "水田"); _pick(1, "非建设用地生态用途")
+                _run_and_check("30_use_eco_non_construction.png", "利用判断 · 生态选“非建设用地生态用途”: GB 36600 适用性未定, 不给正式生态结论",
+                               ["法规适用性未定"], {"production": "explicit", "ecology": "regulatory_applicability_unresolved"})
+                _pick(1, "第一类用地")
+                _run_and_check("31_use_explicit_restored.png", "利用判断 · 明确选择 水田 + 第一类用地(恢复演示选择)",
+                               ["已选择"], {"production": "explicit", "ecology": "explicit"})
+            except Exception as e:  # noqa: BLE001
+                t03.append({"error": repr(e)[:400]})
+            json.dump(t03, open(os.path.join(a.out, "t03_ui_checks.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
             go("/files"); shot("23_files.png", "文件管理", "/files")
             go("/system"); shot("24_system.png", "系统管理(用户/备份恢复/日志)", "/system")
         b.close()

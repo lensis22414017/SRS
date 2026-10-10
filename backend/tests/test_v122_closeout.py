@@ -434,3 +434,33 @@ def test_t02_aggregate_members_go_to_review(name):
     from app.services import factor_normalizer as FN
     c, m = FN.normalize_factor_name(name)
     assert c is None and m["match_method"] == "mapping_review_required", (name, c, m)
+
+
+# ═════════════════════ T01/T03: 快照 Excel 同源携带 SSUI 状态与用途状态 ═════════════════════
+def test_t01_t03_snapshot_xlsx_carries_ssui_status_and_use_state(monkeypatch):
+    import io
+    from openpyxl import load_workbook
+    from app.services import evaluation_snapshot as ES
+    ev = lambda sc, st, gr: {"score": sc, "status": st, "grade": gr, "method_status": "provisional"}
+    snap = {"snapshot_id": "t", "snapshot_sha256": "0" * 64, "generated_at": "2026-10-10 00:00",
+            "site": {"name": "【模拟数据——仅供测试/演示】X", "site_code": "SRS-X"}, "data_origin": {"label": "模拟数据"},
+            "inventory": {s: {"stage_cn": s, "batches": [], "note": "", "n_unique_samples": 0, "n_measurement_records": 0}
+                          for s in ("pre_remediation", "post_remediation")},
+            "gates": {}, "kos": {}, "workflow": {"business_stages": [], "software_milestones": []},
+            "ssui": {"post": {"production": {"batch_id": 1, "source_file": "p.xlsx", "evaluation": ev(1.019189, "out_of_domain", None)},
+                              "ecology": {"batch_id": 2, "source_file": "e.xlsx", "evaluation": ev(0.7, "ok", "中度可持续")}},
+                     "pre_reference": None},
+            "utilization": {"pre_remediation": None,
+                            "post_remediation": {"decision_id": 7, "state": "needs_manual_use_selection",
+                                                 "state_cn": ES.DECISION_CN["needs_manual_use_selection"], "farmland_type": None,
+                                                 "eco_land_class": None, "conclusion": "c", "hypothetical_screen": True,
+                                                 "use_state": {"production": "needs_manual_use_selection", "ecology": "needs_manual_use_selection"}}}}
+    monkeypatch.setattr(ES, "headline", lambda s: {})  # 本测试只检查新增工作表
+    wb = load_workbook(io.BytesIO(ES.to_xlsx(snap)))
+    rows = list(wb["SSUI"].iter_rows(values_only=True))
+    prod = [r for r in rows if r[1] == "生产"][0]
+    assert prod[4] == 1.019189 and prod[5] == "out_of_domain" and prod[7] == "超出有效域, 不分级"
+    eco = [r for r in rows if r[1] == "生态"][0]
+    assert eco[5] == "ok" and eco[7] == "中度可持续"
+    u = [r for r in wb["利用结论与用途"].iter_rows(values_only=True) if r[2] == "needs_manual_use_selection"]
+    assert u and u[0][2] == "needs_manual_use_selection" and u[0][5].startswith("未选择") and u[0][8].startswith("是")

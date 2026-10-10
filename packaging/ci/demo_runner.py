@@ -282,6 +282,43 @@ def run_all(http: Http, demo: str, out: str, admin: tuple[str, str], report: boo
               dq.get("decision_state"))
         fx_rep["decision_after_restore"] = dq.get("decision_state")
         actual["ssui_out_of_domain_replay"] = fx_rep
+    # v1.2.2(T03): 用途未选择 / 无效 / 非建设用地生态用途 / 明确选择, 经安装程序 API 与快照 Excel 验证; 最后恢复演示的明确选择。
+    # 独立期望来自已商定的 Q09/Q17 规则(不调用评价代码): 未选择 → 两轨 needs_manual_use_selection 且无正式正向结论;
+    # 非建设用地生态用途 → 生态轨 regulatory_applicability_unresolved, 不得给出生态正向结论; 无效取值 → 422。
+    if sidA:
+        import io as _io
+        from openpyxl import load_workbook as _lw
+        uq = {"stage": "post_remediation", "farmland_type": "水田", "eco_land_class": "第一类用地"}
+        t03 = {}
+        for nm, prm in (("farmland_type=旱地", {"farmland_type": "旱地"}), ("eco_land_class=生态用地", {"eco_land_class": "生态用地"})):
+            rr = http.post(f"/api/v1/sites/{sidA}/utilization", params={"stage": "post_remediation", **prm})
+            check(f"[A·用途] 无效用途 {nm} → 422", rr.status_code == 422, rr.status_code)
+
+        def _xl_row():
+            wb = _lw(_io.BytesIO(http.get(f"/api/v1/sites/{sidA}/evaluation-snapshot.xlsx").content))
+            if "利用结论与用途" not in wb.sheetnames:
+                return None
+            r = [x for x in wb["利用结论与用途"].iter_rows(values_only=True) if x[0] == "修复后"]
+            return list(r[0]) if r else None
+        for key, prm in (("未选择", {}), ("非建设用地生态用途", {"farmland_type": "水田", "eco_land_class": "非建设用地生态用途"})):
+            dq = http.post(f"/api/v1/sites/{sidA}/utilization", params={"stage": "post_remediation", **prm}).json()
+            us = dq.get("use_state") or {}; ds = dq.get("decision_state")
+            if key == "未选择":
+                check("[A·用途 未选择] 两轨用途状态 = needs_manual_use_selection",
+                      us.get("production") == "needs_manual_use_selection" and us.get("ecology") == "needs_manual_use_selection", us)
+                check("[A·用途 未选择] 无正式正向结论(仅保守假设筛查)", not str(ds).endswith("_supported") and bool(dq.get("hypothetical_screen")), ds)
+            else:
+                check("[A·用途 非建设用地生态用途] 生态轨 = regulatory_applicability_unresolved, 生产轨 = explicit",
+                      us.get("ecology") == "regulatory_applicability_unresolved" and us.get("production") == "explicit", us)
+                check("[A·用途 非建设用地生态用途] 不给出生态正向结论", ds not in ("both_supported", "ecology_supported"), ds)
+            xr = _xl_row()
+            check(f"[A·用途 {key}] 快照 Excel“利用结论与用途”结论代码 = API", bool(xr) and xr[2] == ds, xr[2:9] if xr else None)
+            t03[key] = {"params": prm, "decision_state": ds, "use_state": us, "excel_row": xr[2:9] if xr else None}
+        dq = http.post(f"/api/v1/sites/{sidA}/utilization", params=uq).json()
+        check("[A·用途 明确选择] 恢复 水田 + 第一类用地 → 期望分支", dq.get("decision_state") == exp["scenarios"]["A"]["post_decision"]
+              and (dq.get("use_state") or {}) == {"production": "explicit", "ecology": "explicit"}, dq.get("decision_state"))
+        t03["明确选择"] = {"params": uq, "decision_state": dq.get("decision_state"), "use_state": dq.get("use_state")}
+        actual["use_state_T03"] = t03
     passed = sum(c["passed"] for c in checks)
     actual["summary"] = {"checks": len(checks), "passed": passed, "failed": len(checks) - passed,
                          "decisions": {c: s.get("decision_post", {}).get("state") for c, s in actual["scenarios"].items()},

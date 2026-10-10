@@ -75,7 +75,7 @@ jobs:
         env:
           SRS_DEMO_SEED: "1"
           SECRET_KEY: "ci_only_key_2026_at_least_32_characters_long"
-        run: python -m pytest -q tests/test_v12_recon_thresholds.py tests/test_v11_utilization_ssui.py tests/test_v11_stage_model.py tests/test_v11_persistence_recovery.py tests/test_v11_version_consistency.py tests/test_round10_release_gate.py tests/test_v121_kos_semantics.py tests/test_v121_report_consistency.py
+        run: python -m pytest -q tests/test_v12_recon_thresholds.py tests/test_v11_utilization_ssui.py tests/test_v11_stage_model.py tests/test_v11_persistence_recovery.py tests/test_v11_version_consistency.py tests/test_round10_release_gate.py tests/test_v121_kos_semantics.py tests/test_v121_report_consistency.py tests/test_v122_closeout.py
 
       - name: PyInstaller build
         run: python -m PyInstaller packaging/srs.spec --clean --noconfirm --distpath dist_new
@@ -152,7 +152,7 @@ jobs:
           python packaging/ci/ui_screenshots.py --base "http://127.0.0.1:$env:SRS_PORT" --out acceptance_out/screenshots --stage first_run
           "APP_PID=$($app.Id)" | Out-File -Append $env:GITHUB_ENV
 
-      - name: Key workflow acceptance (5 scenarios + fixtures) + full screenshots
+      - name: Key workflow acceptance (A–H, P + fixtures, SSUI domain, use states) + full screenshots
         run: |
           python packaging/ci/windows_acceptance.py --base "http://127.0.0.1:$env:SRS_PORT" --demo demo/mc_v12 --out acceptance_out --phase full
           $code = $LASTEXITCODE

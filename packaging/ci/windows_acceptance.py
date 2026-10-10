@@ -2,8 +2,8 @@
 
 只使用合成的蒙特卡洛演示数据(demo/mc_v12, demo/mc_v11), 不使用甲方真实数据。
 阶段:
-  full      空库首启 → 管理员设置 → demo_runner 全部 5 个场景 + 8 个夹具 → 与 expected.json 比对 → 状态快照
-  restart   重启后: 不再要求设置; 5 个场景的修复后结论、课题二批次、课题三 SSUI 与快照一致;
+  full      空库首启 → 管理员设置 → demo_runner 全部场景(A–E 五类结论 + F/G/H/P 案例) + 8 个夹具 + 域外与用途检查 → 与 expected.json 比对 → 状态快照
+  restart   重启后: 不再要求设置; 全部场景的修复后结论、课题二批次、课题三 SSUI 与快照一致;
             v1.2.2: 场地 H 五阶段状态/附件指纹/方案选择记录保持(企业用户重新登录)
   (full 阶段经 demo_runner 同时执行 v1.2.2 案例: 场地 H 推荐+五阶段+角色检查, 案例 P 邻苯二甲酸酯, A 域外 SSUI 夹具回放)
   seed_v11  (旧版 v1.1.0 安装后) 首启设置 + 导入 v1.1 演示修复前数据 + 课题三生产批次, 快照
@@ -250,7 +250,7 @@ def phase_upgrade_v12(base, demo, out):
     sb = sorted([(b["track"], b["ssui"]) for b in H.get(f"/api/v1/sites/{sid}/ssui-post/batches").json()["batches"] if b["status"] == "confirmed"])
     check(f"upgrade v{OV}→: S3 SSUI preserved", json.loads(json.dumps(sb)) == json.loads(json.dumps(snap["ssui"])), sb)
     old = H.get(f"/api/v1/reports/{snap['report_id']}/download")
-    check(f"upgrade v{OV}→: v1.2.0 report still downloadable", old.status_code == 200 and len(old.content) > 1000, old.status_code)
+    check(f"upgrade v{OV}→: v{OV} report still downloadable", old.status_code == 200 and len(old.content) > 1000, old.status_code)
     os_ = H.get(f"/api/v1/reports/{snap['report_id']}/snapshot").json()
     if snap.get("old_version", "1.2.0") == "1.2.0":
         check(f"upgrade v{OV}→: legacy report has no snapshot (reported, not fabricated)", os_.get("snapshot") is None and os_.get("verified") is False)
