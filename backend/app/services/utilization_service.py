@@ -105,13 +105,13 @@ def _score_from_eval(ev: EvaluationResult | None, label: str) -> dict | None:
     status = None
     if ev.eval_type.startswith("ssui_post_"):
         dims = ev.dimensions or {}
-        from app.services.ssui_post_service import effective_status
+        from app.services.ssui_post_service import effective_status, is_legacy_record
         status = effective_status(ev)  # v1.2.1 旧记录无 status: 按原值推导
         # v1.2.2(T01): 只有域内(ok)结果可作功能评分依据; out_of_domain / invalid / insufficient 一律不支持
         feasible = dims.get("feasible") if status == "ok" else None
         if status == "out_of_domain":
             return {"value": ev.score, "label": None, "feasible": None, "source": label, "evaluation_id": ev.id,
-                    "status": status, "legacy_record": not dims.get("status"), "stored_grade": g or None,
+                    "status": status, "legacy_record": is_legacy_record(ev), "stored_grade": g or None,
                     "reason": f"{label}原值 {ev.score} 超出等级有效域 [0, 1.0]: 不分级、不作功能支持判断(原值保留)"}
     return {"value": ev.score, "label": g, "feasible": feasible, "source": label, "evaluation_id": ev.id,
             "status": status,

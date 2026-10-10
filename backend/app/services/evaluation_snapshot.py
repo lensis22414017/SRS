@@ -262,9 +262,9 @@ def _kos(db: Session, site_id: int) -> dict | None:
 # ───────────────────────── 课题二 / 课题三 ─────────────────────────
 def _eval_row(e: EvaluationResult) -> dict:
     dims = e.dimensions or {}
-    from app.services.ssui_post_service import effective_status
+    from app.services.ssui_post_service import effective_status, is_legacy_record
     st = effective_status(e) if (e.eval_type or "").startswith("ssui_post_") else dims.get("status")
-    legacy = (e.eval_type or "").startswith("ssui_post_") and not dims.get("status")
+    legacy = is_legacy_record(e)
     ood = st == "out_of_domain"
     return {"evaluation_id": e.id, "eval_type": e.eval_type, "stage": e.stage, "subproject": e.subproject,
             "score": _r(e.score), "grade": None if ood else e.grade, "method_version": e.method_version,

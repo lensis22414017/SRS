@@ -361,7 +361,8 @@ def test_t04_operator_from_token_and_return_needs_reason(client):
     assert [e["sha256_12"] for e in sv["evidence"]] == [_h.sha256(b"%PDF-1.4 synthetic test").hexdigest()[:12]]
 
 
-def test_t01_legacy_v121_record_out_of_domain_on_read(client):
+@pytest.mark.parametrize("legacy_status", ["ok", None])
+def test_t01_legacy_v121_record_out_of_domain_on_read(client, legacy_status):
     """v1.2.1 入库(dims 无 status, grade=高度可持续)的 SSUI=1.019189 记录: 升级后读取即判为域外, 不分级、不支持;
     库内原等级保留供审计。用真实的 v1.2.1 旧得分夹具经 API 入库, 再还原为 v1.2.1 的存储形态。"""
     import glob
@@ -389,7 +390,10 @@ def test_t01_legacy_v121_record_out_of_domain_on_read(client):
         ev.grade = "高度可持续"   # v1.2.1 的存储形态: ssui≥1 记为最高档, dims 无 status
         ev.dimensions = {k: v for k, v in (ev.dimensions or {}).items()
                          if k not in ("status", "support_interpretation", "classification_scope", "validity_domain", "domain_note")}
-        ev.dimensions = {**ev.dimensions, "feasible": True}
+        # v1.2.1 实际存储形态: status="ok"、exceeds_unit_range=True、feasible=True(Windows 升级验收发现); 另测无 status 的更早形态
+        ev.dimensions = {**ev.dimensions, "feasible": True, "exceeds_unit_range": True}
+        if legacy_status:
+            ev.dimensions = {**ev.dimensions, "status": legacy_status}
         db.commit(); eid = ev.id
     finally:
         db.close()

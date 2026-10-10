@@ -62,12 +62,22 @@ def effective_status(ev) -> str | None:
     if ev is None or not (ev.eval_type or "").startswith("ssui_post_"):
         return None
     dims = ev.dimensions or {}
-    if dims.get("status"):
-        return dims["status"]
+    st = dims.get("status")
+    if st in ("invalid", "insufficient"):
+        return st
     if ev.score is None:
-        return "insufficient"
+        return st or "insufficient"
+    # v1.2.1 对所有可计算结果都写 status="ok"(含 SSUI>1), 因此不能信任旧 status: 一律按原值与定义域判定
     lo, hi = SV.validity_domain(SV.load_weights(ROOT))
-    return "ok" if lo <= float(ev.score) <= hi else "out_of_domain"
+    if not (lo <= float(ev.score) <= hi):
+        return "out_of_domain"
+    return st or "ok"
+
+
+def is_legacy_record(ev) -> bool:
+    """v1.2.2 起课题三结果均写入 classification_scope; 没有该字段即为旧版本(≤v1.2.1)入库记录。"""
+    return bool(ev is not None and (ev.eval_type or "").startswith("ssui_post_")
+                and "classification_scope" not in (ev.dimensions or {}))
 
 
 def build_template(track: str = "production", site_code: str = "") -> bytes:
