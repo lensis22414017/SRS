@@ -74,7 +74,7 @@ def content():
        "浏览器：系统启动后自动打开默认浏览器（推荐 Edge 或 Chrome）", "网络：核心功能可离线使用；在线底图与 AI 问答需联网")
     h2("2.2 安装版")
     ol(f"双击 SRS-Setup-{VERSION}-Windows-x64.exe，按向导完成安装。安装路径可以包含中文和空格。",
-       "可在命令行加 /CURRENTUSER 参数安装到当前用户目录（例：SRS-Setup-" + VERSION + "-Windows-x64.exe /CURRENTUSER）。该参数只改变安装位置；标准（非管理员）账户能否完成安装以发布说明中的标准账户测试结果为准，尚未在甲方 Windows 10/11 实机上验证。无法安装时可使用便携版。",
+       "可在命令行加 /CURRENTUSER 参数安装到当前用户目录（例：SRS-Setup-" + VERSION + "-Windows-x64.exe /CURRENTUSER）。该参数把程序安装到当前用户目录（%LOCALAPPDATA%\\Programs\\SRS）。v1.2.1 在 GitHub Actions Windows Server 虚拟机上以标准（非管理员）测试账户、计划任务方式执行了该安装并完成启动与导入/评价检查（见发布说明）；尚未在甲方 Windows 10/11 实机上由真人交互验证。无法安装时可使用便携版。",
        "安装完成后，从开始菜单或桌面快捷方式启动“SRS”。",
        "核对安装包完整性：在 PowerShell 中运行 Get-FileHash <安装包> -Algorithm SHA256，与发布页 .sha256 文件一致。")
     h2("2.3 便携版")

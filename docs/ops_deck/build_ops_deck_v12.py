@@ -165,10 +165,10 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
         fill="panel", line=None, size=13, align=PP_ALIGN.LEFT, margin=0.15)
     # 4 安装
     s = D.slide("三、安装、首启、升级与便携版", "安装包不含业务数据和账户；首启空库设置管理员；v1.1.0、v1.2.0 覆盖升级数据保留",
-                f"演示: 安装路径含中文和空格; 首启空库; 升级 v1.1.0/v1.2.0→v{VERSION} 在 GitHub Actions Windows(管理员账户)上实测; 便携版数据写在 exe 同级 SRS_data。/CURRENTUSER 只改变安装位置, 标准账户能否安装以验收页结果为准, 甲方 Windows 10/11 实机尚未测试。",
+                f"演示: 安装路径含中文和空格; 首启空库; 升级 v1.1.0/v1.2.0→v{VERSION} 在 GitHub Actions Windows(管理员账户)上实测; 便携版数据写在 exe 同级 SRS_data。/CURRENTUSER 安装到当前用户目录; 标准(非管理员)测试账户经 CI 计划任务安装、启动、导入/评价通过, 甲方 Windows 10/11 实机尚未测试。",
                 "来源：.github/workflows/windows-release.yml；acceptance_*.json")
     deck_textbox(s, 0.95, 1.7, 5.2, 5.2, [
-        [("1  安装版", {"bold": True, "size": 16, "color": "brown"})], f"SRS-Setup-{VERSION}-Windows-x64.exe；/CURRENTUSER 安装到当前用户目录（标准账户结果见验收页）", "",
+        [("1  安装版", {"bold": True, "size": 16, "color": "brown"})], f"SRS-Setup-{VERSION}-Windows-x64.exe；/CURRENTUSER 安装到当前用户目录（CI 标准账户计划任务测试通过，见验收页）", "",
         [("2  首次启动", {"bold": True, "size": 16, "color": "brown"})], "空数据库 → 设置管理员（≥8 位，3 类字符）", "",
         [("3  升级", {"bold": True, "size": 16, "color": "brown"})], "覆盖安装；自动迁移（含 0009 单位修复）、阈值补水田口径、已出报告保留", "",
         [("4  便携版", {"bold": True, "size": 16, "color": "brown"})], f"SRS-Portable-{VERSION}-Windows-x64.zip；数据在 SRS_data"], size=14, spacing=1.1)
