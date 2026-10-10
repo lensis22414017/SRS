@@ -120,6 +120,9 @@ export default function SiteDetail() {
           }>
             <SiteMap height={440} zoom={15} layerData={mapLayer} scope="site"
               sites={points.map((p) => ({ point_code: p.point_code, longitude: p.longitude, latitude: p.latitude, pollution_type: site.pollution_type }))} />
+            {mapLayer?.color_basis && (
+              <div style={{ marginTop: 8, fontSize: 12, color: "#64748b" }}>着色口径：{mapLayer.color_basis}；法规结论以利用方向/报告“法规门禁”为准。</div>
+            )}
           </Card>,
         },
         {
