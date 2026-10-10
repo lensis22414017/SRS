@@ -58,7 +58,37 @@ SYNONYMS: dict[str, list[str]] = {
     "石油烃(C10-C40)": ["石油烃(C10~C40)", "TPH(C10-C40)"],
     "多氯联苯(总量)": ["多氯联苯", "多氯联苯总量", "PCBs", "PCBs总量"],
     "铬（六价）": ["六价铬", "Cr(VI)", "Cr6+", "铬(六价)"],
+    # v1.2.2: 同一 CAS 的通用中文名(真实场地表与实验室报告常用); 只做一对一同物异名, 不新增阈值
+    "氯仿": ["三氯甲烷", "chloroform"],                       # 67-66-3
+    "四氯乙烯": ["全氯乙烯", "tetrachloroethylene", "PCE"],    # 127-18-4
+    "1,1-二氯乙烯": ["偏二氯乙烯", "1,1-DCE"],                 # 75-35-4
+    "2-氯酚": ["2-氯苯酚", "邻氯苯酚", "邻氯酚", "2-chlorophenol"],  # 95-57-8
+    "䓛": ["屈", "chrysene"],                                   # 218-01-9
+    "p,p'-滴滴滴": ["p,p'-DDD", "4,4'-DDD", "pp'-DDD"],         # 72-54-8
+    "p,p'-滴滴伊": ["p,p'-DDE", "4,4'-DDE", "pp'-DDE"],         # 72-55-9
+    "α-六六六": ["α-HCH", "alpha-HCH", "α-BHC"],               # 319-84-6
+    "β-六六六": ["β-HCH", "beta-HCH", "β-BHC"],                # 319-85-7
+    "γ-六六六": ["林丹", "γ-HCH", "gamma-HCH", "lindane"],     # 58-89-9
 }
+
+# v1.2.2: 滴滴涕在 GB 36600(o,p'+p,p')与 GB 15618(总量)中均为异构体之和; 单个 DDT 异构体不能单独与总量限值比较
+_DDT_ISOMER_RE = re.compile(r"^(o,p|p,p|4,4|2,4|op|pp)['′’]?[-‐ ]?(ddt|滴滴涕)$", re.IGNORECASE)
+
+
+def is_aggregate_member(name: str | None) -> dict | None:
+    if name and _DDT_ISOMER_RE.match(re.sub(r"\s+", "", str(name))):
+        return {"family_name": "滴滴涕类(DDTs)",
+                "reason": "滴滴涕限值为异构体之和(GB 36600: o,p'+p,p'; GB 15618: 总量), 单个异构体不能单独与总量限值比较, 须人工确认"}
+    return None
+
+# v1.2.2: 同位素标记物/替代物(实验室质控用的内标、回收率指示物), 不是场地污染物, 不得按母体物质赋阈值
+_LABELLED_RE = re.compile(r"(-d\d{0,2}\s*$|[-_（(]d\d{1,2}[)）]?\s*$|氘代|\bd\d{1,2}-|13c|¹³c|内标|替代物|回收率|surrogate)",
+                          re.IGNORECASE)
+
+
+def is_labelled_standard(name: str | None) -> bool:
+    """同位素标记物/替代物/内标(如 氯仿-d、萘-d8、䓛-d12、对三联苯-d14、¹³C-PCB)。"""
+    return bool(name) and bool(_LABELLED_RE.search(str(name).strip()))
 
 # 物质族: 关键词 → (族编码, 族中文名)。仅用于识别“属于该族但不是官方单体”的情形。
 FAMILIES: list[tuple[str, str, str]] = [
@@ -71,7 +101,7 @@ FAMILIES: list[tuple[str, str, str]] = [
     ("四氯乙烷", "Tetrachloroethanes_family", "四氯乙烷类"),
     ("有机氯", "SumOCP_ngg", "有机氯农药"),
     ("多环芳烃", "PAHs_total(族群)", "多环芳烃(PAHs)"), ("pahs", "PAHs_total(族群)", "多环芳烃(PAHs)"),
-    ("多氯联苯", "SumPCB_ngg", "多氯联苯(PCBs)"), ("六六六", "SumHCHs_ngg", "六六六(HCHs)"),
+    ("多氯联苯", "SumPCB_ngg", "多氯联苯(PCBs)"), ("pcb", "SumPCB_ngg", "多氯联苯(PCBs)"), ("六六六", "SumHCHs_ngg", "六六六(HCHs)"),
     ("滴滴", "SumDDTs_ngg", "滴滴涕类(DDTs)"), ("二苯并", "Dibenzo_family", "二苯并类"),
     ("茚并", "Indeno_family", "茚并类"),
 ]

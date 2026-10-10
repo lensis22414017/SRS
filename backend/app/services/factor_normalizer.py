@@ -90,6 +90,12 @@ def identity_of(raw_name: str | None) -> dict:
     if not raw_name:
         return {"identity": "other"}
     _, factor_name, _ = _extract_unit(str(raw_name))
+    if AR.is_labelled_standard(factor_name) or AR.is_labelled_standard(str(raw_name)):
+        return {"identity": "labelled_standard", "canonical": None,
+                "reason": "同位素标记物/替代物/内标(实验室质控用), 不是场地污染物, 不按母体物质赋阈值"}
+    agg = AR.is_aggregate_member(factor_name)
+    if agg:
+        return {"identity": "mapping_review_required", "canonical": None, "family": agg["family_name"], "reason": agg["reason"]}
     cands = [factor_name, str(raw_name)] + [p.strip() for p in re.split(r"[_/（）()]", factor_name) if p.strip()]
     for c in cands:
         rec = AR.exact_official(c)
@@ -125,7 +131,7 @@ def _lookup_canonical(raw_name: str) -> str | None:
         return ident["canonical"]
     if ident["identity"] == "family_total":
         return ident["canonical"]
-    if ident["identity"] == "mapping_review_required":
+    if ident["identity"] in ("mapping_review_required", "labelled_standard"):
         return None
 
     # 第1级: 去单位后的精确匹配
@@ -549,7 +555,8 @@ def normalize_factor_name(raw_name: str, unit: str | None = None) -> tuple[str |
         else:
             meta["match_method"] = "fuzzy_keyword"
     else:
-        meta["match_method"] = "mapping_review_required" if _id["identity"] == "mapping_review_required" else "unmapped"
+        meta["match_method"] = (_id["identity"] if _id["identity"] in ("mapping_review_required", "labelled_standard")
+                                else "unmapped")
 
     # ── v0.8.1 单位智能转换; v1.2.1(R01) 开放失败 ──
     if unit_category == "unknown_given":

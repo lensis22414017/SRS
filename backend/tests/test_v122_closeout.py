@@ -405,3 +405,28 @@ def test_t01_legacy_v121_record_out_of_domain_on_read(client):
                 params={"stage": "post_remediation", "farmland_type": "水田", "eco_land_class": "第一类用地"}).json()
     assert dq["production"]["track_status"] != "supported"
     assert dq["decision_state"] not in ("both_supported", "production_supported")
+
+
+# ═════ T02 补充(真实场地回归发现): 同物异名(同 CAS)、同位素标记物、异构体/同系物 → 不借用他物阈值 ═════
+@pytest.mark.parametrize("name,official", [
+    ("三氯甲烷", "氯仿"), ("全氯乙烯", "四氯乙烯"), ("偏二氯乙烯", "1,1-二氯乙烯"), ("2-氯苯酚", "2-氯酚"),
+    ("屈", "䓛"), ("p,p'-DDD", "p,p'-滴滴滴"), ("4,4'-DDE", "p,p'-滴滴伊"), ("林丹", "γ-六六六")])
+def test_t02_same_cas_synonyms_bind_to_own_official_row(name, official):
+    from app.services import factor_normalizer as FN
+    _, m = FN.normalize_factor_name(name)
+    assert m["match_method"] == "exact_official" and m["official_name"] == official, m
+
+
+@pytest.mark.parametrize("name", ["氯仿-d", "萘-d8", "䓛-d12", "苊-d10", "1,4-二氯苯-d4", "对三联苯-d14", "甲苯-d8", "d8-萘"])
+def test_t02_labelled_standards_never_bound_to_parent(name):
+    """v1.2.1 曾把南京栖霞实验室表中的“氯仿-d”(氘代氯仿)按氯仿 0.3 mg/kg 判为正式障碍(400 倍)。"""
+    from app.services import factor_normalizer as FN
+    c, m = FN.normalize_factor_name(name)
+    assert c is None and m["match_method"] == "labelled_standard", (name, c, m)
+
+
+@pytest.mark.parametrize("name", ["o,p'-DDT", "p,p'-DDT", "4,4'-DDT", "PCB-28", "PCB 153", "δ-六六六", "对二甲苯", "间二甲苯"])
+def test_t02_aggregate_members_go_to_review(name):
+    from app.services import factor_normalizer as FN
+    c, m = FN.normalize_factor_name(name)
+    assert c is None and m["match_method"] == "mapping_review_required", (name, c, m)
