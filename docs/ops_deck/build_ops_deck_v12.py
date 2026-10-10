@@ -1,4 +1,4 @@
-"""SRS v1.2.0 年度验收操作演示 PPT 生成器(可编辑 PPTX, 原生形状/表格)。
+"""SRS 年度验收操作演示 PPT 生成器(可编辑 PPTX, 原生形状/表格)。v1.2.1: 章节号按实际页序连续编号(公开版不跳号)。
 
 用法: python build_ops_deck.py --shots <screenshots_v110 目录> --out <pptx 路径>
 数值全部读取自证据文件(demo_evidence.json 等), 截图缺失时显示"截图位"占位, 不使用旧版截图。
@@ -53,9 +53,12 @@ class Deck:
         for sid in list(self.prs.slides._sldIdLst)[1:]:
             self.prs.part.drop_rel(sid.rId); self.prs.slides._sldIdLst.remove(sid)
         self.layout = next(l for m in self.prs.slide_masters for l in m.slide_layouts if l.name == "6_标题幻灯片")
-        self.shots = shots; self.missing = []; self.used = []
+        self.shots = shots; self.missing = []; self.used = []; self.n = 0
 
     def slide(self, title, banner, notes, footer):
+        # v1.2.1(R10): 章节号连续 — 去掉源码中的固定序号, 按实际生成顺序编号
+        self.n += 1
+        title = f"{_CN[self.n]}、" + re.sub(r"^[一二三四五六七八九十]+、", "", title)
         s = self.prs.slides.add_slide(self.layout)
         for ph in list(s.placeholders):
             ph._element.getparent().remove(ph._element)
@@ -75,6 +78,7 @@ class Deck:
                      fill="white", line="red", dash="dash", size=12, color="red")
 
 
+_CN = ["", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二", "十三", "十四", "十五", "十六", "十七", "十八"]
 DECISION_CN = {"both_supported": "生产与生态均支持", "production_supported": "支持生产利用", "ecology_supported": "支持生态利用",
                "neither_supported": "均不支持", "insufficient_evidence": "证据不足"}
 FACTOR_CN = {"Cd_mgkg": "镉", "Pb_mgkg": "铅", "As_mgkg": "砷", "Hg_mgkg": "汞", "Cu_mgkg": "铜", "Zn_mgkg": "锌", "Ni_mgkg": "镍",
@@ -93,12 +97,12 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
     EV = json.load(open(os.path.join(evidence, "demo_actual", "comparison.json"), encoding="utf-8"))
     EXP = json.load(open(os.path.join(ROOT, "demo", "mc_v12", "expected.json"), encoding="utf-8"))
     acc = {}
-    for ph in ("full", "restart", "upgrade", "portable", "seed_v11"):
+    for ph in ("full", "restart", "upgrade", "portable", "seed_v11", "seed_v12", "upgrade_v12"):
         f = os.path.join(evidence, f"acceptance_{ph}.json")
         if os.path.exists(f):
             rs = json.load(open(f, encoding="utf-8"))
             acc[ph] = (sum(r["passed"] for r in rs), len(rs))
-    std_user = os.path.join(evidence, "standard_user", "acceptance_portable.json")
+    std_user = os.path.join(os.environ.get("SRS_STD_EVIDENCE") or os.path.join(evidence, "standard_user"), "acceptance_portable.json")
     if os.path.exists(std_user):
         rs = json.load(open(std_user, encoding="utf-8")); acc["standard_user"] = (sum(r["passed"] for r in rs), len(rs))
     release = release or {}
@@ -110,7 +114,7 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
             sh._element.getparent().remove(sh._element)
     for sh in cover.shapes:
         if sh.name == "Rectangle 7":
-            set_lines(sh, [f"SRS v{VERSION} 年度验收演示"])
+            set_lines(sh, [f"SRS v{VERSION} 年度验收演示（修复候选）"])
         elif sh.name == "Rectangle 2":
             set_lines(sh, ["污染场地土壤生态-生产功能重构", "监管系统（SRS）操作演示"])
             for para in sh.text_frame.paragraphs:
@@ -120,7 +124,7 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
             set_lines(sh, ["委托单位：生态环境部土壤与农业农村生态环境监管技术中心", "承担单位：浙江大学环境与资源学院"])
     deck_textbox(cover, 2.0, 3.9, 9.3, 0.95,
                  [[("汇报人：曾 鸿    指导教师：王 玮 副教授", {"size": 16, "bold": True})],
-                  [(f"软件版本 v{VERSION}（年度验收候选） · 演示数据为{LABEL}", {"size": 12, "color": "grey"})]],
+                  [(f"软件版本 v{VERSION}（修复候选，待甲方验收） · 演示数据为{LABEL}", {"size": 12, "color": "grey"})]],
                  align=PP_ALIGN.CENTER, spacing=1.15)
     cover.notes_slide.notes_text_frame.text = (f"封面。本演示基于 v{VERSION} 年度验收候选版; 截图采自 Windows 实际安装的程序; 演示数据为固定种子的合成数据。"
                                                "课题二/三部分方法细节仍待陈亮、宋伟杰老师确认, 已按冻结基线执行并登记。")
@@ -134,14 +138,14 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
             ["C2", "三个课题的数据都要演示", "5 个合成场地覆盖五类结论；子课题个旧测试表 28 项全部可赋分", "已实现"],
             ["C3", "修复后给出宜生产/宜生态结论", "法规门禁 + 功能评分 → 五类结论，附原因、条件与下一步", "已实现"],
             ["C4", "课题一/二修复前、课题三修复后独立导入", "课题二 28 项指标独立导入；课题三独立导入；数据分表存储", "已实现"],
-            ["C5", "进入即见全流程追溯与上传下载引导", "五阶段引导 + 模板 + 真实进度；查看不建记录", "已实现"],
+            ["C5", "进入即见全流程追溯与上传下载引导", "五阶段引导 + 模板 + 软件里程碑与五阶段业务记录分列；查看不建记录", "已实现"],
             ["C6", "可编辑用户手册与演示 PPT", "DOCX 手册（含 PDF）+ 本 PPT，截图来自 Windows 实装程序", "已实现"]]
     deck_table(s, 0.9, 1.7, 11.55, 4.6, rows, [0.8, 3.4, 5.95, 1.4], font=13, status_col=3,
                status_map={"已实现": "verified", "待确认": "pending"})
     full = acc.get("full", (0, 0))
     deck_textbox(s, 0.9, 6.45, 11.5, 0.6, [[("Windows 实装验收：", {"bold": True}),
                  (f"关键流程 {full[0]}/{full[1]} 项通过；重启 {acc.get('restart', (0, 0))[0]}/{acc.get('restart', (0, 0))[1]}；"
-                  f"v1.1.0→v{VERSION} 升级 {acc.get('upgrade', (0, 0))[0]}/{acc.get('upgrade', (0, 0))[1]}；便携版 {acc.get('portable', (0, 0))[0]}/{acc.get('portable', (0, 0))[1]}（GitHub Actions Windows）。", {})]], size=13)
+                  f"v1.1.0→v{VERSION} 升级 {acc.get('upgrade', (0, 0))[0]}/{acc.get('upgrade', (0, 0))[1]}；v1.2.0→v{VERSION} 升级 {acc.get('upgrade_v12', (0, 0))[0]}/{acc.get('upgrade_v12', (0, 0))[1]}；便携版 {acc.get('portable', (0, 0))[0]}/{acc.get('portable', (0, 0))[1]}（GitHub Actions Windows）。", {})]], size=13)
     # 3 数据阶段
     s = D.slide("二、三个课题与数据阶段", "修复前数据进课题一、二；修复后数据只经课题三导入；三类批次分表存储、不自动复制",
                 "强调分离: 课题二 28 项指标也是修复前数据, 有独立批次; 修复后 SSUI 与修复后污染物检测只进入课题三。",
@@ -160,18 +164,18 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
         [("分离方式：", {"bold": True}), ("独立批次表；课题一/二只读修复前数据；合成演示中的修复前后关联已显式标注，不代表真实修复效果", {})]],
         fill="panel", line=None, size=13, align=PP_ALIGN.LEFT, margin=0.15)
     # 4 安装
-    s = D.slide("三、安装、首启、升级与便携版", "安装包不含业务数据和账户；首启空库设置管理员；v1.1.0 覆盖升级数据保留",
-                "演示: 安装路径含中文和空格; 首启空库; 升级 v1.1.0→v1.2.0 在 Windows 上实测; 便携版数据写在 exe 同级 SRS_data。",
+    s = D.slide("三、安装、首启、升级与便携版", "安装包不含业务数据和账户；首启空库设置管理员；v1.1.0、v1.2.0 覆盖升级数据保留",
+                f"演示: 安装路径含中文和空格; 首启空库; 升级 v1.1.0/v1.2.0→v{VERSION} 在 GitHub Actions Windows(管理员账户)上实测; 便携版数据写在 exe 同级 SRS_data。/CURRENTUSER 只改变安装位置, 标准账户能否安装以验收页结果为准, 甲方 Windows 10/11 实机尚未测试。",
                 "来源：.github/workflows/windows-release.yml；acceptance_*.json")
     deck_textbox(s, 0.95, 1.7, 5.2, 5.2, [
-        [("1  安装版", {"bold": True, "size": 16, "color": "brown"})], f"SRS-Setup-{VERSION}-Windows-x64.exe；/CURRENTUSER 免管理员", "",
+        [("1  安装版", {"bold": True, "size": 16, "color": "brown"})], f"SRS-Setup-{VERSION}-Windows-x64.exe；/CURRENTUSER 安装到当前用户目录（标准账户结果见验收页）", "",
         [("2  首次启动", {"bold": True, "size": 16, "color": "brown"})], "空数据库 → 设置管理员（≥8 位，3 类字符）", "",
-        [("3  升级", {"bold": True, "size": 16, "color": "brown"})], "覆盖安装；自动迁移 0008、阈值更正、补权限", "",
+        [("3  升级", {"bold": True, "size": 16, "color": "brown"})], "覆盖安装；自动迁移（含 0009 单位修复）、阈值补水田口径、已出报告保留", "",
         [("4  便携版", {"bold": True, "size": 16, "color": "brown"})], f"SRS-Portable-{VERSION}-Windows-x64.zip；数据在 SRS_data"], size=14, spacing=1.1)
     D.shot(s, "00_first_run_setup.png", 6.4, 1.7, 6.1, 5.2, "首次启动设置向导")
     # 5 追溯
     s = D.slide("四、全流程追溯：进入即见", "打开页面即显示五阶段引导、需上传资料和模板下载；查看不创建任何记录",
-                "C5: 进入追溯页面不需要先选场地; 选择场地后显示真实里程碑, 未完成阶段不会显示为完成。",
+                "C5: 进入追溯页面不需要先选场地。v1.2.1 起把“七项软件操作里程碑”与“五阶段业务记录”分开: 软件操作 7/7 不等于调查、审批、施工、效果评估、管护五阶段完成; 演示场地未上传业务材料, 五阶段均显示未开展。",
                 "来源：GET /api/v1/trace/guide、/sites/{id}/trace/progress")
     stages = [("调查评估", "修复前 · 课题一/二"), ("方案审批", "修复前 · 课题一/二"), ("施工监理", "—"),
               ("效果评估", "修复后 · 课题三"), ("后期管护", "修复后 · 课题三")]
@@ -183,21 +187,26 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
             deck_arrow(s, x + 2.05, 2.22, x + 2.33, 2.22)
     D.shot(s, "20_trace_guide.png", 0.95, 2.9, 7.3, 4.15, "全流程追溯引导")
     tp = sc.get("A", {}).get("trace_progress", {})
-    deck_box(s, 8.45, 2.9, 3.95, 4.15, text=[[("演示场地 SRS-A 真实进度", {"bold": True, "size": 14, "color": "brown"})],
-                                             "修复前数据导入 · 障碍因子识别", "重构可行性 · 修复前情景判断", "修复后 SSUI 导入 · 修复后结论", "全流程报告",
-                                             [(f"完成 {tp.get('completed')}/{tp.get('total')}", {"bold": True, "color": "green"})]],
+    deck_box(s, 8.45, 2.9, 3.95, 4.15, text=[[("SRS-A：两类进度分开显示", {"bold": True, "size": 14, "color": "brown"})],
+                                             [("七项软件操作里程碑", {"bold": True})],
+                                             "导入 · 课题一 · 课题二 · 修复前判断 · 课题三 · 修复后结论 · 报告",
+                                             [(f"已执行 {tp.get('software_milestones') or str(tp.get('completed')) + '/' + str(tp.get('total'))}", {"bold": True, "color": "green"})],
+                                             [("五阶段业务记录", {"bold": True})],
+                                             [(f"已完成并有材料 {tp.get('business_stages_completed', '—')}（未上传材料 = 未开展）", {"bold": True, "color": "red"})]],
              fill="panel", line=None, size=12, align=PP_ALIGN.LEFT, margin=0.15)
     # 6 课题一
     a = sc.get("A", {})
-    s = D.slide("五、课题一：障碍因子识别（KOS）", "修复前检测数据 → 规则判定 → KOS 综合评分 → 关键障碍因子",
-                f"演示场地 SRS-A(合成): KOS 关键障碍因子 {fcn((a.get('S1_kos_top') or [])[:4])}。模型为已验证的 p3_alpha, 未用合成数据重训。",
+    s = D.slide("五、课题一：障碍因子识别（KOS）", "正式 Top-N 只收录本轨官方标准证据；文献参考/启发式阈值只作探索性提示，并区分上限/下限方向",
+                f"演示场地 SRS-A(合成): 正式关键障碍因子 {fcn((a.get('S1_kos_top') or [])[:5])}; 探索性 {fcn(a.get('S1_kos_exploratory') or [])}(下限不足, 文献参考)。"
+                "v1.2.1 修复: 阳离子交换量/全氮等为下限指标, 高值不再被判为障碍; 有机质(g/kg)与有机碳(%)分开, 不做换算; 单位不可换算即排除。模型 p3_alpha 未重训。",
                 "来源：Windows 验收 demo_actual/comparison.json")
     deck_textbox(s, 0.95, 1.7, 4.6, 5.3, [
         [("操作步骤", {"bold": True, "size": 16, "color": "brown"})],
         "1  场地管理 → 导入数据（修复前模板）", "2  查看校验报告（错误、警告、超标）", "3  障碍因子分析（课题一）→ 运行诊断", "",
         [("演示结果（模拟数据）", {"bold": True, "size": 16, "color": "brown"})],
-        "关键障碍因子：" + fcn((a.get("S1_kos_top") or [])[:4]),
-        "KOS = B×(0.30R+0.25W+0.15M+0.20S+0.10E)"], size=14, spacing=1.1)
+        "正式（GB 15618，证据 A）：" + fcn((a.get("S1_kos_top") or [])[:5]),
+        "探索性（下限·文献参考，待复核）：" + (fcn(a.get("S1_kos_exploratory") or []) or "无"),
+        "KOS = B×(0.30R+0.25W+0.15M+0.20S+0.10E)", "补充场景：F 有机物按同单位比较；G 无官方超标→证据不足"], size=13, spacing=1.05)
     D.shot(s, "06_obstacle_S1.png", 5.8, 1.7, 6.7, 5.3, "障碍因子分析（课题一）")
     # 7 课题二导入
     s = D.slide("六、课题二：28 项重构指标导入", "数值 + 类别指标逐格校验；7 个类别指标按表2.22 分级赋分；个旧测试表 28/28 可赋分",
@@ -304,16 +313,17 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
                                                  "3  子课题测试表来源未核实（多列取值与权重计算表重合），只说明软件能力，不作为场地结论。"],
                  fill="panel", line=None, size=13, align=PP_ALIGN.LEFT, margin=0.18)
     # 14 报告/备份
-    s = D.slide("十三、报告、备份与模拟数据标签", "报告含利用方向结论；模拟数据从导入到报告全程带标签；备份恢复前自动快照",
-                "报告 PDF/DOCX/HTML; 模拟数据自动识别并全链路标记; 备份每天 02:00, 恢复前快照。",
-                "来源：report_service.py；pipeline.py；test_v11_persistence_recovery.py")
-    for i, (t, items) in enumerate([("报告", ["PDF / DOCX / HTML", "利用方向结论章节", "版本口径与人工复核区"]),
+    s = D.slide("十三、报告、备份与模拟数据标签", "报告由同一评价快照生成：首页、正文、Excel、PDF、DOCX 数字一致；修复前/后与批次分开统计",
+                "v1.2.1: 评价快照(SHA-256)保存在报告记录中, 之后的新数据不改变已出报告; 修复后两条轨道重复导入的同一批样品按样品编号去重; "
+                "场地级超标按阶段由法规门禁给出, 不再用最新批次校验代替; PDF 用 ReportLab 排版并嵌入中文字体。",
+                "来源：evaluation_snapshot.py；report_document.py；report_invariants.py；test_v121_report_consistency.py")
+    for i, (t, items) in enumerate([("报告", ["同一评价快照 → PDF / DOCX / Excel", "修复前/后、批次、样品去重分列", "嵌入中文字体、表格与图件"]),
                                      ("备份与恢复", ["每天 02:00 自动加密备份", "恢复须二次确认，先自动快照", "重启后结论逐字一致（实测）"]),
                                      ("模拟数据标签", [LABEL, "导入自动识别并全链路标记", "正式首启为空库"])]):
         x = 0.95 + i * 3.87
         deck_box(s, x, 1.75, 3.6, 0.55, text=[t], fill="brown" if i < 2 else "red", line=None, size=15, color="white", bold=True)
         deck_box(s, x, 2.3, 3.6, 1.6, text=items, fill="panel", line=None, size=12.5, align=PP_ALIGN.LEFT, margin=0.15)
-    D.shot(s, "21_trace_detail.png", 0.95, 4.1, 5.6, 2.95, "场地追溯详情（真实进度、报告）")
+    D.shot(s, "21_trace_detail.png", 0.95, 4.1, 5.6, 2.95, "场地追溯详情（软件里程碑、五阶段记录、报告）")
     D.shot(s, "24_system.png", 6.8, 4.1, 5.6, 2.95, "系统管理（备份恢复）")
     # 15 演示脚本
     s = D.slide("十四、年度验收演示脚本（约 20 分钟）", "同一演示包按课题顺序演示；每一步说明使用修复前还是修复后数据",
@@ -325,15 +335,15 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
                                             ["3 课题二", "site_A/02_课题二重构指标；fixtures/F02、F05", "重构指标导入 → 预览 → 确认 → 查看/导出", "28 项指标、逐格校验、计算过程"],
                                             ["4 课题三", "site_A/03、04_课题三SSUI", "下载模板 → 上传 → 确认 → 导出", "SSUI 与期望值一致"],
                                             ["5 结论", "site_A…E", "修复后利用结论（水田）", "五类结论逐一出现"],
-                                            ["6 追溯", "—", "全流程追溯 → 生成报告", "真实进度；报告带模拟标签"]],
+                                            ["6 追溯", "—", "全流程追溯 → 生成报告 / 评价快照 Excel", "软件里程碑与五阶段分开；报告与 Excel 同一快照"]],
                [1.2, 3.6, 3.7, 2.95], font=12)
     # 16 验收与发布
     s = D.slide("十五、验收证据与发布", "Windows 实装验收、重启、升级、便携版均执行；发布为年度验收候选版（预发布）",
-                "如实说明: 验收在 GitHub Actions Windows 管理员账户上执行; 标准账户结果另列。发布标签与源码、安装包、截图、文档为同一提交。",
+                "如实说明: 验收在 GitHub Actions Windows 虚拟机上执行(管理员账户); 标准账户测试为独立作业, 以计划任务身份运行, 不等同于甲方 Windows 10/11 实机。发布标签与源码、安装包、截图、文档为同一提交。",
                 "来源：Windows workflow run；GitHub Release")
     rows = [["检查", "结果"]]
-    for k, lab in (("full", "首启 + 5 场景 + 8 夹具"), ("restart", "重启一致性"), ("seed_v11", "v1.1.0 旧版准备"), ("upgrade", f"升级到 v{VERSION}"),
-                   ("portable", "便携版"), ("standard_user", "标准(非管理员)账户")):
+    for k, lab in (("full", "首启 + 7 场景 + 8 夹具 + 跨渠道一致性"), ("restart", "重启一致性"), ("upgrade", f"v1.1.0 → v{VERSION} 升级"),
+                   ("upgrade_v12", f"v1.2.0 → v{VERSION} 升级"), ("portable", "便携版"), ("standard_user", "标准(非管理员)账户（CI 计划任务）")):
         v = acc.get(k)
         if not v and k == "standard_user" and os.path.exists(os.path.join(evidence, "standard_user.txt")):
             t = open(os.path.join(evidence, "standard_user.txt"), encoding="utf-8", errors="ignore").read()
@@ -342,7 +352,7 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
         rows.append([lab, f"{v[0]}/{v[1]} 通过" if v else "未执行（见验收记录）"])
     deck_table(s, 0.95, 1.75, 6.0, 4.0, rows, [3.2, 2.8], font=12.5)
     deck_box(s, 7.15, 1.75, 5.3, 4.0, text=[[("发布信息", {"bold": True, "size": 14, "color": "brown"})],
-                                            f"版本：v{VERSION}（预发布）", f"标签：{release.get('tag', '—')}", f"提交：{(release.get('commit') or '—')[:12]}",
+                                            f"版本：v{VERSION}（预发布，修复候选）", f"标签：{release.get('tag', '—')}", f"提交：{(release.get('commit') or '—')[:12]}",
                                             f"工作流：{release.get('run', '—')}", "资产：安装包、便携版、SHA-256、手册 DOCX/PDF、PPTX、演示包"],
              fill="panel", line=None, size=12, align=PP_ALIGN.LEFT, margin=0.15)
     deck_textbox(s, 0.95, 5.95, 11.5, 0.9, [release.get("url", "")], size=11, color="grey")
@@ -351,11 +361,11 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
                 "三项结论分开: 年度软件与演示就绪度(内部就绪, 非甲方验收结论); 科学方法验证(待确认); 真实修复后验证(待数据)。",
                 "来源：FINAL_REPORT.md")
     deck_table(s, 0.95, 1.75, 11.45, 2.6, [["维度", "结论", "依据"],
-                                            ["年度软件与演示", "内部就绪（待甲方验收）", "Windows 实装验收、五类结论、文档与截图同版"],
-                                            ["科学方法验证", "未完成（冻结基线执行）", "M-01…M-10、18 个问题待陈亮/宋伟杰确认"],
+                                            ["年度软件与演示", "修复候选（待甲方验收）", "审计 R01–R10 修复与回归；Windows 实装验收；文档与截图同版"],
+                                            ["科学方法验证", "未完成（冻结基线执行）", "Q01–Q18 决策登记：17 项待答复、1 项软件侧部分解决"],
                                             ["真实修复后验证", "未开始（缺数据）", "尚无实测修复后数据"]], [2.6, 3.0, 5.85], font=13)
     deck_box(s, 0.95, 4.6, 11.45, 2.35, text=[[("需要各方配合", {"bold": True, "size": 15, "color": "brown"})],
-                                              "1  陈亮、宋伟杰老师确认方法事项（问题草稿已备，未发送）",
+                                              "1  陈亮、宋伟杰老师确认方法事项（Q01–Q18 决策登记）；文献参考阈值是否批准为正式限值",
                                               "2  提供至少 1 个场地的实测修复后数据（D1–D25 与污染物）",
                                               "3  提供 D1–D25 原始值 → 得分分级规则，以实现原始数据计算",
                                               "4  决定公开仓库中甲方原始数据表的处理方式（仓库为公开可见）"],
