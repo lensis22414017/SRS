@@ -23,6 +23,7 @@ PyYAML>=6.0.2
 matplotlib>=3.8
 xhtml2pdf>=0.2.16
 reportlab>=4.2
+pypdf>=4.0  # v1.2.1 报告跨渠道一致性测试(PDF 文本提取)
 svglib==1.5.1
 python-docx>=1.1
 redis>=5.0

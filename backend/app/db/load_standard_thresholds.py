@@ -59,8 +59,26 @@ def _gb15618_rows() -> list[dict]:
                 "effective_date": date(2018, 8, 1),
                 "version": "2018",
                 "source_reference": REF_GB15618,
-                "notes": "农用地土壤污染风险筛选值; 水田/果园等特殊口径后续按标准表扩展。",
+                "notes": "农用地土壤污染风险筛选值(其他农用地口径)。",
             })
+    # v1.2.1(R01/R03): 表1 水田口径(镉汞砷铅铬), 来源 data/standards/gb15618_2018_official.csv(官方 PDF 逐行核对),
+    # 使课题一 KOS 与利用方向门禁在 farmland_type=水田 时采用同一筛选值。
+    import csv as _csv
+    from app.core.config import resource_root
+    path = os.path.join(resource_root(), "data", "standards", "gb15618_2018_official.csv")
+    ctl = {(r["factor"], r["pH_bin"]): float(r["value"]) for r in _csv.DictReader(open(path, encoding="utf-8"))
+           if r["value_type"] == "control"}
+    for r in _csv.DictReader(open(path, encoding="utf-8")):
+        if r["value_type"] != "screening" or r["farmland"] != "水田":
+            continue
+        rows.append({
+            "factor_name": r["factor"], "land_use_type": "水田", "standard_code": "GB 15618-2018",
+            "standard_name": standard_name, "screening_value": float(r["value"]), "intervention_value": None,
+            "control_value": ctl.get((r["factor"], r["pH_bin"])), "unit": r["unit"] or "mg/kg",
+            "pH_condition": r["pH_bin"], "soil_condition": "水田", "exposure_scenario": "agricultural_land_paddy",
+            "effective_date": date(2018, 8, 1), "version": "2018", "source_reference": REF_GB15618,
+            "notes": f"[OFFICIAL] {r['source']}; 水田口径",
+        })
     return rows
 
 

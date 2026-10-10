@@ -2,13 +2,15 @@ name: Windows Release Candidate (build + install + acceptance)
 
 # v1.2 年度验收: 在 Windows 上从源码构建安装包与便携版, 并对"实际安装的程序"执行验收:
 #   空库首启 → 首启截图 → 5 个合成场景 + 8 个夹具(与独立期望值比对) → 全功能截图 → 重启一致性 →
-#   卸载 → v1.1.0 → v1.2.0 覆盖升级 → 便携版 → 标准(非管理员)账户安装与运行(尽力而为, 结果如实记录)。
+#   卸载 → v1.1.0 → 当前版本 覆盖升级 → v1.2.0 → 当前版本 覆盖升级 → 便携版。
+# 标准(非管理员)账户安装与运行在独立 job(standard-user)中执行, 失败即该 job 失败, 不再 continue-on-error 掩盖;
+# 安装后报告 DOCX 在独立 job(docx-render)中用 LibreOffice 转 PDF 供逐页目检。
 # 只使用合成的蒙特卡洛演示数据(demo/mc_v12, demo/mc_v11), 不使用甲方真实数据。
 
 on:
   workflow_dispatch:
   push:
-    branches: ["fix/v1.1-client-acceptance", "release/v1.2-annual"]
+    branches: ["fix/v1.1-client-acceptance", "release/v1.2-annual", "fix/v1.2.1-remediation"]
     tags: ["v1.2.*"]
 
 permissions:
@@ -20,6 +22,7 @@ env:
   PYTHONIOENCODING: "utf-8"
   SRS_PORT: "18080"
   V11_RUN_ID: "37866554895"
+  V12_RUN_ID: "37909467812"
 
 jobs:
   windows-rc:
@@ -61,7 +64,7 @@ jobs:
       - name: Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r backend/requirements.txt pyinstaller requests openpyxl playwright
+          pip install -r backend/requirements.txt pyinstaller requests openpyxl pypdf playwright
           python -m playwright install chromium
           pip freeze | Out-File -Encoding utf8 pip_freeze_windows.txt
 
@@ -70,7 +73,7 @@ jobs:
         env:
           SRS_DEMO_SEED: "1"
           SECRET_KEY: "ci_only_key_2026_at_least_32_characters_long"
-        run: python -m pytest -q tests/test_v12_recon_thresholds.py tests/test_v11_utilization_ssui.py tests/test_v11_stage_model.py tests/test_v11_persistence_recovery.py tests/test_v11_version_consistency.py tests/test_round10_release_gate.py
+        run: python -m pytest -q tests/test_v12_recon_thresholds.py tests/test_v11_utilization_ssui.py tests/test_v11_stage_model.py tests/test_v11_persistence_recovery.py tests/test_v11_version_consistency.py tests/test_round10_release_gate.py tests/test_v121_kos_semantics.py tests/test_v121_report_consistency.py
 
       - name: PyInstaller build
         run: python -m PyInstaller packaging/srs.spec --clean --noconfirm --distpath dist_new
@@ -190,7 +193,7 @@ jobs:
           run-id: ${{ env.V11_RUN_ID }}
           github-token: ${{ github.token }}
 
-      - name: Upgrade v1.1.0 → v1.2.0 (in place, data retained)
+      - name: Upgrade v1.1.0 → current (in place, data retained)
         run: |
           $old = Get-ChildItem v11_installer -Filter "SRS-Setup-1.1.0-Windows-x64.exe" | Select-Object -First 1
           if (-not $old) { throw "v1.1.0 installer artifact not found" }
@@ -215,6 +218,41 @@ jobs:
           if ($c2 -ne 0) { throw "upgrade phase failed" }
           Rename-Item "$env:APPDATA\SRS" "SRS_after_upgrade"
 
+      - name: Download v1.2.0 installer (rc.1 build, run ${{ env.V12_RUN_ID }})
+        uses: actions/download-artifact@v4
+        with:
+          name: srs-installer
+          path: v12_installer
+          run-id: ${{ env.V12_RUN_ID }}
+          github-token: ${{ github.token }}
+
+      - name: Upgrade v1.2.0 → current (in place, data + reports retained, legacy units repaired)
+        run: |
+          $old = Get-ChildItem v12_installer -Filter "SRS-Setup-1.2.0-Windows-x64.exe" | Select-Object -First 1
+          if (-not $old) { throw "v1.2.0 installer artifact not found" }
+          (Get-FileHash $old.FullName -Algorithm SHA256).Hash.ToLower() | Out-File acceptance_out\v120_installer_sha256.txt
+          $dir = "C:\SRS 升级120\安装 目录"
+          $p = Start-Process $old.FullName -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/CURRENTUSER',"/DIR=`"$dir`"",'/LOG=install_v120.log' -Wait -PassThru
+          if ($p.ExitCode -ne 0) { throw "v1.2.0 installer exit $($p.ExitCode)" }
+          $app = Start-Process "$dir\SRS.exe" -ArgumentList '--port',$env:SRS_PORT,'--no-browser','--no-tray' -PassThru
+          for ($i=0; $i -lt 90; $i++) { try { if ((Invoke-WebRequest "http://127.0.0.1:$env:SRS_PORT/health" -UseBasicParsing -TimeoutSec 3).StatusCode -eq 200) { break } } catch {}; Start-Sleep 2 }
+          python packaging/ci/windows_acceptance.py --base "http://127.0.0.1:$env:SRS_PORT" --demo demo/mc_v12 --out acceptance_out --phase seed_v12
+          $c1 = $LASTEXITCODE
+          Stop-Process -Id $app.Id -Force; Start-Sleep 3; Get-Process SRS -ErrorAction SilentlyContinue | Stop-Process -Force
+          if ($c1 -ne 0) { throw "v1.2.0 seed phase failed" }
+          $p = Start-Process $env:INSTALLER -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/CURRENTUSER',"/DIR=`"$dir`"",'/LOG=install_upgrade_v120.log' -Wait -PassThru
+          if ($p.ExitCode -ne 0) { throw "upgrade (from 1.2.0) installer exit $($p.ExitCode)" }
+          $app = Start-Process "$dir\SRS.exe" -ArgumentList '--port',$env:SRS_PORT,'--no-browser','--no-tray' -PassThru
+          for ($i=0; $i -lt 90; $i++) { try { if ((Invoke-WebRequest "http://127.0.0.1:$env:SRS_PORT/health" -UseBasicParsing -TimeoutSec 3).StatusCode -eq 200) { break } } catch {}; Start-Sleep 2 }
+          python packaging/ci/windows_acceptance.py --base "http://127.0.0.1:$env:SRS_PORT" --demo demo/mc_v12 --out acceptance_out --phase upgrade_v12
+          $c2 = $LASTEXITCODE
+          Stop-Process -Id $app.Id -Force; Start-Sleep 3; Get-Process SRS -ErrorAction SilentlyContinue | Stop-Process -Force
+          Copy-Item "$env:APPDATA\SRS\launcher.log" acceptance_out\launcher_upgrade_v120.log -ErrorAction SilentlyContinue
+          $u = Get-ChildItem $dir -Filter "unins*.exe" | Select-Object -First 1
+          Start-Process $u.FullName -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART' -Wait
+          if ($c2 -ne 0) { throw "upgrade from v1.2.0 phase failed" }
+          Rename-Item "$env:APPDATA\SRS" "SRS_after_upgrade_v120"
+
       - name: Portable package (Chinese + space path, data beside exe)
         run: |
           $dest = "C:\SRS 便携 测试"
@@ -228,30 +266,6 @@ jobs:
           $appdata = Test-Path "$env:APPDATA\SRS\srs.db"
           "portable db beside exe: $inside; APPDATA db created: $appdata" | Tee-Object -FilePath acceptance_out/portable.txt
           if ($c -ne 0 -or -not $inside -or $appdata) { throw "portable acceptance failed" }
-
-      - name: Standard (non-administrator) user install + run (best effort)
-        continue-on-error: true
-        run: |
-          $pw = "Srs!" + [guid]::NewGuid().ToString("N").Substring(0,16)
-          $sec = ConvertTo-SecureString $pw -AsPlainText -Force
-          New-LocalUser -Name "srsstd" -Password $sec -PasswordNeverExpires | Out-Null
-          Add-LocalGroupMember -Group "Users" -Member "srsstd"
-          $cred = New-Object System.Management.Automation.PSCredential("$env:COMPUTERNAME\srsstd", $sec)
-          $groups = (Get-LocalGroupMember -Group "Administrators" | Select-Object -ExpandProperty Name) -join ","
-          "Administrators members: $groups" | Tee-Object -FilePath acceptance_out/standard_user.txt
-          Copy-Item $env:INSTALLER "C:\Users\Public\srs_setup.exe"
-          $p = Start-Process "C:\Users\Public\srs_setup.exe" -Credential $cred -LoadUserProfile -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/CURRENTUSER','/LOG=C:\Users\Public\install_std.log' -Wait -PassThru
-          "standard-user installer exit: $($p.ExitCode)" | Tee-Object -Append -FilePath acceptance_out/standard_user.txt
-          $exe = Get-ChildItem "C:\Users\srsstd\AppData\Local\Programs" -Recurse -Filter SRS.exe -ErrorAction SilentlyContinue | Select-Object -First 1
-          "installed exe: $($exe.FullName)" | Tee-Object -Append -FilePath acceptance_out/standard_user.txt
-          $app = Start-Process $exe.FullName -Credential $cred -LoadUserProfile -ArgumentList '--port','18090','--no-browser','--no-tray' -PassThru
-          python packaging/ci/windows_acceptance.py --base "http://127.0.0.1:18090" --demo demo/mc_v12 --out acceptance_out/standard_user --phase portable
-          $c = $LASTEXITCODE
-          $owner = (Get-Process -Id $app.Id -IncludeUserName -ErrorAction SilentlyContinue).UserName
-          "process owner: $owner; acceptance exit: $c" | Tee-Object -Append -FilePath acceptance_out/standard_user.txt
-          Copy-Item C:\Users\Public\install_std.log acceptance_out\install_std.log -ErrorAction SilentlyContinue
-          Stop-Process -Id $app.Id -Force -ErrorAction SilentlyContinue
-          if ($c -ne 0) { throw "standard user acceptance failed" }
 
       - name: Environment record
         if: always()
@@ -274,4 +288,147 @@ jobs:
             install.log
             install_v11.log
             install_upgrade.log
+            install_v120.log
+            install_upgrade_v120.log
+          retention-days: 30
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # R06: 标准(非管理员)账户安装 + 运行。独立 job, 失败即失败(无 continue-on-error)。
+  #  A) 复现 v1.2.0 的方式(管理员会话 Start-Process -Credential), 只做诊断记录;
+  #  B) 计划任务以标准账户身份运行安装与程序(需为测试账户授予“作为批处理作业登录”权限, 属测试环境配置,
+  #     与真人在 Windows 10/11 上交互登录不同, 结果不代替实机测试)。
+  standard-user:
+    needs: windows-rc
+    runs-on: windows-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Acceptance client deps
+        run: pip install requests openpyxl pypdf
+      - uses: actions/download-artifact@v4
+        with:
+          name: srs-installer
+          path: inst
+      - name: Create standard account (member of Users only)
+        run: |
+          $pw = "Srs!" + [guid]::NewGuid().ToString("N").Substring(0,16)
+          "SRS_STD_PW=$pw" | Out-File -Append $env:GITHUB_ENV
+          $sec = ConvertTo-SecureString $pw -AsPlainText -Force
+          New-LocalUser -Name "srsstd" -Password $sec -PasswordNeverExpires | Out-Null
+          Add-LocalGroupMember -Group "Users" -Member "srsstd"
+          New-Item -ItemType Directory -Force std_out, C:\Users\Public\srs_std | Out-Null
+          icacls C:\Users\Public\srs_std /grant "Users:(OI)(CI)M" | Out-Null
+          $exe = Get-ChildItem inst -Recurse -Filter "SRS-Setup-*-Windows-x64.exe" | Select-Object -First 1
+          Copy-Item $exe.FullName C:\Users\Public\srs_std\setup.exe
+          $adm = (Get-LocalGroupMember -Group "Administrators" | Select-Object -ExpandProperty Name) -join ","
+          $usr = (Get-LocalGroupMember -Group "Users" | Select-Object -ExpandProperty Name) -join ","
+          "Administrators: $adm`nUsers: $usr`ninstaller: $($exe.Name) sha256=$((Get-FileHash $exe.FullName).Hash.ToLower())" | Tee-Object std_out\accounts.txt
+      - name: "A) diagnosis: Start-Process -Credential from runner admin session (v1.2.0 method)"
+        run: |
+          $sec = ConvertTo-SecureString $env:SRS_STD_PW -AsPlainText -Force
+          $cred = New-Object System.Management.Automation.PSCredential("$env:COMPUTERNAME\srsstd", $sec)
+          $t0 = Get-Date
+          try {
+            $p = Start-Process "C:\Users\Public\srs_std\setup.exe" -Credential $cred -LoadUserProfile -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/CURRENTUSER','/LOG=C:\Users\Public\srs_std\install_std_A.log' -Wait -PassThru
+            "A exit: $($p.ExitCode)" | Tee-Object std_out\A_result.txt
+          } catch { "A exception: $_" | Tee-Object std_out\A_result.txt }
+          "A log exists: $(Test-Path C:\Users\Public\srs_std\install_std_A.log)" | Tee-Object -Append std_out\A_result.txt
+          Get-WinEvent -FilterHashtable @{LogName='Application'; StartTime=$t0} -ErrorAction SilentlyContinue | Select-Object -First 30 TimeCreated, ProviderName, Id, LevelDisplayName, Message | Format-List | Out-File std_out\A_application_events.txt
+          Get-ChildItem C:\Users\srsstd\AppData\Local\Programs -Recurse -Filter SRS.exe -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName | Out-File -Append std_out\A_result.txt
+          Copy-Item C:\Users\Public\srs_std\install_std_A.log std_out\ -ErrorAction SilentlyContinue
+          # 清理 A 可能产生的半安装, 保证 B 从干净状态开始
+          $u = Get-ChildItem C:\Users\srsstd\AppData\Local\Programs -Recurse -Filter "unins*.exe" -ErrorAction SilentlyContinue | Select-Object -First 1
+          if ($u) { "A produced an install at $($u.DirectoryName); B reuses the account but installs again" | Tee-Object -Append std_out\A_result.txt }
+      - name: "B) standard account via scheduled task: install + run + acceptance"
+        run: |
+          $o = "C:\Users\Public\srs_std"
+          @'
+          $o = "C:\Users\Public\srs_std"
+          whoami /all | Out-File "$o\B_whoami.txt"
+          "TEMP=$env:TEMP`nLOCALAPPDATA=$env:LOCALAPPDATA`nAPPDATA=$env:APPDATA`nUSERPROFILE=$env:USERPROFILE" | Out-File "$o\B_env.txt"
+          try { Set-Content "$env:TEMP\srs_probe.txt" "x"; "TEMP writable" | Out-File -Append "$o\B_env.txt" } catch { "TEMP not writable: $_" | Out-File -Append "$o\B_env.txt" }
+          $admin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+          "is_admin=$admin" | Out-File -Append "$o\B_env.txt"
+          $p = Start-Process "$o\setup.exe" -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/CURRENTUSER',"/LOG=$o\install_std_B.log" -Wait -PassThru
+          $exe = Get-ChildItem "$env:LOCALAPPDATA\Programs" -Recurse -Filter SRS.exe -ErrorAction SilentlyContinue | Select-Object -First 1
+          "exit=$($p.ExitCode)`nexe=$($exe.FullName)" | Out-File "$o\B_install_exit.txt"
+          if ($exe) { $a = Start-Process $exe.FullName -ArgumentList '--port','18090','--no-browser','--no-tray' -PassThru; "pid=$($a.Id)" | Out-File -Append "$o\B_install_exit.txt"; Start-Sleep 1500 }
+          '@ | Set-Content -Encoding utf8 "$o\task.ps1"
+          # 测试账户授予 SeBatchLogonRight(计划任务以密码登录所需), 记录前后策略
+          secedit /export /cfg std_out\secpol_before.inf | Out-Null
+          $sid = (New-Object System.Security.Principal.NTAccount("srsstd")).Translate([System.Security.Principal.SecurityIdentifier]).Value
+          $cfg = Get-Content std_out\secpol_before.inf
+          $line = $cfg | Where-Object { $_ -match '^SeBatchLogonRight' }
+          if ($line) { $cfg = $cfg -replace '^SeBatchLogonRight = (.*)$', "SeBatchLogonRight = `$1,*$sid" } else { $cfg = $cfg -replace '^\[Privilege Rights\]$', "[Privilege Rights]`r`nSeBatchLogonRight = *$sid" }
+          $cfg | Set-Content -Encoding Unicode secpol_new.inf
+          secedit /configure /db secedit.sdb /cfg secpol_new.inf /areas USER_RIGHTS | Out-File std_out\secedit_configure.txt
+          $act = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NoProfile -ExecutionPolicy Bypass -File $o\task.ps1"
+          Register-ScheduledTask -TaskName "srs_std" -Action $act -User "$env:COMPUTERNAME\srsstd" -Password $env:SRS_STD_PW -RunLevel Limited | Out-Null
+          Start-ScheduledTask -TaskName "srs_std"
+          for ($i=0; $i -lt 120 -and -not (Test-Path "$o\B_install_exit.txt"); $i++) { Start-Sleep 5 }
+          Get-ScheduledTaskInfo -TaskName "srs_std" | Format-List | Out-File std_out\B_task_info.txt
+          Copy-Item "$o\B_*.txt","$o\install_std_B.log" std_out\ -ErrorAction SilentlyContinue
+          if (-not (Test-Path "$o\B_install_exit.txt")) { throw "B: task did not report installer result (see B_task_info.txt)" }
+          $res = Get-Content "$o\B_install_exit.txt" -Raw; $res
+          if ($res -notmatch 'exit=0') { throw "B: standard-user installer failed: $res" }
+          if ($res -notmatch 'exe=C:\\Users\\srsstd') { throw "B: SRS.exe not installed under the standard user's profile: $res" }
+          $up = $false
+          for ($i=0; $i -lt 90; $i++) { try { if ((Invoke-WebRequest "http://127.0.0.1:18090/health" -UseBasicParsing -TimeoutSec 3).StatusCode -eq 200) { $up = $true; break } } catch {}; Start-Sleep 2 }
+          $owner = (Get-Process SRS -IncludeUserName -ErrorAction SilentlyContinue | Select-Object -ExpandProperty UserName) -join ","
+          "process owner(s): $owner; reachable: $up" | Tee-Object std_out\B_runtime.txt
+          python packaging/ci/windows_acceptance.py --base "http://127.0.0.1:18090" --demo demo/mc_v12 --out std_out --phase portable
+          $c = $LASTEXITCODE
+          $appdata = Test-Path "C:\Users\srsstd\AppData\Roaming\SRS\srs.db"
+          "acceptance exit: $c; db under standard user's APPDATA: $appdata" | Tee-Object -Append std_out\B_runtime.txt
+          Stop-ScheduledTask -TaskName "srs_std" -ErrorAction SilentlyContinue
+          Get-Process SRS -ErrorAction SilentlyContinue | Stop-Process -Force
+          if (-not $up) { throw "B: SRS.exe started by the standard user did not become reachable" }
+          if ($owner -notmatch 'srsstd') { throw "B: SRS process not owned by srsstd ($owner)" }
+          if ($c -ne 0) { throw "B: acceptance against standard-user instance failed" }
+          if (-not $appdata) { throw "B: user database not created in the standard user's APPDATA" }
+      - name: Upload standard-user evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: srs-standard-user
+          path: std_out
+          retention-days: 30
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # R04: 安装版生成的 DOCX 报告用 LibreOffice 转 PDF, 供逐页目检(DOCX 可在 Word 外正确打开与排版)。
+  docx-render:
+    needs: windows-rc
+    runs-on: windows-latest
+    timeout-minutes: 40
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: srs-windows-acceptance
+          path: acc
+      - name: Install LibreOffice
+        run: choco install libreoffice-fresh -y --no-progress
+      - name: Convert DOCX reports to PDF
+        run: |
+          $so = Get-ChildItem "C:\Program Files\LibreOffice\program" -Filter soffice.exe | Select-Object -First 1
+          New-Item -ItemType Directory -Force docx_pdf | Out-Null
+          $docs = Get-ChildItem acc -Recurse -Filter "*_report.docx"
+          foreach ($d in $docs) { & $so.FullName --headless --norestore --convert-to pdf --outdir docx_pdf $d.FullName | Out-Null }
+          Get-ChildItem docx_pdf | Select-Object Name, Length | Format-Table | Out-String | Tee-Object docx_pdf\listing.txt
+          if ((Get-ChildItem docx_pdf -Filter *.pdf).Count -lt $docs.Count) { throw "not all DOCX converted" }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: srs-docx-rendered
+          path: docx_pdf
           retention-days: 30

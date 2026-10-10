@@ -21,6 +21,7 @@ import requests
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import demo_runner as DR  # noqa: E402
+import report_invariants as RI  # noqa: E402  # noqa: E402
 
 ADMIN = ("admin", "Accept@2026Srs")
 EXPECTED_VERSION = open(os.path.join(os.path.dirname(__file__), "..", "..", "VERSION"), encoding="utf-8").read().strip()
@@ -176,8 +177,66 @@ def phase_portable(base, demo, out):
     check("portable: evaluation", r.status_code == 200, r.status_code)
 
 
+def phase_seed_v12(base, demo, out):
+    """v1.2.0 已安装版本上写入业务数据(demo 指向 demo/mc_v12), 用于验证 v1.2.0 → v1.2.1 覆盖升级。"""
+    h = requests.get(f"{base}/health").json()
+    check("old version running (1.2.0)", h.get("version") == "1.2.0", h.get("version"))
+    H = http(base); DR.ensure_admin(H, ADMIN)
+    d = os.path.join(demo, "site_A")
+    fs = sorted(os.listdir(d))
+    f1 = [f for f in fs if f.startswith("01_")][0]
+    r = H.post("/api/v1/import", data={"mapping_id": "auto", "on_conflict": "skip"},
+               files={"file": (f1, open(os.path.join(d, f1), "rb").read(), DR.XLSX)})
+    check("v1.2.0: pre-remediation import", r.status_code == 200, r.status_code)
+    site = H.get("/api/v1/sites").json()["items"][0]; sid = site["id"]
+    r = H.post(f"/api/v1/sites/{sid}/kos-diagnosis?track=prod&subset=hm&top_n=10")
+    check("v1.2.0: KOS", r.status_code == 200, r.status_code)
+    f2 = [f for f in fs if f.startswith("02_")][0]
+    pv = H.post(f"/api/v1/sites/{sid}/recon/preview", files={"file": (f2, open(os.path.join(d, f2), "rb").read(), DR.XLSX)}).json()
+    cf = H.post(f"/api/v1/recon/batches/{pv.get('batch_id')}/confirm").json()
+    check("v1.2.0: S2 confirmed", cf.get("status") == "confirmed", cf.get("status"))
+    f3 = [f for f in fs if f.startswith("03_")][0]
+    p3 = H.post(f"/api/v1/sites/{sid}/ssui-post/preview", data={"track": "production"},
+                files={"file": (f3, open(os.path.join(d, f3), "rb").read(), DR.XLSX)}).json()
+    c3 = H.post(f"/api/v1/ssui-post/batches/{p3['batch_id']}/confirm").json()
+    check("v1.2.0: S3 confirmed", c3.get("status") == "confirmed", (c3.get("calc") or {}).get("ssui"))
+    rr = H.post(f"/api/v1/sites/{sid}/report?format=pdf").json()
+    snap = {"site_id": sid, "site_code": site["site_code"], "report_id": rr.get("report_id"),
+            "recon": [(b["batch_id"], b["status"], b["production"], b["ecology"]) for b in H.get(f"/api/v1/sites/{sid}/recon/batches").json()["batches"]],
+            "ssui": sorted([(b["track"], b["ssui"]) for b in H.get(f"/api/v1/sites/{sid}/ssui-post/batches").json()["batches"] if b["status"] == "confirmed"])}
+    json.dump(snap, open(os.path.join(out, "state_v12.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1, default=str)
+
+
+def phase_upgrade_v12(base, demo, out):
+    _health(base, EXPECTED_VERSION)
+    snap = json.load(open(os.path.join(out, "state_v12.json"), encoding="utf-8"))
+    st = requests.get(f"{base}/api/v1/setup/status").json()
+    check("upgrade v1.2.0→: existing admin kept", st.get("needs_setup") is False, st)
+    H = http(base); DR.ensure_admin(H, ADMIN)
+    sid = snap["site_id"]
+    check("upgrade v1.2.0→: site preserved", H.get(f"/api/v1/sites/{sid}").json().get("site_code") == snap["site_code"])
+    rb = [(b["batch_id"], b["status"], b["production"], b["ecology"]) for b in H.get(f"/api/v1/sites/{sid}/recon/batches").json()["batches"]]
+    check("upgrade v1.2.0→: S2 batches preserved", json.loads(json.dumps(rb)) == json.loads(json.dumps(snap["recon"])), rb)
+    sb = sorted([(b["track"], b["ssui"]) for b in H.get(f"/api/v1/sites/{sid}/ssui-post/batches").json()["batches"] if b["status"] == "confirmed"])
+    check("upgrade v1.2.0→: S3 SSUI preserved", json.loads(json.dumps(sb)) == json.loads(json.dumps(snap["ssui"])), sb)
+    old = H.get(f"/api/v1/reports/{snap['report_id']}/download")
+    check("upgrade v1.2.0→: v1.2.0 report still downloadable", old.status_code == 200 and len(old.content) > 1000, old.status_code)
+    os_ = H.get(f"/api/v1/reports/{snap['report_id']}/snapshot").json()
+    check("upgrade v1.2.0→: legacy report has no snapshot (reported, not fabricated)", os_.get("snapshot") is None and os_.get("verified") is False)
+    kj = H.post(f"/api/v1/sites/{sid}/kos-diagnosis?track=prod&subset=hm&top_n=10&farmland_type=水田").json()
+    off = [k["factor"] for k in kj.get("key_obstacles", [])]
+    check("upgrade v1.2.0→: re-run KOS gives evidence-gated official list", kj.get("official_ranking_status") in ("available", "partial")
+          and not set(off) & RI.FERTILITY, off)
+    sj = H.get(f"/api/v1/sites/{sid}/evaluation-snapshot").json()
+    cr6 = [x for x in sj["snapshot"]["factor_summary"]["pre_remediation"] if x["factor"] == "六价铬"]
+    check("upgrade v1.2.0→: Cr(VI) unit artefact repaired in DB", bool(cr6) and cr6[0]["unit"] == "mg/kg" and not cr6[0]["unit_note"], cr6[:1])
+    rr = H.post(f"/api/v1/sites/{sid}/report?format=pdf").json()
+    ns = H.get(f"/api/v1/reports/{rr.get('report_id')}/snapshot").json()
+    check("upgrade v1.2.0→: new report carries verified snapshot", ns.get("verified") is True, ns.get("snapshot_id"))
+
+
 PHASES = {"full": phase_full, "snapshot": phase_snapshot, "restart": phase_restart, "seed_v11": phase_seed_v11, "upgrade": phase_upgrade,
-          "portable": phase_portable}
+          "portable": phase_portable, "seed_v12": phase_seed_v12, "upgrade_v12": phase_upgrade_v12}
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()

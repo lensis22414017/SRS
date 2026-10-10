@@ -244,3 +244,13 @@ def test_unit_factor_matrix():
     from app.services.factor_normalizer import unit_factor
     assert unit_factor("mg/kg", "ng/g") == 1000.0 and unit_factor("μg/kg", "mg/kg") == 0.001
     assert unit_factor("%", "g/kg") == 10.0 and unit_factor("mg/kg", "cmol(+)/kg") is None
+
+
+def test_paddy_tier_used_when_farmland_is_paddy(db):
+    # GB 15618 表1: 镉 6.5<pH≤7.5 水田 0.6 / 其他 0.3
+    r_p = TR.resolve_threshold_from_db(db, "Cd_mgkg", track="prod", site_pH=6.9, land_use_type="水田")
+    r_o = TR.resolve_threshold_from_db(db, "Cd_mgkg", track="prod", site_pH=6.9, land_use_type=None)
+    assert r_p["threshold_value"] == 0.6 and r_p["land_use_type"] == "水田"
+    assert r_o["threshold_value"] == 0.3 and r_o["threshold_resolution_status"] == "resolved"
+    # 铜/镍/锌 无水田专列 → 水田时仍唯一解析
+    assert TR.resolve_threshold_from_db(db, "Zn_mgkg", track="prod", site_pH=6.9, land_use_type="水田")["threshold_resolution_status"] == "resolved"

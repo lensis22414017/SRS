@@ -105,6 +105,12 @@ def test_site_a_cross_channel_and_stage_separation(client):
     # KOS: 正式 Top-N 只含 GB 15618 证据; 肥力指标仅在探索性列表
     assert hl["kos_official_status"] == "available" and not set(hl["kos_official"]) & RI.FERTILITY
     assert snap["kos"]["farmland_type"] == "水田"
+    # 课题一 KOS 与修复前生产门禁对同一最不利点使用同一筛选值(水田口径)
+    g = {f["factor"]: f for f in snap["gates"]["pre_remediation"]["production"]["factors"]}
+    for k in snap["kos"]["official"]:
+        sym = k["factor"].split("_")[0]
+        if sym in g and g[sym]["worst_point"] == k["decision_point_code"]:
+            assert k["threshold_value"] == pytest.approx(g[sym]["worst_screening"]), (k, g[sym])
     # 六价铬单位不再显示为 VI
     pre_fs = {x["factor"]: x for x in snap["factor_summary"]["pre_remediation"]}
     assert pre_fs["六价铬"]["unit"] == "mg/kg"

@@ -699,7 +699,7 @@ def render_pdf(ctx: dict, blocks: list[dict] | None = None) -> tuple[bytes, dict
             if h > 175 * mm:
                 h = 175 * mm; w = h * iw / ih
             story.append(KeepTogether([Image(io.BytesIO(bl["png"]), width=w, height=h), P(bl["caption"], "cap")]))
-    title = f"{ctx['site'].get('name') or ''}（{ctx['site'].get('site_code') or ''}）全流程监管追溯报告"
+    title = f"{ctx['site'].get('site_code') or ''} 全流程监管追溯报告｜{(ctx['site'].get('name') or '')[:24]}"
     label = snap["data_origin"].get("label")
 
     def on_page(c, doc):
@@ -854,7 +854,7 @@ def render_docx(ctx: dict, blocks: list[dict] | None = None) -> bytes:
     # 页眉页脚: 快照编号 + 页码(域代码) + 模拟数据标签
     snap = ctx["snapshot"]
     hp = sec.header.paragraphs[0]
-    set_font(hp.add_run(f"{ctx['site'].get('name') or ''} 全流程监管追溯报告｜评价快照 {snap['snapshot_id']}"), 8,
+    set_font(hp.add_run(f"{ctx['site'].get('site_code') or ''} 全流程监管追溯报告｜评价快照 {snap['snapshot_id']}"), 8,
              color=RGBColor(0x55, 0x55, 0x55))
     fp = sec.footer.paragraphs[0]; fp.alignment = WD_ALIGN_PARAGRAPH.CENTER
     lbl = snap["data_origin"].get("label")

@@ -366,8 +366,10 @@ def resolve_threshold_from_db(
         # v1.0.2: 生产轨 land_use_type 为空时默认"其他"（GB15618 通用农用地子类, 有标准依据）
         # v1.1: 生态轨(GB36600)第一类/第二类用地限值不同, 未指定用地时不得任取一条 → ambiguous
         effective_lu = land_use_type or ("其他" if track == "prod" else None)
-        lu_m = ([r for r in matched if (r.land_use_type or "其他") == effective_lu]
-                if effective_lu else [])
+        # v1.2.1: GB 15618 “农用地”行即“其他农用地”口径; 水田行单独登记
+        def _lu(r):
+            return "其他" if (r.land_use_type or "其他") in ("农用地", "其他农用地") else r.land_use_type
+        lu_m = ([r for r in matched if _lu(r) == effective_lu] if effective_lu else [])
         if len(lu_m) >= 1:
             matched = [lu_m[0]]
         else:
