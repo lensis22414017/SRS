@@ -87,8 +87,12 @@ export default function SiteDetail() {
           </Descriptions.Item>
           <Descriptions.Item label="用地类型">{site.land_use_type || "—"}</Descriptions.Item>
           <Descriptions.Item label="区域">{(site.province || "") + (site.city || "") || "—"}</Descriptions.Item>
-          <Descriptions.Item label="采样点">{site.n_points}</Descriptions.Item>
-          <Descriptions.Item label="检测记录">{site.n_measurements}</Descriptions.Item>
+          <Descriptions.Item label="样品（修复前 / 修复后去重）">{site.stage_counts
+            ? `${site.stage_counts.pre_remediation.n_unique_samples} / ${site.stage_counts.post_remediation.n_unique_samples}`
+            : site.n_points}{site.stage_counts ? `（点位记录合计 ${site.n_points}）` : ""}</Descriptions.Item>
+          <Descriptions.Item label="检测记录（修复前 / 修复后去重）">{site.stage_counts
+            ? `${site.stage_counts.pre_remediation.n_measurement_records} / ${site.stage_counts.post_remediation.n_unique_measurements}`
+            : site.n_measurements}{site.stage_counts ? `（导入记录合计 ${site.n_measurements}）` : ""}</Descriptions.Item>
           <Descriptions.Item label="坐标">{site.longitude}, {site.latitude}</Descriptions.Item>
         </Descriptions>
         <Space style={{ marginTop: 12 }} wrap>

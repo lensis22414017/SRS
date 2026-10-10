@@ -258,6 +258,7 @@ def _risk(exceedance: float | None) -> str:
 @router.get("/sites/{site_id}/map/layers")
 def site_map_layers(site_id: int,
                     factor: str | None = Query(default=None),
+                    farmland_type: str | None = Query(default=None, description="GB 15618 农用地类型: 水田|其他"),
                     user: User = Depends(get_current_user),
                     db: Session = Depends(get_db)):
     """场地地图图层: 采样点 GeoJSON + 污染物筛选 + 超标倍数分级。"""
@@ -292,6 +293,15 @@ def site_map_layers(site_id: int,
             continue
         meas_by_point.setdefault(sp.id, []).append((m, fd))
 
+    # v1.2.1(R03): 未选因子时, 点位颜色用与法规门禁/报告图件同一口径的 GB 15618 逐点超筛选倍数
+    from app.services import utilization_service as _US
+    if farmland_type is None:
+        _dec = _US.latest(db, site_id, "pre_remediation")
+        farmland_type = ((((_dec.evidence or {}).get("production") or {}).get("gate") or {}).get("farmland_type")
+                         if _dec is not None else None)
+    gate_ratio = _US.point_screening_ratios(db, site_id, farmland_type=farmland_type) if not factor else {}
+    from app.services.utilization_service import U as _UM
+    _std = _UM.load_standards()
     features = []
     for p in points:
         ph = ph_by_point.get(p.id)
@@ -300,8 +310,14 @@ def site_map_layers(site_id: int,
         selected = None
         measurements_payload = []
         for m, fd in pairs:
-            tt = ttable.get(fd.factor_code)
-            limit = _select_threshold(tt["bands"], bidx, tt.get("generic")) if tt else None
+            # v1.2.1(R03): GB 15618 八项重金属优先用法规门禁同一阈值表(按点位 pH 与农用地类型), 单位须为 mg/kg
+            limit = None
+            _canon = _UM.canonical_factor(fd.factor_name or fd.factor_code)
+            if _canon in _UM.GB15618_REQUIRED and str(m.unit or fd.default_unit or "").strip().lower() in ("mg/kg", "mg kg-1", "mg·kg-1", "mg·kg⁻¹"):
+                limit = _UM._gb15618_limits(_std, _canon, ph, farmland_type if farmland_type in ("水田", "其他") else None)[0]
+            if limit is None:
+                tt = ttable.get(fd.factor_code)
+                limit = _select_threshold(tt["bands"], bidx, tt.get("generic")) if tt else None
             try:
                 exc = float(m.value) / limit if (limit and m.value is not None) else None
             except (TypeError, ValueError):
@@ -319,6 +335,11 @@ def site_map_layers(site_id: int,
                 measurements_payload.append(entry)
             if exc is not None and (selected is None or exc > selected["exceedance"]):
                 selected = dict(entry)
+        g = gate_ratio.get(str(p.point_code))
+        if g is not None:
+            selected = {"factor_code": g["factor"], "factor_name": g["factor"], "value": g["value"], "unit": "mg/kg",
+                        "threshold": g["threshold"], "exceedance": g["ratio"], "risk_level": _risk(g["ratio"]),
+                        "basis": g["basis"]}
         risk_level = selected["risk_level"] if selected else "unknown"
         features.append({
             "type": "Feature",
@@ -358,6 +379,9 @@ def site_map_layers(site_id: int,
         },
         "pollutants": pollutants,
         "selected_factor": factor,
+        "color_basis": (("未选因子: 逐点最大 GB 15618-2018 筛选值倍数(修复前点位, 按点位 pH; 农用地类型 "
+                          + (farmland_type or "未登记, 取水田/其他较严者") + "), 与法规门禁同一数据与阈值表")
+                         if not factor else "所选因子: GB 15618 八项重金属按门禁阈值表(按点位 pH), 其他因子按系统阈值规则表"),
         "legend": [
             {"risk_level": "none", "label": "未超标(<1倍)", "color": "#16a34a"},
             {"risk_level": "low", "label": "轻度(1-3倍)", "color": "#facc15"},

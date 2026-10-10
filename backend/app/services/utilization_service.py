@@ -182,3 +182,37 @@ def to_dict(d: UtilizationDecision) -> dict:
             "method_status": d.method_status, "input_fingerprint": d.input_fingerprint,
             "data_origin": d.data_origin, "created_at": d.created_at.isoformat() if d.created_at else None,
             "is_post_remediation_conclusion": d.stage == POST_REMEDIATION}
+
+
+def point_screening_ratios(db: Session, site_id: int, *, farmland_type: str | None = None) -> dict:
+    """v1.2.1(R03): 地图图层与报告图件共用的逐点超标倍数(修复前, GB 15618-2018 筛选值, 按点位 pH 选档)。
+
+    与法规门禁同一数据(_pre_points: 单位换算、课题二同样品合并)与同一阈值表(utilization.load_standards)。
+    农用地类型未指定时取水田/其他较严者; pH 未知时取各档最严值(保守, 与门禁一致)。
+    返回 {point_code: {"ratio", "factor", "value", "threshold", "ph", "basis"}}; 无可判定因子的点位不出现。
+    """
+    points, _notes, _origin = _pre_points(db, site_id)
+    std = U.load_standards()
+    ft = farmland_type if farmland_type in ("水田", "其他") else None
+    out: dict = {}
+    for p in points:
+        ph = p.get("pH")
+        try:
+            ph = float(ph) if ph is not None else None
+        except (TypeError, ValueError):
+            ph = None
+        best = None
+        for f in U.GB15618_REQUIRED:
+            v = p.get(f)
+            if not isinstance(v, (int, float)):
+                continue
+            scr = U._gb15618_limits(std, f, ph, ft)[0]
+            if not scr:
+                continue
+            r = float(v) / scr
+            if best is None or r > best["ratio"]:
+                best = {"ratio": round(r, 4), "factor": f, "value": float(v), "threshold": scr, "ph": ph,
+                        "basis": f"GB 15618-2018 筛选值({ft or '水田/其他较严者'}; 按点位 pH 选档)"}
+        if best is not None:
+            out[str(p["point"])] = best
+    return out

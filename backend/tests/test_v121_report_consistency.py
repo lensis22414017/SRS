@@ -121,6 +121,22 @@ def test_site_a_cross_channel_and_stage_separation(client):
     txt = RI.pdf_text(files["pdf"])
     assert "模拟采样点" in txt and "真实采样点" not in txt
 
+    # 界面地图图层与法规门禁同一口径: 修复前点位按 GB 15618 筛选值(水田, 点位 pH)着色, 不再全部“无阈值”
+    ml = c.get(f"/api/v1/sites/{sid}/map/layers", headers=h).json()
+    feats = {f["properties"]["point_code"]: f["properties"] for f in ml["geojson"]["features"]}
+    worst_cd = g["Cd"]["worst_point"]
+    sel = feats[worst_cd]["selected"]
+    assert sel and sel["exceedance"] == pytest.approx(g["Cd"]["worst_value"] / g["Cd"]["worst_screening"], rel=1e-3)
+    n_colored = sum(1 for pc, p in feats.items() if p["selected"] and not pc.startswith("POST"))
+    assert n_colored == 20 and "GB 15618" in ml["color_basis"]
+    cd_layer = c.get(f"/api/v1/sites/{sid}/map/layers", headers=h, params={"factor": "镉"}).json()
+    cdp = [f["properties"] for f in cd_layer["geojson"]["features"] if f["properties"]["point_code"] == worst_cd][0]
+    assert cdp["selected"]["threshold"] == pytest.approx(g["Cd"]["worst_screening"])
+    # 场地详情分阶段计数与快照一致
+    sd = c.get(f"/api/v1/sites/{sid}", headers=h).json()["stage_counts"]
+    assert sd["pre_remediation"]["n_unique_samples"] == hl["pre_n_samples"] == 20
+    assert sd["post_remediation"]["n_unique_samples"] == hl["post_n_samples"] == 20
+
 
 @needs_demo
 def test_report_snapshot_is_immutable_after_new_data(client):

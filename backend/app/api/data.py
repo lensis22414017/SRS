@@ -568,7 +568,22 @@ def site_detail(site_id: int, user: User = Depends(get_current_user),
         "longitude": float(s.longitude) if s.longitude is not None else None,
         "latitude": float(s.latitude) if s.latitude is not None else None,
         "n_points": n_points, "n_measurements": n_meas,
+        # v1.2.1(R03): 分阶段口径(与评价快照 / 报告同一函数); n_points/n_measurements 为全部点位/检测记录合计
+        "stage_counts": _stage_counts(db, site_id),
     }
+
+
+def _stage_counts(db: Session, site_id: int) -> dict:
+    from app.services import evaluation_snapshot as ES
+    inv = ES._inventory(db, site_id)
+    out = {}
+    for st in ("pre_remediation", "post_remediation"):
+        x = inv.get(st) or {}
+        out[st] = {"n_batches": x.get("n_batches", 0), "n_point_records": x.get("n_point_records", 0),
+                   "n_unique_samples": x.get("n_unique_samples", 0),
+                   "n_measurement_records": x.get("n_measurement_records", 0),
+                   "n_unique_measurements": x.get("n_unique_measurements", 0)}
+    return out
 
 
 class LandUseUpdate(BaseModel):

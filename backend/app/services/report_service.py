@@ -467,22 +467,17 @@ def collect(db: Session, site_id: int, version: str) -> dict:
     exceed_by_point: dict[int, float] = {}
     exceed_factor: dict[int, str] = {}  # pid → factor_code
     if coord_points:
-        th_rows = (db.query(Measurement.sampling_point_id, Measurement.value,
-                            ThresholdRule.threshold_max, FactorDictionary.factor_code)
-                   .join(FactorDictionary, Measurement.factor_id == FactorDictionary.id)
-                   .join(ThresholdRule, ThresholdRule.factor_id == FactorDictionary.id)
-                   .filter(Measurement.site_id == site_id,
-                           ThresholdRule.threshold_max != None,
-                           ThresholdRule.threshold_max > 0,
-                           Measurement.sampling_point_id != None).all())
-        for pid, val, tmax, fcode in th_rows:
-            if val is None:
-                continue
-            ratio = float(val) / float(tmax)
-            if ratio > exceed_by_point.get(pid, 0.0):
-                exceed_by_point[pid] = ratio
-                exceed_factor[pid] = fcode  # v0.2: 保留最严重因子
-                exceed_by_point[pid] = ratio
+        # v1.2.1(R03): 与界面地图图层、法规门禁同一口径(GB 15618 筛选值, 按点位 pH; 农用地类型取修复前门禁登记值)
+        from app.services import utilization_service as _US
+        _dec = _US.latest(db, site_id, "pre_remediation")
+        _ft = ((((_dec.evidence or {}).get("production") or {}).get("gate") or {}).get("farmland_type")
+               if _dec is not None else None)
+        _gr = _US.point_screening_ratios(db, site_id, farmland_type=_ft)
+        for p in coord_points:
+            g = _gr.get(str(p.point_code))
+            if g is not None:
+                exceed_by_point[p.id] = g["ratio"]
+                exceed_factor[p.id] = g["factor"]
     map_image = _render_points_map_png(coord_points, exceed_by_point, exceed_factor)
     contribution_rows = (diag_ctx or {}).get("top_factors", [])
     if diag_ctx and diag_ctx.get("method") == "kos":

@@ -34,7 +34,7 @@ export default function TraceList() {
           textCol("名称", "name"),
           { title: "污染类型", dataIndex: "pollution_type", align: "center",
             render: (v: string) => v ? <Tag color="red">{v}</Tag> : "—" },
-          numCol("采样点", "n_points"),
+          numCol("点位记录(全部阶段)", "n_points"),
           { title: "操作", align: "center", render: (_: any, r: any) => <a onClick={() => nav(`/trace/${r.id}`)}>进入追溯</a> },
         ]} />
     </Card>

@@ -196,8 +196,8 @@ export default function ObstacleAnalysis() {
           {[site.province, site.city].filter(Boolean).join(" ")}，{POLLUTION_LABEL[site.pollution_type] || "—"}污染场地
         </Descriptions.Item>
         <Descriptions.Item label="修复后用途">{landUse}</Descriptions.Item>
-        <Descriptions.Item label="采样点">{site.n_points ?? "—"} 个</Descriptions.Item>
-        <Descriptions.Item label="检测记录">{site.n_measurements ?? "—"} 条</Descriptions.Item>
+        <Descriptions.Item label="修复前样品（KOS 输入）">{site.stage_counts?.pre_remediation?.n_unique_samples ?? site.n_points ?? "—"} 个</Descriptions.Item>
+        <Descriptions.Item label="修复前检测记录">{site.stage_counts?.pre_remediation?.n_measurement_records ?? site.n_measurements ?? "—"} 条</Descriptions.Item>
       </Descriptions>
       <Paragraph type="secondary" style={{ fontSize: 12, margin: "8px 0 0 0" }}>
         诊断方法：规则诊断 + 模型贡献度解释。当前为「{landUse}」轨专属诊断结果。

@@ -97,7 +97,7 @@ export default function SiteList() {
             render: (v: string) => v ? <Tag color={POLLUTION_TYPE[v] || "#888"}>{POLLUTION_LABEL[v] || v}</Tag> : "—" },
           textCol("用地类型", "land_use_type"),
           textCol("区域", "city", { render: (_: any, r: any) => `${r.province || ""}${r.city || ""}` || "—" }),
-          numCol("采样点", "n_points"),
+          numCol("点位记录(全部阶段)", "n_points"),
           numCol("因子数", "n_factors"),
           { title: "超标", dataIndex: "n_exceed", align: "center", width: 80,
             render: (v: number) => v ? <Tag color="red">{v}</Tag> : <Tag color="green">无</Tag> },
