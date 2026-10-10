@@ -627,8 +627,8 @@ SumDDTs_ngg:
   - 滴滴涕_DDTs（mgkg）
   - DDTs
   - SumDDT
-  - p,p'-DDT
-  - 多氯联苯_DDTs
+  # v1.2.2(T02) 已移除别名 p,p'-DDT: 单一异构体/误写不等于 DDT 总量
+  # v1.2.2(T02) 已移除别名 多氯联苯_DDTs: 单一异构体/误写不等于 DDT 总量
   preferred_unit: "ng/g"
 
 SumHCHs_ngg:

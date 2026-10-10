@@ -285,9 +285,33 @@ def _track_status(gate: dict, score: dict | None, track: str) -> tuple[str, list
         if track == "ecology":
             return "insufficient", ["生态轨道超筛选值: 须完成详细风险评估后再判定"]
         conds.append("安全利用类: 须采取农艺调控、替代种植等安全利用措施并开展农产品协同监测")
+    if score and score.get("status") == "out_of_domain":
+        # v1.2.2(T01): 域外功能评分不得产生“支持”; 门禁失败已在上面返回 not_supported
+        conds.append("功能评分超出等级有效域[0, 1.0]: 原值保留, 不分级、不作功能支持判断")
+        return "insufficient", conds
     if not score or score.get("feasible") is None:
         return "insufficient", conds
     return ("supported" if score["feasible"] else "not_supported"), conds
+
+
+# v1.2.2(T03): 用途/适用性(Q09/Q17 暂定处理)
+FARMLAND_TYPES = ("水田", "其他")
+ECO_LAND_CLASSES = ("第一类用地", "第二类用地")
+ECO_NON_CONSTRUCTION = "非建设用地生态用途"
+USE_SCOPE_NOTE = ("GB 36600-2018 适用于建设用地; 第一类/第二类用地须由使用者按规划用途明确选择。"
+                  "“生态重构”对应建设用地类别的映射未经核实, 选择“非建设用地生态用途”时 GB 36600 的适用性未定, "
+                  "不给出正式生态利用结论。GB 15618-2018 须明确水田/其他农用地。未选择用途时只给出保守假设筛查(非正式结论)。")
+
+
+def use_states(farmland_type: str | None, eco_land_class: str | None) -> dict:
+    if farmland_type is not None and farmland_type not in FARMLAND_TYPES:
+        raise ValueError(f"farmland_type 必须为 {'/'.join(FARMLAND_TYPES)} 或留空: {farmland_type}")
+    if eco_land_class is not None and eco_land_class not in ECO_LAND_CLASSES + (ECO_NON_CONSTRUCTION,):
+        raise ValueError(f"eco_land_class 必须为 {'/'.join(ECO_LAND_CLASSES + (ECO_NON_CONSTRUCTION,))} 或留空: {eco_land_class}")
+    return {"production": "explicit" if farmland_type in FARMLAND_TYPES else "needs_manual_use_selection",
+            "ecology": ("explicit" if eco_land_class in ECO_LAND_CLASSES else
+                        "regulatory_applicability_unresolved" if eco_land_class == ECO_NON_CONSTRUCTION
+                        else "needs_manual_use_selection")}
 
 
 _TRACK_CN = {"production": "生产(农用地)", "ecology": "生态"}
@@ -302,10 +326,29 @@ def decide(stage: str, points: list[dict], *, pollution_type: str | None = None,
     if stage not in (PRE, POST):
         raise ValueError(f"stage 必须为 {PRE}/{POST}: {stage}")
     std = standards or load_standards()
-    pg = production_gate(points, std, farmland_type)
-    eg = ecology_gate(points, std, eco_land_class, eco_required)
+    us = use_states(farmland_type, eco_land_class)
+    pg = production_gate(points, std, farmland_type if us["production"] == "explicit" else None)
+    eg = ecology_gate(points, std, eco_land_class if us["ecology"] == "explicit" else None, eco_required)
     ps, pc = _track_status(pg, production_score, "production")
     es, ec = _track_status(eg, ecology_score, "ecology")
+    hypothetical = None
+    if us["production"] != "explicit" or us["ecology"] != "explicit":
+        hypothetical = {"label": "hypothetical_conservative_screen", "production": ps, "ecology": es,
+                        "note": "未选择用途时的保守假设筛查(最严档), 非正式利用结论; " + USE_SCOPE_NOTE}
+    if us["production"] != "explicit":
+        # GB 15618 管制值不分农用地类型 → 超管制为与用途无关的硬性失败; 其余结论暂缓
+        if not (pg["state"] == "fail"):
+            ps = "withheld_use"
+        pc = pc + ["须明确农用地类型(水田/其他)后才能给出正式生产利用结论"]
+    if us["ecology"] != "explicit":
+        hard = False
+        if us["ecology"] == "needs_manual_use_selection" and eg["state"] == "fail":
+            hard = ecology_gate(points, std, "第二类用地", eco_required)["state"] == "fail"  # 最宽类别仍失败
+        if not hard:
+            es = "withheld_use"
+        ec = ec + (["所选生态用途不是 GB 36600 建设用地类别, 法规适用性未定, 不给出正式生态利用结论"]
+                   if us["ecology"] == "regulatory_applicability_unresolved"
+                   else ["须明确建设用地类别(第一类/第二类用地)后才能给出正式生态利用结论"])
     if ps == "supported" and es == "supported":
         state = "both_supported"
     elif ps == "supported":
@@ -314,6 +357,11 @@ def decide(stage: str, points: list[dict], *, pollution_type: str | None = None,
         state = "ecology_supported"
     elif "insufficient" in (ps, es):
         state = "insufficient_evidence"
+    elif "withheld_use" in (ps, es):
+        non_explicit = [v for v in us.values() if v != "explicit"]
+        state = ("regulatory_applicability_unresolved"
+                 if non_explicit and all(v == "regulatory_applicability_unresolved" for v in non_explicit)
+                 else "needs_manual_use_selection")
     else:
         state = "neither_supported"
 
@@ -336,6 +384,12 @@ def decide(stage: str, points: list[dict], *, pollution_type: str | None = None,
         missing_evidence.append("生态门禁缺权威阈值: " + "、".join(eg["threshold_missing"]))
     if eg.get("low_confidence_threshold"):
         missing_evidence.append("生态门禁阈值置信度低(族群参考): " + "、".join(eg["low_confidence_threshold"]))
+    if us["production"] != "explicit":
+        missing_evidence.append("生产轨道未选择农用地类型(水田/其他)")
+    if us["ecology"] == "needs_manual_use_selection":
+        missing_evidence.append("生态轨道未选择建设用地类别(第一类/第二类用地)")
+    elif us["ecology"] == "regulatory_applicability_unresolved":
+        missing_evidence.append("生态用途为非建设用地: GB 36600 适用性待主管部门/课题组确认")
     for lbl, sc, st in (("生产", production_score, ps), ("生态", ecology_score, es)):
         if (not sc or sc.get("feasible") is None) and st == "insufficient":
             missing_evidence.append(f"{lbl}功能评分不可用({(sc or {}).get('reason', '未计算或证据不足')})")
@@ -359,8 +413,11 @@ def decide(stage: str, points: list[dict], *, pollution_type: str | None = None,
     return {
         "stage": stage, "is_post_remediation_conclusion": stage == POST,
         "decision_state": state, "conclusion_text": text,
-        "production": {"gate": pg, "score": production_score, "track_status": ps, "conditions": pc},
-        "ecology": {"gate": eg, "score": ecology_score, "track_status": es, "conditions": ec},
+        "production": {"gate": pg, "score": production_score, "track_status": ps, "conditions": pc,
+                       "use_state": us["production"]},
+        "ecology": {"gate": eg, "score": ecology_score, "track_status": es, "conditions": ec,
+                    "use_state": us["ecology"]},
+        "use_state": us, "hypothetical_screen": hypothetical, "use_scope_note": USE_SCOPE_NOTE,
         "comparison": comparison, "missing_evidence": missing_evidence, "assumptions": assumptions,
         "remediation_targets": _targets(pg, eg) if stage == PRE else None,
         "method_version": METHOD_VERSION, "method_status": METHOD_STATUS,
@@ -384,6 +441,8 @@ _STATE_CN = {
     "ecology_supported": "支持生态利用",
     "neither_supported": "生产与生态利用均不支持",
     "insufficient_evidence": "证据不足, 暂不能给出利用结论",
+    "needs_manual_use_selection": "须人工选择用途后才能给出正式利用结论(当前仅为保守假设筛查)",
+    "regulatory_applicability_unresolved": "所选用途的法规适用性未确定, 不给出正式利用结论",
 }
 
 
@@ -401,6 +460,8 @@ def _conclusion_text(stage, state, pg, eg, ps, es, conds, comparison) -> str:
             parts.append(f"{cn}门禁证据不足。")
         else:
             parts.append(f"{cn}门禁通过; 功能评分状态: {st}。")
+        if st == "withheld_use":
+            parts.append(f"{cn}轨道用途未明确或法规适用性未定: 正式结论暂缓。")
     if conds:
         parts.append("条件: " + "; ".join(conds) + "。")
     if comparison:

@@ -136,7 +136,9 @@ def ssui_post_batches(site_id: int, user: User = Depends(get_current_user), db: 
                     "evaluation_year": b.evaluation_year, "t": b.years_since_remediation, "M": b.multiplier_m,
                     "error_count": b.error_count, "created_at": b.created_at.isoformat() if b.created_at else None,
                     "confirmed_at": b.confirmed_at.isoformat() if b.confirmed_at else None,
-                    "ssui": ev.score if ev else None, "grade": ev.grade if ev else None,
+                    "ssui": ev.score if ev else None,
+                    "grade": (None if SP.effective_status(ev) == "out_of_domain" else ev.grade) if ev else None,
+                    "ssui_status": SP.effective_status(ev) if ev else None,
                     "exceeds_unit_range": (ev.dimensions or {}).get("exceeds_unit_range") if ev else None,
                     "warnings": (ev.explanation or "").split("; ") if ev and ev.explanation else []})
     return {"site_id": site_id, "batches": out}
@@ -166,16 +168,16 @@ def ssui_post_export(batch_id: int, user: User = Depends(require_permission("fil
 # ───────────── 利用决策(C3) ─────────────
 @router.post("/sites/{site_id}/utilization")
 def utilization_run(site_id: int, stage: str = Query(PRE_REMEDIATION),
-                    farmland_type: str | None = Query(None, description="水田/其他; 缺省取较严者"),
-                    eco_land_class: str | None = Query(None, description="第一类用地/第二类用地; 缺省第一类"),
+                    farmland_type: str | None = Query(None, description="水田/其他; 未选择 → 仅保守假设筛查, 无正式生产结论"),
+                    eco_land_class: str | None = Query(None, description="第一类用地/第二类用地/非建设用地生态用途; 未选择 → 无正式生态结论"),
                     user: User = Depends(require_permission("data:input")), db: Session = Depends(get_db)):
     _site(db, user, site_id)
     if stage not in (PRE_REMEDIATION, POST_REMEDIATION):
         raise HTTPException(422, "stage 必须为 pre_remediation / post_remediation")
     if farmland_type not in (None, "水田", "其他"):
         raise HTTPException(422, "farmland_type 必须为 水田/其他")
-    if eco_land_class not in (None, "第一类用地", "第二类用地"):
-        raise HTTPException(422, "eco_land_class 必须为 第一类用地/第二类用地")
+    if eco_land_class not in (None, "第一类用地", "第二类用地", "非建设用地生态用途"):
+        raise HTTPException(422, "eco_land_class 必须为 第一类用地/第二类用地/非建设用地生态用途")
     return US.run(db, site_id, stage, farmland_type=farmland_type, eco_land_class=eco_land_class, user_id=user.id)
 
 

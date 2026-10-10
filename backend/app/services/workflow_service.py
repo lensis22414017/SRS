@@ -59,10 +59,13 @@ def get_stages(db: Session, site_id: int) -> list[dict]:
                 "uploaded_by_name": uploader.display_name if uploader else "",
                 "uploaded_by_role": "",  # 前端通过 display_name 即可识别
                 "uploaded_at": str(fo.created_at) if fo and fo.created_at else "",
+                "sha256": (fo.sha256 or "") if fo else "",
             })
+        op = db.get(User, w.operator_id) if w.operator_id else None
         out.append({
             "id": w.id, "stage": w.stage, "stage_name": STAGE_NAME.get(w.stage),
             "status": w.status, "operator_id": w.operator_id,
+            "operator_name": op.display_name if op else None,
             "operated_at": str(w.operated_at) if w.operated_at else None,
             "review_comment": w.review_comment, "version": w.version,
             "data_source": w.data_source, "is_completed": w.is_completed,
@@ -97,6 +100,9 @@ def _validate_transition(current_status: str, new_status: str, stage: str,
     # 退回操作必须有退回原因
     if new_status == "returned" and not is_returned:
         raise ValueError("退回操作必须设置 is_returned=True")
+    # v1.2.2(T04): 退回必须写明原因(此前只校验 is_returned 标志, 无原因的退回也会被接受)
+    if new_status == "returned" and not (review_comment or "").strip():
+        raise ValueError("退回操作必须填写退回原因(review_comment)")
     # v0.2 P1-7: 已完成重新打开必须填写原因
     if current_status == "completed" and new_status == "in_progress":
         if not review_comment or not review_comment.strip():
@@ -242,7 +248,15 @@ def business_stage_status(db: Session, site_id: int) -> dict:
                 st = "in_progress" if n_att else "in_progress_no_docs"
         out.append({"stage": code, "name": name, "status": st, "status_cn": BUSINESS_STATUS_CN[st],
                     "n_attachments": (w or {}).get("n_attachments", 0),
-                    "operated_at": (w or {}).get("operated_at"), "review_comment": (w or {}).get("review_comment"),
-                    "attachments": [a.get("original_name") for a in (w or {}).get("attachments", [])]})
+                    "operated_at": ((w or {}).get("operated_at") or "")[:19] or None,
+                    "review_comment": (w or {}).get("review_comment"),
+                    "operator_name": (w or {}).get("operator_name"),
+                    "data_source": (w or {}).get("data_source"),
+                    "selected_recommendation": ((w or {}).get("payload") or {}).get("selected_recommendation"),
+                    "attachments": [a.get("original_name") for a in (w or {}).get("attachments", [])],
+                    # v1.2.2(T04): 每份材料的指纹与上传者, 报告据此把阶段追溯到证据
+                    "evidence": [{"name": a.get("original_name"), "file_role": a.get("file_role"),
+                                  "sha256_12": (a.get("sha256") or "")[:12], "uploaded_by": a.get("uploaded_by_name"),
+                                  "uploaded_at": a.get("uploaded_at")} for a in (w or {}).get("attachments", [])]})
     return {"stages": out, "n_completed": sum(1 for s in out if s["status"] == "completed"),
             "n_with_documents": sum(1 for s in out if s["n_attachments"] > 0)}

@@ -92,7 +92,8 @@ def upsert_site(db: Session, site_meta: dict) -> Site:
         Site.original_site_code == code,
     )).first()
     if site is None:
-        site = Site(site_code=code, name=site_meta.get("name") or code)
+        site = Site(site_code=code, name=site_meta.get("name") or code,
+                    organization_id=site_meta.get("_owner_org_on_create"))
         db.add(site)
     site.name = site_meta.get("name", site.name or code)
     site.pollution_type = site_meta.get("pollution_type", site.pollution_type)

@@ -114,7 +114,7 @@ def run_all(http: Http, demo: str, out: str, admin: tuple[str, str], report: boo
         check(f"[{code}] 课题二 导出", x.status_code == 200 and x.content[:2] == b"PK", len(x.content))
         r = http.post(f"/api/v1/sites/{sid}/evaluation", json={"scope": "production"})
         check(f"[{code}] 综合评价(重构+SSUI参考)", r.status_code == 200, r.status_code)
-        dp = http.post(f"/api/v1/sites/{sid}/utilization", params={"stage": "pre_remediation", "farmland_type": "水田"}).json()
+        dp = http.post(f"/api/v1/sites/{sid}/utilization", params={"stage": "pre_remediation", "farmland_type": "水田", "eco_land_class": "第一类用地"}).json()
         a["decision_pre"] = {"state": dp.get("decision_state"), "gates": {t: dp.get(t, {}).get("gate", {}).get("state")
                                                                          for t in ("production", "ecology")}}
         check(f"[{code}] 修复前情景判断(非修复后结论)", dp.get("is_post_remediation_conclusion") is False, a["decision_pre"])
@@ -136,7 +136,7 @@ def run_all(http: Http, demo: str, out: str, admin: tuple[str, str], report: boo
                   f"actual {calc.get('ssui')} expected {e_s}")
             xx = http.get(f"/api/v1/ssui-post/batches/{pv3['batch_id']}/export")
             open(os.path.join(out, f"{code}_S3_{track}_export_batch{pv3['batch_id']}.xlsx"), "wb").write(xx.content)
-        dq = http.post(f"/api/v1/sites/{sid}/utilization", params={"stage": "post_remediation", "farmland_type": "水田"}).json()
+        dq = http.post(f"/api/v1/sites/{sid}/utilization", params={"stage": "post_remediation", "farmland_type": "水田", "eco_land_class": "第一类用地"}).json()
         a["decision_post"] = {"state": dq.get("decision_state"),
                               "gates": {t: dq.get(t, {}).get("gate", {}).get("state") for t in ("production", "ecology")},
                               "conclusion_text": dq.get("conclusion_text"), "missing_evidence": dq.get("missing_evidence"),
@@ -218,6 +218,14 @@ def run_all(http: Http, demo: str, out: str, admin: tuple[str, str], report: boo
         for f in ex.get("official_must_exclude", []):
             check(f"[{code}] {f} 不进入正式 Top-N", f not in off)
         actual["scenarios"][code] = a
+    # ───── v1.2.2 场地 H: 方案推荐 + 五阶段业务追溯(角色/退回/下载/报告) ─────
+    if meta.get("cases_v122"):
+        try:
+            import workflow_demo as WD
+        except ImportError:  # pragma: no cover
+            from packaging.ci import workflow_demo as WD  # type: ignore
+        actual["scenarios"]["H"] = WD.run_site_h(http, demo, meta, check, out, report=report)
+        actual["phthalate_case_P"] = WD.run_case_p(http, demo, meta, check)
     # ───── 夹具 ─────
     sA = actual["scenarios"].get("A", {})
     sidA, codeA = sA.get("site_id"), sA.get("site_code")
@@ -243,6 +251,37 @@ def run_all(http: Http, demo: str, out: str, admin: tuple[str, str], report: boo
         actual["fixtures"][k] = {"expect": fx["expect"], "passed": ok,
                                  "messages": [e.get("message") for e in pv.get("errors", [])][:5]}
         check(f"夹具 {k} ({fx['expect']})", ok, actual["fixtures"][k]["messages"][:2])
+    # ───── v1.2.2(T01): v1.2.1 旧 S3 得分(SSUI>1, 域外)经真实 API 回放 → 不分级、不给支持; 再恢复域内输入 ─────
+    fxA = (exp.get("ssui_out_of_domain_fixtures") or {}).get("A_production")
+    if fxA and sidA:
+        uq = {"stage": "post_remediation", "farmland_type": "水田", "eco_land_class": "第一类用地"}
+
+        def _s3(path):
+            nm = os.path.basename(path)
+            pv = http.post(f"/api/v1/sites/{sidA}/ssui-post/preview", data={"track": "production"},
+                           files={"file": (nm, open(path, "rb").read(), XLSX)}).json()
+            if not pv.get("can_confirm"):
+                return pv, {}
+            return pv, http.post(f"/api/v1/ssui-post/batches/{pv['batch_id']}/confirm").json().get("calc", {})
+        pv, calc = _s3(os.path.join(demo, fxA["file"]))
+        check("[A·域外夹具] v1.2.1 旧得分可导入预览", pv.get("can_confirm") is True, pv.get("n_errors"))
+        check(f"[A·域外夹具] SSUI 原值保留 {fxA['ssui']} 且 status=out_of_domain", abs((calc.get("ssui") or 0) - fxA["ssui"]) < 1e-5
+              and calc.get("status") == "out_of_domain", {"ssui": calc.get("ssui"), "status": calc.get("status")})
+        check("[A·域外夹具] 不分级、可行性不判定", calc.get("grade") is None and calc.get("feasible") is None,
+              {"grade": calc.get("grade"), "feasible": calc.get("feasible")})
+        dq = http.post(f"/api/v1/sites/{sidA}/utilization", params=uq).json()
+        check("[A·域外夹具] 利用结论不给生产正向支持", dq.get("decision_state") not in ("both_supported", "production_supported")
+              and (dq.get("production") or {}).get("track_status") != "supported",
+              {"decision": dq.get("decision_state"), "production": (dq.get("production") or {}).get("track_status")})
+        fx_rep = {"ssui": calc.get("ssui"), "status": calc.get("status"), "grade": calc.get("grade"),
+                  "decision_with_fixture": dq.get("decision_state"), "production_track": (dq.get("production") or {}).get("track_status")}
+        dA = os.path.join(demo, "site_A"); f03 = [f for f in sorted(os.listdir(dA)) if f.startswith("03_")][0]
+        pv, calc = _s3(os.path.join(dA, f03))
+        dq = http.post(f"/api/v1/sites/{sidA}/utilization", params=uq).json()
+        check("[A·域外夹具] 恢复域内输入后结论回到期望分支", dq.get("decision_state") == exp["scenarios"]["A"]["post_decision"],
+              dq.get("decision_state"))
+        fx_rep["decision_after_restore"] = dq.get("decision_state")
+        actual["ssui_out_of_domain_replay"] = fx_rep
     passed = sum(c["passed"] for c in checks)
     actual["summary"] = {"checks": len(checks), "passed": passed, "failed": len(checks) - passed,
                          "decisions": {c: s.get("decision_post", {}).get("state") for c, s in actual["scenarios"].items()},

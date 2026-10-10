@@ -3,7 +3,9 @@
 只使用合成的蒙特卡洛演示数据(demo/mc_v12, demo/mc_v11), 不使用甲方真实数据。
 阶段:
   full      空库首启 → 管理员设置 → demo_runner 全部 5 个场景 + 8 个夹具 → 与 expected.json 比对 → 状态快照
-  restart   重启后: 不再要求设置; 5 个场景的修复后结论、课题二批次、课题三 SSUI 与快照一致
+  restart   重启后: 不再要求设置; 5 个场景的修复后结论、课题二批次、课题三 SSUI 与快照一致;
+            v1.2.2: 场地 H 五阶段状态/附件指纹/方案选择记录保持(企业用户重新登录)
+  (full 阶段经 demo_runner 同时执行 v1.2.2 案例: 场地 H 推荐+五阶段+角色检查, 案例 P 邻苯二甲酸酯, A 域外 SSUI 夹具回放)
   seed_v11  (旧版 v1.1.0 安装后) 首启设置 + 导入 v1.1 演示修复前数据 + 课题三生产批次, 快照
   upgrade   (覆盖安装 v1.2.0 后) 旧数据仍在、旧结论可读、新接口可用、阈值已按官方值更正
   portable  便携版: 数据目录位于 exe 同级 SRS_data, 空库首启 + 一次导入与计算
@@ -21,6 +23,7 @@ import requests
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import demo_runner as DR  # noqa: E402
+import workflow_demo as WD  # noqa: E402
 import report_invariants as RI  # noqa: E402  # noqa: E402
 
 ADMIN = ("admin", "Accept@2026Srs")
@@ -111,6 +114,20 @@ def phase_restart(base, demo, out):
         sb = H.get(f"/api/v1/sites/{sid}/ssui-post/batches").json()["batches"]
         got = sorted([(b["track"], b["ssui"]) for b in sb if b["status"] == "confirmed"])
         check(f"restart [{code}]: S3 SSUI identical", json.loads(json.dumps(got)) == json.loads(json.dumps(s["ssui"])), got)
+    # v1.2.2(T04): 已安装程序真实重启后, 场地 H 五阶段状态/附件内容/方案选择记录保持; 企业用户重新登录
+    probe_p = os.path.join(out, "demo_actual", "H_persist_probe.json")
+    meta = json.load(open(os.path.join(demo, "metadata.json"), encoding="utf-8"))
+    hc = ((meta.get("cases_v122") or {}).get("cases") or {}).get("H")
+    if hc:
+        ok = check("restart [H]: persist probe written by full phase", os.path.isfile(probe_p), probe_p)
+        if ok:
+            E = http(base)
+            r = requests.post(f"{base}/api/v1/auth/login", json={"username": hc["users"]["enterprise"]["username"], "password": hc["password"]})
+            check("restart [H]: enterprise user can log in again", r.status_code == 200, r.status_code)
+            E.h = {"Authorization": "Bearer " + (r.json().get("access_token") or "")}
+            res = WD.verify_persisted(E, json.load(open(probe_p, encoding="utf-8")), lambda n, c, d=None: check("restart " + n, c, d),
+                                      label="安装版重启后")
+            json.dump(res, open(os.path.join(out, "H_after_restart.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1, default=str)
 
 
 def phase_seed_v11(base, demo, out):
@@ -178,9 +195,12 @@ def phase_portable(base, demo, out):
 
 
 def phase_seed_v12(base, demo, out):
-    """v1.2.0 已安装版本上写入业务数据(demo 指向 demo/mc_v12), 用于验证 v1.2.0 → v1.2.1 覆盖升级。"""
+    """旧版(OLD_VERSION, 默认 1.2.0; v1.2.2 起 CI 用 1.2.1)已安装程序上写入业务数据, 用于验证覆盖升级。
+    OLD_VERSION≥1.2.1 时课题三生产轨导入 v1.2.1 旧得分夹具(SSUI 1.019189, 旧版判为“高度可持续”),
+    升级后验证: 原值保留、不再分级、不给生产正向支持。"""
+    oldv = os.environ.get("OLD_VERSION", "1.2.0")
     h = requests.get(f"{base}/health").json()
-    check("old version running (1.2.0)", h.get("version") == "1.2.0", h.get("version"))
+    check(f"old version running ({oldv})", h.get("version") == oldv, h.get("version"))
     H = http(base); DR.ensure_admin(H, ADMIN)
     d = os.path.join(demo, "site_A")
     fs = sorted(os.listdir(d))
@@ -196,12 +216,21 @@ def phase_seed_v12(base, demo, out):
     cf = H.post(f"/api/v1/recon/batches/{pv.get('batch_id')}/confirm").json()
     check("v1.2.0: S2 confirmed", cf.get("status") == "confirmed", cf.get("status"))
     f3 = [f for f in fs if f.startswith("03_")][0]
+    p3path = os.path.join(d, f3)
+    if oldv != "1.2.0":
+        exp = json.load(open(os.path.join(demo, "expected.json"), encoding="utf-8"))
+        p3path = os.path.join(demo, exp["ssui_out_of_domain_fixtures"]["A_production"]["file"])
+        f3 = os.path.basename(p3path)
+    content3 = DR._set_code(p3path, "批次信息", "B2", site["site_code"])
     p3 = H.post(f"/api/v1/sites/{sid}/ssui-post/preview", data={"track": "production"},
-                files={"file": (f3, open(os.path.join(d, f3), "rb").read(), DR.XLSX)}).json()
+                files={"file": (f3, content3, DR.XLSX)}).json()
     c3 = H.post(f"/api/v1/ssui-post/batches/{p3['batch_id']}/confirm").json()
     check("v1.2.0: S3 confirmed", c3.get("status") == "confirmed", (c3.get("calc") or {}).get("ssui"))
     rr = H.post(f"/api/v1/sites/{sid}/report?format=pdf").json()
-    snap = {"site_id": sid, "site_code": site["site_code"], "report_id": rr.get("report_id"),
+    dq = H.post(f"/api/v1/sites/{sid}/utilization", params={"stage": "post_remediation", "farmland_type": "水田"}).json()
+    snap = {"site_id": sid, "site_code": site["site_code"], "report_id": rr.get("report_id"), "old_version": oldv,
+            "old_ssui_grade": (c3.get("calc") or {}).get("grade"), "old_decision": dq.get("decision_state"),
+            "old_production_feasible": (c3.get("calc") or {}).get("feasible"),
             "recon": [(b["batch_id"], b["status"], b["production"], b["ecology"]) for b in H.get(f"/api/v1/sites/{sid}/recon/batches").json()["batches"]],
             "ssui": sorted([(b["track"], b["ssui"]) for b in H.get(f"/api/v1/sites/{sid}/ssui-post/batches").json()["batches"] if b["status"] == "confirmed"])}
     json.dump(snap, open(os.path.join(out, "state_v12.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1, default=str)
@@ -210,29 +239,44 @@ def phase_seed_v12(base, demo, out):
 def phase_upgrade_v12(base, demo, out):
     _health(base, EXPECTED_VERSION)
     snap = json.load(open(os.path.join(out, "state_v12.json"), encoding="utf-8"))
+    OV = snap.get("old_version", "1.2.0")
     st = requests.get(f"{base}/api/v1/setup/status").json()
-    check("upgrade v1.2.0→: existing admin kept", st.get("needs_setup") is False, st)
+    check(f"upgrade v{OV}→: existing admin kept", st.get("needs_setup") is False, st)
     H = http(base); DR.ensure_admin(H, ADMIN)
     sid = snap["site_id"]
-    check("upgrade v1.2.0→: site preserved", H.get(f"/api/v1/sites/{sid}").json().get("site_code") == snap["site_code"])
+    check(f"upgrade v{OV}→: site preserved", H.get(f"/api/v1/sites/{sid}").json().get("site_code") == snap["site_code"])
     rb = [(b["batch_id"], b["status"], b["production"], b["ecology"]) for b in H.get(f"/api/v1/sites/{sid}/recon/batches").json()["batches"]]
-    check("upgrade v1.2.0→: S2 batches preserved", json.loads(json.dumps(rb)) == json.loads(json.dumps(snap["recon"])), rb)
+    check(f"upgrade v{OV}→: S2 batches preserved", json.loads(json.dumps(rb)) == json.loads(json.dumps(snap["recon"])), rb)
     sb = sorted([(b["track"], b["ssui"]) for b in H.get(f"/api/v1/sites/{sid}/ssui-post/batches").json()["batches"] if b["status"] == "confirmed"])
-    check("upgrade v1.2.0→: S3 SSUI preserved", json.loads(json.dumps(sb)) == json.loads(json.dumps(snap["ssui"])), sb)
+    check(f"upgrade v{OV}→: S3 SSUI preserved", json.loads(json.dumps(sb)) == json.loads(json.dumps(snap["ssui"])), sb)
     old = H.get(f"/api/v1/reports/{snap['report_id']}/download")
-    check("upgrade v1.2.0→: v1.2.0 report still downloadable", old.status_code == 200 and len(old.content) > 1000, old.status_code)
+    check(f"upgrade v{OV}→: v1.2.0 report still downloadable", old.status_code == 200 and len(old.content) > 1000, old.status_code)
     os_ = H.get(f"/api/v1/reports/{snap['report_id']}/snapshot").json()
-    check("upgrade v1.2.0→: legacy report has no snapshot (reported, not fabricated)", os_.get("snapshot") is None and os_.get("verified") is False)
+    if snap.get("old_version", "1.2.0") == "1.2.0":
+        check(f"upgrade v{OV}→: legacy report has no snapshot (reported, not fabricated)", os_.get("snapshot") is None and os_.get("verified") is False)
+    else:
+        check(f"upgrade v{snap['old_version']}→: old report snapshot still verifies (SHA-256)", os_.get("verified") is True, os_.get("snapshot_id"))
+        # v1.2.2(T01): 旧版入库的域外 SSUI(旧版判“高度可持续”) → 升级后读取不分级、不支持
+        sj0 = H.get(f"/api/v1/sites/{sid}/evaluation-snapshot").json()["snapshot"]
+        ev0 = sj0["ssui"]["post"]["production"]["evaluation"] or {}
+        check(f"upgrade v{snap['old_version']}→: legacy SSUI raw value kept", abs((ev0.get("score") or 0) - 1.019189) < 1e-5, ev0.get("score"))
+        check(f"upgrade v{snap['old_version']}→: legacy out-of-domain SSUI now ungraded (was {snap.get('old_ssui_grade')})",
+              ev0.get("status") == "out_of_domain" and ev0.get("grade") is None and ev0.get("stored_grade") == snap.get("old_ssui_grade"),
+              {k: ev0.get(k) for k in ("status", "grade", "stored_grade", "legacy_record")})
+        dq = H.post(f"/api/v1/sites/{sid}/utilization", params={"stage": "post_remediation", "farmland_type": "水田",
+                                                                 "eco_land_class": "第一类用地"}).json()
+        check(f"upgrade v{snap['old_version']}→: production no longer supported by out-of-domain SSUI (old: {snap.get('old_decision')})",
+              (dq.get("production") or {}).get("track_status") != "supported", (dq.get("production") or {}).get("track_status"))
     kj = H.post(f"/api/v1/sites/{sid}/kos-diagnosis?track=prod&subset=hm&top_n=10&farmland_type=水田").json()
     off = [k["factor"] for k in kj.get("key_obstacles", [])]
-    check("upgrade v1.2.0→: re-run KOS gives evidence-gated official list", kj.get("official_ranking_status") in ("available", "partial")
+    check(f"upgrade v{OV}→: re-run KOS gives evidence-gated official list", kj.get("official_ranking_status") in ("available", "partial")
           and not set(off) & RI.FERTILITY, off)
     sj = H.get(f"/api/v1/sites/{sid}/evaluation-snapshot").json()
     cr6 = [x for x in sj["snapshot"]["factor_summary"]["pre_remediation"] if x["factor"] == "六价铬"]
-    check("upgrade v1.2.0→: Cr(VI) unit artefact repaired in DB", bool(cr6) and cr6[0]["unit"] == "mg/kg" and not cr6[0]["unit_note"], cr6[:1])
+    check(f"upgrade v{OV}→: Cr(VI) unit artefact repaired in DB", bool(cr6) and cr6[0]["unit"] == "mg/kg" and not cr6[0]["unit_note"], cr6[:1])
     rr = H.post(f"/api/v1/sites/{sid}/report?format=pdf").json()
     ns = H.get(f"/api/v1/reports/{rr.get('report_id')}/snapshot").json()
-    check("upgrade v1.2.0→: new report carries verified snapshot", ns.get("verified") is True, ns.get("snapshot_id"))
+    check(f"upgrade v{OV}→: new report carries verified snapshot", ns.get("verified") is True, ns.get("snapshot_id"))
 
 
 PHASES = {"full": phase_full, "snapshot": phase_snapshot, "restart": phase_restart, "seed_v11": phase_seed_v11, "upgrade": phase_upgrade,

@@ -114,7 +114,7 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
             sh._element.getparent().remove(sh._element)
     for sh in cover.shapes:
         if sh.name == "Rectangle 7":
-            set_lines(sh, [f"SRS v{VERSION} 年度验收演示（修复候选）"])
+            set_lines(sh, [f"SRS v{VERSION} 年度验收演示（收尾候选）"])
         elif sh.name == "Rectangle 2":
             set_lines(sh, ["污染场地土壤生态-生产功能重构", "监管系统（SRS）操作演示"])
             for para in sh.text_frame.paragraphs:
@@ -124,7 +124,7 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
             set_lines(sh, ["委托单位：生态环境部土壤与农业农村生态环境监管技术中心", "承担单位：浙江大学环境与资源学院"])
     deck_textbox(cover, 2.0, 3.9, 9.3, 0.95,
                  [[("汇报人：曾 鸿    指导教师：王 玮 副教授", {"size": 16, "bold": True})],
-                  [(f"软件版本 v{VERSION}（修复候选，待甲方验收） · 演示数据为{LABEL}", {"size": 12, "color": "grey"})]],
+                  [(f"软件版本 v{VERSION}（收尾候选，待甲方验收） · 演示数据为{LABEL}", {"size": 12, "color": "grey"})]],
                  align=PP_ALIGN.CENTER, spacing=1.15)
     cover.notes_slide.notes_text_frame.text = (f"封面。本演示基于 v{VERSION} 年度验收候选版; 截图采自 Windows 实际安装的程序; 演示数据为固定种子的合成数据。"
                                                "课题二/三部分方法细节仍待陈亮、宋伟杰老师确认, 已按冻结基线执行并登记。")
@@ -145,7 +145,7 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
     full = acc.get("full", (0, 0))
     deck_textbox(s, 0.9, 6.45, 11.5, 0.6, [[("Windows 实装验收：", {"bold": True}),
                  (f"关键流程 {full[0]}/{full[1]} 项通过；重启 {acc.get('restart', (0, 0))[0]}/{acc.get('restart', (0, 0))[1]}；"
-                  f"v1.1.0→v{VERSION} 升级 {acc.get('upgrade', (0, 0))[0]}/{acc.get('upgrade', (0, 0))[1]}；v1.2.0→v{VERSION} 升级 {acc.get('upgrade_v12', (0, 0))[0]}/{acc.get('upgrade_v12', (0, 0))[1]}；便携版 {acc.get('portable', (0, 0))[0]}/{acc.get('portable', (0, 0))[1]}（GitHub Actions Windows）。", {})]], size=13)
+                  f"v1.1.0→v{VERSION} 升级 {acc.get('upgrade', (0, 0))[0]}/{acc.get('upgrade', (0, 0))[1]}；v1.2.1→v{VERSION} 升级 {acc.get('upgrade_v12', (0, 0))[0]}/{acc.get('upgrade_v12', (0, 0))[1]}；便携版 {acc.get('portable', (0, 0))[0]}/{acc.get('portable', (0, 0))[1]}（GitHub Actions Windows）。", {})]], size=13)
     # 3 数据阶段
     s = D.slide("二、三个课题与数据阶段", "修复前数据进课题一、二；修复后数据只经课题三导入；三类批次分表存储、不自动复制",
                 "强调分离: 课题二 28 项指标也是修复前数据, 有独立批次; 修复后 SSUI 与修复后污染物检测只进入课题三。",
@@ -165,7 +165,7 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
         fill="panel", line=None, size=13, align=PP_ALIGN.LEFT, margin=0.15)
     # 4 安装
     s = D.slide("三、安装、首启、升级与便携版", "安装包不含业务数据和账户；首启空库设置管理员；v1.1.0、v1.2.0 覆盖升级数据保留",
-                f"演示: 安装路径含中文和空格; 首启空库; 升级 v1.1.0/v1.2.0→v{VERSION} 在 GitHub Actions Windows(管理员账户)上实测; 便携版数据写在 exe 同级 SRS_data。/CURRENTUSER 安装到当前用户目录; 标准(非管理员)测试账户经 CI 计划任务安装、启动、导入/评价通过, 甲方 Windows 10/11 实机尚未测试。",
+                f"演示: 安装路径含中文和空格; 首启空库; 升级 v1.1.0/v1.2.1→v{VERSION} 在 GitHub Actions Windows(管理员账户)上实测; 便携版数据写在 exe 同级 SRS_data。/CURRENTUSER 安装到当前用户目录; 标准(非管理员)测试账户经 CI 计划任务安装、启动、导入/评价通过, 甲方 Windows 10/11 实机尚未测试。",
                 "来源：.github/workflows/windows-release.yml；acceptance_*.json")
     deck_textbox(s, 0.95, 1.7, 5.2, 5.2, [
         [("1  安装版", {"bold": True, "size": 16, "color": "brown"})], f"SRS-Setup-{VERSION}-Windows-x64.exe；/CURRENTUSER 安装到当前用户目录（CI 标准账户计划任务测试通过，见验收页）", "",
@@ -175,7 +175,7 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
     D.shot(s, "00_first_run_setup.png", 6.4, 1.7, 6.1, 5.2, "首次启动设置向导")
     # 5 追溯
     s = D.slide("四、全流程追溯：进入即见", "打开页面即显示五阶段引导、需上传资料和模板下载；查看不创建任何记录",
-                "C5: 进入追溯页面不需要先选场地。v1.2.1 起把“七项软件操作里程碑”与“五阶段业务记录”分开: 软件操作 7/7 不等于调查、审批、施工、效果评估、管护五阶段完成; 演示场地未上传业务材料, 五阶段均显示未开展。",
+                "C5: 进入追溯页面不需要先选场地。v1.2.1 起把“七项软件操作里程碑”与“五阶段业务记录”分开: 软件操作 7/7 不等于调查、审批、施工、效果评估、管护五阶段完成; 演示场地 A–G 未上传业务材料, 五阶段均显示未开展; v1.2.2 场地 H 五阶段均有模拟材料与模拟审核记录(见追溯截图 26)。",
                 "来源：GET /api/v1/trace/guide、/sites/{id}/trace/progress")
     stages = [("调查评估", "修复前 · 课题一/二"), ("方案审批", "修复前 · 课题一/二"), ("施工监理", "—"),
               ("效果评估", "修复后 · 课题三"), ("后期管护", "修复后 · 课题三")]
@@ -352,7 +352,7 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
         rows.append([lab, f"{v[0]}/{v[1]} 通过" if v else "未执行（见验收记录）"])
     deck_table(s, 0.95, 1.75, 6.0, 4.0, rows, [3.2, 2.8], font=12.5)
     deck_box(s, 7.15, 1.75, 5.3, 4.0, text=[[("发布信息", {"bold": True, "size": 14, "color": "brown"})],
-                                            f"版本：v{VERSION}（预发布，修复候选）", f"标签：{release.get('tag', '—')}", f"提交：{(release.get('commit') or '—')[:12]}",
+                                            f"版本：v{VERSION}（预发布，收尾候选）", f"标签：{release.get('tag', '—')}", f"提交：{(release.get('commit') or '—')[:12]}",
                                             f"工作流：{release.get('run', '—')}", "资产：安装包、便携版、SHA-256、手册 DOCX/PDF、PPTX、演示包"],
              fill="panel", line=None, size=12, align=PP_ALIGN.LEFT, margin=0.15)
     deck_textbox(s, 0.95, 5.95, 11.5, 0.9, [release.get("url", "")], size=11, color="grey")
@@ -361,7 +361,7 @@ def build(shots, out, evidence, public=False, release=None, gejiu=None):
                 "三项结论分开: 年度软件与演示就绪度(内部就绪, 非甲方验收结论); 科学方法验证(待确认); 真实修复后验证(待数据)。",
                 "来源：FINAL_REPORT.md")
     deck_table(s, 0.95, 1.75, 11.45, 2.6, [["维度", "结论", "依据"],
-                                            ["年度软件与演示", "修复候选（待甲方验收）", "审计 R01–R10 修复与回归；Windows 实装验收；文档与截图同版"],
+                                            ["年度软件与演示", "收尾候选（待甲方验收）", "T01–T06：SSUI 定义域、邻苯二甲酸酯单体标识、用途状态、场地 H 推荐与五阶段追溯；Windows 实装验收；文档与截图同版"],
                                             ["科学方法验证", "未完成（冻结基线执行）", "Q01–Q18 决策登记：17 项待答复、1 项软件侧部分解决"],
                                             ["真实修复后验证", "未开始（缺数据）", "尚无实测修复后数据"]], [2.6, 3.0, 5.85], font=13)
     deck_box(s, 0.95, 4.6, 11.45, 2.35, text=[[("需要各方配合", {"bold": True, "size": 15, "color": "brown"})],

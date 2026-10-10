@@ -2,7 +2,7 @@ name: Windows Release Candidate (build + install + acceptance)
 
 # v1.2 年度验收: 在 Windows 上从源码构建安装包与便携版, 并对"实际安装的程序"执行验收:
 #   空库首启 → 首启截图 → 5 个合成场景 + 8 个夹具(与独立期望值比对) → 全功能截图 → 重启一致性 →
-#   卸载 → v1.1.0 → 当前版本 覆盖升级 → v1.2.0 → 当前版本 覆盖升级 → 便携版。
+#   卸载 → v1.1.0 → 当前版本 覆盖升级 → v1.2.1 → 当前版本 覆盖升级(v1.2.2 起; 此前为 v1.2.0) → 便携版。
 # 标准(非管理员)账户安装与运行在独立 job(standard-user)中执行, 失败即该 job 失败, 不再 continue-on-error 掩盖;
 # 安装后报告 DOCX 在独立 job(docx-render)中用 LibreOffice 转 PDF 供逐页目检。
 # 只使用合成的蒙特卡洛演示数据(demo/mc_v12, demo/mc_v11), 不使用甲方真实数据。
@@ -10,7 +10,7 @@ name: Windows Release Candidate (build + install + acceptance)
 on:
   workflow_dispatch:
   push:
-    branches: ["fix/v1.1-client-acceptance", "release/v1.2-annual", "fix/v1.2.1-remediation"]
+    branches: ["fix/v1.1-client-acceptance", "release/v1.2-annual", "fix/v1.2.1-remediation", "fix/v1.2.2-closeout"]
     tags: ["v1.2.*"]
 
 permissions:
@@ -23,6 +23,8 @@ env:
   SRS_PORT: "18080"
   V11_RUN_ID: "37866554895"
   V12_RUN_ID: "37909467812"
+  # v1.2.2: 覆盖升级测试的直接前一版本 = v1.2.1-rc.1 (Windows run 38046495198 的 srs-installer 产物)
+  V121_RUN_ID: "38046495198"
 
 jobs:
   windows-rc:
@@ -218,40 +220,42 @@ jobs:
           if ($c2 -ne 0) { throw "upgrade phase failed" }
           Rename-Item "$env:APPDATA\SRS" "SRS_after_upgrade"
 
-      - name: Download v1.2.0 installer (rc.1 build, run ${{ env.V12_RUN_ID }})
+      - name: Download v1.2.1 installer (rc.1 build, run ${{ env.V121_RUN_ID }})
         uses: actions/download-artifact@v4
         with:
           name: srs-installer
           path: v12_installer
-          run-id: ${{ env.V12_RUN_ID }}
+          run-id: ${{ env.V121_RUN_ID }}
           github-token: ${{ github.token }}
 
-      - name: Upgrade v1.2.0 → current (in place, data + reports retained, legacy units repaired)
+      - name: Upgrade v1.2.1 → current (in place, data + reports retained, legacy out-of-domain SSUI no longer graded)
+        env:
+          OLD_VERSION: "1.2.1"
         run: |
-          $old = Get-ChildItem v12_installer -Filter "SRS-Setup-1.2.0-Windows-x64.exe" | Select-Object -First 1
-          if (-not $old) { throw "v1.2.0 installer artifact not found" }
-          (Get-FileHash $old.FullName -Algorithm SHA256).Hash.ToLower() | Out-File acceptance_out\v120_installer_sha256.txt
-          $dir = "C:\SRS 升级120\安装 目录"
-          $p = Start-Process $old.FullName -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/CURRENTUSER',"/DIR=`"$dir`"",'/LOG=install_v120.log' -Wait -PassThru
-          if ($p.ExitCode -ne 0) { throw "v1.2.0 installer exit $($p.ExitCode)" }
+          $old = Get-ChildItem v12_installer -Filter "SRS-Setup-1.2.1-Windows-x64.exe" | Select-Object -First 1
+          if (-not $old) { throw "v1.2.1 installer artifact not found" }
+          (Get-FileHash $old.FullName -Algorithm SHA256).Hash.ToLower() | Out-File acceptance_out\v121_installer_sha256.txt
+          $dir = "C:\SRS 升级121\安装 目录"
+          $p = Start-Process $old.FullName -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/CURRENTUSER',"/DIR=`"$dir`"",'/LOG=install_v121.log' -Wait -PassThru
+          if ($p.ExitCode -ne 0) { throw "v1.2.1 installer exit $($p.ExitCode)" }
           $app = Start-Process "$dir\SRS.exe" -ArgumentList '--port',$env:SRS_PORT,'--no-browser','--no-tray' -PassThru
           for ($i=0; $i -lt 90; $i++) { try { if ((Invoke-WebRequest "http://127.0.0.1:$env:SRS_PORT/health" -UseBasicParsing -TimeoutSec 3).StatusCode -eq 200) { break } } catch {}; Start-Sleep 2 }
           python packaging/ci/windows_acceptance.py --base "http://127.0.0.1:$env:SRS_PORT" --demo demo/mc_v12 --out acceptance_out --phase seed_v12
           $c1 = $LASTEXITCODE
           Stop-Process -Id $app.Id -Force; Start-Sleep 3; Get-Process SRS -ErrorAction SilentlyContinue | Stop-Process -Force
-          if ($c1 -ne 0) { throw "v1.2.0 seed phase failed" }
-          $p = Start-Process $env:INSTALLER -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/CURRENTUSER',"/DIR=`"$dir`"",'/LOG=install_upgrade_v120.log' -Wait -PassThru
-          if ($p.ExitCode -ne 0) { throw "upgrade (from 1.2.0) installer exit $($p.ExitCode)" }
+          if ($c1 -ne 0) { throw "v1.2.1 seed phase failed" }
+          $p = Start-Process $env:INSTALLER -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/CURRENTUSER',"/DIR=`"$dir`"",'/LOG=install_upgrade_v121.log' -Wait -PassThru
+          if ($p.ExitCode -ne 0) { throw "upgrade (from 1.2.1) installer exit $($p.ExitCode)" }
           $app = Start-Process "$dir\SRS.exe" -ArgumentList '--port',$env:SRS_PORT,'--no-browser','--no-tray' -PassThru
           for ($i=0; $i -lt 90; $i++) { try { if ((Invoke-WebRequest "http://127.0.0.1:$env:SRS_PORT/health" -UseBasicParsing -TimeoutSec 3).StatusCode -eq 200) { break } } catch {}; Start-Sleep 2 }
           python packaging/ci/windows_acceptance.py --base "http://127.0.0.1:$env:SRS_PORT" --demo demo/mc_v12 --out acceptance_out --phase upgrade_v12
           $c2 = $LASTEXITCODE
           Stop-Process -Id $app.Id -Force; Start-Sleep 3; Get-Process SRS -ErrorAction SilentlyContinue | Stop-Process -Force
-          Copy-Item "$env:APPDATA\SRS\launcher.log" acceptance_out\launcher_upgrade_v120.log -ErrorAction SilentlyContinue
+          Copy-Item "$env:APPDATA\SRS\launcher.log" acceptance_out\launcher_upgrade_v121.log -ErrorAction SilentlyContinue
           $u = Get-ChildItem $dir -Filter "unins*.exe" | Select-Object -First 1
           Start-Process $u.FullName -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART' -Wait
-          if ($c2 -ne 0) { throw "upgrade from v1.2.0 phase failed" }
-          Rename-Item "$env:APPDATA\SRS" "SRS_after_upgrade_v120"
+          if ($c2 -ne 0) { throw "upgrade from v1.2.1 phase failed" }
+          Rename-Item "$env:APPDATA\SRS" "SRS_after_upgrade_v121"
 
       - name: Portable package (Chinese + space path, data beside exe)
         run: |
@@ -288,8 +292,8 @@ jobs:
             install.log
             install_v11.log
             install_upgrade.log
-            install_v120.log
-            install_upgrade_v120.log
+            install_v121.log
+            install_upgrade_v121.log
           retention-days: 30
 
   # ─────────────────────────────────────────────────────────────────────────────

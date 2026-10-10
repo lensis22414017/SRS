@@ -13,7 +13,9 @@ GATE_STATE_CN = {"pass": "未超筛选值", "conditional": "超筛选值、未�
                  "fail": "超管制值", "insufficient": "证据不足(缺测/条件不明)"}
 DECISION_CN = {"both_supported": "生产与生态均支持", "production_supported": "支持生产利用",
                "ecology_supported": "支持生态利用", "neither_supported": "均不支持",
-               "insufficient_evidence": "证据不足"}
+               "insufficient_evidence": "证据不足",
+               "needs_manual_use_selection": "须选择用途(仅保守假设筛查, 无正式结论)",
+               "regulatory_applicability_unresolved": "法规适用性未定(无正式结论)"}
 OFFICIAL_STATUS_CN = {"available": "正式结果可用", "partial": "正式因子不足 3 个(部分结果)",
                       "insufficient_evidence": "证据不足, 无正式排名"}
 FERTILITY = {"CEC_cmolkg", "TN_gkg", "OM_gkg", "OC_pct", "Total_P_gkg", "Total_K_gkg", "P_mgkg", "K_mgkg",

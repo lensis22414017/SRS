@@ -52,7 +52,7 @@ def login(body: LoginBody, request: Request, db: Session = Depends(get_db)):
 @router.get("/me")
 def me(user: User = Depends(get_current_user), db: Session = Depends(get_db)):
     org = db.get(Organization, user.organization_id) if user.organization_id else None
-    return {"username": user.username, "display_name": user.display_name,
+    return {"id": user.id, "username": user.username, "display_name": user.display_name,
             "organization": org.name if org else None,
             "organization_id": user.organization_id,
             "roles": sorted(user_role_codes(db, user)),

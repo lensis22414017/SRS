@@ -65,6 +65,50 @@ def _norm_key_aggressive(s: str) -> str:
     return s
 
 
+# v1.2.2(T02): GB 36600 官方名称 → 既有 canonical(仅一对一同物; 族总量 canonical 不在此表)
+_OFFICIAL_TO_CANONICAL = {
+    "砷": "As_mgkg", "镉": "Cd_mgkg", "铬（六价）": "Cr6_mgkg", "铜": "Cu_mgkg", "铅": "Pb_mgkg", "汞": "Hg_mgkg",
+    "镍": "Ni_mgkg", "锑": "Sb_mgkg", "铍": "Be_mgkg", "钴": "Co_mgkg", "钒": "V_mgkg",
+    "苯并[a]芘": "BaP_ngg", "四氯乙烯": "VOC_Tetrachloroethylene", "三氯乙烯": "VOC_Trichloroethylene",
+    "四氯化碳": "VOC_CarbonTetrachloride", "氯仿": "VOC_Chloroform", "氯乙烯": "VOC_VinylChloride",
+    "二氯甲烷": "VOC_Dichloromethane", "氯苯": "VOC_Chlorobenzene", "苯乙烯": "BTEX_Styrene", "甲苯": "BTEX_Toluene",
+    "乙苯": "BTEX_Ethylbenzene", "五氯酚": "Phenol_Pentachlorophenol", "苯胺": "Aniline", "硝基苯": "Nitrobenzene",
+    "氰化物": "Cyanide", "石油烃(C10-C40)": "TPH_ngg", "多氯联苯(总量)": "SumPCB_ngg",
+    "萘": "萘", "䓛": "䓛", "苯并[a]蒽": "苯并[a]蒽", "苯并[b]荧蒽": "苯并[b]荧蒽", "苯并[k]荧蒽": "苯并[k]荧蒽",
+    "茚并[1,2,3-cd]芘": "茚并[1,2,3-cd]芘", "二苯并[a,h]蒽": "二苯并[a,h]蒽",
+}
+_FAMILY_TOTAL_CANONICALS = {"SumPAE_ugkg", "PAHs_total(族群)", "SumPCB_ngg", "SumHCHs_ngg", "SumDDTs_ngg", "SumOCP_ngg"}
+
+
+def identity_of(raw_name: str | None) -> dict:
+    """v1.2.2(T02): 分析身份判定(不依赖关键词相似性)。
+
+    identity: exact_official(官方单体/总量记录精确命中) / family_total(物质族总量, 无对应官方单体)
+              / mapping_review_required(属于某族但不是已登记物质 — 须人工确认映射) / other(交由既有别名表)
+    """
+    from app.services import analyte_registry as AR
+    if not raw_name:
+        return {"identity": "other"}
+    _, factor_name, _ = _extract_unit(str(raw_name))
+    cands = [factor_name, str(raw_name)] + [p.strip() for p in re.split(r"[_/（）()]", factor_name) if p.strip()]
+    for c in cands:
+        rec = AR.exact_official(c)
+        if rec:
+            off = rec["official_name"]
+            return {"identity": "exact_official", "canonical": _OFFICIAL_TO_CANONICAL.get(off, off),
+                    "official_name": off, "cas": rec["cas"], "standard": rec["standard"],
+                    "official_record": f"{rec['standard']} {rec['table']}#{rec['item_no']}"}
+    fam = AR.family_of(factor_name)
+    if fam:
+        # 已登记的族总量别名(如“邻苯二甲酸酯_PAEs”、“多环芳烃总量”)
+        k = _norm_key(factor_name)
+        if fam["identity"] == "family_total" or _ALIAS_TO_CANONICAL.get(k) in _FAMILY_TOTAL_CANONICALS:
+            return {"identity": "family_total", "canonical": fam["family_code"], "family": fam["family_name"]}
+        return {"identity": "mapping_review_required", "canonical": None, "family": fam["family_name"],
+                "reason": f"名称属于{fam['family_name']}但不是已登记的官方物质, 不按族代表物或关键词赋予阈值, 须人工确认映射"}
+    return {"identity": "other"}
+
+
 def _lookup_canonical(raw_name: str) -> str | None:
     """四级查找: 精确 → 去单位精确 → 组合名拆分 → 关键词模糊匹配。
 
@@ -74,8 +118,17 @@ def _lookup_canonical(raw_name: str) -> str | None:
     if not raw_name:
         return None
 
-    # 第1级: 去单位后的精确匹配
     _, factor_name, _ = _extract_unit(raw_name)
+    # v1.2.2(T02) 第0级: 官方分析物整名/CAS 精确命中(GB 36600 记录) — 优先于别名与关键词
+    ident = identity_of(raw_name)
+    if ident["identity"] == "exact_official":
+        return ident["canonical"]
+    if ident["identity"] == "family_total":
+        return ident["canonical"]
+    if ident["identity"] == "mapping_review_required":
+        return None
+
+    # 第1级: 去单位后的精确匹配
     k = _norm_key(factor_name)
     if k in _ALIAS_TO_CANONICAL:
         return _ALIAS_TO_CANONICAL[k]
@@ -163,8 +216,7 @@ _KEYWORD_TO_CANONICAL: dict[str, str] = {
     "苯并[a]蒽": "苯并[a]蒽", "苯并(a)蒽": "苯并[a]蒽",
     "苯并芘": "BaP_ngg", "苯并[a]芘": "BaP_ngg", "苯并(a)芘": "BaP_ngg",
     "苯并[b]荧蒽": "苯并[b]荧蒽", "苯并[k]荧蒽": "苯并[k]荧蒽",
-    "茚并": "茚并[1,2,3-cd]芘",
-    "二苯并": "二苯并[a,h]蒽",
+    # v1.2.2(T02): 已移除“茚并/二苯并”子串映射(二苯并呋喃等不是二苯并[a,h]蒽)
     "二苯并[a,h]蒽": "二苯并[a,h]蒽", "二苯并[ah]蒽": "二苯并[ah]蒽",
     # ── v0.8.1 有机汇总（对齐 SHAP group 名）──
     "多环芳烃": "PAHs_total(族群)", "PAHs": "PAHs_total(族群)",
@@ -173,30 +225,30 @@ _KEYWORD_TO_CANONICAL: dict[str, str] = {
     # ── OCP 有机氯农药（v0.8.1 统一到 SHAP group）──
     "六六六": "SumHCHs_ngg", "滴滴涕": "SumDDTs_ngg",
     "有机氯": "SumOCP_ngg", "有机氯农药": "SumOCP_ngg",
-    "氯丹": "SumOCP_ngg", "七氯": "SumOCP_ngg",
-    "毒杀芬": "SumOCP_ngg", "灭蚁灵": "SumOCP_ngg", "硫丹": "SumOCP_ngg",
+    # v1.2.2(T02): 单体农药按自身官方名称; 毒杀芬无 GB 36600 记录 → 不映射(须人工确认)
+    "氯丹": "氯丹", "七氯": "七氯", "灭蚁灵": "灭蚁灵", "硫丹": "硫丹",
     # ── v0.8.1 PCB（注意: 删"联苯"关键词避免 PBDE 误配）──
     "多氯联苯": "SumPCB_ngg",
     # ── PFAS ──
     "全氟": "SumPFAS_ngg", "全氟辛酸": "SumPFAS_ngg", "全氟辛烷": "SumPFAS_ngg",
     # ── PAE ──
-    "邻苯二甲酸": "SumPAE_ugkg", "塑化剂": "SumPAE_ugkg",
+    # v1.2.2(T02): 已移除“邻苯二甲酸/塑化剂”→总量的关键词映射(单体须精确命中, 族总量由 identity_of 判定)
     # ── TPH ──
     "石油烃": "TPH_ngg", "矿物油": "TPH_ngg", "总石油": "TPH_ngg",
     # ── PBDE ──
     "多溴联苯醚": "SumPBDE_ngg",
     # ── BTEX 苯系物 ──
     "苯乙烯": "BTEX_Styrene", "甲苯": "BTEX_Toluene",
-    "乙苯": "BTEX_Ethylbenzene", "二甲苯": "BTEX_Xylene",
+    "乙苯": "BTEX_Ethylbenzene",  # v1.2.2(T02): “二甲苯”为族名(间/对 与 邻 限值不同), 已移除
     # ── 酚类 ──
     "五氯酚": "Phenol_Pentachlorophenol", "硝基酚": "Phenol_Nitrophenol",
-    "氯酚": "Phenol_Chlorophenol", "二氯酚": "Phenol_Dichlorophenol",
+    # v1.2.2(T02): “氯酚/二氯酚”为族名, 已移除(2-氯酚、2,4-二氯酚、2,4,6-三氯酚须精确命中)
     # ── 氯代烃 ──
     "三氯乙烯": "VOC_Trichloroethylene", "四氯乙烯": "VOC_Tetrachloroethylene",
     "四氯化碳": "VOC_CarbonTetrachloride", "氯仿": "VOC_Chloroform",
     "氯甲烷": "VOC_Chloromethane", "氯乙烯": "VOC_VinylChloride",
-    "二氯甲烷": "VOC_Dichloromethane", "二氯乙烷": "VOC_Dichloroethane",
-    "二氯苯": "VOC_Dichlorobenzene", "氯苯": "VOC_Chlorobenzene",
+    "二氯甲烷": "VOC_Dichloromethane", "氯苯": "VOC_Chlorobenzene",
+    # v1.2.2(T02): “二氯乙烷/二氯苯”为族名(1,1-/1,2-、1,2-/1,4- 限值不同), 已移除
     # ── 其他有机物 ──
     "苯胺": "Aniline", "硝基苯": "Nitrobenzene",
     "阿特拉津": "Atrazine", "莠去津": "Atrazine",
@@ -237,6 +289,17 @@ _SYMBOL_PATTERNS: list[tuple[str, str]] = [
 _FORM_CONFLICT_KEYWORDS = ["六价", "cr6", "cr(vi)", "crvi", "有效态", "水溶态", "交换态"]
 
 
+_QUALIFIER_RE = r"(含量|浓度|检测值|测定值|实测值|指标|值|水平|总量|\(|\)|（|）|\[|\]|_|-|\s|mg/kg|μg/kg|ug/kg|ng/g)"
+
+
+def _is_organic_canonical(canon: str) -> bool:
+    if canon.endswith("_mgkg") or canon in ("CEC_cmolkg", "EC_mScm", "OC_pct", "OM_gkg", "TN_gkg", "Total_P_gkg",
+                                            "Total_K_gkg", "P_mgkg", "K_mgkg", "Hydrolyzable_N_mgkg", "SoilBD_gcm3",
+                                            "Clay_pct", "Sand_pct", "Silt_pct", "Slope_pct", "Elevation_m"):
+        return False
+    return True
+
+
 def _fuzzy_keyword_match(factor_name: str) -> str | None:
     """L4 关键词模糊匹配: 对 factor_name 做关键词扫描, 命中→返回 canonical code。
 
@@ -256,9 +319,16 @@ def _fuzzy_keyword_match(factor_name: str) -> str | None:
             return None
 
     # 中文关键词扫描(直接包含匹配, 按关键词长度降序优先匹配长词避免短词误配)
+    # v1.2.2(T02): 有机物关键词只在“关键词 + 纯修饰词(含量/浓度/检测值…)”时命中;
+    # 剩余部分含其他化学名(如“对硝基甲苯”中的“对硝基”)→ 不同物质, 不命中。
     for keyword in sorted(_KEYWORD_TO_CANONICAL.keys(), key=len, reverse=True):
         if keyword in s:
-            return _KEYWORD_TO_CANONICAL[keyword]
+            canon = _KEYWORD_TO_CANONICAL[keyword]
+            if _is_organic_canonical(canon):
+                rest = re.sub(_QUALIFIER_RE, "", s.replace(keyword.lower(), "", 1))
+                if rest:
+                    return None
+            return canon
 
     # 英文符号正则边界匹配
     for pattern, canonical in _SYMBOL_PATTERNS:
@@ -404,6 +474,10 @@ def _resolve_conversion(input_category: str, canonical: str | None) -> tuple[flo
     info = _ALIASES.get(canonical, {})
     preferred = info.get("preferred_unit")
     if not preferred:
+        from app.services import analyte_registry as _AR
+        if canonical in _AR.official_names():
+            preferred = "mg/kg"  # v1.2.2(T02): GB 36600 官方单体 canonical 以标准单位 mg/kg 计
+    if not preferred:
         # 无 preferred_unit 声明: 重金属默认 mg/kg
         if canonical.endswith("_mgkg"):
             preferred = "mg/kg"
@@ -457,18 +531,25 @@ def normalize_factor_name(raw_name: str, unit: str | None = None) -> tuple[str |
     meta["normalized_name"] = normed
 
     canonical = _lookup_canonical(str(raw_name))
+    _id = identity_of(str(raw_name))
+    meta["identity"] = _id["identity"] if _id["identity"] != "other" else ("alias_or_keyword" if canonical else "unmapped")
+    for _k in ("official_name", "cas", "official_record", "family", "reason"):
+        if _id.get(_k):
+            meta[_k] = _id[_k]
 
     # v1.0.1: 标注匹配方式(精确/L4启发式模糊)
     if canonical:
         # 检查是否走 L4 关键词模糊匹配(L1/L2/L3 精确匹配表里查不到的)
         k_precise = _norm_key(factor_name)
         k2_precise = _norm_key(str(raw_name))
-        if k_precise in _ALIAS_TO_CANONICAL or k2_precise in _ALIAS_TO_CANONICAL:
+        if _id["identity"] in ("exact_official", "family_total"):
+            meta["match_method"] = _id["identity"]
+        elif k_precise in _ALIAS_TO_CANONICAL or k2_precise in _ALIAS_TO_CANONICAL:
             meta["match_method"] = "exact"
         else:
             meta["match_method"] = "fuzzy_keyword"
     else:
-        meta["match_method"] = "unmapped"
+        meta["match_method"] = "mapping_review_required" if _id["identity"] == "mapping_review_required" else "unmapped"
 
     # ── v0.8.1 单位智能转换; v1.2.1(R01) 开放失败 ──
     if unit_category == "unknown_given":

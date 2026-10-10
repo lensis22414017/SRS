@@ -76,6 +76,17 @@ def run_import_with_mapping(db: Session, file_path: str, mapping: dict,
     on_conflict:  P1-3 导入幂等策略(skip/overwrite/new_version), 透传 ingest。
     """
     parsed = parse(file_path, mapping)
+    # v1.2.2(T04): 企业用户导入新建的场地归属其所在组织; 此前 organization_id 恒为空,
+    # 企业用户导入后在场地列表看不到、访问返回 403。只在新建时赋值, 不改已有/无主场地的归属。
+    if imported_by:
+        from app.core.deps import ADMIN_ROLE, ENTERPRISE_ROLE, user_role_codes
+        from app.models import User as _User
+        _u = db.get(_User, imported_by)
+        if _u is not None and _u.organization_id:
+            _roles = user_role_codes(db, _u)
+            if ENTERPRISE_ROLE in _roles and ADMIN_ROLE not in _roles:
+                parsed.site["_user_org_id"] = _u.organization_id
+                parsed.site["_owner_org_on_create"] = _u.organization_id
     report = validate(parsed, mapping, pollutant_limits=get_pollutant_limits(),
                       scope=scope, land_subtype=land_subtype)
     # 透传 mapping + source_path + on_conflict: 入库时保存 mapping_snapshot、计算

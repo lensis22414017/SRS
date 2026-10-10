@@ -52,6 +52,11 @@ export default function TraceDetail() {
   const [flowOpen, setFlowOpen] = useState(false);
   const [filePage, setFilePage] = useState(1);  // R3 审计: 文件库分页序号
   const [reportPage, setReportPage] = useState(1);
+  // v1.2.2(T04): 方案审批阶段记录选定方案(来自“方案推荐”的候选), 写入阶段 payload.selected_recommendation
+  const [selOpen, setSelOpen] = useState(false);
+  const [recItems, setRecItems] = useState<any[]>([]);
+  const [selRank, setSelRank] = useState<number | null>(null);
+  const [selBasis, setSelBasis] = useState("");
 
   const load = async () => {
     setSite(await api.site(sid));
@@ -67,6 +72,23 @@ export default function TraceDetail() {
     setBusy(true);
     try { await api.updateStage(sid, stage, { status, review_comment: comment || undefined, is_completed: status === "completed", is_returned: status === "returned" ? true : undefined }); message.success("已更新"); setComment(""); await load(); }
     catch (e: any) { message.error(e?.response?.data?.detail || "更新失败"); }
+    finally { setBusy(false); }
+  };
+
+  const openSelect = async () => {
+    const r = await api.recommendation(sid).catch(() => ({ items: [] }));
+    setRecItems(r.items || []); setSelRank((r.items || [])[0]?.rank ?? null); setSelBasis(""); setSelOpen(true);
+  };
+  const saveSelection = async () => {
+    const it = recItems.find((x) => x.rank === selRank);
+    if (!it || !selBasis.trim()) { message.warning("请选择候选方案并填写选择理由"); return; }
+    setBusy(true);
+    try {
+      await api.updateStage(sid, "approval", { payload: { selected_recommendation: {
+        rank: it.rank, technology: it.technology, match_score: it.match_score, rule_version: it.rule_version,
+        basis: selBasis.trim(), candidates_compared: recItems.length } } });
+      message.success("已记录选定方案"); setSelOpen(false); await load();
+    } catch (e: any) { message.error(e?.response?.data?.detail || "记录失败"); }
     finally { setBusy(false); }
   };
 
@@ -146,11 +168,18 @@ export default function TraceDetail() {
               description: (
                 <div style={{ marginTop: 6 }}>
                   {s.review_comment && <div style={{ color: "#666", fontSize: 13 }}>意见：{s.review_comment}</div>}
+                  {s.operator_name && <div style={{ color: "#999", fontSize: 12 }}>最近操作人：{s.operator_name}{s.operated_at ? `（${String(s.operated_at).slice(0, 19)}）` : ""}</div>}
+                  {s.stage === "approval" && s.payload?.selected_recommendation && (
+                    <div style={{ fontSize: 13, marginTop: 4 }}>
+                      <Tag color="purple">选定方案</Tag>第 {s.payload.selected_recommendation.rank} 名「{s.payload.selected_recommendation.technology}」
+                      （匹配分 {s.payload.selected_recommendation.match_score}，比选 {s.payload.selected_recommendation.candidates_compared ?? "—"} 个候选）；理由：{s.payload.selected_recommendation.basis}
+                    </div>)}
                   <Space wrap style={{ marginTop: 6 }}>
                     <Button size="small" icon={<FileAddOutlined />} onClick={() => setModal({ stage: s.stage, role: FILE_ROLES[s.stage][0] })}>上传材料</Button>
                     <Button size="small" onClick={() => setStatus(s.stage, "in_progress")}>标记进行中</Button>
                     <Button size="small" type="primary" onClick={() => setStatus(s.stage, "completed")}>标记完成</Button>
                     <Button size="small" danger onClick={() => setStatus(s.stage, "returned")}>退回</Button>
+                    {s.stage === "approval" && <Button size="small" onClick={openSelect}>记录选定方案</Button>}
                   </Space>
                   {s.attachments?.length > 0 && (
                     <div style={{ marginTop: 6 }}>
@@ -373,6 +402,15 @@ export default function TraceDetail() {
       </Modal>
 
       <MethodFlowDrawer open={flowOpen} onClose={() => setFlowOpen(false)} config={getFlowConfig("trace_workflow")!} />
+      <Modal title="记录选定方案（方案审批）" open={selOpen} onOk={saveSelection} onCancel={() => setSelOpen(false)} confirmLoading={busy}>
+        {recItems.length === 0 ? <span>尚未生成推荐方案，请先在“方案推荐”页生成。</span> : (
+          <Space direction="vertical" style={{ width: "100%" }}>
+            <Select style={{ width: "100%" }} value={selRank ?? undefined} onChange={(v) => setSelRank(v)}
+              options={recItems.map((x) => ({ value: x.rank, label: `第 ${x.rank} 名 ${x.technology}（匹配分 ${x.match_score}）` }))} />
+            <Input.TextArea rows={3} placeholder="选择理由（必填）：如匹配分、命中障碍因子、成本/周期、禁用条件等" value={selBasis}
+              onChange={(e) => setSelBasis(e.target.value)} />
+          </Space>)}
+      </Modal>
     </Space>
   );
 }

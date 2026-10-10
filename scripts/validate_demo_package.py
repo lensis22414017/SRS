@@ -18,7 +18,7 @@ import json
 import os
 import sys
 
-LABEL_TOKENS = ("模拟数据", "仅供测试")
+LABEL_TOKENS = ("模拟数据", "仅供测试", "模拟材料")
 
 
 def sha(p):
@@ -36,6 +36,7 @@ def main(demo: str, weights: str) -> dict:
         checks.append({"check": name, "passed": bool(ok), "detail": detail})
     files = dict(meta.get("files", {}))
     files.update((meta.get("cases_v121") or {}).get("files", {}))
+    files.update((meta.get("cases_v122") or {}).get("files", {}))
     bad = [f for f, h in files.items() if not os.path.isfile(os.path.join(demo, f)) or sha(os.path.join(demo, f)) != h]
     chk(f"SHA-256 与 metadata 一致({len(files)} 个文件)", not bad, bad[:5])
     unl = [f for f in files if not any(t in os.path.basename(f) for t in LABEL_TOKENS) and not os.path.basename(f).startswith("F0")]
@@ -49,6 +50,28 @@ def main(demo: str, weights: str) -> dict:
                 no_label.append(f)
     chk("工作簿内容含模拟数据标签", not no_label, no_label[:5])
     inds = W["indicators"]
+
+    def _ssui(path, track, t, M):
+        ws = load_workbook(path, read_only=True)["指标得分"]
+        scores = [r[6] for r in ws.iter_rows(min_row=2, max_row=26, values_only=True)]
+        by_c = {}
+        for ind, s in zip(inds, scores):
+            by_c[ind["criterion"]] = by_c.get(ind["criterion"], 0.0) + ind["w_" + track] * float(s)
+        return (1 + 0.03 * t) * sum(W["criterion_weights"][track][c] * x for c, x in by_c.items()) * M
+    # v1.2.2(T01): 演示期望 SSUI 全部落在等级定义域 [0, 1]; v1.2.1 旧得分保留为域外回归夹具
+    dom = [(c, tr, ex["ssui"][tr]["ssui"]) for c, ex in exp["scenarios"].items() for tr in ("production", "ecology")]
+    chk("A–E 期望 SSUI 均在等级定义域 [0, 1] 内", all(0 <= v <= 1 for _, _, v in dom), [d for d in dom if not 0 <= d[2] <= 1])
+    for k, fx in (exp.get("ssui_out_of_domain_fixtures") or {}).items():
+        code, track = k.split("_", 1)
+        ex = exp["scenarios"][code]["ssui"][track]
+        v = _ssui(os.path.join(demo, fx["file"]), track, ex["t"], ex["M"])
+        chk(f"[夹具 {k}] 旧得分独立重算 = {fx['ssui']} 且状态 {fx['status']}", abs(v - fx["ssui"]) < 1e-5
+            and (fx["status"] == "out_of_domain") == (v > 1.0), round(v, 6))
+    h = ((meta.get("cases_v122") or {}).get("cases") or {}).get("H")
+    if h:
+        chk("[H] 五阶段各有一份模拟材料且文件名含“模拟材料”", len(h["stages"]) == 5 and all("模拟材料" in s["file"] for s in h["stages"]),
+            [s["file"] for s in h["stages"]])
+        chk("[H] 审核身份为模拟审核员(非真实官员)", "模拟审核员" in h["users"]["reviewer"]["display_name"], h["users"]["reviewer"]["display_name"])
     for code, ex in exp["scenarios"].items():
         d = os.path.join(demo, f"site_{code}")
         for track, pre in (("production", "03_"), ("ecology", "04_")):

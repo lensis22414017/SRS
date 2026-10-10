@@ -27,16 +27,20 @@ def split_header_unit(raw: str) -> tuple[str, str | None]:
     import re as _r
     from app.services.factor_normalizer import _is_speciation_qualifier
     s = _r.sub(r"cmol\s*[（(]\s*\+\s*[)）]", "cmol(+)", str(raw), flags=_r.IGNORECASE)
-    groups = [g for g in _r.finditer(r"[（(]\s*([^()（）]*?)\s*[)）]", s.replace("cmol(+)", "cmol⁺"))]
-    unit = None
-    for g in reversed(groups):
-        if g.group(1) and not _is_speciation_qualifier(g.group(1)):
-            unit = g.group(1).strip().replace("cmol⁺", "cmol(+)")
-            break
     s2 = s.replace("cmol(+)", "cmol⁺")
-    # 只去掉单位括号; 形态限定词括号保留在因子名中(如 "铬(六价)")
-    name = _r.sub(r"[（(]\s*([^()（）]*?)\s*[)）]",
-                  lambda g: g.group(0) if _is_speciation_qualifier(g.group(1)) else "", s2).strip()
+    groups = [g for g in _r.finditer(r"[（(]\s*([^()（）]*?)\s*[)）]", s2)]
+    # v1.2.2(T02): 只有“像单位”的括号才是单位; 物质名中的括号(如“(2-乙基己基)”“(总量)”“(C10-C40)”)保留,
+    # 否则“邻苯二甲酸二(2-乙基己基)酯”会被截成“邻苯二甲酸二酯”, 丢失分析身份。
+    _unit_like = _r.compile(r"(/|%|‰|ppm|ppb|ppt|^m?g$|kg|cm|cmol|μ|^u[gs]|ng|ms|ds|无量纲|量纲|^‰$|℃)", _r.IGNORECASE)
+    unit, unit_span = None, None
+    for g in reversed(groups):
+        txt = (g.group(1) or "").strip()
+        if txt and not _is_speciation_qualifier(txt) and _unit_like.search(txt):
+            unit, unit_span = txt.replace("cmol⁺", "cmol(+)"), g.span()
+            break
+    # 只去掉单位括号; 形态限定词与物质名括号保留在因子名中(如 "铬(六价)")
+    name = (s2[:unit_span[0]] + s2[unit_span[1]:]) if unit_span else s2
+    name = name.strip()
     if "_" in name:
         head = name.split("_")[0].strip()
         name = head if head else name

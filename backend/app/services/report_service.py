@@ -19,7 +19,7 @@ from app.models import (
     AuditLog, DiagnosisResult, EvaluationResult, FactorDictionary, FileObject,
     ImportBatch, Measurement, MLModel, Recommendation, ReportRecord, SamplingPoint,
     RemediationCase, Site, StandardThreshold, TechnologyLibrary, ThresholdRule,
-    WorkflowAttachment, WorkflowRecord,
+    User, WorkflowAttachment, WorkflowRecord,
 )
 from app.services.file_service import save_bytes
 from app.services.workflow_service import STAGE_NAME, get_stages
@@ -446,8 +446,11 @@ def collect(db: Session, site_id: int, version: str) -> dict:
     for w in db.query(WorkflowRecord).filter_by(site_id=site_id).all():
         for a in db.query(WorkflowAttachment).filter_by(workflow_record_id=w.id).all():
             fo = db.get(FileObject, a.file_object_id)
+            up = db.get(User, fo.uploaded_by) if fo and fo.uploaded_by else None
             attachments.append({"stage_name": STAGE_NAME.get(w.stage), "file_role": a.file_role,
-                                "original_name": fo.original_name if fo else "—"})
+                                "original_name": fo.original_name if fo else "—",
+                                "sha256_12": ((fo.sha256 or "")[:12] if fo else "") or "—",
+                                "uploaded_by": up.display_name if up else "—"})
 
     logs = (db.query(AuditLog).order_by(AuditLog.id.desc()).limit(10).all())
     audit_ctx = [{"created_at": str(a.created_at), "action": a.action,
@@ -501,7 +504,9 @@ def collect(db: Session, site_id: int, version: str) -> dict:
                         if _origins & {"monte_carlo_demo", "test_fixture"} else None)
     _STATE_CN = {"both_supported": "生产与生态均支持", "production_supported": "支持生产利用",
                  "ecology_supported": "支持生态利用", "neither_supported": "均不支持",
-                 "insufficient_evidence": "证据不足"}
+                 "insufficient_evidence": "证据不足",
+                 "needs_manual_use_selection": "须选择用途(仅保守假设筛查, 无正式结论)",
+                 "regulatory_applicability_unresolved": "法规适用性未定(无正式结论)"}
     utilization = []
     for _stage, _label in (("pre_remediation", "修复前情景判断"), ("post_remediation", "修复后利用结论")):
         _d = (db.query(UtilizationDecision).filter_by(site_id=site_id, stage=_stage)

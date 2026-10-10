@@ -98,15 +98,16 @@ export default function SSUIPostImport() {
                           { title: "列", dataIndex: "col", width: 60 }, { title: "问题", dataIndex: "message" }]} />
             : <Alert type="success" showIcon message={preview.confirmed ? "已确认入库" : "校验通过，可确认入库"} />}
           {preview.warnings?.map((w: string) => <Alert key={w} type="warning" showIcon message={w} />)}
-          {calc && calc.status === "ok" && <Descriptions size="small" bordered column={4} title="SSUI 计算（方法 PPT 第 15 页原式，未截断）">
+          {calc && (calc.status === "ok" || calc.status === "out_of_domain") && <Descriptions size="small" bordered column={4} title="SSUI 计算（方法 PPT 第 15 页原式，未截断）">
             <Descriptions.Item label="SSUI">{calc.ssui?.toFixed(4)}</Descriptions.Item>
-            <Descriptions.Item label="等级">{calc.grade}</Descriptions.Item>
+            <Descriptions.Item label="等级">{calc.status === "out_of_domain" ? <Tag color="orange">超出有效域，不分级</Tag> : (calc.grade ?? "—")}</Descriptions.Item>
+            <Descriptions.Item label="解释">{calc.status === "out_of_domain" ? "不作功能支持判断" : calc.status === "ok" ? "暂定演示分级（非正式结论）" : (calc.status ?? "—")}</Descriptions.Item>
             <Descriptions.Item label="f(t)">{calc.f_t}</Descriptions.Item>
             <Descriptions.Item label="Σ vⱼ·Sⱼ">{calc.weighted_sum?.toFixed(4)}</Descriptions.Item>
             {Object.entries(calc.criterion_scores || {}).map(([k, v]: any) =>
               <Descriptions.Item key={k} label={`S(${k}) × v=${calc.criterion_weights?.[k]}`}>{Number(v).toFixed(4)}</Descriptions.Item>)}
           </Descriptions>}
-          {calc?.exceeds_unit_range && <Alert type="warning" showIcon message="SSUI 原值超过 1.0：方法等级区间仅定义到 1.0，已按“高度可持续”显示并标记待课题组确认（未截断）" />}
+          {calc?.status === "out_of_domain" && <Alert type="warning" showIcon message="SSUI 原值超出等级定义域 [0, 1.0]：原值、权重与方法版本保留；不给出等级，不作功能支持判断（方法文件未定义域外等级）" />}
           {calc?.warnings?.map((w: string) => <Paragraph key={w} type="secondary" style={{ margin: 0 }}>· {w}</Paragraph>)}
         </Space>
       </Card>}
@@ -122,7 +123,7 @@ export default function SSUIPostImport() {
             { title: "t / M", render: (_: any, r: any) => `${r.t ?? "—"} / ${r.M ?? "—"}` },
             { title: "SSUI", dataIndex: "ssui", render: (v: number, r: any) => v == null ? "—" :
                 <span>{v.toFixed(4)} {r.exceeds_unit_range && <Tag color="orange">&gt;1</Tag>}</span> },
-            { title: "等级", dataIndex: "grade" },
+            { title: "等级", render: (_: any, r: any) => r.ssui_status === "out_of_domain" ? "超出有效域，不分级" : (r.grade ?? "—") },
             { title: "文件", dataIndex: "source_file", ellipsis: true },
             { title: "操作", render: (_: any, r: any) => r.status === "confirmed" || r.status === "superseded"
                 ? <a onClick={() => api.ssuiPostExport(r.batch_id)}>导出结果</a> : "—" },

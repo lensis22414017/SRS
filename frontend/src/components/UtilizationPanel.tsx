@@ -11,6 +11,14 @@ const STATE: Record<string, { label: string; color: string }> = {
   ecology_supported: { label: "支持生态利用", color: "green" },
   neither_supported: { label: "均不支持", color: "red" },
   insufficient_evidence: { label: "证据不足", color: "orange" },
+  needs_manual_use_selection: { label: "须选择用途（仅保守假设筛查，无正式结论）", color: "orange" },
+  regulatory_applicability_unresolved: { label: "法规适用性未定（无正式结论）", color: "orange" },
+};
+const TRACK: Record<string, string> = {
+  supported: "支持", not_supported: "不支持", insufficient: "证据不足", withheld_use: "用途未定，结论暂缓",
+};
+const USE: Record<string, string> = {
+  explicit: "已选择", needs_manual_use_selection: "未选择用途", regulatory_applicability_unresolved: "法规适用性未定",
 };
 const GATE: Record<string, { label: string; color: string }> = {
   pass: { label: "通过", color: "green" },
@@ -47,10 +55,11 @@ export default function UtilizationPanel({ siteId, stage }: { siteId?: number; s
   return (
     <Card title={pre ? "修复前情景利用判断（修复目标导向）" : "修复后利用方向结论（生产 / 生态）"}
       extra={<Space wrap>
-        <Select allowClear placeholder="农用地类型(缺省取较严)" style={{ width: 190 }} value={farmland} onChange={setFarmland}
+        <Select allowClear placeholder="农用地类型（正式结论必选）" style={{ width: 210 }} value={farmland} onChange={setFarmland}
           options={[{ value: "水田", label: "水田" }, { value: "其他", label: "其他农用地" }]} />
-        <Select allowClear placeholder="生态用地类别(缺省第一类)" style={{ width: 200 }} value={ecoClass} onChange={setEcoClass}
-          options={[{ value: "第一类用地", label: "第一类用地" }, { value: "第二类用地", label: "第二类用地" }]} />
+        <Select allowClear placeholder="建设用地类别（正式结论必选）" style={{ width: 230 }} value={ecoClass} onChange={setEcoClass}
+          options={[{ value: "第一类用地", label: "第一类用地" }, { value: "第二类用地", label: "第二类用地" },
+            { value: "非建设用地生态用途", label: "非建设用地生态用途（GB 36600 适用性未定）" }]} />
         {hasPermission("data:input") && <Button type="primary" loading={loading} onClick={run} disabled={!siteId}>运行判定</Button>}
       </Space>}>
       <Paragraph type="secondary" style={{ marginBottom: 12 }}>
@@ -67,12 +76,15 @@ export default function UtilizationPanel({ siteId, stage }: { siteId?: number; s
           {pre && <Tag color="blue">修复前情景判断，非修复后结论</Tag>}
           <Text type="secondary">决策 #{d.decision_id} · {d.method_version}</Text>
         </Space>
-        <Alert type={d.decision_state === "neither_supported" ? "error" : d.decision_state === "insufficient_evidence" ? "warning" : "success"}
+        <Alert type={d.decision_state === "neither_supported" ? "error" : String(d.decision_state).endsWith("_supported") ? "success" : "warning"}
           message={d.conclusion_text} />
+        {d.hypothetical_screen && <Alert type="warning" showIcon
+          message="未选择用途或法规适用性未定：以下门禁结果为保守假设筛查，不构成正式利用结论"
+          description={d.use_scope_note} />}
         <Table size="small" pagination={false} rowKey="track"
           dataSource={[
-            { track: "生产（农用地）", gate: d.production_gate, score: d.production_score_obj, status: d.production_status },
-            { track: "生态", gate: d.ecology_gate, score: d.ecology_score_obj, status: d.ecology_status },
+            { track: "生产（农用地）", gate: d.production_gate, score: d.production_score_obj, status: d.production_status, use: d.use_state?.production },
+            { track: "生态", gate: d.ecology_gate, score: d.ecology_score_obj, status: d.ecology_status, use: d.use_state?.ecology },
           ]}
           columns={[
             { title: "轨道", dataIndex: "track", width: 110 },
@@ -81,7 +93,10 @@ export default function UtilizationPanel({ siteId, stage }: { siteId?: number; s
             { title: "超管制值", render: (_: any, r: any) => (r.gate?.exceed_control || []).join("、") || "—" },
             { title: "仅超筛选值", render: (_: any, r: any) => (r.gate?.exceed_screening_only || []).join("、") || "—" },
             { title: "缺测必测项", render: (_: any, r: any) => r.gate?.missing_required?.length ? `${r.gate.missing_required.length} 项` : "—" },
-            { title: "功能评分", render: (_: any, r: any) => r.score ? `${r.score.value ?? "—"} ${r.score.label ?? ""}` : "—" },
+            { title: "用途", render: (_: any, r: any) => USE[r.use] || "—" },
+            { title: "功能评分", render: (_: any, r: any) => r.score ? (r.score.status === "out_of_domain"
+                ? `${r.score.value ?? "—"}（超出有效域，不分级）` : `${r.score.value ?? "—"} ${r.score.label ?? ""}`) : "—" },
+            { title: "轨道结论", render: (_: any, r: any) => TRACK[r.status] || r.status || "—" },
           ]} />
         {d.remediation_targets && <Descriptions size="small" column={1} bordered title="修复目标（降至筛选值以下）">
           <Descriptions.Item label="生产用途">{(d.remediation_targets.production || []).join("、") || "—"}</Descriptions.Item>

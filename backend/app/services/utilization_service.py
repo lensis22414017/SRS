@@ -102,10 +102,19 @@ def _score_from_eval(ev: EvaluationResult | None, label: str) -> dict | None:
         return {"value": None, "feasible": None, "reason": f"{label}未计算", "source": label}
     g = ev.grade or ""
     feasible = True if g == "可行" else (False if g == "不可行" else None)
+    status = None
     if ev.eval_type.startswith("ssui_post_"):
         dims = ev.dimensions or {}
-        feasible = dims.get("feasible") if dims.get("status") == "ok" else None
+        from app.services.ssui_post_service import effective_status
+        status = effective_status(ev)  # v1.2.1 旧记录无 status: 按原值推导
+        # v1.2.2(T01): 只有域内(ok)结果可作功能评分依据; out_of_domain / invalid / insufficient 一律不支持
+        feasible = dims.get("feasible") if status == "ok" else None
+        if status == "out_of_domain":
+            return {"value": ev.score, "label": None, "feasible": None, "source": label, "evaluation_id": ev.id,
+                    "status": status, "legacy_record": not dims.get("status"), "stored_grade": g or None,
+                    "reason": f"{label}原值 {ev.score} 超出等级有效域 [0, 1.0]: 不分级、不作功能支持判断(原值保留)"}
     return {"value": ev.score, "label": g, "feasible": feasible, "source": label, "evaluation_id": ev.id,
+            "status": status,
             "reason": None if feasible is not None else f"{label}结果为'{g or '无'}'(证据不足/受阻)"}
 
 
@@ -152,6 +161,9 @@ def run(db: Session, site_id: int, stage: str = PRE_REMEDIATION, *, farmland_typ
                               production_gate=res["production"]["gate"], ecology_gate=res["ecology"]["gate"],
                               production_score=(ps or {}).get("value"), ecology_score=(es or {}).get("value"),
                               evidence={"production": res["production"], "ecology": res["ecology"],
+                                        "use_state": res.get("use_state"), "hypothetical_screen": res.get("hypothetical_screen"),
+                                        "use_scope_note": res.get("use_scope_note"),
+                                        "farmland_type": farmland_type, "eco_land_class": eco_land_class,
                                         "remediation_targets": res["remediation_targets"], "refs": batch_ref,
                                         "standards_sha256": res["standards_sha256"]},
                               assumptions=res["assumptions"], missing_evidence=res["missing_evidence"],
@@ -181,7 +193,10 @@ def to_dict(d: UtilizationDecision) -> dict:
             "missing_evidence": d.missing_evidence, "method_version": d.method_version,
             "method_status": d.method_status, "input_fingerprint": d.input_fingerprint,
             "data_origin": d.data_origin, "created_at": d.created_at.isoformat() if d.created_at else None,
-            "is_post_remediation_conclusion": d.stage == POST_REMEDIATION}
+            "is_post_remediation_conclusion": d.stage == POST_REMEDIATION,
+            "use_state": (d.evidence or {}).get("use_state"),
+            "hypothetical_screen": (d.evidence or {}).get("hypothetical_screen"),
+            "use_scope_note": (d.evidence or {}).get("use_scope_note")}
 
 
 def point_screening_ratios(db: Session, site_id: int, *, farmland_type: str | None = None) -> dict:

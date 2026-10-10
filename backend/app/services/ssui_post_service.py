@@ -56,6 +56,20 @@ class SSUIImportError(ValueError):
 
 
 # ───────────────────────── 模板 ─────────────────────────
+def effective_status(ev) -> str | None:
+    """v1.2.2(T01): 课题三结果的有效状态。v1.2.1 及更早版本入库的记录没有 status 字段, 按原值与等级定义域
+    推导(定义域外 → out_of_domain), 只在读取时判定, 不改写库内原记录(原 grade 保留供审计)。"""
+    if ev is None or not (ev.eval_type or "").startswith("ssui_post_"):
+        return None
+    dims = ev.dimensions or {}
+    if dims.get("status"):
+        return dims["status"]
+    if ev.score is None:
+        return "insufficient"
+    lo, hi = SV.validity_domain(SV.load_weights(ROOT))
+    return "ok" if lo <= float(ev.score) <= hi else "out_of_domain"
+
+
 def build_template(track: str = "production", site_code: str = "") -> bytes:
     if track not in TRACKS:
         raise SSUIImportError("track 必须为 production/ecology")
@@ -341,6 +355,10 @@ def confirm(db: Session, batch_id: int, user_id: int | None) -> dict:
                                           "M": b.multiplier_m, "t": b.years_since_remediation,
                                           "exceeds_unit_range": calc.get("exceeds_unit_range"),
                                           "feasible": calc.get("feasible"), "status": calc.get("status"),
+                                          "support_interpretation": calc.get("support_interpretation"),
+                                          "classification_scope": calc.get("classification_scope"),
+                                          "validity_domain": calc.get("validity_domain"),
+                                          "domain_note": calc.get("domain_note"),
                                           "data_origin": b.data_origin},
                               weights=calc.get("criterion_weights"), limiting_factors={"contributions": calc.get("contributions")},
                               explanation="; ".join(calc.get("warnings", [])),
@@ -385,7 +403,9 @@ def export_batch(db: Session, batch_id: int) -> bytes:
             ("模板版本", b.template_version), ("方法版本", SV.METHOD_VERSION), ("方法状态", "provisional(待课题组确认)"),
             ("评价轨道", TRACKS.get(b.track, b.track)), ("t(年)", b.years_since_remediation), ("M", b.multiplier_m),
             ("f(t)", calc.get("f_t")), ("Σ v_j·S_j", calc.get("weighted_sum")), ("SSUI(未截断)", calc.get("ssui")),
-            ("等级", calc.get("grade")), ("超出 0–1 区间", calc.get("exceeds_unit_range")),
+            ("计算状态", {"ok": "域内(暂定演示分级)", "out_of_domain": "超出等级定义域: 不分级、不作支持判断"}.get(calc.get("status"), calc.get("status"))),
+            ("等级", calc.get("grade") if calc.get("grade") else "—(不分级)"), ("超出 0–1 区间", calc.get("exceeds_unit_range")),
+            ("说明", calc.get("domain_note")),
             ("评价结果ID", ev.id if ev else None), ("导出时间(UTC)", datetime.utcnow().isoformat(timespec="seconds"))]
     if b.data_origin in ("monte_carlo_demo", "test_fixture"):
         rows.insert(0, ("警告", "模拟数据——仅供测试/演示, 不得用于正式报告"))

@@ -29,7 +29,11 @@ import numpy as np
 LABEL = "模拟数据——仅供测试/演示"
 FILE_LABEL = "模拟数据_仅供测试演示"
 SEED = 20261009
-GEN_VERSION = "mc_demo_v12.0"
+GEN_VERSION = "mc_demo_v12.2"
+# v1.2.2(T01): 课题三演示得分改由独立流 SeedSequence([SEED, 122, k]) 生成, 保证 SSUI 落在等级定义域 [0, 1.0] 内;
+# 原 Beta(16,4) 得分(多数 SSUI > 1, 域外)按原随机流原样保留, 写入 fixtures/ssui_out_of_domain/ 作为反向回归夹具。
+SSUI_STREAM = 122
+SSUI_BETA_V122 = {"supported": (13, 7), "low": (6, 14)}
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 N_POINTS = 20
 
@@ -51,7 +55,8 @@ SCENARIOS = {
           "cu": 24, "ni": 28, "zn": 85}, "crvi": 0.4, "organics": True, "ssui_beta": {"production": (16, 4), "ecology": (16, 4)},
           "linked_pre": True},
     "B": {"title": "仅生产支持(production_supported)", "post_median": {"cd": 0.18, "hg": 0.08, "as": 11, "pb": 40, "cr": 60,
-          "cu": 24, "ni": 28, "zn": 85}, "crvi": 0.4, "organics": True, "ssui_beta": {"production": (16, 4), "ecology": (6, 14)}},
+          "cu": 24, "ni": 28, "zn": 85}, "crvi": 0.4, "organics": True, "ssui_beta": {"production": (16, 4), "ecology": (6, 14)},
+          "ssui_low": ["ecology"]},
     "C": {"title": "仅生态支持(ecology_supported)", "post_median": {"cd": 3.6, "hg": 0.08, "as": 11, "pb": 40, "cr": 60,
           "cu": 24, "ni": 28, "zn": 85}, "crvi": 0.4, "organics": True, "ssui_beta": {"production": (16, 4), "ecology": (16, 4)},
           "cd_floor": 3.1},
@@ -222,7 +227,8 @@ def generate(out: str) -> dict:
                               "pH_pre_normal": PH_PRE, "pH_post_normal": PH_POST,
                               "SOC": "对数正态 中位数15 g/kg GSD1.3, 截断[3,60]", "C:N": "正态(10,1.2) 截断[7,14]; TN=SOC/C:N",
                               "CEC": "4+0.55·SOC+N(0,1.5)", "盐渍化等级": "由含盐量派生: <1 无、轻度; 1–3 轻度、中度; >3 中度、重度(场景假设)",
-                              "categorical": "多项分布(概率见源码 _recon_point)", "SSUI 得分 s_i": "Beta(a,b), 各场景见 scenarios",
+                              "categorical": "多项分布(概率见源码 _recon_point)",
+                              "SSUI 得分 s_i": f"v1.2.2: 独立流 SeedSequence([{SEED}, {SSUI_STREAM}, k]), 支持轨 Beta{SSUI_BETA_V122['supported']}, 场景B生态 Beta{SSUI_BETA_V122['low']}; 原 Beta 见 scenarios.ssui_beta(仅用于反向夹具)",
                               "organics_post": "表1 VOC/SVOC 38 项, 取第一类筛选值的 1%–5% 均匀分布(低于筛选值)",
                               "removal(仅场地A)": "修复后 = 修复前 × (1−r), r~Beta(7,3)"},
             "constraints": ["浓度非负", "pH∈[4.5,8.5]", "场地 C: 修复后 Cd 下限 3.1 mg/kg(>水田管制值 3.0)",
@@ -302,7 +308,11 @@ def generate(out: str) -> dict:
             mm["B9"] = f"{GEN_VERSION} seed={SEED} 场景{code}"
             s = wb["指标得分"]
             a, b = sc["ssui_beta"][track]
-            scores = [round(float(rng.beta(a, b)), 4) for _ in range(25)]
+            legacy = [round(float(rng.beta(a, b)), 4) for _ in range(25)]   # 原随机流原样消耗(其余数据不变)
+            k_idx = list(SCENARIOS).index(code) * 2 + (0 if track == "production" else 1)
+            rng_s3 = np.random.default_rng(np.random.SeedSequence([SEED, SSUI_STREAM, k_idx]))
+            a2, b2 = SSUI_BETA_V122["low" if track in sc.get("ssui_low", []) else "supported"]
+            scores = [round(float(rng_s3.beta(a2, b2)), 4) for _ in range(25)]
             for r_, sv in enumerate(scores, 2):
                 s.cell(r_, 7, sv); s.cell(r_, 8, f"{LABEL}; 得分录入模式")
             p = wb["修复后污染物检测"]; p.delete_rows(2, 1)
@@ -317,6 +327,11 @@ def generate(out: str) -> dict:
                     p.cell(r_, 5, "mg/kg"); p.cell(r_, 6, "2026-09-15"); p.cell(r_, 7, LABEL); r_ += 1
             fp = os.path.join(d, f"0{3 if track == 'production' else 4}_{site_code}_课题三SSUI_{cn}_{FILE_LABEL}.xlsx")
             wb.save(fp); ssui_files[track] = fp
+            # 反向回归夹具: 同一模板与污染物数据, 仅得分为原 Beta(16,4)/(6,14) 抽样
+            for r_, sv in enumerate(legacy, 2):
+                s.cell(r_, 7, sv); s.cell(r_, 8, f"{LABEL}; 得分录入模式; v1.2.1 原得分(反向回归夹具)")
+            fxo = os.path.join(out, "fixtures", "ssui_out_of_domain"); os.makedirs(fxo, exist_ok=True)
+            fpl = os.path.join(fxo, f"{code}_{track}_v121原得分_{FILE_LABEL}.xlsx"); wb.save(fpl)
             # 期望 SSUI(独立实现, 方法 PPT 第13–15页)
             inds = W["indicators"]
             by_c: dict = {}
@@ -326,8 +341,21 @@ def generate(out: str) -> dict:
             crit = W["criterion_weights"][track]
             M = {"production": 1.15, "ecology": 1.075}[track]
             ssui = (1 + 0.03 * T_YEARS) * sum(crit[c] * v for c, v in by_c.items()) * M
+            if not (0.0 <= ssui <= 1.0):
+                raise SystemExit(f"场景 {code}/{track}: 演示 SSUI {ssui:.4f} 不在等级定义域 [0,1], 拒绝生成")
             exp_ssui[track] = {"ssui": round(ssui, 6), "feasible_threshold_provisional": 0.6, "feasible": ssui >= 0.6,
-                               "criterion_scores": {c: round(v, 6) for c, v in by_c.items()}, "M": M, "t": T_YEARS}
+                               "status": "ok", "criterion_scores": {c: round(v, 6) for c, v in by_c.items()},
+                               "M": M, "t": T_YEARS, "score_stream": f"SeedSequence([{SEED}, {SSUI_STREAM}, {k_idx}])",
+                               "beta": [a2, b2]}
+            lb: dict = {}
+            for ind, sv in zip(inds, legacy):
+                lb.setdefault(ind["criterion"], 0.0); lb[ind["criterion"]] += ind["w_" + track] * sv
+            lraw = (1 + 0.03 * T_YEARS) * sum(crit[c] * v for c, v in lb.items()) * M
+            expected.setdefault("ssui_out_of_domain_fixtures", {})[f"{code}_{track}"] = {
+                "file": os.path.relpath(fpl, out), "ssui": round(lraw, 6),
+                "status": "out_of_domain" if lraw > 1.0 else "ok", "beta": [a, b],
+                "expected_grade": None if lraw > 1.0 else "in_domain"}
+            meta["files"][os.path.relpath(fpl, out)] = _sha(fpl)
         pg, eg = expected_gates(post_pts, sc["organics"], sc["crvi"] is not None)
         econ = _economics(rng, code)
         json.dump(econ, open(os.path.join(d, f"05_{site_code}_场地经济输入_{FILE_LABEL}.json"), "w", encoding="utf-8"),
@@ -420,18 +448,65 @@ def run(out: str, db: str) -> dict:
     from app.main import app
     import demo_runner as DR
     with TestClient(app) as c:
-        return DR.run_all(DR.Http(c, ""), out, os.path.join(out, "actual"), admin=("admin", "Demo@Run2026x"))
+        res = DR.run_all(DR.Http(c, ""), out, os.path.join(out, "actual"), admin=("admin", "Demo@Run2026x"))
+    # v1.2.2(T04): 在新进程中重新打开同一演示库, 验证五阶段/附件/方案选择持久化(本机等价于“重启”)
+    import subprocess
+    pr = subprocess.run([sys.executable, os.path.abspath(__file__), "verify-persist", "--out", out, "--db", p],
+                        capture_output=True, text=True, env={**os.environ})
+    try:
+        vp = json.loads(pr.stdout.strip().splitlines()[-1])
+    except Exception:  # noqa: BLE001
+        vp = {"checks": [{"name": "[H] 新进程持久化验证运行", "passed": False, "detail": (pr.stderr or pr.stdout)[-400:]}]}
+    res["checks"] += vp["checks"]
+    res["persistence_after_restart"] = vp
+    n = len(res["checks"]); ok = sum(c["passed"] for c in res["checks"])
+    res["summary"].update({"checks": n, "passed": ok, "failed": n - ok})
+    json.dump(res, open(os.path.join(out, "actual", "comparison.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1, default=str)
+    return res
+
+
+def verify_persist(out: str, db: str) -> dict:
+    p = os.path.abspath(db)
+    os.environ["DATABASE_URL"] = "sqlite:///" + p
+    os.environ.setdefault("SECRET_KEY", "demo_only_key_" + "x" * 40)
+    _paths()
+    sys.path.insert(0, os.path.join(ROOT, "packaging", "ci"))
+    from fastapi.testclient import TestClient
+    from app.main import app
+    import demo_runner as DR
+    import workflow_demo as WD
+    meta = json.load(open(os.path.join(out, "metadata.json"), encoding="utf-8"))
+    case = meta["cases_v122"]["cases"]["H"]
+    probe = json.load(open(os.path.join(out, "actual", "H_persist_probe.json"), encoding="utf-8"))
+    checks = []
+
+    def check(name, cond, detail=None):
+        checks.append({"name": name, "passed": bool(cond), "detail": detail})
+    with TestClient(app) as c:
+        h = DR.Http(c, "")
+        r = c.post("/api/v1/auth/login", json={"username": case["users"]["enterprise"]["username"], "password": case["password"]})
+        check("[H] 新进程 企业用户重新登录", r.status_code == 200, r.status_code)
+        h.h = {"Authorization": "Bearer " + r.json().get("access_token", "")}
+        res = WD.verify_persisted(h, probe, check, label="新进程(重启)后")
+    return {"pid_note": "separate OS process", "result": res, "checks": checks}
 
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["generate", "run"])
+    ap.add_argument("cmd", choices=["generate", "run", "verify-persist"])
     ap.add_argument("--out", default=os.path.join(ROOT, "demo", "mc_v12"))
     ap.add_argument("--db")
     a = ap.parse_args()
     if a.cmd == "generate":
         m = generate(a.out)
-        print(json.dumps({"files": len(m["files"]), "fixtures": list(m["fixtures"])}, ensure_ascii=False))
+        # v1.2.2: 一条命令重建全部演示数据 —— A–E(本脚本) → F/G(mc_demo_v121_cases) → H(mc_demo_v122_workflow)
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import mc_demo_v121_cases as C121
+        import mc_demo_v122_workflow as C122
+        C121.generate(a.out); C122.generate(a.out)
+        print(json.dumps({"files": len(m["files"]), "fixtures": list(m["fixtures"]), "cases": ["F", "G", "H"]}, ensure_ascii=False))
+    elif a.cmd == "verify-persist":
+        print(json.dumps(verify_persist(a.out, a.db), ensure_ascii=False, default=str))
     else:
         if not a.db:
             raise SystemExit("run 需要 --db 指定独立演示库")

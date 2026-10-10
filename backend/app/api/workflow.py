@@ -47,8 +47,10 @@ def get_workflow(site_id: int, user: User = Depends(get_current_user),
 def update_workflow(site_id: int, stage: str, body: dict = Body(default={}),
                     user: User = Depends(require_permission("data:input")), db: Session = Depends(get_db)):
     _require_site(db, user, site_id)
+    # v1.2.2(T04): 操作人只取自当前登录用户, 不接受请求体自报 operator_id(防止冒用他人身份留痕)
+    body = {k: v for k, v in (body or {}).items() if k != "operator_id"}
     try:
-        stages = workflow_service.update_stage(db, site_id, stage, **body)
+        stages = workflow_service.update_stage(db, site_id, stage, operator_id=user.id, **body)
     except (ValueError, TypeError) as e:
         raise HTTPException(400, str(e))
     return {"site_id": site_id, "stages": stages}

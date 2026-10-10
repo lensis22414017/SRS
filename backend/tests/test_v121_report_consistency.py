@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 import io
+import json
 import os
 import sys
 
@@ -68,14 +69,14 @@ def test_site_a_cross_channel_and_stage_separation(client):
     pv = c.post(f"/api/v1/sites/{sid}/recon/preview", headers=h,
                 files={"file": ("s2.xlsx", open(_f("02_"), "rb").read(), XLSX)}).json()
     assert c.post(f"/api/v1/recon/batches/{pv['batch_id']}/confirm", headers=h).json()["status"] == "confirmed"
-    c.post(f"/api/v1/sites/{sid}/utilization", headers=h, params={"stage": "pre_remediation", "farmland_type": "水田"})
+    c.post(f"/api/v1/sites/{sid}/utilization", headers=h, params={"stage": "pre_remediation", "farmland_type": "水田", "eco_land_class": "第一类用地"})
     for track, pre in (("production", "03_"), ("ecology", "04_")):
         p3 = c.post(f"/api/v1/sites/{sid}/ssui-post/preview", headers=h, data={"track": track},
                     files={"file": ("s3.xlsx", open(_f(pre), "rb").read(), XLSX)}).json()
         assert p3["can_confirm"], p3.get("errors")
         c.post(f"/api/v1/ssui-post/batches/{p3['batch_id']}/confirm", headers=h)
     dq = c.post(f"/api/v1/sites/{sid}/utilization", headers=h,
-                params={"stage": "post_remediation", "farmland_type": "水田"}).json()
+                params={"stage": "post_remediation", "farmland_type": "水田", "eco_land_class": "第一类用地"}).json()
 
     files, snaps = _reports(c, h, sid)
     sj = c.get(f"/api/v1/sites/{sid}/evaluation-snapshot", headers=h).json()
@@ -89,8 +90,12 @@ def test_site_a_cross_channel_and_stage_separation(client):
     assert inv["duplicate_groups"] and inv["duplicate_groups"][0]["n_shared_samples"] == 20
     assert inv["n_unique_measurements"] * 2 == inv["n_measurement_records"]
     # 修复后 SSUI 来自课题三批次, 与独立期望值一致; 修复前旧口径只作参考
-    assert hl["ssui_post_production"] == pytest.approx(1.019189, abs=1e-6)
-    assert hl["ssui_post_ecology"] == pytest.approx(0.968728, abs=1e-6)
+    # v1.2.2: 期望值读自 demo/mc_v12/expected.json(生成器独立计算, 均在等级定义域 [0, 1] 内);
+    # v1.2.1 的 1.019189(域外) 已降为 fixtures/ssui_out_of_domain 回归夹具
+    _exA = json.load(open(os.path.join(ROOT, "demo", "mc_v12", "expected.json"), encoding="utf-8"))["scenarios"]["A"]["ssui"]
+    assert hl["ssui_post_production"] == pytest.approx(_exA["production"]["ssui"], abs=1e-6)
+    assert hl["ssui_post_ecology"] == pytest.approx(_exA["ecology"]["ssui"], abs=1e-6)
+    assert 0 <= hl["ssui_post_production"] <= 1 and 0 <= hl["ssui_post_ecology"] <= 1
     assert snap["ssui"]["pre_reference"] is None or "参考" in snap["ssui"]["pre_reference"]["label"]
     # 场地级门禁按阶段: 修复前超筛选值, 修复后通过; 与利用方向结论一致
     assert hl["pre_gate_production"] == "conditional" and set(hl["pre_exceed_production"]) >= {"Cd", "Pb"}
@@ -172,7 +177,7 @@ def test_infeasible_pre_remediation_case_reports_control_exceedance(client):
     sid, _ = _import_pre(c, h, content=buf.getvalue(), name="【模拟数据——仅供测试/演示】不可行夹具_修复前检测.xlsx")
     c.post(f"/api/v1/sites/{sid}/kos-diagnosis?track=prod&subset=hm&top_n=10&farmland_type=水田", headers=h)
     dp = c.post(f"/api/v1/sites/{sid}/utilization", headers=h,
-                params={"stage": "pre_remediation", "farmland_type": "水田"}).json()
+                params={"stage": "pre_remediation", "farmland_type": "水田", "eco_land_class": "第一类用地"}).json()
     files, snaps = _reports(c, h, sid)
     sj = c.get(f"/api/v1/sites/{sid}/evaluation-snapshot", headers=h).json()
     hl = sj["headline"]

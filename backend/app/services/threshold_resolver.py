@@ -179,8 +179,9 @@ _CANONICAL_TO_DB_NAME = {
     "VOC_VinylChloride": "氯乙烯", "VOC_Dichloromethane": "二氯甲烷",
     "VOC_Chlorobenzene": "氯苯",
     "BTEX_Styrene": "苯乙烯", "BTEX_Toluene": "甲苯", "BTEX_Ethylbenzene": "乙苯",
-    "BTEX_Xylene": "邻-二甲苯",
-    "Phenol_Pentachlorophenol": "五氯酚", "Phenol_Chlorophenol": "2-氯酚",
+    # v1.2.2(T02): 已移除 BTEX_Xylene→邻-二甲苯(族名→代表物); 间/对-二甲苯与邻-二甲苯按各自官方记录精确匹配
+    "Phenol_Pentachlorophenol": "五氯酚", # v1.2.2(T02) 已移除 Phenol_Chlorophenol→2-氯酚(族名→代表物)
+   
     "Aniline": "苯胺", "Nitrobenzene": "硝基苯",
     "Cyanide": "氰化物",
     # ── v1.0.2 新增映射（对齐 SHAP canonical → GB36600 标准库中文名）──
@@ -191,7 +192,7 @@ _CANONICAL_TO_DB_NAME = {
     "PAHs_total(族群)": "多环芳烃总量",
     "TPH_ngg": "石油烃",
     "SumOCP_ngg": "有机氯农药",
-    "SumPAE_ugkg": "邻苯二甲酸二(2-乙基己基)酯",  # DEHP 作为 PAEs 代表（GB36600最严）
+    # v1.2.2(T02): 已移除 SumPAE→DEHP 代表物映射; PAEs 总量无 GB 36600 总量限值 → 不判定(族总量)
     "SumPBDE_ngg": "多溴联苯(总量)",
     # PAH 单体（中文裸名 → GB36600 中文名）
     "萘": "萘", "䓛": "䓛",
@@ -243,7 +244,7 @@ _GB15618_EXTENDED_FALLBACK = {
     "SoilBD_gcm3": {"type": "upper", "limit": 1.5, "unit": "g/cm³", "standard": "TD/T 1036-2013 容重参考上限 (≤1.5 g/cm³) · 文献参考"},
     "EC_mScm": {"type": "upper", "limit": 2.0, "unit": "mS/cm", "standard": "USDA 盐渍化参考 (ECe≤2 dS/m) · 文献参考"},
     # ── 新兴污染物 ──
-    "SumPAE_ugkg": {"type": "upper", "limit": 42000, "unit": "μg/kg", "standard": "以 GB36600 DEHP 一类用地筛选值作参考 (42 mg/kg) · 非本物质标准值"},
+    # v1.2.2(T02): 已移除 SumPAE 以 DEHP 筛选值(42 mg/kg)兜底的条目 — 非本物质标准值, 不得用于族总量
 }
 
 

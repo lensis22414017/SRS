@@ -33,7 +33,9 @@ GATE_STATE_CN = {"pass": "未超筛选值", "conditional": "超筛选值、未�
                  "fail": "超管制值", "insufficient": "证据不足(缺测/条件不明)"}
 DECISION_CN = {"both_supported": "生产与生态均支持", "production_supported": "支持生产利用",
                "ecology_supported": "支持生态利用", "neither_supported": "均不支持",
-               "insufficient_evidence": "证据不足"}
+               "insufficient_evidence": "证据不足",
+               "needs_manual_use_selection": "须选择用途(仅保守假设筛查, 无正式结论)",
+               "regulatory_applicability_unresolved": "法规适用性未定(无正式结论)"}
 OFFICIAL_STATUS_CN = {"available": "正式结果可用", "partial": "正式因子不足 3 个(部分结果)",
                       "insufficient_evidence": "证据不足, 无正式排名"}
 _SPECIATION_UNITS = {"VI", "III", "Ⅵ", "Ⅲ", "6+", "3+", "六价", "三价"}
@@ -260,11 +262,20 @@ def _kos(db: Session, site_id: int) -> dict | None:
 # ───────────────────────── 课题二 / 课题三 ─────────────────────────
 def _eval_row(e: EvaluationResult) -> dict:
     dims = e.dimensions or {}
+    from app.services.ssui_post_service import effective_status
+    st = effective_status(e) if (e.eval_type or "").startswith("ssui_post_") else dims.get("status")
+    legacy = (e.eval_type or "").startswith("ssui_post_") and not dims.get("status")
+    ood = st == "out_of_domain"
     return {"evaluation_id": e.id, "eval_type": e.eval_type, "stage": e.stage, "subproject": e.subproject,
-            "score": _r(e.score), "grade": e.grade, "method_version": e.method_version,
+            "score": _r(e.score), "grade": None if ood else e.grade, "method_version": e.method_version,
             "method_status": e.method_status, "source_batch_id": e.source_batch_id, "data_version": e.data_version,
-            "status": dims.get("status"), "feasible": dims.get("feasible"),
+            "status": st, "feasible": None if ood else dims.get("feasible"),
+            # v1.2.2: v1.2.1 旧记录(无 status)读取时按原值推导; 域外时库内原等级只作审计留存, 不再展示为等级
+            "legacy_record": legacy, "stored_grade": e.grade if (legacy and ood) else None,
             "exceeds_unit_range": dims.get("exceeds_unit_range"),
+            "support_interpretation": dims.get("support_interpretation"),
+            "classification_scope": dims.get("classification_scope"),
+            "domain_note": dims.get("domain_note"),
             "created_at": e.created_at.strftime("%Y-%m-%d %H:%M") if e.created_at else None}
 
 
@@ -301,7 +312,9 @@ def _ssui(db: Session, site_id: int) -> dict:
                        "evaluation": _eval_row(ev) if ev else None, "superseded_batches": superseded}
     return {"post": post,
             "headline": {t: (post[t]["evaluation"] or {}).get("score") for t in post},
-            "headline_grade": {t: (post[t]["evaluation"] or {}).get("grade") for t in post},
+            "headline_grade": {t: ("超出有效域, 不分级" if (post[t]["evaluation"] or {}).get("status") == "out_of_domain"
+                                   else (post[t]["evaluation"] or {}).get("grade")) for t in post},
+            "headline_status": {t: (post[t]["evaluation"] or {}).get("status") for t in post},
             "pre_reference": ({**_eval_row(pre), "label": "修复前旧口径综合评价(参考, 非课题三修复后 SSUI)"}
                               if pre else None),
             "method_status": "provisional",
@@ -318,7 +331,11 @@ def _utilization(db: Session, site_id: int) -> dict:
             "production_gate": _gstate(d.production_gate), "ecology_gate": _gstate(d.ecology_gate),
             "production_score": _r(d.production_score), "ecology_score": _r(d.ecology_score),
             "conclusion": d.conclusion_text, "method_version": d.method_version, "method_status": d.method_status,
-            "missing_evidence": d.missing_evidence or [], "created_at": d.created_at.strftime("%Y-%m-%d %H:%M") if d.created_at else None}
+            "missing_evidence": d.missing_evidence or [], "created_at": d.created_at.strftime("%Y-%m-%d %H:%M") if d.created_at else None,
+            "use_state": (d.evidence or {}).get("use_state"),
+            "farmland_type": (d.evidence or {}).get("farmland_type"),
+            "eco_land_class": (d.evidence or {}).get("eco_land_class"),
+            "hypothetical_screen": bool((d.evidence or {}).get("hypothetical_screen"))}
     return out
 
 

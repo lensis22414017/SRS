@@ -61,7 +61,7 @@ def main():
             sites = requests.get(f"{a.base}/api/v1/sites", headers=H, params={"page_size": 100}).json()["items"]
             by = {}
             for s in sites:
-                for code in "ABCDE":
+                for code in "ABCDEFGHP":
                     if f"MCDEMO-{code}" in (s.get("name") or "") or f"MCDEMO-{code}" in (s.get("original_site_code") or ""):
                         by[code] = s["id"]
             sid = by.get("A", sites[0]["id"])
@@ -130,6 +130,26 @@ def main():
             except Exception as e:  # noqa: BLE001
                 print("recommend click failed:", e)
             shot("22_recommend.png", "修复方案推荐(演示场地 A, 运行后)", "/recommend", "A")
+            # ── v1.2.2 ──
+            exp = json.load(open(os.path.join(a.demo, "expected.json"), encoding="utf-8"))
+            fxA = (exp.get("ssui_out_of_domain_fixtures") or {}).get("A_production")
+            if fxA:
+                from openpyxl import load_workbook
+                codeA = next((s["site_code"] for s in sites if s["id"] == sid), "")
+                wb = load_workbook(os.path.join(a.demo, fxA["file"])); wb["批次信息"]["B2"] = codeA
+                tmp = os.path.join(a.out, "_tmp_A_production_v121_scores.xlsx"); wb.save(tmp)
+                go("/ssui-post", sid)
+                page.set_input_files("input[type=file]", tmp); page.wait_for_timeout(3500)
+                shot("25_ssui_out_of_domain_preview.png", "课题三 v1.2.1 旧得分(SSUI 1.019189) · 超出等级定义域: 原值保留、不分级、不作支持判断(仅预览)",
+                     "/ssui-post", "A·域外夹具")
+                os.remove(tmp)
+            if "H" in by:
+                go(f"/trace/{by['H']}"); shot("26_trace_detail_H.png", "全流程追溯 · 场地 H 五阶段均有模拟材料与模拟审核记录", f"/trace/{by['H']}", "H")
+                go("/recommend", by["H"]); page.wait_for_timeout(2000)
+                shot("27_recommend_H.png", "修复方案推荐 · 场地 H(已生成, 第 1 名在方案审批阶段记录为选定方案)", "/recommend", "H")
+            if "P" in by:
+                go("/obstacle", by["P"]); page.wait_for_timeout(2500)
+                shot("28_obstacle_phthalate_P.png", "课题一 邻苯二甲酸酯: DEHP 按 CAS 绑定官方值; 总量不判定; 未登记单体待复核", "/obstacle", "P")
             go("/files"); shot("23_files.png", "文件管理", "/files")
             go("/system"); shot("24_system.png", "系统管理(用户/备份恢复/日志)", "/system")
         b.close()

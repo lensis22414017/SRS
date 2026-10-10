@@ -1,5 +1,5 @@
 {
- "generator": "mc_demo_v12.0",
+ "generator": "mc_demo_v12.2",
  "seed": 20261009,
  "method": "独立实现(不调用 SRS 评价代码)",
  "scenarios": {
@@ -13,30 +13,42 @@
    "post_decision": "both_supported",
    "ssui": {
     "production": {
-     "ssui": 1.019189,
+     "ssui": 0.863557,
      "feasible_threshold_provisional": 0.6,
      "feasible": true,
+     "status": "ok",
      "criterion_scores": {
-      "C1": 0.807841,
-      "C2": 0.885415,
-      "C3": 0.750086,
-      "C4": 0.813956
+      "C1": 0.647398,
+      "C2": 0.701659,
+      "C3": 0.713971,
+      "C4": 0.715127
      },
      "M": 1.15,
-     "t": 3
+     "t": 3,
+     "score_stream": "SeedSequence([20261009, 122, 0])",
+     "beta": [
+      13,
+      7
+     ]
     },
     "ecology": {
-     "ssui": 0.968728,
+     "ssui": 0.8042,
      "feasible_threshold_provisional": 0.6,
      "feasible": true,
+     "status": "ok",
      "criterion_scores": {
-      "C1": 0.768003,
-      "C2": 0.838765,
-      "C3": 0.808991,
-      "C4": 0.93001
+      "C1": 0.639304,
+      "C2": 0.592297,
+      "C3": 0.659443,
+      "C4": 0.841403
      },
      "M": 1.075,
-     "t": 3
+     "t": 3,
+     "score_stream": "SeedSequence([20261009, 122, 1])",
+     "beta": [
+      13,
+      7
+     ]
     }
    },
    "economics": {
@@ -68,30 +80,42 @@
    "post_decision": "production_supported",
    "ssui": {
     "production": {
-     "ssui": 1.036062,
+     "ssui": 0.857038,
      "feasible_threshold_provisional": 0.6,
      "feasible": true,
+     "status": "ok",
      "criterion_scores": {
-      "C1": 0.795963,
-      "C2": 0.938711,
-      "C3": 0.79128,
-      "C4": 0.807055
+      "C1": 0.680312,
+      "C2": 0.692913,
+      "C3": 0.657536,
+      "C4": 0.702641
      },
      "M": 1.15,
-     "t": 3
+     "t": 3,
+     "score_stream": "SeedSequence([20261009, 122, 2])",
+     "beta": [
+      13,
+      7
+     ]
     },
     "ecology": {
-     "ssui": 0.362517,
+     "ssui": 0.423365,
      "feasible_threshold_provisional": 0.6,
      "feasible": false,
+     "status": "ok",
      "criterion_scores": {
-      "C1": 0.322427,
-      "C2": 0.254832,
-      "C3": 0.290008,
-      "C4": 0.339137
+      "C1": 0.329121,
+      "C2": 0.378295,
+      "C3": 0.359003,
+      "C4": 0.40472
      },
      "M": 1.075,
-     "t": 3
+     "t": 3,
+     "score_stream": "SeedSequence([20261009, 122, 3])",
+     "beta": [
+      6,
+      14
+     ]
     }
    },
    "economics": {
@@ -123,30 +147,42 @@
    "post_decision": "ecology_supported",
    "ssui": {
     "production": {
-     "ssui": 1.00737,
+     "ssui": 0.801171,
      "feasible_threshold_provisional": 0.6,
      "feasible": true,
+     "status": "ok",
      "criterion_scores": {
-      "C1": 0.79636,
-      "C2": 0.788176,
-      "C3": 0.761249,
-      "C4": 0.8616
+      "C1": 0.606943,
+      "C2": 0.535338,
+      "C3": 0.682983,
+      "C4": 0.731516
      },
      "M": 1.15,
-     "t": 3
+     "t": 3,
+     "score_stream": "SeedSequence([20261009, 122, 4])",
+     "beta": [
+      13,
+      7
+     ]
     },
     "ecology": {
-     "ssui": 0.954234,
+     "ssui": 0.781191,
      "feasible_threshold_provisional": 0.6,
      "feasible": true,
+     "status": "ok",
      "criterion_scores": {
-      "C1": 0.754576,
-      "C2": 0.850131,
-      "C3": 0.794454,
-      "C4": 0.907589
+      "C1": 0.668074,
+      "C2": 0.598719,
+      "C3": 0.607758,
+      "C4": 0.760746
      },
      "M": 1.075,
-     "t": 3
+     "t": 3,
+     "score_stream": "SeedSequence([20261009, 122, 5])",
+     "beta": [
+      13,
+      7
+     ]
     }
    },
    "economics": {
@@ -178,30 +214,42 @@
    "post_decision": "neither_supported",
    "ssui": {
     "production": {
-     "ssui": 1.079447,
+     "ssui": 0.813298,
      "feasible_threshold_provisional": 0.6,
      "feasible": true,
+     "status": "ok",
      "criterion_scores": {
-      "C1": 0.820847,
-      "C2": 0.920182,
-      "C3": 0.899133,
-      "C4": 0.837071
+      "C1": 0.646383,
+      "C2": 0.537579,
+      "C3": 0.745638,
+      "C4": 0.661351
      },
      "M": 1.15,
-     "t": 3
+     "t": 3,
+     "score_stream": "SeedSequence([20261009, 122, 6])",
+     "beta": [
+      13,
+      7
+     ]
     },
     "ecology": {
-     "ssui": 0.998802,
+     "ssui": 0.829004,
      "feasible_threshold_provisional": 0.6,
      "feasible": true,
+     "status": "ok",
      "criterion_scores": {
-      "C1": 0.78886,
-      "C2": 0.826637,
-      "C3": 0.813969,
-      "C4": 1.005085
+      "C1": 0.655274,
+      "C2": 0.604115,
+      "C3": 0.670112,
+      "C4": 0.886303
      },
      "M": 1.075,
-     "t": 3
+     "t": 3,
+     "score_stream": "SeedSequence([20261009, 122, 7])",
+     "beta": [
+      13,
+      7
+     ]
     }
    },
    "economics": {
@@ -233,30 +281,42 @@
    "post_decision": "insufficient_evidence",
    "ssui": {
     "production": {
-     "ssui": 1.040996,
+     "ssui": 0.879473,
      "feasible_threshold_provisional": 0.6,
      "feasible": true,
+     "status": "ok",
      "criterion_scores": {
-      "C1": 0.804201,
-      "C2": 0.894063,
-      "C3": 0.758137,
-      "C4": 0.875617
+      "C1": 0.650669,
+      "C2": 0.802227,
+      "C3": 0.698286,
+      "C4": 0.693228
      },
      "M": 1.15,
-     "t": 3
+     "t": 3,
+     "score_stream": "SeedSequence([20261009, 122, 8])",
+     "beta": [
+      13,
+      7
+     ]
     },
     "ecology": {
-     "ssui": 1.007641,
+     "ssui": 0.814241,
      "feasible_threshold_provisional": 0.6,
      "feasible": true,
+     "status": "ok",
      "criterion_scores": {
-      "C1": 0.777459,
-      "C2": 0.858941,
-      "C3": 0.817048,
-      "C4": 1.03249
+      "C1": 0.633604,
+      "C2": 0.691049,
+      "C3": 0.668298,
+      "C4": 0.819864
      },
      "M": 1.075,
-     "t": 3
+     "t": 3,
+     "score_stream": "SeedSequence([20261009, 122, 9])",
+     "beta": [
+      13,
+      7
+     ]
     }
    },
    "economics": {
@@ -277,6 +337,108 @@
    },
    "recon_points": 20,
    "recon_features_provided": 41
+  }
+ },
+ "ssui_out_of_domain_fixtures": {
+  "A_production": {
+   "file": "fixtures/ssui_out_of_domain/A_production_v121原得分_模拟数据_仅供测试演示.xlsx",
+   "ssui": 1.019189,
+   "status": "out_of_domain",
+   "beta": [
+    16,
+    4
+   ],
+   "expected_grade": null
+  },
+  "A_ecology": {
+   "file": "fixtures/ssui_out_of_domain/A_ecology_v121原得分_模拟数据_仅供测试演示.xlsx",
+   "ssui": 0.968728,
+   "status": "ok",
+   "beta": [
+    16,
+    4
+   ],
+   "expected_grade": "in_domain"
+  },
+  "B_production": {
+   "file": "fixtures/ssui_out_of_domain/B_production_v121原得分_模拟数据_仅供测试演示.xlsx",
+   "ssui": 1.036062,
+   "status": "out_of_domain",
+   "beta": [
+    16,
+    4
+   ],
+   "expected_grade": null
+  },
+  "B_ecology": {
+   "file": "fixtures/ssui_out_of_domain/B_ecology_v121原得分_模拟数据_仅供测试演示.xlsx",
+   "ssui": 0.362517,
+   "status": "ok",
+   "beta": [
+    6,
+    14
+   ],
+   "expected_grade": "in_domain"
+  },
+  "C_production": {
+   "file": "fixtures/ssui_out_of_domain/C_production_v121原得分_模拟数据_仅供测试演示.xlsx",
+   "ssui": 1.00737,
+   "status": "out_of_domain",
+   "beta": [
+    16,
+    4
+   ],
+   "expected_grade": null
+  },
+  "C_ecology": {
+   "file": "fixtures/ssui_out_of_domain/C_ecology_v121原得分_模拟数据_仅供测试演示.xlsx",
+   "ssui": 0.954234,
+   "status": "ok",
+   "beta": [
+    16,
+    4
+   ],
+   "expected_grade": "in_domain"
+  },
+  "D_production": {
+   "file": "fixtures/ssui_out_of_domain/D_production_v121原得分_模拟数据_仅供测试演示.xlsx",
+   "ssui": 1.079447,
+   "status": "out_of_domain",
+   "beta": [
+    16,
+    4
+   ],
+   "expected_grade": null
+  },
+  "D_ecology": {
+   "file": "fixtures/ssui_out_of_domain/D_ecology_v121原得分_模拟数据_仅供测试演示.xlsx",
+   "ssui": 0.998802,
+   "status": "ok",
+   "beta": [
+    16,
+    4
+   ],
+   "expected_grade": "in_domain"
+  },
+  "E_production": {
+   "file": "fixtures/ssui_out_of_domain/E_production_v121原得分_模拟数据_仅供测试演示.xlsx",
+   "ssui": 1.040996,
+   "status": "out_of_domain",
+   "beta": [
+    16,
+    4
+   ],
+   "expected_grade": null
+  },
+  "E_ecology": {
+   "file": "fixtures/ssui_out_of_domain/E_ecology_v121原得分_模拟数据_仅供测试演示.xlsx",
+   "ssui": 1.007641,
+   "status": "out_of_domain",
+   "beta": [
+    16,
+    4
+   ],
+   "expected_grade": null
   }
  },
  "fixtures": {

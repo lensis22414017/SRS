@@ -59,7 +59,8 @@ class TestWorkflowBypassBlocked:
     def test_returned_to_completed_rejected(self, db, site_id):
         """returned -> completed (via is_completed) -> MUST FAIL"""
         W.update_stage(db, site_id, "survey", status="in_progress")
-        W.update_stage(db, site_id, "survey", status="returned", is_returned=True)
+        W.update_stage(db, site_id, "survey", status="returned", is_returned=True,
+                       review_comment="材料不齐全, 退回")
         with pytest.raises(ValueError, match="不允许"):
             W.update_stage(db, site_id, "survey", is_completed=True)
 

@@ -138,8 +138,9 @@ def chart_ssui(ssui: dict) -> bytes | None:
     ax.axhline(0.6, color="#C0392B", lw=0.8, ls="--")
     ax.text(-0.45, 0.62, "0.6 暂定支持阈值", fontsize=7, ha="left", color="#C0392B")
     ax.axhline(1.0, color="#777", lw=0.6, ls=":")
+    ax.text(len(vals) - 0.55, 1.01, "等级定义域上限 1.0", fontsize=6.5, ha="right", color="#555")
     for i, v in enumerate(vals):
-        ax.text(i, v[1], f"{v[1]:.3f}", ha="center", va="bottom", fontsize=8)
+        ax.text(i, v[1], f"{v[1]:.3f}" + ("（域外）" if v[1] > 1.0 else ""), ha="center", va="bottom", fontsize=8)
     ax.set_ylim(0, max(1.15, max(v[1] for v in vals) + 0.1))
     ax.set_title("课题三 修复后 SSUI(每轨最新已确认批次)", fontsize=9)
     ax.tick_params(labelsize=8)
@@ -437,10 +438,19 @@ def build_blocks(ctx: dict) -> list[dict]:
     rows = []
     for t, cn in (("production", "生产"), ("ecology", "生态")):
         p = ssui["post"][t]; e = p["evaluation"] or {}
-        rows.append([cn, f"#{p['batch_id']}" if p["batch_id"] else "无", p["source_file"], e.get("score"), e.get("grade"),
-                     p["years_since_remediation"], p["multiplier_m"], e.get("exceeds_unit_range"), e.get("method_status")])
-    b.table(["轨道", "批次", "来源文件", "SSUI", "等级", "t(年)", "M", "超出单位区间", "方法状态"], rows,
-            widths=[7, 7, 30, 9, 11, 7, 7, 10, 12], caption="表 修复后 SSUI（每轨最新已确认批次）")
+        _ood = e.get("status") == "out_of_domain"
+        rows.append([cn, f"#{p['batch_id']}" if p["batch_id"] else "无", p["source_file"], e.get("score"),
+                     ("超出有效域, 不分级" if _ood else (e.get("grade") or "—")),
+                     p["years_since_remediation"], p["multiplier_m"],
+                     ("不作支持判断" if _ood else ("暂定演示分级" if e.get("status") == "ok" else (e.get("status") or "—"))),
+                     e.get("method_status")])
+    b.table(["轨道", "批次", "来源文件", "SSUI 原值", "等级", "t(年)", "M", "解释", "方法状态"], rows,
+            widths=[7, 7, 30, 9, 13, 7, 7, 12, 10], caption="表 修复后 SSUI（每轨最新已确认批次）")
+    for t, cn in (("production", "生产"), ("ecology", "生态")):
+        e = (ssui["post"][t]["evaluation"] or {})
+        if e.get("status") == "out_of_domain":
+            b.p(f"{cn}轨道 SSUI 原值 {_fmt(e.get('score'))} 超出等级定义域 [0, 1.0]：原值、权重与方法版本保留，"
+                "不给出等级，不作功能支持判断（方法文件未定义域外等级）。", "warn")
     b.img(chart_ssui(ssui), "图 修复后 SSUI 与 0.6 暂定支持阈值", 0.55)
     pr = ssui.get("pre_reference")
     if pr:
@@ -452,11 +462,17 @@ def build_blocks(ctx: dict) -> list[dict]:
         if not u:
             b.p(f"{lbl}: 尚未运行。", "muted")
             continue
+        _us = u.get("use_state") or {}
+        _UCN = {"explicit": "已选择", "needs_manual_use_selection": "未选择", "regulatory_applicability_unresolved": "适用性未定"}
         b.kv([(lbl, u["state_cn"]), ("决策记录", f"#{u['decision_id']}（{u['created_at']}）"),
+              ("用途 生产/生态", f"{u.get('farmland_type') or '—'}（{_UCN.get(_us.get('production'), '—')}） / "
+                              f"{u.get('eco_land_class') or '—'}（{_UCN.get(_us.get('ecology'), '—')}）"),
               ("门禁 生产/生态", f"{u['production_gate']} / {u['ecology_gate']}"),
               ("评分 生产/生态", f"{_fmt(u['production_score'])} / {_fmt(u['ecology_score'])}"),
               ("方法版本 / 状态", f"{u['method_version']} / {u['method_status']}")])
         b.p(f"{lbl}：{u['conclusion']}")
+        if u.get("hypothetical_screen"):
+            b.p("未选择用途或法规适用性未定：门禁结果为保守假设筛查，不构成正式利用结论。", "warn")
         for m in (u.get("missing_evidence") or [])[:6]:
             b.p(f"需补充：{m}", "muted")
     b.p("“支持利用”为系统辅助判断(方法状态 provisional), 不构成正式利用许可; 正式结论需课题组与主管部门签认。", "warn")
@@ -477,17 +493,29 @@ def build_blocks(ctx: dict) -> list[dict]:
     b.h1("五阶段全流程追溯记录")
     wf = snap["workflow"]
     b.p(wf["note"], "muted")
-    b.table(["业务阶段", "状态", "附件数", "操作时间", "审批意见"],
-            [[x["name"], x["status_cn"], x["n_attachments"], x.get("operated_at"), x.get("review_comment")] for x in wf["business_stages"]],
-            caption="表 五阶段业务记录（调查评估→后期管护）")
+    b.table(["业务阶段", "状态", "附件数", "最近操作人", "操作时间", "审批意见"],
+            [[x["name"], x["status_cn"], x["n_attachments"], x.get("operator_name") or "—", x.get("operated_at"),
+              x.get("review_comment")] for x in wf["business_stages"]],
+            caption="表 五阶段业务记录（调查评估→后期管护）", widths=[12, 16, 8, 16, 20, 28])
+    ev_rows = [[x["name"], e.get("file_role") or "—", e.get("name"), e.get("sha256_12") or "—", e.get("uploaded_by") or "—"]
+               for x in wf["business_stages"] for e in (x.get("evidence") or [])]
+    if ev_rows:
+        b.table(["业务阶段", "材料类型", "文件名", "SHA-256(前12位)", "上传者"], ev_rows,
+                caption="表 阶段→证据追溯（每份材料的内容指纹与上传者）", widths=[12, 14, 34, 20, 20])
+    sel = next((x.get("selected_recommendation") for x in wf["business_stages"] if x.get("selected_recommendation")), None)
+    if sel:
+        b.p(f"方案选择记录（方案审批阶段）：选定第 {sel.get('rank')} 名「{sel.get('technology')}」"
+            f"（匹配分 {sel.get('match_score')}，规则版本 {sel.get('rule_version') or '—'}）；"
+            f"选择理由：{sel.get('basis') or '—'}（记录人见上表“方案审批”阶段操作人）。")
     b.table(["软件操作里程碑", "是否执行", "次数"],
             [[m["name"], ("本报告" if m["key"] == "report" else "已执行" if m["done"] else "未执行"), m.get("count")]
              for m in wf["software_milestones"]],
             caption=f"表 七项软件操作里程碑（{wf['software_completed']}/{wf['software_total']}，不等于五阶段业务完成）")
 
     b.h1("附件清单")
-    b.table(["阶段", "材料类型", "文件名"],
-            [[a.get("stage_name"), a.get("file_role"), a.get("original_name")] for a in ctx.get("attachments") or []],
+    b.table(["阶段", "材料类型", "文件名", "SHA-256(前12位)", "上传者"],
+            [[a.get("stage_name"), a.get("file_role"), a.get("original_name"), a.get("sha256_12", "—"), a.get("uploaded_by", "—")]
+             for a in ctx.get("attachments") or []],
             empty="暂无附件（五阶段业务材料未上传）。")
 
     b.h1("模型版本、数据版本、标准版本、报告版本")

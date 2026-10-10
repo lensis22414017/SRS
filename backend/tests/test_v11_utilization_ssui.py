@@ -45,7 +45,7 @@ def test_gejiu_real_data_fails_both_gates_and_score_cannot_offset():
 
 def test_missing_required_factor_never_passes():
     p = _clean_point(); p.pop("Cd")
-    d = U.decide("post_remediation", [p], production_score=FEAS, ecology_score=FEAS, eco_required=METALS_7)
+    d = U.decide("post_remediation", [p], production_score=FEAS, ecology_score=FEAS, eco_required=METALS_7, farmland_type="其他", eco_land_class="第一类用地")
     assert d["production"]["gate"]["state"] == "insufficient"
     assert d["ecology"]["gate"]["state"] == "insufficient"
     assert d["decision_state"] == "insufficient_evidence"
@@ -53,22 +53,26 @@ def test_missing_required_factor_never_passes():
 
 
 def test_clean_site_production_supported_ecology_basic_items_missing():
-    d = U.decide("post_remediation", [_clean_point(1), _clean_point(2)], production_score=FEAS, ecology_score=FEAS)
+    d = U.decide("post_remediation", [_clean_point(1), _clean_point(2)], production_score=FEAS, ecology_score=FEAS, farmland_type="其他", eco_land_class="第一类用地")
     assert d["production"]["gate"]["state"] == "pass"
     assert d["ecology"]["gate"]["state"] == "insufficient"  # GB 36600 VOC/SVOC 基本项目缺测
     assert d["decision_state"] == "production_supported"
-    assert any("第一类用地" in a for a in d["assumptions"])
+    # v1.2.2(T03): 未选生态用地类别时, 第一类用地(最严)只作保守假设筛查, 生态轨道结论暂缓
+    d0 = U.decide("post_remediation", [_clean_point(1), _clean_point(2)], production_score=FEAS, ecology_score=FEAS,
+                  farmland_type="其他")
+    assert any("第一类用地" in a for a in d0["assumptions"]) and d0["ecology"]["track_status"] == "withheld_use"
+    assert d0["hypothetical_screen"]["label"] == "hypothetical_conservative_screen"
 
 
 def test_both_supported_and_score_decides_only_after_gates():
     pts = [_clean_point(1), _clean_point(2)]
-    d = U.decide("post_remediation", pts, production_score=FEAS, ecology_score=FEAS, eco_required=METALS_7)
+    d = U.decide("post_remediation", pts, production_score=FEAS, ecology_score=FEAS, eco_required=METALS_7, farmland_type="其他", eco_land_class="第一类用地")
     assert d["decision_state"] == "both_supported" and d["comparison"] is not None
-    d2 = U.decide("post_remediation", pts, production_score=INFEAS, ecology_score=FEAS, eco_required=METALS_7)
+    d2 = U.decide("post_remediation", pts, production_score=INFEAS, ecology_score=FEAS, eco_required=METALS_7, farmland_type="其他", eco_land_class="第一类用地")
     assert d2["decision_state"] == "ecology_supported"
-    d3 = U.decide("post_remediation", pts, production_score=INFEAS, ecology_score=INFEAS, eco_required=METALS_7)
+    d3 = U.decide("post_remediation", pts, production_score=INFEAS, ecology_score=INFEAS, eco_required=METALS_7, farmland_type="其他", eco_land_class="第一类用地")
     assert d3["decision_state"] == "neither_supported"
-    d4 = U.decide("post_remediation", pts, production_score=None, ecology_score=None, eco_required=METALS_7)
+    d4 = U.decide("post_remediation", pts, production_score=None, ecology_score=None, eco_required=METALS_7, farmland_type="其他", eco_land_class="第一类用地")
     assert d4["decision_state"] == "insufficient_evidence"
 
 
@@ -94,7 +98,7 @@ def test_production_conditional_is_supported_with_safe_use_conditions():
 
 def test_ecology_conditional_requires_risk_assessment():
     d = U.decide("post_remediation", [_clean_point(Pb=500)], ecology_score=FEAS, eco_required=METALS_7,
-                 production_score=INFEAS)
+                 production_score=INFEAS, farmland_type="其他", eco_land_class="第一类用地")
     assert d["ecology"]["gate"]["state"] == "conditional"  # 第一类 400 < 500 ≤ 800
     assert d["ecology"]["track_status"] == "insufficient"
     assert d["decision_state"] == "insufficient_evidence"
@@ -122,7 +126,8 @@ def test_ssui_not_clipped_and_formula_exact():
     v = W["criterion_weights"]["production"]
     gs = {c: sum(i["w_production"] for i in W["indicators"] if i["criterion"] == c) for c in v}
     expect = sum(v[c] * gs[c] for c in v) * 1.0 * 1.1
-    assert r["status"] == "ok"
+    # v1.2.2(T01): 原值保留(不截断), 但超出等级定义域 → out_of_domain, 不分级/不支持
+    assert r["status"] == "out_of_domain" and r["grade"] is None and r["feasible"] is None
     assert r["ssui"] == pytest.approx(expect, abs=1e-6)
     assert r["ssui"] > 1.0 and r["exceeds_unit_range"] is True
     assert any("C4 组内权重和" in w for w in r["warnings"])
@@ -233,7 +238,8 @@ def test_ssui_post_full_workflow_preview_confirm_export_decide():
     assert kv["SSUI(未截断)"] == pytest.approx(cj["calc"]["ssui"]) and kv["数据阶段"] == "修复后(课题三)"
     assert wb["指标贡献"].max_row == 26
     # 修复后决策: 生产门禁通过 + SSUI → 结论; 生态缺 VOC/SVOC → 不支持生态结论
-    dj = c.post(f"/api/v1/sites/{sid}/utilization?stage=post_remediation", headers=h).json()
+    dj = c.post(f"/api/v1/sites/{sid}/utilization?stage=post_remediation&farmland_type=其他&eco_land_class=第一类用地",
+                headers=h).json()
     assert dj["is_post_remediation_conclusion"] is True
     assert dj["production"]["gate"]["state"] == "pass"
     assert dj["ecology"]["gate"]["state"] == "insufficient"
@@ -493,7 +499,8 @@ def test_ssui_hand_computed_reference_examples():
     W = SV.load_weights()
     codes = [i["code"] for i in W["indicators"]]
     r1 = SV.compute({c: 1.0 for c in codes}, "production", 0, 1.1, W)
-    assert r1["ssui"] == pytest.approx(1.112913032, abs=1e-6) and r1["grade"] == "高度可持续"
+    assert r1["ssui"] == pytest.approx(1.112913032, abs=1e-6)
+    assert r1["status"] == "out_of_domain" and r1["grade"] is None  # v1.2.2(T01): >1 不再按“高度可持续”
     r2 = SV.compute({c: (1.0 if c == "D16" else 0.0) for c in codes}, "production", 2, 1.15, W)
     assert r2["ssui"] == pytest.approx(0.204573701, abs=1e-6) and r2["grade"] == "不可持续"
     assert r2["feasible"] is False
