@@ -3,10 +3,11 @@ WORKDIR /app/backend
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 # weasyprint PDF 渲染所需的系统库 (Pango/Cairo/GDK) + 中文字体(matplotlib 报告图件)
+# v1.2.1: fonts-noto-cjk 为 CFF 轮廓, ReportLab TTFont 无法嵌入; 报告 PDF 使用 fonts-wqy-microhei (TrueType) 嵌入
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf-2.0-0 \
     libffi-dev libcairo2 libgobject-2.0-0 shared-mime-info \
-    fonts-noto-cjk \
+    fonts-noto-cjk fonts-wqy-microhei \
     && rm -rf /var/lib/apt/lists/*
 COPY backend/requirements.txt .
 RUN pip install --default-timeout=300 --retries 10 --no-cache-dir -r requirements.txt
