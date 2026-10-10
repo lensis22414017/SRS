@@ -207,6 +207,7 @@ def _render_points_map_png(coord_points: list, exceed_by_point: dict[int, float]
     ax.set_title(f"采样点超标风险分布（{len(coord_points)} 点位, 8级色阶）" if font
                  else f"Exceedance risk ({len(coord_points)} pts, 8-level)", fontsize=10, fontweight="bold")
     ax.tick_params(labelsize=7)
+    ax.ticklabel_format(useOffset=False, style="plain")  # v1.2.1: 不用 +1.203e2 偏移记号
     ax.grid(True, linestyle="--", alpha=0.3)
     from datetime import datetime as _dt, timezone as _tz
     wm = f"8级色阶 | 渲染: {_dt.now(_tz.utc).strftime('%Y-%m-%d %H:%M UTC')} | 底图: 无(离线坐标散点)"

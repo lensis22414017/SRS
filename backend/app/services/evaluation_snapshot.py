@@ -226,6 +226,10 @@ def _kos(db: Session, site_id: int) -> dict | None:
     rp = d.result_payload
     pts = {p.id: p.point_code for p in db.query(SamplingPoint).filter_by(site_id=site_id).all()}
 
+    def _tier_label(lu):
+        # GB 15618 中 Cu/Zn/Ni 等未列水田专项值, 阈值库以“农用地”(其他农用地口径)登记; 报告中写明口径
+        return "其他农用地口径(该因子无水田专项值)" if lu == "农用地" else lu
+
     def row(k):
         dp = k.get("decision_point_id")
         return {"rank": k.get("rank"), "factor": k.get("factor"), "KOS": _r(k.get("KOS"), 4),
@@ -237,7 +241,7 @@ def _kos(db: Session, site_id: int) -> dict | None:
                 "exceedance_ratio": _r(k.get("exceedance_ratio"), 4),
                 "decision_point_id": dp, "decision_point_code": pts.get(dp) if dp is not None else None,
                 "threshold_condition": " ".join(x for x in (
-                    ((k.get("evidence_chain") or {}).get("land_use_type") or ""),
+                    _tier_label((k.get("evidence_chain") or {}).get("land_use_type") or ""),
                     ((k.get("evidence_chain") or {}).get("pH_condition") or "")) if x) or None}
     off = [row(k) for k in rp.get("key_obstacles", []) or []]
     exp = [row(k) for k in rp.get("exploratory_obstacles", []) or []]
