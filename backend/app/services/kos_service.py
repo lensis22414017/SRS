@@ -349,7 +349,7 @@ def _normalize_per_point_data(per_point_data: dict | None, units: dict | None = 
 # v1.2.1(R02): 进入正式 Top-N 的阈值证据等级; 其余(C/D)只进入探索性结果
 OFFICIAL_EVIDENCE = ("A", "B")
 OFFICIAL_STATUSES = ("resolved",)
-EXPLORATORY_STATUSES = ("heuristic", "fallback", "cross_track_fallback")
+EXPLORATORY_STATUSES = ("heuristic", "fallback", "cross_track_fallback", "secondary_standard", "provisional", "strictest_tier_fallback")
 
 
 def _evidence_from_meta(meta: dict | None) -> str:
@@ -959,11 +959,36 @@ def run_kos_diagnosis(site_values: dict, track: str = "prod", subset: str = "all
                 "threshold_resolution_status": k.get("threshold_resolution_status"),
                 "decision_point_id": k.get("decision_point_id"), "fallback_note": k.get("fallback_note", ""),
                 "reason": k.get("reason", "")}
+    _md = {d.get("canonical"): d for d in norm_result.get("mapping_details", []) if d.get("canonical")}
+
+    def _chain(src, layer):
+        fac = src.get("factor")
+        d = _md.get(fac, {})
+        st = src.get("threshold_resolution_status")
+        if layer == "formal":
+            reason = "本轨权威标准筛选值, 已解析, 单位可证, 实测超标"
+        else:
+            reason = {"fallback": "文献参考/兜底值, 非本轨官方标准", "heuristic": "系统启发式参考值或区间",
+                      "cross_track_fallback": "借用另一路径标准, 用途不一致", "secondary_standard": "行业/文献标准, 非本轨官方标准",
+                      "provisional": "阈值标注为暂定/待审定", "strictest_tier_fallback": "缺 pH/用地, 取最严档兜底"}.get(st, f"状态 {st}")
+        return {"raw_factor": d.get("original_name"), "raw_unit": d.get("unit_raw"), "unit_source": d.get("unit_source"),
+                "conversion_status": d.get("conversion_status"), "conversion_factor": d.get("conversion_factor"),
+                "canonical_factor": fac, "canonical_unit": d.get("target_unit") or d.get("unit_converted"),
+                "decision_point_id": src.get("decision_point_id"), "value": src.get("value"),
+                "threshold_value": src.get("threshold_value"), "threshold_unit": src.get("threshold_unit"),
+                "threshold_type": src.get("threshold_type"), "threshold_standard": src.get("threshold_standard"),
+                "threshold_version": src.get("threshold_version"), "pH_condition": src.get("pH_condition"),
+                "land_use_type": src.get("land_use_type"), "threshold_source_id": src.get("threshold_source_id"),
+                "threshold_resolution_status": st, "evidence_grade": src.get("E"),
+                "admission": "official" if layer == "formal" else "exploratory", "admission_reason": reason}
+
     for k, src in zip(output["key_obstacles"], kos_result["key_obstacles"]):
         k["threshold_type"] = src.get("threshold_type")
         k["decision_point_id"] = src.get("decision_point_id")
         k["layer"] = "formal"
-    output["exploratory_obstacles"] = [_shape(k) for k in kos_result.get("exploratory_obstacles", [])]
+        k["evidence_chain"] = _chain(src, "formal")
+    output["exploratory_obstacles"] = [{**_shape(k), "evidence_chain": _chain(k, "exploratory")}
+                                       for k in kos_result.get("exploratory_obstacles", [])]
     n_off = len(output["key_obstacles"])
     output["n_official"] = n_off
     output["n_exploratory"] = len(output["exploratory_obstacles"])

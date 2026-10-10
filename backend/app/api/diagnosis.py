@@ -450,7 +450,8 @@ def trigger_kos_diagnosis(site_id: int, track: str = Query("prod", pattern="^(pr
             model_id=model_record.id,
             data_version=kos_data_version,
             top_n=top_n,
-            summary=f"KOS诊断({track}/{subset}): {len(result.get('key_obstacles', []))} 个关键障碍",
+            summary=(f"KOS诊断({track}/{subset}): 正式 {len(result.get('key_obstacles', []))} 个关键障碍"
+                     f"[{result.get('official_ranking_status', '')}], 探索性 {result.get('n_exploratory', 0)} 个(待复核)"),
             shap_global={"kos_result": True},  # 仅作旧端兼容标记
             diagnosis_method="kos",
             track=track,

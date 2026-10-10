@@ -385,11 +385,25 @@ def resolve_threshold_from_db(
 
     r = matched[0]
     limit = float(r.screening_value) if r.screening_value is not None else None
+    # v1.2.1(R02): 证据分级
+    #   本轨国标(GB 15618 农用地 / GB 36600 建设用地)筛选值 → resolved, A, 上限
+    #   行标/文献标准(NY/T 1749 等) → secondary_standard, B, 方向取知识库方向(未知则不判定), 仅探索性
+    #   备注/来源标注 暂定/provisional/待审定 → provisional, C, 仅探索性
+    _txt = f"{r.notes or ''} {r.source_reference or ''}".lower()
+    is_provisional = any(k in _txt for k in ("provisional", "暂定", "待审定", "待确认"))
+    is_track = r.standard_code in standards
+    if is_track and not is_provisional:
+        t_type, grade, status = "upper", "A", "resolved"
+    else:
+        _fb = _GB15618_EXTENDED_FALLBACK.get(db_factor_name) or _GB15618_EXTENDED_FALLBACK.get(factor_canonical) or {}
+        fb_type = _fb.get("type") if not is_track else "upper"
+        t_type = fb_type or ("upper" if is_track else "unknown")
+        grade = "C" if is_provisional else "B"
+        status = "provisional" if is_provisional else "secondary_standard"
     return {
-        "threshold": {"type": "upper", "limit": limit},
-        # v1.2.1(R02): 本轨国标(GB 15618 农用地 / GB 36600 建设用地)筛选值 = 证据 A
-        "threshold_type": "upper",
-        "evidence_grade": "A" if r.standard_code in standards else "B",
+        "threshold": ({"type": t_type, "limit": limit} if t_type in ("upper", "lower") and limit is not None else None),
+        "threshold_type": t_type,
+        "evidence_grade": grade,
         "threshold_value": limit,
         "threshold_unit": r.unit or "mg/kg",
         "threshold_standard": r.standard_code,
@@ -397,8 +411,8 @@ def resolve_threshold_from_db(
         "pH_condition": r.pH_condition or "",
         "land_use_type": r.land_use_type or "",
         "threshold_source_id": r.id,
-        "threshold_resolution_status": "resolved",
-        "review_required": False,
+        "threshold_resolution_status": status,
+        "review_required": status != "resolved",
     }
 
 

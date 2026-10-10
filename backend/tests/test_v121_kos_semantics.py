@@ -175,3 +175,51 @@ def test_unit_unresolved_factor_excluded_from_formal(db):
                           per_point_data={1: {"镉": 1.5}}, units={"镉": "ppbv"})
     assert r["key_obstacles"] == []
     assert any(u["canonical"] == "Cd_mgkg" for u in r["unit_unresolved"])
+
+
+# ───────── R02 补充: 暂定 / 行业标准 / 缺失阈值 夹具 与 证据链 ─────────
+def _tmp_row(db, **kw):
+    row = StandardThreshold(standard_name=kw.pop("standard_name", "夹具"), version="fixture", **kw)
+    db.add(row)
+    db.flush()
+    return row
+
+
+def test_provisional_threshold_is_exploratory_only(db):
+    try:
+        _tmp_row(db, factor_name="Co", standard_code="GB 15618-2018", screening_value=20.0, unit="mg/kg",
+                 notes="暂定值, 待审定 (测试夹具)")
+        r = TR.resolve_threshold_from_db(db, "Co_mgkg", track="prod", site_pH=6.5)
+        assert r["threshold_resolution_status"] == "provisional" and r["evidence_grade"] == "C"
+        k = _run(db, {1: {"pH": 6.5, "镉(mg/kg)": 0.9, "钴(mg/kg)": 45.0}})
+        assert "Co_mgkg" not in {x["factor"] for x in k["key_obstacles"]}
+        ex = {x["factor"]: x for x in k["exploratory_obstacles"]}
+        assert ex["Co_mgkg"]["evidence_chain"]["admission"] == "exploratory"
+        assert ex["Co_mgkg"]["threshold_resolution_status"] == "provisional"
+    finally:
+        db.rollback()
+
+
+def test_secondary_standard_uses_known_direction_or_is_not_judged(db):
+    try:
+        _tmp_row(db, factor_name="氰化物", standard_code="EPA RSL 2024", screening_value=2.3, unit="mg/kg")
+        r = TR.resolve_threshold_from_db(db, "Cyanide", track="prod", site_pH=6.5)
+        assert r["threshold_resolution_status"] == "secondary_standard"
+        assert r["threshold_type"] == "unknown" and r["threshold"] is None  # 方向未知 → 不判定
+    finally:
+        db.rollback()
+
+
+def test_missing_threshold_never_enters_any_ranking(db):
+    r = TR.resolve_threshold_from_db(db, "Unknown_factor_xyz", track="prod", site_pH=6.5)
+    assert r["threshold_resolution_status"] in ("not_found", "ambiguous")
+    assert r["threshold"] is None
+
+
+def test_official_items_carry_full_evidence_chain(db):
+    r = _run(db, {1: {"pH": 6.9, "镉(mg/kg)": 1.5839}}, units={"镉(mg/kg)": "mg/kg"})
+    ch = r["key_obstacles"][0]["evidence_chain"]
+    assert ch["admission"] == "official" and ch["evidence_grade"] == "A"
+    assert ch["threshold_standard"].startswith("GB 15618") and ch["threshold_type"] == "upper"
+    assert ch["raw_factor"] == "镉(mg/kg)" and ch["conversion_status"] in ("identity", "converted")
+    assert ch["decision_point_id"] == 1 and ch["threshold_source_id"]
