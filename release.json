@@ -1,0 +1,10 @@
+{
+ "tag": "v1.2.2-rc.1",
+ "commit": "68a52751e8dfa6f6c48b5c20dd8b69b53b54e3b2",
+ "run_id": "38093845656",
+ "title": "SRS v1.2.2-rc.1 — 收尾候选版（预发布 / closeout candidate）",
+ "binaries": {
+  "SRS-Setup-1.2.2-Windows-x64.exe": "7c1b67cb18541bca530f39d0049e2c3a2a494e0ec0a5238bad7d8621c521da70",
+  "SRS-Portable-1.2.2-Windows-x64.zip": "66b54547135b14c1cc7b399db10f63955ac6c406212ebfe4ab04d615f9638836"
+ }
+}

@@ -1,0 +1,68 @@
+name: Publish annual-acceptance prerelease
+# 本分支只承载发布资产(本地构建的手册/PPT/演示包/发布文档)与发布流程; 不含源码。
+# 安装包与便携版取自已通过验收的 Windows 工作流运行(release.json: run_id), 逐字节校验后上传。
+on:
+  push:
+    branches: ["release-assets/**"]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read release metadata
+        id: meta
+        run: |
+          echo "tag=$(jq -r .tag release.json)" >> $GITHUB_OUTPUT
+          echo "sha=$(jq -r .commit release.json)" >> $GITHUB_OUTPUT
+          echo "run=$(jq -r .run_id release.json)" >> $GITHUB_OUTPUT
+          echo "title=$(jq -r .title release.json)" >> $GITHUB_OUTPUT
+      - name: Download installer artifact from the accepted Windows run
+        uses: actions/download-artifact@v4
+        with:
+          name: srs-installer
+          path: inst
+          run-id: ${{ steps.meta.outputs.run }}
+          github-token: ${{ github.token }}
+      - name: Verify artifact bytes match the accepted run (and the run's commit)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          head=$(gh api repos/${{ github.repository }}/actions/runs/${{ steps.meta.outputs.run }} --jq '.head_sha + " " + .conclusion')
+          echo "run: $head"
+          [ "$head" = "${{ steps.meta.outputs.sha }} success" ] || { echo "run commit/conclusion mismatch"; exit 1; }
+          mkdir -p upload
+          for f in $(jq -r '.binaries | keys[]' release.json); do
+            p=$(find inst -name "$f" | head -1); [ -n "$p" ] || { echo "missing $f"; exit 1; }
+            got=$(sha256sum "$p" | cut -d' ' -f1); want=$(jq -r ".binaries[\"$f\"]" release.json)
+            echo "$f $got"; [ "$got" = "$want" ] || { echo "sha mismatch $f"; exit 1; }
+            cp "$p" upload/; (cd upload && sha256sum "$f" > "$f.sha256")
+          done
+          cp assets/* upload/
+          (cd upload && sha256sum * | grep -v '\.sha256$' > ../SHA256SUMS.tmp) && mv SHA256SUMS.tmp upload/SHA256SUMS.txt; cat upload/SHA256SUMS.txt
+      - name: Create prerelease (tag on the accepted commit)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          gh release create "${{ steps.meta.outputs.tag }}" upload/* --repo ${{ github.repository }} \
+            --target "${{ steps.meta.outputs.sha }}" --prerelease --title "${{ steps.meta.outputs.title }}" --notes-file release_body.md
+      - name: Download back and verify every asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          mkdir back && gh release download "${{ steps.meta.outputs.tag }}" --repo ${{ github.repository }} -D back
+          (cd back && sha256sum -c SHA256SUMS.txt) | tee verify.txt
+          git ls-remote https://github.com/${{ github.repository }} "refs/tags/${{ steps.meta.outputs.tag }}" | tee -a verify.txt
+          gh release view "${{ steps.meta.outputs.tag }}" --repo ${{ github.repository }} --json url,isPrerelease,tagName,targetCommitish,assets --jq '{url,isPrerelease,tagName,targetCommitish,assets:[.assets[]|{name,size}]}' | tee release_view.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-verification
+          path: |
+            verify.txt
+            release_view.json
+            upload/SHA256SUMS.txt
